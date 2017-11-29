@@ -1,4 +1,4 @@
-# Plugin Shared UI v2
+# WPMUDEV Shared UI
 
 
 ## Developing? Read this right after cloning this repository
