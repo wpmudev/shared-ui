@@ -5,12 +5,12 @@
 
 1. Install node. I recommend to install `nvm` to switch between node versions.
 2. Execute npm in shared-ui-2 folder `npm install` this will install all needed packages in `node_modules` folder.
-3. Execute `npm run watch` to start watching Sass and JS files. All Sass & JS files are in `_src` folder. Webpack will bundle them as soon as you change things.
+3. Execute `npm run watch` to start watching SASS and JS files. All Sass & JS files are in `_src` folder. Webpack will bundle them as soon as you change things.
 
 ## npm tasks
 Everything should be handled by npm. Note that you don't need to interact with Grunt in a direct way.
 
-* **`npm run watch`**: Start watching JS files.
+* **`npm run watch`**: Start watching SASS and JS files.
 
 
 ## Versioning
