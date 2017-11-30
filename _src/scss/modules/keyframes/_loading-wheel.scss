@@ -1,0 +1,21 @@
+// Loading Wheel
+// From: https://codepen.io/alanshortis/pen/eJLVXr
+$base-line-height: 16px;
+$off-darkgray: rgba($color-gray--light, 0.2);
+$spin-duration: 1s;
+$pulse-duration: 750ms;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {	
+  50% { 
+    background: $color-gray--light;
+  } 
+}

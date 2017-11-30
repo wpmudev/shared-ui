@@ -1,0 +1,32 @@
+@mixin screen($breakpoint) {
+	// Screens larger than 520px
+	@if $breakpoint == "xs" {
+		@media (min-width: 521px) {
+			@content;
+		}
+	}
+	// Screens larger than 600px
+	@if $breakpoint == "smaller" {
+		@media (min-width: 601px) {
+			@content;
+		}
+	}
+	// Screens larger than 782px
+	@if $breakpoint == "small" {
+		@media (min-width: 783px) {
+			@content;
+		}
+	}
+	// Screens larger than 960px
+	@else if $breakpoint == "medium" {
+		@media (min-width: 961px) {
+			@content;
+		}
+	}
+	// Screens larger than 1200px
+	@else if $breakpoint == "large" {
+		@media (min-width: 1201px) {
+			@content;
+		}
+	}
+}

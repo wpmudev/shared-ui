@@ -1,0 +1,29 @@
+@import "../../../modules/variables/_icons";
+@import "../../../modules/variables/_fonts";
+
+/* Fonts */
+@font-face {
+  font-family: 'WPMU-DEV-Icon';
+  src: url('#{$font--path}/WPMU-DEV-Icon.eot');
+  src: url('#{$font--path}/WPMU-DEV-Icon.eot') format('embedded-opentype'),
+  url('#{$font--path}/WPMU-DEV-Icon.ttf') format('truetype'),
+  url('#{$font--path}/WPMU-DEV-Icon.woff') format('woff'),
+  url('#{$font--path}/WPMU-DEV-Icon.woff2') format('woff2'),
+  url('#{$font--path}/WPMU-DEV-Icon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+// Set the required styles on all icons
+[class^="wpmud-ico-"],
+[class*=" wpmud-ico-"] {
+  @include icon;
+}
+
+// Setup a class name for each icon
+@each $name, $char in $icons {
+  .wpmud-ico-#{$name} {
+    &:before {
+      content: $char;
+    }
+  }
+}
