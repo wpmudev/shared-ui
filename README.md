@@ -1,4 +1,4 @@
-# WPMUDEV Shared UI
+# WPMU DEV Shared UI
 
 
 ## Developing? Read this right after cloning this repository

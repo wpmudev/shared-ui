@@ -7,10 +7,10 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const SystemBellPlugin = require('system-bell-webpack-plugin');
 
 var sassConfig = Object.assign( {}, {
-	entry: './_src/scss/wdevui.scss',
+	entry: './scss/shared-ui.scss',
 	output: {
-		filename: "wdevui.css",
-		path: path.resolve( __dirname, 'css' )
+		filename: "shared-ui.css",
+		path: path.resolve( __dirname, 'dist/css' )
 	},
 	module: {
 		rules: [
@@ -59,7 +59,7 @@ var sassConfig = Object.assign( {}, {
 	},
 	devtool: 'source-map', // Generates source Maps for these files
 	plugins: [
-		new ExtractTextPlugin("wdevui.css"),
+		new ExtractTextPlugin("shared-ui.css"),
 		new SystemBellPlugin()
 	],
 	watchOptions: {
@@ -68,10 +68,10 @@ var sassConfig = Object.assign( {}, {
 });
 
 var adminConfig = Object.assign( {}, {
-	entry: './_src/js/',
+	entry: './js/',
 	output: {
-		filename: "wdevui.min.js",
-		path: path.resolve( __dirname, 'js' )
+		filename: "shared-ui.min.js",
+		path: path.resolve( __dirname, 'dist/js' )
 	},
 	module: {
 		rules: [
