@@ -14,7 +14,7 @@
 			/* use !important to prevent issues with browser extensions that change fonts */
 			font-family: $font--icons !important;
 			speak: none;
-			font-size: 15px;
+			font-size: 20px;
 			font-style: normal;
 			font-weight: normal;
 			font-variant: normal;
@@ -266,6 +266,20 @@ $icons: (
 [class^="wpmud-ico-"],
 [class*=" wpmud-ico-"] {
 	@include icon;
+}
+
+// Icon sizes
+[class^="wpmud-ico-"].wpmud-xs:before,
+[class*=" wpmud-ico-"].wpmud-xs:before {
+	font-size: 12px;
+}
+[class^="wpmud-ico-"].wpmud-sm:before,
+[class*=" wpmud-ico-"].wpmud-sm:before {
+	font-size: 16px;
+}
+[class^="wpmud-ico-"].wpmud-lg:before,
+[class*=" wpmud-ico-"].wpmud-lg:before {
+	font-size: 30px;
 }
 
 // Setup a class name for each icon
