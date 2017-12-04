@@ -1,35 +1,19 @@
 {
-  "name": "shared-ui-2",
+  "name": "shared-ui",
   "version": "1.0.0",
   "description": "Shared UI used accross WPMUDEV Plugins",
   "author": "WPMU DEV",
   "license": "GPL-2.0",
-  "homepage": "https://bitbucket.org/calumbrash/shared-ui-2#readme",
+  "homepage": "https://bitbucket.org/incsub/wpmudev-shared-ui",
   "devDependencies": {
-    "autoprefixer": "^7.2.1",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.5",
-    "grunt": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "load-grunt-tasks": "~3.5.2",
-    "node-sass": "^4.6.0",
-    "postcss-loader": "^2.0.8",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "system-bell-webpack-plugin": "^1.0.0",
-    "webpack": "^3.8.1"
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11"
   },
   "scripts": {
-    "watch": "webpack --watch",
-    "compile": "webpack -p --progress",
-    "log": " ./tools/generate-changelog.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/calumbrash/shared-ui-2.git"
+    "dev": "gulp"
   }
 }
