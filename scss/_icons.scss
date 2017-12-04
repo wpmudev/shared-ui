@@ -263,28 +263,28 @@ $icons: (
 }
 
 // Set the required styles on all icons
-[class^="wpmud-ico-"],
-[class*=" wpmud-ico-"] {
+[class^="sui-ico-"],
+[class*=" sui-ico-"] {
 	@include icon;
 }
 
 // Icon sizes
-[class^="wpmud-ico-"].wpmud-xs:before,
-[class*=" wpmud-ico-"].wpmud-xs:before {
+[class^="sui-ico-"].sui-xs:before,
+[class*=" sui-ico-"].sui-xs:before {
 	font-size: 12px;
 }
-[class^="wpmud-ico-"].wpmud-sm:before,
-[class*=" wpmud-ico-"].wpmud-sm:before {
+[class^="sui-ico-"].sui-sm:before,
+[class*=" sui-ico-"].sui-sm:before {
 	font-size: 16px;
 }
-[class^="wpmud-ico-"].wpmud-lg:before,
-[class*=" wpmud-ico-"].wpmud-lg:before {
+[class^="sui-ico-"].sui-lg:before,
+[class*=" sui-ico-"].sui-lg:before {
 	font-size: 30px;
 }
 
 // Setup a class name for each icon
 @each $name, $char in $icons {
-	.wpmud-ico-#{$name} {
+	.sui-ico-#{$name} {
 		&:before {
 			content: $char;
 		}
