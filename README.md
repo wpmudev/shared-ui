@@ -4,14 +4,13 @@
 ## Developing? Read this right after cloning this repository
 
 1. Install node. I recommend to install `nvm` to switch between node versions.
-2. Execute npm in shared-ui-2 folder `npm install` this will install all needed packages in `node_modules` folder.
-3. Execute `npm run watch` to start watching SASS and JS files. All Sass & JS files are in `_src` folder. Webpack will bundle them as soon as you change things.
+2. Execute npm in root project folder `npm install` will install all needed packages in `node_modules` folder.
+3. Execute `npm run dev` to start watching SCSS and JS files. The demo file will then automatically be served up by [Browsersync](https://browsersync.io/). All changes made will automatically be watched and the page live reloaded when changes are made.
 
 ## npm tasks
-Everything should be handled by npm. Note that you don't need to interact with Grunt in a direct way.
+Everything should be handled by npm. Note that you don't need to interact with Gulp in a direct way.
 
-* **`npm run watch`**: Start watching SASS and JS files.
-
+* **`npm run dev`**: Start watching SCSS & JS files along with the demo index.html. This project uses [Browsersync](https://browsersync.io/).
 
 ## Versioning
 
