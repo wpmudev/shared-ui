@@ -6,3 +6,10 @@
 		@content;
 	}
 }
+
+// Prevent text such as titles from wrapping.
+@mixin text-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
