@@ -1,0 +1,54 @@
+@include body-class {
+
+	* {
+		box-sizing: border-box;
+	}
+
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
+
+	.sui-box {
+		position: relative;
+		min-height: 20px;
+		background-color: $color-white;
+		border-radius: 5px;
+		margin-bottom: 20px;
+		box-shadow: 0 2px 0 #EAEAEA;
+	}
+
+	.sui-box-header {
+		border-bottom: 1px solid #EAEAEA;
+		padding: 15px 30px;
+		display: flex;
+		align-items: center;
+	}
+
+	.sui-box-body {
+		padding: 30px;
+	}
+
+	.sui-box-footer {
+		border-top: 1px solid #EAEAEA;
+		padding: 30px;
+		display: flex;
+		align-items: center;
+	}
+
+	.sui-box-title {
+		display: block;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 16px;
+		margin-left: 0; // Left align with flex parent.
+		line-height: 1;
+		@include text-truncate;
+
+		// Icon in title.
+		&:before {
+			margin-right: 7px;
+		}
+	}
+
+}
