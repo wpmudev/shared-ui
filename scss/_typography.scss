@@ -18,7 +18,6 @@
 	margin: 0.5em auto;
 	padding: 0;
 	line-height: $font--line-height;
-	text-align: center;
 	color: $color-gray--dark;
   }
 
@@ -35,6 +34,10 @@
   h1 {
 	font-size: $h1-font-size;
 	line-height: $h1-line-height;
+	color: $color-gray--dark;
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 700;
   }
   h2 {
 	font-size: $h2-font-size;
@@ -47,16 +50,16 @@
   }
 
   h4 {
-	font-size: $h4-font-size;
+	font: $h4-font;
 	text-transform: uppercase;
   }
 
   h5 {
-	font-size: $h5-font-size;
+	font: $h5-font;
   }
 
   h6 {
-	font-size: $h6-font-size;
+	font: $h6-font;
   }
 
   #header {
@@ -98,14 +101,6 @@
 	color: $color-gray--light;
   }
 
-  p big {
-	font-size: 18px;
-	line-height: 28px;
-	display: inline-block;
-	font-weight: 400;
-	color: #888882;
-  }
-
 }
 
 // Links
@@ -136,6 +131,7 @@
 // Code
 .sui {
 
+  code,
   pre {
 	font-weight: 500;
 	font-size: 13px;
@@ -149,6 +145,10 @@
 	overflow-x: scroll;
 	max-width: 100%;
 	vertical-align: middle;
+  }
+
+  code {
+	display: inline-block;
   }
 
 }
