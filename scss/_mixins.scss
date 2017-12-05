@@ -1,0 +1,8 @@
+// Generates the required versioned body class.
+@mixin body-class {
+	$formatted-version: str-replace($sui-version, '.', '-');
+
+	.sui-version-#{$formatted-version} {
+		@content;
+	}
+}

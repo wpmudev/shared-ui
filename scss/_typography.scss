@@ -1,20 +1,20 @@
 /* Typography */
 
 // Base
-.sui {
-  font-family: $font;
-  font-weight: $font--weight;
-  font-size: $font--size;
-  line-height: $font--line-height;
-  color: $font--color;
-  letter-spacing: $font--letter-spacing;
-  -webkit-font-smoothing: antialiased;
+@include body-class {
+	font-family: $font;
+	font-weight: $font--weight;
+	font-size: $font--size;
+	line-height: $font--line-height;
+	color: $font--color;
+	letter-spacing: $font--letter-spacing;
+	-webkit-font-smoothing: antialiased;
 }
 
 // Headings
-.sui {
+@include body-class {
 
-  h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6 {
 	display: block;
 	margin: 0.5em auto;
 	padding: 0;
@@ -81,7 +81,7 @@
 }
 
 // Paragraph
-.sui {
+@include body-class {
 
   p {
 
@@ -104,7 +104,7 @@
 }
 
 // Links
-.sui {
+@include body-class {
 
   a {
 	text-decoration: none;
@@ -129,7 +129,7 @@
 }
 
 // Code
-.sui {
+@include body-class {
 
   code,
   pre {
@@ -154,7 +154,7 @@
 }
 
 // Misc
-.sui {
+@include body-class {
 
   b, strong {
 	font-weight: 500;
