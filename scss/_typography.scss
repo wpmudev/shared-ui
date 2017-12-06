@@ -6,7 +6,7 @@
 	font-weight: $font--weight;
 	font-size: $font--size;
 	line-height: $font--line-height;
-	color: $font--color;
+	color: $font-color;
 	letter-spacing: $font--letter-spacing;
 	-webkit-font-smoothing: antialiased;
 }
@@ -19,7 +19,7 @@
 		margin: 0.5em auto;
 		padding: 0;
 		line-height: $font--line-height;
-		color: $color-gray--dark;
+		color: $headings-color;
 	}
 
 	h1, h2, h3 {
@@ -35,7 +35,7 @@
 	h1 {
 		font-size: $h1-font-size;
 		line-height: $h1-line-height;
-		color: $color-gray--dark;
+		color: $headings-color;
 		margin: 0;
 		font-weight: 700;
 	}
@@ -65,7 +65,7 @@
 	#header {
 
 		h1 {
-			color: $color-gray--dark;
+			color: $headings-color;
 			margin: 0;
 			text-align: left;
 			text-transform: uppercase;
@@ -98,7 +98,7 @@
 	p small {
 		font-size: 13px;
 		line-height: 22px;
-		color: $color-gray--light;
+		color: $p-small-color;
 	}
 
 }
@@ -108,17 +108,16 @@
 
 	a {
 		text-decoration: none;
-		color: $color-link;
+		color: $a-color;
 		font-weight: 500;
 
 		&:hover, &:focus, &:active {
-			color: $color-link--alt;
+			color: $a-action-color;
 		}
 
 		&.disabled {
-
 			&:hover, &:focus, &:active {
-				color: $color-link--disabled;
+				color: $a-disabled-color;
 				cursor: default;
 			}
 
@@ -136,8 +135,8 @@
 		font-weight: 500;
 		font-size: 13px;
 		line-height: 18px;
-		background-color: $color-silver--light;
-		border: 1px solid $color-silver--soft;
+		background-color: $code-bg-color;
+		border: 1px solid $code-border-color;
 		border-radius: $border-radius;
 		margin: 0;
 		padding: 20px 30px;
@@ -163,7 +162,7 @@
 	dfn {
 		font-style: normal;
 		font-weight: normal;
-		border-bottom: 1px dotted #999;
+		border-bottom: 1px dotted $dfn-border-color;
 	}
 
 }

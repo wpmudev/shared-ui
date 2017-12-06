@@ -1,0 +1,113 @@
+/* Colors */
+
+$palettes: (
+		mono: (
+				default: #000000,
+				black: #000000,
+				white: #FFFFFF,
+		),
+		gray: (
+				default: #666666,
+				lighter: #DDDDDD,
+				light: #888888,
+				medium: #7B7B7B,
+				dark: #333333,
+				alt: #777771,
+		),
+		silver: (
+				default: #F2F2F2,
+				light: #F8F8F8,
+				soft: #E6E6E6,
+				medium: #AAAAAA,
+				alt: #EAEAEA,
+		),
+		blue: (
+				default: #17A8E3,
+				light: #D2F0FF,
+				lighter: #19B4CF,
+				medium: #0A9BD6,
+				dark: #0073A4,
+		),
+		red: (
+				default: #C40000,
+				light: #CB4B57,
+		),
+		yellow: (
+				default: #F4B414,
+				light: #FFF5D5,
+				medium: #FFCA00,
+		),
+		green: (
+				default: #1ABC9C,
+				medium: #148F77,
+				dark: #0A6550,
+		)
+);
+
+// Primary Colors
+$white: palette(mono, white);
+$black: palette(mono, black);
+$gray: palette(gray);
+$blue: palette(blue);
+$red: palette(red);
+$green: palette(green);
+$silver: palette(silver);
+
+// Boxes Colors (_boxes.scss)
+$box-bg-color: palette(mono, white);
+$box-box-shadow-color: palette(silver, alt);
+$box-header-border-color: palette(silver, alt);
+$box-footer-border-color: palette(silver, alt);
+
+// Buttons Colors (_buttons.scss)
+
+// Default Button
+$button-bg-color: palette(gray, light);
+$button-action-bg-color: palette(gray, medium);
+
+// Blue Button
+$button-blue-bg-color: palette(blue);
+$button-blue-ghost-color: palette(blue);
+$button-blue-action-bg-color: palette(blue, medium);
+
+// Red Button
+$button-red-bg-color: palette(red, light);
+$button-red-action-bg-color: palette(red);
+
+// Green Button
+$button-green-bg-color: palette(green);
+$button-green-action-bg-color: palette(green, medium);
+
+// Ghost Button
+$button-ghost-border-color: palette(gray, lighter);
+$button-ghost-color: palette(gray, light);
+$button-ghost-action-border-color: palette(gray, light);
+$button-ghost-action-bg-color: palette(gray, light);
+
+// Onload Button
+$button-onload-color: palette(silver, soft);
+
+// Disabled Button
+$button-disabled-color: palette(silver, medium);
+$button-disabled-border-color: palette(gray, lighter);
+$button-disabled-bg-color: palette(silver, light);
+
+// Toggles Colors (_toggles.scss)
+$toggle-slider-bg-color: palette(silver, light);
+$toggle-slider-before-bg-color: palette(gray, light);
+$toggle-slider-before-checked-bg-color: palette(blue);
+$toggle-slider-border-color: palette(silver, soft);
+
+// Typography Colors (_typography.scss)
+$headings-color: palette(gray, dark);
+$font-color: $gray;
+$p-small-color: palette(gray, light);
+$a-color: palette(blue, lighter);
+$a-action-color: palette(blue, medium);
+$a-disabled-color: palette(gray, light);
+$code-bg-color: palette(silver, light);
+$code-border-color: palette(silver, soft);
+$dfn-border-color: palette(gray, light);
+
+// Loading Wheel Colors (keyframes/_loading-wheel.scss)
+$loading-wheel-color: palette(gray, light);
