@@ -2,6 +2,8 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
 	concat = require('gulp-concat'),
+	postcss = require('gulp-postcss'),
+	mqpacker = require('css-mqpacker'),
 	browserSync = require('browser-sync').create(),
 	autoprefixer = require('gulp-autoprefixer');
 
@@ -9,6 +11,7 @@ gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
+		.pipe(postcss([mqpacker]))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(browserSync.stream());
 });
