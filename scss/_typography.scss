@@ -2,14 +2,18 @@
 
 // Base
 @include body-class {
-	font-family: $font;
-	font-weight: $font--weight;
-	font-size: $font--size;
-	line-height: $font--line-height;
-	color: $font--color;
-	letter-spacing: $font--letter-spacing;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+
+	.sui-wrap {
+		font-family: $font;
+		font-weight: $font--weight;
+		font-size: $font--size;
+		line-height: $font--line-height;
+		color: $font--color;
+		letter-spacing: $font--letter-spacing;
+		-webkit-font-smoothing: antialiased;
+		margin: 30px $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+	}
+
 }
 
 // Headings
