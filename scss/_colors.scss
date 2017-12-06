@@ -1,0 +1,113 @@
+/* Colors */
+
+$palettes: (
+		mono: (
+				default: #000000,
+				black: #000000,
+				white: #FFFFFF,
+		),
+		gray: (
+				default: #666666,
+				lighter: #DDDDDD,
+				light: #888888,
+				medium: #7B7B7B,
+				dark: #333333,
+				alt: #777771,
+		),
+		silver: (
+				default: #F2F2F2,
+				light: #F8F8F8,
+				soft: #E6E6E6,
+				medium: #AAAAAA,
+				alt: #EAEAEA,
+		),
+		blue: (
+				default: #17A8E3,
+				light: #D2F0FF,
+				lighter: #19B4CF,
+				medium: #0A9BD6,
+				dark: #0073A4,
+		),
+		red: (
+				default: #C40000,
+				light: #CB4B57,
+		),
+		yellow: (
+				default: #F4B414,
+				light: #FFF5D5,
+				medium: #FFCA00,
+		),
+		green: (
+				default: #1ABC9C,
+				medium: #148F77,
+				dark: #0A6550,
+		)
+) !default;
+
+// Primary Colors
+$white: palette(mono, white) !default;
+$black: palette(mono, black) !default;
+$gray: palette(gray) !default;
+$blue: palette(blue) !default;
+$red: palette(red) !default;
+$green: palette(green) !default;
+$silver: palette(silver) !default;
+
+// Boxes Colors (_boxes.scss)
+$box-bg-color: palette(mono, white) !default;
+$box-box-shadow-color: palette(silver, alt) !default;
+$box-header-border-color: palette(silver, alt) !default;
+$box-footer-border-color: palette(silver, alt) !default;
+
+// Buttons Colors (_buttons.scss)
+
+// Default Button
+$button-bg-color: palette(gray, light) !default;
+$button-action-bg-color: palette(gray, medium) !default;
+
+// Blue Button
+$button-blue-bg-color: palette(blue) !default;
+$button-blue-ghost-color: palette(blue) !default;
+$button-blue-action-bg-color: palette(blue, medium) !default;
+
+// Red Button
+$button-red-bg-color: palette(red, light) !default;
+$button-red-action-bg-color: palette(red) !default;
+
+// Green Button
+$button-green-bg-color: palette(green) !default;
+$button-green-action-bg-color: palette(green, medium) !default;
+
+// Ghost Button
+$button-ghost-border-color: palette(gray, lighter) !default;
+$button-ghost-color: palette(gray, light) !default;
+$button-ghost-action-border-color: palette(gray, light) !default;
+$button-ghost-action-bg-color: palette(gray, light) !default;
+
+// Onload Button
+$button-onload-color: palette(silver, soft) !default;
+
+// Disabled Button
+$button-disabled-color: palette(silver, medium) !default;
+$button-disabled-border-color: palette(gray, lighter) !default;
+$button-disabled-bg-color: palette(silver, light) !default;
+
+// Toggles Colors (_toggles.scss)
+$toggle-slider-bg-color: palette(silver, light) !default;
+$toggle-slider-before-bg-color: palette(gray, light) !default;
+$toggle-slider-before-checked-bg-color: palette(blue) !default;
+$toggle-slider-border-color: palette(silver, soft) !default;
+
+// Typography Colors (_typography.scss)
+$headings-color: palette(gray, dark) !default;
+$font-color: $gray !default;
+$p-small-color: palette(gray, light) !default;
+$a-color: palette(blue, lighter) !default;
+$a-action-color: palette(blue, medium) !default;
+$a-disabled-color: palette(gray, light) !default;
+$code-bg-color: palette(silver, light) !default;
+$code-border-color: palette(silver, soft) !default;
+$dfn-border-color: palette(gray, light) !default;
+
+// Loading Wheel Colors (keyframes/_loading-wheel.scss)
+$loading-wheel-color: palette(gray, light) !default;

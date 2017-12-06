@@ -26,10 +26,10 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: #FAFAFA;
+		background-color: $toggle-slider-bg-color;
 		border-radius: 100px;
 		transition: .4s;
-		border: 1px solid #E6E6E6;
+		border: 1px solid $toggle-slider-border-color;
 	}
 
 	// Knob when off.
@@ -40,14 +40,14 @@
 		width: 16px;
 		left: -1px;
 		bottom: -1px;
-		background-color: #888888;
+		background-color: $toggle-slider-before-bg-color;
 		border-radius: 50%;
 		transition: .2s;
 	}
 
 	// Knob when on.
 	input[type="checkbox"]:checked + .sui-toggle-slider:before {
-		background-color: #00A8E1;
+		background-color: $toggle-slider-before-checked-bg-color;
 		transform: translateX(18px);
 	}
 
