@@ -1,0 +1,156 @@
+@include body-class {
+	.sui-tooltip {
+		position: relative;
+
+		&:before,
+		&:after {
+			content: "";
+			opacity: 0;
+			backface-visibility: hidden;
+			pointer-events: none;
+			position: absolute;
+			z-index: 1;
+			transition: margin .2s, opacity .2s;
+		}
+
+		&:before {
+			border: 5px solid transparent;
+		}
+
+		&:after {
+			content: attr(data-tooltip);
+			min-width: 240px;
+			padding: 8px 12px;
+			border-radius: 4px;
+			background: $tooltips-color;
+			box-sizing: border-box;
+			color: $white;
+			font: 400 12px/18px $font;
+			text-transform: none;
+			text-align: center;
+		}
+
+		&:hover {
+
+			&:before,
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		// Size: One Line Auto Width
+		&.sui-tooltip-auto {
+
+			&:after {
+				min-width: 40px;
+				white-space: nowrap;
+			}
+		}
+
+		// Position: Top
+		&.sui-tooltip-top:before,
+		&:before {
+			bottom: 100%;
+			left: 50%;
+			margin-bottom: 5px;
+			border-top-color: $tooltips-color;
+			transform: translateX(-50%);
+		}
+		&.sui-tooltip-top:after,
+		&:after {
+			bottom: 100%;
+			left: 50%;
+			margin: 0 0 15px;
+			transform: translateX(-50%);
+		}
+
+		// Position: Top-right & Top-left
+		&.sui-tooltip-top {
+			&-right {
+				&:after {
+					left: 120px;
+				}
+			}
+			&-left {
+				&:after {
+					left: 25%;
+				}
+			}
+		}
+
+		// Position: Bottom, Bottom-right & Bottom-left
+		&.sui-tooltip-bottom {
+
+			&-left:before,
+			&-right:before,
+			&:before {
+				top: 100%;
+				margin-top: 7px;
+				bottom: inherit;
+				border-top-color: transparent;
+				border-bottom-color: $tooltips-color;
+			}
+			&-left:after,
+			&-right:after,
+			&:after {
+				top: 100%;
+				bottom: inherit;
+				margin: 17px 0 0;
+			}
+			&-right {
+				&:after {
+					left: 120px;
+				}
+			}
+			&-left {
+				&:after {
+					left: 25%;
+				}
+			}
+		}
+
+		// Position: Left
+		&.sui-tooltip-left {
+
+			&:before {
+				top: 50%;
+				right: 100%;
+				bottom: inherit;
+				left: inherit;
+				border-top-color: transparent;
+				border-left-color: $tooltips-color;
+				transform: translateY(-50%);
+			}
+
+			&:after {
+				top: 50%;
+				right: 100%;
+				bottom: inherit;
+				left: inherit;
+				margin: 0 10px 0 0;
+				transform: translateY(-50%);
+			}
+		}
+
+		// Position: Right
+		&.sui-tooltip-right {
+
+			&:before {
+				top: 50%;
+				bottom: inherit;
+				left: 100%;
+				border-top-color: transparent;
+				border-right-color: $tooltips-color;
+				transform: translateY(-50%);
+			}
+
+			&:after {
+				top: 50%;
+				bottom: inherit;
+				left: 100%;
+				margin: 0 0 0 10px;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}
