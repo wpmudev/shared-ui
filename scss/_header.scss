@@ -1,26 +1,20 @@
 @include body-class {
 
 	.sui-header {
+		display: flex;
+		align-items: center;
 		position: relative;
-		height: 40px;
-
-		h1 {
-			display: inline-block;
-		}
+		line-height: 1;
+		margin-bottom: $sui-gutter;
 
 		.sui-actions-left {
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
 			margin-left: 10px;
+			margin-right: auto;
 		}
 
 		.sui-actions-right {
-			position: absolute;
-			display: flex;
-			align-items: center;
-			top: 5px;
-			right: 0;
+			margin-left: auto;
+			margin-right: 0;
 		}
 	}
 }
