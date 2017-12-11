@@ -24,21 +24,24 @@ $palettes: (
 		blue: (
 				default: #17A8E3,
 				light: #D2F0FF,
-				lighter: #19B4CF,
+				soft: #E1F6FF,
 				medium: #0A9BD6,
-				dark: #0073A4,
 		),
 		red: (
 				default: #C40000,
+				lighter: #FFE5E9,
 				light: #CB4B57,
+				soft: #FF7F83,
 		),
 		yellow: (
 				default: #F4B414,
 				light: #FFF5D5,
+				soft: #FECF2F,
 				medium: #FFCA00,
 		),
 		green: (
 				default: #1ABC9C,
+				soft: #D1F1EA,
 				medium: #148F77,
 				dark: #0A6550,
 		)
@@ -102,12 +105,25 @@ $toggle-slider-border-color: palette(silver, soft) !default;
 $headings-color: palette(gray, dark) !default;
 $font-color: $gray !default;
 $p-small-color: palette(gray, light) !default;
-$a-color: palette(blue, lighter) !default;
+$a-color: palette(blue) !default;
 $a-action-color: palette(blue, medium) !default;
 $a-disabled-color: palette(gray, light) !default;
 $code-bg-color: palette(silver, light) !default;
 $code-border-color: palette(silver, soft) !default;
 $dfn-border-color: palette(gray, light) !default;
+
+// Notifications Colors (_notifications.scss)
+$notice-font-color: palette(gray, dark) !default;
+$notice-default-bg-color: palette(silver) !default;
+$notice-default-icon-color: palette(gray, light) !default;
+$notice-warning-bg-color: palette(yellow, light) !default;
+$notice-warning-icon-color: palette(yellow, soft) !default;
+$notice-success-bg-color: palette(green, soft) !default;
+$notice-success-icon-color: palette(green) !default;
+$notice-error-bg-color: palette(red, lighter) !default;
+$notice-error-icon-color: palette(red, soft) !default;
+$notice-info-bg-color: palette(blue, soft) !default;
+$notice-info-icon-color: palette(blue) !default;
 
 // Tooltips (_tooltips.scss)
 $tooltips-color: palette(mono, black) !default;
