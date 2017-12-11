@@ -14,6 +14,13 @@
 
 @include body-class {
 
+	%column {
+		min-height: 1px;
+		padding-left: ($sui-gutter / 2);
+		padding-right: ($sui-gutter / 2);
+		position: relative;
+	}
+
 	.sui-row {
 		display: flex;
 		flex-flow: wrap;
@@ -25,12 +32,14 @@
 		flex-direction: row-reverse;
 	}
 
+	.sui-col {
+		@extend %column;
+		flex: 1;
+	}
+
 	[class*="sui-col-"] {
+		@extend %column;
 		flex: 0 0 auto;
-		min-height: 1px;
-		padding-left: ($sui-gutter / 2);
-		padding-right: ($sui-gutter / 2);
-		position: relative;
 		width: 100%;
 		max-width: 100%;
 		flex-basis: 100%;
