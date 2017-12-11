@@ -55,6 +55,18 @@
 		height: 100%;
 		padding-left: 20px;
 	}
+	/* Demo class only to help show off the grid */
+	.demo-block {
+		display: block;
+		border-radius: 3px;
+		background-color: #00AADF;
+		color: #fff;
+		text-align: center;
+		padding: 5px 0;
+		font-size: 12px;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		margin-bottom: 15px;
+	}
 	</style>
 </head>
 <body class="sui-2-0-0">
@@ -75,6 +87,103 @@
 				<button class="sui-button sui-button-ghost sui-ico-academy">View Documentation</button>
 			</div>
 		</div>
+
+		<div class="sui-box">
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Grid</h2>
+			</div>
+			<div class="sui-box-body">
+				<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space within row <code>.sui-row</code>:</p>
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-block">.sui-col</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">.sui-col</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">.sui-col</div>
+					</div>
+				</div><!-- .sui-row -->
+				<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query behavior but also powered by flexbox rather than floats:</p>
+				<div class="sui-row">
+					<div class="sui-col-md-3">
+						<div class="demo-block">.sui-col-md-3</div>
+					</div>
+					<div class="sui-col-md-6">
+						<div class="demo-block">.sui-col-md-6</div>
+					</div>
+					<div class="sui-col-md-3">
+						<div class="demo-block">.sui-col-md-3</div>
+					</div>
+				</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col-lg-3">
+						<div class="demo-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-block">.sui-col-lg-3</div>
+					</div>
+				</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col-sm-9">
+						<div class="demo-block">.sui-col-sm-9</div>
+					</div>
+					<div class="sui-col-sm-3">
+						<div class="demo-block">.sui-col-sm-3</div>
+					</div>
+				</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col-lg-4">
+						<div class="demo-block">.sui-col-lg-4</div>
+					</div>
+					<div class="sui-col-lg-4 sui-col-lg-offset-4">
+						<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
+					</div>
+				</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col-sm-8 sui-col-sm-offset-4">
+						<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
+					</div>
+				</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col-sm-7 sui-col-sm-offset-5">
+						<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
+					</div>
+				</div><!-- .sui-row -->
+				<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element:</p>
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">3</div>
+					</div>
+				</div><!-- .sui-row -->
+				<p>Reversed:</p>
+				<div class="sui-row sui-reverse">
+					<div class="sui-col">
+						<div class="demo-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-block">3</div>
+					</div>
+				</div><!-- .sui-row -->
+			</div>
+		</div>
+
 		<div class="sui-box">
 			<div class="sui-box-header">
 				<h2 class="sui-box-title">Loader</h2>
@@ -88,7 +197,6 @@
 				</div>
 			</div>
 		</div><!-- .sui-box -->
-
 
 		<div class="sui-box">
 			<div class="sui-box-header">
