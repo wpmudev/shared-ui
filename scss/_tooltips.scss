@@ -9,7 +9,7 @@
 			backface-visibility: hidden;
 			pointer-events: none;
 			position: absolute;
-			z-index: -1;
+			z-index: 1;
 			transition: margin .2s, opacity .2s;
 		}
 
@@ -19,7 +19,7 @@
 
 		&:after {
 			content: attr(data-tooltip);
-			min-width: 240px;
+			min-width: 40px;
 			padding: 8px 12px;
 			border-radius: 4px;
 			background: $tooltips-color;
@@ -28,23 +28,23 @@
 			font: 400 12px/18px $font;
 			text-transform: none;
 			text-align: center;
+			white-space: nowrap;
 		}
 
 		&:hover {
 
 			&:before,
 			&:after {
-				z-index: 1;
 				opacity: 1;
 			}
 		}
 
-		// Size: One Line Auto Width
-		&.sui-tooltip-auto {
+		// Size: One Line Constrained Width
+		&.sui-tooltip-constrained {
 
 			&:after {
-				min-width: 40px;
-				white-space: nowrap;
+				min-width: 240px;
+				white-space: normal;
 			}
 		}
 
@@ -68,12 +68,15 @@
 		&.sui-tooltip-top {
 			&-right {
 				&:after {
-					left: 120px;
+					left: 0;
+					transform: translateX(0);
 				}
 			}
 			&-left {
 				&:after {
-					left: 25%;
+					left: auto;
+					transform: translateX(0);
+					right: 0;
 				}
 			}
 		}
@@ -95,15 +98,17 @@
 				top: 100%;
 				bottom: inherit;
 				margin: 10px 0 0;
+				transform: translateX(0);
 			}
 			&-right {
 				&:after {
-					left: 120px;
+					left: 0;
 				}
 			}
 			&-left {
 				&:after {
-					left: 25%;
+					left: auto;
+					right: 0;
 				}
 			}
 		}
