@@ -44,6 +44,7 @@
 		&.sui-notice-warning {
 			background-color: $notice-warning-bg-color;
 			& p {
+				@include icon(before, warning-alert, false);
 				&:before {
 					color: $notice-warning-icon-color;
 				}
@@ -53,6 +54,7 @@
 		&.sui-notice-error {
 			background-color: $notice-error-bg-color;
 			& p {
+				@include icon(before, warning-alert, false);
 				&:before {
 					color: $notice-error-icon-color;
 				}
@@ -96,6 +98,12 @@
 				text-transform: uppercase;
 				text-decoration: none;
 				color: #888;
+			}
+		}
+
+		&.sui-notice-icon-tick {
+			& p {
+				@include icon(before, check-tick, false);
 			}
 		}
 
