@@ -9,7 +9,7 @@
 			backface-visibility: hidden;
 			pointer-events: none;
 			position: absolute;
-			z-index: 1;
+			z-index: -1;
 			transition: margin .2s, opacity .2s;
 		}
 
@@ -34,6 +34,7 @@
 
 			&:before,
 			&:after {
+				z-index: 1;
 				opacity: 1;
 			}
 		}
@@ -52,7 +53,6 @@
 		&:before {
 			bottom: 100%;
 			left: 50%;
-			margin-bottom: 5px;
 			border-top-color: $tooltips-color;
 			transform: translateX(-50%);
 		}
@@ -60,7 +60,7 @@
 		&:after {
 			bottom: 100%;
 			left: 50%;
-			margin: 0 0 15px;
+			margin: 0 0 10px;
 			transform: translateX(-50%);
 		}
 
@@ -85,7 +85,6 @@
 			&-right:before,
 			&:before {
 				top: 100%;
-				margin-top: 7px;
 				bottom: inherit;
 				border-top-color: transparent;
 				border-bottom-color: $tooltips-color;
@@ -95,7 +94,7 @@
 			&:after {
 				top: 100%;
 				bottom: inherit;
-				margin: 17px 0 0;
+				margin: 10px 0 0;
 			}
 			&-right {
 				&:after {
