@@ -4,14 +4,19 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	postcss = require('gulp-postcss'),
 	mqpacker = require('css-mqpacker'),
+	cleanCSS = require('gulp-clean-css'),
+	rename = require("gulp-rename"),
 	browserSync = require('browser-sync').create(),
 	autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
-		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
 		.pipe(postcss([mqpacker]))
+		.pipe(gulp.dest('./dist/css'))
+		.pipe(cleanCSS())
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(browserSync.stream());
 });
