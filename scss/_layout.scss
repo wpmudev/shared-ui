@@ -1,19 +1,13 @@
-@mixin generate-column-class($size, $hidden: false) {
+@mixin generate-column-class($size) {
 	@for $i from $sui-total-grid-cols through 1 {
-		@if $hidden {
-			.sui-#{$size}-hidden {
-				display: none;
-			}
-		} @else {
-			$width: percentage($i / $sui-total-grid-cols);
-			.sui-col-#{$size}-#{$i} {
-				width: $width;
-				max-width: $width;
-				flex-basis: $width;
-			}
-			.sui-col-#{$size}-offset-#{$i} {
-				margin-left: $width;
-			}
+		$width: percentage($i / $sui-total-grid-cols);
+		.sui-col-#{$size}-#{$i} {
+			width: $width;
+			max-width: $width;
+			flex-basis: $width;
+		}
+		.sui-col-#{$size}-offset-#{$i} {
+			margin-left: $width;
 		}
 	}
 }
@@ -61,7 +55,9 @@
 			@include generate-column-class($size);
 		}
 		@media (max-width: $screen-width) {
-			@include generate-column-class($size, true);
+			.sui-#{$size}-hidden {
+				display: none;
+			}
 		}
 	}
 }
