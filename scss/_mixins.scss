@@ -45,3 +45,35 @@
 		+ "Use either `min-width`, `max-width`, or `between`.";
 	}
 }
+
+// Media query for custom breakpoints.
+// Examples:
+//   @include media(min-width, 600) {}
+//   @include media(max-width, 1200) {}
+//   @include media(between, 600, 800) {}
+//
+@mixin media-custom($type, $breakpoint-1, $breakpoint-2: null) {
+	@if ($type == min-width) {
+		$min-breakpoint-width: #{$breakpoint-1}px;
+		@media (min-width: $min-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == max-width) {
+		$max-breakpoint-width: #{$breakpoint-1}px - 1px;
+		@media (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == between) {
+		$min-breakpoint-width: #{$breakpoint-1}px;
+		$max-breakpoint-width: #{$breakpoint-2}px - 1px;
+		@media (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else {
+		@warn "Unfortunately, no type could be retrieved from `#{$type}`. "
+		+ "Use either `min-width`, `max-width`, or `between`.";
+	}
+}
