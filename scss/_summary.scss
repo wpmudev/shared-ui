@@ -1,0 +1,52 @@
+@include body-class {
+
+	.sui-summary {
+		padding: 30px 30px 10px;
+
+		& .sui-block-entry {
+			width: 100%;
+			min-height: 172px;
+		}
+		& .sui-block-entry-image {
+			width: 100%;
+			min-height: 172px;
+			float: left;
+			max-width: 192px;
+			display: block;
+			margin-bottom: -30px;
+		}
+
+		& .sui-block-entry-third {
+			color: #333333;
+			width: calc(100% / 2 - 98px);
+			padding-left: 5%;
+			padding-top: 10px;
+			display: inline-block;
+			vertical-align: middle;
+
+			& span.not-present {
+				font-size: 55px;
+				line-height: 30px;
+				margin-bottom: 20px;
+			}
+
+			& span.score-span {
+				font-size: 13px;
+				margin-left: -12px;
+			}
+
+			[class*="sui-ico-"] {
+				position: relative;
+				top: -22px;
+				left: 5px;
+				font-size: 20px;
+			}
+
+			& p {
+				font-size: 13px;
+				margin-top: 0;
+				color: #888888;
+			}
+		}
+	}
+}
