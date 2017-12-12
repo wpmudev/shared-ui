@@ -1,18 +1,17 @@
-/* Icons */
+// Icons
 
 @mixin icon($position: before, $icon: false, $styles: true) {
 	@if $position == both {
 		$position: 'before, &:after';
 	}
-	// Either a :before or :after pseudo-element, or both, defaulting to :before
+	// Either a :before or :after pseudo-element, or both, defaulting to :before.
 	&:#{$position} {
 		@if $icon {
-			// A particular icon has been specified
+			// A particular icon has been specified.
 			content: "#{map-get($icons, $icon)}";
 		}
 		@if $styles {
-			/* use !important to prevent issues with browser extensions that change fonts */
-			font-family: 'WPMU-DEV-Icon' !important;
+			font-family: 'WPMU-DEV-Icon' !important; // Use !important to prevent issues with browser extensions that change fonts.
 			speak: none;
 			font-size: 1em;
 			font-style: normal;
@@ -22,16 +21,16 @@
 			line-height: 1;
 			text-rendering: auto;
 
-			/* Better Font Rendering =========== */
+			// Better Font Rendering
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 		}
-		// Include any extra rules supplied for the pseudo-element
+		// Include any extra rules supplied for the pseudo-element.
 		@content;
 	}
 }
 
-// Map icon names to font unicode characters
+// Map icon names to font unicode characters.
 $icons: (
 		warning-alert: "\21",
 		align-justify: "\23",
@@ -263,7 +262,7 @@ $icons: (
 	font-style: normal;
 }
 
-// Set the required styles on all icons
+// Set the required styles on all icons.
 [class*="sui-ico-"] {
 	display: inline-block;
 	vertical-align: middle;
@@ -272,7 +271,7 @@ $icons: (
 }
 
 // Icon sizes
-[class*="sui-ico-"].sui-xs {
+[class*="sui-ico-"].sui-xs:before {
 	font-size: 12px;
 }
 
@@ -284,7 +283,7 @@ $icons: (
 	font-size: 30px;
 }
 
-// Setup a class name for each icon
+// Setup a class name for each icon.
 @each $name, $char in $icons {
 	.sui-ico-#{$name}:before {
 		content: $char;
