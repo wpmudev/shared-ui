@@ -282,6 +282,12 @@ $icons: (
 	font-size: 30px;
 }
 
+// Fixed width icons.
+[class*="sui-ico-"].sui-fw {
+	text-align: center;
+	width: 1.2857em;
+}
+
 // Setup a class name for each icon.
 @each $name, $char in $icons {
 	.sui-ico-#{$name}:before {
