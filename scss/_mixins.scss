@@ -14,14 +14,12 @@
 	text-overflow: ellipsis;
 }
 
-/**
- * Media queries.
- *
- * Examples:
- *    @include media(min-width, lg) {}
- *    @include media(max-width, sm) {}
- *    @include media(between, sm, lg) {}
-*/
+// Media queries.
+// Examples:
+//   @include media(min-width, lg) {}
+//   @include media(max-width, sm) {}
+//   @include media(between, sm, lg) {}
+//
 @mixin media($type, $breakpoint-name-1, $breakpoint-name-2: null) {
 	@if ($type == min-width) {
 		$min-breakpoint-width: #{map-get($sui-breakpoints, $breakpoint-name-1)};
