@@ -2,21 +2,27 @@
 
 	.sui-summary {
 		padding: 30px 30px 10px;
+		background-image: url(../images/graphic-hb-minify-summary@2x.png);
+		background-repeat: no-repeat;
+		background-position: 3% 100%;
+		background-size: 172px ;
 
-		& .sui-block-entry {
-			width: 100%;
-			min-height: 172px;
+		@include media-custom(max-width,1100){
+			background-image: none;
 		}
-		& .sui-block-entry-image {
+
+		& .sui-summary-image-space {
 			width: 100%;
 			min-height: 172px;
 			float: left;
 			max-width: 192px;
-			display: block;
-			margin-bottom: -30px;
+
+			@include media-custom(max-width,1100){
+				display: none;
+			}
 		}
 
-		& .sui-block-entry-third {
+		& .sui-summary-segment {
 			color: #333333;
 			width: calc(100% / 2 - 98px);
 			padding-left: 5%;
@@ -24,28 +30,45 @@
 			display: inline-block;
 			vertical-align: middle;
 
-			& span.not-present {
+			& small {
+				font-size: 13px;
+				margin-top: 0;
+				color: $list-summary-small-color;
+			}
+
+			& p {
+				margin: 0;
+			}
+
+			& .sui-summary-large {
 				font-size: 55px;
 				line-height: 30px;
 				margin-bottom: 20px;
 			}
 
-			& span.score-span {
-				font-size: 13px;
-				margin-left: -12px;
+			@include media-custom(max-width,1100){
+				text-align: left;
+				padding-left: 0;
+				width: 49%;
 			}
 
-			[class*="sui-ico-"] {
-				position: relative;
-				top: -22px;
-				left: 5px;
-				font-size: 20px;
+			@include media-custom(max-width,600){
+				display: block;
+				text-align: center;
+				width: 100%;
 			}
 
-			& p {
-				font-size: 13px;
-				margin-top: 0;
-				color: #888888;
+			& .sui-list {
+
+				@include media-custom(max-width,600){
+					text-align: left;
+				}
+
+				& .sui-summary-number {
+					font-family: $font--alt;
+					font-size: 18px;
+					color: $list-summary-number-color;
+				}
 			}
 		}
 	}
