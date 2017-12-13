@@ -1,23 +1,7 @@
 @import "keyframes/loading-wheel";
 @include body-class {
 
-	.sui-loading-sm,
-	.sui-loading {
-		position: relative;
-		padding-right: 25px;
-		&:before {
-			animation: spin 2s linear infinite;
-			position: absolute;
-			margin: auto;
-			top: 0;
-		}
+	.sui-loading:before {
+		animation: spin 2s linear infinite;
 	}
-
-	.sui-loading-sm {
-		padding-right: 19px;
-		&:before {
-			font-size: 16px;
-		}
-	}
-
 }
