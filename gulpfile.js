@@ -13,7 +13,7 @@ gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
-		.pipe(postcss([mqpacker]))
+		//.pipe(postcss([mqpacker]))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
