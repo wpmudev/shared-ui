@@ -77,6 +77,13 @@
 		}
 	}
 	@media screen and (max-width: 782px) {
+		body {
+			min-width: 240px;
+			overflow-x: hidden;
+		}
+		#wpadminbar {
+			min-width: 300px;
+		}
 		#adminmenu {
 			display: none;
 		}
@@ -106,6 +113,63 @@
 				<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation</button>
 			</div>
 		</div>
+
+		<div class="sui-box">
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Inputs</h2>
+			</div>
+			<div class="sui-box-body">
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="sui-form-field">
+							<label class="sui-label">Text</label>
+							<input type="text" class="sui-form-control" placeholder="input type text">
+						</div>
+					</div>
+					<div class="sui-col">
+						<div class="sui-form-field">
+							<label class="sui-label">Text</label>
+							<input type="text" class="sui-form-control" placeholder="input type text">
+						</div>
+					</div>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="sui-form-field">
+							<label class="sui-label">Password</label>
+							<div class="sui-form-field-password-group">
+								<input type="password" class="sui-form-control" placeholder="input type password">
+								<i aria-hidden="true" class="sui-ico-eye"></i>
+							</div>
+						</div>
+					</div>
+					<div class="sui-col">
+						<div class="sui-form-field">
+							<label class="sui-label">Number</label>
+							<input type="number" class="sui-form-control" placeholder="input type number">
+						</div>
+					</div>
+				</div>
+				<div class="sui-form-field">
+					<label class="sui-label">Email</label>
+					<input type="email" class="sui-form-control" placeholder="input type email">
+				</div>
+				<div class="sui-form-field">
+					<label class="sui-label">File</label>
+					<input type="file" class="sui-form-control">
+				</div>
+				<div class="sui-form-field">
+					<select name="wphb-server-type" class="sui-form-control">
+						<option value="apache">Apache</option>
+						<option value="LiteSpeed">LiteSpeed</option>
+						<option value="nginx" selected="selected">NGINX</option>
+						<option value="iis">IIS</option>
+						<option value="iis-7">IIS 7</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
 		<div class="sui-box sui-summary">
 			<div class="sui-summary-image-space">
 			</div>
@@ -1346,6 +1410,6 @@
 	</div><!-- #wpbody -->
 	</div><!-- #wpcontent -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="dist/js/shared-ui.js"></script>
+	<script src="dist/js/shared-ui.min.js"></script>
 </body>
 </html>
