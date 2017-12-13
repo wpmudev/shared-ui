@@ -13,12 +13,14 @@
 		@if $styles {
 			font-family: 'WPMU-DEV-Icon' !important; // Use !important to prevent issues with browser extensions that change fonts.
 			speak: none;
-			font-size: 20px;
+			font-size: 1em;
 			font-style: normal;
 			font-weight: normal;
 			font-variant: normal;
 			text-transform: none;
 			line-height: 1;
+			text-rendering: auto;
+			display: inline-block;
 
 			// Better Font Rendering
 			-webkit-font-smoothing: antialiased;
@@ -263,34 +265,32 @@ $icons: (
 
 // Set the required styles on all icons.
 [class*="sui-ico-"] {
+	display: inline-block;
 	@include icon(both);
 }
 
-// Icon sizes.
+// Icon sizes
 [class*="sui-ico-"].sui-xs:before {
 	font-size: 12px;
 }
 
-[class*="sui-ico-"].sui-sm:before {
+[class*="sui-ico-"].sui-sm {
 	font-size: 16px;
 }
 
-[class*="sui-ico-"].sui-lg:before {
+[class*="sui-ico-"].sui-lg {
 	font-size: 30px;
+}
+
+// Fixed width icons.
+[class*="sui-ico-"].sui-fw {
+	text-align: center;
+	width: 1.2857em;
 }
 
 // Setup a class name for each icon.
 @each $name, $char in $icons {
-	.sui-ico-#{$name} {
-		&:before {
-			content: $char;
-			margin-right: 5px;
-		}
-	}
-	.sui-ico-#{$name}-right {
-		&:after {
-			content: $char;
-			margin-left: 5px;
-		}
+	.sui-ico-#{$name}:before {
+		content: $char;
 	}
 }
