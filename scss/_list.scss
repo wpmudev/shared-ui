@@ -1,0 +1,63 @@
+@include body-class {
+
+	.sui-list {
+		list-style: none;
+		margin: -20px 0 20px;
+		padding: 0;
+
+		&.sui-list-inline {
+			margin-top: 20px;
+			margin-bottom: 0;
+		}
+		&.sui-list-standalone {
+			margin-bottom: 20px;
+		}
+
+		& > li {
+			position: relative;
+			display: table;
+			width: 100%;
+			padding: 6px 0;
+			margin: 0;
+			border-collapse: collapse;
+			border-spacing: 0;
+			& > div {
+				display: table-row;
+			}
+
+			&.sui-list-header {
+				text-transform: uppercase;
+				font-weight: bold;
+				font-family: $font--alt;
+				padding-top: 0;
+			}
+
+			& .sui-list-detail {
+				text-align: right;
+				padding: 10px 0;
+			}
+
+			& .sui-list-detail,
+			& .sui-list-label {
+				display: table-cell;
+				vertical-align: middle;
+				cursor: default;
+				border-bottom: 1px solid #EEEEEE;
+			}
+
+			& .sui-list-label {
+				font-size: 13px;
+				font-weight: 500;
+				line-height: 21px;
+				padding: 15px 10px 15px 0;
+
+				&.sui-list-header {
+					font-family: $font--alt;
+					width: 200px;
+					color: palette(gray, alt);
+
+				}
+			}
+		}
+	}
+}
