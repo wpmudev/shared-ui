@@ -2,10 +2,10 @@
 
 	.sui-summary {
 		padding: 30px 30px 10px;
-		background-image: url(../images/graphic-hb-minify-summary@2x.png);
+		background-image: url($summary-image-default-url);
 		background-repeat: no-repeat;
-		background-position: 3% 100%;
-		background-size: 192px;
+		background-position: $summary-image-default-position;
+		background-size: $summary-image-default-width $summary-image-default-height;
 
 		@include media-custom(max-width,1100){
 			background-image: none;
@@ -13,9 +13,9 @@
 
 		& .sui-summary-image-space {
 			width: 100%;
-			min-height: 172px;
+			min-height: $summary-image-default-height;
 			float: left;
-			max-width: 192px;
+			max-width: $summary-image-default-width;
 
 			@include media-custom(max-width,1100){
 				display: none;
