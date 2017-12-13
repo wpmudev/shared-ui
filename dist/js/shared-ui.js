@@ -1,5 +1,11 @@
 (function ($) {
 
-	console.log('This is coming from the example-component');
+	console.log('this is form.js');
+
+}(jQuery));dsadsa
+
+(function ($) {
+
+	console.log('this is test-component.js');
 
 }(jQuery));
