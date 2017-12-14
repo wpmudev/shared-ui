@@ -1,6 +1,6 @@
 @include body-class {
 
-	.sui-row-with-sidebar {
+	.sui-row-with-sidenav {
 		clear: both;
 		position: relative;
 		display: table;
@@ -12,7 +12,7 @@
 			display: block;
 		}
 
-		.sui-sidebar {
+		.sui-sidenav {
 			width: 270px;
 			padding-right: 30px;
 			display: table-cell;
@@ -41,7 +41,7 @@
 					line-height: 1.5em;
 
 					&.current {
-						background-color: #E6E6E6;
+						background-color: $sidenav-tab-active-bg-color;
 						border-radius: 20px;
 
 						a {
@@ -51,20 +51,20 @@
 				}
 
 				a {
-					color: $sidebar-tab-color;
+					color: $sidenav-tab-color;
 					display: block;
 					font-weight: 400;
 				}
 
 
 			}
-			.sui-sidebar-hide-md {
+			.sui-sidenav-hide-md {
 				@media (max-width: 1100px) {
 					display: none;
 				}
 			}
 
-			.sui-sidebar-hide-lg {
+			.sui-sidenav-hide-lg {
 				@media (min-width: 1100px) {
 					display: none;
 				}
