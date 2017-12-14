@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Shared UI Demo</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	<!-- WordPress mock core styles from wp-admin -->
 	<style>
 	body,
@@ -222,6 +223,23 @@
 						</span>
 					</li>
 				</ul>
+			</div>
+		</div>
+
+		<div class="sui-box">
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Select Box</h2>
+			</div>
+			<div class="sui-box-body">
+				<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled" style="display: none;">
+					<option value="" selected="selected">Select Option</option>
+					<option value="apache">Apache</option>
+					<option value="LiteSpeed">LiteSpeed</option>
+					<option value="nginx">NGINX</option>
+					<option value="iis">IIS</option>
+					<option value="iis-7">IIS 7</option>
+					<option value="cloudflare">Cloudflare</option>
+				</select>
 			</div>
 		</div>
 
@@ -1470,6 +1488,7 @@
 	</div><!-- #wpbody -->
 	</div><!-- #wpcontent -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script src="dist/js/shared-ui.min.js"></script>
 </body>
 </html>
