@@ -1,0 +1,205 @@
+@include body-class {
+
+	.select-container {
+		position: relative;
+		z-index: 1;
+		display: block;
+		cursor: pointer;
+		border-radius: 4px;
+		transition-property: background, border-color;
+		transition-duration: 0.3s;
+		text-align: left;
+		border: 1px solid $select-container-border-color;
+		background-color: $select-container-bg-color;
+
+		.dropdown-handle {
+			transition: border-color 0.3s;
+			display: inline-block;
+			position: absolute;
+			width: 45px;
+			height: 41px;
+			top: -1px;
+			right: -1px;
+			z-index: 1011;
+			border-radius: 0 4px 4px 0;
+			border: 1px solid $select-dropdown-handle-border-color;
+			border-bottom: 0;
+			border-left-color: transparent;
+			padding: 0;
+			text-align: center;
+			line-height: 40px;
+			transition-property: color, border-color;
+			transition-duration: 0.3s;
+			background-color: $select-dropdown-handle-bg-color;
+			color: $select-dropdown-handle-color;
+		}
+	}
+
+	.select-list-container {
+		position: relative;
+		display: block;
+		vertical-align: middle;
+		padding-right: 45px;
+		zoom: 1;
+
+		.list-value {
+			position: relative;
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			background-clip: padding-box;
+			text-decoration: none;
+			white-space: nowrap;
+			line-height: 24px;
+			height: auto;
+			width: 100%;
+			padding: 8px 8px 8px 15px;
+			border: 0;
+			color: $select-list-value-color;
+			font: 500 15px/25px $font;
+			transition-property: color;
+			transition-duration: 0.3s;
+		}
+
+		.list-results {
+			position: absolute;
+			top: 41px;
+			left: -9999px;
+			right: -9999px;
+			z-index: 1010;
+			width: 0;
+			background: $select-list-results-bg-color;
+			border: 1px solid $select-list-results-border-color;
+			margin-left: -1px;
+			margin-right: -1px;
+			margin-top: -2px;
+			display: none;
+			border-radius: 0 0 4px 4px;
+			font: 500 15px/25px $font;
+			transition-property: opacity, border-color;
+			transition-duration: 0.3s;
+			padding-left: 0;
+			max-height: 200px;
+			overflow-y: scroll;
+
+			li {
+				padding: 10px 15px;
+				background: none;
+				color: $select-list-results-li-color;
+				cursor: pointer;
+				list-style: none;
+				line-height: 15px;
+				word-wrap: break-word;
+				margin: 0;
+				opacity: 0.8;
+				transition-property: opacity;
+				transition-duration: 0.3s;
+				border-radius: 0 !important;
+			}
+
+			.optgroup {
+				cursor: default;
+				li {
+					padding-left: 30px;
+					cursor: pointer;
+					&.optgroup-label {
+						padding-left: 10px;
+						color: $select-list-results-li-optgroup-color;
+						cursor: default;
+						pointer-events: none;
+					}
+				}
+			}
+
+			li {
+				&:last-child {
+					border-radius: 0 0 3px 3px;
+				}
+				&:hover {
+					background: $select-list-hover-bg-color;
+					color: $select-list-hover-color;
+				}
+			}
+
+			.optgroup li.optgroup-label:hover {
+				background: none;
+			}
+
+			.current {
+				background: $white;
+				color: $select-current-color;
+			}
+		}
+	}
+
+	.select-container {
+
+		&:hover {
+			border-color: $select-container-action-border-color;
+
+			.list-value {
+				color: $select-list-hover-color;
+			}
+
+			.list-results {
+				border-left-color: $select-container-action-border-color;
+				border-right-color: $select-container-action-border-color;
+				border-bottom-color: $select-container-action-border-color;
+			}
+
+			.dropdown-handle {
+				border-top-color: $select-container-action-border-color;
+				border-right-color: $select-container-action-border-color;
+			}
+		}
+
+		&.active {
+			z-index: 99999;
+
+			.list-value {
+				background: $select-active-list-value-bg-color;
+				border-radius: 3px 0 0 0;
+				color: $select-active-list-value-color;
+			}
+
+			.dropdown-handle {
+				border-color: $select-container-action-border-color;
+				border-bottom-right-radius: 0;
+			}
+
+			.list-results {
+				left: 0;
+				right: 0;
+				width: auto;
+				display: block;
+				transition-duration: 0ms;
+			}
+
+			&:hover {
+				border-color: $select-container-action-border-color;
+
+				.list-value {
+					color: $select-active-list-value-color;
+				}
+
+				.list-results {
+					border-color: $select-container-action-border-color;
+					li {
+						opacity: 1;
+					}
+				}
+
+				.dropdown-handle {
+					border-color: $select-container-action-border-color;
+					color: $select-container-action-border-color;
+				}
+			}
+		}
+	}
+
+	.list-table > {
+		thead > .select-open th, tfoot > .select-open th, tbody > .select-open td {
+			z-index: 9;
+		}
+	}
+}
