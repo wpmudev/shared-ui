@@ -8,14 +8,12 @@
 		window.SUI = {};
 	}
 
-	window.SUI.form = function() {
+	SUI.showHidePassword = function() {
 
 		$(".sui-password-group").each(function () {
 			var $this = $(this),
 				$input = $this.find('input[type="password"]'),
 				$button = $this.find('.sui-password-toggle');
-
-			$button.unbind("click");
 
 			$button.on('click', function () {
 				var $inputType = '';
@@ -47,6 +45,6 @@
 
 	}
 
-	SUI.form();
+	SUI.showHidePassword();
 
 }(jQuery));

@@ -12,7 +12,7 @@
 		background-image: none;
 		border: 1px solid $input--border-color;
 		border-radius: $input--border-radius;
-		transition: color .3s ease-in-out, border-color .3s ease-in-out;
+		transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
 
 		// Unstyle the caret on `<select>`s in IE10+.
 		&::-ms-expand {
@@ -28,6 +28,11 @@
 		&:hover, &:focus {
 			color: $input--color-hover;
 			border: 1px solid $input--border-color-hover;
+		}
+
+		&:focus {
+			outline: 0;
+			background-color: $input--bg-color-focus;
 		}
 
 		&::placeholder {
@@ -83,6 +88,7 @@
 			top: 50%;
 			right: 15px;
 			transform: translateY(-50%);
+			outline: 0;
 		}
 	}
 }
