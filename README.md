@@ -12,7 +12,7 @@ Depending on your plugin's requirements, you can either include the whole produc
 
 ### Requirements
 
-In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format `.sui-x-x-x` where hyphens are replacing the periods of the current shared-ui package version.
+In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format `.sui-x-x-x` where hyphens are replacing the periods of the current [shared-ui package version](https://github.com/wpmudev/shared-ui/blob/master/package.json#L3).
 
 ```php
 add_filter( 'body_class', 'plugin_body_classes' );
