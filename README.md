@@ -1,5 +1,5 @@
-# WPMU DEV Shared UI
-
+# Shared UI
+For internal use in WPMU DEV plugins.
 
 ## Developing? Read this right after cloning this repository
 
