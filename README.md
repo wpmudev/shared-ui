@@ -1,4 +1,5 @@
-# Shared UI
+# Shared UI [![Build Status](https://travis-ci.org/wpmudev/shared-ui.svg?branch=master)](https://travis-ci.org/wpmudev/shared-ui) [![npm version](https://img.shields.io/npm/v/@wpmudev/shared-ui.svg)](https://www.npmjs.com/package/@wpmudev/shared-ui)
+
 For internal use in [WPMU DEV](https://wpmudev.org) plugins.
 
 ## Usage
