@@ -1,0 +1,178 @@
+// Typography
+
+// Base
+@include body-class {
+
+	.sui-wrap {
+		font-family: $font;
+		font-weight: $font--weight;
+		font-size: $font--size;
+		line-height: $font--line-height;
+		color: $font-color;
+		letter-spacing: $font--letter-spacing;
+		margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+	}
+
+}
+
+// Headings
+@include body-class {
+
+	h1, h2, h3, h4, h5, h6 {
+		display: block;
+		margin: 0.5em auto;
+		padding: 0;
+		line-height: $font--line-height;
+		color: $headings-color;
+	}
+
+	h1, h2, h3 {
+		font-family: $font--alt;
+		font-weight: $font--weight;
+		text-transform: uppercase;
+	}
+
+	h4, h5, h6 {
+		font-weight: 500;
+	}
+
+	h1 {
+		font-size: $h1-font-size;
+		line-height: $h1-line-height;
+		color: $headings-color;
+		margin: 0;
+		font-weight: $font--weight-bold;
+	}
+	h2 {
+		font-size: $h2-font-size;
+		line-height: $h2-line-height;
+	}
+
+	h3 {
+		font-size: $h3-font-size;
+		line-height: $h3-line-height;
+	}
+
+	h4 {
+		font: $h4-font;
+		text-transform: uppercase;
+	}
+
+	h5 {
+		font: $h5-font;
+	}
+
+	h6 {
+		font: $h6-font;
+	}
+
+	#header {
+
+		h1 {
+			color: $headings-color;
+			margin: 0;
+			text-align: left;
+			text-transform: uppercase;
+			font-weight: bold;
+			max-width: none;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+	}
+
+}
+
+// Paragraph
+@include body-class {
+
+	p {
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	p small {
+		font-size: 13px;
+		line-height: 22px;
+		color: $p-small-color;
+	}
+
+}
+
+// Links
+@include body-class {
+
+	a {
+		text-decoration: none;
+		color: $a-color;
+		font-weight: 500;
+
+		&:hover, &:focus, &:active {
+			color: $a-action-color;
+		}
+
+		&.disabled {
+			&:hover, &:focus, &:active {
+				color: $a-disabled-color;
+				cursor: default;
+			}
+
+		}
+
+	}
+
+}
+
+// Code
+@include body-class {
+
+	code,
+	pre {
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 18px;
+		background-color: $code-bg-color;
+		border: 1px solid $code-border-color;
+		border-radius: $border-radius;
+		margin: 0;
+		padding: 20px 30px;
+		white-space: pre;
+		overflow: auto;
+		max-width: 100%;
+		vertical-align: middle;
+	}
+
+	code {
+		display: inline-block;
+		padding: 2px;
+	}
+
+}
+
+// Misc
+@include body-class {
+
+	b, strong {
+		font-weight: 500;
+	}
+
+	dfn {
+		font-style: normal;
+		font-weight: normal;
+		border-bottom: 1px dotted $dfn-border-color;
+	}
+
+}
+
+
+
+
+

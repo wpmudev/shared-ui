@@ -1,0 +1,38 @@
+@include body-class {
+
+	.sui-tag {
+		display: inline-block;
+		background-color: $tag-bg-color;
+		color: $tag-color;
+		border-radius: 15px;
+		width: 39px;
+		height: 26px;
+		font-size: 12px;
+		line-height: 26px;
+		text-align: center;
+		font-weight: 500;
+
+		&.sui-tag-warning{}
+
+		&.sui-tag-success {
+			background-color: $tag-success-bg-color;
+			color: $tag-color-alt;
+		}
+		&.sui-tag-error {
+			background-color: $tag-error-bg-color;
+			color: $tag-color-alt;
+		}
+		&.sui-tag-inactive {
+			background-color: $tag-inactive-bg-color;
+			color: $tag-color-alt;
+		}
+		&.sui-tag-disabled {
+			background-color: $tag-disabled-bg-color;
+			color: $tag-disabled-color;
+		}
+		&.sui-tag-upgrade {
+			background-color: $tag-upgrade-bg-color;
+			color: $tag-color-alt;
+		}
+	}
+}

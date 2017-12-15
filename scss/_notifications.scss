@@ -1,0 +1,122 @@
+@include body-class {
+
+	.sui-notice {
+		color: #333;
+		font-weight: $font--weight;
+		padding: 15px 30px;
+		position: relative;
+		width: 100%;
+		border-radius: 5px;
+		margin-bottom: $sui-gutter;
+		background-color: $notice-default-bg-color;
+
+		&:last-of-type {
+			margin: 0;
+		}
+
+		& p {
+			@include icon(before, info);
+			padding: 0 0 0 30px;
+
+			&:before {
+				color: $notice-default-icon-color;
+				vertical-align: middle;
+				top: -2px;
+				margin-left: -30px;
+				position: relative;
+				margin-right: 10px;
+			}
+			&:last-of-type {
+				margin: 0;
+			}
+		}
+
+		&.sui-notice-success {
+			background-color: $notice-success-bg-color;
+			& p {
+				@include icon(before, check-tick, false);
+				&:before {
+					color: $notice-success-icon-color;
+				}
+			}
+		}
+
+		&.sui-notice-warning {
+			background-color: $notice-warning-bg-color;
+			& p {
+				@include icon(before, warning-alert, false);
+				&:before {
+					color: $notice-warning-icon-color;
+				}
+			}
+		}
+
+		&.sui-notice-error {
+			background-color: $notice-error-bg-color;
+			& p {
+				@include icon(before, warning-alert, false);
+				&:before {
+					color: $notice-error-icon-color;
+				}
+			}
+		}
+
+		&.sui-notice-info {
+			background-color: $notice-info-bg-color;
+			& p {
+				&:before {
+					color: $notice-info-icon-color;
+				}
+			}
+		}
+
+		&.sui-notice-sm {
+
+			p {
+				font-size: 13px;
+				line-height: 22px;
+
+				&:before {
+					font-size: 18px;
+				}
+
+			}
+			& a {
+				font-size: 13px;
+			}
+
+		}
+
+		& .sui-notice-dismiss {
+				padding: 0 0 0 30px;
+				display: block;
+				margin-top: 6px;
+
+
+			& a {
+				font-weight: 500;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: #888;
+			}
+		}
+
+		&.sui-notice-icon-tick {
+			& p {
+				@include icon(before, check-tick, false);
+			}
+		}
+
+		&.sui-no-notice-icon p {
+			padding: 0;
+
+			&:before {
+				content: '';
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+
+	}
+}

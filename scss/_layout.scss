@@ -1,0 +1,58 @@
+@mixin generate-column-class($size) {
+	@for $i from $sui-total-grid-cols through 1 {
+		$width: percentage($i / $sui-total-grid-cols);
+		.sui-col-#{$size}-#{$i} {
+			width: $width;
+			max-width: $width;
+			flex-basis: $width;
+		}
+		.sui-col-#{$size}-offset-#{$i} {
+			margin-left: $width;
+		}
+	}
+}
+
+@include body-class {
+
+	%column {
+		min-height: 1px;
+		padding-left: ($sui-gutter / 2);
+		padding-right: ($sui-gutter / 2);
+		position: relative;
+	}
+
+	.sui-row {
+		display: flex;
+		flex-flow: wrap;
+		margin-right: (-$sui-gutter / 2);
+		margin-left: (-$sui-gutter / 2);
+	}
+
+	.sui-reverse {
+		flex-direction: row-reverse;
+	}
+
+	.sui-col {
+		@extend %column;
+		flex: 1;
+	}
+
+	[class*="sui-col-"] {
+		@extend %column;
+		flex: 0 0 auto;
+		width: 100%;
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+
+	@for $i from 1 through length($sui-breakpoints) {
+		$size: nth(nth($sui-breakpoints, $i), 1);
+		$screen-width: nth(nth($sui-breakpoints, $i), 2);
+		@if ($i == 1) {
+			@include generate-column-class($size);
+		}
+		@media (min-width: $screen-width) {
+			@include generate-column-class($size);
+		}
+	}
+}

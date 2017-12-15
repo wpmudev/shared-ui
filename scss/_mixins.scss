@@ -1,0 +1,47 @@
+// Generates the required versioned body class.
+@mixin body-class {
+	$formatted-version: str-replace($sui-version, '.', '-');
+
+	.sui-#{$formatted-version} {
+		@content;
+	}
+}
+
+// Prevent text such as titles from wrapping.
+@mixin text-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// Media queries.
+// Examples:
+//   @include media(min-width, lg) {}
+//   @include media(max-width, sm) {}
+//   @include media(between, sm, lg) {}
+//
+@mixin media($type, $breakpoint-name-1, $breakpoint-name-2: null) {
+	@if ($type == min-width) {
+		$min-breakpoint-width: #{map-get($sui-breakpoints, $breakpoint-name-1)};
+		@media (min-width: $min-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == max-width) {
+		$max-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-1) - 1px;
+		@media (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == between) {
+		$min-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-1);
+		$max-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-2) - 1px;
+		@media (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else {
+		@warn "Unfortunately, no type could be retrieved from `#{$type}`. "
+		+ "Use either `min-width`, `max-width`, or `between`.";
+	}
+}

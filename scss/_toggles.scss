@@ -1,0 +1,58 @@
+@include body-class {
+
+	// Toggle base styles.
+	.sui-toggle {
+		position: relative;
+		display: inline-block;
+		width: 34px;
+		height: 16px;
+	}
+
+	// Checkbox powering the toggle.
+	.sui-toggle input[type="checkbox"] {
+		@extend %sui-screen-reader-text;
+
+		&[disabled] + .sui-toggle-slider {
+			opacity: .5;
+			cursor: not-allowed;
+		}
+	}
+
+	// Toggle background when off.
+	.sui-toggle-slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $toggle-slider-bg-color;
+		border-radius: 100px;
+		transition: .4s;
+		border: 1px solid $toggle-slider-border-color;
+	}
+
+	// Knob when off.
+	.sui-toggle-slider:before {
+		position: absolute;
+		content: "";
+		height: 16px;
+		width: 16px;
+		left: -1px;
+		bottom: -1px;
+		background-color: $toggle-slider-before-bg-color;
+		border-radius: 50%;
+		transition: .2s;
+	}
+
+	// Knob when on.
+	input[type="checkbox"]:checked + .sui-toggle-slider:before {
+		background-color: $toggle-slider-before-checked-bg-color;
+		transform: translateX(18px);
+	}
+
+	// Toggle focus style.
+	input[type="checkbox"]:focus + .sui-toggle-slider {
+
+	}
+}
