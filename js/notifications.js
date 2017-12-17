@@ -6,4 +6,7 @@
 	});
 
 
+	$('.sui-notice-top:not(.sui-cant-dismiss)').delay(3000).slideUp('slow');
+
+
 }(jQuery));
