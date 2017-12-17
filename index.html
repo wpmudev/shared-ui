@@ -150,6 +150,96 @@
 
 		<div class="sui-box">
 			<div class="sui-box-header">
+				<h2 class="sui-box-title">Tabs</h2>
+			</div>
+			<div class="sui-box-body">
+				<div class="sui-tabs">
+					<div class="sui-tab">
+						<label id="auto-apache" for="apache-config-auto" class="">Automatic</label>
+						<input type="radio" name="apache-config-type" id="apache-config-auto" checked>
+						<div class="sui-tab-content">
+							<span class="sub">Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</span>
+
+							<div class="sui-notice sui-notice-info">
+								<p>Automatic browser caching is active.</p>
+							</div>
+
+							<div>
+								<a href="#" class="sui-button sui-button-ghost">Deactivate</a>
+							</div>
+						</div><!-- end content -->
+					</div><!-- end tab -->
+					<div class="sui-tab">
+						<label id="manual-apache" for="apache-config-manual">Manual</label>
+						<input type="radio" name="apache-config-type" id="apache-config-manual">
+						<div class="sui-tab-content">
+							<div class="apache-instructions">
+								<p>Follow the steps below to add browser caching to your Apache server.</p>
+
+								<ol class="wphb-listing wphb-listing-ordered">
+									<li>Copy the generated code into your .htaccess file &amp; save your changes.</li>
+									<li>Restart Apache.</li>
+									<li><a href="#">Re-check expiry status.</a></li>
+								</ol>
+
+								<div id="wphb-code-snippet">
+									<div id="wphb-code-snippet-apache" class="wphb-code-snippet">
+										<div class="wphb-block-content">
+											<button class="button button-grey" data-clipboard-target="#wphb-apache">Copy</button>
+											<pre id="wphb-apache">&lt;IfModule mod_expires.c&gt;
+ExpiresActive On
+ExpiresDefault A0
+
+&lt;FilesMatch "\.(txt|xml|js)$"&gt;
+ExpiresDefault A691200
+&lt;/FilesMatch&gt;
+
+&lt;FilesMatch "\.(css)$"&gt;
+ExpiresDefault A691200
+&lt;/FilesMatch&gt;
+
+&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
+ExpiresDefault A691200
+&lt;/FilesMatch&gt;
+
+&lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
+ExpiresDefault A691200
+&lt;/FilesMatch&gt;
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_headers.c&gt;
+  &lt;FilesMatch "\.(txt|xml|js)$"&gt;
+   Header set Cache-Control "max-age=691200"
+  &lt;/FilesMatch&gt;
+
+  &lt;FilesMatch "\.(css)$"&gt;
+   Header set Cache-Control "max-age=691200"
+  &lt;/FilesMatch&gt;
+
+  &lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
+   Header set Cache-Control "max-age=691200"
+  &lt;/FilesMatch&gt;
+
+  &lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
+   Header set Cache-Control "max-age=691200"
+  &lt;/FilesMatch&gt;
+&lt;/IfModule&gt;</pre>
+										</div>
+									</div>
+								</div>
+								<p><strong>Troubleshooting</strong></p>
+								<p>If adding the rules to your .htaccess doesn’t work and you have access to vhosts.conf or httpd.conf try to find the line that starts with &lt;Directory&gt; - add the code above into that section and save the file.</p>
+								<p>If you don't know where those files are, or you aren't able to reload Apache, you would need to consult with your hosting provider or a system administrator who has access to change the configuration of your server</p>
+								<p>Still having trouble? <a target="_blank" href="https://premium.wpmudev.org/live-support/">Start a live chat.</a></p>
+							</div><!-- end apache-instructions -->
+						</div><!-- end content -->
+					</div><!-- end tab -->
+				</div>
+			</div>
+		</div>
+
+		<div class="sui-box">
+			<div class="sui-box-header">
 				<h2 class="sui-box-title">Select Box</h2>
 			</div>
 			<div class="sui-box-body">

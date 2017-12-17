@@ -2707,3 +2707,80 @@
   background-color: #1ABC9C;
   color: #FFFFFF;
 }
+
+.sui-2-0-0-alpha-1 .sui-tabs {
+  float: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: #FFFFFF;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs:before, .sui-2-0-0-alpha-1 .sui-tabs:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab {
+  float: left;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab:first-child label {
+  border-top-left-radius: 5px;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab label {
+  display: block;
+  margin: 0;
+  top: 0;
+  cursor: pointer;
+  position: relative;
+  border: 0;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #888888;
+  padding: 0 10px;
+  line-height: 1.5em;
+  height: 40px;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab input[type=radio] {
+  display: none;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab input[type=radio]:checked + label {
+  background-color: #FFFFFF;
+  color: #777771;
+  height: 61px;
+  z-index: 3;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab .sui-tab-content {
+  z-index: 2;
+  display: none;
+  text-align: left;
+  left: 0;
+  right: 0;
+  width: auto;
+  padding: 20px 0 0;
+  position: absolute;
+  min-height: 150px;
+  border-top: 1px solid #EAEAEA;
+  background-color: #FFFFFF;
+  overflow: auto;
+  border-top: 2px solid #EAEAEA;
+  top: 38px;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab input[type=radio]:checked ~ .sui-tab-content {
+  display: block;
+}
+
+.sui-2-0-0-alpha-1 .sui-tabs .sui-tab > .active {
+  color: #333333;
+  border-bottom: 2px solid #333333;
+  z-index: 10;
+}
