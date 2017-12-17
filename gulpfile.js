@@ -52,3 +52,4 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['styles', 'scripts', 'browser-sync', 'watch']);
+gulp.task('build', ['styles', 'scripts']);
