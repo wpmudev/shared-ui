@@ -1,0 +1,102 @@
+@include body-class {
+
+	.sui-form-control {
+		display: block;
+		width: 100%;
+		height: $input--height-base;
+		padding: 7px 15px;
+		font-size: $font--size;
+		font-weight: $input--font-weight;
+		line-height: $input--line-height;
+		color: $input--color;
+		background-color: $input--bg-color;
+		background-image: none;
+		border: 1px solid $input--border-color;
+		border-radius: $input--border-radius;
+		transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
+
+		// Unstyle the caret on `<select>`s in IE10+.
+		&::-ms-expand {
+			border: 0;
+			background-color: transparent;
+		}
+
+		&[disabled],
+		fieldset[disabled] & {
+			cursor: not-allowed;
+		}
+
+		&:hover, &:focus {
+			color: $input--color-hover;
+			border: 1px solid $input--border-color-hover;
+		}
+
+		&:focus {
+			outline: 0;
+			background-color: $input--bg-color-focus;
+		}
+
+		&::placeholder {
+			color: $input--placeholder-color;
+		}
+	}
+
+	// Reset height for `textarea`s.
+	textarea.sui-form-control {
+		line-height: 20px;
+		height: auto;
+		max-width: 100%;
+		resize: vertical;
+	}
+
+	select.sui-form-control {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAs0lEQVQ4T6WS2w0CIRBF59KA2oklaAdbgpbgB48SIBThduKWYClrA2CGgEEXNWH5moR7Zu48QJ0PnRytA6WUe67svb//clDrUkWt9UxEMYRw/AYzJIS4sd45t0ugMeZERNcY49yCCwRgS0Rna+346rGGAVz4s06aW0gQx2/DUUoNAEYAG86cxezkAWCw1k5lBoupZltThomhEMLhs/fmOgrM2VvQwmq9in8rWncAPWfXXfEJ6RpWD7sJ1JwAAAAASUVORK5CYII=);
+		background-repeat: no-repeat;
+		background-position: center right 10px;
+		appearance: none;
+		cursor: pointer;
+		line-height: 1;
+	}
+
+	.sui-input-group {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.sui-form-field {
+		margin-bottom: $sui-gutter;
+	}
+
+	.sui-form-field-error {
+		.sui-form-control {
+			border-bottom: 2px solid $input--border-color-error;
+		}
+	}
+
+	.sui-error-message {
+		display: block;
+		color: $input--error-color;
+		font-size: $input--error-font-size;
+	}
+
+	.sui-password-group {
+		position: relative;
+
+		.sui-password-toggle {
+			cursor: pointer;
+			background: transparent;
+			border: none;
+			color: $input--icon-color;
+			font-size: 15px;
+			line-height: 1em;
+			padding: 0;
+			position: absolute;
+			top: 50%;
+			right: 15px;
+			transform: translateY(-50%);
+			outline: 0;
+		}
+	}
+}
