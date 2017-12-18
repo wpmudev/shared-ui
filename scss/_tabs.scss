@@ -1,0 +1,78 @@
+@include body-class {
+
+	.sui-tabs {
+		float: none;
+		position: relative;
+		padding: 0;
+		margin: 0;
+		background-color: $white;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+
+		&:before, &:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+		.sui-tab {
+			float: left;
+
+			&:first-child label {
+				border-top-left-radius: 5px;
+			}
+
+			label {
+				display: block;
+				margin: 0;
+				top: 0;
+				cursor: pointer;
+				position: relative;
+				border: 0;
+				font-size: 15px;
+				text-transform: capitalize;
+				color: $tabs-label-color;
+				padding: 0 10px;
+				line-height: 1.5em;
+				height: 40px;
+			}
+
+			input[type=radio] {
+				display: none;
+				&:checked + label {
+					background-color: $white;
+					color: $tabs-label-checked-color;
+					height: 61px;
+					z-index: 3;
+				}
+			}
+
+			.sui-tab-content {
+				z-index: 2;
+				display: none;
+				text-align: left;
+				left: 0;
+				right: 0;
+				width: auto;
+				padding: 20px 0 0;
+				position: absolute;
+				min-height: 150px;
+				border-top: 1px solid $tabs-content-border-color;
+				background-color: $white;
+				overflow: auto;
+				border-top: 2px solid $tabs-content-border-color;
+				top: 38px;
+			}
+
+			input[type=radio]:checked ~ .sui-tab-content {
+				display: block;
+			}
+
+			& > .active {
+				color: $tabs-label-active-border-color;
+				border-bottom: 2px solid $tabs-label-active-color;
+				z-index: 10;
+			}
+		}
+	}
+}
