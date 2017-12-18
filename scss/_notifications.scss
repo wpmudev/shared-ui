@@ -1,5 +1,6 @@
 @include body-class {
 
+	.sui-notice-top,
 	.sui-notice {
 		color: #333;
 		font-weight: $font--weight;
@@ -117,6 +118,25 @@
 			}
 		}
 
+		&.sui-notice-top {
+			position: absolute;
+			top: 32px;
+			width: 600px;
+			z-index: 100;
+			left: 50%;
+			transform: translateX(-40%);
+			box-shadow: rgba(0, 0, 0, 0.15) 0 5px 25px 0;
 
+			@media (max-width: 960px) {
+				transform: translateX(-45%);
+			}
+
+			@media (max-width: 782px) {
+				top: -30px;
+				transform: translateX(-50%);
+				width: 380px;
+			}
+
+		}
 	}
 }
