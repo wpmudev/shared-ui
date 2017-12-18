@@ -119,7 +119,117 @@
 				<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation</button>
 			</div>
 		</div>
+		<div class="sui-box">
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Modals</h2>
+			</div>
+			<div class="sui-box-body">
+				<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Default Modal</a>
+				<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
+					<div class="sui-dialog-content">
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Text</label>
+									<input type="text" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Text</label>
+									<input type="text" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+						</div>
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Password</label>
+									<div class="sui-password-group">
+										<input type="password" class="sui-form-control" placeholder="input type password">
+										<button class="sui-password-toggle" type="button">
+											<span class="sui-screen-reader-text">Show Password</span>
+											<i aria-hidden="true" class="sui-ico-eye"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field sui-form-field-error">
+									<label class="sui-label">Error</label>
+									<input type="number" class="sui-form-control" placeholder="input type text">
+									<span class="sui-error-message">This is an error message</span>
+								</div>
+							</div>
+						</div>
+					</div>
 
+					<div class="sui-modal-footer sui-modal-footer-space-between">
+						<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+						<div class="sui-modal-footer-right">
+							<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+						</div>
+					</div>
+				</dialog>
+				<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
+				<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!">
+					<div class="sui-dialog-content">
+						<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
+						<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
+					</div>
+					<div class="sui-modal-footer">
+						<button class="sui-modal-close sui-button">Got it</button>
+					</div>
+				</dialog>
+				<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
+				<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal">
+					<div class="sui-dialog-content">
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Text</label>
+									<input type="text" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Text</label>
+									<input type="text" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+						</div>
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label class="sui-label">Password</label>
+									<div class="sui-password-group">
+										<input type="password" class="sui-form-control" placeholder="input type password">
+										<button class="sui-password-toggle" type="button">
+											<span class="sui-screen-reader-text">Show Password</span>
+											<i aria-hidden="true" class="sui-ico-eye"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field sui-form-field-error">
+									<label class="sui-label">Error</label>
+									<input type="number" class="sui-form-control" placeholder="input type text">
+									<span class="sui-error-message">This is an error message</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="sui-modal-footer sui-modal-footer-right">
+						<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+						<div class="sui-modal-footer-right">
+							<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+						</div>
+					</div>
+				</dialog>
+			</div>
+		</div>
 		<div class="sui-box">
 			<div class="sui-box-header">
 				<h2 class="sui-box-title">Inputs</h2>
@@ -236,14 +346,14 @@
 		</div>
 		<div class="sui-row-with-sidenav">
 			<div class="sui-sidenav">
-				<ul class="sui-tabs sui-sidenav-hide-md">
-					<li class="sui-tab current">
+				<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+					<li class="sui-vertical-tab current">
 						<a href="#database-optimisation">Database Optimisation</a>
 						<span class="sui-tag sui-tag-warning">4</span>
-					<li class="sui-tab ">
+					<li class="sui-vertical-tab ">
 						<a href="#reporting">Reporting</a>
 					</li>
-					<li class="sui-tab">
+					<li class="sui-vertical-tab">
 						<a href="#lanskc">Content Creator</a>
 						<i class="sui-ico-check-tick" aria-hidden="true"></i>
 					</li>
