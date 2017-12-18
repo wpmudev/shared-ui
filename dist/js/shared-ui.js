@@ -203,17 +203,17 @@
 			SUI.overlay.box_content.on('click', '.close', SUI.closeOverlay);
 			$(window).on('resize', SUI.positionOverlay);
 
-			SUI.overlay.container.addClass('has-overlay');
+			SUI.overlay.container.addClass('has-sui-overlay');
 			SUI.overlay.wrapper.show();
-			SUI.overlay.box.addClass('bounce-in');
-			SUI.overlay.back.addClass('fade-in');
+			SUI.overlay.box.addClass('sui-bounce-in');
+			SUI.overlay.back.addClass('sui-fade-in');
 			SUI.overlay.visible = true;
 
 			SUI.positionOverlay();
 
 			window.setTimeout(function(){
-				SUI.overlay.box.removeClass('bounce-in');
-				SUI.overlay.back.removeClass('fade-in');
+				SUI.overlay.box.removeClass('sui-bounce-in');
+				SUI.overlay.back.removeClass('sui-fade-in');
 			}, 1000);
 
 			if ('function' === typeof args.onShow) { args.onShow(); }
@@ -230,9 +230,9 @@
 	SUI.closeOverlay = function() {
 		if ( SUI.prepareOverlay() ) { return SUI; }
 
-		SUI.overlay.container.removeClass('has-overlay');
-		SUI.overlay.box.addClass('bounce-out');
-		SUI.overlay.back.addClass('fade-out');
+		SUI.overlay.container.removeClass('has-sui-overlay');
+		SUI.overlay.box.addClass('sui-bounce-out');
+		SUI.overlay.back.addClass('sui-fade-out');
 		$(window).off('resize', SUI.positionOverlay);
 
 		window.setTimeout(function() {
@@ -283,7 +283,7 @@
 
 		if ( ! SUI.overlay.wrapper ) {
 			SUI.overlay.container = $('#wpcontent');
-			SUI.overlay.wrapper = $('<div class="dev-overlay"></div>');
+			SUI.overlay.wrapper = $('<div class="sui-overlay"></div>');
 			SUI.overlay.back = $('<div class="back"></div>');
 			SUI.overlay.scroll = $('<div class="box-scroll"></div>');
 			SUI.overlay.box = $('<div class="box"></div>');
