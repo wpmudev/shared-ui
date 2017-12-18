@@ -3191,34 +3191,37 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   overflow: visible;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .back {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-back {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(20, 72, 95, 0.85);
+  background: rgba(51, 51, 51, 0.95);
   z-index: 0;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .box-scroll {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box-scroll {
+  display: table;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   overflow: auto;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .box {
-  position: absolute;
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box-wrap {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 600px;
   top: 0;
   min-height: 120px;
-  left: 50%;
-  margin: 20px 0 20px -420px;
-  width: 840px;
-  background: #FFF;
+  background: #FFFFFF;
   border-radius: 5px;
   padding: 40px;
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -3229,68 +3232,47 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   overflow: hidden;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay.small .box {
-  width: 600px;
-  margin-left: -300px;
+@media (max-width: 600px) {
+  .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box {
+    width: 400px;
+  }
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .box.loading:before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.75);
-  z-index: 1;
-  width: auto;
-  height: auto;
-  background-size: 18px;
-}
-
-.sui-2-0-0-alpha-1 .sui-overlay.no-margin .content {
-  margin: -40px;
-}
-
-.sui-2-0-0-alpha-1 .sui-overlay.no-margin .fullsize {
-  display: block;
-  width: 100%;
-}
-
-.sui-2-0-0-alpha-1 .sui-overlay .box .title {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title {
   min-height: 60px;
   padding: 0 60px 0 40px;
   border-bottom: 1px solid #EAEAEA;
   margin: -40px -40px 40px -40px;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .title .close {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-modal-close {
   position: absolute;
   right: 0;
   top: 0;
   padding: 0 24px;
-  line-height: 60px;
+  line-height: 55px;
   font-size: 24px;
   font-weight: 400;
-  color: #BABABA;
+  color: #AAAAAA;
   cursor: pointer;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .title .close:hover {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-modal-close:hover {
   color: #777771;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .title h3 {
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title h3 {
+  font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
+  text-transform: none;
   font-size: 18px;
   font-weight: 700;
-  color: #777771;
   line-height: 30px;
   margin: 0;
   padding: 15px 0;
   text-align: left;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .title .title-action {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-title-action {
   position: absolute;
   right: 60px;
   top: 0;
@@ -3301,8 +3283,21 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   padding: 10px 0;
 }
 
-.sui-2-0-0-alpha-1 .sui-overlay .title .title-action .button-small {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-title-action .sui-button-small {
   margin: 5px 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box.loading:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+  width: auto;
+  height: auto;
+  background-size: 18px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-fade-in {
@@ -3326,14 +3321,38 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
           animation: bounce-out-jiggle 0.6s ease-out;
 }
 
+.sui-2-0-0-alpha-1 .sui-overlay.sui-modal-sm .sui-modal-box {
+  width: 400px;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay.sui-modal-sm .sui-modal-box .sui-modal-title {
+  text-align: center;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay.sui-modal-sm .sui-modal-box p {
+  font-size: 13px;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay.sui-modal-lg .sui-modal-box {
+  width: 980px;
+}
+
+@media (max-width: 960px) {
+  .sui-2-0-0-alpha-1 .sui-overlay {
+    left: 36px;
+  }
+}
+
+@media (max-width: 782px) {
+  .sui-2-0-0-alpha-1 .sui-overlay {
+    left: 0;
+  }
+}
+
 .sui-2-0-0-alpha-1 .has-sui-overlay {
   overflow: hidden;
 }
 
 .sui-2-0-0-alpha-1 .has-sui-overlay ul#adminmenu a.wp-has-current-submenu:after, .sui-2-0-0-alpha-1 .has-sui-overlay ul#adminmenu > li.current > a.current:after {
   border-right-color: #356175;
-}
-
-.sui-2-0-0-alpha-1 .folded .sui-overlay {
-  left: 36px;
 }

@@ -50,6 +50,7 @@
 }(jQuery));
 
 (function ($) {
+	var version = 'sui-2-0-0-alpha-1';
 	
 	// Enable strict mode.
 	'use strict';
@@ -61,7 +62,7 @@
 
 
 	// Add event handlers to show overlay dialogs.
-	$(".sui-2-0-0-alpha-1").on("click", "a[rel=dialog]", showDialog);
+	$("." + version).on("click", "a[rel=dialog]", showDialog);
 	function showDialog(ev) {
 		var el = $(this);
 		var args = {};
@@ -196,12 +197,11 @@
 				SUI.overlay.wrapper.addClass('no-close');
 				SUI.overlay.close.remove();
 			}
-			if (dialog.find('.title-action').length) {
-				SUI.overlay.box_content.find('.title-action').appendTo(SUI.overlay.box_title);
+			if (dialog.find('.sui-title-action').length) {
+				SUI.overlay.box_content.find('.sui-title-action').appendTo(SUI.overlay.box_title);
 			}
 
 			SUI.overlay.box_content.on('click', '.close', SUI.closeOverlay);
-			$(window).on('resize', SUI.positionOverlay);
 
 			SUI.overlay.container.addClass('has-sui-overlay');
 			SUI.overlay.wrapper.show();
@@ -209,7 +209,6 @@
 			SUI.overlay.back.addClass('sui-fade-in');
 			SUI.overlay.visible = true;
 
-			SUI.positionOverlay();
 
 			window.setTimeout(function(){
 				SUI.overlay.box.removeClass('sui-bounce-in');
@@ -233,7 +232,6 @@
 		SUI.overlay.container.removeClass('has-sui-overlay');
 		SUI.overlay.box.addClass('sui-bounce-out');
 		SUI.overlay.back.addClass('sui-fade-out');
-		$(window).off('resize', SUI.positionOverlay);
 
 		window.setTimeout(function() {
 			SUI.overlay.wrapper.hide()
@@ -248,34 +246,12 @@
 	};
 
 	/**
-	 * Updates the position of the overlay to keep it vertically centered on the
-	 * screen.
-	 *
-	 * @since  4.0.0
-	 */
-	SUI.positionOverlay = function() {
-		var availHeight, needHeight, newOffset;
-
-		if ( SUI.prepareOverlay() ) { return SUI; }
-
-		availHeight = SUI.overlay.scroll.height();
-		needHeight = SUI.overlay.box.outerHeight();
-		newOffset = (availHeight - needHeight) / 2;
-
-		if ( newOffset < 20 ) { newOffset = 20; }
-		SUI.overlay.box.css({ marginTop: newOffset });
-
-		return SUI;
-	};
-
-	/**
 	 * Creates all the DOM elements needed to display the overlay element.
 	 *
 	 * @since  4.0.0
 	 * @return bool True if the modal is ready to be displayed.
 	 */
 	SUI.prepareOverlay = function() {
-		var offset = $('#wpcontent').offset();
 
 		SUI.overlay = SUI.overlay || {};
 
@@ -284,16 +260,18 @@
 		if ( ! SUI.overlay.wrapper ) {
 			SUI.overlay.container = $('#wpcontent');
 			SUI.overlay.wrapper = $('<div class="sui-overlay"></div>');
-			SUI.overlay.back = $('<div class="back"></div>');
-			SUI.overlay.scroll = $('<div class="box-scroll"></div>');
-			SUI.overlay.box = $('<div class="box"></div>');
-			SUI.overlay.box_title = $('<div class="title"><h3></h3></div>');
-			SUI.overlay.box_content = $('<div class="content"></div>');
-			SUI.overlay.close = $('<div aria-hidden="true" class="close">&times;</div><button class="sui-screen-reader-text"><span class="sui-screen-reader-text">Close</span></button>');
+			SUI.overlay.back = $('<div class="sui-modal-back"></div>');
+			SUI.overlay.scroll = $('<div class="sui-modal-box-scroll"></div>');
+			SUI.overlay.box_wrap = $('<div class="sui-wrap sui-modal-box-wrap"></div>');
+			SUI.overlay.box = $('<div class="sui-modal-box"></div>');
+			SUI.overlay.box_title = $('<div class="sui-modal-title"><h3></h3></div>');
+			SUI.overlay.box_content = $('<div class="sui-modal-content"></div>');
+			SUI.overlay.close = $('<div aria-hidden="true" class="sui-modal-close">&times;</div><button class="sui-screen-reader-text"><span class="sui-screen-reader-text">Close</span></button>');
 
 			SUI.overlay.back.appendTo(SUI.overlay.wrapper);
 			SUI.overlay.scroll.appendTo(SUI.overlay.wrapper);
-			SUI.overlay.box.appendTo(SUI.overlay.scroll);
+			SUI.overlay.box_wrap.appendTo(SUI.overlay.scroll);
+			SUI.overlay.box.appendTo(SUI.overlay.box_wrap);
 			SUI.overlay.box_title.appendTo(SUI.overlay.box);
 			SUI.overlay.box_content.appendTo(SUI.overlay.box);
 			SUI.overlay.close.appendTo(SUI.overlay.box_title);
