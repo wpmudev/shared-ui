@@ -193,15 +193,17 @@
 			SUI.overlay.box_content.html(dialog.html());
 
 			SUI.overlay.wrapper.addClass(dialog.attr('class'));
-			if (dialog.hasClass('no-close')) {
-				SUI.overlay.wrapper.addClass('no-close');
+			if (dialog.hasClass('sui-no-close')) {
+				SUI.overlay.wrapper.addClass('sui-no-close');
 				SUI.overlay.close.remove();
+			} else {
+				SUI.overlay.back.on('click', SUI.closeOverlay);
 			}
 			if (dialog.find('.sui-title-action').length) {
 				SUI.overlay.box_content.find('.sui-title-action').appendTo(SUI.overlay.box_title);
 			}
 
-			SUI.overlay.box_content.on('click', '.close', SUI.closeOverlay);
+			SUI.overlay.box_content.on('click', '.sui-modal-close', SUI.closeOverlay);
 
 			SUI.overlay.container.addClass('has-sui-overlay');
 			SUI.overlay.wrapper.show();
