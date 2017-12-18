@@ -1,0 +1,33 @@
+.sui-circle-score {
+	height: 30px;
+	width: auto;
+
+	svg {
+		height: 100%;
+		transform: rotate(-90deg);
+		transform-origin: center;
+		opacity: 0;
+		transition: opacity 1s;
+
+		circle {
+			fill: none;
+			stroke-linecap: butt;
+			transition: stroke-dasharray 1.5s, stroke 1.5s;
+
+			// Background.
+			&:first-child {
+				stroke: $circle-score-bg-color;
+			}
+
+			// Dial.
+			&:last-child {
+				stroke: $circle-score-dial-color;
+			}
+		}
+
+
+	}
+	&.loaded svg {
+		opacity: 1;
+	}
+}
