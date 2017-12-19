@@ -116,7 +116,9 @@
 		font-weight: 500;
 
 		&:hover, &:focus, &:active {
-			color: $a-action-color;
+			&:not(.sui-button) {
+				color: $a-action-color;
+			}
 		}
 
 		&.disabled {
