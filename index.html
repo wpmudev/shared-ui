@@ -5,414 +5,484 @@
 	<meta name="robots" content="noindex">
 	<title>Shared UI Demo</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 	<!-- WordPress mock core styles from wp-admin -->
 	<style>
-	body,
-	html {
-		height: 100%;
-		margin: 0px;
-		padding: 0px;
-	}
-	html {
-		padding-top: 32px;
-		-webkit-font-smoothing: subpixel-antialiased;
-	}
-	body {
-		background: #f1f1f1;
-		color: #444;
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-		font-size: 13px;
-		line-height: 1.4em;
-		min-width: 600px;
-	}
-	hr {
-		border: 0;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #fafafa;
-	}
-	/* Imitate wp-admin sidebar for layout purposes */
-	#adminmenu {
-		height: 100%;
-		width: 160px;
-		background-color: rgb(35, 40, 45);
-		position: fixed;
-		top: 0;
-	}
-	#wpadminbar {
-		direction: ltr;
-		color: #ccc;
-		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-		height: 32px;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		min-width: 600px;
-		z-index: 99999;
-		background: #23282d;
-	}
-	#wpcontent {
-		margin-left: 160px;
-		height: 100%;
-		padding-left: 20px;
-	}
-	/* Demo class only to help show off the grid */
-	.demo-block {
-		display: block;
-		border-radius: 3px;
-		background-color: #00AADF;
-		color: #fff;
-		text-align: center;
-		padding: 5px 0;
-		font-size: 12px;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		margin-bottom: 15px;
-	}
-	@media only screen and (max-width: 960px){
+		body,
+		html {
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		html {
+			padding-top: 32px;
+			-webkit-font-smoothing: subpixel-antialiased;
+		}
+
+		body {
+			background: #f1f1f1;
+			color: #444;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			font-size: 13px;
+			line-height: 1.4em;
+			min-width: 600px;
+		}
+
+		hr {
+			border: 0;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #fafafa;
+		}
+
+		/* Imitate wp-admin sidebar for layout purposes */
 		#adminmenu {
-			width: 36px;
+			height: 100%;
+			width: 160px;
+			background-color: rgb(35, 40, 45);
+			position: fixed;
+			top: 0;
+		}
+
+		#wpadminbar {
+			direction: ltr;
+			color: #ccc;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			height: 32px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			min-width: 600px;
+			z-index: 99999;
+			background: #23282d;
 		}
 
 		#wpcontent {
-			margin-left: 36px;
+			margin-left: 160px;
+			height: 100%;
+			padding-left: 20px;
 		}
-	}
-	@media screen and (max-width: 782px) {
-		body {
-			min-width: 240px;
-			overflow-x: hidden;
+
+		/* Demo class only to help show off the grid */
+		.demo-block {
+			display: block;
+			border-radius: 3px;
+			background-color: #00AADF;
+			color: #fff;
+			text-align: center;
+			padding: 5px 0;
+			font-size: 12px;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			margin-bottom: 15px;
 		}
-		#wpadminbar {
-			min-width: 300px;
+
+		@media only screen and (max-width: 960px) {
+			#adminmenu {
+				width: 36px;
+			}
+
+			#wpcontent {
+				margin-left: 36px;
+			}
 		}
-		#adminmenu {
-			display: none;
+
+		@media screen and (max-width: 782px) {
+			body {
+				min-width: 240px;
+				overflow-x: hidden;
+			}
+
+			#wpadminbar {
+				min-width: 300px;
+			}
+
+			#adminmenu {
+				display: none;
+			}
+
+			#wpcontent {
+				position: relative;
+				margin-left: 0;
+				padding-left: 10px;
+			}
 		}
-		#wpcontent {
-			position: relative;
-			margin-left: 0;
-			padding-left: 10px;
-		}
-	}
 	</style>
 </head>
 <body class="sui-2-0-0-alpha-1">
-	<div id="adminmenu"></div>
-	<div id="wpcontent">
+<div id="adminmenu"></div>
+<div id="wpcontent">
 	<div id="wpadminbar" class=""></div>
 	<div id="wpbody" role="main">
-	<div class="sui-wrap">
-		<div class="sui-notice sui-notice-top sui-notice-success">
-			<p>Notice success: Page caching is currently active.</p>
-			<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
-		</div>
-		<div class="sui-header">
-			<h1>Shared UI Demo</h1>
-			<div class="sui-actions-left">
-				<label class="sui-toggle">
-					<input type="checkbox">
-					<span class="sui-toggle-slider"></span>
-				</label>
+		<div class="sui-wrap">
+			<div class="sui-notice sui-notice-top sui-notice-success">
+				<p>Notice success: Page caching is currently active.</p>
+				<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
 			</div>
-			<div class="sui-actions-right">
-				<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation</button>
-			</div>
-		</div>
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Modals</h2>
-			</div>
-			<div class="sui-box-body">
-				<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Default Modal</a>
-				<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
-					<div class="sui-dialog-content">
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Text</label>
-									<input type="text" class="sui-form-control" placeholder="input type text">
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Text</label>
-									<input type="text" class="sui-form-control" placeholder="input type text">
-								</div>
-							</div>
-						</div>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Password</label>
-									<div class="sui-password-group">
-										<input type="password" class="sui-form-control" placeholder="input type password">
-										<button class="sui-password-toggle" type="button">
-											<span class="sui-screen-reader-text">Show Password</span>
-											<i aria-hidden="true" class="sui-ico-eye"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field sui-form-field-error">
-									<label class="sui-label">Error</label>
-									<input type="number" class="sui-form-control" placeholder="input type text">
-									<span class="sui-error-message">This is an error message</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="sui-modal-footer sui-modal-footer-space-between">
-						<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
-						<div class="sui-modal-footer-right">
-							<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
-						</div>
-					</div>
-				</dialog>
-				<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
-				<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!">
-					<div class="sui-dialog-content">
-						<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
-						<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
-					</div>
-					<div class="sui-modal-footer">
-						<button class="sui-modal-close sui-button">Got it</button>
-					</div>
-				</dialog>
-				<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
-				<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal">
-					<div class="sui-dialog-content">
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Text</label>
-									<input type="text" class="sui-form-control" placeholder="input type text">
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Text</label>
-									<input type="text" class="sui-form-control" placeholder="input type text">
-								</div>
-							</div>
-						</div>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Password</label>
-									<div class="sui-password-group">
-										<input type="password" class="sui-form-control" placeholder="input type password">
-										<button class="sui-password-toggle" type="button">
-											<span class="sui-screen-reader-text">Show Password</span>
-											<i aria-hidden="true" class="sui-ico-eye"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field sui-form-field-error">
-									<label class="sui-label">Error</label>
-									<input type="number" class="sui-form-control" placeholder="input type text">
-									<span class="sui-error-message">This is an error message</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="sui-modal-footer sui-modal-footer-right">
-						<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
-						<div class="sui-modal-footer-right">
-							<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
-						</div>
-					</div>
-				</dialog>
-			</div>
-		</div>
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Inputs</h2>
-			</div>
-			<div class="sui-box-body">
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Text</label>
-							<input type="text" class="sui-form-control" placeholder="input type text">
-						</div>
-					</div>
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Text</label>
-							<input type="text" class="sui-form-control" placeholder="input type text">
-						</div>
-					</div>
+			<div class="sui-header">
+				<h1>Shared UI Demo</h1>
+				<div class="sui-actions-left">
+					<label class="sui-toggle">
+						<input type="checkbox">
+						<span class="sui-toggle-slider"></span>
+					</label>
 				</div>
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Password</label>
-							<div class="sui-password-group">
-								<input type="password" class="sui-form-control" placeholder="input type password">
-								<button class="sui-password-toggle" type="button">
-									<span class="sui-screen-reader-text">Show Password</span>
-									<i aria-hidden="true" class="sui-ico-eye"></i>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="sui-col">
-						<div class="sui-form-field sui-form-field-error">
-							<label class="sui-label">Error</label>
-							<input type="number" class="sui-form-control" placeholder="input type text">
-							<span class="sui-error-message">This is an error message</span>
-						</div>
-					</div>
-				</div>
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Textarea</label>
-							<textarea class="sui-form-control"></textarea>
-						</div>
-					</div>
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Number</label>
-							<input type="number" class="sui-form-control" placeholder="input type number">
-						</div>
-					</div>
-				</div>
-				<div class="sui-form-field">
-					<label class="sui-label">Email</label>
-					<input type="email" class="sui-form-control" placeholder="input type email">
-				</div>
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">File</label>
-							<input type="file" class="sui-form-control">
-						</div>
-					</div>
-					<div class="sui-col">
-						<div class="sui-form-field">
-							<label class="sui-label">Server Type</label>
-							<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled" style="display: none;">
-								<option value="" selected="selected">Select Option</option>
-								<option value="apache">Apache</option>
-								<option value="LiteSpeed">LiteSpeed</option>
-								<option value="nginx">NGINX</option>
-								<option value="iis">IIS</option>
-								<option value="iis-7">IIS 7</option>
-								<option value="cloudflare">Cloudflare</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="sui-box sui-summary">
-			<div class="sui-summary-image-space">
-			</div>
-			<div class="sui-summary-segment">
-				<p><span class="sui-summary-large">97</span>/100</p>
-				<p><small>Last test date</small></p>
-				<p>December 12, 2017 at 1:46 am</p>
-			</div>
-			<div class="sui-summary-segment">
-				<ul class="sui-list">
-					<li>
-						<span class="sui-list-label">Previous score</span>
-						<span class="sui-list-detail">
-							<span class="sui-summary-number">76</span>
-						</span>
-					</li>
-					<li>
-						<span class="sui-list-label">Improvement</span>
-						<span class="sui-list-detail">
-							<span class="sui-pills">-1</span>
-						</span>
-					</li>
-					<li>
-						<span class="sui-list-label">Recommendations</span>
-						<span class="sui-list-detail">
-							<span class="sui-summary-number">4</span>
-						</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="sui-row-with-sidenav">
-			<div class="sui-sidenav">
-				<ul class="sui-vertical-tabs sui-sidenav-hide-md">
-					<li class="sui-vertical-tab current">
-						<a href="#database-optimisation">Database Optimisation</a>
-						<span class="sui-tag sui-tag-warning">4</span>
-					<li class="sui-vertical-tab ">
-						<a href="#reporting">Reporting</a>
-					</li>
-					<li class="sui-vertical-tab">
-						<a href="#lanskc">Content Creator</a>
-						<i class="sui-ico-check-tick" aria-hidden="true"></i>
-					</li>
-				</ul>
-				<div class="sui-sidenav-hide-lg">
-					<select class="sui-mobile-nav" style="display: none;">
-						<option value="" selected="selected">Improvements</option>
-						<option value="#reporting">Reporting</option>
-					</select>
+				<div class="sui-actions-right">
+					<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation
+					</button>
 				</div>
 			</div>
 			<div class="sui-box">
 				<div class="sui-box-header">
-					<h2 class="sui-box-title">Content With Sidebar</h2>
+					<h2 class="sui-box-title">Modals</h2>
 				</div>
 				<div class="sui-box-body">
+					<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Default Modal</a>
+					<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
+						<div class="sui-dialog-content">
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Text</label>
+										<input type="text" class="sui-form-control" placeholder="input type text">
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Text</label>
+										<input type="text" class="sui-form-control" placeholder="input type text">
+									</div>
+								</div>
+							</div>
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Password</label>
+										<div class="sui-password-group">
+											<input type="password" class="sui-form-control"
+												   placeholder="input type password">
+											<button class="sui-password-toggle" type="button">
+												<span class="sui-screen-reader-text">Show Password</span>
+												<i aria-hidden="true" class="sui-ico-eye"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field sui-form-field-error">
+										<label class="sui-label">Error</label>
+										<input type="number" class="sui-form-control" placeholder="input type text">
+										<span class="sui-error-message">This is an error message</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-modal-footer sui-modal-footer-space-between">
+							<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+							<div class="sui-modal-footer-right">
+								<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+							</div>
+						</div>
+					</dialog>
+					<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
+					<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!">
+						<div class="sui-dialog-content">
+							<p>Advanced mode gives you full control over your files but can easily break your website if
+								configured incorrectly.</p>
+							<p>We recommend you make one tweak at a time and check the frontend of your website each
+								change to avoid any mishaps. </p>
+						</div>
+						<div class="sui-modal-footer">
+							<button class="sui-modal-close sui-button">Got it</button>
+						</div>
+					</dialog>
+					<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
+					<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal">
+						<div class="sui-dialog-content">
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Text</label>
+										<input type="text" class="sui-form-control" placeholder="input type text">
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Text</label>
+										<input type="text" class="sui-form-control" placeholder="input type text">
+									</div>
+								</div>
+							</div>
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Password</label>
+										<div class="sui-password-group">
+											<input type="password" class="sui-form-control"
+												   placeholder="input type password">
+											<button class="sui-password-toggle" type="button">
+												<span class="sui-screen-reader-text">Show Password</span>
+												<i aria-hidden="true" class="sui-ico-eye"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field sui-form-field-error">
+										<label class="sui-label">Error</label>
+										<input type="number" class="sui-form-control" placeholder="input type text">
+										<span class="sui-error-message">This is an error message</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-modal-footer sui-modal-footer-right">
+							<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+							<div class="sui-modal-footer-right">
+								<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+							</div>
+						</div>
+					</dialog>
 				</div>
 			</div>
-		</div><!-- .sui-row -->
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Tabs</h2>
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Dropdown Menu</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-dropdown sui-dropdown-right">
+								<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+								<ul>
+									<li class="sui-dropdown-label">Options</li>
+
+									<li><a href="#remove">Add to sitemap</a></li>
+									<li><a href="#remove">Remove</a></li>
+
+									<li class="sui-dropdown-label">Options</li>
+
+									<li><a href="#remove">Add to sitemap</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-dropdown sui-dropdown-center">
+								<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+								<ul>
+									<li class="sui-dropdown-label">Options</li>
+
+									<li><a href="#remove">Add to sitemap</a></li>
+									<li><a href="#remove">Remove</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-dropdown">
+								<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+								<ul>
+									<li class="sui-dropdown-label">Options</li>
+
+									<li><a href="#remove">Add to sitemap</a></li>
+									<li><a href="#remove">Remove</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="sui-box-body">
-				<div class="sui-tabs">
-					<div class="sui-tab">
-						<label id="auto-apache" for="apache-config-auto" class="">Automatic</label>
-						<input type="radio" name="apache-config-type" id="apache-config-auto" checked>
-						<div class="sui-tab-content">
-							<span class="sub">Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</span>
-
-							<div class="sui-notice sui-notice-info">
-								<p>Automatic browser caching is active.</p>
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Inputs</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Text</label>
+								<input type="text" class="sui-form-control" placeholder="input type text">
 							</div>
-
-							<div>
-								<a href="#" class="sui-button sui-button-ghost">Deactivate</a>
+						</div>
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Text</label>
+								<input type="text" class="sui-form-control" placeholder="input type text">
 							</div>
-						</div><!-- end content -->
-					</div><!-- end tab -->
-					<div class="sui-tab">
-						<label id="manual-apache" for="apache-config-manual">Manual</label>
-						<input type="radio" name="apache-config-type" id="apache-config-manual">
-						<div class="sui-tab-content">
-							<div class="apache-instructions">
-								<p>Follow the steps below to add browser caching to your Apache server.</p>
+						</div>
+					</div>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Password</label>
+								<div class="sui-password-group">
+									<input type="password" class="sui-form-control" placeholder="input type password">
+									<button class="sui-password-toggle" type="button">
+										<span class="sui-screen-reader-text">Show Password</span>
+										<i aria-hidden="true" class="sui-ico-eye"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-form-field sui-form-field-error">
+								<label class="sui-label">Error</label>
+								<input type="number" class="sui-form-control" placeholder="input type text">
+								<span class="sui-error-message">This is an error message</span>
+							</div>
+						</div>
+					</div>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Textarea</label>
+								<textarea class="sui-form-control"></textarea>
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Number</label>
+								<input type="number" class="sui-form-control" placeholder="input type number">
+							</div>
+						</div>
+					</div>
+					<div class="sui-form-field">
+						<label class="sui-label">Email</label>
+						<input type="email" class="sui-form-control" placeholder="input type email">
+					</div>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">File</label>
+								<input type="file" class="sui-form-control">
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label class="sui-label">Server Type</label>
+								<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled"
+										style="display: none;">
+									<option value="" selected="selected">Select Option</option>
+									<option value="apache">Apache</option>
+									<option value="LiteSpeed">LiteSpeed</option>
+									<option value="nginx">NGINX</option>
+									<option value="iis">IIS</option>
+									<option value="iis-7">IIS 7</option>
+									<option value="cloudflare">Cloudflare</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-								<ol class="wphb-listing wphb-listing-ordered">
-									<li>Copy the generated code into your .htaccess file &amp; save your changes.</li>
-									<li>Restart Apache.</li>
-									<li><a href="#">Re-check expiry status.</a></li>
-								</ol>
+			<div class="sui-box sui-summary">
+				<div class="sui-summary-image-space">
+				</div>
+				<div class="sui-summary-segment">
+					<p><span class="sui-summary-large">97</span>/100</p>
+					<p>
+						<small>Last test date</small>
+					</p>
+					<p>December 12, 2017 at 1:46 am</p>
+				</div>
+				<div class="sui-summary-segment">
+					<ul class="sui-list">
+						<li>
+							<span class="sui-list-label">Previous score</span>
+							<span class="sui-list-detail">
+							<span class="sui-summary-number">76</span>
+						</span>
+						</li>
+						<li>
+							<span class="sui-list-label">Improvement</span>
+							<span class="sui-list-detail">
+							<span class="sui-pills">-1</span>
+						</span>
+						</li>
+						<li>
+							<span class="sui-list-label">Recommendations</span>
+							<span class="sui-list-detail">
+							<span class="sui-summary-number">4</span>
+						</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sui-row-with-sidenav">
+				<div class="sui-sidenav">
+					<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+						<li class="sui-vertical-tab current">
+							<a href="#database-optimisation">Database Optimisation</a>
+							<span class="sui-tag sui-tag-warning">4</span>
+						<li class="sui-vertical-tab ">
+							<a href="#reporting">Reporting</a>
+						</li>
+						<li class="sui-vertical-tab">
+							<a href="#lanskc">Content Creator</a>
+							<i class="sui-ico-check-tick" aria-hidden="true"></i>
+						</li>
+					</ul>
+					<div class="sui-sidenav-hide-lg">
+						<select class="sui-mobile-nav" style="display: none;">
+							<option value="" selected="selected">Improvements</option>
+							<option value="#reporting">Reporting</option>
+						</select>
+					</div>
+				</div>
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Content With Sidebar</h2>
+					</div>
+					<div class="sui-box-body">
+					</div>
+				</div>
+			</div><!-- .sui-row -->
 
-								<div id="wphb-code-snippet">
-									<div id="wphb-code-snippet-apache" class="wphb-code-snippet">
-										<div class="wphb-block-content">
-											<button class="button button-grey" data-clipboard-target="#wphb-apache">Copy</button>
-											<pre id="wphb-apache">&lt;IfModule mod_expires.c&gt;
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Tabs</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="sui-tabs">
+						<div class="sui-tab">
+							<label id="auto-apache" for="apache-config-auto" class="">Automatic</label>
+							<input type="radio" name="apache-config-type" id="apache-config-auto" checked>
+							<div class="sui-tab-content">
+								<span class="sub">Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</span>
+
+								<div class="sui-notice sui-notice-info">
+									<p>Automatic browser caching is active.</p>
+								</div>
+
+								<div>
+									<a href="#" class="sui-button sui-button-ghost">Deactivate</a>
+								</div>
+							</div><!-- end content -->
+						</div><!-- end tab -->
+						<div class="sui-tab">
+							<label id="manual-apache" for="apache-config-manual">Manual</label>
+							<input type="radio" name="apache-config-type" id="apache-config-manual">
+							<div class="sui-tab-content">
+								<div class="apache-instructions">
+									<p>Follow the steps below to add browser caching to your Apache server.</p>
+
+									<ol class="wphb-listing wphb-listing-ordered">
+										<li>Copy the generated code into your .htaccess file &amp; save your changes.
+										</li>
+										<li>Restart Apache.</li>
+										<li><a href="#">Re-check expiry status.</a></li>
+									</ol>
+
+									<div id="wphb-code-snippet">
+										<div id="wphb-code-snippet-apache" class="wphb-code-snippet">
+											<div class="wphb-block-content">
+												<button class="button button-grey" data-clipboard-target="#wphb-apache">
+													Copy
+												</button>
+												<pre id="wphb-apache">&lt;IfModule mod_expires.c&gt;
 ExpiresActive On
 ExpiresDefault A0
 
@@ -450,1283 +520,1354 @@ ExpiresDefault A691200
    Header set Cache-Control "max-age=691200"
   &lt;/FilesMatch&gt;
 &lt;/IfModule&gt;</pre>
+											</div>
 										</div>
 									</div>
-								</div>
-								<p><strong>Troubleshooting</strong></p>
-								<p>If adding the rules to your .htaccess doesn’t work and you have access to vhosts.conf or httpd.conf try to find the line that starts with &lt;Directory&gt; - add the code above into that section and save the file.</p>
-								<p>If you don't know where those files are, or you aren't able to reload Apache, you would need to consult with your hosting provider or a system administrator who has access to change the configuration of your server</p>
-								<p>Still having trouble? <a target="_blank" href="https://premium.wpmudev.org/live-support/">Start a live chat.</a></p>
-							</div><!-- end apache-instructions -->
-						</div><!-- end content -->
-					</div><!-- end tab -->
-				</div>
-			</div>
-		</div>
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Select Box</h2>
-			</div>
-			<div class="sui-box-body">
-				<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled" style="display: none;">
-					<option value="" selected="selected">Select Option</option>
-					<option value="apache">Apache</option>
-					<option value="LiteSpeed">LiteSpeed</option>
-					<option value="nginx">NGINX</option>
-					<option value="iis">IIS</option>
-					<option value="iis-7">IIS 7</option>
-					<option value="cloudflare">Cloudflare</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Tags</h2>
-			</div>
-			<div class="sui-box-body">
-				<div class="sui-row">
-					<div class="sui-col">
-						<code>sui-tag sui-tag-warning</code><br>
-						<span class="sui-tag sui-tag-warning">+1</span>
-					</div>
-					<div class="sui-col">
-						<code>sui-tag sui-tag-success</code><br>
-						<span class="sui-tag sui-tag-success">+1</span>
-					</div>
-					<div class="sui-col">
-						<code>sui-tag sui-tag-error</code><br>
-						<span class="sui-tag sui-tag-error">+1</span>
+									<p><strong>Troubleshooting</strong></p>
+									<p>If adding the rules to your .htaccess doesn’t work and you have access to
+										vhosts.conf or httpd.conf try to find the line that starts with &lt;Directory&gt;
+										- add the code above into that section and save the file.</p>
+									<p>If you don't know where those files are, or you aren't able to reload Apache, you
+										would need to consult with your hosting provider or a system administrator who
+										has access to change the configuration of your server</p>
+									<p>Still having trouble? <a target="_blank"
+																href="https://premium.wpmudev.org/live-support/">Start a
+										live chat.</a></p>
+								</div><!-- end apache-instructions -->
+							</div><!-- end content -->
+						</div><!-- end tab -->
 					</div>
 				</div>
-				<br>
-				<div class="sui-row">
-					<div class="sui-col">
-						<code>sui-tag sui-tag-inactive</code><br>
-						<span class="sui-tag sui-tag-inactive">+1</span>
-					</div>
-					<div class="sui-col">
-						<code>sui-tag sui-tag-disabled</code><br>
-						<span class="sui-tag sui-tag-disabled">+1</span>
-					</div>
-					<div class="sui-col">
-						<code>sui-tag sui-tag-upgrade</code><br>
-						<span class="sui-tag sui-tag-upgrade">+1</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Grid</h2>
-			</div>
-			<div class="sui-box-body">
-				<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space within row <code>.sui-row</code>:</p>
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="demo-block">.sui-col</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">.sui-col</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">.sui-col</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-md-hidden">
-						<div class="demo-block">.sui-col</div>
-					</div>
-					<div class="sui-col-md-hidden">
-						<div class="demo-block">.sui-col</div>
-					</div>
-					<div class="sui-col-md-hidden">
-						<div class="demo-block">.sui-col</div>
-					</div>
-				</div><!-- .sui-row -->
-				<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query behavior but also powered by flexbox rather than floats:</p>
-				<div class="sui-row">
-					<div class="sui-col-md-3">
-						<div class="demo-block">.sui-col-md-3</div>
-					</div>
-					<div class="sui-col-md-6">
-						<div class="demo-block">.sui-col-md-6</div>
-					</div>
-					<div class="sui-col-md-3">
-						<div class="demo-block">.sui-col-md-3</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-lg-3">
-						<div class="demo-block">.sui-col-lg-3</div>
-					</div>
-					<div class="sui-col-lg-3">
-						<div class="demo-block">.sui-col-lg-3</div>
-					</div>
-					<div class="sui-col-lg-3">
-						<div class="demo-block">.sui-col-lg-3</div>
-					</div>
-					<div class="sui-col-lg-3">
-						<div class="demo-block">.sui-col-lg-3</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-sm-9">
-						<div class="demo-block">.sui-col-sm-9</div>
-					</div>
-					<div class="sui-col-sm-3">
-						<div class="demo-block">.sui-col-sm-3</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-lg-4">
-						<div class="demo-block">.sui-col-lg-4</div>
-					</div>
-					<div class="sui-col-lg-4 sui-col-lg-offset-4">
-						<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-sm-8 sui-col-sm-offset-4">
-						<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
-					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-row">
-					<div class="sui-col-sm-7 sui-col-sm-offset-5">
-						<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
-					</div>
-				</div><!-- .sui-row -->
-				<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element:</p>
-				<div class="sui-row">
-					<div class="sui-col">
-						<div class="demo-block">1</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">2</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">3</div>
-					</div>
-				</div><!-- .sui-row -->
-				<p>Reversed:</p>
-				<div class="sui-row sui-reverse">
-					<div class="sui-col">
-						<div class="demo-block">1</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">2</div>
-					</div>
-					<div class="sui-col">
-						<div class="demo-block">3</div>
-					</div>
-				</div><!-- .sui-row -->
-				<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will hide it between the defined breakpoints in variables. Note: If you want it to stay hidden for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code>  :</p>
-				<div class="sui-row">
-					<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
-						<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
-					</div>
-					<div class="sui-col sui-hidden-md">
-						<div class="demo-block">.sui-hidden-md</div>
-					</div>
-					<div class="sui-col sui-hidden-lg">
-						<div class="demo-block">.sui-hidden-lg</div>
-					</div>
-				</div><!-- .sui-row -->
-			</div>
-		</div>
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Loader</h2>
-			</div>
-			<div class="sui-box-body">
-				<i class="sui-ico-loader sui-loading sui-lg"></i> Large loader
-				<br>
-				<i class="sui-ico-loader sui-loading"></i> Default loader
-				<br>
-				<i class="sui-ico-loader sui-loading sui-xs"></i> Small loader
-			</div>
-		</div><!-- .sui-box -->
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Buttons</h2>
-			</div>
-			<div class="sui-box-body">
-				<div class="sui-notice">
-					<p>Notice default: Page caching is currently active.</p>
-				</div>
-				<div class="sui-notice sui-notice-success">
-					<p>Notice success: Page caching is currently active.</p>
-					<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
-				</div>
-				<div class="sui-notice sui-notice-warning">
-					<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-				<div class="sui-notice sui-notice-error">
-					<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-				<div class="sui-notice sui-notice-info">
-					<p>Notice info: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-				<div class="sui-notice sui-notice-sm">
-					<p>Notice default: Page caching is currently active.</p>
-				</div>
-				<div class="sui-notice sui-notice-sm sui-notice-success">
-					<p>Page caching is currently active.</p>
-				</div>
-				<div class="sui-notice sui-notice-sm sui-notice-warning">
-					<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-					<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
-				</div>
-				<div class="sui-notice sui-notice-sm sui-notice-error">
-					<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-				<div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick">
-					<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-				<div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon">
-					<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
-				</div>
-			</div>
-		</div><!-- .sui-box -->
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Tooltips</h2>
-			</div>
-			<div class="sui-box-body">
-				<button class="sui-button sui-tooltip" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Default</button>
-				<button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Bottom Left</button>
-				<button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Bottom Right</button>
-				<button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Top Left</button>
-				<button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Top Right</button>
-				<button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Left</button>
-				<button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Right</button>
-				<br>
-				<br>
-				<button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip Constrained</button>
 			</div>
 
-		</div><!-- .sui-box -->
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Select Box</h2>
+				</div>
+				<div class="sui-box-body">
+					<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled"
+							style="display: none;">
+						<option value="" selected="selected">Select Option</option>
+						<option value="apache">Apache</option>
+						<option value="LiteSpeed">LiteSpeed</option>
+						<option value="nginx">NGINX</option>
+						<option value="iis">IIS</option>
+						<option value="iis-7">IIS 7</option>
+						<option value="cloudflare">Cloudflare</option>
+					</select>
+				</div>
+			</div>
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Buttons</h2>
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Tags</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="sui-row">
+						<div class="sui-col">
+							<code>sui-tag sui-tag-warning</code><br>
+							<span class="sui-tag sui-tag-warning">+1</span>
+						</div>
+						<div class="sui-col">
+							<code>sui-tag sui-tag-success</code><br>
+							<span class="sui-tag sui-tag-success">+1</span>
+						</div>
+						<div class="sui-col">
+							<code>sui-tag sui-tag-error</code><br>
+							<span class="sui-tag sui-tag-error">+1</span>
+						</div>
+					</div>
+					<br>
+					<div class="sui-row">
+						<div class="sui-col">
+							<code>sui-tag sui-tag-inactive</code><br>
+							<span class="sui-tag sui-tag-inactive">+1</span>
+						</div>
+						<div class="sui-col">
+							<code>sui-tag sui-tag-disabled</code><br>
+							<span class="sui-tag sui-tag-disabled">+1</span>
+						</div>
+						<div class="sui-col">
+							<code>sui-tag sui-tag-upgrade</code><br>
+							<span class="sui-tag sui-tag-upgrade">+1</span>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="sui-box-body">
-				<button class="sui-button">Default Button</button>
-				<button class="sui-button sui-button-primary">Primary Button</button>
-				<button class="sui-button sui-button-red">Red Button</button>
-				<button class="sui-button sui-button-green">Green Button</button>
-				<button class="sui-button sui-button-ghost">Ghost Button</button>
-				<br>
-				<br>
-				<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
-				<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost</button>
-				<br>
-				<br>
-				<button class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert"></i> &nbsp; Large Button Ghost Icon</button>
-				<button class="sui-button sui-button-ghost sui-button-green"><i class="sui-ico-alert"></i> &nbsp; Green Button Icon</button>
-				<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost Icon Right  &nbsp;<i class="sui-ico-alert"></i></button>
-				<button class="sui-button sui-button-green">Green Button Icon Right  &nbsp;<i class="sui-ico-alert"></i></button>
-			</div>
-		</div><!-- .sui-box -->
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Typography</h2>
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Grid</h2>
+				</div>
+				<div class="sui-box-body">
+					<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space within
+						row <code>.sui-row</code>:</p>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="demo-block">.sui-col</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">.sui-col</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">.sui-col</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-md-hidden">
+							<div class="demo-block">.sui-col</div>
+						</div>
+						<div class="sui-col-md-hidden">
+							<div class="demo-block">.sui-col</div>
+						</div>
+						<div class="sui-col-md-hidden">
+							<div class="demo-block">.sui-col</div>
+						</div>
+					</div><!-- .sui-row -->
+					<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query
+						behavior but also powered by flexbox rather than floats:</p>
+					<div class="sui-row">
+						<div class="sui-col-md-3">
+							<div class="demo-block">.sui-col-md-3</div>
+						</div>
+						<div class="sui-col-md-6">
+							<div class="demo-block">.sui-col-md-6</div>
+						</div>
+						<div class="sui-col-md-3">
+							<div class="demo-block">.sui-col-md-3</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-lg-3">
+							<div class="demo-block">.sui-col-lg-3</div>
+						</div>
+						<div class="sui-col-lg-3">
+							<div class="demo-block">.sui-col-lg-3</div>
+						</div>
+						<div class="sui-col-lg-3">
+							<div class="demo-block">.sui-col-lg-3</div>
+						</div>
+						<div class="sui-col-lg-3">
+							<div class="demo-block">.sui-col-lg-3</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-sm-9">
+							<div class="demo-block">.sui-col-sm-9</div>
+						</div>
+						<div class="sui-col-sm-3">
+							<div class="demo-block">.sui-col-sm-3</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-lg-4">
+							<div class="demo-block">.sui-col-lg-4</div>
+						</div>
+						<div class="sui-col-lg-4 sui-col-lg-offset-4">
+							<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-sm-8 sui-col-sm-offset-4">
+							<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
+						</div>
+					</div><!-- .sui-row -->
+					<div class="sui-row">
+						<div class="sui-col-sm-7 sui-col-sm-offset-5">
+							<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
+						</div>
+					</div><!-- .sui-row -->
+					<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to the
+						<code>.sui-row</code> element:</p>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="demo-block">1</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">2</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">3</div>
+						</div>
+					</div><!-- .sui-row -->
+					<p>Reversed:</p>
+					<div class="sui-row sui-reverse">
+						<div class="sui-col">
+							<div class="demo-block">1</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">2</div>
+						</div>
+						<div class="sui-col">
+							<div class="demo-block">3</div>
+						</div>
+					</div><!-- .sui-row -->
+					<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
+						hide it between the defined breakpoints in variables. Note: If you want it to stay hidden for
+						all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md
+							.sui-hidden-sm .sui-hidden-xs</code> :</p>
+					<div class="sui-row">
+						<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
+							<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
+						</div>
+						<div class="sui-col sui-hidden-md">
+							<div class="demo-block">.sui-hidden-md</div>
+						</div>
+						<div class="sui-col sui-hidden-lg">
+							<div class="demo-block">.sui-hidden-lg</div>
+						</div>
+					</div><!-- .sui-row -->
+				</div>
 			</div>
-			<div class="sui-box-body">
-				<h1>Heading 1</h1>
-				<h2>Heading 2</h2>
-				<h3>Heading 3</h3>
-				<h4>Heading 4</h4>
-				<h5>Heading 5</h5>
-				<h6>Heading 6</h6>
-				<p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie eget massa non consectetur. Vestibulumquam
-					nibh, ultrices non efficitur a, luctus eu tortor. Pellentesque feugiat, est at ultrices vestibulum, sem mauris hendreritsapien,
-					nec ullamcorper neque magna non lorem. Phasellus facilisis nulla ac fringilla interdum. Donec congue metus seddiam ultrices
-					consectetur. Curabitur accumsan felis magna, et varius neque convallis in. Vivamus sagittis risus tinciduntnibh tincidunt,
-					nec auctor nunc vestibulum. Vestibulum venenatis velit mauris, eget efficitur leo mattis sed. Ut ut commodoorci, hendrerit
-					commodo libero. Quisque volutpat mattis lectus, nec placerat purus lacinia vitae. Integer malesuada quislibero hendrerit
-					imperdiet. Curabitur a luctus massa. Integer hendrerit nunc id varius rutrum.</p>
-				<p>Paragraph small:
-					<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie eget massa non consectetur. Vestibulum quam nibh,
-						ultrices non efficitur a, luctus eu tortor. Pellentesque feugiat, est at ultrices vestibulum, sem mauris hendrerit sapien,
-						nec ullamcorper neque magna non lorem. Phasellus facilisis nulla ac fringilla interdum. Donec congue metus sed diam ultrices
-						consectetur. Curabitur accumsan felis magna, et varius neque convallis in. Vivamus sagittis risus tincidunt nibh tincidunt,nec
-						auctor nunc vestibulum. Vestibulum venenatis velit mauris, eget efficitur leo mattis sed. Ut ut commodo orci, hendreritcommodo
-						libero. Quisque volutpat mattis lectus, nec placerat purus lacinia vitae. Integer malesuada quis libero hendreritimperdiet.
-						Curabitur a luctus massa. Integer hendrerit nunc id varius rutrum.</small>
-				</p>
-				<a href="#">Link Text</a>
-				<br>
-				<dfn>DFN Text</dfn>
-				<br>
-				<strong>Strong Text</strong>
-			</div>
-		</div><!-- .sui-box -->
 
-		<div class="sui-box">
-			<div class="sui-box-body">
-				<p>Box - No title - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane ad rem; Quid est, quod ab ea absolvi et
-					perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus copulationesque et consuetudinum
-					instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum, sed ubi illud: Plus semper
-					voluptatis?</p>
-			</div>
-		</div><!-- .sui-box -->
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Loader</h2>
+				</div>
+				<div class="sui-box-body">
+					<i class="sui-ico-loader sui-loading sui-lg"></i> Large loader
+					<br>
+					<i class="sui-ico-loader sui-loading"></i> Default loader
+					<br>
+					<i class="sui-ico-loader sui-loading sui-xs"></i> Small loader
+				</div>
+			</div><!-- .sui-box -->
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h3 class="sui-box-title">Box - Action buttons at bottom</h3>
-			</div>
-			<div class="sui-box-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio Peripateticorum. An vero,
-					inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae vivere, a natura discedere.
-					Sed venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest verius. Nihil opus est exemplis
-					hoc facere longius.Duo Reges: constructio interrete. Ita credo.</p>
-			</div>
-			<div class="sui-box-footer">
-				<button class="sui-button sui-button-green sui-button-lg">Default Button</button>
-			</div>
-		</div><!-- .sui-box -->
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Buttons</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="sui-notice">
+						<p>Notice default: Page caching is currently active.</p>
+					</div>
+					<div class="sui-notice sui-notice-success">
+						<p>Notice success: Page caching is currently active.</p>
+						<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
+					</div>
+					<div class="sui-notice sui-notice-warning">
+						<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
+					</div>
+					<div class="sui-notice sui-notice-error">
+						<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
+					</div>
+					<div class="sui-notice sui-notice-info">
+						<p>Notice info: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
+					</div>
+					<div class="sui-notice sui-notice-sm">
+						<p>Notice default: Page caching is currently active.</p>
+					</div>
+					<div class="sui-notice sui-notice-sm sui-notice-success">
+						<p>Page caching is currently active.</p>
+					</div>
+					<div class="sui-notice sui-notice-sm sui-notice-warning">
+						<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
+						<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
+					</div>
+					<div class="sui-notice sui-notice-sm sui-notice-error">
+						<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8 days.</p>
+					</div>
+					<div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick">
+						<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended
+							expiry period of 8 days.</p>
+					</div>
+					<div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon">
+						<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended
+							expiry period of 8 days.</p>
+					</div>
+				</div>
+			</div><!-- .sui-box -->
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i> Title with Button</h3>
-				<button class="sui-button sui-button">Default Button</button>
-			</div>
-			<div class="sui-box-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio? Post enim Chrysippum
-					eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse
-					quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio. Quae cum ita sint, effectum
-					est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis est enim de virtutis dignitate
-					contentio.</p>
-			</div>
-		</div><!-- .sui-box -->
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Tooltips</h2>
+				</div>
+				<div class="sui-box-body">
+					<button class="sui-button sui-tooltip"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Default
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-bottom-left"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Bottom Left
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-bottom-right"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Bottom Right
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-top-left"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Top Left
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-top-right"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Top Right
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-left"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Left
+					</button>
+					<button class="sui-button sui-tooltip sui-tooltip-right"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Right
+					</button>
+					<br>
+					<br>
+					<button class="sui-button sui-tooltip sui-tooltip-constrained"
+							data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">Tooltip
+						Constrained
+					</button>
+				</div>
 
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Toggles</h2>
-				<label class="sui-toggle">
-					<input type="checkbox">
-					<span class="sui-toggle-slider"></span>
-				</label>
-			</div>
-			<div class="sui-box-body">
-				<p>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Buttons</h2>
+				</div>
+				<div class="sui-box-body">
+					<button class="sui-button">Default Button</button>
+					<button class="sui-button sui-button-primary">Primary Button</button>
+					<button class="sui-button sui-button-red">Red Button</button>
+					<button class="sui-button sui-button-green">Green Button</button>
+					<button class="sui-button sui-button-ghost">Ghost Button</button>
+					<br>
+					<br>
+					<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
+					<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost</button>
+					<br>
+					<br>
+					<button class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert"></i> &nbsp; Large
+						Button Ghost Icon
+					</button>
+					<button class="sui-button sui-button-ghost sui-button-green"><i class="sui-ico-alert"></i> &nbsp;
+						Green Button Icon
+					</button>
+					<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost Icon Right &nbsp;<i
+						class="sui-ico-alert"></i></button>
+					<button class="sui-button sui-button-green">Green Button Icon Right &nbsp;<i
+						class="sui-ico-alert"></i></button>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Typography</h2>
+				</div>
+				<div class="sui-box-body">
+					<h1>Heading 1</h1>
+					<h2>Heading 2</h2>
+					<h3>Heading 3</h3>
+					<h4>Heading 4</h4>
+					<h5>Heading 5</h5>
+					<h6>Heading 6</h6>
+					<p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie eget massa
+						non consectetur. Vestibulumquam
+						nibh, ultrices non efficitur a, luctus eu tortor. Pellentesque feugiat, est at ultrices
+						vestibulum, sem mauris hendreritsapien,
+						nec ullamcorper neque magna non lorem. Phasellus facilisis nulla ac fringilla interdum. Donec
+						congue metus seddiam ultrices
+						consectetur. Curabitur accumsan felis magna, et varius neque convallis in. Vivamus sagittis
+						risus tinciduntnibh tincidunt,
+						nec auctor nunc vestibulum. Vestibulum venenatis velit mauris, eget efficitur leo mattis sed. Ut
+						ut commodoorci, hendrerit
+						commodo libero. Quisque volutpat mattis lectus, nec placerat purus lacinia vitae. Integer
+						malesuada quislibero hendrerit
+						imperdiet. Curabitur a luctus massa. Integer hendrerit nunc id varius rutrum.</p>
+					<p>Paragraph small:
+						<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie eget massa non
+							consectetur. Vestibulum quam nibh,
+							ultrices non efficitur a, luctus eu tortor. Pellentesque feugiat, est at ultrices
+							vestibulum, sem mauris hendrerit sapien,
+							nec ullamcorper neque magna non lorem. Phasellus facilisis nulla ac fringilla interdum.
+							Donec congue metus sed diam ultrices
+							consectetur. Curabitur accumsan felis magna, et varius neque convallis in. Vivamus sagittis
+							risus tincidunt nibh tincidunt,nec
+							auctor nunc vestibulum. Vestibulum venenatis velit mauris, eget efficitur leo mattis sed. Ut
+							ut commodo orci, hendreritcommodo
+							libero. Quisque volutpat mattis lectus, nec placerat purus lacinia vitae. Integer malesuada
+							quis libero hendreritimperdiet.
+							Curabitur a luctus massa. Integer hendrerit nunc id varius rutrum.
+						</small>
+					</p>
+					<a href="#">Link Text</a>
+					<br>
+					<dfn>DFN Text</dfn>
+					<br>
+					<strong>Strong Text</strong>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-body">
+					<p>Box - No title - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane ad
+						rem; Quid est, quod ab ea absolvi et
+						perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus
+						copulationesque et consuetudinum
+						instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum, sed
+						ubi illud: Plus semper
+						voluptatis?</p>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h3 class="sui-box-title">Box - Action buttons at bottom</h3>
+				</div>
+				<div class="sui-box-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio
+						Peripateticorum. An vero,
+						inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae vivere,
+						a natura discedere.
+						Sed venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest verius.
+						Nihil opus est exemplis
+						hoc facere longius.Duo Reges: constructio interrete. Ita credo.</p>
+				</div>
+				<div class="sui-box-footer">
+					<button class="sui-button sui-button-green sui-button-lg">Default Button</button>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i> Title
+						with Button</h3>
+					<button class="sui-button sui-button">Default Button</button>
+				</div>
+				<div class="sui-box-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio?
+						Post enim Chrysippum
+						eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe vim
+						voluptatis Epicurum nosse
+						quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio. Quae
+						cum ita sint, effectum
+						est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis est
+						enim de virtutis dignitate
+						contentio.</p>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Toggles</h2>
 					<label class="sui-toggle">
 						<input type="checkbox">
 						<span class="sui-toggle-slider"></span>
 					</label>
-				</p>
-				<p>
-					<label class="sui-toggle">
-						<input type="checkbox" disabled>
-						<span class="sui-toggle-slider"></span>
-					</label>
-				</p>
-			</div>
-		</div><!-- .sui-box -->
-
-		<div class="sui-box">
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Icons</h2>
-			</div>
-			<div class="sui-box-body">
-				<div class="section-header">
-					<h2>Icons</h2>
-					<i class="sui-ico-social-apple sui-lg" aria-hidden="true"></i>
-					<i class="sui-ico-social-apple" aria-hidden="true"></i>
-					<i class="sui-ico-social-apple sui-sm" aria-hidden="true"></i>
-					<i class="sui-ico-social-apple sui-xs" aria-hidden="true"></i>
-
 				</div>
-				<pre>&lt;i class="sui-ico-social-apple sui-lg" aria-hidden="true"&gt;&lt;/i&gt;
+				<div class="sui-box-body">
+					<p>
+						<label class="sui-toggle">
+							<input type="checkbox">
+							<span class="sui-toggle-slider"></span>
+						</label>
+					</p>
+					<p>
+						<label class="sui-toggle">
+							<input type="checkbox" disabled>
+							<span class="sui-toggle-slider"></span>
+						</label>
+					</p>
+				</div>
+			</div><!-- .sui-box -->
+
+			<div class="sui-box">
+				<div class="sui-box-header">
+					<h2 class="sui-box-title">Icons</h2>
+				</div>
+				<div class="sui-box-body">
+					<div class="section-header">
+						<h2>Icons</h2>
+						<i class="sui-ico-social-apple sui-lg" aria-hidden="true"></i>
+						<i class="sui-ico-social-apple" aria-hidden="true"></i>
+						<i class="sui-ico-social-apple sui-sm" aria-hidden="true"></i>
+						<i class="sui-ico-social-apple sui-xs" aria-hidden="true"></i>
+
+					</div>
+					<pre>&lt;i class="sui-ico-social-apple sui-lg" aria-hidden="true"&gt;&lt;/i&gt;
 &lt;i class="sui-ico-social-apple" aria-hidden="true"&gt;&lt;/i&gt;
 &lt;i class="sui-ico-social-apple sui-sm" aria-hidden="true"&gt;&lt;/i&gt;
 &lt;i class="sui-ico-social-apple sui-xs" aria-hidden="true"&gt;&lt;/i&gt;</pre>
-				<p>Note: to improve web accessibility, we recommend using aria-hidden="true" to hide icons used purely for
-					decoration.</p>
-				<p>These are the following icons that are available. Each icon code needs to be prefixed with <code>sui-ico-</code> to show the icon.</p>
+					<p>Note: to improve web accessibility, we recommend using aria-hidden="true" to hide icons used
+						purely for
+						decoration.</p>
+					<p>These are the following icons that are available. Each icon code needs to be prefixed with <code>sui-ico-</code>
+						to show the icon.</p>
 
-				<div class="sui-row">
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-24-hour-support sui-fw" aria-hidden="true"></i>
-						<code>24-hour-support</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-2factor-authentication-security sui-fw" aria-hidden="true"></i>
-						<code>2factor-authentication-security</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-IP sui-fw" aria-hidden="true"></i>
-						<code>IP</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-ab-testing sui-fw" aria-hidden="true"></i>
-						<code>ab-testing</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-academy sui-fw" aria-hidden="true"></i>
-						<code>academy</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-alert sui-fw" aria-hidden="true"></i>
-						<code>alert</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-align-center sui-fw" aria-hidden="true"></i>
-						<code>align-center</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-align-justify sui-fw" aria-hidden="true"></i>
-						<code>align-justify</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-align-left sui-fw" aria-hidden="true"></i>
-						<code>align-left</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-align-right sui-fw" aria-hidden="true"></i>
-						<code>align-right</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-animation-video sui-fw" aria-hidden="true"></i>
-						<code>animation-video</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-annotate sui-fw" aria-hidden="true"></i>
-						<code>annotate</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-archive sui-fw" aria-hidden="true"></i>
-						<code>archive</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-down sui-fw" aria-hidden="true"></i>
-						<code>arrow-down</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-down-carats sui-fw" aria-hidden="true"></i>
-						<code>arrow-down-carats</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-left sui-fw" aria-hidden="true"></i>
-						<code>arrow-left</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-left-carats sui-fw" aria-hidden="true"></i>
-						<code>arrow-left-carats</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-location sui-fw" aria-hidden="true"></i>
-						<code>arrow-location</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-pointer-cursor sui-fw" aria-hidden="true"></i>
-						<code>arrow-pointer-cursor</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-return-back sui-fw" aria-hidden="true"></i>
-						<code>arrow-return-back</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-right sui-fw" aria-hidden="true"></i>
-						<code>arrow-right</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-right-carats sui-fw" aria-hidden="true"></i>
-						<code>arrow-right-carats</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-up sui-fw" aria-hidden="true"></i>
-						<code>arrow-up</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrow-up-carats sui-fw" aria-hidden="true"></i>
-						<code>arrow-up-carats</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrows-compress sui-fw" aria-hidden="true"></i>
-						<code>arrows-compress</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrows-expand sui-fw" aria-hidden="true"></i>
-						<code>arrows-expand</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrows-in sui-fw" aria-hidden="true"></i>
-						<code>arrows-in</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-arrows-out sui-fw" aria-hidden="true"></i>
-						<code>arrows-out</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-asterisk sui-fw" aria-hidden="true"></i>
-						<code>asterisk</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-at-sign sui-fw" aria-hidden="true"></i>
-						<code>at-sign</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-audio-sound sui-fw" aria-hidden="true"></i>
-						<code>audio-sound</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-blog sui-fw" aria-hidden="true"></i>
-						<code>blog</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-bold sui-fw" aria-hidden="true"></i>
-						<code>bold</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-book sui-fw" aria-hidden="true"></i>
-						<code>book</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-book-bookmark sui-fw" aria-hidden="true"></i>
-						<code>book-bookmark</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-bookmark sui-fw" aria-hidden="true"></i>
-						<code>bookmark</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-brush sui-fw" aria-hidden="true"></i>
-						<code>brush</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-buddypress sui-fw" aria-hidden="true"></i>
-						<code>buddypress</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-calendar sui-fw" aria-hidden="true"></i>
-						<code>calendar</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-camera sui-fw" aria-hidden="true"></i>
-						<code>camera</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-check sui-fw" aria-hidden="true"></i>
-						<code>check</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-check-tick sui-fw" aria-hidden="true"></i>
-						<code>check-tick</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-clipboard-notes sui-fw" aria-hidden="true"></i>
-						<code>clipboard-notes</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-clock sui-fw" aria-hidden="true"></i>
-						<code>clock</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-close sui-fw" aria-hidden="true"></i>
-						<code>close</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-cloud sui-fw" aria-hidden="true"></i>
-						<code>cloud</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-cloud-migration sui-fw" aria-hidden="true"></i>
-						<code>cloud-migration</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-cloudflare sui-fw" aria-hidden="true"></i>
-						<code>cloudflare</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-code sui-fw" aria-hidden="true"></i>
-						<code>code</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-coffee-cup sui-fw" aria-hidden="true"></i>
-						<code>coffee-cup</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-color-pick-eyedropper sui-fw" aria-hidden="true"></i>
-						<code>color-pick-eyedropper</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-comment sui-fw" aria-hidden="true"></i>
-						<code>comment</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-comment-3 sui-fw" aria-hidden="true"></i>
-						<code>comment-3</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-comments sui-fw" aria-hidden="true"></i>
-						<code>comments</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-community-people sui-fw" aria-hidden="true"></i>
-						<code>community-people</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-compass sui-fw" aria-hidden="true"></i>
-						<code>compass</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-credit-card sui-fw" aria-hidden="true"></i>
-						<code>credit-card</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-crop sui-fw" aria-hidden="true"></i>
-						<code>crop</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-cross-close sui-fw" aria-hidden="true"></i>
-						<code>cross-close</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-crown sui-fw" aria-hidden="true"></i>
-						<code>crown</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-dashboard sui-fw" aria-hidden="true"></i>
-						<code>dashboard</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-dashboard-settings sui-fw" aria-hidden="true"></i>
-						<code>dashboard-settings</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-dislike sui-fw" aria-hidden="true"></i>
-						<code>dislike</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-dollar sui-fw" aria-hidden="true"></i>
-						<code>dollar</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-download sui-fw" aria-hidden="true"></i>
-						<code>download</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-download-cloud sui-fw" aria-hidden="true"></i>
-						<code>download-cloud</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-eye sui-fw" aria-hidden="true"></i>
-						<code>eye</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-eye-hide sui-fw" aria-hidden="true"></i>
-						<code>eye-hide</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-fast-forward sui-fw" aria-hidden="true"></i>
-						<code>fast-forward</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-filter sui-fw" aria-hidden="true"></i>
-						<code>filter</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-finger-point sui-fw" aria-hidden="true"></i>
-						<code>finger-point</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-finger-swipe sui-fw" aria-hidden="true"></i>
-						<code>finger-swipe</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-first-aid sui-fw" aria-hidden="true"></i>
-						<code>first-aid</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-flag sui-fw" aria-hidden="true"></i>
-						<code>flag</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-folder sui-fw" aria-hidden="true"></i>
-						<code>folder</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-gallery-slider sui-fw" aria-hidden="true"></i>
-						<code>gallery-slider</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-google-analytics sui-fw" aria-hidden="true"></i>
-						<code>google-analytics</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-graph-bar sui-fw" aria-hidden="true"></i>
-						<code>graph-bar</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-graph-bar_1 sui-fw" aria-hidden="true"></i>
-						<code>graph-bar_1</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-heart sui-fw" aria-hidden="true"></i>
-						<code>heart</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-help-support sui-fw" aria-hidden="true"></i>
-						<code>help-support</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-home sui-fw" aria-hidden="true"></i>
-						<code>home</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-automate sui-fw" aria-hidden="true"></i>
-						<code>icon-automate</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-defender sui-fw" aria-hidden="true"></i>
-						<code>icon-defender</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-devman sui-fw" aria-hidden="true"></i>
-						<code>icon-devman</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-forminator1 sui-fw" aria-hidden="true"></i>
-						<code>icon-forminator1</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-forminator2 sui-fw" aria-hidden="true"></i>
-						<code>icon-forminator2</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-hub sui-fw" aria-hidden="true"></i>
-						<code>icon-hub</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i>
-						<code>icon-hummingbird</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-hustle sui-fw" aria-hidden="true"></i>
-						<code>icon-hustle</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-performance sui-fw" aria-hidden="true"></i>
-						<code>icon-performance</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-pulse sui-fw" aria-hidden="true"></i>
-						<code>icon-pulse</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-shipper-anchor sui-fw" aria-hidden="true"></i>
-						<code>icon-shipper-anchor</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-smart-crawl sui-fw" aria-hidden="true"></i>
-						<code>icon-smart-crawl</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-smush sui-fw" aria-hidden="true"></i>
-						<code>icon-smush</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-snapshot sui-fw" aria-hidden="true"></i>
-						<code>icon-snapshot</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-upfront sui-fw" aria-hidden="true"></i>
-						<code>icon-upfront</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-uptime sui-fw" aria-hidden="true"></i>
-						<code>icon-uptime</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-wpmu-logo-line sui-fw" aria-hidden="true"></i>
-						<code>icon-wpmu-logo-line</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-icon-wpmu-logo-solid sui-fw" aria-hidden="true"></i>
-						<code>icon-wpmu-logo-solid</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-indent-less sui-fw" aria-hidden="true"></i>
-						<code>indent-less</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-indent-more sui-fw" aria-hidden="true"></i>
-						<code>indent-more</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-infinity sui-fw" aria-hidden="true"></i>
-						<code>infinity</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-info sui-fw" aria-hidden="true"></i>
-						<code>info</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-italic sui-fw" aria-hidden="true"></i>
-						<code>italic</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-jobs-pros-search sui-fw" aria-hidden="true"></i>
-						<code>jobs-pros-search</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-key sui-fw" aria-hidden="true"></i>
-						<code>key</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-laptop sui-fw" aria-hidden="true"></i>
-						<code>laptop</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-layers sui-fw" aria-hidden="true"></i>
-						<code>layers</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-layout sui-fw" aria-hidden="true"></i>
-						<code>layout</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-layout-grid sui-fw" aria-hidden="true"></i>
-						<code>layout-grid</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-lightbulb sui-fw" aria-hidden="true"></i>
-						<code>lightbulb</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-like sui-fw" aria-hidden="true"></i>
-						<code>like</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-link sui-fw" aria-hidden="true"></i>
-						<code>link</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-list sui-fw" aria-hidden="true"></i>
-						<code>list</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-list-bullet sui-fw" aria-hidden="true"></i>
-						<code>list-bullet</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-list-number sui-fw" aria-hidden="true"></i>
-						<code>list-number</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-loader sui-fw" aria-hidden="true"></i>
-						<code>loader</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-location-marker sui-fw" aria-hidden="true"></i>
-						<code>location-marker</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-lock sui-fw" aria-hidden="true"></i>
-						<code>lock</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-magnifying-glass-search sui-fw" aria-hidden="true"></i>
-						<code>magnifying-glass-search</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-magnifying-search-glass-love sui-fw" aria-hidden="true"></i>
-						<code>magnifying-search-glass-love</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-mail sui-fw" aria-hidden="true"></i>
-						<code>mail</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-map sui-fw" aria-hidden="true"></i>
-						<code>map</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-megaphone sui-fw" aria-hidden="true"></i>
-						<code>megaphone</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-microphone-audio sui-fw" aria-hidden="true"></i>
-						<code>microphone-audio</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-minus sui-fw" aria-hidden="true"></i>
-						<code>minus</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-mobile sui-fw" aria-hidden="true"></i>
-						<code>mobile</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-mobile-signal sui-fw" aria-hidden="true"></i>
-						<code>mobile-signal</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-monitor sui-fw" aria-hidden="true"></i>
-						<code>monitor</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-more sui-fw" aria-hidden="true"></i>
-						<code>more</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-mouse-scroll sui-fw" aria-hidden="true"></i>
-						<code>mouse-scroll</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-news-paper sui-fw" aria-hidden="true"></i>
-						<code>news-paper</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-notification sui-fw" aria-hidden="true"></i>
-						<code>notification</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-notification-count sui-fw" aria-hidden="true"></i>
-						<code>notification-count</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-open-new-window sui-fw" aria-hidden="true"></i>
-						<code>open-new-window</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-page sui-fw" aria-hidden="true"></i>
-						<code>page</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-page-multiple sui-fw" aria-hidden="true"></i>
-						<code>page-multiple</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-page-pdf sui-fw" aria-hidden="true"></i>
-						<code>page-pdf</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-page-search sui-fw" aria-hidden="true"></i>
-						<code>page-search</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-paint-bucket sui-fw" aria-hidden="true"></i>
-						<code>paint-bucket</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-paperclip sui-fw" aria-hidden="true"></i>
-						<code>paperclip</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-pause sui-fw" aria-hidden="true"></i>
-						<code>pause</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-paypal sui-fw" aria-hidden="true"></i>
-						<code>paypal</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-pencil sui-fw" aria-hidden="true"></i>
-						<code>pencil</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-photo-picture sui-fw" aria-hidden="true"></i>
-						<code>photo-picture</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-play sui-fw" aria-hidden="true"></i>
-						<code>play</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-plug-connected sui-fw" aria-hidden="true"></i>
-						<code>plug-connected</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-plug-disconnected sui-fw" aria-hidden="true"></i>
-						<code>plug-disconnected</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-plugin-2 sui-fw" aria-hidden="true"></i>
-						<code>plugin-2</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-plugins sui-fw" aria-hidden="true"></i>
-						<code>plugins</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-plus sui-fw" aria-hidden="true"></i>
-						<code>plus</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-power-on-off sui-fw" aria-hidden="true"></i>
-						<code>power-on-off</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-price-tag sui-fw" aria-hidden="true"></i>
-						<code>price-tag</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-profile-female sui-fw" aria-hidden="true"></i>
-						<code>profile-female</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-profile-male sui-fw" aria-hidden="true"></i>
-						<code>profile-male</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-progress sui-fw" aria-hidden="true"></i>
-						<code>progress</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-puzzle sui-fw" aria-hidden="true"></i>
-						<code>puzzle</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-question sui-fw" aria-hidden="true"></i>
-						<code>question</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-quote sui-fw" aria-hidden="true"></i>
-						<code>quote</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-quote-2 sui-fw" aria-hidden="true"></i>
-						<code>quote-2</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-refresh sui-fw" aria-hidden="true"></i>
-						<code>refresh</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-reply sui-fw" aria-hidden="true"></i>
-						<code>reply</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-rocket-launch sui-fw" aria-hidden="true"></i>
-						<code>rocket-launch</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-security-thumb-print sui-fw" aria-hidden="true"></i>
-						<code>security-thumb-print</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-settings-slider-control sui-fw" aria-hidden="true"></i>
-						<code>settings-slider-control</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-share sui-fw" aria-hidden="true"></i>
-						<code>share</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-sheild-badge sui-fw" aria-hidden="true"></i>
-						<code>sheild-badge</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-shopping-cart sui-fw" aria-hidden="true"></i>
-						<code>shopping-cart</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-sitemap sui-fw" aria-hidden="true"></i>
-						<code>sitemap</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-skull sui-fw" aria-hidden="true"></i>
-						<code>skull</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-android sui-fw" aria-hidden="true"></i>
-						<code>social-android</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-apple sui-fw" aria-hidden="true"></i>
-						<code>social-apple</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-drive sui-fw" aria-hidden="true"></i>
-						<code>social-drive</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-dropbox sui-fw" aria-hidden="true"></i>
-						<code>social-dropbox</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-facebook sui-fw" aria-hidden="true"></i>
-						<code>social-facebook</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-github sui-fw" aria-hidden="true"></i>
-						<code>social-github</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-google-plus sui-fw" aria-hidden="true"></i>
-						<code>social-google-plus</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-linkedin sui-fw" aria-hidden="true"></i>
-						<code>social-linkedin</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-twitter sui-fw" aria-hidden="true"></i>
-						<code>social-twitter</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-social-youtube sui-fw" aria-hidden="true"></i>
-						<code>social-youtube</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-speed-optimize sui-fw" aria-hidden="true"></i>
-						<code>speed-optimize</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-star sui-fw" aria-hidden="true"></i>
-						<code>star</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-star-line sui-fw" aria-hidden="true"></i>
-						<code>star-line</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-stopwatch sui-fw" aria-hidden="true"></i>
-						<code>stopwatch</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-storage-server-data sui-fw" aria-hidden="true"></i>
-						<code>storage-server-data</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-style-type sui-fw" aria-hidden="true"></i>
-						<code>style-type</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-tablet-landscape sui-fw" aria-hidden="true"></i>
-						<code>tablet-landscape</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-tablet-portrait sui-fw" aria-hidden="true"></i>
-						<code>tablet-portrait</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-target sui-fw" aria-hidden="true"></i>
-						<code>target</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-testing-bottle-beaker sui-fw" aria-hidden="true"></i>
-						<code>testing-bottle-beaker</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-text-color sui-fw" aria-hidden="true"></i>
-						<code>text-color</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-themes sui-fw" aria-hidden="true"></i>
-						<code>themes</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-thumbnails sui-fw" aria-hidden="true"></i>
-						<code>thumbnails</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-ticket sui-fw" aria-hidden="true"></i>
-						<code>ticket</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-timed-countdown sui-fw" aria-hidden="true"></i>
-						<code>timed-countdown</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-trash sui-fw" aria-hidden="true"></i>
-						<code>trash</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-underline sui-fw" aria-hidden="true"></i>
-						<code>underline</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-unlink sui-fw" aria-hidden="true"></i>
-						<code>unlink</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-unlock sui-fw" aria-hidden="true"></i>
-						<code>unlock</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-update sui-fw" aria-hidden="true"></i>
-						<code>update</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-update-arrow sui-fw" aria-hidden="true"></i>
-						<code>update-arrow</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-upload-cloud sui-fw" aria-hidden="true"></i>
-						<code>upload-cloud</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-user-hero-points-trophy sui-fw" aria-hidden="true"></i>
-						<code>user-hero-points-trophy</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-user-reputation-points sui-fw" aria-hidden="true"></i>
-						<code>user-reputation-points</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-user-star-level-up sui-fw" aria-hidden="true"></i>
-						<code>user-star-level-up</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-wand-magic sui-fw" aria-hidden="true"></i>
-						<code>wand-magic</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-warning-alert sui-fw" aria-hidden="true"></i>
-						<code>warning-alert</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-web-globe-world sui-fw" aria-hidden="true"></i>
-						<code>web-globe-world</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-white-label-video sui-fw" aria-hidden="true"></i>
-						<code>white-label-video</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-widget-settings-config sui-fw" aria-hidden="true"></i>
-						<code>widget-settings-config</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-wordpress sui-fw" aria-hidden="true"></i>
-						<code>wordpress</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-wrench-tool sui-fw" aria-hidden="true"></i>
-						<code>wrench-tool</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-zip sui-fw" aria-hidden="true"></i>
-						<code>zip</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-zoom-in sui-fw" aria-hidden="true"></i>
-						<code>zoom-in</code>
-					</div>
-					<div class="sui-col-md-4 sui-col-sm-6">
-						<i class="sui-ico-zoom-out sui-fw" aria-hidden="true"></i>
-						<code>zoom-out</code>
+					<div class="sui-row">
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-24-hour-support sui-fw" aria-hidden="true"></i>
+							<code>24-hour-support</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-2factor-authentication-security sui-fw" aria-hidden="true"></i>
+							<code>2factor-authentication-security</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-IP sui-fw" aria-hidden="true"></i>
+							<code>IP</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-ab-testing sui-fw" aria-hidden="true"></i>
+							<code>ab-testing</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-academy sui-fw" aria-hidden="true"></i>
+							<code>academy</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-alert sui-fw" aria-hidden="true"></i>
+							<code>alert</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-align-center sui-fw" aria-hidden="true"></i>
+							<code>align-center</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-align-justify sui-fw" aria-hidden="true"></i>
+							<code>align-justify</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-align-left sui-fw" aria-hidden="true"></i>
+							<code>align-left</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-align-right sui-fw" aria-hidden="true"></i>
+							<code>align-right</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-animation-video sui-fw" aria-hidden="true"></i>
+							<code>animation-video</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-annotate sui-fw" aria-hidden="true"></i>
+							<code>annotate</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-archive sui-fw" aria-hidden="true"></i>
+							<code>archive</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-down sui-fw" aria-hidden="true"></i>
+							<code>arrow-down</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-down-carats sui-fw" aria-hidden="true"></i>
+							<code>arrow-down-carats</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-left sui-fw" aria-hidden="true"></i>
+							<code>arrow-left</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-left-carats sui-fw" aria-hidden="true"></i>
+							<code>arrow-left-carats</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-location sui-fw" aria-hidden="true"></i>
+							<code>arrow-location</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-pointer-cursor sui-fw" aria-hidden="true"></i>
+							<code>arrow-pointer-cursor</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-return-back sui-fw" aria-hidden="true"></i>
+							<code>arrow-return-back</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-right sui-fw" aria-hidden="true"></i>
+							<code>arrow-right</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-right-carats sui-fw" aria-hidden="true"></i>
+							<code>arrow-right-carats</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-up sui-fw" aria-hidden="true"></i>
+							<code>arrow-up</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrow-up-carats sui-fw" aria-hidden="true"></i>
+							<code>arrow-up-carats</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrows-compress sui-fw" aria-hidden="true"></i>
+							<code>arrows-compress</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrows-expand sui-fw" aria-hidden="true"></i>
+							<code>arrows-expand</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrows-in sui-fw" aria-hidden="true"></i>
+							<code>arrows-in</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-arrows-out sui-fw" aria-hidden="true"></i>
+							<code>arrows-out</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-asterisk sui-fw" aria-hidden="true"></i>
+							<code>asterisk</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-at-sign sui-fw" aria-hidden="true"></i>
+							<code>at-sign</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-audio-sound sui-fw" aria-hidden="true"></i>
+							<code>audio-sound</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-blog sui-fw" aria-hidden="true"></i>
+							<code>blog</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-bold sui-fw" aria-hidden="true"></i>
+							<code>bold</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-book sui-fw" aria-hidden="true"></i>
+							<code>book</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-book-bookmark sui-fw" aria-hidden="true"></i>
+							<code>book-bookmark</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-bookmark sui-fw" aria-hidden="true"></i>
+							<code>bookmark</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-brush sui-fw" aria-hidden="true"></i>
+							<code>brush</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-buddypress sui-fw" aria-hidden="true"></i>
+							<code>buddypress</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-calendar sui-fw" aria-hidden="true"></i>
+							<code>calendar</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-camera sui-fw" aria-hidden="true"></i>
+							<code>camera</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-check sui-fw" aria-hidden="true"></i>
+							<code>check</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-check-tick sui-fw" aria-hidden="true"></i>
+							<code>check-tick</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-clipboard-notes sui-fw" aria-hidden="true"></i>
+							<code>clipboard-notes</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-clock sui-fw" aria-hidden="true"></i>
+							<code>clock</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-close sui-fw" aria-hidden="true"></i>
+							<code>close</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-cloud sui-fw" aria-hidden="true"></i>
+							<code>cloud</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-cloud-migration sui-fw" aria-hidden="true"></i>
+							<code>cloud-migration</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-cloudflare sui-fw" aria-hidden="true"></i>
+							<code>cloudflare</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-code sui-fw" aria-hidden="true"></i>
+							<code>code</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-coffee-cup sui-fw" aria-hidden="true"></i>
+							<code>coffee-cup</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-color-pick-eyedropper sui-fw" aria-hidden="true"></i>
+							<code>color-pick-eyedropper</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-comment sui-fw" aria-hidden="true"></i>
+							<code>comment</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-comment-3 sui-fw" aria-hidden="true"></i>
+							<code>comment-3</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-comments sui-fw" aria-hidden="true"></i>
+							<code>comments</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-community-people sui-fw" aria-hidden="true"></i>
+							<code>community-people</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-compass sui-fw" aria-hidden="true"></i>
+							<code>compass</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-credit-card sui-fw" aria-hidden="true"></i>
+							<code>credit-card</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-crop sui-fw" aria-hidden="true"></i>
+							<code>crop</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-cross-close sui-fw" aria-hidden="true"></i>
+							<code>cross-close</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-crown sui-fw" aria-hidden="true"></i>
+							<code>crown</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-dashboard sui-fw" aria-hidden="true"></i>
+							<code>dashboard</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-dashboard-settings sui-fw" aria-hidden="true"></i>
+							<code>dashboard-settings</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-dislike sui-fw" aria-hidden="true"></i>
+							<code>dislike</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-dollar sui-fw" aria-hidden="true"></i>
+							<code>dollar</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-download sui-fw" aria-hidden="true"></i>
+							<code>download</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-download-cloud sui-fw" aria-hidden="true"></i>
+							<code>download-cloud</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-eye sui-fw" aria-hidden="true"></i>
+							<code>eye</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-eye-hide sui-fw" aria-hidden="true"></i>
+							<code>eye-hide</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-fast-forward sui-fw" aria-hidden="true"></i>
+							<code>fast-forward</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-filter sui-fw" aria-hidden="true"></i>
+							<code>filter</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-finger-point sui-fw" aria-hidden="true"></i>
+							<code>finger-point</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-finger-swipe sui-fw" aria-hidden="true"></i>
+							<code>finger-swipe</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-first-aid sui-fw" aria-hidden="true"></i>
+							<code>first-aid</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-flag sui-fw" aria-hidden="true"></i>
+							<code>flag</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-folder sui-fw" aria-hidden="true"></i>
+							<code>folder</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-gallery-slider sui-fw" aria-hidden="true"></i>
+							<code>gallery-slider</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-google-analytics sui-fw" aria-hidden="true"></i>
+							<code>google-analytics</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-graph-bar sui-fw" aria-hidden="true"></i>
+							<code>graph-bar</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-graph-bar_1 sui-fw" aria-hidden="true"></i>
+							<code>graph-bar_1</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-heart sui-fw" aria-hidden="true"></i>
+							<code>heart</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-help-support sui-fw" aria-hidden="true"></i>
+							<code>help-support</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-home sui-fw" aria-hidden="true"></i>
+							<code>home</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-automate sui-fw" aria-hidden="true"></i>
+							<code>icon-automate</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-defender sui-fw" aria-hidden="true"></i>
+							<code>icon-defender</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-devman sui-fw" aria-hidden="true"></i>
+							<code>icon-devman</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-forminator1 sui-fw" aria-hidden="true"></i>
+							<code>icon-forminator1</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-forminator2 sui-fw" aria-hidden="true"></i>
+							<code>icon-forminator2</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-hub sui-fw" aria-hidden="true"></i>
+							<code>icon-hub</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i>
+							<code>icon-hummingbird</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-hustle sui-fw" aria-hidden="true"></i>
+							<code>icon-hustle</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-performance sui-fw" aria-hidden="true"></i>
+							<code>icon-performance</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-pulse sui-fw" aria-hidden="true"></i>
+							<code>icon-pulse</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-shipper-anchor sui-fw" aria-hidden="true"></i>
+							<code>icon-shipper-anchor</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-smart-crawl sui-fw" aria-hidden="true"></i>
+							<code>icon-smart-crawl</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-smush sui-fw" aria-hidden="true"></i>
+							<code>icon-smush</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-snapshot sui-fw" aria-hidden="true"></i>
+							<code>icon-snapshot</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-upfront sui-fw" aria-hidden="true"></i>
+							<code>icon-upfront</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-uptime sui-fw" aria-hidden="true"></i>
+							<code>icon-uptime</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-wpmu-logo-line sui-fw" aria-hidden="true"></i>
+							<code>icon-wpmu-logo-line</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-icon-wpmu-logo-solid sui-fw" aria-hidden="true"></i>
+							<code>icon-wpmu-logo-solid</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-indent-less sui-fw" aria-hidden="true"></i>
+							<code>indent-less</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-indent-more sui-fw" aria-hidden="true"></i>
+							<code>indent-more</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-infinity sui-fw" aria-hidden="true"></i>
+							<code>infinity</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-info sui-fw" aria-hidden="true"></i>
+							<code>info</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-italic sui-fw" aria-hidden="true"></i>
+							<code>italic</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-jobs-pros-search sui-fw" aria-hidden="true"></i>
+							<code>jobs-pros-search</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-key sui-fw" aria-hidden="true"></i>
+							<code>key</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-laptop sui-fw" aria-hidden="true"></i>
+							<code>laptop</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-layers sui-fw" aria-hidden="true"></i>
+							<code>layers</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-layout sui-fw" aria-hidden="true"></i>
+							<code>layout</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-layout-grid sui-fw" aria-hidden="true"></i>
+							<code>layout-grid</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-lightbulb sui-fw" aria-hidden="true"></i>
+							<code>lightbulb</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-like sui-fw" aria-hidden="true"></i>
+							<code>like</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-link sui-fw" aria-hidden="true"></i>
+							<code>link</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-list sui-fw" aria-hidden="true"></i>
+							<code>list</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-list-bullet sui-fw" aria-hidden="true"></i>
+							<code>list-bullet</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-list-number sui-fw" aria-hidden="true"></i>
+							<code>list-number</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-loader sui-fw" aria-hidden="true"></i>
+							<code>loader</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-location-marker sui-fw" aria-hidden="true"></i>
+							<code>location-marker</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-lock sui-fw" aria-hidden="true"></i>
+							<code>lock</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-magnifying-glass-search sui-fw" aria-hidden="true"></i>
+							<code>magnifying-glass-search</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-magnifying-search-glass-love sui-fw" aria-hidden="true"></i>
+							<code>magnifying-search-glass-love</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-mail sui-fw" aria-hidden="true"></i>
+							<code>mail</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-map sui-fw" aria-hidden="true"></i>
+							<code>map</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-megaphone sui-fw" aria-hidden="true"></i>
+							<code>megaphone</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-microphone-audio sui-fw" aria-hidden="true"></i>
+							<code>microphone-audio</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-minus sui-fw" aria-hidden="true"></i>
+							<code>minus</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-mobile sui-fw" aria-hidden="true"></i>
+							<code>mobile</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-mobile-signal sui-fw" aria-hidden="true"></i>
+							<code>mobile-signal</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-monitor sui-fw" aria-hidden="true"></i>
+							<code>monitor</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-more sui-fw" aria-hidden="true"></i>
+							<code>more</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-mouse-scroll sui-fw" aria-hidden="true"></i>
+							<code>mouse-scroll</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-news-paper sui-fw" aria-hidden="true"></i>
+							<code>news-paper</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-notification sui-fw" aria-hidden="true"></i>
+							<code>notification</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-notification-count sui-fw" aria-hidden="true"></i>
+							<code>notification-count</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-open-new-window sui-fw" aria-hidden="true"></i>
+							<code>open-new-window</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-page sui-fw" aria-hidden="true"></i>
+							<code>page</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-page-multiple sui-fw" aria-hidden="true"></i>
+							<code>page-multiple</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-page-pdf sui-fw" aria-hidden="true"></i>
+							<code>page-pdf</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-page-search sui-fw" aria-hidden="true"></i>
+							<code>page-search</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-paint-bucket sui-fw" aria-hidden="true"></i>
+							<code>paint-bucket</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-paperclip sui-fw" aria-hidden="true"></i>
+							<code>paperclip</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-pause sui-fw" aria-hidden="true"></i>
+							<code>pause</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-paypal sui-fw" aria-hidden="true"></i>
+							<code>paypal</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-pencil sui-fw" aria-hidden="true"></i>
+							<code>pencil</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-photo-picture sui-fw" aria-hidden="true"></i>
+							<code>photo-picture</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-play sui-fw" aria-hidden="true"></i>
+							<code>play</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-plug-connected sui-fw" aria-hidden="true"></i>
+							<code>plug-connected</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-plug-disconnected sui-fw" aria-hidden="true"></i>
+							<code>plug-disconnected</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-plugin-2 sui-fw" aria-hidden="true"></i>
+							<code>plugin-2</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-plugins sui-fw" aria-hidden="true"></i>
+							<code>plugins</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-plus sui-fw" aria-hidden="true"></i>
+							<code>plus</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-power-on-off sui-fw" aria-hidden="true"></i>
+							<code>power-on-off</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-price-tag sui-fw" aria-hidden="true"></i>
+							<code>price-tag</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-profile-female sui-fw" aria-hidden="true"></i>
+							<code>profile-female</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-profile-male sui-fw" aria-hidden="true"></i>
+							<code>profile-male</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-progress sui-fw" aria-hidden="true"></i>
+							<code>progress</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-puzzle sui-fw" aria-hidden="true"></i>
+							<code>puzzle</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-question sui-fw" aria-hidden="true"></i>
+							<code>question</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-quote sui-fw" aria-hidden="true"></i>
+							<code>quote</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-quote-2 sui-fw" aria-hidden="true"></i>
+							<code>quote-2</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-refresh sui-fw" aria-hidden="true"></i>
+							<code>refresh</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-reply sui-fw" aria-hidden="true"></i>
+							<code>reply</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-rocket-launch sui-fw" aria-hidden="true"></i>
+							<code>rocket-launch</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-security-thumb-print sui-fw" aria-hidden="true"></i>
+							<code>security-thumb-print</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-settings-slider-control sui-fw" aria-hidden="true"></i>
+							<code>settings-slider-control</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-share sui-fw" aria-hidden="true"></i>
+							<code>share</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-sheild-badge sui-fw" aria-hidden="true"></i>
+							<code>sheild-badge</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-shopping-cart sui-fw" aria-hidden="true"></i>
+							<code>shopping-cart</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-sitemap sui-fw" aria-hidden="true"></i>
+							<code>sitemap</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-skull sui-fw" aria-hidden="true"></i>
+							<code>skull</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-android sui-fw" aria-hidden="true"></i>
+							<code>social-android</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-apple sui-fw" aria-hidden="true"></i>
+							<code>social-apple</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-drive sui-fw" aria-hidden="true"></i>
+							<code>social-drive</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-dropbox sui-fw" aria-hidden="true"></i>
+							<code>social-dropbox</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-facebook sui-fw" aria-hidden="true"></i>
+							<code>social-facebook</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-github sui-fw" aria-hidden="true"></i>
+							<code>social-github</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-google-plus sui-fw" aria-hidden="true"></i>
+							<code>social-google-plus</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-linkedin sui-fw" aria-hidden="true"></i>
+							<code>social-linkedin</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-twitter sui-fw" aria-hidden="true"></i>
+							<code>social-twitter</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-social-youtube sui-fw" aria-hidden="true"></i>
+							<code>social-youtube</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-speed-optimize sui-fw" aria-hidden="true"></i>
+							<code>speed-optimize</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-star sui-fw" aria-hidden="true"></i>
+							<code>star</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-star-line sui-fw" aria-hidden="true"></i>
+							<code>star-line</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-stopwatch sui-fw" aria-hidden="true"></i>
+							<code>stopwatch</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-storage-server-data sui-fw" aria-hidden="true"></i>
+							<code>storage-server-data</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-style-type sui-fw" aria-hidden="true"></i>
+							<code>style-type</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-tablet-landscape sui-fw" aria-hidden="true"></i>
+							<code>tablet-landscape</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-tablet-portrait sui-fw" aria-hidden="true"></i>
+							<code>tablet-portrait</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-target sui-fw" aria-hidden="true"></i>
+							<code>target</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-testing-bottle-beaker sui-fw" aria-hidden="true"></i>
+							<code>testing-bottle-beaker</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-text-color sui-fw" aria-hidden="true"></i>
+							<code>text-color</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-themes sui-fw" aria-hidden="true"></i>
+							<code>themes</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-thumbnails sui-fw" aria-hidden="true"></i>
+							<code>thumbnails</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-ticket sui-fw" aria-hidden="true"></i>
+							<code>ticket</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-timed-countdown sui-fw" aria-hidden="true"></i>
+							<code>timed-countdown</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-trash sui-fw" aria-hidden="true"></i>
+							<code>trash</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-underline sui-fw" aria-hidden="true"></i>
+							<code>underline</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-unlink sui-fw" aria-hidden="true"></i>
+							<code>unlink</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-unlock sui-fw" aria-hidden="true"></i>
+							<code>unlock</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-update sui-fw" aria-hidden="true"></i>
+							<code>update</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-update-arrow sui-fw" aria-hidden="true"></i>
+							<code>update-arrow</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-upload-cloud sui-fw" aria-hidden="true"></i>
+							<code>upload-cloud</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-user-hero-points-trophy sui-fw" aria-hidden="true"></i>
+							<code>user-hero-points-trophy</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-user-reputation-points sui-fw" aria-hidden="true"></i>
+							<code>user-reputation-points</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-user-star-level-up sui-fw" aria-hidden="true"></i>
+							<code>user-star-level-up</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-wand-magic sui-fw" aria-hidden="true"></i>
+							<code>wand-magic</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-warning-alert sui-fw" aria-hidden="true"></i>
+							<code>warning-alert</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-web-globe-world sui-fw" aria-hidden="true"></i>
+							<code>web-globe-world</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-white-label-video sui-fw" aria-hidden="true"></i>
+							<code>white-label-video</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-widget-settings-config sui-fw" aria-hidden="true"></i>
+							<code>widget-settings-config</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-wordpress sui-fw" aria-hidden="true"></i>
+							<code>wordpress</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-wrench-tool sui-fw" aria-hidden="true"></i>
+							<code>wrench-tool</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-zip sui-fw" aria-hidden="true"></i>
+							<code>zip</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-zoom-in sui-fw" aria-hidden="true"></i>
+							<code>zoom-in</code>
+						</div>
+						<div class="sui-col-md-4 sui-col-sm-6">
+							<i class="sui-ico-zoom-out sui-fw" aria-hidden="true"></i>
+							<code>zoom-out</code>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div><!-- .sui-box -->
+			</div><!-- .sui-box -->
 
-	</div><!-- .wrap -->
+		</div><!-- .wrap -->
 	</div><!-- #wpbody -->
-	</div><!-- #wpcontent -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-	<script src="dist/js/shared-ui.min.js"></script>
+</div><!-- #wpcontent -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="dist/js/shared-ui.min.js"></script>
 </body>
 </html>
