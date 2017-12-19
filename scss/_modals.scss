@@ -25,17 +25,26 @@
 			top: 0;
 			left: 0;
 			right: 0;
-			bottom: 0;
-			background: $modal-overlay-bg-color;
 			z-index: 0;
+			height: 100%;
 		}
 
 		.sui-modal-box-scroll {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+			overflow: auto;
+			background: $modal-overlay-bg-color;
+		}
+
+		.sui-wrap {
 			display: table;
 			width: 100%;
 			height: 100%;
 			z-index: 1;
-			overflow: auto;
 		}
 
 		.sui-modal-box-wrap {
@@ -46,7 +55,7 @@
 		.sui-modal-box {
 			display: block;
 			position:relative;
-			margin: 0 auto;
+			margin: 0 auto 20px auto;
 			width: 600px;
 			top: 0;
 			min-height: 120px;
@@ -107,6 +116,16 @@
 					.sui-button-small {
 						margin: 5px 0;
 					}
+				}
+			}
+
+			.sui-modal-content {
+				.sui-modal-image {
+					&.sui-modal-image-bottom {
+						margin-top: 30px;
+						margin-bottom: -50px;
+					}
+
 				}
 			}
 
@@ -207,9 +226,45 @@
 		@media (max-width: 782px) {
 			left: 0;
 		}
+
+
+		// Upsell Modal
+
+		.sui-modal-content {
+			.sui-listing {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					padding: 2px 0 2px 34px;
+					position: relative;
+					@include icon(before, 'check-tick');
+					&:before {
+						color: $blue;
+						position: absolute;
+						left: 0;
+						font-size: 19px;
+						vertical-align: middle;
+						top: 7px;
+						width: 19px;
+						height: 19px;
+						opacity: 0.8;
+					}
+
+					p {
+						font-size: 13px;
+						line-height: 22px;
+						margin-top: 5px;
+					}
+
+				}
+			}
+		}
+
 	}
 
-	.has-sui-overlay {
+	&.has-sui-overlay {
 		overflow: hidden;
 
 		ul#adminmenu {

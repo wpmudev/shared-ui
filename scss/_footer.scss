@@ -1,0 +1,139 @@
+@include body-class {
+	.sui-footer {
+		text-align: center;
+		margin-top: 50px;
+		color: $footer-color;
+		font-size: 13px;
+
+		i:before {
+			font-size: 11px;
+			line-height: 22px;
+			margin: 0 3px;
+		}
+
+	}
+
+	#sui-cross-sell-footer {
+		> div {
+			width: 100%;
+			text-align: center;
+			border-bottom: 1px solid $footer-cross-sell-border-color;
+			line-height: 0.1em;
+			margin: 10px 0 40px;
+			> span {
+				position: relative;
+				color: $footer-cross-sell-icon-color;
+				background-color: #f1f1f1;
+				padding: 0 30px;
+				font-size: 16px;
+				top: 8px;
+			}
+		}
+
+		h3 {
+			font-size: 22px;
+			font-weight: bold;
+			line-height: 30px;
+			text-transform: none;
+		}
+	}
+
+	.sui-cross-sell-modules {
+		margin-top: 30px;
+
+		.sui-cross-1,
+		.sui-cross-2,
+		.sui-cross-3 {
+			min-height: 150px;
+			border-radius: 5px 5px 0 0;
+
+			> span {
+				width: 56px;
+				height: 56px;
+				display: block;
+				border: 3px solid #fff;
+				border-radius: 50%;
+				position: relative;
+				top: 80px;
+				left: 15px;
+				box-shadow: 0 1px 10px 0 rgba(0,0,0,0.25);
+			}
+		}
+
+		.sui-cross-1 {
+			background: url("#{$image--path}/plugins-smush.jpg") center;
+			background-size: cover;
+
+			> span {
+				@include background-2x( "#{$image--path}/plugins-smush-icon", 'png', 50px, 50px, center center, no-repeat );
+			}
+		}
+		.sui-cross-2 {
+			background: url("#{$image--path}/plugins-defender.jpg") center;
+			background-size: cover;
+
+			> span {
+				@include background-2x("#{$image--path}/plugins-defender-icon", 'png', 50px, 50px, center center, no-repeat);
+			}
+
+		}
+		.sui-cross-3 {
+			background: url("#{$image--path}/plugins-crawl.jpg") center;
+			background-size: cover;
+
+			> span {
+				@include background-2x("#{$image--path}/plugins-crawl-icon", 'png', 50px, 50px, center center, no-repeat);
+			}
+		}
+
+
+
+		.sui-box-body {
+			text-align: center;
+			border-radius: 0 0 5px 5px;
+
+			p {
+				color: $footer-cross-sell-p-color;
+				font-size: 13px;
+				line-height: 20px;
+				margin-bottom: 30px;
+			}
+		}
+		h3 {
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 30px;
+			text-transform: none;
+			margin-top: 0;
+			min-height: 60px;
+		}
+	}
+
+	.sui-cross-sell-bottom {
+		text-align: center;
+		margin-top: 50px;
+
+		h3 {
+			font-size: 22px;
+			font-weight: bold;
+			line-height: 30px;
+			text-transform: none;
+		}
+
+		p {
+			max-width: 500px;
+			margin: 20px auto 30px;
+		}
+		.sui-button {
+			margin: 0;
+		}
+
+		img {
+			display: block;
+			height: auto;
+			max-width: 100%;
+			margin: 30px auto 0;
+		}
+	}
+
+}

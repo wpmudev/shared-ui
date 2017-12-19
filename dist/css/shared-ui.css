@@ -18,6 +18,21 @@
   display: none !important;
 }
 
+.sui-2-0-0-alpha-1 .sui-block-content-center {
+  text-align: center;
+}
+
+.sui-2-0-0-alpha-1 .sui-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.sui-2-0-0-alpha-1 .sui-image-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media (max-width: 479px) {
   .sui-hidden-xs {
     display: none !important;
@@ -135,6 +150,10 @@
 
 .sui-2-0-0-alpha-1 a:hover, .sui-2-0-0-alpha-1 a:focus, .sui-2-0-0-alpha-1 a:active {
   color: #0A9BD6;
+}
+
+.sui-2-0-0-alpha-1 a.disabled {
+  pointer-events: none;
 }
 
 .sui-2-0-0-alpha-1 a.disabled:hover, .sui-2-0-0-alpha-1 a.disabled:focus, .sui-2-0-0-alpha-1 a.disabled:active {
@@ -3226,17 +3245,26 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(51, 51, 51, 0.95);
   z-index: 0;
+  height: 100%;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box-scroll {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: auto;
+  background: rgba(51, 51, 51, 0.95);
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-wrap {
   display: table;
   width: 100%;
   height: 100%;
   z-index: 1;
-  overflow: auto;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box-wrap {
@@ -3247,7 +3275,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box {
   display: block;
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   width: 600px;
   top: 0;
   min-height: 120px;
@@ -3315,6 +3343,11 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-title-action .sui-button-small {
   margin: 5px 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-content .sui-modal-image.sui-modal-image-bottom {
+  margin-top: 30px;
+  margin-bottom: -50px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box.loading:before {
@@ -3434,11 +3467,56 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   }
 }
 
-.sui-2-0-0-alpha-1 .has-sui-overlay {
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li {
+  padding: 2px 0 2px 34px;
+  position: relative;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li:before {
+  content: "_";
+  font-family: 'WPMU-DEV-Icon' !important;
+  speak: none;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: auto;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li:before {
+  color: #17A8E3;
+  position: absolute;
+  left: 0;
+  font-size: 19px;
+  vertical-align: middle;
+  top: 7px;
+  width: 19px;
+  height: 19px;
+  opacity: 0.8;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li p {
+  font-size: 13px;
+  line-height: 22px;
+  margin-top: 5px;
+}
+
+.sui-2-0-0-alpha-1.has-sui-overlay {
   overflow: hidden;
 }
 
-.sui-2-0-0-alpha-1 .has-sui-overlay ul#adminmenu a.wp-has-current-submenu:after, .sui-2-0-0-alpha-1 .has-sui-overlay ul#adminmenu > li.current > a.current:after {
+.sui-2-0-0-alpha-1.has-sui-overlay ul#adminmenu a.wp-has-current-submenu:after, .sui-2-0-0-alpha-1.has-sui-overlay ul#adminmenu > li.current > a.current:after {
   border-right-color: #356175;
 }
 
@@ -4918,4 +4996,164 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
 .sui-2-0-0-alpha-1 .sui-grade-e svg circle:last-child,
 .sui-2-0-0-alpha-1 .sui-grade-f svg circle:last-child {
   stroke: #CB4B57;
+}
+
+.sui-2-0-0-alpha-1 .sui-footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #AAAAAA;
+  font-size: 13px;
+}
+
+.sui-2-0-0-alpha-1 .sui-footer i:before {
+  font-size: 11px;
+  line-height: 22px;
+  margin: 0 3px;
+}
+
+.sui-2-0-0-alpha-1 #sui-cross-sell-footer > div {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #E6E6E6;
+  line-height: 0.1em;
+  margin: 10px 0 40px;
+}
+
+.sui-2-0-0-alpha-1 #sui-cross-sell-footer > div > span {
+  position: relative;
+  color: #888888;
+  background-color: #f1f1f1;
+  padding: 0 30px;
+  font-size: 16px;
+  top: 8px;
+}
+
+.sui-2-0-0-alpha-1 #sui-cross-sell-footer h3 {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 30px;
+  text-transform: none;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules {
+  margin-top: 30px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-1,
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-2,
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-3 {
+  min-height: 150px;
+  border-radius: 5px 5px 0 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-1 > span,
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-2 > span,
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-3 > span {
+  width: 56px;
+  height: 56px;
+  display: block;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  top: 80px;
+  left: 15px;
+  -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-1 {
+  background: url("../images//plugins-smush.jpg") center;
+  background-size: cover;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-1 > span {
+  background: url("../images//plugins-smush-icon.png") no-repeat center center;
+  background-size: 50px 50px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-1 > span {
+    background-image: url("../images//plugins-smush-icon@2x.png");
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-2 {
+  background: url("../images//plugins-defender.jpg") center;
+  background-size: cover;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-2 > span {
+  background: url("../images//plugins-defender-icon.png") no-repeat center center;
+  background-size: 50px 50px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-2 > span {
+    background-image: url("../images//plugins-defender-icon@2x.png");
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-3 {
+  background: url("../images//plugins-crawl.jpg") center;
+  background-size: cover;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-3 > span {
+  background: url("../images//plugins-crawl-icon.png") no-repeat center center;
+  background-size: 50px 50px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-cross-3 > span {
+    background-image: url("../images//plugins-crawl-icon@2x.png");
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-box-body {
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules .sui-box-body p {
+  color: #888888;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-modules h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: none;
+  margin-top: 0;
+  min-height: 60px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-bottom {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-bottom h3 {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 30px;
+  text-transform: none;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-bottom p {
+  max-width: 500px;
+  margin: 20px auto 30px;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-bottom .sui-button {
+  margin: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-cross-sell-bottom img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 30px auto 0;
 }
