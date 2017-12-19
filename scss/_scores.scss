@@ -1,0 +1,91 @@
+// Calculate length of stroke in svg circle.
+$score-circle-radius: 42; // r attribute on the score svg circle
+$score-circle-circumference: 2 * pi() * $score-circle-radius;
+
+// Generate animation keyframes for score circles.
+@for $i from 1 through 100 {
+	$dash-length: ($score-circle-circumference / 100) * $i;
+	$gap-length: $dash-length * 100 - $i;
+
+	@keyframes sui#{$i} {
+		to {
+			stroke-dasharray: $dash-length $gap-length;
+		}
+	}
+}
+
+@include body-class {
+
+	.sui-circle-score {
+		display: flex;
+		align-items: center;
+		height: $circle-score-sm;
+		width: auto;
+		opacity: 0;
+		transition: all .4s;
+
+		svg {
+			height: 100%;
+			transform: rotate(-90deg);
+			transform-origin: center;
+
+			circle {
+				fill: none;
+				stroke-linecap: butt;
+
+				// Background.
+				&:first-child {
+					stroke: $circle-score-bg-color;
+				}
+
+				// Dial.
+				&:last-child {
+					stroke: $circle-score-default-dial-color;
+				}
+			}
+		}
+
+		&.loaded {
+			opacity: 1;
+		}
+	}
+
+	.sui-circle-score-label {
+		margin-left: $circle-score-label-spacing;
+		font-weight: 500;
+	}
+
+	.sui-circle-score-sm {
+		height: $circle-score-sm;
+	}
+
+	.sui-circle-score-lg {
+		height: $circle-score-lg;
+
+		.sui-circle-score-label {
+			display: none;
+		}
+	}
+
+	.sui-grade-aplus,
+	.sui-grade-a,
+	.sui-grade-b {
+		svg circle:last-child {
+			stroke: $circle-score-success-color;
+		}
+	}
+
+	.sui-grade-c,
+	.sui-grade-d {
+		svg circle:last-child {
+			stroke: $circle-score-warning-color;
+		}
+	}
+
+	.sui-grade-e,
+	.sui-grade-f {
+		svg circle:last-child {
+			stroke: $circle-score-error-color;
+		}
+	}
+}

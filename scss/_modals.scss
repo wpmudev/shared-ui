@@ -1,0 +1,276 @@
+@import "keyframes/bouncein-down";
+@import "keyframes/bounceout";
+@import "keyframes/fadein";
+
+@include body-class {
+
+	dialog {
+		display: none;
+	}
+
+	.sui-overlay {
+		position: fixed;
+		left: 160px;
+		top: 32px;
+		right: 0;
+		bottom: 0;
+		z-index: 1000;
+		/* fixed position is always on top */
+		display: none;
+		/* hidden by default */
+		overflow: visible;
+
+		.sui-modal-back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 0;
+			height: 100%;
+		}
+
+		.sui-modal-box-scroll {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+			overflow: auto;
+			background: $modal-overlay-bg-color;
+		}
+
+		.sui-wrap {
+			display: table;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
+
+		.sui-modal-box-wrap {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.sui-modal-box {
+			display: block;
+			position:relative;
+			margin: 0 auto 20px auto;
+			width: 600px;
+			top: 0;
+			min-height: 120px;
+			background: $white;
+			border-radius: 5px;
+			padding: 40px;
+			box-shadow: 0 2px 10px $modal-box-shadow-color;
+			box-sizing: border-box;
+			z-index: 2;
+			overflow: hidden;
+
+			@media (max-width: 600px) {
+				width: 400px;
+			}
+
+			.sui-modal-title {
+				min-height: 60px;
+				padding: 0 60px 0 40px;
+				border-bottom: 1px solid $modal-title-border-color;
+				margin: -40px -40px 40px -40px;
+
+				.sui-modal-close {
+					position: absolute;
+					right: 0;
+					top: 0;
+					padding: 0 24px;
+					line-height: 55px;
+					font-size: 24px;
+					font-weight: 400;
+					color: $modal-close-color;
+					cursor: pointer;
+
+					&:hover {
+						color: $modal-close-action-color;
+					}
+				}
+
+				h3 {
+					font-family: $font--alt;
+					text-transform: none;
+					font-size: 18px;
+					font-weight: 700;
+					line-height: 30px;
+					margin: 0;
+					padding: 15px 0;
+					text-align: left;
+				}
+
+				.sui-title-action {
+					position: absolute;
+					right: 60px;
+					top: 0;
+					height: 60px;
+					vertical-align: middle;
+					box-sizing: border-box;
+					padding: 10px 0;
+
+					.sui-button-small {
+						margin: 5px 0;
+					}
+				}
+			}
+
+			.sui-modal-content {
+				.sui-modal-image {
+					&.sui-modal-image-bottom {
+						margin-top: 30px;
+						margin-bottom: -50px;
+					}
+
+				}
+			}
+
+
+
+			&.loading:before {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(255, 255, 255, 0.75);
+				z-index: 1;
+				width: auto;
+				height: auto;
+				background-size: 18px;
+			}
+		}
+		.sui-modal-footer {
+			display: flex;
+			min-height: 60px;
+			padding: 30px 40px 0 40px;
+			border-top: 1px solid $modal-title-border-color;
+			margin: 0 -40px;
+
+			&.sui-modal-footer-center {
+				align-items: center;
+				justify-content: center;
+			}
+			&.sui-modal-footer-right {
+				align-items: flex-end;
+				justify-content: flex-end;
+			}
+			&.sui-modal-footer-space-between {
+				align-items: flex-end;
+				justify-content: space-between;
+			}
+
+
+		}
+
+
+		// Animations
+		.sui-fade-in {
+			animation: fadeIn 0.3s ease-in;
+		}
+
+		.sui-fade-out {
+			transition: opacity 0.5s ease-in-out;
+			opacity: 0;
+		}
+
+		.sui-bounce-in {
+			animation: bounce-in-jiggle 0.8s ease-in;
+		}
+
+		.sui-bounce-out {
+			animation: bounce-out-jiggle 0.6s ease-out;
+		}
+
+		// Modal sizes
+		&.sui-modal-sm {
+			.sui-modal-box {
+				width: 400px;
+				.sui-modal-title {
+					padding: 0;
+					border: none;
+					margin: 0 -40px;
+
+					h3 {
+						text-align: center;
+					}
+				}
+				p {
+					font-size: 13px;
+					line-height: 22px;
+					text-align: center;
+				}
+				.sui-modal-footer {
+					border: none;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+
+		&.sui-modal-lg {
+			.sui-modal-box {
+				width: 980px;
+			}
+		}
+
+		// Responsive
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
+
+
+		// Upsell Modal
+
+		.sui-modal-content {
+			.sui-listing {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					padding: 2px 0 2px 34px;
+					position: relative;
+					@include icon(before, 'check-tick');
+					&:before {
+						color: $blue;
+						position: absolute;
+						left: 0;
+						font-size: 19px;
+						vertical-align: middle;
+						top: 7px;
+						width: 19px;
+						height: 19px;
+						opacity: 0.8;
+					}
+
+					p {
+						font-size: 13px;
+						line-height: 22px;
+						margin-top: 5px;
+					}
+
+				}
+			}
+		}
+
+	}
+
+	&.has-sui-overlay {
+		overflow: hidden;
+
+		ul#adminmenu {
+			a.wp-has-current-submenu:after, > li.current > a.current:after {
+				border-right-color: #356175;
+			}
+		}
+	}
+}

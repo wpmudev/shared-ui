@@ -1,0 +1,100 @@
+@include body-class {
+
+	.sui-row-with-sidenav {
+		clear: both;
+		position: relative;
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		margin-bottom: 30px;
+
+		@media (max-width: 1100px) {
+			display: block;
+		}
+
+		.sui-sidenav {
+			width: 270px;
+			padding-right: 30px;
+			display: table-cell;
+			position: relative;
+			vertical-align: top;
+
+			@media (max-width: 1100px) {
+				display: block;
+				width: 100%;
+				padding: 0;
+			}
+
+			ul {
+				padding: 0;
+			}
+			li {
+				list-style: none;
+				margin-bottom: 6px;
+			}
+
+			.sui-vertical-tabs {
+
+				.sui-vertical-tab {
+					padding: 5px 20px;
+					height: 30px;
+					line-height: 1.5em;
+
+					&.current {
+						background-color: $sidenav-tab-active-bg-color;
+						border-radius: 20px;
+
+						a {
+							font-weight: 500;
+						}
+					}
+
+					i,
+					.sui-tag {
+						position: relative;
+						top: -25px;
+						left: 100%;
+						margin-left: -21px;
+					}
+					i {
+						top: -23px;
+						margin-left: -5px;
+					}
+					i:before {
+						font-size: 21px;
+						color: $sidenav-tab-icon-color;
+					}
+				}
+
+				a {
+					color: $sidenav-tab-color;
+					display: block;
+					font-weight: 400;
+				}
+
+
+			}
+			.sui-sidenav-hide-md {
+				@media (max-width: 1100px) {
+					display: none;
+				}
+			}
+
+			.sui-sidenav-hide-lg {
+				@media (min-width: 1100px) {
+					display: none;
+				}
+			}
+		}
+		& .sui-box {
+			display: table-cell;
+			position: relative;
+			vertical-align: top;
+
+			@media (max-width: 1100px) {
+				display: block;
+			}
+		}
+	}
+
+}
