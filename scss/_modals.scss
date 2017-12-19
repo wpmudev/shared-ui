@@ -25,9 +25,8 @@
 			top: 0;
 			left: 0;
 			right: 0;
-			bottom: 0;
-			background: $modal-overlay-bg-color;
 			z-index: 0;
+			height: 100%;
 		}
 
 		.sui-modal-box-scroll {
@@ -38,6 +37,7 @@
 			bottom: 0;
 			z-index: 1;
 			overflow: auto;
+			background: $modal-overlay-bg-color;
 		}
 
 		.sui-wrap {
@@ -120,12 +120,10 @@
 			}
 
 			.sui-modal-content {
-				> * {
-					margin-bottom: 30px;
-				}
 				.sui-modal-image {
 					&.sui-modal-image-bottom {
-						margin-bottom: -40px;
+						margin-top: 30px;
+						margin-bottom: -50px;
 					}
 
 				}
