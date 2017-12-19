@@ -146,7 +146,7 @@
 				SUI.overlay.wrapper.addClass('sui-no-close');
 				SUI.overlay.close.remove();
 			} else {
-				SUI.overlay.back.on('click', SUI.closeOverlay);
+				SUI.overlay.container.on('click', SUI.closeOverlay);
 			}
 			if (dialog.find('.sui-title-action').length) {
 				SUI.overlay.box_content.find('.sui-title-action').appendTo(SUI.overlay.box_title);
@@ -209,11 +209,12 @@
 		if ( SUI.overlay.visible ) { return false; }
 
 		if ( ! SUI.overlay.wrapper ) {
-			SUI.overlay.container = $('#wpcontent');
+			SUI.overlay.container = $('body');
 			SUI.overlay.wrapper = $('<div class="sui-overlay"></div>');
 			SUI.overlay.back = $('<div class="sui-modal-back"></div>');
 			SUI.overlay.scroll = $('<div class="sui-modal-box-scroll"></div>');
-			SUI.overlay.box_wrap = $('<div class="sui-wrap sui-modal-box-wrap"></div>');
+			SUI.overlay.parent_wrap = $('<div class="sui-wrap"></div>');
+			SUI.overlay.box_wrap = $('<div class="sui-modal-box-wrap"></div>');
 			SUI.overlay.box = $('<div class="sui-modal-box"></div>');
 			SUI.overlay.box_title = $('<div class="sui-modal-title"><h3></h3></div>');
 			SUI.overlay.box_content = $('<div class="sui-modal-content"></div>');
@@ -221,7 +222,8 @@
 
 			SUI.overlay.back.appendTo(SUI.overlay.wrapper);
 			SUI.overlay.scroll.appendTo(SUI.overlay.wrapper);
-			SUI.overlay.box_wrap.appendTo(SUI.overlay.scroll);
+			SUI.overlay.parent_wrap.appendTo(SUI.overlay.scroll);
+			SUI.overlay.box_wrap.appendTo(SUI.overlay.parent_wrap);
 			SUI.overlay.box.appendTo(SUI.overlay.box_wrap);
 			SUI.overlay.box_title.appendTo(SUI.overlay.box);
 			SUI.overlay.box_content.appendTo(SUI.overlay.box);
