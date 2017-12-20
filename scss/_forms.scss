@@ -1,18 +1,41 @@
 @include body-class {
 
+	%label {
+		font-family: $form--label-font;
+		font-size: $form--label-font-size;
+		font-weight: $form--label-font-weight;
+		line-height: $form--label-line-height;
+		color: $form--label-color;
+	}
+
+	label[for] {
+		cursor: pointer;
+	}
+
+	.sui-label {
+		@extend %label;
+	}
+
+	.sui-inline-label {
+		@extend %label;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+	}
+
 	.sui-form-control {
 		display: block;
 		width: 100%;
-		height: $input--height-base;
+		height: $form--input-height-base;
 		padding: 7px 15px;
 		font-size: $font--size;
-		font-weight: $input--font-weight;
-		line-height: $input--line-height;
-		color: $input--color;
-		background-color: $input--bg-color;
+		font-weight: $form--input-font-weight;
+		line-height: $form--input-line-height;
+		color: $form--input-color;
+		background-color: $form--input-bg-color;
 		background-image: none;
-		border: 1px solid $input--border-color;
-		border-radius: $input--border-radius;
+		border: 1px solid $form--input-border-color;
+		border-radius: $form--input-border-radius;
 		transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
 
 		// Unstyle the caret on `<select>`s in IE10+.
@@ -27,17 +50,17 @@
 		}
 
 		&:hover, &:focus {
-			color: $input--color-hover;
-			border: 1px solid $input--border-color-hover;
+			color: $form--input-color-hover;
+			border: 1px solid $form--input-border-color-hover;
 		}
 
 		&:focus {
 			outline: 0;
-			background-color: $input--bg-color-focus;
+			background-color: $form--input-bg-color-focus;
 		}
 
 		&::placeholder {
-			color: $input--placeholder-color;
+			color: $form--input-placeholder-color;
 		}
 	}
 
@@ -71,14 +94,26 @@
 
 	.sui-form-field-error {
 		.sui-form-control {
-			border-bottom: 2px solid $input--border-color-error;
+			border-bottom: 2px solid $form--input-border-color-error;
 		}
 	}
 
 	.sui-error-message {
 		display: block;
-		color: $input--error-color;
-		font-size: $input--error-font-size;
+		margin-top: 8px;
+		color: $form--input-error-color;
+		font-size: $form--input-error-font-size;
+		line-height: $form--input-error-line-height;
+		font-weight: $form--input-error-font-weight;
+	}
+
+	.sui-description {
+		display: block;
+		margin-top: 8px;
+		color: $form--description-color;
+		font-size: $form--description-font-size;
+		line-height: $form--label-line-height;
+		font-weight: $form--description-font-weight;
 	}
 
 	.sui-password-group {
@@ -88,7 +123,7 @@
 			cursor: pointer;
 			background: transparent;
 			border: none;
-			color: $input--icon-color;
+			color: $form--input-icon-color;
 			font-size: 15px;
 			line-height: 1em;
 			padding: 0;
