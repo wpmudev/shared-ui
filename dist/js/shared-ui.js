@@ -278,7 +278,9 @@
 		SUI.overlay.scroll.addClass('sui-fade-out');
 
 		window.setTimeout(function() {
-			SUI.overlay.wrapper.hide()
+			if (null !== SUI.overlay.wrapper) {
+				SUI.overlay.wrapper.hide()
+			}
 		}, 550);
 		window.setTimeout(function() {
 			if (null !== SUI.overlay.wrapper) {
