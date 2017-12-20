@@ -1,0 +1,39 @@
+@include body-class {
+
+	.sui-table {
+		width: 100%;
+		border: 1px solid $table--border-color;
+		border-collapse: separate;
+		border-spacing: unset;
+		border-radius: 5px;
+		color: $table--text-color;
+		font-size: 13px
+	}
+
+	.sui-table th {
+		text-align: left;
+		padding: 20px 30px;
+		font-weight: 500;
+		line-height: 1;
+		color: $table--th-color;
+	}
+
+	.sui-table tr th,
+	.sui-table tr td {
+		border-bottom: 1px solid $table--border-color;
+	}
+
+	.sui-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.sui-table tr td {
+		padding: 20px 30px;
+	}
+
+	.sui-table tfoot th {
+		border-bottom: none;
+		border-top: 1px solid $table--border-color
+	}
+
+}
