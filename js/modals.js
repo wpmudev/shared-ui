@@ -162,13 +162,13 @@
 			SUI.overlay.container.addClass('has-sui-overlay');
 			SUI.overlay.wrapper.show();
 			SUI.overlay.box.addClass('sui-bounce-in');
-			SUI.overlay.back.addClass('sui-fade-in');
+			SUI.overlay.scroll.addClass('sui-fade-in');
 			SUI.overlay.visible = true;
 
 
 			window.setTimeout(function(){
 				SUI.overlay.box.removeClass('sui-bounce-in');
-				SUI.overlay.back.removeClass('sui-fade-in');
+				SUI.overlay.scroll.removeClass('sui-fade-in');
 			}, 1000);
 
 			if ('function' === typeof args.onShow) { args.onShow(); }
@@ -187,7 +187,7 @@
 
 		SUI.overlay.container.removeClass('has-sui-overlay');
 		SUI.overlay.box.addClass('sui-bounce-out');
-		SUI.overlay.back.addClass('sui-fade-out');
+		SUI.overlay.scroll.addClass('sui-fade-out');
 
 		window.setTimeout(function() {
 			SUI.overlay.wrapper.hide()
