@@ -281,9 +281,11 @@
 			SUI.overlay.wrapper.hide()
 		}, 550);
 		window.setTimeout(function() {
-			SUI.overlay.wrapper.remove();
-			SUI.overlay.wrapper = null;
-			SUI.overlay.visible = false;
+			if (null !== SUI.overlay.wrapper) {
+				SUI.overlay.wrapper.remove();
+				SUI.overlay.wrapper = null;
+				SUI.overlay.visible = false;
+			}
 		}, 600);
 
 		return SUI;
