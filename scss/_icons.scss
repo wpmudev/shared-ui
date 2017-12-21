@@ -1,4 +1,20 @@
 // Icons
+%sui-icons {
+	font-family: 'WPMU-DEV-Icon' !important; // Use !important to prevent issues with browser extensions that change fonts.
+	speak: none;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-rendering: auto;
+	display: inline-block;
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 @mixin icon($position: before, $icon: false, $styles: true) {
 	@if $position == both {
@@ -11,20 +27,7 @@
 			content: "#{map-get($icons, $icon)}";
 		}
 		@if $styles {
-			font-family: 'WPMU-DEV-Icon' !important; // Use !important to prevent issues with browser extensions that change fonts.
-			speak: none;
-			font-size: 1em;
-			font-style: normal;
-			font-weight: normal;
-			font-variant: normal;
-			text-transform: none;
-			line-height: 1;
-			text-rendering: auto;
-			display: inline-block;
-
-			// Better Font Rendering
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
+			@extend %sui-icons;
 		}
 		// Include any extra rules supplied for the pseudo-element.
 		@content;

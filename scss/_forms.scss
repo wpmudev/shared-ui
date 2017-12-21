@@ -134,4 +134,81 @@
 			outline: 0;
 		}
 	}
+
+	%radio-checkbox {
+		$size: 16px;
+		user-select: none;
+		display: flex;
+		align-items: start;
+
+		input {
+			@extend %sui-screen-reader-text;
+		}
+
+		span {
+			flex-shrink: 0;
+			position: relative;
+			display: inline-block;
+			width: $size;
+			height: $size;
+			background-color: $checkbox-radio-bg-color;
+			cursor: pointer;
+			transition: .2s;
+			border-radius: 3px;
+			&:before {
+				@extend %sui-icons;
+				opacity: 0;
+				content: "(";
+				color: $white;
+				font-size: 10px;
+				line-height: $size;
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				transition: .2s;
+			}
+		}
+
+		input:checked + span {
+			background-color: $checkbox-radio-active-color;
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		.sui-description {
+			margin-top: 0;
+			margin-left: 8px;
+		}
+
+		input[disabled] + span,
+		fieldset[disabled] & + span {
+			cursor: not-allowed;
+			opacity: .5;
+		}
+	}
+
+	.sui-checkbox {
+		@extend %radio-checkbox;
+
+		span {
+			border-radius: 3px;
+		}
+
+		+ .sui-checkbox {
+			margin-top: 10px;
+		}
+	}
+
+	.sui-radio {
+		@extend %radio-checkbox;
+
+		span {
+			border-radius: 50%;
+		}
+
+		+ .sui-radio {
+			margin-top: 10px;
+		}
+	}
 }

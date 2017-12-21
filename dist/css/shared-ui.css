@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,500,700|Roboto:400,500,700");
-.sui-screen-reader-text, .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"] {
+.sui-screen-reader-text, .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"], .sui-2-0-0-alpha-1 .sui-checkbox input, .sui-2-0-0-alpha-1 .sui-radio input {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -192,19 +192,8 @@
   border-bottom: 1px dotted #888888;
 }
 
-@font-face {
-  font-family: 'WPMU-DEV-Icon';
-  src: url("../fonts/WPMU-DEV-Icon.eot");
-  src: url("../fonts/WPMU-DEV-Icon.eot") format("embedded-opentype"), url("../fonts/WPMU-DEV-Icon.ttf") format("truetype"), url("../fonts/WPMU-DEV-Icon.woff") format("woff"), url("../fonts/WPMU-DEV-Icon.woff2") format("woff2"), url("../fonts/WPMU-DEV-Icon.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class*="sui-ico-"] {
-  display: inline-block;
-}
-
-[class*="sui-ico-"]:before, [class*="sui-ico-"]:after {
+[class*="sui-ico-"]:before, [class*="sui-ico-"]:after, .sui-2-0-0-alpha-1 .sui-notice-top p:before,
+.sui-2-0-0-alpha-1 .sui-notice p:before, .sui-2-0-0-alpha-1 .sui-checkbox span:before, .sui-2-0-0-alpha-1 .sui-radio span:before, .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li:before {
   font-family: 'WPMU-DEV-Icon' !important;
   speak: none;
   font-size: 1em;
@@ -217,6 +206,18 @@
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'WPMU-DEV-Icon';
+  src: url("../fonts/WPMU-DEV-Icon.eot");
+  src: url("../fonts/WPMU-DEV-Icon.eot") format("embedded-opentype"), url("../fonts/WPMU-DEV-Icon.ttf") format("truetype"), url("../fonts/WPMU-DEV-Icon.woff") format("woff"), url("../fonts/WPMU-DEV-Icon.woff2") format("woff2"), url("../fonts/WPMU-DEV-Icon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*="sui-ico-"] {
+  display: inline-block;
 }
 
 [class*="sui-ico-"].sui-xs:before {
@@ -1356,6 +1357,73 @@
   padding: 30px;
 }
 
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row {
+  margin-top: 30px;
+  border-bottom: 1px solid #E6E6E6;
+  padding-bottom: 30px;
+  display: table;
+  width: 100%;
+}
+
+@media (max-width: 783px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row {
+    display: block;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:first-of-type {
+  margin-top: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:last-of-type {
+  padding-bottom: 20px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1 {
+  display: table-cell;
+  width: 230px;
+  padding-right: 30px;
+}
+
+@media (max-width: 783px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1 {
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1:first-child {
+    margin-top: 0;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 {
+  display: table-cell;
+}
+
+@media (max-width: 783px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-form-field:last-of-type {
+  margin-bottom: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-settings-label {
+  font-weight: 500;
+  color: #333333;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-description {
+  line-height: 22px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:last-of-type {
+  border: none;
+}
+
 .sui-2-0-0-alpha-1 .sui-box-footer {
   border-top: 1px solid #EAEAEA;
   padding: 30px;
@@ -2024,18 +2092,6 @@
 .sui-2-0-0-alpha-1 .sui-notice-top p:before,
 .sui-2-0-0-alpha-1 .sui-notice p:before {
   content: "I";
-  font-family: 'WPMU-DEV-Icon' !important;
-  speak: none;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  text-rendering: auto;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .sui-2-0-0-alpha-1 .sui-notice-top p:before,
@@ -2944,6 +3000,82 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   outline: 0;
 }
 
+.sui-2-0-0-alpha-1 .sui-checkbox, .sui-2-0-0-alpha-1 .sui-radio {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox span, .sui-2-0-0-alpha-1 .sui-radio span {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #E6E6E6;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 3px;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox span:before, .sui-2-0-0-alpha-1 .sui-radio span:before {
+  opacity: 0;
+  content: "(";
+  color: #FFFFFF;
+  font-size: 10px;
+  line-height: 16px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox input:checked + span, .sui-2-0-0-alpha-1 .sui-radio input:checked + span {
+  background-color: #17A8E3;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox input:checked + span:before, .sui-2-0-0-alpha-1 .sui-radio input:checked + span:before {
+  opacity: 1;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox .sui-description, .sui-2-0-0-alpha-1 .sui-radio .sui-description {
+  margin-top: 0;
+  margin-left: 8px;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox input[disabled] + span, .sui-2-0-0-alpha-1 .sui-radio input[disabled] + span,
+fieldset[disabled] .sui-2-0-0-alpha-1 .sui-checkbox + span,
+fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox span {
+  border-radius: 3px;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox + .sui-checkbox {
+  margin-top: 10px;
+}
+
+.sui-2-0-0-alpha-1 .sui-radio span {
+  border-radius: 50%;
+}
+
+.sui-2-0-0-alpha-1 .sui-radio + .sui-radio {
+  margin-top: 10px;
+}
+
 .sui-2-0-0-alpha-1 .sui-tabs {
   float: none;
   position: relative;
@@ -3496,18 +3628,6 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li:before {
   content: "_";
-  font-family: 'WPMU-DEV-Icon' !important;
-  speak: none;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  text-rendering: auto;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-content .sui-listing li:before {
