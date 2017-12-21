@@ -611,6 +611,9 @@
 		}
 
 		init();
+		$(window).resize(function () {
+			resizeArea();
+		});
 
 		return this;
 	};
@@ -649,9 +652,6 @@
 	// Initialize all tab-areas.
 	$(".sui-tabs").each(function(){
 		suiTabs(this);
-		$(window).resize(function () {
-			suiTabs.resizeArea();
-		})
 	});
 
 
