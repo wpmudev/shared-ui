@@ -525,7 +525,7 @@
 			if (sel_id) {
 				$("label[for=" + sel_id + "]").on("click", stateOpen);
 			}
-			jq.addClass("wdev-styled");
+			jq.addClass("sui-styled");
 		}
 
 		init();
