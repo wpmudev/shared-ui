@@ -117,6 +117,7 @@
 <body class="sui-2-0-0-alpha-1">
 <div id="adminmenu">
 	<ul>
+		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#progress-bar">Progress Bars</a></li>
 		<li><a href="#modals">Modals</a></li>
 		<li><a href="#tables">Tables</a></li>
@@ -161,6 +162,63 @@
 					</button>
 				</div>
 			</div>
+			<section id="box-settings">
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Box Settings</h2>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Server type</span>
+								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label class="sui-label">Server Type</label>
+									<select name="wphb-server-type"
+											class="server-type"
+											style="display: none;">
+										<option value="" selected="selected">Select Option</option>
+										<option value="apache">Apache</option>
+										<option value="LiteSpeed">LiteSpeed</option>
+										<option value="nginx">NGINX</option>
+										<option value="iis">IIS</option>
+										<option value="iis-7">IIS 7</option>
+										<option value="cloudflare">Cloudflare</option>
+									</select>
+								</div>
+								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
+							</div>
+
+						</div>
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Expiry Time</span>
+								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-row">
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+											<span class="sui-description">This is a field with a note.</span>
+										</div>
+									</div>
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
 			<section id="progress-bar">
 				<div class="sui-box">
 					<div class="sui-box-header">
@@ -583,8 +641,8 @@
 							<div class="sui-col">
 								<div class="sui-form-field">
 									<label class="sui-label">Server Type</label>
-									<select name="wphb-server-type" id="wphb-server-type"
-											class="server-type wdev-styled"
+									<select name="wphb-server-type"
+											class="server-type"
 											style="display: none;">
 										<option value="" selected="selected">Select Option</option>
 										<option value="apache">Apache</option>
@@ -781,7 +839,7 @@ ExpiresDefault A691200
 						<h2 class="sui-box-title">Select Box</h2>
 					</div>
 					<div class="sui-box-body">
-						<select name="wphb-server-type" id="wphb-server-type" class="server-type wdev-styled"
+						<select name="wphb-server-type"  class="server-type"
 								style="display: none;">
 							<option value="" selected="selected">Select Option</option>
 							<option value="apache">Apache</option>
