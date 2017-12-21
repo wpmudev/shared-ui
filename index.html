@@ -43,6 +43,36 @@
 			position: fixed;
 			top: 0;
 			margin-top: 30px;
+			overflow-y: auto;
+		}
+
+		#adminmenu ul {
+			clear: left;
+			margin: 12px 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		#adminmenu li {
+			min-height: 34px;
+		}
+
+		#adminmenu li:hover {
+			background-color: #191e23;
+		}
+
+		#adminmenu a {
+			display: block;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 18px;
+			padding: 8px 0 8px 10px;
+			color: #eee;
+			text-decoration: none;
+		}
+
+		#adminmenu a:hover {
+			color: #00b9eb;
 		}
 
 		#wpadminbar {
@@ -87,6 +117,17 @@
 				width: 36px;
 			}
 
+			#adminmenu a {
+				text-indent: -160px;
+				width: 36px;
+			}
+
+			#adminmenu a:after {
+				content: '•';
+				position: absolute;
+				left: 175px;
+			}
+
 			#wpcontent {
 				margin-left: 36px;
 			}
@@ -117,7 +158,7 @@
 <body class="sui-2-0-0-alpha-1">
 <div id="adminmenu">
 	<ul>
-		<li><a href="#upsells">Upsells/Disabled State</a></li>
+		<li><a href="#upsells">Upsells</a></li>
 		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#progress-bar">Progress Bars</a></li>
 		<li><a href="#modals">Modals</a></li>
@@ -2474,5 +2515,19 @@ ExpiresDefault A691200
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="dist/js/shared-ui.min.js"></script>
+<script id="demo-scripts">
+	// Offset internal sc
+	function offsetAnchor() {
+		if (location.hash.length !== 0) {
+			window.scrollTo(window.scrollX, window.scrollY - 60);
+		}
+	}
+	$(document).on('click', 'a[href^="#"]', function (event) {
+		window.setTimeout(function () {
+			offsetAnchor();
+		}, 0);
+	});
+	window.setTimeout(offsetAnchor, 0);
+</script>
 </body>
 </html>
