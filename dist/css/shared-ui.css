@@ -3005,9 +3005,17 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 .sui-2-0-0-alpha-1 .sui-checkbox span, .sui-2-0-0-alpha-1 .sui-radio span {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
   display: inline-block;
   width: 16px;
@@ -3040,12 +3048,25 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   opacity: 1;
 }
 
+.sui-2-0-0-alpha-1 .sui-checkbox .sui-description, .sui-2-0-0-alpha-1 .sui-radio .sui-description {
+  margin-top: 0;
+  margin-left: 8px;
+}
+
 .sui-2-0-0-alpha-1 .sui-checkbox span {
   border-radius: 3px;
 }
 
+.sui-2-0-0-alpha-1 .sui-checkbox + .sui-checkbox {
+  margin-top: 10px;
+}
+
 .sui-2-0-0-alpha-1 .sui-radio span {
   border-radius: 50%;
+}
+
+.sui-2-0-0-alpha-1 .sui-radio + .sui-radio {
+  margin-top: 10px;
 }
 
 .sui-2-0-0-alpha-1 .sui-tabs {

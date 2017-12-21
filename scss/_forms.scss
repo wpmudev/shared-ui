@@ -138,12 +138,15 @@
 	%radio-checkbox {
 		$size: 16px;
 		user-select: none;
+		display: flex;
+		align-items: start;
 
 		input {
 			@extend %sui-screen-reader-text;
 		}
 
 		span {
+			flex-shrink: 0;
 			position: relative;
 			display: inline-block;
 			width: $size;
@@ -172,19 +175,34 @@
 				opacity: 1;
 			}
 		}
+
+		.sui-description {
+			margin-top: 0;
+			margin-left: 8px;
+		}
 	}
 
 	.sui-checkbox {
 		@extend %radio-checkbox;
+
 		span {
 			border-radius: 3px;
+		}
+
+		+ .sui-checkbox {
+			margin-top: 10px;
 		}
 	}
 
 	.sui-radio {
 		@extend %radio-checkbox;
+
 		span {
 			border-radius: 50%;
+		}
+
+		+ .sui-radio {
+			margin-top: 10px;
 		}
 	}
 }
