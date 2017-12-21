@@ -1283,6 +1283,11 @@
   height: 16px;
 }
 
+.sui-2-0-0-alpha-1 .sui-toggle.sui-toggle-label {
+  top: 3px;
+  margin-right: 10px;
+}
+
 .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"][disabled] + .sui-toggle-slider {
   opacity: .5;
   cursor: not-allowed;
@@ -1358,11 +1363,22 @@
 }
 
 .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row {
-  margin-top: 30px;
-  border-bottom: 1px solid #E6E6E6;
+  position: relative;
   padding-bottom: 30px;
   display: table;
   width: 100%;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:before {
+  position: absolute;
+  display: block;
+  clear: both;
+  height: 1px;
+  content: '';
+  background-color: #E6E6E6;
+  left: 30px;
+  right: 30px;
+  top: 0;
 }
 
 @media (max-width: 783px) {
@@ -1375,8 +1391,16 @@
   margin-top: 0;
 }
 
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:first-of-type:before {
+  display: none;
+}
+
 .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:last-of-type {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:last-of-type:before {
+  display: none;
 }
 
 .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1 {
@@ -1388,7 +1412,7 @@
 @media (max-width: 783px) {
   .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1 {
     display: block;
-    margin-top: 30px;
+    padding-top: 30px;
     width: 100%;
   }
   .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-1:first-child {
@@ -1403,8 +1427,12 @@
 @media (max-width: 783px) {
   .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 {
     display: block;
-    margin-top: 30px;
+    padding-top: 30px;
   }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 .sui-settings-label {
+  color: #666666;
 }
 
 .sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row .sui-form-field:last-of-type {
@@ -1420,8 +1448,85 @@
   line-height: 22px;
 }
 
-.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row:last-of-type {
-  border: none;
+.sui-2-0-0-alpha-1 .sui-box-body .sui-box-settings-row.sui-disabled {
+  background-color: rgba(242, 242, 242, 0.5);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body.sui-upsell-items {
+  padding: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body.sui-upsell-items .sui-box-settings-row {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 31px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body.sui-upsell-items .sui-box-settings-row:first-of-type {
+  padding-top: 30px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row {
+  position: relative;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-image {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+}
+
+@media (max-width: 799px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-image {
+    display: none;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice {
+  padding-left: 130px;
+}
+
+@media (max-width: 799px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice {
+    padding-left: 0;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice p {
+  position: relative;
+  border-radius: 4px;
+  background-color: #E1F6FF;
+  padding: 20px 30px;
+  color: #333333;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice p:after {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  margin-left: -7px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid #E1F6FF;
+}
+
+@media (max-width: 799px) {
+  .sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice p:after {
+    display: none;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-box-body .sui-upsell-row .sui-upsell-notice p a {
+  color: #333333;
+  text-decoration: underline;
+  font-weight: 500;
 }
 
 .sui-2-0-0-alpha-1 .sui-box-footer {
@@ -2852,6 +2957,16 @@
 .sui-2-0-0-alpha-1 .sui-tag.sui-tag-upgrade {
   background-color: #1ABC9C;
   color: #FFFFFF;
+}
+
+.sui-2-0-0-alpha-1 .sui-tag.sui-tag-upsell {
+  border: 2px solid #D1F1EA;
+  color: #1ABC9C;
+  width: auto;
+  height: 26px;
+  line-height: 16px;
+  background: transparent;
+  padding: 4px 16px;
 }
 
 .sui-2-0-0-alpha-1 .sui-label, .sui-2-0-0-alpha-1 .sui-inline-label {
