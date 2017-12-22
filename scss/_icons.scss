@@ -266,34 +266,37 @@ $icons: (
 	font-style: normal;
 }
 
-// Set the required styles on all icons.
-[class*="sui-ico-"] {
-	display: inline-block;
-	@include icon(both);
-}
+@include body-class {
 
-// Icon sizes
-[class*="sui-ico-"].sui-xs:before {
-	font-size: 12px;
-}
+	// Set the required styles on all icons.
+	[class*="sui-ico-"] {
+		display: inline-block;
+		@include icon(both);
+	}
 
-[class*="sui-ico-"].sui-sm {
-	font-size: 16px;
-}
+	// Icon sizes
+	[class*="sui-ico-"].sui-xs:before {
+		font-size: 12px;
+	}
 
-[class*="sui-ico-"].sui-lg {
-	font-size: 30px;
-}
+	[class*="sui-ico-"].sui-sm {
+		font-size: 16px;
+	}
 
-// Fixed width icons.
-[class*="sui-ico-"].sui-fw {
-	text-align: center;
-	width: 1.2857em;
-}
+	[class*="sui-ico-"].sui-lg {
+		font-size: 30px;
+	}
 
-// Setup a class name for each icon.
-@each $name, $char in $icons {
-	.sui-ico-#{$name}:before {
-		content: $char;
+	// Fixed width icons.
+	[class*="sui-ico-"].sui-fw {
+		text-align: center;
+		width: 1.2857em;
+	}
+
+	// Setup a class name for each icon.
+	@each $name, $char in $icons {
+		.sui-ico-#{$name}:before {
+			content: $char;
+		}
 	}
 }

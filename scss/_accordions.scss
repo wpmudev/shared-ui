@@ -3,6 +3,110 @@
 	// Must use in conjunction with .sui-table on the <table> element.
 	.sui-accordion {
 		border: 0;
+
+		&:after {
+			content: "";
+			display: table;
+			margin-bottom: $sui-gutter;
+		}
+	}
+
+	.sui-accordion-item {
+		display: table-row;
+		vertical-align: middle;
+		cursor: pointer;
+		transition: background-color .2s;
+		border-left: 2px solid transparent;
+
+		+ .sui-accordion-item-content {
+			border-left: 2px solid transparent;
+		}
+
+		&.sui-success {
+			color: inherit;
+			border-color: $success;
+
+			+ .sui-accordion-item-content {
+				border-color: $success;
+			}
+		}
+
+		&.sui-warning {
+			color: inherit;
+			border-color: $warning;
+
+			+ .sui-accordion-item-content {
+				border-color: $warning;
+			}
+		}
+
+		&.sui-error {
+			color: inherit;
+			border-color: $error;
+
+			+ .sui-accordion-item-content {
+				border-color: $error;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			background-color: $accordion--content-bg-color;
+		}
+
+		td {
+			padding: 15px 30px;
+		}
+
+		td > * {
+			vertical-align: middle;
+		}
+
+		&--open td {
+			background-color: $accordion--content-bg-color;
+			border-bottom: 1px solid $accordion--content-bg-color;
+		}
+
+		&--open + .sui-accordion-item-content {
+			display: table-row;
+		}
+
+		&--open .sui-accordion-open-indicator {
+			transform: rotate(180deg);
+		}
+	}
+
+	.sui-accordion-open-indicator {
+		float: right;
+		text-align: center;
+
+		i {
+			font-size: 12px;
+		}
+	}
+
+	.sui-accordion-item-title {
+		font-size: 15px;
+
+		i {
+			font-size: 20px;
+			margin-right: 10px;
+		}
+	}
+
+	.sui-accordion-item-content {
+		display: none;
+		background-color: $accordion--content-bg-color;
+		border-top: 0;
+
+		td {
+			width: 100%;
+			padding: 0 30px 30px 30px;
+		}
+
+		.sui-box {
+			margin-bottom: 0;
+		}
 	}
 
 }
