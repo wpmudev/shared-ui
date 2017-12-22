@@ -29,21 +29,40 @@
 		padding: 30px;
 
 		.sui-box-settings-row {
-			margin-top: 30px;
-			border-bottom: 1px solid #E6E6E6;
+			position: relative;
+			//border-bottom: 1px solid #E6E6E6;
 			padding-bottom: 30px;
 			display: table;
 			width: 100%;
-			
+			&:before {
+				position: absolute;
+				display: block;
+				clear: both;
+				height: 1px;
+				content: '';
+				background-color: #E6E6E6;
+				left: 30px;
+				right: 30px;
+				top: 0;
+
+			}
+
+
 			@media (max-width: 783px) {
 				display: block;
 			}
 
 			&:first-of-type {
 				margin-top: 0;
+				&:before {
+					display: none;
+				}
 			}
 			&:last-of-type {
-				padding-bottom: 20px;
+				padding-bottom: 30px;
+				&:before {
+					display: none;
+				}
 			}
 
 			.sui-box-settings-col-1 {
@@ -53,7 +72,7 @@
 
 				@media (max-width: 783px) {
 					display: block;
-					margin-top: 30px;
+					padding-top: 30px;
 					width: 100%;
 
 					&:first-child {
@@ -66,7 +85,10 @@
 
 				@media (max-width: 783px) {
 					display: block;
-					margin-top: 30px;
+					padding-top: 30px;
+				}
+				.sui-settings-label {
+					color: $gray;
 				}
 
 			}
@@ -78,15 +100,82 @@
 
 			.sui-settings-label {
 				font-weight: 500;
-				color: #333333;
+				color: $box-settings-label-color;
 			}
+
 			.sui-description {
 				line-height: 22px;
 			}
+
+			&.sui-disabled {
+				background-color: rgba(242, 242, 242, 0.5);
+				opacity: 0.5;
+				pointer-events: none;
+			}
 		}
 
-		.sui-box-settings-row:last-of-type {
-			border: none;
+		&.sui-upsell-items {
+			padding: 0;
+			.sui-box-settings-row {
+				padding-right: 30px;
+				padding-left: 30px;
+				padding-top: 31px;
+
+				&:first-of-type {
+					padding-top: 30px;
+				}
+			}
+		}
+
+		.sui-upsell-row {
+			position: relative;
+			.sui-upsell-image {
+				position: absolute;
+				bottom: 0;
+				width: 100px;
+				@include media(max-width, md) {
+					display: none;
+				}
+			}
+			.sui-upsell-notice {
+				padding-left: 130px;
+
+				@include media(max-width, md) {
+					padding-left: 0;
+				}
+
+				p {
+					position: relative;
+					border-radius: 4px;
+					background-color: $box-upsell-p-bg-color;
+					padding: 20px 30px;
+					color: $box-upsell-p-color;
+					font-size: 13px;
+					line-height: 22px;
+					&:after {
+						position: absolute;
+						top: 43%;
+						left: 0;
+						margin-left: -7px;
+						content: '';
+						width: 0;
+						height: 0;
+						border-top: 7px solid transparent;
+						border-bottom: 7px solid transparent;
+						border-right: 7px solid $box-upsell-p-bg-color;
+
+
+						@include media(max-width, md) {
+							display: none;
+						}
+					}
+					a {
+						color: $box-upsell-p-color;
+						text-decoration: underline;
+						font-weight: 500;
+					}
+				}
+			}
 		}
 	}
 
