@@ -5661,7 +5661,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   display: table-row;
 }
 
-.sui-2-0-0-alpha-1 .sui-accordion-item--open .sui-accordion-open-indicator {
+.sui-2-0-0-alpha-1 .sui-accordion-item--open .sui-accordion-open-indicator i {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -5672,7 +5672,17 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 }
 
 .sui-2-0-0-alpha-1 .sui-accordion-open-indicator i {
-  font-size: 12px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  font-size: 10px;
+  color: #888888;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.sui-2-0-0-alpha-1 .sui-accordion-open-indicator i:before {
+  position: relative;
+  top: 2px;
 }
 
 .sui-2-0-0-alpha-1 .sui-accordion-item-title {

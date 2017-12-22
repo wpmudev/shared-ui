@@ -71,7 +71,7 @@
 			display: table-row;
 		}
 
-		&--open .sui-accordion-open-indicator {
+		&--open .sui-accordion-open-indicator i {
 			transform: rotate(180deg);
 		}
 	}
@@ -81,7 +81,15 @@
 		text-align: center;
 
 		i {
-			font-size: 12px;
+			transform-origin: center;
+			font-size: 10px;
+			color: $accordion--open-indicator-color;
+			transition: .5s;
+
+			&:before {
+				position: relative;
+				top: 2px;
+			}
 		}
 	}
 
