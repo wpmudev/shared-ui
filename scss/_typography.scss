@@ -1,5 +1,9 @@
 // Typography
 
+@if variable-exists(google-fonts-url) and $import-font == true {
+	@import url($google-fonts-url);
+}
+
 // Base
 @include body-class {
 
