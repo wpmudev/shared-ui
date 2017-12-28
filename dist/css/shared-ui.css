@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,500,700|Roboto:400,500,700");
-.sui-screen-reader-text, .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"], .sui-2-0-0-alpha-1 .sui-checkbox input, .sui-2-0-0-alpha-1 .sui-radio input {
+.sui-screen-reader-text, .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"], .sui-2-0-0-alpha-1 .sui-checkbox input, .sui-2-0-0-alpha-1 .sui-radio input, .sui-2-0-0-alpha-1 .sui-upload-group input[type="file"] {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -3001,7 +3001,7 @@
   padding: 0;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control {
+.sui-2-0-0-alpha-1 .sui-form-control, .sui-2-0-0-alpha-1 .sui-upload-group {
   display: block;
   width: 100%;
   height: 40px;
@@ -3018,50 +3018,51 @@
   transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control::-ms-expand {
+.sui-2-0-0-alpha-1 .sui-form-control::-ms-expand, .sui-2-0-0-alpha-1 .sui-upload-group::-ms-expand {
   border: 0;
   background-color: transparent;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control[disabled],
-fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
+.sui-2-0-0-alpha-1 .sui-form-control[disabled], .sui-2-0-0-alpha-1 [disabled].sui-upload-group,
+fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control,
+fieldset[disabled] .sui-2-0-0-alpha-1 .sui-upload-group {
   cursor: not-allowed;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control:hover, .sui-2-0-0-alpha-1 .sui-form-control:focus {
+.sui-2-0-0-alpha-1 .sui-form-control:hover, .sui-2-0-0-alpha-1 .sui-upload-group:hover, .sui-2-0-0-alpha-1 .sui-form-control:focus, .sui-2-0-0-alpha-1 .sui-upload-group:focus {
   color: #666666;
   border: 1px solid #DDDDDD;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control:focus {
+.sui-2-0-0-alpha-1 .sui-form-control:focus, .sui-2-0-0-alpha-1 .sui-upload-group:focus {
   outline: 0;
   background-color: #FFFFFF;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control::-webkit-input-placeholder {
+.sui-2-0-0-alpha-1 .sui-form-control::-webkit-input-placeholder, .sui-2-0-0-alpha-1 .sui-upload-group::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control:-ms-input-placeholder {
+.sui-2-0-0-alpha-1 .sui-form-control:-ms-input-placeholder, .sui-2-0-0-alpha-1 .sui-upload-group:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control::-ms-input-placeholder {
+.sui-2-0-0-alpha-1 .sui-form-control::-ms-input-placeholder, .sui-2-0-0-alpha-1 .sui-upload-group::-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-control::placeholder {
+.sui-2-0-0-alpha-1 .sui-form-control::placeholder, .sui-2-0-0-alpha-1 .sui-upload-group::placeholder {
   color: #AAAAAA;
 }
 
-.sui-2-0-0-alpha-1 textarea.sui-form-control {
+.sui-2-0-0-alpha-1 textarea.sui-form-control, .sui-2-0-0-alpha-1 textarea.sui-upload-group {
   line-height: 20px;
   height: auto;
   max-width: 100%;
   resize: vertical;
 }
 
-.sui-2-0-0-alpha-1 select.sui-form-control {
+.sui-2-0-0-alpha-1 select.sui-form-control, .sui-2-0-0-alpha-1 select.sui-upload-group {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAs0lEQVQ4T6WS2w0CIRBF59KA2oklaAdbgpbgB48SIBThduKWYClrA2CGgEEXNWH5moR7Zu48QJ0PnRytA6WUe67svb//clDrUkWt9UxEMYRw/AYzJIS4sd45t0ugMeZERNcY49yCCwRgS0Rna+346rGGAVz4s06aW0gQx2/DUUoNAEYAG86cxezkAWCw1k5lBoupZltThomhEMLhs/fmOgrM2VvQwmq9in8rWncAPWfXXfEJ6RpWD7sJ1JwAAAAASUVORK5CYII=);
   background-repeat: no-repeat;
   background-position: center right 10px;
@@ -3087,7 +3088,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-form-control {
   margin-bottom: 30px;
 }
 
-.sui-2-0-0-alpha-1 .sui-form-field-error .sui-form-control {
+.sui-2-0-0-alpha-1 .sui-form-field-error .sui-form-control, .sui-2-0-0-alpha-1 .sui-form-field-error .sui-upload-group {
   border-bottom: 2px solid #FF7F83;
 }
 
@@ -3203,6 +3204,46 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 
 .sui-2-0-0-alpha-1 .sui-radio + .sui-radio {
   margin-top: 10px;
+}
+
+.sui-2-0-0-alpha-1 .sui-upload-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sui-2-0-0-alpha-1 .sui-upload-button {
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  pointer-events: none;
+  padding: 1px 16px;
+  border: 1px solid #DDDDDD;
+  background: 0 0;
+  color: #888;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.sui-2-0-0-alpha-1 .sui-upload-label {
+  width: 100%;
+}
+
+.sui-2-0-0-alpha-1 .sui-upload-label:hover .sui-upload-button, .sui-2-0-0-alpha-1 .sui-upload-label:focus .sui-upload-button {
+  background-color: #888888;
+  border-color: #888888;
+  color: #FFFFFF;
+}
+
+.sui-2-0-0-alpha-1 .sui-upload-message {
+  font-weight: 400;
 }
 
 .sui-2-0-0-alpha-1 .sui-tabs {

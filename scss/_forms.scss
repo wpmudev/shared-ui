@@ -211,4 +211,46 @@
 			margin-top: 10px;
 		}
 	}
+
+	.sui-upload-group {
+		@extend .sui-form-control;
+		display: flex;
+		align-items: center;
+
+		input[type="file"] {
+			@extend %sui-screen-reader-text;
+		}
+	}
+
+	.sui-upload-button {
+		background-color: transparent;
+		border-radius: 4px;
+		display: inline-block;
+		margin: 0 5px 0 0;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.5;
+		pointer-events: none;
+		padding: 1px 16px;
+		border: 1px solid $button-ghost-border-color;
+		background: 0 0;
+		color: #888;
+		transition: all .2s;
+	}
+
+	.sui-upload-label {
+		width: 100%;
+
+		&:hover, &:focus {
+			.sui-upload-button {
+				background-color: $button-ghost-action-bg-color;
+				border-color: $button-ghost-action-border-color;
+				color: $white;
+			}
+		}
+	}
+
+	.sui-upload-message {
+		font-weight: 400;
+	}
 }
