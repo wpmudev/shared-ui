@@ -593,11 +593,13 @@
 
 			if (route) {
 				curTab = jq.find('input#' + route);
-				jq.find( '.sui-tab label.active' ).removeClass( 'active' );
-				curTab.parent().find('label').addClass( 'active' );
-				if (curTab.length && !curTab.prop('checked')) {
-					curTab.prop('checked', true);
-					scrollWindow();
+				if (curTab.parent().find('label').length) {
+					jq.find('.sui-tab label.active').removeClass('active');
+					curTab.parent().find('label').addClass('active');
+					if (curTab.length && !curTab.prop('checked')) {
+						curTab.prop('checked', true);
+						scrollWindow();
+					}
 				}
 			}
 		}
