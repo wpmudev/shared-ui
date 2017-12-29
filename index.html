@@ -1995,30 +1995,30 @@ Header set Cache-Control "max-age=691200"
 					<div class="sui-box-body">
 						<div class="sui-row">
 							<div class="sui-col">
-								<code>sui-tag sui-tag-warning</code><br>
+								<code>&lt;span class="sui-tag sui-tag-warning"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-warning">+1</span>
 							</div>
 							<div class="sui-col">
-								<code>sui-tag sui-tag-success</code><br>
+								<code>&lt;span class="sui-tag sui-tag-success"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-success">+1</span>
 							</div>
 							<div class="sui-col">
-								<code>sui-tag sui-tag-error</code><br>
+								<code>&lt;span class="sui-tag sui-tag-error"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-error">+1</span>
 							</div>
 						</div>
 						<br>
 						<div class="sui-row">
 							<div class="sui-col">
-								<code>sui-tag sui-tag-inactive</code><br>
+								<code>&lt;span class="sui-tag sui-tag-inactive"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-inactive">+1</span>
 							</div>
 							<div class="sui-col">
-								<code>sui-tag sui-tag-disabled</code><br>
+								<code>&lt;span class="sui-tag sui-tag-disabled"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-disabled">+1</span>
 							</div>
 							<div class="sui-col">
-								<code>sui-tag sui-tag-upgrade</code><br>
+								<code>&lt;span class="sui-tag sui-tag-upgrade"&gt;&lt;/span&gt;</code><br>
 								<span class="sui-tag sui-tag-upgrade">+1</span>
 							</div>
 						</div>
@@ -2138,9 +2138,7 @@ Header set Cache-Control "max-age=691200"
 						</div><!-- .sui-row -->
 						<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
 							hide it between the defined breakpoints in variables. Note: If you want it to stay hidden
-							for
-							all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md
-								.sui-hidden-sm .sui-hidden-xs</code> :</p>
+							for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code> :</p>
 						<div class="sui-row">
 							<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
 								<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
@@ -2168,7 +2166,20 @@ Header set Cache-Control "max-age=691200"
 						<br>
 						<i class="sui-ico-loader sui-loading sui-xs"></i> Small loader
 					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-loader">
+								Copy
+							</button>
+							<pre id="code-snippet-loader">&lt;i class="sui-ico-loader sui-loading sui-lg"&gt;&lt;/i&gt;
+&lt;i class="sui-ico-loader sui-loading"&gt;&lt;/i&gt;
+&lt;i class="sui-ico-loader sui-loading sui-xs"&gt;&lt;/i&gt;
+</pre>
+						</div>
+					</div>
 				</div><!-- .sui-box -->
+
 			</section>
 
 			<section id="notifications">
@@ -2218,6 +2229,49 @@ Header set Cache-Control "max-age=691200"
 						<div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon">
 							<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended
 								expiry period of 8 days.</p>
+						</div>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-notifications">
+								Copy
+							</button>
+							<pre id="code-snippet-notifications">&lt;div class="sui-notice"&gt;
+	&lt;p&gt;Notice default&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-success"&gt;
+	&lt;p&gt;Notice success&lt;/p&gt;
+	&lt;span class="sui-notice-dismiss"&gt;&lt;a href="#"&gt;Dismiss&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-warning"&gt;
+	&lt;p&gt;Notice warning&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-error"&gt;
+	&lt;p&gt;Notice error&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-info"&gt;
+	&lt;p&gt;Notice info&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm"&gt;
+	&lt;p&gt;Notice default&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm sui-notice-success"&gt;
+	&lt;p&gt;Page caching is currently active.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm sui-notice-warning"&gt;
+	&lt;p&gt;Notice warning&lt;/p&gt;
+	&lt;span class="sui-notice-dismiss"&gt;&lt;a href="#"&gt;Dismiss&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm sui-notice-error"&gt;
+	&lt;p&gt;Notice error&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick"&gt;
+	&lt;p class="sui-ico-check-tick"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon"&gt;
+	&lt;p class="sui-ico-check-tick"&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
 						</div>
 					</div>
 				</div><!-- .sui-box -->
@@ -2272,7 +2326,22 @@ Header set Cache-Control "max-age=691200"
 							Constrained
 						</button>
 					</div>
-
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-tooltips">
+								Copy
+							</button>
+							<pre id="code-snippet-tooltips">&lt;button class="sui-button sui-tooltip" data-tooltip=""&gt;Tooltip Default&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip=""&gt;Tooltip Bottom Left&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip=""&gt;Tooltip Bottom Right&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip=""&gt;Tooltip Top Left&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip=""&gt;Tooltip Top Right&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Tooltip	Left&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Tooltip Right&lt;/button&gt;
+&lt;button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip=""&gt;Tooltip Constrained&lt;/button&gt;</pre>
+						</div>
+					</div>
 				</div><!-- .sui-box -->
 			</section>
 
@@ -2305,6 +2374,25 @@ Header set Cache-Control "max-age=691200"
 							class="sui-ico-alert"></i></button>
 						<button class="sui-button sui-button-green">Green Button Icon Right &nbsp;<i
 							class="sui-ico-alert"></i></button>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-buttons">
+								Copy
+							</button>
+							<pre id="code-snippet-buttons">&lt;button class="sui-button"&gt;Default Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-red"&gt;Red Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-green"&gt;Green Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-ghost"&gt;Ghost Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-primary sui-button-lg"&gt;Large Button&lt;/button&gt;
+&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost&lt;/button&gt;
+&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Large	Button Ghost Icon&lt;/button&gt;
+&lt;button class="sui-button sui-button-ghost sui-button-green"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Green Button Icon&lt;/button&gt;
+&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class="sui-button sui-button-green"&gt;Green Button Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+						</div>
 					</div>
 				</div><!-- .sui-box -->
 			</section>
@@ -2446,6 +2534,23 @@ Header set Cache-Control "max-age=691200"
 								<span class="sui-toggle-slider"></span>
 							</label>
 						</p>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-toggles">
+								Copy
+							</button>
+							<pre id="code-snippet-toggles">&lt;label class="sui-toggle"&gt;
+	&lt;input type="checkbox"&gt;
+	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="sui-toggle"&gt;
+	&lt;input type="checkbox" disabled&gt;
+	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+</pre>
+						</div>
 					</div>
 				</div><!-- .sui-box -->
 			</section>
@@ -3346,6 +3451,131 @@ Header set Cache-Control "max-age=691200"
 
 			</section>
 			<section id="footer">
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Footer Snippet</h2>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-footer">
+								Copy
+							</button>
+							<pre id="code-snippet-footer">&lt;div class="sui-row" id="sui-cross-sell-footer"&gt;
+	&lt;div&gt;&lt;span class="sui-ico-plugin-2"&gt;&lt;/span&gt;&lt;/div&gt;
+	&lt;h3&gt;Check out our other free wordpress.org plugins!&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="sui-row sui-cross-sell-modules"&gt;
+	&lt;div class="sui-col-md-4"&gt;
+		&lt;div class="sui-cross-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div class="sui-box"&gt;
+			&lt;div class="sui-box-body"&gt;
+				&lt;h3&gt;Smush Image Compression and Optimization&lt;/h3&gt;
+				&lt;p&gt;Resize, optimize and compress all of your images with the incredibly powerful and
+					award-winning, 100% free WordPress image optimizer.&lt;/p&gt;
+				&lt;a href="https://wordpress.org/plugins/wp-smushit/" class="sui-button sui-button-ghost"
+				   target="_blank"&gt;
+					View features &nbsp;&nbsp;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="sui-col-md-4"&gt;
+		&lt;div class="sui-cross-2"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div class="sui-box"&gt;
+			&lt;div class="sui-box-body"&gt;
+				&lt;h3&gt;Defender Security, Monitoring, and Hack Protection&lt;/h3&gt;
+				&lt;p&gt;Security Tweaks & Recommendations, File & Malware Scanning, Login & 404 Lockout
+					Protection, Two-Factor Authentication & more.&lt;/p&gt;
+				&lt;a href="https://wordpress.org/plugins/defender-security/"
+				   class="sui-button sui-button-ghost" target="_blank"&gt;
+					View features &nbsp;&nbsp;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="sui-col-md-4"&gt;
+		&lt;div class="sui-cross-3"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div class="sui-box"&gt;
+			&lt;div class="sui-box-body"&gt;
+				&lt;h3&gt;SmartCrawl Search Engine Optimization&lt;/h3&gt;
+				&lt;p&gt;Customize Titles & Meta Data, OpenGraph, Twitter & Pinterest Support, Auto-Keyword
+					Linking, SEO & Readability Analysis, Sitemaps, URL Crawler & more.'&lt;/p&gt;
+				&lt;a href="#" class="sui-button disabled" target="_blank"&gt;
+					Coming soon
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sui-cross-sell-bottom"&gt;
+	&lt;h3&gt;WPMU DEV - Your WordPress Toolkit&lt;/h3&gt;
+	&lt;p&gt;Pretty much everything you need for developing and managing WordPress based websites, and then
+		some.&lt;/p&gt;
+
+	&lt;a class="sui-button sui-button-green" href="#sui-upgrade-membership-modal"
+	   id="dash-uptime-update-membership" rel="dialog"&gt;
+		Learn more
+	&lt;/a&gt;
+
+	&lt;img class="sui-image"
+		 src="dist/images/dev-team.png"
+		 srcset="dist/images/dev-team@2x.png 2x"
+		 alt="Try pro features for free!"&gt;
+&lt;/div&gt;
+&lt;div class="sui-footer"&gt;Made with &lt;i class="sui-ico-heart"&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
+&lt;dialog id="sui-upgrade-membership-modal" class="sui-modal" title="Upgrade Membership"&gt;
+
+	&lt;p&gt;Here's what you'll get by upgrading to Hummingbird Pro.&lt;/p&gt;
+
+	&lt;ul class="sui-listing"&gt;
+		&lt;li&gt;
+			&lt;strong&gt;Automation&lt;/strong&gt;
+			&lt;p&gt;Schedule Hummingbird to run regular performance tests daily, weekly or monthly and get
+				email reports delivered straight to your inbox.&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;strong&gt;Enhanced Minify Compression&lt;/strong&gt;
+			&lt;p&gt;Compress your minified files up to 2x more than regular optimization and reuce your page
+				load speed even further.&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;strong&gt;WPMU DEV CDN&lt;/strong&gt;
+			&lt;p&gt;By default we minify your files via our API and send them back to your server. Pro users
+				can host their files on WPMU DEV’s secure and hyper fast CDN, which will mean less load
+				on your server and a fast visitor experience.&lt;/p&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;strong&gt;Smush Pro&lt;/strong&gt;
+			&lt;p&gt;A membership for Hummingbird Pro also gets you the award winning Smush Pro with unlimited
+				advanced lossy compression that’ll give image heavy websites a speed boost.&lt;/p&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+
+	&lt;p class="sui-block-content-center"&gt;Get all of this, plus heaps more as part of a WPMU DEV
+		membership.&lt;/p&gt;
+
+	&lt;div class="sui-block-content-center"&gt;
+		&lt;a target="_blank" href="" class="sui-button sui-button-green sui-button-lg"&gt;Upgrade
+			Membership&lt;/a&gt;
+	&lt;/div&gt;
+
+	&lt;div class="sui-modal-image sui-modal-image-bottom dev-man"&gt;
+		&lt;img class="sui-image sui-image-center"
+			 src="dist/images/dev-team.png"
+			 srcset="dist/images/dev-team@2x.png 2x"
+			 alt="WPMU DEV Team"&gt;
+	&lt;/div&gt;
+
+&lt;/dialog&gt;
+</pre>
+						</div>
+					</div>
+				</div>
 				<div class="sui-row" id="sui-cross-sell-footer">
 					<div><span class="sui-ico-plugin-2"></span></div>
 					<h3>Check out our other free wordpress.org plugins!</h3>
