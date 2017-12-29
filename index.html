@@ -209,7 +209,7 @@
 			<section id="codeblock">
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Code Block & Copy</h2>
+						<h2 class="sui-box-title">Code Snippet & Copy</h2>
 					</div>
 					<div class="sui-box-body">
 						<div class="sui-code-snippet">
@@ -255,6 +255,21 @@ ExpiresDefault A691200
    Header set Cache-Control "max-age=691200"
   &lt;/FilesMatch&gt;
 &lt;/IfModule&gt;</pre>
+						</div>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-1">
+								Copy
+							</button>
+							<pre id="code-snippet-1">
+&lt;div class="sui-code-snippet"&gt;
+	&lt;button class="sui-button sui-code-snippet-copy" data-clipboard-target="#code-snippet"&gt;Copy&lt;/button&gt;
+	&lt;pre id="code-snippet"&gt;
+	...
+	&lt;/pre&gt;
+&lt;/div&gt;</pre>
 						</div>
 					</div>
 				</div>
@@ -314,6 +329,76 @@ ExpiresDefault A691200
 						</div>
 					</div>
 				</div>
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Upsells/Disabled State - Snippet</h2>
+					</div>
+					<div class="sui-box-body sui-upsell-items">
+						<div class="sui-box-body">
+							<div class="sui-code-snippet">
+								<button class="sui-button sui-code-snippet-copy"
+										data-clipboard-target="#code-snippet-upsell">
+									Copy
+								</button>
+								<pre id="code-snippet-upsell">
+&lt;div class="sui-box"&gt;
+	&lt;div class="sui-box-header"&gt;
+		&lt;h2 class="sui-box-title"&gt;Upsells/Disabled State&lt;/h2&gt;
+		&lt;span class="sui-tag sui-tag-upsell"&gt;Pro Feature&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-box-body sui-upsell-items"&gt;
+		&lt;div class="sui-box-settings-row"&gt;
+			&lt;div class="sui-box-settings-col-1"&gt;
+				&lt;span class="sui-settings-label"&gt;Reset to defaults&lt;/span&gt;
+				&lt;span class="sui-description"&gt;If your frontend has fallen apart or you just want to go back to the default settings you can use this button to do so. It will clear all your settings and run a new file check.&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-box-settings-col-2"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;button class="sui-button sui-button-ghost"&gt;Reset&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-box-settings-row sui-disabled"&gt;
+			&lt;div class="sui-box-settings-col-1"&gt;
+				&lt;span class="sui-settings-label"&gt;Super-compress my files&lt;/span&gt;
+				&lt;span class="sui-description"&gt;Compress your files up to 2x more than regular optimization and reduce your page load speed even further.&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-box-settings-col-2"&gt;
+				&lt;label class="sui-toggle sui-toggle-label"&gt;
+					&lt;input type="checkbox"&gt;
+					&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+				&lt;/label&gt;
+				&lt;span class="sui-settings-label"&gt;Enable super-compression&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-box-settings-row sui-disabled"&gt;
+			&lt;div class="sui-box-settings-col-1"&gt;
+				&lt;span class="sui-settings-label"&gt;Enable WPMU DEV CDN&lt;/span&gt;
+				&lt;span class="sui-description"&gt;By default your files are hosted on your own server. With this setting enabled we will host your files on WPMU DEV’s secure and hyper fast CDN.&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-box-settings-col-2"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-toggle sui-toggle-label"&gt;
+						&lt;input type="checkbox"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+					&lt;span class="sui-settings-label"&gt;Host my files on the WPMU DEV CDN&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-box-settings-row sui-upsell-row"&gt;
+			&lt;img class="sui-image sui-upsell-image" src="dist/images/hummingbird-upsell-minify.png" srcset="dist/images/hummingbird-upsell-minify@2x.png 2x" alt="WP Smush free installed"&gt;
+			&lt;div class="sui-upsell-notice"&gt;
+				&lt;p&gt;With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  &lt;a href="#wphb-upgrade-membership-modal" rel="dialog"&gt;Try Pro for FREE today!&lt;/a&gt;&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 			<section id="box-settings">
 				<div class="sui-box">
@@ -343,7 +428,6 @@ ExpiresDefault A691200
 								</div>
 								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
 							</div>
-
 						</div>
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
@@ -367,6 +451,24 @@ ExpiresDefault A691200
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-box-settings">
+								Copy
+							</button>
+							<pre id="code-snippet-box-settings">
+&lt;div class="sui-box-settings-row"&gt;
+	&lt;div class="sui-box-settings-col-1"&gt;
+		&lt;span class="sui-settings-label"&gt;Settings Label&lt;/span&gt;
+		&lt;span class="sui-description"&gt;Settings Description&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-box-settings-col-2"&gt;
+		&lt;div class="sui-form-field"&gt;
+			...
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
 						</div>
 					</div>
 				</div>
@@ -403,6 +505,41 @@ ExpiresDefault A691200
 						</div>
 						<div class="sui-progress-state">
 							<span class="sui-progress-state-text">Can't close progress bar...</span>
+						</div>
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-progress-bars">
+								Copy
+							</button>
+							<pre id="code-snippet-progress-bars">
+&lt;div class="sui-progress-block sui-progress-can-close"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span class=""&gt;0%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 0"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-block"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span class=""&gt;0%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 0"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
+&lt;/div&gt;
+</pre>
 						</div>
 					</div>
 				</div>
@@ -513,7 +650,6 @@ ExpiresDefault A691200
 								</div>
 							</div>
 						</div>
-
 							<div class="sui-modal-footer sui-modal-footer-right">
 								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
 								<div class="sui-modal-footer-right">
@@ -522,6 +658,125 @@ ExpiresDefault A691200
 								</div>
 							</div>
 						</dialog>
+					</div>
+					<div class="sui-box-body">
+
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-modals">
+								Copy
+							</button>
+							<pre id="code-snippet-modals">
+&lt;a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Default Modal&lt;/a&gt;
+&lt;dialog class="sui-modal" id="default-modal" title="Ignore Warnings"&gt;
+	&lt;div class="sui-dialog-content"&gt;
+		&lt;div class="sui-row"&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
+					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
+					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-row"&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
+					&lt;div class="sui-password-group"&gt;
+						&lt;input type="password" class="sui-form-control"
+							   placeholder="input type password"&gt;
+						&lt;button class="sui-password-toggle" type="button"&gt;
+							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
+							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field sui-form-field-error"&gt;
+					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
+					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
+					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="sui-modal-footer sui-modal-footer-space-between"&gt;
+		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
+		&lt;div class="sui-modal-footer-right"&gt;
+			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/dialog&gt;
+&lt;a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Small Modal&lt;/a&gt;
+&lt;dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!"&gt;
+	&lt;div class="sui-dialog-content"&gt;
+		&lt;p&gt;Advanced mode gives you full control over your files but can easily break your website if
+			configured incorrectly.&lt;/p&gt;
+		&lt;p&gt;We recommend you make one tweak at a time and check the frontend of your website each
+			change to avoid any mishaps. &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-modal-footer"&gt;
+		&lt;button class="sui-modal-close sui-button"&gt;Got it&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/dialog&gt;
+&lt;a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Large Modal&lt;/a&gt;
+&lt;dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal"&gt;
+	&lt;div class="sui-dialog-content"&gt;
+		&lt;div class="sui-row"&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
+					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
+					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-row"&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field"&gt;
+					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
+					&lt;div class="sui-password-group"&gt;
+						&lt;input type="password" class="sui-form-control"
+							   placeholder="input type password"&gt;
+						&lt;button class="sui-password-toggle" type="button"&gt;
+							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
+							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-col"&gt;
+				&lt;div class="sui-form-field sui-form-field-error"&gt;
+					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
+					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
+					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-modal-footer sui-modal-footer-right"&gt;
+		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
+		&lt;div class="sui-modal-footer-right"&gt;
+			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add
+			&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/dialog&gt;
+</pre>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -575,6 +830,59 @@ ExpiresDefault A691200
 								</tr>
 							</tbody>
 						</table>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-tables-1">
+								Copy
+							</button>
+							<pre id="code-snippet-tables-1">
+&lt;table class="sui-table"&gt;
+	&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Title A&lt;/th&gt;
+		&lt;th&gt;Title B&lt;/th&gt;
+		&lt;th&gt;Title C&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			Name
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			Name
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			Name
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type="text" class="sui-form-control"&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+						</div>
 					</div>
 				</div>
 				<div class="sui-box">
@@ -666,6 +974,100 @@ ExpiresDefault A691200
 									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-tables-2">
+								Copy
+							</button>
+							<pre id="code-snippet-tables-2">
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col-sm-6"&gt;
+		&lt;div class="sui-field-list"&gt;
+			&lt;div class="sui-field-list-header"&gt;
+				&lt;h3 class="sui-field-list-title"&gt;Link To&lt;/h3&gt;
+				&lt;p class="sui-description"&gt;Choose content you want to convert to links.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-field-list-body"&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-1"&gt;
+						Posts
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-1"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-2"&gt;
+						Pages
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-2"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-3"&gt;
+						Categories
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-3"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-4"&gt;
+						Tags
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-4"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col-sm-6"&gt;
+		&lt;div class="sui-field-list"&gt;
+			&lt;div class="sui-field-list-header"&gt;
+				&lt;h3 class="sui-field-list-title"&gt;Insert Links&lt;/h3&gt;
+				&lt;p class="sui-description"&gt;Specify what post types to insert links into.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div class="sui-field-list-body"&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-5"&gt;
+						Posts
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-5"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-6"&gt;
+						Pages
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-6"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-field-list-item"&gt;
+					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-7"&gt;
+						Comments
+					&lt;/label&gt;
+					&lt;label class="sui-toggle"&gt;
+						&lt;input type="checkbox" id="demo-table-2-toggle-8"&gt;
+						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
 						</div>
 					</div>
 				</div>
@@ -789,6 +1191,96 @@ ExpiresDefault A691200
 								</tr>
 							</tbody>
 						</table>
+						<div class="sui-box-body">
+							<div class="sui-code-snippet">
+								<button class="sui-button sui-code-snippet-copy"
+										data-clipboard-target="#code-snippet-accordians">
+									Copy
+								</button>
+								<pre id="code-snippet-accordians">
+&lt;table class="sui-table sui-accordion"&gt;
+	&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Recommendation&lt;/th&gt;
+		&lt;th&gt;Score / 100&lt;/th&gt;
+		&lt;th&gt;Type&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+	&lt;tr class="sui-accordion-item sui-error"&gt;
+		&lt;td class="sui-accordion-item-title"&gt;
+			&lt;i class="sui-ico-check-tick sui-error"&gt;&lt;/i&gt; Item
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;div class="sui-circle-score sui-grade-f" data-score="8"&gt;&lt;/div&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			More info on something.
+			&lt;span class="sui-accordion-open-indicator"&gt;
+											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
+										&lt;/span&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="sui-accordion-item-content"&gt;
+		&lt;td colspan=3&gt;
+			&lt;div class="sui-box"&gt;
+				&lt;div class="sui-box-body"&gt;
+					Hello
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="sui-accordion-item sui-success"&gt;
+		&lt;td class="sui-accordion-item-title"&gt;
+			&lt;i class="sui-ico-check-tick sui-success"&gt;&lt;/i&gt; Item
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			More info on something.
+			&lt;span class="sui-accordion-open-indicator"&gt;
+											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
+										&lt;/span&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="sui-accordion-item-content"&gt;
+		&lt;td colspan=3&gt;
+			&lt;div class="sui-box"&gt;
+				&lt;div class="sui-box-body"&gt;
+					Hello
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="sui-accordion-item sui-success"&gt;
+		&lt;td class="sui-accordion-item-title"&gt;
+			&lt;i class="sui-ico-check-tick sui-success"&gt;&lt;/i&gt; Item
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			More info on something.
+			&lt;span class="sui-accordion-open-indicator"&gt;
+											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
+										&lt;/span&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="sui-accordion-item-content"&gt;
+		&lt;td colspan=3&gt;
+			&lt;div class="sui-box"&gt;
+				&lt;div class="sui-box-body"&gt;
+					Hello
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -873,6 +1365,54 @@ ExpiresDefault A691200
 									</ul>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-dropdowns">
+								Copy
+							</button>
+							<pre id="code-snippet-dropdowns">
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-dropdown sui-dropdown-right"&gt;
+			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
+
+				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
+
+				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
+
+				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-dropdown sui-dropdown-center"&gt;
+			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
+
+				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-dropdown"&gt;
+			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
+
+				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
 						</div>
 					</div>
 				</div>
@@ -997,32 +1537,174 @@ ExpiresDefault A691200
 							</div>
 						</div>
 						<div class="sui-form-field">
-							<label class="sui-label">Email</label>
-							<input type="email" class="sui-form-control" placeholder="input type email">
+							<div class="sui-row">
+								<div class="sui-col">
+									<label class="sui-label">Email</label>
+									<input type="email" class="sui-form-control" placeholder="input type email">
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Server Type</label>
+										<select name="wphb-server-type"
+												class="server-type"
+												style="display: none;">
+											<option value="" selected="selected">Select Option</option>
+											<option value="apache">Apache</option>
+											<option value="LiteSpeed">LiteSpeed</option>
+											<option value="nginx">NGINX</option>
+											<option value="iis">IIS</option>
+											<option value="iis-7">IIS 7</option>
+											<option value="cloudflare">Cloudflare</option>
+										</select>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">File</label>
-									<input type="file" class="sui-form-control">
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label class="sui-label">Server Type</label>
-									<select name="wphb-server-type"
-											class="server-type"
-											style="display: none;">
-										<option value="" selected="selected">Select Option</option>
-										<option value="apache">Apache</option>
-										<option value="LiteSpeed">LiteSpeed</option>
-										<option value="nginx">NGINX</option>
-										<option value="iis">IIS</option>
-										<option value="iis-7">IIS 7</option>
-										<option value="cloudflare">Cloudflare</option>
-									</select>
-								</div>
-							</div>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-inputs">
+								Copy
+							</button>
+							<pre id="code-snippet-inputs">
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;p&gt;Radio buttons&lt;/p&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;div class="sui-form-field"&gt;
+				&lt;label class="sui-radio"&gt;
+					&lt;input type="radio" name="demo-radio-group"&gt;
+					&lt;span&gt;&lt;/span&gt;
+					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
+				&lt;/label&gt;
+				&lt;label class="sui-radio"&gt;
+					&lt;input type="radio" name="demo-radio-group"&gt;
+					&lt;span&gt;&lt;/span&gt;
+					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
+				&lt;/label&gt;
+				&lt;label class="sui-radio"&gt;
+					&lt;input type="radio" name="demo-radio-group"&gt;
+					&lt;span&gt;&lt;/span&gt;
+					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
+				&lt;/label&gt;
+				&lt;label class="sui-radio"&gt;
+					&lt;input type="radio" name="demo-radio-group" disabled&gt;
+					&lt;span&gt;&lt;/span&gt;
+					&lt;div class="sui-description"&gt;Description for this disabled option.&lt;/div&gt;
+				&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;p&gt;Checkboxes&lt;/p&gt;
+		&lt;label class="sui-checkbox"&gt;
+			&lt;input type="checkbox" name="demo-radio-group"&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
+		&lt;/label&gt;
+		&lt;label class="sui-checkbox"&gt;
+			&lt;input type="checkbox" name="demo-radio-group"&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
+		&lt;/label&gt;
+		&lt;label class="sui-checkbox"&gt;
+			&lt;input type="checkbox" name="demo-radio-group"&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
+		&lt;/label&gt;
+		&lt;label class="sui-checkbox"&gt;
+			&lt;input type="checkbox" name="demo-radio-group" disabled&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;div class="sui-description"&gt;Description for this disabled checkbox.&lt;/div&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;label class="sui-label"&gt;Text&lt;/label&gt;
+			&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
+			&lt;span class="sui-description"&gt;This is a field with a note.&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;span class="sui-label"&gt;File Upload&lt;/span&gt;
+
+			&lt;div class="sui-upload-group"&gt;
+				&lt;label for="demo-file-upload" class="sui-upload-label"&gt;
+					&lt;input type="file" id="demo-file-upload"&gt;
+					&lt;span class="sui-upload-button"&gt;Choose file&lt;/span&gt;
+					&lt;span class="sui-upload-message"&gt;No file chosen&lt;/span&gt;
+				&lt;/label&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;label class="sui-label"&gt;Password&lt;/label&gt;
+			&lt;div class="sui-password-group"&gt;
+				&lt;input type="password" class="sui-form-control"
+					   placeholder="input type password"&gt;
+				&lt;button class="sui-password-toggle" type="button"&gt;
+					&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
+					&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
+				&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field sui-form-field-error"&gt;
+			&lt;label class="sui-label"&gt;Error&lt;/label&gt;
+			&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
+			&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-row"&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;label class="sui-label"&gt;Textarea&lt;/label&gt;
+			&lt;textarea class="sui-form-control"&gt;&lt;/textarea&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-col"&gt;
+		&lt;div class="sui-form-field"&gt;
+			&lt;label class="sui-label"&gt;Number&lt;/label&gt;
+			&lt;input type="number" class="sui-form-control" placeholder="input type number"&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-form-field"&gt;
+	&lt;div class="sui-row"&gt;
+		&lt;div class="sui-col"&gt;
+			&lt;label class="sui-label"&gt;Email&lt;/label&gt;
+			&lt;input type="email" class="sui-form-control" placeholder="input type email"&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-col"&gt;
+			&lt;div class="sui-form-field"&gt;
+				&lt;label class="sui-label"&gt;Server Type&lt;/label&gt;
+				&lt;select name="wphb-server-type"
+						class="server-type"
+						style="display: none;"&gt;
+					&lt;option value="" selected="selected"&gt;Select Option&lt;/option&gt;
+					&lt;option value="apache"&gt;Apache&lt;/option&gt;
+					&lt;option value="LiteSpeed"&gt;LiteSpeed&lt;/option&gt;
+					&lt;option value="nginx"&gt;NGINX&lt;/option&gt;
+					&lt;option value="iis"&gt;IIS&lt;/option&gt;
+					&lt;option value="iis-7"&gt;IIS 7&lt;/option&gt;
+					&lt;option value="cloudflare"&gt;Cloudflare&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 						</div>
 					</div>
 				</div>
@@ -1062,6 +1744,46 @@ ExpiresDefault A691200
 						</ul>
 					</div>
 				</div>
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Summary Snippet</h2>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-summary">
+								Copy
+							</button>
+							<pre id="code-snippet-summary">&lt;div class="sui-box sui-summary"&gt;
+	&lt;div class="sui-summary-image-space"&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-summary-segment"&gt;
+		&lt;p&gt;&lt;span class="sui-summary-large"&gt;97&lt;/span&gt;/100&lt;/p&gt;
+		&lt;p&gt;
+			&lt;small&gt;Last test date&lt;/small&gt;
+		&lt;/p&gt;
+		&lt;p&gt;December 12, 2017 at 1:46 am&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-summary-segment"&gt;
+		&lt;ul class="sui-list"&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;Previous score&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-summary-number"&gt;76&lt;/span&gt;&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;Improvement&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-pills"&gt;-1&lt;/span&gt;&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;Recommendations&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-summary-number"&gt;4&lt;/span&gt;&lt;/span&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<section id="sidenav">
@@ -1088,12 +1810,55 @@ ExpiresDefault A691200
 					</div>
 					<div class="sui-box">
 						<div class="sui-box-header">
-							<h2 class="sui-box-title">Content With Sidebar</h2>
+							<h2 class="sui-box-title">Content With Sidenav</h2>
 						</div>
 						<div class="sui-box-body">
 						</div>
 					</div>
 				</div><!-- .sui-row -->
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Sidenav Snippet</h2>
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-sidenav">
+								Copy
+							</button>
+							<pre id="code-snippet-sidenav">&lt;div class="sui-row-with-sidenav"&gt;
+	&lt;div class="sui-sidenav"&gt;
+		&lt;ul class="sui-vertical-tabs sui-sidenav-hide-md"&gt;
+			&lt;li class="sui-vertical-tab current"&gt;
+				&lt;a href="#database-optimisation"&gt;Database Optimisation&lt;/a&gt;
+				&lt;span class="sui-tag sui-tag-warning"&gt;4&lt;/span&gt;
+			&lt;li class="sui-vertical-tab "&gt;
+				&lt;a href="#reporting"&gt;Reporting&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class="sui-vertical-tab"&gt;
+				&lt;a href="#lanskc"&gt;Content Creator&lt;/a&gt;
+				&lt;i class="sui-ico-check-tick" aria-hidden="true"&gt;&lt;/i&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;div class="sui-sidenav-hide-lg"&gt;
+			&lt;select class="sui-mobile-nav" style="display: none;"&gt;
+				&lt;option value="" selected="selected"&gt;Improvements&lt;/option&gt;
+				&lt;option value="#reporting"&gt;Reporting&lt;/option&gt;
+			&lt;/select&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-box"&gt;
+		&lt;div class="sui-box-header"&gt;
+			&lt;h2 class="sui-box-title"&gt;Content With Sidebar&lt;/h2&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-box-body"&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<section id="tabs">
@@ -1195,6 +1960,30 @@ Header set Cache-Control "max-age=691200"
 								</div><!-- end apache-instructions -->
 							</div><!-- end content -->
 						</div><!-- end tab -->
+					</div>
+					<div class="sui-box-body">
+						<div class="sui-code-snippet">
+							<button class="sui-button sui-code-snippet-copy"
+									data-clipboard-target="#code-snippet-tabs">
+								Copy
+							</button>
+							<pre id="code-snippet-tabs">&lt;div class="sui-tabs"&gt;
+	&lt;div class="sui-tab"&gt;
+		&lt;label for="first-tab-content"&gt;Automatic&lt;/label&gt;
+		&lt;input type="radio" id="first-tab-content" checked&gt;
+		&lt;div class="sui-tab-content"&gt;
+			&lt;p&gt;First Tab Content&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-tab"&gt;
+		&lt;label for="second-tab-content"&gt;Manual&lt;/label&gt;
+		&lt;input type="radio" id="second-tab-content"&gt;
+		&lt;div class="sui-tab-content"&gt;
+			&lt;p&gt;Second Tab Content&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+						</div>
 					</div>
 				</div>
 			</section>
