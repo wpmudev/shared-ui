@@ -5,182 +5,16 @@
 	<meta name="robots" content="noindex">
 	<title>Shared UI Demo</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
+	<link type="text/css" media="all" href="showcase-assets/showcase.css" rel="stylesheet">
+	<link type="text/css" media="all" href="showcase-assets/dracula.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-	<!-- WordPress mock core styles from wp-admin -->
-	<style>
-		body,
-		html {
-			height: 100%;
-			margin: 0px;
-			padding: 0px;
-		}
-
-		html {
-			padding-top: 32px;
-			-webkit-font-smoothing: subpixel-antialiased;
-		}
-
-		body {
-			background: #f1f1f1;
-			color: #444;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-			font-size: 13px;
-			line-height: 1.4em;
-			min-width: 600px;
-		}
-
-		hr {
-			border: 0;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #fafafa;
-		}
-
-		/* Imitate wp-admin sidebar for layout purposes */
-		#adminmenu {
-			height: 100%;
-			width: 160px;
-			background-color: rgb(35, 40, 45);
-			position: fixed;
-			top: 0;
-			margin-top: 30px;
-			padding-bottom: 30px;
-			overflow-y: auto;
-		}
-
-		#adminmenu ul {
-			clear: left;
-			margin: 12px 0;
-			padding: 0;
-			list-style: none;
-		}
-
-		#adminmenu li {
-			min-height: 34px;
-		}
-
-		#adminmenu li:hover {
-			background-color: #191e23;
-		}
-
-		#adminmenu a {
-			display: block;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 18px;
-			padding: 8px 0 8px 10px;
-			color: #eee;
-			text-decoration: none;
-		}
-
-		#adminmenu a:hover {
-			color: #00b9eb;
-		}
-
-		#wpadminbar {
-			direction: ltr;
-			color: #ccc;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-			height: 32px;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			min-width: 600px;
-			z-index: 99999;
-			background: #23282d;
-		}
-
-		#wpcontent {
-			margin-left: 160px;
-			height: 100%;
-			padding-left: 20px;
-		}
-
-		#wpbody {
-			padding-bottom: 25px;
-		}
-
-		/* Demo class only to help show off the grid */
-		.demo-block {
-			display: block;
-			border-radius: 3px;
-			background-color: #00AADF;
-			color: #fff;
-			text-align: center;
-			padding: 5px 0;
-			font-size: 12px;
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			margin-bottom: 15px;
-		}
-
-		@media only screen and (max-width: 960px) {
-			#adminmenu {
-				width: 36px;
-			}
-
-			#adminmenu a {
-				text-indent: -160px;
-				width: 36px;
-			}
-
-			#adminmenu a:after {
-				content: '•';
-				position: absolute;
-				left: 175px;
-			}
-
-			#wpcontent {
-				margin-left: 36px;
-			}
-		}
-
-		@media screen and (max-width: 782px) {
-			body {
-				min-width: 240px;
-				overflow-x: hidden;
-			}
-
-			#wpadminbar {
-				min-width: 300px;
-			}
-
-			#adminmenu {
-				display: none;
-			}
-
-			#wpcontent {
-				position: relative;
-				margin-left: 0;
-				padding-left: 10px;
-			}
-		}
-	</style>
 </head>
 <body class="sui-2-0-0-alpha-1">
 <div id="adminmenu">
 	<ul>
-		<li><a href="#upsells">Upsells</a></li>
-		<li><a href="#box-settings">Box Settings</a></li>
-		<li><a href="#progress-bar">Progress Bars</a></li>
-		<li><a href="#modals">Modals</a></li>
-		<li><a href="#tables">Tables</a></li>
-		<li><a href="#accordions">Accordions</a></li>
-		<li><a href="#scores">Scores</a></li>
-		<li><a href="#dropdown">Dropdown Menu</a></li>
-		<li><a href="#inputs">Inputs</a></li>
-		<li><a href="#summary">Summary</a></li>
-		<li><a href="#sidenav">Sidenav</a></li>
-		<li><a href="#tabs">Tabs</a></li>
-		<li><a href="#tags">Tags</a></li>
-		<li><a href="#grid">Grid</a></li>
-		<li><a href="#notifications">Notifications</a></li>
-		<li><a href="#tooltips">Tooltips</a></li>
-		<li><a href="#buttons">Buttons</a></li>
-		<li><a href="#typography">Typography</a></li>
 		<li><a href="#boxes">Boxes</a></li>
-		<li><a href="#toggles">Toggles</a></li>
-		<li><a href="#icons">Icons</a></li>
-		<li><a href="#footer">Footer</a></li>
+		<li><a href="#code-snippets">Code Snippets</a></li>
+		<li><a href="#grid">Grid</a></li>
 	</ul>
 </div>
 <div id="wpcontent">
@@ -191,72 +25,274 @@
 				<p>Notice success: Page caching is currently active.</p>
 				<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
 			</div>
-			<div class="sui-header">
-				<h1>Shared UI Demo</h1>
-				<div class="sui-actions-left">
-					<label class="sui-toggle">
-						<input type="checkbox">
-						<span class="sui-toggle-slider"></span>
-					</label>
-				</div>
-				<div class="sui-actions-right">
-					<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation
-					</button>
-				</div>
+
+			<h1 class="demo-main-title">Shared UI</h1>
+
+			<div class="demo-info-block">
+				<h2>Usage</h2>
+				<p>This page serves as a showcase for the Shared UI library used internally for <a href="https://wpmudev.org">WPMU DEV</a> plugins.</p>
 			</div>
-			<section id="codeblock">
+
+			<div class="demo-code-block">
+<pre class="sui-code-snippet bash">
+npm install @wpmudev/shared-ui</pre>
+			</div>
+
+			<div class="demo-info-block">
+				<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials & individual js components into your plugins build (recommended).</p>
+				<h3>Requirements</h3>
+				<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
+			</div>
+
+			<div class="demo-code-block">
+<pre class="sui-code-snippet php">
+add_filter( 'body_class', 'plugin_body_classes' );
+function plugin_body_classes( $classes ) {
+
+	$classes[] = 'sui-2-0-0';
+
+	return $classes;
+
+}</pre>
+			</div>
+
+			<section id="boxes">
+				<div class="demo-info-block">
+					<h2>Boxes</h2>
+					<p>Boxes are the primary visual containers. They should be used to hold related information.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane ad rem; Quid est, quod ab ea absolvi et perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus copulationesque et consuetudinum instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum, sed ubi illud Plus semper voluptatis?</p>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-box"&gt;
+	&lt;div class="sui-box-body"&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Code Snippet & Copy</h2>
+						<h3 class="sui-box-title">Box Title</h3>
 					</div>
 					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;IfModule mod_expires.c&gt;
-ExpiresActive On
-ExpiresDefault A0
-
-&lt;FilesMatch "\.(txt|xml|js)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(css)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-&lt;/IfModule&gt;
-
-&lt;IfModule mod_headers.c&gt;
-  &lt;FilesMatch "\.(txt|xml|js)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(css)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-&lt;/IfModule&gt;</pre>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio Peripateticorum. An vero,
+							inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae vivere, a natura discedere. Sed
+							venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest verius. Nihil opus est exemplis hoc
+							facere longius.Duo Reges: constructio interrete. Ita credo.</p>
 					</div>
+					<div class="sui-box-footer">
+						<button class="sui-button">Default Button</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-header&quot;&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;Box Title&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-footer&quot;&gt;
+		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i> Box Title</h3>
+						<button class="sui-button">Default Button</button>
+					</div>
+					<div class="sui-box-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio? Post enim Chrysippum
+							eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse
+							quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio. Quae cum ita sint, effectum
+							est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis est enim de virtutis dignitate
+							contentio.
+						</p>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-header&quot;&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-ico-icon-hummingbird sui-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Box Title&lt;/h3&gt;
+		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="code-snippets">
+				<div class="demo-info-block">
+					<h2>Code Snippets</h2>
+					<p>Code snippets are to be used to display code to the user and allow them to copy to clipboard.</p>
+				</div>
+				<div class="sui-box">
 					<div class="sui-box-body">
 						<pre class="sui-code-snippet">
-	&lt;pre class="sui-code-snippet"&gt;
-	...
-	&lt;/pre&gt;</pre>
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</pre>
+					</div>
+				</div>
+
+<div class="demo-code-block">
+	<pre class="sui-code-snippet html">
+&lt;pre class="sui-code-snippet"&gt;
+...
+&lt;/pre&gt;</pre>
+</div>
+			</section>
+
+			<section id="grid">
+				<div class="demo-info-block">
+					<h2>Grid</h2>
+					<p>The grid system should be used to layout boxes &amp; forms.</p>
+				</div>
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space
+							within
+							row <code>.sui-row</code>:</p>
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="demo-block">.sui-col</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">.sui-col</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">.sui-col</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-md-hidden">
+								<div class="demo-block">.sui-col</div>
+							</div>
+							<div class="sui-col-md-hidden">
+								<div class="demo-block">.sui-col</div>
+							</div>
+							<div class="sui-col-md-hidden">
+								<div class="demo-block">.sui-col</div>
+							</div>
+						</div><!-- .sui-row -->
+						<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query
+							behavior but also powered by flexbox rather than floats:</p>
+						<div class="sui-row">
+							<div class="sui-col-md-3">
+								<div class="demo-block">.sui-col-md-3</div>
+							</div>
+							<div class="sui-col-md-6">
+								<div class="demo-block">.sui-col-md-6</div>
+							</div>
+							<div class="sui-col-md-3">
+								<div class="demo-block">.sui-col-md-3</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-lg-3">
+								<div class="demo-block">.sui-col-lg-3</div>
+							</div>
+							<div class="sui-col-lg-3">
+								<div class="demo-block">.sui-col-lg-3</div>
+							</div>
+							<div class="sui-col-lg-3">
+								<div class="demo-block">.sui-col-lg-3</div>
+							</div>
+							<div class="sui-col-lg-3">
+								<div class="demo-block">.sui-col-lg-3</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-sm-9">
+								<div class="demo-block">.sui-col-sm-9</div>
+							</div>
+							<div class="sui-col-sm-3">
+								<div class="demo-block">.sui-col-sm-3</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-lg-4">
+								<div class="demo-block">.sui-col-lg-4</div>
+							</div>
+							<div class="sui-col-lg-4 sui-col-lg-offset-4">
+								<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-sm-8 sui-col-sm-offset-4">
+								<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
+							</div>
+						</div><!-- .sui-row -->
+						<div class="sui-row">
+							<div class="sui-col-sm-7 sui-col-sm-offset-5">
+								<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
+							</div>
+						</div><!-- .sui-row -->
+						<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to
+							the
+							<code>.sui-row</code> element:</p>
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="demo-block">1</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">2</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">3</div>
+							</div>
+						</div><!-- .sui-row -->
+						<p>Reversed:</p>
+						<div class="sui-row sui-reverse">
+							<div class="sui-col">
+								<div class="demo-block">1</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">2</div>
+							</div>
+							<div class="sui-col">
+								<div class="demo-block">3</div>
+							</div>
+						</div><!-- .sui-row -->
+						<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
+							hide it between the defined breakpoints in variables. Note: If you want it to stay hidden
+							for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code> :</p>
+						<div class="sui-row">
+							<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
+								<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
+							</div>
+							<div class="sui-col sui-hidden-md">
+								<div class="demo-block">.sui-hidden-md</div>
+							</div>
+							<div class="sui-col sui-hidden-lg">
+								<div class="demo-block">.sui-hidden-lg</div>
+							</div>
+						</div><!-- .sui-row -->
 					</div>
 				</div>
 			</section>
+
 			<section id="upsells">
 				<div class="sui-box">
 					<div class="sui-box-header">
@@ -1872,8 +1908,10 @@ Header set Cache-Control "max-age=691200"
 							</div><!-- end content -->
 						</div><!-- end tab -->
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-tabs"&gt;
+				</div>
+				<div class="demo-code-block">
+					<pre class="sui-code-snippet html">
+&lt;div class="sui-tabs"&gt;
 	&lt;div class="sui-tab"&gt;
 		&lt;label for="first-tab-content"&gt;Automatic&lt;/label&gt;
 		&lt;input type="radio" id="first-tab-content" checked&gt;
@@ -1889,7 +1927,6 @@ Header set Cache-Control "max-age=691200"
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
-					</div>
 				</div>
 			</section>
 
@@ -1928,134 +1965,6 @@ Header set Cache-Control "max-age=691200"
 								<span class="sui-tag sui-tag-upgrade">+1</span>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="grid">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Grid</h2>
-					</div>
-					<div class="sui-box-body">
-						<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space
-							within
-							row <code>.sui-row</code>:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query
-							behavior but also powered by flexbox rather than floats:</p>
-						<div class="sui-row">
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-							<div class="sui-col-md-6">
-								<div class="demo-block">.sui-col-md-6</div>
-							</div>
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-9">
-								<div class="demo-block">.sui-col-sm-9</div>
-							</div>
-							<div class="sui-col-sm-3">
-								<div class="demo-block">.sui-col-sm-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-4">
-								<div class="demo-block">.sui-col-lg-4</div>
-							</div>
-							<div class="sui-col-lg-4 sui-col-lg-offset-4">
-								<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-8 sui-col-sm-offset-4">
-								<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-7 sui-col-sm-offset-5">
-								<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to
-							the
-							<code>.sui-row</code> element:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>Reversed:</p>
-						<div class="sui-row sui-reverse">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
-							hide it between the defined breakpoints in variables. Note: If you want it to stay hidden
-							for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code> :</p>
-						<div class="sui-row">
-							<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
-								<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
-							</div>
-							<div class="sui-col sui-hidden-md">
-								<div class="demo-block">.sui-hidden-md</div>
-							</div>
-							<div class="sui-col sui-hidden-lg">
-								<div class="demo-block">.sui-hidden-lg</div>
-							</div>
-						</div><!-- .sui-row -->
 					</div>
 				</div>
 			</section>
@@ -2310,64 +2219,6 @@ Header set Cache-Control "max-age=691200"
 						<dfn>DFN Text</dfn>
 						<br>
 						<strong>Strong Text</strong>
-					</div>
-				</div><!-- .sui-box -->
-			</section>
-
-			<section id="boxes">
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<p>Box - No title - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane
-							ad
-							rem; Quid est, quod ab ea absolvi et
-							perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus
-							copulationesque et consuetudinum
-							instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum,
-							sed
-							ubi illud: Plus semper
-							voluptatis?</p>
-					</div>
-				</div><!-- .sui-box -->
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title">Box - Action buttons at bottom</h3>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio
-							Peripateticorum. An vero,
-							inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae
-							vivere,
-							a natura discedere.
-							Sed venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest
-							verius.
-							Nihil opus est exemplis
-							hoc facere longius.Duo Reges: constructio interrete. Ita credo.</p>
-					</div>
-					<div class="sui-box-footer">
-						<button class="sui-button sui-button-green sui-button-lg">Default Button</button>
-					</div>
-				</div><!-- .sui-box -->
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i>
-							Title
-							with Button</h3>
-						<button class="sui-button sui-button">Default Button</button>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse
-							dissensio?
-							Post enim Chrysippum
-							eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe
-							vim
-							voluptatis Epicurum nosse
-							quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio.
-							Quae
-							cum ita sint, effectum
-							est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis
-							est
-							enim de virtutis dignitate
-							contentio.</p>
 					</div>
 				</div><!-- .sui-box -->
 			</section>
@@ -3548,20 +3399,8 @@ Header set Cache-Control "max-age=691200"
 </div><!-- #wpcontent -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="dist/js/shared-ui.min.js"></script>
-<script id="demo-scripts">
-	// Offset internal sc
-	function offsetAnchor() {
-		if (location.hash.length !== 0) {
-			window.scrollTo(window.scrollX, window.scrollY - 60);
-		}
-	}
-	$(document).on('click', '#adminmenu a[href^="#"]', function (event) {
-		window.setTimeout(function () {
-			offsetAnchor();
-		}, 0);
-	});
-	window.setTimeout(offsetAnchor, 0);
-</script>
+<script src="showcase-assets/showcase.js"></script>
 </body>
 </html>
