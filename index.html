@@ -156,8 +156,8 @@ RewriteRule . /index.php [L]
 					</div>
 				</div>
 
-<div class="demo-code-block">
-	<pre class="sui-code-snippet html">
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
 &lt;pre class="sui-code-snippet"&gt;
 ...
 &lt;/pre&gt;</pre>
@@ -168,127 +168,213 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Grid</h2>
 					<p>The grid system should be used to layout boxes &amp; forms.</p>
+					<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space within row <code>.sui-row</code> at all breakpoints:</p>
 				</div>
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space
-							within
-							row <code>.sui-row</code>:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query
-							behavior but also powered by flexbox rather than floats:</p>
-						<div class="sui-row">
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-							<div class="sui-col-md-6">
-								<div class="demo-block">.sui-col-md-6</div>
-							</div>
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-9">
-								<div class="demo-block">.sui-col-sm-9</div>
-							</div>
-							<div class="sui-col-sm-3">
-								<div class="demo-block">.sui-col-sm-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-4">
-								<div class="demo-block">.sui-col-lg-4</div>
-							</div>
-							<div class="sui-col-lg-4 sui-col-lg-offset-4">
-								<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-8 sui-col-sm-offset-4">
-								<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-7 sui-col-sm-offset-5">
-								<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to
-							the
-							<code>.sui-row</code> element:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>Reversed:</p>
-						<div class="sui-row sui-reverse">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
-							hide it between the defined breakpoints in variables. Note: If you want it to stay hidden
-							for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code> :</p>
-						<div class="sui-row">
-							<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
-								<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
-							</div>
-							<div class="sui-col sui-hidden-md">
-								<div class="demo-block">.sui-hidden-md</div>
-							</div>
-							<div class="sui-col sui-hidden-lg">
-								<div class="demo-block">.sui-hidden-lg</div>
-							</div>
-						</div><!-- .sui-row -->
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-grid-block">.sui-col</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">.sui-col</div>
+					</div>
+				</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+				<div class="demo-info-block">
+					<p>For more control over column behavior for different media queries, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-md-3">
+						<div class="demo-grid-block">.sui-col-md-3</div>
+					</div>
+					<div class="sui-col-md-6">
+						<div class="demo-grid-block">.sui-col-md-6</div>
+					</div>
+					<div class="sui-col-md-3">
+						<div class="demo-grid-block">.sui-col-md-3</div>
+					</div>
+				</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col-md-3&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col-md-6&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col-md-3&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+				<div class="demo-info-block">
+					<p>Examples:</p>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-sm-9">
+						<div class="demo-grid-block">.sui-col-sm-9</div>
+					</div>
+					<div class="sui-col-sm-3">
+						<div class="demo-grid-block">.sui-col-sm-3</div>
+					</div>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-lg-4">
+						<div class="demo-grid-block">.sui-col-lg-4</div>
+					</div>
+					<div class="sui-col-lg-4 sui-col-lg-offset-4">
+						<div class="demo-grid-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
+					</div>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-sm-8 sui-col-sm-offset-4">
+						<div class="demo-grid-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
+					</div>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col-sm-7 sui-col-sm-offset-5">
+						<div class="demo-grid-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
+					</div>
+				</div>
+				<hr>
+				<div class="demo-info-block">
+					<p>You can reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element.</p>
+					<p>Original:</p>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-grid-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">3</div>
+					</div>
+				</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		1
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		2
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		3
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+				<p>Reversed:</p>
+				<div class="sui-row sui-reverse">
+					<div class="sui-col">
+						<div class="demo-grid-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">3</div>
+					</div>
+				</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row sui-reverse&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		1
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		2
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		3
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+				<hr>
+				<div class="demo-info-block">
+					<p>You can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will hide it between the defined breakpoints in variables.</p>
+				</div>
+				<div class="demo-box">
+					<table class="sui-table demo-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th> Extra small devices <small>Phones (&lt;480px)</small> </th>
+								<th> Small devices <small>Tablets (≥480px)</small> </th>
+								<th> Medium devices <small>Desktops (≥800px)</small> </th>
+								<th> Large devices <small>Desktops (≥1200px)</small> </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row"><code>.sui-hidden-xs</code></th>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-sm</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-md</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-lg</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="demo-info-block">
+					<p>Examples:</p>
+				</div>
+				<div class="sui-row">
+					<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
+						<div class="demo-grid-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
+					</div>
+					<div class="sui-col sui-hidden-md">
+						<div class="demo-grid-block">.sui-hidden-md</div>
+					</div>
+					<div class="sui-col sui-hidden-lg">
+						<div class="demo-grid-block">.sui-hidden-lg</div>
 					</div>
 				</div>
 			</section>
