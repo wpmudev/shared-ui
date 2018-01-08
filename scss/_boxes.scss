@@ -30,23 +30,11 @@
 
 		.sui-box-settings-row {
 			position: relative;
-			//border-bottom: 1px solid #E6E6E6;
+			border-bottom: 1px solid #E6E6E6;
 			padding-bottom: 30px;
 			display: table;
 			width: 100%;
-			&:before {
-				position: absolute;
-				display: block;
-				clear: both;
-				height: 1px;
-				content: '';
-				background-color: #E6E6E6;
-				left: 30px;
-				right: 30px;
-				top: 0;
-
-			}
-
+			margin-top: 30px;
 
 			@media (max-width: 783px) {
 				display: block;
@@ -116,6 +104,34 @@
 
 		&.sui-upsell-items {
 			padding: 0;
+			.sui-box-settings-row {
+				border-bottom: none;
+				margin-top: 0;
+				&:before {
+					position: absolute;
+					display: block;
+					clear: both;
+					height: 1px;
+					content: '';
+					background-color: #E6E6E6;
+					left: 30px;
+					right: 30px;
+					top: 0;
+
+				}
+				&:first-of-type {
+					margin-top: 0;
+					&:before {
+						display: none;
+					}
+				}
+				&:last-of-type {
+					padding-bottom: 30px;
+					&:before {
+						display: none;
+					}
+				}
+			}
 			.sui-box-settings-row {
 				padding-right: 30px;
 				padding-left: 30px;

@@ -513,9 +513,7 @@ RewriteRule . /index.php [L]
 							<div class="sui-box-settings-col-2">
 								<div class="sui-form-field">
 									<label class="sui-label">Server Type</label>
-									<select name="wphb-server-type"
-											class="server-type"
-											style="display: none;">
+									<select name="select-list">
 										<option value="" selected="selected">Select Option</option>
 										<option value="apache">Apache</option>
 										<option value="LiteSpeed">LiteSpeed</option>
@@ -1601,10 +1599,8 @@ RewriteRule . /index.php [L]
 								</div>
 								<div class="sui-col">
 									<div class="sui-form-field">
-										<label class="sui-label">Server Type</label>
-										<select name="wphb-server-type"
-												class="server-type"
-												style="display: none;">
+										<label class="sui-label">Select List</label>
+										<select name="select-list">
 											<option value="" selected="selected">Select Option</option>
 											<option value="apache">Apache</option>
 											<option value="LiteSpeed">LiteSpeed</option>
@@ -1740,10 +1736,8 @@ RewriteRule . /index.php [L]
 		&lt;/div&gt;
 		&lt;div class="sui-col"&gt;
 			&lt;div class="sui-form-field"&gt;
-				&lt;label class="sui-label"&gt;Server Type&lt;/label&gt;
-				&lt;select name="wphb-server-type"
-						class="server-type"
-						style="display: none;"&gt;
+				&lt;label class="sui-label"&gt;Select List&lt;/label&gt;
+				&lt;select name="select-list"&gt;
 					&lt;option value="" selected="selected"&gt;Select Option&lt;/option&gt;
 					&lt;option value="apache"&gt;Apache&lt;/option&gt;
 					&lt;option value="LiteSpeed"&gt;LiteSpeed&lt;/option&gt;
@@ -2180,13 +2174,13 @@ Header set Cache-Control "max-age=691200"
 							Tooltip
 							Left
 						</button>
+						<br>
+						<br>
 						<button class="sui-button sui-tooltip sui-tooltip-right"
 								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Tooltip
 							Right
 						</button>
-						<br>
-						<br>
 						<button class="sui-button sui-tooltip sui-tooltip-constrained"
 								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Tooltip
