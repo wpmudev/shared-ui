@@ -17,12 +17,11 @@
 			display: inline-block;
 			position: absolute;
 			width: 45px;
-			height: 41px;
-			top: -1px;
-			right: -1px;
+			height: auto;
+			top: 0;
+			right: 0;
 			z-index: 1011;
 			border-radius: 0 4px 4px 0;
-			border: 1px solid $select-dropdown-handle-border-color;
 			border-bottom: 0;
 			border-left-color: transparent;
 			padding: 0;
@@ -35,6 +34,7 @@
 
 			i:before {
 				vertical-align: middle;
+				font-size: 12px;
 			}
 		}
 
@@ -91,9 +91,9 @@
 			border: 1px solid $select-list-results-border-color;
 			margin-left: -1px;
 			margin-right: -1px;
-			margin-top: -2px;
+			margin-top: 1px;
 			display: none;
-			border-radius: 0 0 4px 4px;
+			border-radius: 4px;
 			font: 500 15px/25px $font;
 			transition-property: opacity, border-color;
 			transition-duration: 0.3s;
@@ -107,6 +107,7 @@
 				color: $select-list-results-li-color;
 				cursor: pointer;
 				list-style: none;
+				font-weight: 400;
 				line-height: 15px;
 				word-wrap: break-word;
 				margin: 0;
@@ -136,7 +137,7 @@
 				}
 				&:hover {
 					background: $select-list-hover-bg-color;
-					color: $select-list-hover-color;
+					color: $white;
 				}
 			}
 
@@ -145,8 +146,8 @@
 			}
 
 			.current {
-				background: $white;
-				color: $select-current-color;
+				background: $select-current-bg-color;
+				color: $white;
 			}
 		}
 	}
@@ -157,7 +158,7 @@
 			border-color: $select-container-action-border-color;
 
 			.list-value {
-				color: $select-list-hover-color;
+				color: $gray;
 			}
 
 			.list-results {
