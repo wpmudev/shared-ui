@@ -167,8 +167,8 @@ RewriteRule . /index.php [L]
 			<section id="grid">
 				<div class="demo-info-block">
 					<h2>Grid</h2>
-					<p>The grid system should be used to layout boxes &amp; forms.</p>
-					<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space within row <code>.sui-row</code> at all breakpoints:</p>
+					<p>The grid system should be used to layout boxes &amp; forms. The grid requires a minimum of 2 components, the columns, and the row that wraps the columns.</p>
+					<p>For equally spaced columns that stay inline at all breakpoints, you can use the basic <code>.sui-col</code>:</p>
 				</div>
 				<div class="sui-row">
 					<div class="sui-col">
@@ -190,7 +190,7 @@ RewriteRule . /index.php [L]
 &lt;/div&gt;</pre>
 				</div>
 				<div class="demo-info-block">
-					<p>For more control over column behavior for different media queries, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
+					<p>For more control over column behavior for different breakpoints, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
 				</div>
 				<div class="sui-row">
 					<div class="sui-col-md-3">
@@ -318,17 +318,17 @@ RewriteRule . /index.php [L]
 				</div>
 				<hr>
 				<div class="demo-info-block">
-					<p>You can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will hide it between the defined breakpoints in variables.</p>
+					<p>Use a single or combination of the available classes for toggling content across viewport breakpoints.</p>
 				</div>
 				<div class="demo-box">
 					<table class="sui-table demo-table">
 						<thead>
 							<tr>
 								<th></th>
-								<th> Extra small devices <small>Phones (&lt;480px)</small> </th>
-								<th> Small devices <small>Tablets (≥480px)</small> </th>
-								<th> Medium devices <small>Desktops (≥800px)</small> </th>
-								<th> Large devices <small>Desktops (≥1200px)</small> </th>
+								<th>Extra small devices <small>Phones (&lt;480px)</small> </th>
+								<th>Small devices <small>Tablets (≥480px)</small> </th>
+								<th>Medium devices <small>Desktops (≥800px)</small> </th>
+								<th>Large devices <small>Desktops (≥1200px)</small> </th>
 							</tr>
 						</thead>
 						<tbody>
