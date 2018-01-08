@@ -6,6 +6,8 @@
 		font-weight: $form--label-font-weight;
 		line-height: $form--label-line-height;
 		color: $form--label-color;
+		display: inline-flex;
+		width: 100%;
 	}
 
 	label[for] {
@@ -14,6 +16,13 @@
 
 	.sui-label {
 		@extend %label;
+	}
+
+	.sui-label-link {
+		margin-left: auto;
+		margin-right: 0;
+		font-weight: 400;
+		color: $form--label-color;
 	}
 
 	.sui-inline-label {
