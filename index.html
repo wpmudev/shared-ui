@@ -3,31 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
-	<title>Shared UI Demo</title>
+	<title>Shared UI Showcase</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
 	<link type="text/css" media="all" href="showcase-assets/showcase.css" rel="stylesheet">
-	<link type="text/css" media="all" href="showcase-assets/dracula.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 </head>
-<body class="sui-2-0-0-alpha-1">
-<div id="adminmenu">
+<body class="sui-2-0-0-alpha-1" data-spy="scroll" data-target="#adminmenu" data-offset="60">
+
+<nav id="adminmenu">
 	<ul>
 		<li><a href="#usage">Usage</a></li>
 		<li><a href="#boxes">Boxes</a></li>
+		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#buttons">Buttons</a></li>
 		<li><a href="#code-snippets">Code Snippets</a></li>
 		<li><a href="#grid">Grid</a></li>
+		<li><a href="#progress-bars">Progress Bars</a></li>
+		<li><a href="#upsells">Upsells</a></li>
+		<li><a href="#modals">Modals</a></li>
 	</ul>
-</div>
+</nav>
+
 <div id="wpcontent">
+
 	<div id="wpadminbar" class=""></div>
+
 	<div id="wpbody" role="main">
-		<div class="sui-wrap">
+
+		<v class="sui-wrap">
+
 			<div class="sui-notice sui-notice-top sui-notice-success">
 				<p>Notice success: Page caching is currently active.</p>
 				<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
 			</div>
+
 			<section id="usage">
+
 				<h1 class="demo-main-title">Shared UI</h1>
 
 				<div class="demo-info-block">
@@ -58,9 +69,11 @@ function plugin_body_classes( $classes ) {
 
 }</pre>
 				</div>
+
 			</section>
 
 			<section id="boxes">
+
 				<div class="demo-info-block">
 					<h2>Boxes</h2>
 					<p>Boxes are the primary visual containers. They should be used to hold related information.</p>
@@ -135,6 +148,83 @@ function plugin_body_classes( $classes ) {
 	&lt;/div&gt;
 	&lt;div class=&quot;sui-box-body&quot;&gt;
 		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="box-settings">
+
+				<div class="demo-info-block">
+					<h2>Box Settings</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Server type</span>
+								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label class="sui-label">Server Type</label>
+									<select name="select-list">
+										<option value="" selected="selected">Select Option</option>
+										<option value="apache">Apache</option>
+										<option value="LiteSpeed">LiteSpeed</option>
+										<option value="nginx">NGINX</option>
+										<option value="iis">IIS</option>
+										<option value="iis-7">IIS 7</option>
+										<option value="cloudflare">Cloudflare</option>
+									</select>
+								</div>
+								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
+							</div>
+						</div>
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Expiry Time</span>
+								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-row">
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+											<span class="sui-description">This is a field with a note.</span>
+										</div>
+									</div>
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					...
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
@@ -309,6 +399,8 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
+				<hr>
 
 				<div class="demo-info-block">
 					<p>For more control over column behavior for different breakpoints, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
@@ -521,6 +613,94 @@ RewriteRule . /index.php [L]
 
 			</section>
 
+			<section id="progress-bars">
+
+				<div class="demo-info-block">
+					<h2>Progress Bars</h2>
+					<p>Progress bars can be dynamically moved by changing the width of <code>.sui-progress-bar span</code> with js.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<div class="sui-progress-block">
+							<div class="sui-progress">
+								<div class="sui-progress-text sui-ico-loader sui-loading">
+									<span>0%</span>
+								</div>
+								<div class="sui-progress-bar">
+									<span style="width: 0"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-progress-state">
+							<span class="sui-progress-state-text">Can't close progress bar...</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-progress-block"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span&gt;0%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 0"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<div class="sui-progress-block sui-progress-can-close">
+							<div class="sui-progress">
+								<div class="sui-progress-text sui-ico-loader sui-loading">
+									<span>20%</span>
+								</div>
+								<div class="sui-progress-bar">
+									<span style="width: 20%"></span>
+								</div>
+							</div>
+							<a href="#" class="sui-ico-close sui-progress-close"></a>
+						</div>
+
+						<div class="sui-progress-state">
+							<span class="sui-progress-state-text">Can close progress bar...</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-progress-block sui-progress-can-close"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span&gt;20%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 20%"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+				</div>
+
+			</section>
+
 			<section id="upsells">
 
 				<div class="demo-info-block">
@@ -638,50 +818,27 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
 			</section>
 
-			<section id="box-settings">
+			<section id="modals">
 
 				<div class="demo-info-block">
-					<h2>Box Settings</h2>
-					<p>Lorem ipsum dolor sit amet.</p>
+					<h2>Modals</h2>
+					<p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
 				</div>
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Server type</span>
-								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
-							</div>
-							<div class="sui-box-settings-col-2">
-								<div class="sui-form-field">
-									<label class="sui-label">Server Type</label>
-									<select name="select-list">
-										<option value="" selected="selected">Select Option</option>
-										<option value="apache">Apache</option>
-										<option value="LiteSpeed">LiteSpeed</option>
-										<option value="nginx">NGINX</option>
-										<option value="iis">IIS</option>
-										<option value="iis-7">IIS 7</option>
-										<option value="cloudflare">Cloudflare</option>
-									</select>
-								</div>
-								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
-							</div>
-						</div>
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Expiry Time</span>
-								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
-							</div>
-							<div class="sui-box-settings-col-2">
+
+						<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Open Modal</a>
+						<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
+							<div class="sui-dialog-content">
 								<div class="sui-row">
 									<div class="sui-col">
 										<div class="sui-form-field">
 											<label class="sui-label">Text</label>
 											<input type="text" class="sui-form-control" placeholder="input type text">
-											<span class="sui-description">This is a field with a note.</span>
 										</div>
 									</div>
 									<div class="sui-col">
@@ -692,325 +849,126 @@ RewriteRule . /index.php [L]
 									</div>
 								</div>
 							</div>
-						</div>
+							<div class="sui-modal-footer sui-modal-footer-space-between">
+								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+								<div class="sui-modal-footer-right">
+									<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+								</div>
+							</div>
+						</dialog>
+
 					</div>
 				</div>
 
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
-			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
-				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
-				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
-				&lt;div class=&quot;sui-form-field&quot;&gt;
-					...
-				&lt;/div&gt;
-			&lt;/div&gt;
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#default-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Default Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal&quot; id=&quot;default-modal&quot; title=&quot;Ignore Warnings&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer sui-modal-footer-space-between&quot;&gt;
+		&lt;button class=&quot;sui-modal-close sui-button sui-button-lg&quot;&gt;Cancel&lt;/button&gt;
+		&lt;div class=&quot;sui-modal-footer-right&quot;&gt;
+			&lt;button class=&quot;sui-modal-close sui-button sui-button-blue sui-button-lg&quot;&gt;Add&lt;/button&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</pre>
+&lt;/dialog&gt;</pre>
 				</div>
 
-			</section>
-			<section id="progress-bar">
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Sizes</h3>
+					<p>If you need a different size modal, you can add <code>.sui-modal-sm</code> or <code>.sui-modal-lg</code> to the main dialog element.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Progress Bars</h2>
-					</div>
 					<div class="sui-box-body">
-						<div class="sui-progress-block sui-progress-can-close">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-ico-loader sui-loading">
-									<span class="">0%</span>
-								</div>
-								<div class="sui-progress-bar">
-									<span style="width: 0"></span>
-								</div>
+
+						<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
+						<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="title">
+							<div class="sui-dialog-content">
+								<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
+								<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
 							</div>
-							<a href="#" class="sui-ico-close sui-progress-close"></a>
-						</div>
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can close progress bar...</span>
-						</div>
-						<div class="sui-progress-block">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-ico-loader sui-loading">
-									<span class="">0%</span>
-								</div>
-								<div class="sui-progress-bar">
-									<span style="width: 0"></span>
-								</div>
+							<div class="sui-modal-footer">
+								<button type="button" class="sui-modal-close sui-button">Got it</button>
 							</div>
-						</div>
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can't close progress bar...</span>
-						</div>
-						<pre class="sui-code-snippet">
-&lt;div class="sui-progress-block sui-progress-can-close"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
-			&lt;span class=""&gt;0%&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 0"&gt;&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-block"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
-			&lt;span class=""&gt;0%&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 0"&gt;&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
-&lt;/div&gt;
-</pre>
+						</dialog>
+
 					</div>
 				</div>
-			</section>
-			<section id="modals">
-			<div class="sui-box">
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Modals</h2>
-				</div>
-				<div class="sui-box-body">
-					<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Default Modal</a>
-					<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
-						<div class="sui-dialog-content">
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-							</div>
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Password</label>
-										<div class="sui-password-group">
-											<input type="password" class="sui-form-control"
-												   placeholder="input type password">
-											<button class="sui-password-toggle" type="button">
-												<span class="sui-screen-reader-text">Show Password</span>
-												<i aria-hidden="true" class="sui-ico-eye"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field sui-form-field-error">
-										<label class="sui-label">Error</label>
-										<input type="number" class="sui-form-control" placeholder="input type text">
-										<span class="sui-error-message">This is an error message</span>
-									</div>
-								</div>
-							</div>
-						</div>
 
-						<div class="sui-modal-footer sui-modal-footer-space-between">
-							<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
-							<div class="sui-modal-footer-right">
-								<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
-							</div>
-						</div>
-					</dialog>
-					<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
-					<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!">
-						<div class="sui-dialog-content">
-							<p>Advanced mode gives you full control over your files but can easily break your website if
-								configured incorrectly.</p>
-							<p>We recommend you make one tweak at a time and check the frontend of your website each
-								change to avoid any mishaps. </p>
-						</div>
-						<div class="sui-modal-footer">
-							<button class="sui-modal-close sui-button">Got it</button>
-						</div>
-					</dialog>
-					<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
-					<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal">
-						<div class="sui-dialog-content">
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#sm-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Small Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal sui-modal-sm&quot; id=&quot;sm-modal&quot; title=&quot;title&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/dialog&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
+						<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="title">
+							<div class="sui-dialog-content">
+								<div class="sui-row">
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
 									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-							</div>
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Password</label>
-										<div class="sui-password-group">
-											<input type="password" class="sui-form-control"
-												   placeholder="input type password">
-											<button class="sui-password-toggle" type="button">
-												<span class="sui-screen-reader-text">Show Password</span>
-												<i aria-hidden="true" class="sui-ico-eye"></i>
-											</button>
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
 										</div>
 									</div>
 								</div>
-								<div class="sui-col">
-									<div class="sui-form-field sui-form-field-error">
-										<label class="sui-label">Error</label>
-										<input type="number" class="sui-form-control" placeholder="input type text">
-										<span class="sui-error-message">This is an error message</span>
-									</div>
-								</div>
 							</div>
-						</div>
 							<div class="sui-modal-footer sui-modal-footer-right">
 								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
 								<div class="sui-modal-footer-right">
-									<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add
-									</button>
+									<button type="button" class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
 								</div>
 							</div>
 						</dialog>
-					</div>
-					<div class="sui-box-body">
 
-						<pre class="sui-code-snippet">
-&lt;a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Default Modal&lt;/a&gt;
-&lt;dialog class="sui-modal" id="default-modal" title="Ignore Warnings"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
-					&lt;div class="sui-password-group"&gt;
-						&lt;input type="password" class="sui-form-control"
-							   placeholder="input type password"&gt;
-						&lt;button class="sui-password-toggle" type="button"&gt;
-							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
-							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
-						&lt;/button&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field sui-form-field-error"&gt;
-					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
-					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
-					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class="sui-modal-footer sui-modal-footer-space-between"&gt;
-		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
-		&lt;div class="sui-modal-footer-right"&gt;
-			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add&lt;/button&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-&lt;a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Small Modal&lt;/a&gt;
-&lt;dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;p&gt;Advanced mode gives you full control over your files but can easily break your website if
-			configured incorrectly.&lt;/p&gt;
-		&lt;p&gt;We recommend you make one tweak at a time and check the frontend of your website each
-			change to avoid any mishaps. &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-modal-footer"&gt;
-		&lt;button class="sui-modal-close sui-button"&gt;Got it&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-&lt;a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Large Modal&lt;/a&gt;
-&lt;dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
-					&lt;div class="sui-password-group"&gt;
-						&lt;input type="password" class="sui-form-control"
-							   placeholder="input type password"&gt;
-						&lt;button class="sui-password-toggle" type="button"&gt;
-							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
-							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
-						&lt;/button&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field sui-form-field-error"&gt;
-					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
-					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
-					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-modal-footer sui-modal-footer-right"&gt;
-		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
-		&lt;div class="sui-modal-footer-right"&gt;
-			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add
-			&lt;/button&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-</pre>
 					</div>
 				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#lg-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Small Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal sui-modal-lg&quot; id=&quot;lg-modal&quot; title=&quot;title&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/dialog&gt;</pre>
+				</div>
+
 			</section>
+
 			<section id="tables">
 				<div class="sui-box">
 					<div class="sui-box-header">
@@ -1496,8 +1454,11 @@ RewriteRule . /index.php [L]
 						</div>
 					</div>
 				</div>
+
 			</section>
+
 			<section id="scores">
+
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Scores</h2>
