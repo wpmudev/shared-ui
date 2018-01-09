@@ -10,6 +10,7 @@
 	line-height: 1;
 	text-rendering: auto;
 	display: inline-block;
+	color: $icon-color;
 
 	// Better Font Rendering
 	-webkit-font-smoothing: antialiased;
@@ -280,7 +281,19 @@ $icons: (
 
 	// Icon sizes
 	[class*="sui-ico-"].sui-lg {
-		font-size: 30px;
+		&:before {
+			font-size: 30px;
+		}
+	}
+	[class*="sui-ico-"].sui-sm {
+		&:before {
+			font-size: 16px;
+		}
+	}
+	[class*="sui-ico-"].sui-xs {
+		&:before {
+			font-size: 12px;
+		}
 	}
 
 	// Fixed width icons.

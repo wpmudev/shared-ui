@@ -326,16 +326,8 @@
   padding: 0;
   line-height: 30px;
   color: #333333;
-}
-
-.sui-2-0-0-alpha-1 h1, .sui-2-0-0-alpha-1 h2, .sui-2-0-0-alpha-1 h3 {
+  font-weight: 700;
   font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.sui-2-0-0-alpha-1 h4, .sui-2-0-0-alpha-1 h5, .sui-2-0-0-alpha-1 h6 {
-  font-weight: 500;
 }
 
 .sui-2-0-0-alpha-1 h1 {
@@ -343,7 +335,6 @@
   line-height: 40px;
   color: #333333;
   margin: 0;
-  font-weight: 700;
 }
 
 .sui-2-0-0-alpha-1 h2 {
@@ -357,28 +348,15 @@
 }
 
 .sui-2-0-0-alpha-1 h4 {
-  font: 600 18px/30px "Roboto", Arial, sans-serif;
-  text-transform: uppercase;
+  font-size: 15px;
 }
 
 .sui-2-0-0-alpha-1 h5 {
-  font: 700 16px/24px "Roboto", Arial, sans-serif;
+  font-size: 15px;
 }
 
 .sui-2-0-0-alpha-1 h6 {
-  font: 700 13px/22px "Roboto", Arial, sans-serif;
-}
-
-.sui-2-0-0-alpha-1 #header h1 {
-  color: #333333;
-  margin: 0;
-  text-align: left;
-  text-transform: uppercase;
-  font-weight: bold;
-  max-width: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 15px;
 }
 
 .sui-2-0-0-alpha-1 p:first-child {
@@ -419,11 +397,12 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 18px;
+  color: #333333;
   background-color: #F8F8F8;
   border: 1px solid #E6E6E6;
   border-radius: 3px;
   margin: 0;
-  padding: 20px 30px;
+  padding: 10px 15px;
   white-space: pre;
   overflow: auto;
   max-width: 100%;
@@ -460,6 +439,7 @@
   line-height: 1;
   text-rendering: auto;
   display: inline-block;
+  color: #888888;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -481,8 +461,16 @@
   display: inline-block;
 }
 
-.sui-2-0-0-alpha-1 [class*="sui-ico-"].sui-lg {
+.sui-2-0-0-alpha-1 [class*="sui-ico-"].sui-lg:before {
   font-size: 30px;
+}
+
+.sui-2-0-0-alpha-1 [class*="sui-ico-"].sui-sm:before {
+  font-size: 16px;
+}
+
+.sui-2-0-0-alpha-1 [class*="sui-ico-"].sui-xs:before {
+  font-size: 12px;
 }
 
 .sui-2-0-0-alpha-1 [class*="sui-ico-"].sui-fw {
@@ -1361,12 +1349,12 @@
   display: inline-block;
   position: relative;
   padding: 7px 16px;
-  margin: 0 20px 0 0;
+  margin: 0 10px 0 0;
   border: 0;
   background-color: #888888;
   color: #FFFFFF;
   font: 400 12px/16px "Roboto", Arial, sans-serif;
-  letter-spacing: -0.2px;
+  letter-spacing: -.025em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
@@ -1529,6 +1517,10 @@
   margin: 0;
 }
 
+.sui-2-0-0-alpha-1 .sui-button.sui-button-icon {
+  min-width: 0;
+}
+
 .sui-2-0-0-alpha-1 .sui-toggle {
   position: relative;
   display: inline-block;
@@ -1539,6 +1531,12 @@
 .sui-2-0-0-alpha-1 .sui-toggle.sui-toggle-label {
   top: 3px;
   margin-right: 10px;
+}
+
+.sui-2-0-0-alpha-1 .sui-toggle-label {
+  vertical-align: text-bottom;
+  line-height: 22px;
+  margin-left: 10px;
 }
 
 .sui-2-0-0-alpha-1 .sui-toggle input[type="checkbox"][disabled] + .sui-toggle-slider {
@@ -1805,6 +1803,12 @@
   font-weight: 500;
 }
 
+.sui-2-0-0-alpha-1 .sui-box-body .sui-settings-box {
+  padding: 30px;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+}
+
 .sui-2-0-0-alpha-1 .sui-box-footer {
   border-top: 1px solid #EAEAEA;
   padding: 30px;
@@ -1818,9 +1822,9 @@
 
 .sui-2-0-0-alpha-1 .sui-box-title {
   display: block;
-  text-transform: uppercase;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: "Roboto", Arial, sans-serif;
   margin-left: 0;
   line-height: 1;
   white-space: nowrap;
@@ -2653,6 +2657,18 @@
   margin-right: 0;
 }
 
+.sui-2-0-0-alpha-1 .sui-header h1 {
+  color: #333333;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .sui-2-0-0-alpha-1 .sui-summary {
   padding: 30px 30px 10px;
   background-image: url("../images/graphic-hb-minify-summary@2x.png");
@@ -2789,6 +2805,11 @@
   font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
   width: 200px;
   color: #777771;
+}
+
+.sui-2-0-0-alpha-1 .sui-list > li:last-of-type .sui-list-detail,
+.sui-2-0-0-alpha-1 .sui-list > li:last-of-type .sui-list-label {
+  border-bottom: none;
 }
 
 .sui-2-0-0-alpha-1 .sui-tooltip {
@@ -3079,8 +3100,8 @@
 }
 
 .sui-2-0-0-alpha-1 .select-list-container .list-results li:hover {
-  background: #888888;
-  color: #FFFFFF;
+  background: #F2F2F2;
+  color: #333333;
 }
 
 .sui-2-0-0-alpha-1 .select-list-container .list-results .optgroup li.optgroup-label:hover {
@@ -3097,7 +3118,7 @@
 }
 
 .sui-2-0-0-alpha-1 .select-container:hover .list-value {
-  color: #666666;
+  color: #333333;
 }
 
 .sui-2-0-0-alpha-1 .select-container:hover .list-results {
@@ -3391,6 +3412,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-upload-group {
   -webkit-transition: .2s;
   transition: .2s;
   border-radius: 3px;
+  margin-top: 3px;
 }
 
 .sui-2-0-0-alpha-1 .sui-checkbox span:before, .sui-2-0-0-alpha-1 .sui-radio span:before {
@@ -3415,8 +3437,11 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-upload-group {
 }
 
 .sui-2-0-0-alpha-1 .sui-checkbox .sui-description, .sui-2-0-0-alpha-1 .sui-radio .sui-description {
+  cursor: pointer;
   margin-top: 0;
-  margin-left: 8px;
+  margin-left: 10px;
+  font-size: 15px;
+  line-height: 22px;
 }
 
 .sui-2-0-0-alpha-1 .sui-checkbox input[disabled] + span, .sui-2-0-0-alpha-1 .sui-radio input[disabled] + span,
@@ -3424,6 +3449,11 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-checkbox + span,
 fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   cursor: not-allowed;
   opacity: .5;
+}
+
+.sui-2-0-0-alpha-1 .sui-checkbox input[disabled] + span + div.sui-description, .sui-2-0-0-alpha-1 .sui-radio input[disabled] + span + div.sui-description {
+  color: #AAAAAA;
+  cursor: not-allowed;
 }
 
 .sui-2-0-0-alpha-1 .sui-checkbox span {
@@ -5504,8 +5534,8 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 .sui-2-0-0-alpha-1 .sui-progress-block .sui-progress .sui-progress-text:before {
   margin-right: 10px;
   position: relative;
-  top: 2px;
-  left: 1px;
+  top: 3px;
+  font-size: 18px;
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-block .sui-progress .sui-progress-text img {
@@ -5552,7 +5582,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close .sui-progress {
-  padding-right: 20px;
+  padding-right: 40px;
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close a.sui-progress-close {
@@ -5561,10 +5591,14 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   position: absolute;
   right: 20px;
   top: 17px;
+  width: 30px;
+  height: 30px;
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close a.sui-progress-close:before {
   font-size: 16px;
+  position: relative;
+  margin-left: 8px;
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-state {

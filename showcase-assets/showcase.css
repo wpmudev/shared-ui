@@ -212,8 +212,6 @@ section:after {
 	}
 }
 
-/* Highlightjs styles */
-
 .demo-code-block {
 	margin-bottom: 30px;
 }
@@ -226,18 +224,23 @@ section:after {
 	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.demo-code-block .hljs {
-	background: #002F3E;
-	color: #ffffff;
-}
-
 .demo-code-block [data-clipboard-target] {
 	background-color: rgba(255,255,255,.1);
+	/* adjust copy button for 1 line of code */
+	right: 4px !important;
+	top: 4px !important;
 }
 
 .demo-code-block [data-clipboard-target]:hover,
 .demo-code-block [data-clipboard-target]:focus {
 	background-color: rgba(255,255,255,.2);
+}
+
+/* Highlightjs styles */
+
+.demo-code-block .hljs {
+	background: #002F3E;
+	color: #ffffff;
 }
 
 .hljs-built_in,

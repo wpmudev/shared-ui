@@ -12,6 +12,7 @@
 <body class="sui-2-0-0-alpha-1">
 <div id="adminmenu">
 	<ul>
+		<li><a href="#usage">Usage</a></li>
 		<li><a href="#boxes">Boxes</a></li>
 		<li><a href="#code-snippets">Code Snippets</a></li>
 		<li><a href="#grid">Grid</a></li>
@@ -25,26 +26,26 @@
 				<p>Notice success: Page caching is currently active.</p>
 				<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
 			</div>
+			<section id="usage">
+				<h1 class="demo-main-title">Shared UI</h1>
 
-			<h1 class="demo-main-title">Shared UI</h1>
+				<div class="demo-info-block">
+					<h2>Usage</h2>
+					<p>This page serves as a showcase for the Shared UI library used internally for <a href="https://wpmudev.org">WPMU DEV</a> plugins.</p>
+				</div>
 
-			<div class="demo-info-block">
-				<h2>Usage</h2>
-				<p>This page serves as a showcase for the Shared UI library used internally for <a href="https://wpmudev.org">WPMU DEV</a> plugins.</p>
-			</div>
-
-			<div class="demo-code-block">
+				<div class="demo-code-block">
 <pre class="sui-code-snippet bash">
 npm install @wpmudev/shared-ui</pre>
-			</div>
+				</div>
 
-			<div class="demo-info-block">
-				<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials & individual js components into your plugins build (recommended).</p>
-				<h3>Requirements</h3>
-				<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
-			</div>
+				<div class="demo-info-block">
+					<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials & individual js components into your plugins build (recommended).</p>
+					<h3>Requirements</h3>
+					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
+				</div>
 
-			<div class="demo-code-block">
+				<div class="demo-code-block">
 <pre class="sui-code-snippet php">
 add_filter( 'body_class', 'plugin_body_classes' );
 function plugin_body_classes( $classes ) {
@@ -54,7 +55,8 @@ function plugin_body_classes( $classes ) {
 	return $classes;
 
 }</pre>
-			</div>
+				</div>
+			</section>
 
 			<section id="boxes">
 				<div class="demo-info-block">
@@ -2228,6 +2230,10 @@ Header set Cache-Control "max-age=691200"
 							class="sui-ico-alert"></i></button>
 						<button class="sui-button sui-button-green">Green Button Icon Right &nbsp;<i
 							class="sui-ico-alert"></i></button>
+						<br>
+						<br>
+						<button class="sui-button sui-button-icon"><i class="sui-ico-arrow-right"></i></button>
+						<button class="sui-button sui-button-icon sui-button-lg"><i class="sui-ico-arrow-right"></i></button>
 					</div>
 					<div class="sui-box-body">
 						<pre class="sui-code-snippet">&lt;button class="sui-button"&gt;Default Button&lt;/button&gt;
@@ -2240,7 +2246,9 @@ Header set Cache-Control "max-age=691200"
 &lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Large	Button Ghost Icon&lt;/button&gt;
 &lt;button class="sui-button sui-button-ghost sui-button-green"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Green Button Icon&lt;/button&gt;
 &lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-green"&gt;Green Button Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+&lt;button class="sui-button sui-button-green"&gt;Green Button Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class="sui-button sui-button-icon"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class="sui-button sui-button-icon sui-button-lg"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
 					</div>
 				</div><!-- .sui-box -->
 			</section>
@@ -2324,6 +2332,49 @@ Header set Cache-Control "max-age=691200"
 								<span class="sui-toggle-slider"></span>
 							</label>
 						</p>
+						<label class="sui-toggle">
+							<input type="checkbox">
+							<span class="sui-toggle-slider"></span>
+						</label>
+						<span class="sui-toggle-label">Toggle with label.</span>
+						<div class="sui-settings-box">
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Password</label>
+										<div class="sui-password-group">
+											<input type="password" class="sui-form-control"
+												   placeholder="input type password">
+											<button class="sui-password-toggle" type="button">
+												<span class="sui-screen-reader-text">Show Password</span>
+												<i aria-hidden="true" class="sui-ico-eye"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field sui-form-field-error">
+										<label class="sui-label">Error</label>
+										<input type="number" class="sui-form-control" placeholder="input type text">
+										<span class="sui-error-message">This is an error message</span>
+									</div>
+								</div>
+							</div>
+							<div class="sui-row">
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Textarea</label>
+										<textarea class="sui-form-control"></textarea>
+									</div>
+								</div>
+								<div class="sui-col">
+									<div class="sui-form-field">
+										<label class="sui-label">Number</label>
+										<input type="number" class="sui-form-control" placeholder="input type number">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="sui-box-body">
 						<pre class="sui-code-snippet">&lt;label class="sui-toggle"&gt;
@@ -2334,6 +2385,11 @@ Header set Cache-Control "max-age=691200"
 	&lt;input type="checkbox" disabled&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
+&lt;label class="sui-toggle"&gt;
+	&lt;input type="checkbox"&gt;
+	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;span class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;
 </pre>
 					</div>
 				</div><!-- .sui-box -->
