@@ -94,15 +94,19 @@ hr {
 
 section {
 	position: relative;
-	margin-bottom: 140px;
+	margin-bottom: 150px;
+}
+
+section .demo-code-block:last-child {
+	margin-bottom: 0;
 }
 
 section:after {
 	content: '...';
 	display: inline-block;
 	color: rgba(0,0,0,.3);
-	position: relative;
-	top: 75px;
+	position: absolute;
+	bottom: -100px;
 	font-family: Georgia,Cambria,"Times New Roman",Times,serif;
 	font-weight: 400;
 	font-size: 30px;
@@ -110,6 +114,7 @@ section:after {
 	letter-spacing: .6em;
 	text-align: center;
 	width: 100%;
+	height: 45px;
 }
 
 .demo-box {
@@ -149,10 +154,6 @@ section:after {
 	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 	margin-bottom: 30px;
 	box-shadow: inset 0 1px 4sspx rgba(0,0,0,.1);
-}
-
-.demo-code-block + .demo-info-block {
-	margin-top: -1em;
 }
 
 .demo-info-block {
@@ -226,9 +227,6 @@ section:after {
 
 .demo-code-block [data-clipboard-target] {
 	background-color: rgba(255,255,255,.1);
-	/* adjust copy button for 1 line of code */
-	right: 4px !important;
-	top: 4px !important;
 }
 
 .demo-code-block [data-clipboard-target]:hover,
@@ -288,7 +286,7 @@ section:after {
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion {
-	color: #6272a4;
+	color: #888888;
 }
 
 .hljs-keyword,

@@ -14,6 +14,7 @@
 	<ul>
 		<li><a href="#usage">Usage</a></li>
 		<li><a href="#boxes">Boxes</a></li>
+		<li><a href="#buttons">Buttons</a></li>
 		<li><a href="#code-snippets">Code Snippets</a></li>
 		<li><a href="#grid">Grid</a></li>
 	</ul>
@@ -35,7 +36,7 @@
 				</div>
 
 				<div class="demo-code-block">
-<pre class="sui-code-snippet bash">
+<pre class="sui-code-snippet sui-no-copy bash">
 npm install @wpmudev/shared-ui</pre>
 				</div>
 
@@ -139,11 +140,94 @@ function plugin_body_classes( $classes ) {
 
 			</section>
 
+			<section id="buttons">
+
+				<div class="demo-info-block">
+					<h2>Buttons</h2>
+					<p>Use any of the available button classes to quickly create a styled button. Buttons are almost always used inside of a <code>.sui-box</code>.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button">Default</button>
+						<button type="button" class="sui-button sui-button-primary">Primary</button>
+						<button type="button" class="sui-button sui-button-green">Green</button>
+						<button type="button" class="sui-button sui-button-red">Red</button>
+						<button type="button" class="sui-button sui-button-ghost">Ghost</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Standard button --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;Default&lt;/button&gt;
+
+&lt;!-- Provides extra visual weight and identifies the primary action in a set of buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-primary&quot;&gt;Primary&lt;/button&gt;
+
+&lt;!-- Indicates a successful or positive action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Green&lt;/button&gt;
+
+&lt;!-- Indicates caution should be taken with this action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-red&quot;&gt;Red&lt;/button&gt;
+
+&lt;!-- Contextual button for informational alert messages --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Ghost&lt;/button&gt;</pre>
+				</div>
+
+				<div class="demo-info-block">
+					<h3>Sizes</h3>
+					<p>Need a larger button? Add <code>.sui-button-lg</code> to increase size.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button class="sui-button sui-button-lg">Large Button</button>
+						<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-lg&quot;&gt;Large Button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-primary sui-button-lg&quot;&gt;Large Button&lt;/button&gt;</pre>
+				</div>
+
+				<div class="demo-info-block">
+					<h3>Button Icons</h3>
+					<p>Include the icon inside of the button or link. The <code>.sui-fw</code> class should be added to the icons when they are inline with text to create the appropriate separation.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert sui-fw"></i> Large Ghost Button</button>
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg">Large Ghost Button <i class="sui-ico-alert sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-green"><i class="sui-ico-alert sui-fw"></i> Green</button>
+						<button type="button" class="sui-button sui-button-green">Green Button <i class="sui-ico-alert sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-icon"><i class="sui-ico-arrow-right sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-icon sui-button-lg"><i class="sui-ico-arrow-right sui-fw"></i></button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;&lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt; Large Ghost Button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;Large Ghost Button &lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;&lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt; Green&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Green Button &lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon&quot;&gt;&lt;i class=&quot;sui-ico-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon sui-button-lg&quot;&gt;&lt;i class=&quot;sui-ico-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+				</div>
+
+			</section>
+
 			<section id="code-snippets">
+
 				<div class="demo-info-block">
 					<h2>Code Snippets</h2>
 					<p>Code snippets are to be used to display code to the user and allow them to copy to clipboard.</p>
 				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-body">
 						<pre class="sui-code-snippet">
@@ -164,14 +248,42 @@ RewriteRule . /index.php [L]
 	...
 &lt;/pre&gt;</pre>
 				</div>
+
+				<div class="demo-info-block">
+					<p>Without copy button:</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<pre class="sui-code-snippet sui-no-copy">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</pre>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;pre class="sui-code-snippet sui-no-copy"&gt;
+	...
+&lt;/pre&gt;</pre>
+				</div>
+
 			</section>
 
 			<section id="grid">
+
 				<div class="demo-info-block">
 					<h2>Grid</h2>
 					<p>The grid system should be used to layout boxes &amp; forms. The grid requires a minimum of 2 components, the columns, and the row that wraps the columns.</p>
 					<p>For equally spaced columns that stay inline at all breakpoints, you can use the basic <code>.sui-col</code>:</p>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col">
 						<div class="demo-grid-block">.sui-col</div>
@@ -180,6 +292,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-col</div>
 					</div>
 				</div>
+
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-row&quot;&gt;
@@ -191,9 +304,11 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
 				<div class="demo-info-block">
 					<p>For more control over column behavior for different breakpoints, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-md-3">
 						<div class="demo-grid-block">.sui-col-md-3</div>
@@ -205,6 +320,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-col-md-3</div>
 					</div>
 				</div>
+
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-row&quot;&gt;
@@ -219,9 +335,11 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
 				<div class="demo-info-block">
 					<p>Examples:</p>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-lg-3">
 						<div class="demo-grid-block">.sui-col-lg-3</div>
@@ -236,6 +354,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-col-lg-3</div>
 					</div>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-sm-9">
 						<div class="demo-grid-block">.sui-col-sm-9</div>
@@ -244,6 +363,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-col-sm-3</div>
 					</div>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-lg-4">
 						<div class="demo-grid-block">.sui-col-lg-4</div>
@@ -252,21 +372,26 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
 					</div>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-sm-8 sui-col-sm-offset-4">
 						<div class="demo-grid-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
 					</div>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col-sm-7 sui-col-sm-offset-5">
 						<div class="demo-grid-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
 					</div>
 				</div>
+
 				<hr>
+
 				<div class="demo-info-block">
 					<p>You can reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element.</p>
 					<p>Original:</p>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col">
 						<div class="demo-grid-block">1</div>
@@ -278,6 +403,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">3</div>
 					</div>
 				</div>
+
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-row&quot;&gt;
@@ -292,7 +418,9 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
 				<p>Reversed:</p>
+
 				<div class="sui-row sui-reverse">
 					<div class="sui-col">
 						<div class="demo-grid-block">1</div>
@@ -304,6 +432,7 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">3</div>
 					</div>
 				</div>
+
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-row sui-reverse&quot;&gt;
@@ -318,10 +447,13 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
 				<hr>
+
 				<div class="demo-info-block">
 					<p>Use a single or combination of the available classes for toggling content across viewport breakpoints.</p>
 				</div>
+
 				<div class="demo-box">
 					<table class="sui-table demo-table">
 						<thead>
@@ -365,9 +497,11 @@ RewriteRule . /index.php [L]
 						</tbody>
 					</table>
 				</div>
+
 				<div class="demo-info-block">
 					<p>Examples:</p>
 				</div>
+
 				<div class="sui-row">
 					<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
 						<div class="demo-grid-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
@@ -379,13 +513,16 @@ RewriteRule . /index.php [L]
 						<div class="demo-grid-block">.sui-hidden-lg</div>
 					</div>
 				</div>
+
 			</section>
 
 			<section id="upsells">
+
 				<div class="demo-info-block">
-					<h2>Upsells/Disabled State</h2>
+					<h2>Upsells</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
 				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Upsells/Disabled State</h2>
@@ -434,8 +571,7 @@ RewriteRule . /index.php [L]
 						<div class="sui-box-settings-row sui-upsell-row">
 							<img class="sui-image sui-upsell-image" src="dist/images/hummingbird-upsell-minify.png" srcset="dist/images/hummingbird-upsell-minify@2x.png 2x" alt="WP Smush free installed">
 							<div class="sui-upsell-notice">
-								<p>
-									With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  <a href="#wphb-upgrade-membership-modal" rel="dialog">Try Pro for FREE today!</a>				</p>
+								<p>With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  <a href="#wphb-upgrade-membership-modal" rel="dialog">Try Pro for FREE today!</a></p>
 							</div>
 						</div>
 					</div>
@@ -2197,58 +2333,6 @@ Header set Cache-Control "max-age=691200"
 &lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Tooltip	Left&lt;/button&gt;
 &lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Tooltip Right&lt;/button&gt;
 &lt;button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip=""&gt;Tooltip Constrained&lt;/button&gt;</pre>
-					</div>
-				</div><!-- .sui-box -->
-			</section>
-
-			<section id="buttons">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Buttons</h2>
-					</div>
-					<div class="sui-box-body">
-						<button class="sui-button">Default Button</button>
-						<button class="sui-button sui-button-primary">Primary Button</button>
-						<button class="sui-button sui-button-red">Red Button</button>
-						<button class="sui-button sui-button-green">Green Button</button>
-						<button class="sui-button sui-button-ghost">Ghost Button</button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
-						<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost</button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert"></i> &nbsp;
-							Large
-							Button Ghost Icon
-						</button>
-						<button class="sui-button sui-button-ghost sui-button-green"><i class="sui-ico-alert"></i>
-							&nbsp;
-							Green Button Icon
-						</button>
-						<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost Icon Right &nbsp;<i
-							class="sui-ico-alert"></i></button>
-						<button class="sui-button sui-button-green">Green Button Icon Right &nbsp;<i
-							class="sui-ico-alert"></i></button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-icon"><i class="sui-ico-arrow-right"></i></button>
-						<button class="sui-button sui-button-icon sui-button-lg"><i class="sui-ico-arrow-right"></i></button>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;button class="sui-button"&gt;Default Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-red"&gt;Red Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-green"&gt;Green Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost"&gt;Ghost Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-primary sui-button-lg"&gt;Large Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Large	Button Ghost Icon&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-green"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Green Button Icon&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-green"&gt;Green Button Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-icon"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-icon sui-button-lg"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
 					</div>
 				</div><!-- .sui-box -->
 			</section>
