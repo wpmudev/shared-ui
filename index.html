@@ -41,7 +41,8 @@ npm install @wpmudev/shared-ui</pre>
 				</div>
 
 				<div class="demo-info-block">
-					<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials & individual js components into your plugins build (recommended).</p>
+					<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials &amp; individual js components into your plugins build (recommended).</p>
+					<hr>
 					<h3>Requirements</h3>
 					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
 				</div>
@@ -175,6 +176,8 @@ function plugin_body_classes( $classes ) {
 &lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Ghost&lt;/button&gt;</pre>
 				</div>
 
+				<hr>
+
 				<div class="demo-info-block">
 					<h3>Sizes</h3>
 					<p>Need a larger button? Add <code>.sui-button-lg</code> to increase size.</p>
@@ -192,6 +195,8 @@ function plugin_body_classes( $classes ) {
 &lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-lg&quot;&gt;Large Button&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-primary sui-button-lg&quot;&gt;Large Button&lt;/button&gt;</pre>
 				</div>
+
+				<hr>
 
 				<div class="demo-info-block">
 					<h3>Button Icons</h3>
@@ -525,7 +530,7 @@ RewriteRule . /index.php [L]
 
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Upsells/Disabled State</h2>
+						<h2 class="sui-box-title">Options</h2>
 						<span class="sui-tag sui-tag-upsell">Pro Feature</span>
 					</div>
 					<div class="sui-box-body sui-upsell-items">
@@ -576,11 +581,12 @@ RewriteRule . /index.php [L]
 						</div>
 					</div>
 				</div>
+
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class="sui-box"&gt;
 	&lt;div class="sui-box-header"&gt;
-		&lt;h2 class="sui-box-title"&gt;Upsells/Disabled State&lt;/h2&gt;
+		&lt;h2 class="sui-box-title"&gt;Options&lt;/h2&gt;
 		&lt;span class="sui-tag sui-tag-upsell"&gt;Pro Feature&lt;/span&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-box-body sui-upsell-items"&gt;
@@ -633,15 +639,15 @@ RewriteRule . /index.php [L]
 &lt;/div&gt;</pre>
 				</div>
 			</section>
+
 			<section id="box-settings">
+
 				<div class="demo-info-block">
 					<h2>Box Settings</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
 				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Box Settings</h2>
-					</div>
 					<div class="sui-box-body">
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
@@ -687,20 +693,28 @@ RewriteRule . /index.php [L]
 								</div>
 							</div>
 						</div>
-						<pre class="sui-code-snippet">
-&lt;div class="sui-box-settings-row"&gt;
-	&lt;div class="sui-box-settings-col-1"&gt;
-		&lt;span class="sui-settings-label"&gt;Settings Label&lt;/span&gt;
-		&lt;span class="sui-description"&gt;Settings Description&lt;/span&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-box-settings-col-2"&gt;
-		&lt;div class="sui-form-field"&gt;
-			...
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					...
+				&lt;/div&gt;
+			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
-					</div>
 				</div>
+
 			</section>
 			<section id="progress-bar">
 				<div class="sui-box">
