@@ -11,7 +11,7 @@
 			background-image: none;
 		}
 
-		& .sui-summary-image-space {
+		.sui-summary-image-space {
 			width: 100%;
 			min-height: $summary-image-default-height;
 			float: left;
@@ -22,7 +22,8 @@
 			}
 		}
 
-		& .sui-summary-segment {
+		.sui-summary-segment {
+			position: relative;
 			color: #333333;
 			width: calc(100% / 2 - 98px);
 			padding-left: 5%;
@@ -30,17 +31,65 @@
 			display: inline-block;
 			vertical-align: middle;
 
-			& small {
-				font-size: 13px;
-				margin-top: 0;
-				color: $list-summary-small-color;
-			}
+			.sui-summary-details {
+				position: absolute;
+				top: -5px;
+				transform: translateY(-50%);
+				min-height: 80px;
+
+				@media( max-width: 600px ){
+					position: inherit;
+					top: 0;
+					transform: translateY(0);
+				}
+
+				.sui-summary-sub {
+					display: block;
+					font-size: 13px;
+					margin-top: 0;
+					margin-bottom: 20px;
+					line-height: 22px;
+					color: $list-summary-small-color;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+				}
+
+				.sui-summary-percent {
+					font-size: 13px;
+					line-height: 22px;
+					margin-left: -5px;
+				}
+
+				i {
+					position: relative;
+					top: -22px;
+					left: 5px;
+					font-size: 16px;
+
+					+ .sui-summary-percent {
+						margin-left: -20px;
+
+					}
+					&.sui-warning,
+					&.sui-info,
+					&.sui-error,
+					&.sui-success {
+						&:before {
+							color: inherit;
+						}
+					}
+
+				}
+
+				.sui-summary-large {
+					font-size: 50px;
+					line-height: 55px;
+					margin-bottom: 20px;
+				}
 
 
-			& .sui-summary-large {
-				font-size: 55px;
-				line-height: 30px;
-				margin-bottom: 20px;
 			}
 
 			@media( max-width: 1100px ){
@@ -55,13 +104,13 @@
 				width: 100%;
 			}
 
-			& .sui-list {
+			.sui-list {
 
 				@media( max-width: 600px ){
 					text-align: left;
 				}
 
-				& .sui-summary-number {
+				.sui-list-detail {
 					font-family: $font--alt;
 					font-size: 18px;
 					color: $list-summary-number-color;

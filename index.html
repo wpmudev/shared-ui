@@ -1902,72 +1902,133 @@ RewriteRule . /index.php [L]
 
 				<div class="demo-info-block">
 					<h2>Summary</h2>
-					<p>Lorem ipsum dolor sit amet.</p>
+					<p>The summary is used to display a summary of the pages information. The Shared UI provides the following two examples for your plugin page summaries. Please note you will need to add a class to the <code>sui-summary-image-space</code>
+					to override the background image.</p>
 				</div>
 
 				<div class="sui-box sui-summary">
 					<div class="sui-summary-image-space">
 					</div>
 					<div class="sui-summary-segment">
-						<p><span class="sui-summary-large">97</span>/100</p>
-						<p>
-							<small>Last test date</small>
-						</p>
-						<p>December 12, 2017 at 1:46 am</p>
+						<div class="sui-summary-details">
+							<span class="sui-summary-large">97</span>
+							<i class="sui-ico-info sui-warning"></i>
+							<span class="sui-summary-percent">/100</span>
+							<span class="sui-summary-sub">Current performance score</span>
+							<span class="sui-summary-detail">December 12, 2017 at 1:46 am</span>
+							<span class="sui-summary-sub">Last test</span>
+						</div>
 					</div>
 					<div class="sui-summary-segment">
 						<ul class="sui-list">
 							<li>
 								<span class="sui-list-label">Previous score</span>
-								<span class="sui-list-detail">
-							<span class="sui-summary-number">76</span>
-						</span>
+								<span class="sui-list-detail">76</span>
 							</li>
 							<li>
 								<span class="sui-list-label">Improvement</span>
-								<span class="sui-list-detail">
-							<span class="sui-pills">-1</span>
-						</span>
+								<span class="sui-list-detail"><span class="sui-tag sui-tag-error">-1</span></span>
 							</li>
 							<li>
 								<span class="sui-list-label">Recommendations</span>
-								<span class="sui-list-detail">
-							<span class="sui-summary-number">4</span>
-						</span>
+								<span class="sui-list-detail">4</span>
 							</li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class="sui-box sui-summary"&gt;
+<pre class="sui-code-snippet html">&lt;div class="sui-box sui-summary"&gt;
 	&lt;div class="sui-summary-image-space"&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-summary-segment"&gt;
-		&lt;p&gt;&lt;span class="sui-summary-large"&gt;97&lt;/span&gt;/100&lt;/p&gt;
-		&lt;p&gt;
-			&lt;small&gt;Last test date&lt;/small&gt;
-		&lt;/p&gt;
-		&lt;p&gt;December 12, 2017 at 1:46 am&lt;/p&gt;
+		&lt;div class="sui-summary-details"&gt;
+			&lt;span class="sui-summary-large"&gt;97&lt;/span&gt;
+			&lt;i class="sui-ico-info sui-warning"&gt;&lt;/i&gt;
+			&lt;span class="sui-summary-percent"&gt;/100&lt;/span&gt;
+			&lt;span class="sui-summary-sub"&gt;Current performance score&lt;/span&gt;
+			&lt;span class="sui-summary-detail"&gt;December 12, 2017 at 1:46 am&lt;/span&gt;
+			&lt;span class="sui-summary-sub"&gt;Last test&lt;/span&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-summary-segment"&gt;
 		&lt;ul class="sui-list"&gt;
 			&lt;li&gt;
 				&lt;span class="sui-list-label"&gt;Previous score&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-summary-number"&gt;76&lt;/span&gt;&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;76&lt;/span&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
 				&lt;span class="sui-list-label"&gt;Improvement&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-pills"&gt;-1&lt;/span&gt;&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-tag sui-tag-error"&gt;-1&lt;/span&gt;&lt;/span&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
 				&lt;span class="sui-list-label"&gt;Recommendations&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-summary-number"&gt;4&lt;/span&gt;&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;4&lt;/span&gt;
 			&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box sui-summary">
+					<div class="sui-summary-image-space">
+					</div>
+					<div class="sui-summary-segment">
+						<div class="sui-summary-details">
+							<span class="sui-summary-large">12</span>
+							<i class="sui-ico-info sui-warning sui-lg"></i>
+							<span class="sui-summary-sub">security issues</span>
+						</div>
+					</div>
+					<div class="sui-summary-segment">
+						<ul class="sui-list">
+							<li>
+								<span class="sui-list-label">Security Tweaks Actioned</span>
+								<span class="sui-list-detail">11/11</span>
+							</li>
+							<li>
+								<span class="sui-list-label">File Scan Issues</span>
+								<span class="sui-list-detail"><span class="sui-tag sui-tag-success">0</span>
+						</span>
+							</li>
+							<li>
+								<span class="sui-list-label">Last Lockout</span>
+								<span class="sui-list-detail">January 10, 2018 1:05 pm</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">&lt;div class="sui-box sui-summary"&gt;
+	&lt;div class="sui-summary-image-space"&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-summary-segment"&gt;
+		&lt;div class="sui-summary-details"&gt;
+			&lt;span class="sui-summary-large"&gt;12&lt;/span&gt;
+			&lt;i class="sui-ico-info sui-warning sui-lg"&gt;&lt;/i&gt;
+			&lt;span class="sui-summary-sub"&gt;security issues&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-summary-segment"&gt;
+		&lt;ul class="sui-list"&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;Security Tweaks Actioned&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;11/11&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;File Scan Issues&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-tag sui-tag-success"&gt;0&lt;/span&gt;
+						&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;span class="sui-list-label"&gt;Last Lockout&lt;/span&gt;
+				&lt;span class="sui-list-detail"&gt;January 10, 2018 1:05 pm&lt;/span&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 				</div>
 
 			</section>
