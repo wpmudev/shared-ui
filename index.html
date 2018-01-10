@@ -33,6 +33,9 @@
 		<li><a href="#notifications">Notifications</a></li>
 		<li><a href="#tooltips">Tooltips</a></li>
 		<li><a href="#typography">Typography</a></li>
+		<li><a href="#toggles">Toggles</a></li>
+		<li><a href="#icons">Icons</a></li>
+		<li><a href="#footer">Footer</a></li>
 	</ul>
 </nav>
 
@@ -333,6 +336,9 @@ function plugin_body_classes( $classes ) {
 				<div class="demo-info-block">
 					<h2>Code Snippets</h2>
 					<p>Code snippets are to be used to display code to the user and allow them to copy to clipboard.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>code-snippet.js</code> is required for copy to clipboard functionality.</p>
+					</div>
 				</div>
 
 				<div class="sui-box">
@@ -838,6 +844,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Modals</h2>
 					<p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>modals.js</code> is required.</p>
+					</div>
 				</div>
 
 				<div class="sui-box">
@@ -1277,6 +1286,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Accordions</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>accordion.js</code> is required.</p>
+					</div>
 				</div>
 
 				<div class="sui-row-with-sidenav">
@@ -1531,6 +1543,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Scores</h2>
 					<p>Animated gauges for scoring. Circles animate on page load.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>scores.js</code> is required.</p>
+					</div>
 				</div>
 
 				<div class="sui-box">
@@ -1584,6 +1599,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Dropdowns</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
+					</div>
 				</div>
 
 				<div class="sui-box">
@@ -1679,6 +1697,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Forms</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>password.js</code> is required for show/hide password functionality.</p>
+					</div>
 				</div>
 
 				<hr>
@@ -2034,6 +2055,9 @@ RewriteRule . /index.php [L]
 				<div class="demo-info-block">
 					<h2>Tabs</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>tabs.js</code> is required.</p>
+					</div>
 				</div>
 
 				<div class="sui-box">
@@ -2519,8 +2543,11 @@ Header set Cache-Control "max-age=691200"
 							</div>
 						</div>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;label class="sui-toggle"&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;label class="sui-toggle"&gt;
 	&lt;input type="checkbox"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
@@ -2532,18 +2559,19 @@ Header set Cache-Control "max-age=691200"
 	&lt;input type="checkbox"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
-&lt;span class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;
-</pre>
-					</div>
+&lt;span class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;</pre>
 				</div>
 
 			</section>
 
 			<section id="icons">
+
+				<div class="demo-info-block">
+					<h2>Icons</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Icons</h2>
-					</div>
 					<div class="sui-box-body">
 						<i class="sui-ico-loader sui-loading"></i> Default loader
 						<br>
@@ -3437,16 +3465,20 @@ Header set Cache-Control "max-age=691200"
 							</div>
 						</div>
 					</div>
-				</div><!-- .sui-box -->
+				</div>
 
 			</section>
+
 			<section id="footer">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Footer Snippet</h2>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-row" id="sui-cross-sell-footer"&gt;
+
+				<div class="demo-info-block">
+					<h2>Footer</h2>
+					<p>Code snippet is first so you can see the footer in it's natural habitat.</p>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-row" id="sui-cross-sell-footer"&gt;
 	&lt;div&gt;&lt;span class="sui-ico-plugin-2"&gt;&lt;/span&gt;&lt;/div&gt;
 	&lt;h3&gt;Check out our other free wordpress.org plugins!&lt;/h3&gt;
 &lt;/div&gt;
@@ -3556,10 +3588,9 @@ Header set Cache-Control "max-age=691200"
 			 alt="WPMU DEV Team"&gt;
 	&lt;/div&gt;
 
-&lt;/dialog&gt;
-</pre>
-					</div>
+&lt;/dialog&gt;</pre>
 				</div>
+
 				<div class="sui-row" id="sui-cross-sell-footer">
 					<div><span class="sui-ico-plugin-2"></span></div>
 					<h3>Check out our other free wordpress.org plugins!</h3>
