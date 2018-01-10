@@ -218,7 +218,7 @@
 		if ( SUI.overlay.visible ) { return false; }
 
 		if ( ! SUI.overlay.wrapper ) {
-			SUI.overlay.container = $('body');
+			SUI.overlay.container = $('html');
 			SUI.overlay.wrapper = $('<div class="sui-overlay"></div>');
 			SUI.overlay.scroll = $('<div class="sui-modal-box-scroll"></div>');
 			SUI.overlay.parent_wrap = $('<div class="sui-wrap"></div>');
@@ -227,7 +227,7 @@
 			SUI.overlay.box = $('<div class="sui-modal-box"></div>');
 			SUI.overlay.box_title = $('<div class="sui-modal-title"><h3></h3></div>');
 			SUI.overlay.box_content = $('<div class="sui-modal-content"></div>');
-			SUI.overlay.close = $('<div aria-hidden="true" class="sui-modal-close">&times;</div><button class="sui-screen-reader-text"><span class="sui-screen-reader-text">Close</span></button>');
+			SUI.overlay.close = $('<a aria-hidden="true" class="sui-modal-close">&times;</a><button class="sui-screen-reader-text"><span class="sui-screen-reader-text">Close</span></button>');
 
 			SUI.overlay.back.appendTo(SUI.overlay.box_wrap);
 			SUI.overlay.scroll.appendTo(SUI.overlay.wrapper);

@@ -3692,7 +3692,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   /* fixed position is always on top */
   display: none;
   /* hidden by default */
-  overflow: visible;
+  overflow: hidden;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-back {
@@ -3711,7 +3711,8 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   right: 0;
   bottom: 0;
   z-index: 1;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: rgba(51, 51, 51, 0.95);
 }
 
@@ -3720,6 +3721,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   width: 100%;
   height: 100%;
   z-index: 1;
+  margin: 0;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box-wrap {
@@ -3730,13 +3732,12 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box {
   display: block;
   position: relative;
-  margin: 0 auto 20px auto;
+  margin: 20px auto 20px auto;
   width: 600px;
   top: 0;
   min-height: 120px;
   background: #FFFFFF;
   border-radius: 5px;
-  padding: 40px;
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
@@ -3753,17 +3754,16 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title {
   min-height: 60px;
-  padding: 0 60px 0 40px;
+  padding: 0 60px 0 30px;
   border-bottom: 1px solid #EAEAEA;
-  margin: -40px -40px 40px -40px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-modal-close {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 0 24px;
-  line-height: 55px;
+  padding: 0 30px;
+  line-height: 60px;
   font-size: 24px;
   font-weight: 400;
   color: #AAAAAA;
@@ -3775,9 +3775,9 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title h3 {
-  font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   text-transform: none;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 30px;
   margin: 0;
@@ -3798,6 +3798,10 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-title .sui-title-action .sui-button-small {
   margin: 5px 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-dialog-content {
+  padding: 30px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-box .sui-modal-content .sui-modal-image.sui-modal-image-bottom {
@@ -3823,9 +3827,8 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   display: -ms-flexbox;
   display: flex;
   min-height: 60px;
-  padding: 30px 40px 0 40px;
+  padding: 30px;
   border-top: 1px solid #EAEAEA;
-  margin: 0 -40px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay .sui-modal-footer.sui-modal-footer-center {
@@ -3883,10 +3886,11 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 .sui-2-0-0-alpha-1 .sui-overlay.sui-modal-sm .sui-modal-box .sui-modal-title {
   padding: 0;
   border: none;
-  margin: 0 -40px;
 }
 
 .sui-2-0-0-alpha-1 .sui-overlay.sui-modal-sm .sui-modal-box .sui-modal-title h3 {
+  margin-top: 30px;
+  margin-bottom: -30px;
   text-align: center;
 }
 
@@ -3955,11 +3959,11 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   margin-top: 5px;
 }
 
-.sui-2-0-0-alpha-1.has-sui-overlay {
+.has-sui-overlay {
   overflow: hidden;
 }
 
-.sui-2-0-0-alpha-1.has-sui-overlay ul#adminmenu a.wp-has-current-submenu:after, .sui-2-0-0-alpha-1.has-sui-overlay ul#adminmenu > li.current > a.current:after {
+.has-sui-overlay ul#adminmenu a.wp-has-current-submenu:after, .has-sui-overlay ul#adminmenu > li.current > a.current:after {
   border-right-color: #356175;
 }
 
