@@ -42,15 +42,11 @@
 
 			&:first-of-type {
 				margin-top: 0;
-				&:before {
-					display: none;
-				}
 			}
+
 			&:last-of-type {
-				padding-bottom: 30px;
-				&:before {
-					display: none;
-				}
+				padding-bottom: 0;
+				border: 0;
 			}
 
 			.sui-box-settings-col-1 {
@@ -68,6 +64,7 @@
 					}
 				}
 			}
+
 			.sui-box-settings-col-2 {
 				display: table-cell;
 
@@ -75,11 +72,12 @@
 					display: block;
 					padding-top: 30px;
 				}
+
 				.sui-settings-label {
 					color: $gray;
 				}
-
 			}
+
 			.sui-form-field {
 				&:last-of-type {
 					margin-bottom: 0;
@@ -104,9 +102,11 @@
 
 		&.sui-upsell-items {
 			padding: 0;
+
 			.sui-box-settings-row {
 				border-bottom: none;
 				margin-top: 0;
+
 				&:before {
 					position: absolute;
 					display: block;
@@ -119,19 +119,24 @@
 					top: 0;
 
 				}
+
 				&:first-of-type {
 					margin-top: 0;
+
 					&:before {
 						display: none;
 					}
 				}
+
 				&:last-of-type {
 					padding-bottom: 30px;
+
 					&:before {
 						display: none;
 					}
 				}
 			}
+
 			.sui-box-settings-row {
 				padding-right: 30px;
 				padding-left: 30px;
@@ -145,6 +150,7 @@
 
 		.sui-upsell-row {
 			position: relative;
+
 			.sui-upsell-image {
 				position: absolute;
 				bottom: 0;
@@ -153,6 +159,7 @@
 					display: none;
 				}
 			}
+
 			.sui-upsell-notice {
 				padding-left: 130px;
 
@@ -168,6 +175,7 @@
 					color: $box-upsell-p-color;
 					font-size: 13px;
 					line-height: 22px;
+
 					&:after {
 						position: absolute;
 						top: 43%;
@@ -185,6 +193,7 @@
 							display: none;
 						}
 					}
+
 					a {
 						color: $box-upsell-p-color;
 						text-decoration: underline;
@@ -217,9 +226,9 @@
 		line-height: 1;
 		@include text-truncate;
 		padding-right: 1px; // Fixes right side clipping of text in some browsers from truncating text.
+
 		* {
 			vertical-align: middle;
 		}
 	}
-
 }

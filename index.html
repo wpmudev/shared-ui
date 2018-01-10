@@ -3,264 +3,732 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
-	<title>Shared UI Demo</title>
+	<title>Shared UI Showcase</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
+	<link type="text/css" media="all" href="showcase-assets/showcase.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-	<!-- WordPress mock core styles from wp-admin -->
-	<style>
-		body,
-		html {
-			height: 100%;
-			margin: 0px;
-			padding: 0px;
-		}
-
-		html {
-			padding-top: 32px;
-			-webkit-font-smoothing: subpixel-antialiased;
-		}
-
-		body {
-			background: #f1f1f1;
-			color: #444;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-			font-size: 13px;
-			line-height: 1.4em;
-			min-width: 600px;
-		}
-
-		hr {
-			border: 0;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #fafafa;
-		}
-
-		/* Imitate wp-admin sidebar for layout purposes */
-		#adminmenu {
-			height: 100%;
-			width: 160px;
-			background-color: rgb(35, 40, 45);
-			position: fixed;
-			top: 0;
-			margin-top: 30px;
-			padding-bottom: 30px;
-			overflow-y: auto;
-		}
-
-		#adminmenu ul {
-			clear: left;
-			margin: 12px 0;
-			padding: 0;
-			list-style: none;
-		}
-
-		#adminmenu li {
-			min-height: 34px;
-		}
-
-		#adminmenu li:hover {
-			background-color: #191e23;
-		}
-
-		#adminmenu a {
-			display: block;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 18px;
-			padding: 8px 0 8px 10px;
-			color: #eee;
-			text-decoration: none;
-		}
-
-		#adminmenu a:hover {
-			color: #00b9eb;
-		}
-
-		#wpadminbar {
-			direction: ltr;
-			color: #ccc;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-			height: 32px;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			min-width: 600px;
-			z-index: 99999;
-			background: #23282d;
-		}
-
-		#wpcontent {
-			margin-left: 160px;
-			height: 100%;
-			padding-left: 20px;
-		}
-
-		#wpbody {
-			padding-bottom: 25px;
-		}
-
-		/* Demo class only to help show off the grid */
-		.demo-block {
-			display: block;
-			border-radius: 3px;
-			background-color: #00AADF;
-			color: #fff;
-			text-align: center;
-			padding: 5px 0;
-			font-size: 12px;
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			margin-bottom: 15px;
-		}
-
-		@media only screen and (max-width: 960px) {
-			#adminmenu {
-				width: 36px;
-			}
-
-			#adminmenu a {
-				text-indent: -160px;
-				width: 36px;
-			}
-
-			#adminmenu a:after {
-				content: '•';
-				position: absolute;
-				left: 175px;
-			}
-
-			#wpcontent {
-				margin-left: 36px;
-			}
-		}
-
-		@media screen and (max-width: 782px) {
-			body {
-				min-width: 240px;
-				overflow-x: hidden;
-			}
-
-			#wpadminbar {
-				min-width: 300px;
-			}
-
-			#adminmenu {
-				display: none;
-			}
-
-			#wpcontent {
-				position: relative;
-				margin-left: 0;
-				padding-left: 10px;
-			}
-		}
-	</style>
 </head>
 <body class="sui-2-0-0-alpha-1">
-<div id="adminmenu">
+
+<nav id="adminmenu">
 	<ul>
-		<li><a href="#upsells">Upsells</a></li>
+		<li><a href="#usage">Usage</a></li>
+		<li><a href="#boxes">Boxes</a></li>
 		<li><a href="#box-settings">Box Settings</a></li>
-		<li><a href="#progress-bar">Progress Bars</a></li>
+		<li><a href="#buttons">Buttons</a></li>
+		<li><a href="#code-snippets">Code Snippets</a></li>
+		<li><a href="#grid">Grid</a></li>
+		<li><a href="#progress-bars">Progress Bars</a></li>
+		<li><a href="#upsells">Upsells</a></li>
 		<li><a href="#modals">Modals</a></li>
 		<li><a href="#tables">Tables</a></li>
 		<li><a href="#accordions">Accordions</a></li>
 		<li><a href="#scores">Scores</a></li>
-		<li><a href="#dropdown">Dropdown Menu</a></li>
-		<li><a href="#inputs">Inputs</a></li>
+		<li><a href="#dropdowns">Dropdowns</a></li>
+		<li><a href="#forms">Forms</a></li>
 		<li><a href="#summary">Summary</a></li>
 		<li><a href="#sidenav">Sidenav</a></li>
 		<li><a href="#tabs">Tabs</a></li>
 		<li><a href="#tags">Tags</a></li>
-		<li><a href="#grid">Grid</a></li>
 		<li><a href="#notifications">Notifications</a></li>
 		<li><a href="#tooltips">Tooltips</a></li>
-		<li><a href="#buttons">Buttons</a></li>
 		<li><a href="#typography">Typography</a></li>
-		<li><a href="#boxes">Boxes</a></li>
 		<li><a href="#toggles">Toggles</a></li>
 		<li><a href="#icons">Icons</a></li>
 		<li><a href="#footer">Footer</a></li>
 	</ul>
-</div>
+</nav>
+
 <div id="wpcontent">
+
 	<div id="wpadminbar" class=""></div>
+
 	<div id="wpbody" role="main">
+
 		<div class="sui-wrap">
+
 			<div class="sui-notice sui-notice-top sui-notice-success">
 				<p>Notice success: Page caching is currently active.</p>
 				<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
 			</div>
-			<div class="sui-header">
-				<h1>Shared UI Demo</h1>
-				<div class="sui-actions-left">
-					<label class="sui-toggle">
-						<input type="checkbox">
-						<span class="sui-toggle-slider"></span>
-					</label>
+
+			<section id="usage">
+
+				<h1 class="demo-main-title">Shared UI</h1>
+
+				<div class="demo-info-block">
+					<h2>Usage</h2>
+					<p>This page serves as a showcase for the Shared UI library used internally for <a href="https://wpmudev.org">WPMU DEV</a> plugins.</p>
 				</div>
-				<div class="sui-actions-right">
-					<button class="sui-button sui-button-ghost"><i class="sui-ico-academy"></i>&nbsp; View Documentation
-					</button>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy bash">
+npm install @wpmudev/shared-ui</pre>
 				</div>
-			</div>
-			<section id="codeblock">
+
+				<div class="demo-info-block">
+					<p>Depending on your plugin's setup, you can either include the whole production ready css and js files or explicitly import needed sass partials &amp; individual js components into your plugins build (recommended).</p>
+					<hr>
+					<h3>Requirements</h3>
+					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet php">
+add_filter( 'body_class', 'plugin_body_classes' );
+function plugin_body_classes( $classes ) {
+
+	$classes[] = 'sui-2-0-0';
+
+	return $classes;
+
+}</pre>
+				</div>
+
+			</section>
+
+			<section id="boxes">
+
+				<div class="demo-info-block">
+					<h2>Boxes</h2>
+					<p>Boxes are the primary visual containers. They should be used to hold related information.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane ad rem; Quid est, quod ab ea absolvi et perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus copulationesque et consuetudinum instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum, sed ubi illud Plus semper voluptatis?</p>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-box"&gt;
+	&lt;div class="sui-box-body"&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Code Snippet & Copy</h2>
+						<h3 class="sui-box-title">Box Title</h3>
 					</div>
 					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;IfModule mod_expires.c&gt;
-ExpiresActive On
-ExpiresDefault A0
-
-&lt;FilesMatch "\.(txt|xml|js)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(css)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-&lt;/IfModule&gt;
-
-&lt;IfModule mod_headers.c&gt;
-  &lt;FilesMatch "\.(txt|xml|js)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(css)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-
-  &lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-   Header set Cache-Control "max-age=691200"
-  &lt;/FilesMatch&gt;
-&lt;/IfModule&gt;</pre>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio Peripateticorum. An vero,
+							inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae vivere, a natura discedere. Sed
+							venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest verius. Nihil opus est exemplis hoc
+							facere longius.Duo Reges: constructio interrete. Ita credo.</p>
 					</div>
+					<div class="sui-box-footer">
+						<button class="sui-button">Default Button</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-header&quot;&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;Box Title&lt;/h3&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-footer&quot;&gt;
+		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-header">
+						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i> Box Title</h3>
+						<button class="sui-button">Default Button</button>
+					</div>
+					<div class="sui-box-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio? Post enim Chrysippum
+							eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse
+							quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio. Quae cum ita sint, effectum
+							est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis est enim de virtutis dignitate
+							contentio.
+						</p>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-header&quot;&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-ico-icon-hummingbird sui-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Box Title&lt;/h3&gt;
+		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="box-settings">
+
+				<div class="demo-info-block">
+					<h2>Box Settings</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Server type</span>
+								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label class="sui-label">Server Type</label>
+									<select name="select-list">
+										<option value="" selected="selected">Select Option</option>
+										<option value="apache">Apache</option>
+										<option value="LiteSpeed">LiteSpeed</option>
+										<option value="nginx">NGINX</option>
+										<option value="iis">IIS</option>
+										<option value="iis-7">IIS 7</option>
+										<option value="cloudflare">Cloudflare</option>
+									</select>
+								</div>
+								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
+							</div>
+						</div>
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Expiry Time</span>
+								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<div class="sui-row">
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+											<span class="sui-description">This is a field with a note.</span>
+										</div>
+									</div>
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					...
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="buttons">
+
+				<div class="demo-info-block">
+					<h2>Buttons</h2>
+					<p>Use any of the available button classes to quickly create a styled button. Buttons are almost always used inside of a <code>.sui-box</code>.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button">Default</button>
+						<button type="button" class="sui-button sui-button-primary">Primary</button>
+						<button type="button" class="sui-button sui-button-green">Green</button>
+						<button type="button" class="sui-button sui-button-red">Red</button>
+						<button type="button" class="sui-button sui-button-ghost">Ghost</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Standard button --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;Default&lt;/button&gt;
+
+&lt;!-- Provides extra visual weight and identifies the primary action in a set of buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-primary&quot;&gt;Primary&lt;/button&gt;
+
+&lt;!-- Indicates a successful or positive action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Green&lt;/button&gt;
+
+&lt;!-- Indicates caution should be taken with this action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-red&quot;&gt;Red&lt;/button&gt;
+
+&lt;!-- Contextual button for informational alert messages --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Ghost&lt;/button&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Sizes</h3>
+					<p>Need a larger button? Add <code>.sui-button-lg</code> to increase size.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button class="sui-button sui-button-lg">Large Button</button>
+						<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-lg&quot;&gt;Large Button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-primary sui-button-lg&quot;&gt;Large Button&lt;/button&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Button Icons</h3>
+					<p>Include the icon inside of the button or link. The <code>.sui-fw</code> class should be added to the icons when they are inline with text to create the appropriate separation.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert sui-fw"></i> Large Ghost Button</button>
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg">Large Ghost Button <i class="sui-ico-alert sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-green"><i class="sui-ico-alert sui-fw"></i> Green</button>
+						<button type="button" class="sui-button sui-button-green">Green Button <i class="sui-ico-alert sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-icon"><i class="sui-ico-arrow-right sui-fw"></i></button>
+						<button type="button" class="sui-button sui-button-icon sui-button-lg"><i class="sui-ico-arrow-right sui-fw"></i></button>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;&lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt; Large Ghost Button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;Large Ghost Button &lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;&lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt; Green&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Green Button &lt;i class=&quot;sui-ico-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon&quot;&gt;&lt;i class=&quot;sui-ico-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon sui-button-lg&quot;&gt;&lt;i class=&quot;sui-ico-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="code-snippets">
+
+				<div class="demo-info-block">
+					<h2>Code Snippets</h2>
+					<p>Code snippets are to be used to display code to the user and allow them to copy to clipboard.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>code-snippet.js</code> is required for copy to clipboard functionality.</p>
+					</div>
+				</div>
+
+				<div class="sui-box">
 					<div class="sui-box-body">
 						<pre class="sui-code-snippet">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</pre>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
 &lt;pre class="sui-code-snippet"&gt;
 	...
 &lt;/pre&gt;</pre>
+				</div>
+
+				<div class="demo-info-block">
+					<p>Without copy button:</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<pre class="sui-code-snippet sui-no-copy">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</pre>
 					</div>
 				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;pre class="sui-code-snippet sui-no-copy"&gt;
+	...
+&lt;/pre&gt;</pre>
+				</div>
+
 			</section>
+
+			<section id="grid">
+
+				<div class="demo-info-block">
+					<h2>Grid</h2>
+					<p>The grid system should be used to layout boxes &amp; forms. The grid requires a minimum of 2 components, the columns, and the row that wraps the columns.</p>
+					<p>For equally spaced columns that stay inline at all breakpoints, you can use the basic <code>.sui-col</code>:</p>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-grid-block">.sui-col</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">.sui-col</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<p>For more control over column behavior for different breakpoints, there is a 12 column grid similar to <a href="http://getbootstrap.com/docs/3.3/css/#grid">Bootstrap 3</a> naming conventions &amp; behavior but powered by flexbox instead of floats:</p>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-md-3">
+						<div class="demo-grid-block">.sui-col-md-3</div>
+					</div>
+					<div class="sui-col-md-6">
+						<div class="demo-grid-block">.sui-col-md-6</div>
+					</div>
+					<div class="sui-col-md-3">
+						<div class="demo-grid-block">.sui-col-md-3</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col-md-3&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col-md-6&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col-md-3&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="demo-info-block">
+					<p>Examples:</p>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+					<div class="sui-col-lg-3">
+						<div class="demo-grid-block">.sui-col-lg-3</div>
+					</div>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-sm-9">
+						<div class="demo-grid-block">.sui-col-sm-9</div>
+					</div>
+					<div class="sui-col-sm-3">
+						<div class="demo-grid-block">.sui-col-sm-3</div>
+					</div>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-lg-4">
+						<div class="demo-grid-block">.sui-col-lg-4</div>
+					</div>
+					<div class="sui-col-lg-4 sui-col-lg-offset-4">
+						<div class="demo-grid-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
+					</div>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-sm-8 sui-col-sm-offset-4">
+						<div class="demo-grid-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
+					</div>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col-sm-7 sui-col-sm-offset-5">
+						<div class="demo-grid-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<p>You can reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element.</p>
+					<p>Original:</p>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col">
+						<div class="demo-grid-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">3</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		1
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		2
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		3
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<p>Reversed:</p>
+
+				<div class="sui-row sui-reverse">
+					<div class="sui-col">
+						<div class="demo-grid-block">1</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">2</div>
+					</div>
+					<div class="sui-col">
+						<div class="demo-grid-block">3</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row sui-reverse&quot;&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		1
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		2
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-col&quot;&gt;
+		3
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<p>Use a single or combination of the available classes for toggling content across viewport breakpoints.</p>
+				</div>
+
+				<div class="demo-box">
+					<table class="sui-table demo-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Extra small devices <small>Phones (&lt;480px)</small> </th>
+								<th>Small devices <small>Tablets (≥480px)</small> </th>
+								<th>Medium devices <small>Desktops (≥800px)</small> </th>
+								<th>Large devices <small>Desktops (≥1200px)</small> </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row"><code>.sui-hidden-xs</code></th>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-sm</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-md</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+								<td class="demo-is-visible">Visible</td>
+							</tr>
+							<tr>
+								<th scope="row"><code>.sui-hidden-lg</code></th>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-visible">Visible</td>
+								<td class="demo-is-hidden">Hidden</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="demo-info-block">
+					<p>Examples:</p>
+				</div>
+
+				<div class="sui-row">
+					<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
+						<div class="demo-grid-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
+					</div>
+					<div class="sui-col sui-hidden-md">
+						<div class="demo-grid-block">.sui-hidden-md</div>
+					</div>
+					<div class="sui-col sui-hidden-lg">
+						<div class="demo-grid-block">.sui-hidden-lg</div>
+					</div>
+				</div>
+
+			</section>
+
+			<section id="progress-bars">
+
+				<div class="demo-info-block">
+					<h2>Progress Bars</h2>
+					<p>Progress bars can be dynamically moved by changing the width of <code>.sui-progress-bar span</code> with js.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<div class="sui-progress-block">
+							<div class="sui-progress">
+								<div class="sui-progress-text sui-ico-loader sui-loading">
+									<span>0%</span>
+								</div>
+								<div class="sui-progress-bar">
+									<span style="width: 0"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-progress-state">
+							<span class="sui-progress-state-text">Can't close progress bar...</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-progress-block"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span&gt;0%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 0"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<div class="sui-progress-block sui-progress-can-close">
+							<div class="sui-progress">
+								<div class="sui-progress-text sui-ico-loader sui-loading">
+									<span>20%</span>
+								</div>
+								<div class="sui-progress-bar">
+									<span style="width: 20%"></span>
+								</div>
+							</div>
+							<a href="#" class="sui-ico-close sui-progress-close"></a>
+						</div>
+
+						<div class="sui-progress-state">
+							<span class="sui-progress-state-text">Can close progress bar...</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-progress-block sui-progress-can-close"&gt;
+	&lt;div class="sui-progress"&gt;
+		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
+			&lt;span&gt;20%&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="sui-progress-bar"&gt;
+			&lt;span style="width: 20%"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="sui-progress-state"&gt;
+	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+				</div>
+
+			</section>
+
 			<section id="upsells">
+
+				<div class="demo-info-block">
+					<h2>Upsells</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Upsells/Disabled State</h2>
+						<h2 class="sui-box-title">Options</h2>
 						<span class="sui-tag sui-tag-upsell">Pro Feature</span>
 					</div>
 					<div class="sui-box-body sui-upsell-items">
@@ -306,22 +774,17 @@ ExpiresDefault A691200
 						<div class="sui-box-settings-row sui-upsell-row">
 							<img class="sui-image sui-upsell-image" src="dist/images/hummingbird-upsell-minify.png" srcset="dist/images/hummingbird-upsell-minify@2x.png 2x" alt="WP Smush free installed">
 							<div class="sui-upsell-notice">
-								<p>
-									With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  <a href="#wphb-upgrade-membership-modal" rel="dialog">Try Pro for FREE today!</a>				</p>
+								<p>With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  <a href="#wphb-upgrade-membership-modal" rel="dialog">Try Pro for FREE today!</a></p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Upsells/Disabled State - Snippet</h2>
-					</div>
-					<div class="sui-box-body sui-upsell-items">
-						<div class="sui-box-body">
-							<pre class="sui-code-snippet">
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
 &lt;div class="sui-box"&gt;
 	&lt;div class="sui-box-header"&gt;
-		&lt;h2 class="sui-box-title"&gt;Upsells/Disabled State&lt;/h2&gt;
+		&lt;h2 class="sui-box-title"&gt;Options&lt;/h2&gt;
 		&lt;span class="sui-tag sui-tag-upsell"&gt;Pro Feature&lt;/span&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-box-body sui-upsell-items"&gt;
@@ -371,51 +834,32 @@ ExpiresDefault A691200
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-						</div>
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="modals">
+
+				<div class="demo-info-block">
+					<h2>Modals</h2>
+					<p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>modals.js</code> is required.</p>
 					</div>
 				</div>
-			</section>
-			<section id="box-settings">
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Box Settings</h2>
-					</div>
 					<div class="sui-box-body">
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Server type</span>
-								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
-							</div>
-							<div class="sui-box-settings-col-2">
-								<div class="sui-form-field">
-									<label class="sui-label">Server Type</label>
-									<select name="select-list">
-										<option value="" selected="selected">Select Option</option>
-										<option value="apache">Apache</option>
-										<option value="LiteSpeed">LiteSpeed</option>
-										<option value="nginx">NGINX</option>
-										<option value="iis">IIS</option>
-										<option value="iis-7">IIS 7</option>
-										<option value="cloudflare">Cloudflare</option>
-									</select>
-								</div>
-								<span class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
-							</div>
-						</div>
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Expiry Time</span>
-								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
-							</div>
-							<div class="sui-box-settings-col-2">
+
+						<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Open Modal</a>
+						<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
+							<div class="sui-dialog-content">
 								<div class="sui-row">
 									<div class="sui-col">
 										<div class="sui-form-field">
 											<label class="sui-label">Text</label>
 											<input type="text" class="sui-form-control" placeholder="input type text">
-											<span class="sui-description">This is a field with a note.</span>
 										</div>
 									</div>
 									<div class="sui-col">
@@ -426,322 +870,134 @@ ExpiresDefault A691200
 									</div>
 								</div>
 							</div>
-						</div>
-						<pre class="sui-code-snippet">
-&lt;div class="sui-box-settings-row"&gt;
-	&lt;div class="sui-box-settings-col-1"&gt;
-		&lt;span class="sui-settings-label"&gt;Settings Label&lt;/span&gt;
-		&lt;span class="sui-description"&gt;Settings Description&lt;/span&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-box-settings-col-2"&gt;
-		&lt;div class="sui-form-field"&gt;
-			...
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-					</div>
-				</div>
-			</section>
-			<section id="progress-bar">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Progress Bars</h2>
-					</div>
-					<div class="sui-box-body">
-						<div class="sui-progress-block sui-progress-can-close">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-ico-loader sui-loading">
-									<span class="">0%</span>
-								</div>
-								<div class="sui-progress-bar">
-									<span style="width: 0"></span>
-								</div>
-							</div>
-							<a href="#" class="sui-ico-close sui-progress-close"></a>
-						</div>
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can close progress bar...</span>
-						</div>
-						<div class="sui-progress-block">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-ico-loader sui-loading">
-									<span class="">0%</span>
-								</div>
-								<div class="sui-progress-bar">
-									<span style="width: 0"></span>
-								</div>
-							</div>
-						</div>
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can't close progress bar...</span>
-						</div>
-						<pre class="sui-code-snippet">
-&lt;div class="sui-progress-block sui-progress-can-close"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
-			&lt;span class=""&gt;0%&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 0"&gt;&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-block"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-ico-loader sui-loading"&gt;
-			&lt;span class=""&gt;0%&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 0"&gt;&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
-&lt;/div&gt;
-</pre>
-					</div>
-				</div>
-			</section>
-			<section id="modals">
-			<div class="sui-box">
-				<div class="sui-box-header">
-					<h2 class="sui-box-title">Modals</h2>
-				</div>
-				<div class="sui-box-body">
-					<a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog">Default Modal</a>
-					<dialog class="sui-modal" id="default-modal" title="Ignore Warnings">
-						<div class="sui-dialog-content">
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-							</div>
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Password</label>
-										<div class="sui-password-group">
-											<input type="password" class="sui-form-control"
-												   placeholder="input type password">
-											<button class="sui-password-toggle" type="button">
-												<span class="sui-screen-reader-text">Show Password</span>
-												<i aria-hidden="true" class="sui-ico-eye"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field sui-form-field-error">
-										<label class="sui-label">Error</label>
-										<input type="number" class="sui-form-control" placeholder="input type text">
-										<span class="sui-error-message">This is an error message</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="sui-modal-footer sui-modal-footer-space-between">
-							<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
-							<div class="sui-modal-footer-right">
-								<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
-							</div>
-						</div>
-					</dialog>
-					<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
-					<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!">
-						<div class="sui-dialog-content">
-							<p>Advanced mode gives you full control over your files but can easily break your website if
-								configured incorrectly.</p>
-							<p>We recommend you make one tweak at a time and check the frontend of your website each
-								change to avoid any mishaps. </p>
-						</div>
-						<div class="sui-modal-footer">
-							<button class="sui-modal-close sui-button">Got it</button>
-						</div>
-					</dialog>
-					<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
-					<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal">
-						<div class="sui-dialog-content">
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Text</label>
-										<input type="text" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-							</div>
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label class="sui-label">Password</label>
-										<div class="sui-password-group">
-											<input type="password" class="sui-form-control"
-												   placeholder="input type password">
-											<button class="sui-password-toggle" type="button">
-												<span class="sui-screen-reader-text">Show Password</span>
-												<i aria-hidden="true" class="sui-ico-eye"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field sui-form-field-error">
-										<label class="sui-label">Error</label>
-										<input type="number" class="sui-form-control" placeholder="input type text">
-										<span class="sui-error-message">This is an error message</span>
-									</div>
-								</div>
-							</div>
-						</div>
-							<div class="sui-modal-footer sui-modal-footer-right">
+							<div class="sui-modal-footer sui-modal-footer-space-between">
 								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
 								<div class="sui-modal-footer-right">
-									<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add
-									</button>
+									<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
 								</div>
 							</div>
 						</dialog>
-					</div>
-					<div class="sui-box-body">
 
-						<pre class="sui-code-snippet">
-&lt;a href="#default-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Default Modal&lt;/a&gt;
-&lt;dialog class="sui-modal" id="default-modal" title="Ignore Warnings"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
-					&lt;div class="sui-password-group"&gt;
-						&lt;input type="password" class="sui-form-control"
-							   placeholder="input type password"&gt;
-						&lt;button class="sui-password-toggle" type="button"&gt;
-							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
-							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
-						&lt;/button&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field sui-form-field-error"&gt;
-					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
-					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
-					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class="sui-modal-footer sui-modal-footer-space-between"&gt;
-		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
-		&lt;div class="sui-modal-footer-right"&gt;
-			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add&lt;/button&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-&lt;a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Small Modal&lt;/a&gt;
-&lt;dialog class="sui-modal sui-modal-sm" id="sm-modal" title="Just be careful!"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;p&gt;Advanced mode gives you full control over your files but can easily break your website if
-			configured incorrectly.&lt;/p&gt;
-		&lt;p&gt;We recommend you make one tweak at a time and check the frontend of your website each
-			change to avoid any mishaps. &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-modal-footer"&gt;
-		&lt;button class="sui-modal-close sui-button"&gt;Got it&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-&lt;a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog"&gt;Large Modal&lt;/a&gt;
-&lt;dialog class="sui-modal sui-modal-lg" id="lg-modal" title="Large Modal"&gt;
-	&lt;div class="sui-dialog-content"&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-					&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-row"&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-label"&gt;Password&lt;/label&gt;
-					&lt;div class="sui-password-group"&gt;
-						&lt;input type="password" class="sui-form-control"
-							   placeholder="input type password"&gt;
-						&lt;button class="sui-password-toggle" type="button"&gt;
-							&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
-							&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
-						&lt;/button&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-col"&gt;
-				&lt;div class="sui-form-field sui-form-field-error"&gt;
-					&lt;label class="sui-label"&gt;Error&lt;/label&gt;
-					&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
-					&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-modal-footer sui-modal-footer-right"&gt;
-		&lt;button class="sui-modal-close sui-button sui-button-lg"&gt;Cancel&lt;/button&gt;
-		&lt;div class="sui-modal-footer-right"&gt;
-			&lt;button class="sui-modal-close sui-button sui-button-blue sui-button-lg"&gt;Add
-			&lt;/button&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/dialog&gt;
-</pre>
 					</div>
 				</div>
-			</section>
-			<section id="tables">
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#default-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Default Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal&quot; id=&quot;default-modal&quot; title=&quot;Ignore Warnings&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer sui-modal-footer-space-between&quot;&gt;
+		&lt;button class=&quot;sui-modal-close sui-button sui-button-lg&quot;&gt;Cancel&lt;/button&gt;
+		&lt;div class=&quot;sui-modal-footer-right&quot;&gt;
+			&lt;button class=&quot;sui-modal-close sui-button sui-button-blue sui-button-lg&quot;&gt;Add&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/dialog&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Sizes</h3>
+					<p>If you need a different size modal, you can add <code>.sui-modal-sm</code> or <code>.sui-modal-lg</code> to the main dialog element.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Tables 1</h2>
+					<div class="sui-box-body">
+
+						<a href="#sm-modal" class="sui-button sui-button-ghost" rel="dialog">Small Modal</a>
+						<dialog class="sui-modal sui-modal-sm" id="sm-modal" title="title">
+							<div class="sui-dialog-content">
+								<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
+								<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
+							</div>
+							<div class="sui-modal-footer">
+								<button type="button" class="sui-modal-close sui-button">Got it</button>
+							</div>
+						</dialog>
+
 					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#sm-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Small Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal sui-modal-sm&quot; id=&quot;sm-modal&quot; title=&quot;title&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/dialog&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<a href="#lg-modal" class="sui-button sui-button-ghost" rel="dialog">Large Modal</a>
+						<dialog class="sui-modal sui-modal-lg" id="lg-modal" title="title">
+							<div class="sui-dialog-content">
+								<div class="sui-row">
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
+									</div>
+									<div class="sui-col">
+										<div class="sui-form-field">
+											<label class="sui-label">Text</label>
+											<input type="text" class="sui-form-control" placeholder="input type text">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sui-modal-footer sui-modal-footer-right">
+								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+								<div class="sui-modal-footer-right">
+									<button type="button" class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+								</div>
+							</div>
+						</dialog>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Modal trigger --&gt;
+&lt;a href=&quot;#lg-modal&quot; class=&quot;sui-button sui-button-ghost&quot; rel=&quot;dialog&quot;&gt;Small Modal&lt;/a&gt;
+
+&lt;!-- Modal --&gt;
+&lt;dialog class=&quot;sui-modal sui-modal-lg&quot; id=&quot;lg-modal&quot; title=&quot;title&quot;&gt;
+	&lt;div class=&quot;sui-dialog-content&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class=&quot;sui-modal-footer&quot;&gt;
+		...
+	&lt;/div&gt;
+&lt;/dialog&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="tables">
+
+				<div class="demo-info-block">
+					<h2>Tables</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
+				<div class="sui-box">
 					<div class="sui-box-body">
 						<table class="sui-table">
 							<thead>
@@ -788,9 +1044,11 @@ ExpiresDefault A691200
 							</tbody>
 						</table>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">
-&lt;table class="sui-table"&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;table class=&quot;sui-table&quot;&gt;
 	&lt;thead&gt;
 	&lt;tr&gt;
 		&lt;th&gt;Title A&lt;/th&gt;
@@ -804,21 +1062,10 @@ ExpiresDefault A691200
 			Name
 		&lt;/td&gt;
 		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
 		&lt;/td&gt;
 		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;
-			Name
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
 		&lt;/td&gt;
 	&lt;/tr&gt;
 	&lt;tr&gt;
@@ -826,20 +1073,30 @@ ExpiresDefault A691200
 			Name
 		&lt;/td&gt;
 		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
 		&lt;/td&gt;
 		&lt;td&gt;
-			&lt;input type="text" class="sui-form-control"&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			Name
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot;&gt;
 		&lt;/td&gt;
 	&lt;/tr&gt;
 	&lt;/tbody&gt;
 &lt;/table&gt;</pre>
-					</div>
 				</div>
+
+				<hr>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Tables 2</h2>
-					</div>
 					<div class="sui-box-body">
 						<div class="sui-row">
 							<div class="sui-col-sm-6">
@@ -927,106 +1184,122 @@ ExpiresDefault A691200
 							</div>
 						</div>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col-sm-6"&gt;
-		&lt;div class="sui-field-list"&gt;
-			&lt;div class="sui-field-list-header"&gt;
-				&lt;h3 class="sui-field-list-title"&gt;Link To&lt;/h3&gt;
-				&lt;p class="sui-description"&gt;Choose content you want to convert to links.&lt;/p&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-row&quot;&gt;
+			&lt;div class=&quot;sui-col-sm-6&quot;&gt;
+				&lt;div class=&quot;sui-field-list&quot;&gt;
+					&lt;div class=&quot;sui-field-list-header&quot;&gt;
+						&lt;h3 class=&quot;sui-field-list-title&quot;&gt;Link To&lt;/h3&gt;
+						&lt;p class=&quot;sui-description&quot;&gt;Choose content you want to convert to links.&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;sui-field-list-body&quot;&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-1&quot;&gt;
+								Posts
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-1&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-2&quot;&gt;
+								Pages
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-2&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-3&quot;&gt;
+								Categories
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-3&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-4&quot;&gt;
+								Tags
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-4&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;div class="sui-field-list-body"&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-1"&gt;
-						Posts
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-1"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-2"&gt;
-						Pages
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-2"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-3"&gt;
-						Categories
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-3"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-4"&gt;
-						Tags
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-4"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-col-sm-6"&gt;
-		&lt;div class="sui-field-list"&gt;
-			&lt;div class="sui-field-list-header"&gt;
-				&lt;h3 class="sui-field-list-title"&gt;Insert Links&lt;/h3&gt;
-				&lt;p class="sui-description"&gt;Specify what post types to insert links into.&lt;/p&gt;
-			&lt;/div&gt;
-			&lt;div class="sui-field-list-body"&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-5"&gt;
-						Posts
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-5"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-6"&gt;
-						Pages
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-6"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
-				&lt;/div&gt;
-				&lt;div class="sui-field-list-item"&gt;
-					&lt;label class="sui-field-list-item-label" for="demo-table-2-toggle-7"&gt;
-						Comments
-					&lt;/label&gt;
-					&lt;label class="sui-toggle"&gt;
-						&lt;input type="checkbox" id="demo-table-2-toggle-8"&gt;
-						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-					&lt;/label&gt;
+			&lt;div class=&quot;sui-col-sm-6&quot;&gt;
+				&lt;div class=&quot;sui-field-list&quot;&gt;
+					&lt;div class=&quot;sui-field-list-header&quot;&gt;
+						&lt;h3 class=&quot;sui-field-list-title&quot;&gt;Insert Links&lt;/h3&gt;
+						&lt;p class=&quot;sui-description&quot;&gt;Specify what post types to insert links into.&lt;/p&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;sui-field-list-body&quot;&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-5&quot;&gt;
+								Posts
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-5&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-6&quot;&gt;
+								Pages
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-6&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;sui-field-list-item&quot;&gt;
+							&lt;label class=&quot;sui-field-list-item-label&quot; for=&quot;demo-table-2-toggle-7&quot;&gt;
+								Comments
+							&lt;/label&gt;
+							&lt;label class=&quot;sui-toggle&quot;&gt;
+								&lt;input type=&quot;checkbox&quot; id=&quot;demo-table-2-toggle-8&quot;&gt;
+								&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+							&lt;/label&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="accordions">
+
+				<div class="demo-info-block">
+					<h2>Accordions</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>accordion.js</code> is required.</p>
 					</div>
 				</div>
-			</section>
-			<section id="accordions">
+
 				<div class="sui-row-with-sidenav">
 					<div class="sui-sidenav">
 						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 							<li class="sui-vertical-tab current">
-								<a href="#reporting">Improvements</a>
+								<a href="#demo-improvements">Improvements</a>
 								<span class="sui-tag sui-tag-success">3</span>
 							</li>
 							<li class="sui-vertical-tab">
-								<a href="#lanskc">Reporting</a>
+								<a href="#demo-reporting">Reporting</a>
 							</li>
 						</ul>
 						<div class="sui-sidenav-hide-lg">
@@ -1136,280 +1409,408 @@ ExpiresDefault A691200
 								</tr>
 							</tbody>
 						</table>
-						<div class="sui-box-body">
-							<pre class="sui-code-snippet">
-&lt;table class="sui-table sui-accordion"&gt;
-	&lt;thead&gt;
-	&lt;tr&gt;
-		&lt;th&gt;Recommendation&lt;/th&gt;
-		&lt;th&gt;Score / 100&lt;/th&gt;
-		&lt;th&gt;Type&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-	&lt;tr class="sui-accordion-item sui-error"&gt;
-		&lt;td class="sui-accordion-item-title"&gt;
-			&lt;i class="sui-ico-check-tick sui-error"&gt;&lt;/i&gt; Item
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;div class="sui-circle-score sui-grade-f" data-score="8"&gt;&lt;/div&gt;
-		&lt;/td&gt;
-		&lt;td&gt;
-			More info on something.
-			&lt;span class="sui-accordion-open-indicator"&gt;
-											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
-										&lt;/span&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="sui-accordion-item-content"&gt;
-		&lt;td colspan=3&gt;
-			&lt;div class="sui-box"&gt;
-				&lt;div class="sui-box-body"&gt;
-					Hello
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="sui-accordion-item sui-success"&gt;
-		&lt;td class="sui-accordion-item-title"&gt;
-			&lt;i class="sui-ico-check-tick sui-success"&gt;&lt;/i&gt; Item
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;
-		&lt;/td&gt;
-		&lt;td&gt;
-			More info on something.
-			&lt;span class="sui-accordion-open-indicator"&gt;
-											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
-										&lt;/span&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="sui-accordion-item-content"&gt;
-		&lt;td colspan=3&gt;
-			&lt;div class="sui-box"&gt;
-				&lt;div class="sui-box-body"&gt;
-					Hello
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="sui-accordion-item sui-success"&gt;
-		&lt;td class="sui-accordion-item-title"&gt;
-			&lt;i class="sui-ico-check-tick sui-success"&gt;&lt;/i&gt; Item
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;
-		&lt;/td&gt;
-		&lt;td&gt;
-			More info on something.
-			&lt;span class="sui-accordion-open-indicator"&gt;
-											&lt;i class="sui-ico-arrow-down-carats"&gt;&lt;/i&gt;
-										&lt;/span&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="sui-accordion-item-content"&gt;
-		&lt;td colspan=3&gt;
-			&lt;div class="sui-box"&gt;
-				&lt;div class="sui-box-body"&gt;
-					Hello
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-</pre>
-						</div>
 					</div>
 				</div>
-			</section>
-			<section id="scores">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Scores</h2>
-					</div>
-					<div class="sui-box-body">
 
-						<div class="sui-circle-score sui-grade-f" data-score="10"></div>
-						<br>
-						<pre class="sui-code-snippet">
-&lt;div class="sui-circle-score sui-grade-f" data-score="10"&gt;&lt;/div&gt;
-</pre>
-						<br>
-						<div class="sui-circle-score sui-grade-c" data-score="55"></div>
-						<br>
-							<pre class="sui-code-snippet">
-&lt;div class="sui-circle-score sui-grade-c" data-score="55"&gt;&lt;/div&gt;
-</pre>
-						<br>
-						<div class="sui-circle-score sui-grade-a" data-score="95"></div>
-						<br>
-							<pre class="sui-code-snippet">
-&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;
-</pre>
-						<br>
-
-						<div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="90"></div>
-						<br>
-						<pre>
-&lt;div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="90"&gt;&lt;/div&gt;
-</pre>
-						<br>
-
-					</div>
-				</div>
-			</section>
-
-			<section id="dropdown">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Dropdown Menu</h2>
-					</div>
-					<div class="sui-box-body">
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-dropdown sui-dropdown-right">
-									<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
-									<ul>
-										<li class="sui-dropdown-label">Options</li>
-
-										<li><a href="#remove">Add to sitemap</a></li>
-										<li><a href="#remove">Remove</a></li>
-
-										<li class="sui-dropdown-label">Options</li>
-
-										<li><a href="#remove">Add to sitemap</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-dropdown sui-dropdown-center">
-									<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
-									<ul>
-										<li class="sui-dropdown-label">Options</li>
-
-										<li><a href="#remove">Add to sitemap</a></li>
-										<li><a href="#remove">Remove</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-dropdown">
-									<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
-									<ul>
-										<li class="sui-dropdown-label">Options</li>
-
-										<li><a href="#remove">Add to sitemap</a></li>
-										<li><a href="#remove">Remove</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-dropdown sui-dropdown-right"&gt;
-			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
-			&lt;ul&gt;
-				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
-
-				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
-
-				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
-
-				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row-with-sidenav&quot;&gt;
+	&lt;div class=&quot;sui-sidenav&quot;&gt;
+		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
+			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
+				&lt;a href=&quot;#demo-improvements&quot;&gt;Improvements&lt;/a&gt;
+				&lt;span class=&quot;sui-tag sui-tag-success&quot;&gt;3&lt;/span&gt;
+			&lt;/li&gt;
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+				&lt;a href=&quot;#demo-reporting&quot;&gt;Reporting&lt;/a&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;div class=&quot;sui-sidenav-hide-lg&quot;&gt;
+			&lt;div class=&quot;select-container sui-mobile-nav&quot;&gt;
+				&lt;span class=&quot;dropdown-handle&quot;&gt;
+					&lt;i class=&quot;sui-ico-arrow-down-carats&quot;&gt;&lt;/i&gt;
+				&lt;/span&gt;
+				&lt;select class=&quot;sui-mobile-nav wdev-styled&quot; style=&quot;display: none;&quot;&gt;
+					&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;Improvements&lt;/option&gt;
+					&lt;option value=&quot;#reporting&quot;&gt;Reporting&lt;/option&gt;
+				&lt;/select&gt;
+				&lt;div class=&quot;select-list-container&quot;&gt;
+					&lt;div class=&quot;list-value&quot;&gt;Improvements&lt;/div&gt;
+					&lt;ul class=&quot;list-results&quot;&gt;
+						&lt;li class=&quot;current&quot;&gt;Improvements&lt;/li&gt;
+						&lt;li&gt;Reporting&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-dropdown sui-dropdown-center"&gt;
-			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
-			&lt;ul&gt;
-				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
-
-				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
+	&lt;div class=&quot;sui-box&quot;&gt;
+		&lt;div class=&quot;sui-box-header&quot;&gt;
+			&lt;h2 class=&quot;sui-box-title&quot;&gt;Accordions&lt;/h2&gt;
 		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-dropdown"&gt;
-			&lt;a class="sui-dropdown-anchor sui-ico-more" href="#"&gt;&lt;/a&gt;
-			&lt;ul&gt;
-				&lt;li class="sui-dropdown-label"&gt;Options&lt;/li&gt;
-
-				&lt;li&gt;&lt;a href="#remove"&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="#remove"&gt;Remove&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
+		&lt;div class=&quot;sui-box-body&quot;&gt;
+			Here are your latest performance test results. Action as many fixes as possible, however you can always ignore warnings if
+			you are unable to fix them.
 		&lt;/div&gt;
+		&lt;table class=&quot;sui-table sui-accordion&quot;&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;Recommendation&lt;/th&gt;
+					&lt;th&gt;Score / 100&lt;/th&gt;
+					&lt;th&gt;Type&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr class=&quot;sui-accordion-item sui-error&quot;&gt;
+					&lt;td class=&quot;sui-accordion-item-title&quot;&gt;
+						&lt;i class=&quot;sui-ico-check-tick sui-error&quot;&gt;&lt;/i&gt; Item
+					&lt;/td&gt;
+					&lt;td&gt;
+						&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;8&quot;&gt;&lt;/div&gt;
+					&lt;/td&gt;
+					&lt;td&gt;
+						More info on something.
+						&lt;span class=&quot;sui-accordion-open-indicator&quot;&gt;
+							&lt;i class=&quot;sui-ico-arrow-down-carats&quot;&gt;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class=&quot;sui-accordion-item-content&quot;&gt;
+					&lt;td colspan=3&gt;
+						&lt;div class=&quot;sui-box&quot;&gt;
+							&lt;div class=&quot;sui-box-body&quot;&gt;
+								Hello
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class=&quot;sui-accordion-item sui-success&quot;&gt;
+					&lt;td class=&quot;sui-accordion-item-title&quot;&gt;
+						&lt;i class=&quot;sui-ico-check-tick sui-success&quot;&gt;&lt;/i&gt; Item
+					&lt;/td&gt;
+					&lt;td&gt;
+						&lt;div class=&quot;sui-circle-score sui-grade-a&quot; data-score=&quot;95&quot;&gt;&lt;/div&gt;
+					&lt;/td&gt;
+					&lt;td&gt;
+						More info on something.
+						&lt;span class=&quot;sui-accordion-open-indicator&quot;&gt;
+							&lt;i class=&quot;sui-ico-arrow-down-carats&quot;&gt;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class=&quot;sui-accordion-item-content&quot;&gt;
+					&lt;td colspan=3&gt;
+						&lt;div class=&quot;sui-box&quot;&gt;
+							&lt;div class=&quot;sui-box-body&quot;&gt;
+								Hello
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class=&quot;sui-accordion-item sui-success&quot;&gt;
+					&lt;td class=&quot;sui-accordion-item-title&quot;&gt;
+						&lt;i class=&quot;sui-ico-check-tick sui-success&quot;&gt;&lt;/i&gt; Item
+					&lt;/td&gt;
+					&lt;td&gt;
+						&lt;div class=&quot;sui-circle-score sui-grade-a&quot; data-score=&quot;95&quot;&gt;&lt;/div&gt;
+					&lt;/td&gt;
+					&lt;td&gt;
+						More info on something.
+						&lt;span class=&quot;sui-accordion-open-indicator&quot;&gt;
+							&lt;i class=&quot;sui-ico-arrow-down-carats&quot;&gt;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr class=&quot;sui-accordion-item-content&quot;&gt;
+					&lt;td colspan=3&gt;
+						&lt;div class=&quot;sui-box&quot;&gt;
+							&lt;div class=&quot;sui-box-body&quot;&gt;
+								Hello
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
-					</div>
 				</div>
+
 			</section>
 
-			<section id="inputs">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Inputs</h2>
-					</div>
-					<div class="sui-box-body">
-						<div class="sui-row">
-							<div class="sui-col">
-								<p>Radio buttons</p>
-								<div class="sui-form-field">
-									<div class="sui-form-field">
-										<label class="sui-radio">
-											<input type="radio" name="demo-radio-group">
-											<span></span>
-											<div class="sui-description">Description for this option.</div>
-										</label>
-										<label class="sui-radio">
-											<input type="radio" name="demo-radio-group">
-											<span></span>
-											<div class="sui-description">Description for this option.</div>
-										</label>
-										<label class="sui-radio">
-											<input type="radio" name="demo-radio-group">
-											<span></span>
-											<div class="sui-description">Description for this option.</div>
-										</label>
-										<label class="sui-radio">
-											<input type="radio" name="demo-radio-group" disabled>
-											<span></span>
-											<div class="sui-description">Description for this disabled option.</div>
-										</label>
-									</div>
-								</div>
+			<section id="scores">
 
-							</div>
-							<div class="sui-col">
-								<p>Checkboxes</p>
-								<label class="sui-checkbox">
-									<input type="checkbox" name="demo-radio-group">
-									<span></span>
-									<div class="sui-description">Description for this checkbox.</div>
-								</label>
-								<label class="sui-checkbox">
-									<input type="checkbox" name="demo-radio-group">
-									<span></span>
-									<div class="sui-description">Description for this checkbox.</div>
-								</label>
-								<label class="sui-checkbox">
-									<input type="checkbox" name="demo-radio-group">
-									<span></span>
-									<div class="sui-description">Description for this checkbox.</div>
-								</label>
-								<label class="sui-checkbox">
-									<input type="checkbox" name="demo-radio-group" disabled>
-									<span></span>
-									<div class="sui-description">Description for this disabled checkbox.</div>
-								</label>
-							</div>
+				<div class="demo-info-block">
+					<h2>Scores</h2>
+					<p>Animated gauges for scoring. Circles animate on page load.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>scores.js</code> is required.</p>
+					</div>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-circle-score sui-grade-f" data-score="10"></div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class="sui-circle-score sui-grade-f" data-score="10"&gt;&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-circle-score sui-grade-c" data-score="55"></div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class="sui-circle-score sui-grade-c" data-score="55"&gt;&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-circle-score sui-grade-a" data-score="95"></div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class="sui-circle-score sui-grade-a" data-score="95"&gt;&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="90"></div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="90"&gt;&lt;/div&gt;</pre>
+				</div>
+
+			</section>
+
+			<section id="dropdowns">
+
+				<div class="demo-info-block">
+					<h2>Dropdowns</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
+					</div>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						Default &nbsp;
+						<div class="sui-dropdown">
+							<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+							<ul>
+								<li class="sui-dropdown-label">Options</li>
+								<li><a href="#remove">Add to sitemap</a></li>
+								<li><a href="#remove">Remove</a></li>
+							</ul>
 						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-dropdown&quot;&gt;
+	&lt;a class=&quot;sui-dropdown-anchor sui-ico-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+	&lt;ul&gt;
+		&lt;li class=&quot;sui-dropdown-label&quot;&gt;Options&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						Right &nbsp;
+						<div class="sui-dropdown sui-dropdown-right">
+							<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+							<ul>
+								<li class="sui-dropdown-label">Options</li>
+								<li><a href="#remove">Add to sitemap</a></li>
+								<li><a href="#remove">Remove</a></li>
+								<li class="sui-dropdown-label">Options</li>
+								<li><a href="#remove">Add to sitemap</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-dropdown sui-dropdown-right&quot;&gt;
+	&lt;a class=&quot;sui-dropdown-anchor sui-ico-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+	&lt;ul&gt;
+		&lt;li class=&quot;sui-dropdown-label&quot;&gt;Options&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;sui-dropdown-label&quot;&gt;Options&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						Center &nbsp;
+						<div class="sui-dropdown sui-dropdown-center">
+							<a class="sui-dropdown-anchor sui-ico-more" href="#"></a>
+							<ul>
+								<li class="sui-dropdown-label">Options</li>
+								<li><a href="#remove">Add to sitemap</a></li>
+								<li><a href="#remove">Remove</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-dropdown sui-dropdown-center&quot;&gt;
+	&lt;a class=&quot;sui-dropdown-anchor sui-ico-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+	&lt;ul&gt;
+		&lt;li class=&quot;sui-dropdown-label&quot;&gt;Options&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+				</div>
+
+			</section>
+
+			<section id="forms">
+
+				<div class="demo-info-block">
+					<h2>Forms</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>password.js</code> is required for show/hide password functionality.</p>
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Radio Buttons</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<label class="sui-radio">
+							<input type="radio" name="demo-radio-group">
+							<span></span>
+							<div class="sui-description">Description for this option.</div>
+						</label>
+						<label class="sui-radio">
+							<input type="radio" name="demo-radio-group">
+							<span></span>
+							<div class="sui-description">Description for this option.</div>
+						</label>
+						<label class="sui-radio">
+							<input type="radio" name="demo-radio-group" disabled>
+							<span></span>
+							<div class="sui-description">Description for this disabled option.</div>
+						</label>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Radio button --&gt;
+&lt;label class=&quot;sui-radio&quot;&gt;
+	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot;&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this option.&lt;/div&gt;
+&lt;/label&gt;
+
+&lt;!-- Radio button --&gt;
+&lt;label class=&quot;sui-radio&quot;&gt;
+	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot;&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this option.&lt;/div&gt;
+&lt;/label&gt;
+
+&lt;!-- Disabled radio button --&gt;
+&lt;label class=&quot;sui-radio&quot;&gt;
+	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot; disabled&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this disabled option.&lt;/div&gt;
+&lt;/label&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Checkboxes</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<label class="sui-checkbox">
+							<input type="checkbox">
+							<span></span>
+							<div class="sui-description">Description for this checkbox.</div>
+						</label>
+						<label class="sui-checkbox">
+							<input type="checkbox">
+							<span></span>
+							<div class="sui-description">Description for this checkbox.</div>
+						</label>
+						<label class="sui-checkbox">
+							<input type="checkbox" disabled>
+							<span></span>
+							<div class="sui-description">Description for this disabled checkbox.</div>
+						</label>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;!-- Checkbox --&gt;
+&lt;label class=&quot;sui-checkbox&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this checkbox.&lt;/div&gt;
+&lt;/label&gt;
+
+&lt;!-- Checkbox --&gt;
+&lt;label class=&quot;sui-checkbox&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this checkbox.&lt;/div&gt;
+&lt;/label&gt;
+
+&lt;!-- Disabled checkbox --&gt;
+&lt;label class=&quot;sui-checkbox&quot;&gt;
+	&lt;input type=&quot;checkbox&quot; disabled&gt;
+	&lt;span&gt;&lt;/span&gt;
+	&lt;div class=&quot;sui-description&quot;&gt;Description for this disabled checkbox.&lt;/div&gt;
+&lt;/label&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
 						<div class="sui-row">
 							<div class="sui-col">
 								<div class="sui-form-field">
@@ -1421,7 +1822,6 @@ ExpiresDefault A691200
 							<div class="sui-col">
 								<div class="sui-form-field">
 									<span class="sui-label">File Upload</span>
-
 									<div class="sui-upload-group">
 										<label for="demo-file-upload" class="sui-upload-label">
 											<input type="file" id="demo-file-upload">
@@ -1429,10 +1829,10 @@ ExpiresDefault A691200
 											<span class="sui-upload-message">No file chosen</span>
 										</label>
 									</div>
-
 								</div>
 							</div>
 						</div>
+
 						<div class="sui-row">
 							<div class="sui-col">
 								<div class="sui-form-field">
@@ -1455,6 +1855,7 @@ ExpiresDefault A691200
 								</div>
 							</div>
 						</div>
+
 						<div class="sui-row">
 							<div class="sui-col">
 								<div class="sui-form-field">
@@ -1469,6 +1870,7 @@ ExpiresDefault A691200
 								</div>
 							</div>
 						</div>
+
 						<div class="sui-form-field">
 							<div class="sui-row">
 								<div class="sui-col">
@@ -1492,148 +1894,17 @@ ExpiresDefault A691200
 							</div>
 						</div>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;p&gt;Radio buttons&lt;/p&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;div class="sui-form-field"&gt;
-				&lt;label class="sui-radio"&gt;
-					&lt;input type="radio" name="demo-radio-group"&gt;
-					&lt;span&gt;&lt;/span&gt;
-					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
-				&lt;/label&gt;
-				&lt;label class="sui-radio"&gt;
-					&lt;input type="radio" name="demo-radio-group"&gt;
-					&lt;span&gt;&lt;/span&gt;
-					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
-				&lt;/label&gt;
-				&lt;label class="sui-radio"&gt;
-					&lt;input type="radio" name="demo-radio-group"&gt;
-					&lt;span&gt;&lt;/span&gt;
-					&lt;div class="sui-description"&gt;Description for this option.&lt;/div&gt;
-				&lt;/label&gt;
-				&lt;label class="sui-radio"&gt;
-					&lt;input type="radio" name="demo-radio-group" disabled&gt;
-					&lt;span&gt;&lt;/span&gt;
-					&lt;div class="sui-description"&gt;Description for this disabled option.&lt;/div&gt;
-				&lt;/label&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;p&gt;Checkboxes&lt;/p&gt;
-		&lt;label class="sui-checkbox"&gt;
-			&lt;input type="checkbox" name="demo-radio-group"&gt;
-			&lt;span&gt;&lt;/span&gt;
-			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
-		&lt;/label&gt;
-		&lt;label class="sui-checkbox"&gt;
-			&lt;input type="checkbox" name="demo-radio-group"&gt;
-			&lt;span&gt;&lt;/span&gt;
-			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
-		&lt;/label&gt;
-		&lt;label class="sui-checkbox"&gt;
-			&lt;input type="checkbox" name="demo-radio-group"&gt;
-			&lt;span&gt;&lt;/span&gt;
-			&lt;div class="sui-description"&gt;Description for this checkbox.&lt;/div&gt;
-		&lt;/label&gt;
-		&lt;label class="sui-checkbox"&gt;
-			&lt;input type="checkbox" name="demo-radio-group" disabled&gt;
-			&lt;span&gt;&lt;/span&gt;
-			&lt;div class="sui-description"&gt;Description for this disabled checkbox.&lt;/div&gt;
-		&lt;/label&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;label class="sui-label"&gt;Text&lt;/label&gt;
-			&lt;input type="text" class="sui-form-control" placeholder="input type text"&gt;
-			&lt;span class="sui-description"&gt;This is a field with a note.&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;span class="sui-label"&gt;File Upload&lt;/span&gt;
-
-			&lt;div class="sui-upload-group"&gt;
-				&lt;label for="demo-file-upload" class="sui-upload-label"&gt;
-					&lt;input type="file" id="demo-file-upload"&gt;
-					&lt;span class="sui-upload-button"&gt;Choose file&lt;/span&gt;
-					&lt;span class="sui-upload-message"&gt;No file chosen&lt;/span&gt;
-				&lt;/label&gt;
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;label class="sui-label"&gt;Password&lt;/label&gt;
-			&lt;div class="sui-password-group"&gt;
-				&lt;input type="password" class="sui-form-control"
-					   placeholder="input type password"&gt;
-				&lt;button class="sui-password-toggle" type="button"&gt;
-					&lt;span class="sui-screen-reader-text"&gt;Show Password&lt;/span&gt;
-					&lt;i aria-hidden="true" class="sui-ico-eye"&gt;&lt;/i&gt;
-				&lt;/button&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field sui-form-field-error"&gt;
-			&lt;label class="sui-label"&gt;Error&lt;/label&gt;
-			&lt;input type="number" class="sui-form-control" placeholder="input type text"&gt;
-			&lt;span class="sui-error-message"&gt;This is an error message&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-row"&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;label class="sui-label"&gt;Textarea&lt;/label&gt;
-			&lt;textarea class="sui-form-control"&gt;&lt;/textarea&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-col"&gt;
-		&lt;div class="sui-form-field"&gt;
-			&lt;label class="sui-label"&gt;Number&lt;/label&gt;
-			&lt;input type="number" class="sui-form-control" placeholder="input type number"&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-form-field"&gt;
-	&lt;div class="sui-row"&gt;
-		&lt;div class="sui-col"&gt;
-			&lt;label class="sui-label"&gt;Email&lt;/label&gt;
-			&lt;input type="email" class="sui-form-control" placeholder="input type email"&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-col"&gt;
-			&lt;div class="sui-form-field"&gt;
-				&lt;label class="sui-label"&gt;Select List&lt;/label&gt;
-				&lt;select name="select-list"&gt;
-					&lt;option value="" selected="selected"&gt;Select Option&lt;/option&gt;
-					&lt;option value="apache"&gt;Apache&lt;/option&gt;
-					&lt;option value="LiteSpeed"&gt;LiteSpeed&lt;/option&gt;
-					&lt;option value="nginx"&gt;NGINX&lt;/option&gt;
-					&lt;option value="iis"&gt;IIS&lt;/option&gt;
-					&lt;option value="iis-7"&gt;IIS 7&lt;/option&gt;
-					&lt;option value="cloudflare"&gt;Cloudflare&lt;/option&gt;
-				&lt;/select&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-					</div>
 				</div>
+
 			</section>
 
 			<section id="summary">
+
+				<div class="demo-info-block">
+					<h2>Summary</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box sui-summary">
 					<div class="sui-summary-image-space">
 					</div>
@@ -1667,12 +1938,10 @@ ExpiresDefault A691200
 						</ul>
 					</div>
 				</div>
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Summary Snippet</h2>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-box sui-summary"&gt;
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-box sui-summary"&gt;
 	&lt;div class="sui-summary-image-space"&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-summary-segment"&gt;
@@ -1699,18 +1968,25 @@ ExpiresDefault A691200
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
-					</div>
 				</div>
+
 			</section>
 
 			<section id="sidenav">
+
+				<div class="demo-info-block">
+					<h2>Sidenav</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-row-with-sidenav">
 					<div class="sui-sidenav">
 						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 							<li class="sui-vertical-tab current">
 								<a href="#database-optimisation">Database Optimisation</a>
 								<span class="sui-tag sui-tag-warning">4</span>
-							<li class="sui-vertical-tab ">
+							</li>
+							<li class="sui-vertical-tab">
 								<a href="#reporting">Reporting</a>
 							</li>
 							<li class="sui-vertical-tab">
@@ -1720,8 +1996,9 @@ ExpiresDefault A691200
 						</ul>
 						<div class="sui-sidenav-hide-lg">
 							<select class="sui-mobile-nav" style="display: none;">
-								<option value="" selected="selected">Improvements</option>
+								<option value="#database-optimisation" selected="selected">Improvements</option>
 								<option value="#reporting">Reporting</option>
+								<option value="#lanskc">Content Creator</option>
 							</select>
 						</div>
 					</div>
@@ -1730,53 +2007,60 @@ ExpiresDefault A691200
 							<h2 class="sui-box-title">Content With Sidenav</h2>
 						</div>
 						<div class="sui-box-body">
+							...
 						</div>
 					</div>
-				</div><!-- .sui-row -->
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Sidenav Snippet</h2>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-row-with-sidenav"&gt;
-	&lt;div class="sui-sidenav"&gt;
-		&lt;ul class="sui-vertical-tabs sui-sidenav-hide-md"&gt;
-			&lt;li class="sui-vertical-tab current"&gt;
-				&lt;a href="#database-optimisation"&gt;Database Optimisation&lt;/a&gt;
-				&lt;span class="sui-tag sui-tag-warning"&gt;4&lt;/span&gt;
-			&lt;li class="sui-vertical-tab "&gt;
-				&lt;a href="#reporting"&gt;Reporting&lt;/a&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-row-with-sidenav&quot;&gt;
+	&lt;div class=&quot;sui-sidenav&quot;&gt;
+		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
+			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
+				&lt;a href=&quot;#database-optimisation&quot;&gt;Database Optimisation&lt;/a&gt;
+				&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
 			&lt;/li&gt;
-			&lt;li class="sui-vertical-tab"&gt;
-				&lt;a href="#lanskc"&gt;Content Creator&lt;/a&gt;
-				&lt;i class="sui-ico-check-tick" aria-hidden="true"&gt;&lt;/i&gt;
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+				&lt;a href=&quot;#reporting&quot;&gt;Reporting&lt;/a&gt;
+			&lt;/li&gt;
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+				&lt;a href=&quot;#lanskc&quot;&gt;Content Creator&lt;/a&gt;
+				&lt;i class=&quot;sui-ico-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
 			&lt;/li&gt;
 		&lt;/ul&gt;
-		&lt;div class="sui-sidenav-hide-lg"&gt;
-			&lt;select class="sui-mobile-nav" style="display: none;"&gt;
-				&lt;option value="" selected="selected"&gt;Improvements&lt;/option&gt;
-				&lt;option value="#reporting"&gt;Reporting&lt;/option&gt;
+		&lt;div class=&quot;sui-sidenav-hide-lg&quot;&gt;
+			&lt;select class=&quot;sui-mobile-nav&quot; style=&quot;display: none;&quot;&gt;
+				&lt;option value=&quot;#database-optimisation&quot; selected=&quot;selected&quot;&gt;Improvements&lt;/option&gt;
+				&lt;option value=&quot;#reporting&quot;&gt;Reporting&lt;/option&gt;
+				&lt;option value=&quot;#lanskc&quot;&gt;Content Creator&lt;/option&gt;
 			&lt;/select&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class="sui-box"&gt;
-		&lt;div class="sui-box-header"&gt;
-			&lt;h2 class="sui-box-title"&gt;Content With Sidebar&lt;/h2&gt;
+	&lt;div class=&quot;sui-box&quot;&gt;
+		&lt;div class=&quot;sui-box-header&quot;&gt;
+			&lt;h2 class=&quot;sui-box-title&quot;&gt;Content With Sidenav&lt;/h2&gt;
 		&lt;/div&gt;
-		&lt;div class="sui-box-body"&gt;
+		&lt;div class=&quot;sui-box-body&quot;&gt;
+			...
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-					</div>
+&lt;/div&gt;</pre>
 				</div>
+
 			</section>
 
 			<section id="tabs">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Tabs</h2>
+
+				<div class="demo-info-block">
+					<h2>Tabs</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>tabs.js</code> is required.</p>
 					</div>
+				</div>
+
+				<div class="sui-box">
 					<div class="sui-box-body">
 						<div class="sui-tabs">
 							<div class="sui-tab">
@@ -1866,8 +2150,10 @@ Header set Cache-Control "max-age=691200"
 							</div><!-- end content -->
 						</div><!-- end tab -->
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-tabs"&gt;
+				</div>
+				<div class="demo-code-block">
+					<pre class="sui-code-snippet html">
+&lt;div class="sui-tabs"&gt;
 	&lt;div class="sui-tab"&gt;
 		&lt;label for="first-tab-content"&gt;Automatic&lt;/label&gt;
 		&lt;input type="radio" id="first-tab-content" checked&gt;
@@ -1883,385 +2169,257 @@ Header set Cache-Control "max-age=691200"
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
-					</div>
 				</div>
+
 			</section>
 
 			<section id="tags">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Tags</h2>
-					</div>
-					<div class="sui-box-body">
-						<div class="sui-row">
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-warning"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-warning">+1</span>
-							</div>
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-success"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-success">+1</span>
-							</div>
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-error"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-error">+1</span>
-							</div>
-						</div>
-						<br>
-						<div class="sui-row">
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-inactive"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-inactive">+1</span>
-							</div>
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-disabled"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-disabled">+1</span>
-							</div>
-							<div class="sui-col">
-								<code>&lt;span class="sui-tag sui-tag-upgrade"&gt;&lt;/span&gt;</code><br>
-								<span class="sui-tag sui-tag-upgrade">+1</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<section id="grid">
+				<div class="demo-info-block">
+					<h2>Tags</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Grid</h2>
-					</div>
 					<div class="sui-box-body">
-						<p>Evenly distributed columns. All columns <code>.sui-col</code> take up even amount of space
-							within
-							row <code>.sui-row</code>:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-							<div class="sui-col-md-hidden">
-								<div class="demo-block">.sui-col</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>There is also a 12 column grid similar to Bootstrap 3 naming conventions &amp; media query
-							behavior but also powered by flexbox rather than floats:</p>
-						<div class="sui-row">
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-							<div class="sui-col-md-6">
-								<div class="demo-block">.sui-col-md-6</div>
-							</div>
-							<div class="sui-col-md-3">
-								<div class="demo-block">.sui-col-md-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-							<div class="sui-col-lg-3">
-								<div class="demo-block">.sui-col-lg-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-9">
-								<div class="demo-block">.sui-col-sm-9</div>
-							</div>
-							<div class="sui-col-sm-3">
-								<div class="demo-block">.sui-col-sm-3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-lg-4">
-								<div class="demo-block">.sui-col-lg-4</div>
-							</div>
-							<div class="sui-col-lg-4 sui-col-lg-offset-4">
-								<div class="demo-block">.sui-col-lg-4 .sui-col-lg-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-8 sui-col-sm-offset-4">
-								<div class="demo-block">.sui-col-sm-8 .sui-col-sm-offset-4</div>
-							</div>
-						</div><!-- .sui-row -->
-						<div class="sui-row">
-							<div class="sui-col-sm-7 sui-col-sm-offset-5">
-								<div class="demo-block">.sui-col-sm-7 .sui-col-sm-offset-5</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can also reverse the order of the columns by adding the class <code>.sui-reverse</code> to
-							the
-							<code>.sui-row</code> element:</p>
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>Reversed:</p>
-						<div class="sui-row sui-reverse">
-							<div class="sui-col">
-								<div class="demo-block">1</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">2</div>
-							</div>
-							<div class="sui-col">
-								<div class="demo-block">3</div>
-							</div>
-						</div><!-- .sui-row -->
-						<p>We can hide elements based on the breakpoints <code>.sui-hidden-md</code> to the element will
-							hide it between the defined breakpoints in variables. Note: If you want it to stay hidden
-							for all sizes below and including md you will need to add the class for all sizes <code>.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</code> :</p>
-						<div class="sui-row">
-							<div class="sui-col sui-hidden-md sui-hidden-sm sui-hidden-xs">
-								<div class="demo-block">.sui-hidden-md .sui-hidden-sm .sui-hidden-xs</div>
-							</div>
-							<div class="sui-col sui-hidden-md">
-								<div class="demo-block">.sui-hidden-md</div>
-							</div>
-							<div class="sui-col sui-hidden-lg">
-								<div class="demo-block">.sui-hidden-lg</div>
-							</div>
-						</div><!-- .sui-row -->
+
+						<span class="sui-tag sui-tag-warning">+1</span>
+						<span class="sui-tag sui-tag-success">+2</span>
+						<span class="sui-tag sui-tag-error">+3</span>
+						<span class="sui-tag sui-tag-inactive">+4</span>
+						<span class="sui-tag sui-tag-disabled">+5</span>
+						<span class="sui-tag sui-tag-upgrade">+6</span>
+
 					</div>
 				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;span class="sui-tag sui-tag-warning"&gt;+1&lt;/span&gt;
+
+&lt;span class="sui-tag sui-tag-success"&gt;+2&lt;/span&gt;
+
+&lt;span class="sui-tag sui-tag-error"&gt;+3&lt;/span&gt;
+
+&lt;span class="sui-tag sui-tag-inactive"&gt;+4&lt;/span&gt;
+
+&lt;span class="sui-tag sui-tag-disabled"&gt;+5&lt;/span&gt;
+
+&lt;span class="sui-tag sui-tag-upgrade"&gt;+6&lt;/span&gt;
+</pre>
+				</div>
+
 			</section>
 
 			<section id="notifications">
+
+				<div class="demo-info-block">
+					<h2>Notifications</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Notifications</h2>
-					</div>
 					<div class="sui-box-body">
 						<div class="sui-notice">
-							<p>Notice default: Page caching is currently active.</p>
+							<p>Default</p>
 						</div>
 						<div class="sui-notice sui-notice-success">
-							<p>Notice success: Page caching is currently active.</p>
-							<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
+							<p>Success</p>
 						</div>
 						<div class="sui-notice sui-notice-warning">
-							<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8
-								days.</p>
+							<p>Warning</p>
 						</div>
 						<div class="sui-notice sui-notice-error">
-							<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8
-								days.</p>
+							<p>Error</p>
 						</div>
 						<div class="sui-notice sui-notice-info">
-							<p>Notice info: 4 of your cache types don’t meet the recommended expiry period of 8
-								days.</p>
+							<p>Info</p>
 						</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice&quot;&gt;
+	&lt;p&gt;Default&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
+	&lt;p&gt;Success&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-warning&quot;&gt;
+	&lt;p&gt;Warning&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
+	&lt;p&gt;Error&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-info&quot;&gt;
+	&lt;p&gt;Info&lt;/p&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Dismissable</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-notice sui-notice-success">
+							<p>Success!</p>
+							<span class="sui-notice-dismiss">
+								<a href="#">Dismiss</a>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
+	&lt;p&gt;Success!&lt;/p&gt;
+	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
+	&lt;/span&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Sizes</h3>
+					<p>For a smaller size, add <code>.sui-notice-sm</code> to the notice.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
 						<div class="sui-notice sui-notice-sm">
-							<p>Notice default: Page caching is currently active.</p>
+							<p>Default</p>
 						</div>
 						<div class="sui-notice sui-notice-sm sui-notice-success">
 							<p>Page caching is currently active.</p>
 						</div>
 						<div class="sui-notice sui-notice-sm sui-notice-warning">
-							<p>Notice warning: 4 of your cache types don’t meet the recommended expiry period of 8
-								days.</p>
-							<span class="sui-notice-dismiss"><a href="#">Dismiss</a></span>
+							<p>Notice warning</p>
+							<span class="sui-notice-dismiss">
+								<a href="#">Dismiss</a>
+							</span>
 						</div>
 						<div class="sui-notice sui-notice-sm sui-notice-error">
-							<p>Notice error: 4 of your cache types don’t meet the recommended expiry period of 8
-								days.</p>
+							<p>Notice error</p>
 						</div>
 						<div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick">
-							<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended
-								expiry period of 8 days.</p>
+							<p class="sui-ico-check-tick"></p>
 						</div>
 						<div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon">
-							<p class="sui-ico-check-tick">Notice info: 4 of your cache types don’t meet the recommended
-								expiry period of 8 days.</p>
+							<p class="sui-ico-check-tick"></p>
 						</div>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-notice"&gt;
-	&lt;p&gt;Notice default&lt;/p&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-sm&quot;&gt;
+	&lt;p&gt;Default&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="sui-notice sui-notice-success"&gt;
-	&lt;p&gt;Notice success&lt;/p&gt;
-	&lt;span class="sui-notice-dismiss"&gt;&lt;a href="#"&gt;Dismiss&lt;/a&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="sui-notice sui-notice-warning"&gt;
-	&lt;p&gt;Notice warning&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sui-notice sui-notice-error"&gt;
-	&lt;p&gt;Notice error&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sui-notice sui-notice-info"&gt;
-	&lt;p&gt;Notice info&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm"&gt;
-	&lt;p&gt;Notice default&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm sui-notice-success"&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-success&quot;&gt;
 	&lt;p&gt;Page caching is currently active.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm sui-notice-warning"&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-warning&quot;&gt;
 	&lt;p&gt;Notice warning&lt;/p&gt;
-	&lt;span class="sui-notice-dismiss"&gt;&lt;a href="#"&gt;Dismiss&lt;/a&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
+	&lt;/span&gt;
 &lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm sui-notice-error"&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-error&quot;&gt;
 	&lt;p&gt;Notice error&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick"&gt;
-	&lt;p class="sui-ico-check-tick"&gt;&lt;/p&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick&quot;&gt;
+	&lt;p class=&quot;sui-ico-check-tick&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon"&gt;
-	&lt;p class="sui-ico-check-tick"&gt;&lt;/p&gt;
+
+&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon&quot;&gt;
+	&lt;p class=&quot;sui-ico-check-tick&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;</pre>
-					</div>
-				</div><!-- .sui-box -->
+				</div>
+
 			</section>
 
 			<section id="tooltips">
+
+				<div class="demo-info-block">
+					<h2>Tooltips</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Tooltips</h2>
-					</div>
 					<div class="sui-box-body">
-						<button class="sui-button sui-tooltip"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Default
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-bottom-left"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Bottom Left
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-bottom-right"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Bottom Right
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-top-left"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Top Left
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-top-right"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Top Right
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-left"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Left
 						</button>
 						<br>
 						<br>
-						<button class="sui-button sui-tooltip sui-tooltip-right"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Right
 						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-constrained"
-								data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Tooltip
+						<button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
 							Constrained
 						</button>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;button class="sui-button sui-tooltip" data-tooltip=""&gt;Tooltip Default&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip=""&gt;Tooltip Bottom Left&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip=""&gt;Tooltip Bottom Right&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip=""&gt;Tooltip Top Left&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip=""&gt;Tooltip Top Right&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Tooltip	Left&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Tooltip Right&lt;/button&gt;
-&lt;button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip=""&gt;Tooltip Constrained&lt;/button&gt;</pre>
-					</div>
-				</div><!-- .sui-box -->
-			</section>
+				</div>
 
-			<section id="buttons">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Buttons</h2>
-					</div>
-					<div class="sui-box-body">
-						<button class="sui-button">Default Button</button>
-						<button class="sui-button sui-button-primary">Primary Button</button>
-						<button class="sui-button sui-button-red">Red Button</button>
-						<button class="sui-button sui-button-green">Green Button</button>
-						<button class="sui-button sui-button-ghost">Ghost Button</button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-primary sui-button-lg">Large Button</button>
-						<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost</button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-ghost sui-button-lg"><i class="sui-ico-alert"></i> &nbsp;
-							Large
-							Button Ghost Icon
-						</button>
-						<button class="sui-button sui-button-ghost sui-button-green"><i class="sui-ico-alert"></i>
-							&nbsp;
-							Green Button Icon
-						</button>
-						<button class="sui-button sui-button-ghost sui-button-lg">Large Button Ghost Icon Right &nbsp;<i
-							class="sui-ico-alert"></i></button>
-						<button class="sui-button sui-button-green">Green Button Icon Right &nbsp;<i
-							class="sui-ico-alert"></i></button>
-						<br>
-						<br>
-						<button class="sui-button sui-button-icon"><i class="sui-ico-arrow-right"></i></button>
-						<button class="sui-button sui-button-icon sui-button-lg"><i class="sui-ico-arrow-right"></i></button>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;button class="sui-button"&gt;Default Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-red"&gt;Red Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-green"&gt;Green Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost"&gt;Ghost Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-primary sui-button-lg"&gt;Large Button&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Large	Button Ghost Icon&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-green"&gt;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&nbsp;Green Button Icon&lt;/button&gt;
-&lt;button class="sui-button sui-button-ghost sui-button-lg"&gt;Large Button Ghost Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-green"&gt;Green Button Icon Right &nbsp;&lt;i class="sui-ico-alert"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-icon"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button class="sui-button sui-button-icon sui-button-lg"&gt;&lt;i class="sui-ico-arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
-					</div>
-				</div><!-- .sui-box -->
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;button class="sui-button sui-tooltip" data-tooltip=""&gt;Default&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip=""&gt;Bottom Left&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip=""&gt;Bottom Right&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip=""&gt;Top Left&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip=""&gt;Top Right&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Left&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Right&lt;/button&gt;
+
+&lt;button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip=""&gt;Constrained&lt;/button&gt;</pre>
+				</div>
+
 			</section>
 
 			<section id="typography">
+
+				<div class="demo-info-block">
+					<h2>Typography</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Typography</h2>
-					</div>
 					<div class="sui-box-body">
 						<h1>Heading 1</h1>
 						<h2>Heading 2</h2>
@@ -2314,65 +2472,13 @@ Header set Cache-Control "max-age=691200"
 				</div><!-- .sui-box -->
 			</section>
 
-			<section id="boxes">
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<p>Box - No title - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane
-							ad
-							rem; Quid est, quod ab ea absolvi et
-							perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus
-							copulationesque et consuetudinum
-							instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum,
-							sed
-							ubi illud: Plus semper
-							voluptatis?</p>
-					</div>
-				</div><!-- .sui-box -->
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title">Box - Action buttons at bottom</h3>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio
-							Peripateticorum. An vero,
-							inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae
-							vivere,
-							a natura discedere.
-							Sed venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest
-							verius.
-							Nihil opus est exemplis
-							hoc facere longius.Duo Reges: constructio interrete. Ita credo.</p>
-					</div>
-					<div class="sui-box-footer">
-						<button class="sui-button sui-button-green sui-button-lg">Default Button</button>
-					</div>
-				</div><!-- .sui-box -->
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i>
-							Title
-							with Button</h3>
-						<button class="sui-button sui-button">Default Button</button>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse
-							dissensio?
-							Post enim Chrysippum
-							eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe
-							vim
-							voluptatis Epicurum nosse
-							quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio.
-							Quae
-							cum ita sint, effectum
-							est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis
-							est
-							enim de virtutis dignitate
-							contentio.</p>
-					</div>
-				</div><!-- .sui-box -->
-			</section>
-
 			<section id="toggles">
+
+				<div class="demo-info-block">
+					<h2>Toggles</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Toggles</h2>
@@ -2405,8 +2511,7 @@ Header set Cache-Control "max-age=691200"
 									<div class="sui-form-field">
 										<label class="sui-label">Password</label>
 										<div class="sui-password-group">
-											<input type="password" class="sui-form-control"
-												   placeholder="input type password">
+											<input type="password" class="sui-form-control" placeholder="input type password">
 											<button class="sui-password-toggle" type="button">
 												<span class="sui-screen-reader-text">Show Password</span>
 												<i aria-hidden="true" class="sui-ico-eye"></i>
@@ -2438,8 +2543,11 @@ Header set Cache-Control "max-age=691200"
 							</div>
 						</div>
 					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;label class="sui-toggle"&gt;
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;label class="sui-toggle"&gt;
 	&lt;input type="checkbox"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
@@ -2451,17 +2559,19 @@ Header set Cache-Control "max-age=691200"
 	&lt;input type="checkbox"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
-&lt;span class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;
-</pre>
-					</div>
-				</div><!-- .sui-box -->
+&lt;span class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;</pre>
+				</div>
+
 			</section>
 
 			<section id="icons">
+
+				<div class="demo-info-block">
+					<h2>Icons</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
 				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Icons</h2>
-					</div>
 					<div class="sui-box-body">
 						<i class="sui-ico-loader sui-loading"></i> Default loader
 						<br>
@@ -3355,16 +3465,20 @@ Header set Cache-Control "max-age=691200"
 							</div>
 						</div>
 					</div>
-				</div><!-- .sui-box -->
+				</div>
 
 			</section>
+
 			<section id="footer">
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h2 class="sui-box-title">Footer Snippet</h2>
-					</div>
-					<div class="sui-box-body">
-						<pre class="sui-code-snippet">&lt;div class="sui-row" id="sui-cross-sell-footer"&gt;
+
+				<div class="demo-info-block">
+					<h2>Footer</h2>
+					<p>Code snippet is first so you can see the footer in it's natural habitat.</p>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-row" id="sui-cross-sell-footer"&gt;
 	&lt;div&gt;&lt;span class="sui-ico-plugin-2"&gt;&lt;/span&gt;&lt;/div&gt;
 	&lt;h3&gt;Check out our other free wordpress.org plugins!&lt;/h3&gt;
 &lt;/div&gt;
@@ -3474,10 +3588,9 @@ Header set Cache-Control "max-age=691200"
 			 alt="WPMU DEV Team"&gt;
 	&lt;/div&gt;
 
-&lt;/dialog&gt;
-</pre>
-					</div>
+&lt;/dialog&gt;</pre>
 				</div>
+
 				<div class="sui-row" id="sui-cross-sell-footer">
 					<div><span class="sui-ico-plugin-2"></span></div>
 					<h3>Check out our other free wordpress.org plugins!</h3>
@@ -3596,20 +3709,8 @@ Header set Cache-Control "max-age=691200"
 </div><!-- #wpcontent -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="dist/js/shared-ui.min.js"></script>
-<script id="demo-scripts">
-	// Offset internal sc
-	function offsetAnchor() {
-		if (location.hash.length !== 0) {
-			window.scrollTo(window.scrollX, window.scrollY - 60);
-		}
-	}
-	$(document).on('click', '#adminmenu a[href^="#"]', function (event) {
-		window.setTimeout(function () {
-			offsetAnchor();
-		}, 0);
-	});
-	window.setTimeout(offsetAnchor, 0);
-</script>
+<script src="showcase-assets/showcase.js"></script>
 </body>
 </html>

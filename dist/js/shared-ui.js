@@ -802,7 +802,7 @@ module.exports = E;
 });
 (function ($) {
 
-	$('.sui-code-snippet').each(function (i) {
+	$('.sui-code-snippet:not(.sui-no-copy)').each(function (i) {
 		var id = 'sui-code-snippet-' + i,
 			button = '<button class="sui-button" data-clipboard-target="#' + id + '">Copy</button>';
 
