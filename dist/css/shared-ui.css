@@ -4117,40 +4117,72 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   top: 23px;
 }
 
-.sui-2-0-0-alpha-1 .sui-dropdown-label {
-  font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  border-bottom: 1px solid #E6E6E6;
-  line-height: 30px;
-  margin-bottom: 20px;
-}
-
 .sui-2-0-0-alpha-1 .sui-dropdown ul {
-  border: 1px solid #E6E6E6;
-  padding: 20px;
+  border: 1px solid #DDDDDD;
   -webkit-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05);
           box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05);
   min-width: 180px;
   margin-bottom: 0;
   margin-top: 0;
+  padding-left: 0;
+  font: 500 15px/25px "Roboto", Arial, sans-serif;
   background: #FFFFFF;
   position: absolute;
   left: auto;
   right: -22px;
   top: 130%;
   z-index: 10;
-  border-radius: 5px;
+  border-radius: 4px;
   display: none;
 }
 
-.sui-2-0-0-alpha-1 .sui-dropdown ul li a {
-  font-size: 13px;
-  font-weight: 300;
+.sui-2-0-0-alpha-1 .sui-dropdown ul li {
+  padding: 10px 15px;
+  background: none;
+  color: #777771;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 400;
+  line-height: 15px;
+  word-wrap: break-word;
+  margin: 0;
+  opacity: 0.8;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  border-radius: 0 !important;
 }
 
-.sui-2-0-0-alpha-1 .sui-dropdown ul li:last-child {
-  margin-bottom: 0;
+.sui-2-0-0-alpha-1 .sui-dropdown ul li a {
+  font-weight: 300;
+  color: inherit;
+}
+
+.sui-2-0-0-alpha-1 .sui-dropdown ul li a:hover {
+  color: inherit;
+}
+
+.sui-2-0-0-alpha-1 .sui-dropdown ul li:hover:not(.sui-dropdown-label) {
+  background: #F2F2F2;
+  color: #333333;
+}
+
+.sui-2-0-0-alpha-1 .sui-dropdown ul li.active {
+  background: #F8F8F8;
+  color: #333333;
+}
+
+.sui-2-0-0-alpha-1 .sui-dropdown ul li.current {
+  background: #888888;
+  color: #FFFFFF;
+}
+
+.sui-2-0-0-alpha-1 .sui-dropdown ul li.sui-dropdown-label {
+  border-bottom: 1px solid #E6E6E6;
+  line-height: 30px;
+  cursor: default;
+  color: #666666;
 }
 
 .sui-2-0-0-alpha-1 .sui-dropdown.sui-dropdown-right ul {
