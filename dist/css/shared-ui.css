@@ -5734,21 +5734,38 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   padding-right: 40px;
 }
 
-.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close a.sui-progress-close {
+.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close .sui-progress-close {
   display: block;
-  color: #AAAAAA;
   position: absolute;
   right: 20px;
-  top: 15px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #888888;
+  font-size: 15px;
+  line-height: 1em;
+  padding: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  outline: 0;
+  border-radius: 4px;
 }
 
-.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close a.sui-progress-close:before {
+.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close .sui-progress-close i:before {
+  color: #AAAAAA;
   font-size: 16px;
   position: relative;
-  margin-left: 8px;
-  top: 2px;
+}
+
+.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close .sui-progress-close:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sui-2-0-0-alpha-1 .sui-progress-block.sui-progress-can-close .sui-progress-close:hover i:before {
+  color: #666666;
 }
 
 .sui-2-0-0-alpha-1 .sui-progress-state {
