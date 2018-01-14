@@ -12,7 +12,7 @@
 		border: 0;
 		background-color: $button-bg-color;
 		color: $white;
-		font: 400 12px/16px $font;
+		font: 500 12px/16px $font;
 		letter-spacing: -.025em;
 		text-transform: uppercase;
 		text-align: center;
@@ -93,6 +93,25 @@
 			&:focus {
 				opacity: 1;
 				background: $button-green-action-bg-color;
+			}
+		}
+
+		&.sui-button-upsell {
+			border: 2px solid $tag-upsell-color;
+			color: $green;
+			width: auto;
+			height: 26px;
+			line-height: 15px;
+			background: transparent;
+			padding: 4px 16px;
+			border-radius: 15px;
+			text-transform: none;
+			&:hover,
+			&:focus {
+				opacity: 1;
+				border-color: $button-green-action-bg-color;
+				background: $button-green-action-bg-color;
+				color: $white;
 			}
 		}
 

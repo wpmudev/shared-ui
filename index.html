@@ -6,7 +6,6 @@
 	<title>Shared UI Showcase</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
 	<link type="text/css" media="all" href="showcase-assets/showcase.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 </head>
 <body class="sui-2-0-0-alpha-1">
 
@@ -141,7 +140,7 @@ function plugin_body_classes( $classes ) {
 
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird sui-fw" aria-hidden="true"></i> Box Title</h3>
+						<h3 class="sui-box-title"><i class="sui-ico-icon-hummingbird" aria-hidden="true"></i>Box Title</h3>
 						<button class="sui-button">Default Button</button>
 					</div>
 					<div class="sui-box-body">
@@ -158,7 +157,7 @@ function plugin_body_classes( $classes ) {
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-box&quot;&gt;
 	&lt;div class=&quot;sui-box-header&quot;&gt;
-		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-ico-icon-hummingbird sui-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Box Title&lt;/h3&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-ico-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Box Title&lt;/h3&gt;
 		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;sui-box-body&quot;&gt;
@@ -688,7 +687,9 @@ RewriteRule . /index.php [L]
 									<span style="width: 20%"></span>
 								</div>
 							</div>
-							<a href="#" class="sui-ico-close sui-progress-close"></a>
+							<button class="sui-progress-close sui-tooltip" type="button" data-tooltip="Cancel Test">
+								<i class="sui-ico-close"></i>
+							</button>
 						</div>
 
 						<div class="sui-progress-state">
@@ -709,8 +710,11 @@ RewriteRule . /index.php [L]
 			&lt;span style="width: 20%"&gt;&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;a href="#" class="sui-ico-close sui-progress-close"&gt;&lt;/a&gt;
+	&lt;button class="sui-progress-close sui-tooltip" type="button" data-tooltip="Cancel Test"&gt;
+		&lt;i class="sui-ico-close"&gt;&lt;/i&gt;
+	&lt;/button&gt;
 &lt;/div&gt;
+
 &lt;div class="sui-progress-state"&gt;
 	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
 &lt;/div&gt;
@@ -729,7 +733,7 @@ RewriteRule . /index.php [L]
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Options</h2>
-						<span class="sui-tag sui-tag-upsell">Pro Feature</span>
+						<a class="sui-button sui-button-upsell sui-tooltip sui-tooltip-top-left" type="button" data-tooltip="Unlock this as part of a WPMU DEV Membership" href="#sui-upgrade-membership-modal" rel="dialog">Pro Feature</a>
 					</div>
 					<div class="sui-box-body sui-upsell-items">
 						<div class="sui-box-settings-row">
@@ -749,11 +753,11 @@ RewriteRule . /index.php [L]
 								<span class="sui-description">Compress your files up to 2x more than regular optimization and reduce your page load speed even further.</span>
 							</div>
 							<div class="sui-box-settings-col-2">
-								<label class="sui-toggle sui-toggle-label">
+								<label class="sui-toggle">
 									<input type="checkbox">
 									<span class="sui-toggle-slider"></span>
 								</label>
-								<span class="sui-settings-label">Enable super-compression</span>
+								<span class="sui-settings-label sui-toggle-label">Enable super-compression</span>
 							</div>
 						</div>
 						<div class="sui-box-settings-row sui-disabled">
@@ -763,11 +767,11 @@ RewriteRule . /index.php [L]
 							</div>
 							<div class="sui-box-settings-col-2">
 								<div class="sui-form-field">
-									<label class="sui-toggle sui-toggle-label">
+									<label class="sui-toggle">
 										<input type="checkbox">
 										<span class="sui-toggle-slider"></span>
 									</label>
-									<span class="sui-settings-label">Host my files on the WPMU DEV CDN</span>
+									<span class="sui-settings-label sui-toggle-label">Host my files on the WPMU DEV CDN</span>
 								</div>
 							</div>
 						</div>
@@ -785,7 +789,7 @@ RewriteRule . /index.php [L]
 &lt;div class="sui-box"&gt;
 	&lt;div class="sui-box-header"&gt;
 		&lt;h2 class="sui-box-title"&gt;Options&lt;/h2&gt;
-		&lt;span class="sui-tag sui-tag-upsell"&gt;Pro Feature&lt;/span&gt;
+		&lt;a class="sui-button sui-button-upsell sui-tooltip sui-tooltip-top-left" type="button" data-tooltip="Unlock this as part of a WPMU DEV Membership" href="#sui-upgrade-membership-modal" rel="dialog"&gt;Pro Feature&lt;/a&gt;
 	&lt;/div&gt;
 	&lt;div class="sui-box-body sui-upsell-items"&gt;
 		&lt;div class="sui-box-settings-row"&gt;
@@ -805,11 +809,11 @@ RewriteRule . /index.php [L]
 				&lt;span class="sui-description"&gt;Compress your files up to 2x more than regular optimization and reduce your page load speed even further.&lt;/span&gt;
 			&lt;/div&gt;
 			&lt;div class="sui-box-settings-col-2"&gt;
-				&lt;label class="sui-toggle sui-toggle-label"&gt;
+				&lt;label class="sui-toggle"&gt;
 					&lt;input type="checkbox"&gt;
 					&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 				&lt;/label&gt;
-				&lt;span class="sui-settings-label"&gt;Enable super-compression&lt;/span&gt;
+				&lt;span class="sui-settings-label sui-toggle-label"&gt;Enable super-compression&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 		&lt;div class="sui-box-settings-row sui-disabled"&gt;
@@ -819,11 +823,11 @@ RewriteRule . /index.php [L]
 			&lt;/div&gt;
 			&lt;div class="sui-box-settings-col-2"&gt;
 				&lt;div class="sui-form-field"&gt;
-					&lt;label class="sui-toggle sui-toggle-label"&gt;
+					&lt;label class="sui-toggle"&gt;
 						&lt;input type="checkbox"&gt;
 						&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 					&lt;/label&gt;
-					&lt;span class="sui-settings-label"&gt;Host my files on the WPMU DEV CDN&lt;/span&gt;
+					&lt;span class="sui-settings-label sui-toggle-label"&gt;Host my files on the WPMU DEV CDN&lt;/span&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
@@ -871,9 +875,9 @@ RewriteRule . /index.php [L]
 								</div>
 							</div>
 							<div class="sui-modal-footer sui-modal-footer-space-between">
-								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+								<button class="sui-modal-close sui-button">Cancel</button>
 								<div class="sui-modal-footer-right">
-									<button class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+									<button class="sui-modal-close sui-button sui-button-blue">Add</button>
 								</div>
 							</div>
 						</dialog>
@@ -892,9 +896,9 @@ RewriteRule . /index.php [L]
 		...
 	&lt;/div&gt;
 	&lt;div class=&quot;sui-modal-footer sui-modal-footer-space-between&quot;&gt;
-		&lt;button class=&quot;sui-modal-close sui-button sui-button-lg&quot;&gt;Cancel&lt;/button&gt;
+		&lt;button class=&quot;sui-modal-close sui-button&quot;&gt;Cancel&lt;/button&gt;
 		&lt;div class=&quot;sui-modal-footer-right&quot;&gt;
-			&lt;button class=&quot;sui-modal-close sui-button sui-button-blue sui-button-lg&quot;&gt;Add&lt;/button&gt;
+			&lt;button class=&quot;sui-modal-close sui-button sui-button-blue&quot;&gt;Add&lt;/button&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/dialog&gt;</pre>
@@ -962,9 +966,9 @@ RewriteRule . /index.php [L]
 								</div>
 							</div>
 							<div class="sui-modal-footer sui-modal-footer-right">
-								<button class="sui-modal-close sui-button sui-button-lg">Cancel</button>
+								<button class="sui-modal-close sui-button">Cancel</button>
 								<div class="sui-modal-footer-right">
-									<button type="button" class="sui-modal-close sui-button sui-button-blue sui-button-lg">Add</button>
+									<button type="button" class="sui-modal-close sui-button sui-button-blue">Add</button>
 								</div>
 							</div>
 						</dialog>
@@ -1340,7 +1344,7 @@ RewriteRule . /index.php [L]
 							<tbody>
 								<tr class="sui-accordion-item sui-error">
 									<td class="sui-accordion-item-title">
-										<i class="sui-ico-check-tick sui-error"></i> Item
+										<i class="sui-ico-warning-alert sui-error"></i> Item
 									</td>
 									<td>
 										<div class="sui-circle-score sui-grade-f" data-score="8"></div>
@@ -1361,12 +1365,12 @@ RewriteRule . /index.php [L]
 										</div>
 									</td>
 								</tr>
-								<tr class="sui-accordion-item sui-success">
+								<tr class="sui-accordion-item sui-warning">
 									<td class="sui-accordion-item-title">
-										<i class="sui-ico-check-tick sui-success"></i> Item
+										<i class="sui-ico-warning-alert sui-warning"></i> Item
 									</td>
 									<td>
-										<div class="sui-circle-score sui-grade-a" data-score="95"></div>
+										<div class="sui-circle-score sui-grade-d" data-score="95"></div>
 									</td>
 									<td>
 										More info on something.
@@ -1463,7 +1467,7 @@ RewriteRule . /index.php [L]
 			&lt;tbody&gt;
 				&lt;tr class=&quot;sui-accordion-item sui-error&quot;&gt;
 					&lt;td class=&quot;sui-accordion-item-title&quot;&gt;
-						&lt;i class=&quot;sui-ico-check-tick sui-error&quot;&gt;&lt;/i&gt; Item
+						&lt;i class=&quot;sui-ico-warning-alert sui-error&quot;&gt;&lt;/i&gt; Item
 					&lt;/td&gt;
 					&lt;td&gt;
 						&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;8&quot;&gt;&lt;/div&gt;
@@ -1484,12 +1488,12 @@ RewriteRule . /index.php [L]
 						&lt;/div&gt;
 					&lt;/td&gt;
 				&lt;/tr&gt;
-				&lt;tr class=&quot;sui-accordion-item sui-success&quot;&gt;
+				&lt;tr class=&quot;sui-accordion-item sui-warning&quot;&gt;
 					&lt;td class=&quot;sui-accordion-item-title&quot;&gt;
-						&lt;i class=&quot;sui-ico-check-tick sui-success&quot;&gt;&lt;/i&gt; Item
+						&lt;i class=&quot;sui-ico-warning-alert sui-warning&quot;&gt;&lt;/i&gt; Item
 					&lt;/td&gt;
 					&lt;td&gt;
-						&lt;div class=&quot;sui-circle-score sui-grade-a&quot; data-score=&quot;95&quot;&gt;&lt;/div&gt;
+						&lt;div class=&quot;sui-circle-score sui-grade-d&quot; data-score=&quot;95&quot;&gt;&lt;/div&gt;
 					&lt;/td&gt;
 					&lt;td&gt;
 						More info on something.
@@ -1832,7 +1836,7 @@ RewriteRule . /index.php [L]
 									<div class="sui-password-group">
 										<input type="password" class="sui-form-control"
 											   placeholder="input type password">
-										<button class="sui-password-toggle" type="button">
+										<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
 											<span class="sui-screen-reader-text">Show Password</span>
 											<i aria-hidden="true" class="sui-ico-eye"></i>
 										</button>
@@ -1976,7 +1980,7 @@ RewriteRule . /index.php [L]
 						<ul class="sui-list">
 							<li>
 								<span class="sui-list-label">Security Tweaks Actioned</span>
-								<span class="sui-list-detail">11/11</span>
+								<span class="sui-list-detail"><button class="sui-button">test</button> </span>
 							</li>
 							<li>
 								<span class="sui-list-label">File Scan Issues</span>
@@ -3630,7 +3634,7 @@ Header set Cache-Control "max-age=691200"
 		membership.&lt;/p&gt;
 
 	&lt;div class="sui-block-content-center"&gt;
-		&lt;a target="_blank" href="" class="sui-button sui-button-green sui-button-lg"&gt;Upgrade
+		&lt;a target="_blank" href="" class="sui-button sui-button-green"&gt;Upgrade
 			Membership&lt;/a&gt;
 	&lt;/div&gt;
 
@@ -3712,48 +3716,49 @@ Header set Cache-Control "max-age=691200"
 				</div>
 				<div class="sui-footer">Made with <i class="sui-ico-heart"></i> by WPMU DEV</div>
 				<dialog id="sui-upgrade-membership-modal" class="sui-modal" title="Upgrade Membership">
+					<div class="sui-dialog-content">
 
-					<p>Here's what you'll get by upgrading to Hummingbird Pro.</p>
+						<p>Here's what you'll get by upgrading to Hummingbird Pro.</p>
 
-					<ul class="sui-listing">
-						<li>
-							<strong>Automation</strong>
-							<p>Schedule Hummingbird to run regular performance tests daily, weekly or monthly and get
-								email reports delivered straight to your inbox.</p>
-						</li>
-						<li>
-							<strong>Enhanced Minify Compression</strong>
-							<p>Compress your minified files up to 2x more than regular optimization and reuce your page
-								load speed even further.</p>
-						</li>
-						<li>
-							<strong>WPMU DEV CDN</strong>
-							<p>By default we minify your files via our API and send them back to your server. Pro users
-								can host their files on WPMU DEV’s secure and hyper fast CDN, which will mean less load
-								on your server and a fast visitor experience.</p>
-						</li>
-						<li>
-							<strong>Smush Pro</strong>
-							<p>A membership for Hummingbird Pro also gets you the award winning Smush Pro with unlimited
-								advanced lossy compression that’ll give image heavy websites a speed boost.</p>
-						</li>
-					</ul>
+						<ul class="sui-listing">
+							<li>
+								<strong>Automation</strong>
+								<p>Schedule Hummingbird to run regular performance tests daily, weekly or monthly and get
+									email reports delivered straight to your inbox.</p>
+							</li>
+							<li>
+								<strong>Enhanced Minify Compression</strong>
+								<p>Compress your minified files up to 2x more than regular optimization and reuce your page
+									load speed even further.</p>
+							</li>
+							<li>
+								<strong>WPMU DEV CDN</strong>
+								<p>By default we minify your files via our API and send them back to your server. Pro users
+									can host their files on WPMU DEV’s secure and hyper fast CDN, which will mean less load
+									on your server and a fast visitor experience.</p>
+							</li>
+							<li>
+								<strong>Smush Pro</strong>
+								<p>A membership for Hummingbird Pro also gets you the award winning Smush Pro with unlimited
+									advanced lossy compression that’ll give image heavy websites a speed boost.</p>
+							</li>
+						</ul>
 
-					<p class="sui-block-content-center">Get all of this, plus heaps more as part of a WPMU DEV
-						membership.</p>
+						<p class="sui-block-content-center">Get all of this, plus heaps more as part of a WPMU DEV
+							membership.</p>
 
-					<div class="sui-block-content-center">
-						<a target="_blank" href="" class="sui-button sui-button-green sui-button-lg">Upgrade
-							Membership</a>
+						<div class="sui-block-content-center">
+							<a target="_blank" href="" class="sui-button sui-button-green">Upgrade
+								Membership</a>
+						</div>
+
+						<div class="sui-modal-image sui-modal-image-bottom dev-man">
+							<img class="sui-image sui-image-center"
+								 src="dist/images/dev-team.png"
+								 srcset="dist/images/dev-team@2x.png 2x"
+								 alt="WPMU DEV Team">
+						</div>
 					</div>
-
-					<div class="sui-modal-image sui-modal-image-bottom dev-man">
-						<img class="sui-image sui-image-center"
-							 src="dist/images/dev-team.png"
-							 srcset="dist/images/dev-team@2x.png 2x"
-							 alt="WPMU DEV Team">
-					</div>
-
 				</dialog><!-- end wphb-upgrade-membership-modal -->
 			</section>
 

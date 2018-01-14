@@ -33,6 +33,8 @@
 	}
 
 	.sui-form-control {
+		font-family: $font;
+		letter-spacing: -0.025em;
 		display: block;
 		width: 100%;
 		height: $form--input-height-base;
@@ -64,6 +66,7 @@
 		}
 
 		&:focus {
+			color: $form--input-color-focus;
 			outline: 0;
 			background-color: $form--input-bg-color-focus;
 		}
@@ -138,9 +141,18 @@
 			padding: 0;
 			position: absolute;
 			top: 50%;
-			right: 15px;
+			right: 7px;
+			height: 30px;
+			width: 30px;
 			transform: translateY(-50%);
 			outline: 0;
+			border-radius: 4px;
+			&:hover {
+				background-color: rgba(0, 0, 0, .03);
+				i:before {
+					color: $gray;
+				}
+			}
 		}
 	}
 

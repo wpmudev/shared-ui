@@ -93,7 +93,7 @@
 				.css({
 					position: 'absolute',
 					visibility: 'hidden',
-					top: $(document).scrollTop() + 'px'
+					top: $(document).scrollTop() - 62 + 'px'
 				})
 				.attr('id', newHash)
 				.appendTo(document.body);
