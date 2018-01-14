@@ -23,13 +23,11 @@
 					$input.removeClass('is-visible').addClass('is-hidden');
 					$inputType = 'password';
 					$button.find('> .sui-screen-reader-text').text('Show Password');
-					$button.attr('data-tooltip', 'View Password');
 					$button.find('> i').removeClass('sui-ico-eye-hide').addClass('sui-ico-eye');
 				} else {
 					$input.removeClass('is-hidden').addClass('is-visible');
 					$inputType = 'text';
 					$button.find('> .sui-screen-reader-text').text('Hide Password');
-					$button.attr('data-tooltip', 'Hide Password');
 					$button.find('> i').removeClass('sui-ico-eye').addClass('sui-ico-eye-hide');
 				}
 				var $repInput = $('<input type=' + $inputType + ' />')
