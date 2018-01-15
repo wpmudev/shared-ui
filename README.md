@@ -4,7 +4,7 @@ For internal use in [WPMU DEV](https://wpmudev.org) plugins.
 
 ## Usage
 
-See [showcase](https://wpmudev.org).
+See [showcase](https://wpmudev.github.io/shared-ui/).
 
 ## Contributing
 Please read through our [contributing guidelines](https://github.com/wpmudev/shared-ui/blob/master/CONTRIBUTING.md).
