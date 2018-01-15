@@ -23,6 +23,9 @@
 		padding: 15px 30px;
 		display: flex;
 		align-items: center;
+		& > h3 > i {
+			line-height: 30px;
+		}
 	}
 
 	.sui-box-body {
@@ -221,9 +224,11 @@
 		display: block;
 		font-weight: $font--weight-bold;
 		font-size: 15px;
+		line-height: 30px;
 		font-family: $font;
 		margin-left: 0; // Left align with flex parent.
-		line-height: 1;
+		margin-top: 0;
+		margin-bottom: 0;
 		@include text-truncate;
 		padding-right: 1px; // Fixes right side clipping of text in some browsers from truncating text.
 
@@ -233,9 +238,12 @@
 
 		i {
 			margin-right: 10px;
+			display: block;
+			float: left;
 			&:before {
 				color: inherit;
 				font-size: 20px;
+				vertical-align: text-bottom;
 			}
 		}
 	}
