@@ -28,6 +28,7 @@
 			ul {
 				padding: 0;
 			}
+
 			li {
 				list-style: none;
 				margin-bottom: 6px;
@@ -45,6 +46,7 @@
 						border-radius: 20px;
 
 						a {
+							color: $sidenav-tab-active-color;
 							font-weight: 500;
 						}
 					}
@@ -56,10 +58,12 @@
 						left: 100%;
 						margin-left: -21px;
 					}
+
 					i {
 						top: -23px;
 						margin-left: -5px;
 					}
+
 					i:before {
 						font-size: 21px;
 						color: $sidenav-tab-icon-color;
@@ -70,10 +74,15 @@
 					color: $sidenav-tab-color;
 					display: block;
 					font-weight: 400;
+					transition: .3s;
+
+					&:hover,
+					&:focus {
+						color: $sidenav-tab-color-hover;
+					}
 				}
-
-
 			}
+
 			.sui-sidenav-hide-md {
 				@media (max-width: 1100px) {
 					display: none;
@@ -86,6 +95,7 @@
 				}
 			}
 		}
+
 		& .sui-box {
 			display: block;
 			position: relative;
@@ -96,5 +106,4 @@
 			}
 		}
 	}
-
 }
