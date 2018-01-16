@@ -24,12 +24,26 @@
 		$(this).wrap('<div class="sui-col-md-3 sui-col-sm-4"><button role="button" data-clipboard-text="&lt;i class=&quot;sui-icon-'+iconName+'&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" class="demo-icon"></button></div>').after('<span class="demo-icon-name"><span class="sui-screen-reader-text">Example of </span>'+iconName+'</span>');
 	});
 
+	// Clipboard for icons.
+	var btns = $('.demo-icon');
 	var clipboard = new Clipboard('.demo-icon');
 
-	clipboard.on('success', function (e) {
+	clipboard.on('success', function(e) {
 		console.info('Copied:', e.text);
-
+		showTooltip(e.trigger, 'Copied Icon!');
 		e.clearSelection();
 	});
+
+	btns.mouseleave(function() {
+		$(this).removeClass('sui-tooltip');
+		$(this).removeAttr('aria-label');
+		$(this).removeAttr('data-tooltip');
+	});
+
+	function showTooltip(e, msg) {
+		$(e).addClass('sui-tooltip');
+		$(e).attr('aria-label', msg);
+		$(e).attr('data-tooltip', msg);
+	}
 
 }(jQuery));
