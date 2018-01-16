@@ -10,7 +10,7 @@
 
 		function close_all_dropdowns($except)
 		{
-			var $dropdowns = $('.sui-dropdown');
+			var $dropdowns = $('SHARED_UI_VERSION .sui-dropdown');
 			if($except) {
 				$dropdowns = $dropdowns.not($except);
 			}

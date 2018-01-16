@@ -10,7 +10,11 @@ var gulp = require('gulp'),
 	cleanCSS = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
 	browserSync = require('browser-sync').create(),
-	autoprefixer = require('gulp-autoprefixer');
+	autoprefixer = require('gulp-autoprefixer'),
+	replace = require('gulp-replace'),
+	packageJson = require('./package.json'),
+	packageVersion = packageJson.version,
+	suiVersion = '.sui-' + packageVersion.replace(/\./g , "-");
 
 gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
@@ -26,6 +30,7 @@ gulp.task('styles', function () {
 gulp.task('scripts', function (cb) {
 	pump([
 			gulp.src('./js/*.js'),
+			replace('SHARED_UI_VERSION', suiVersion),
 			concat('shared-ui.js'),
 			gulp.dest('./dist/js/'),
 			uglify(),

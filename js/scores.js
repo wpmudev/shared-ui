@@ -19,7 +19,7 @@
 		$(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation','sui'+score+' 3s forwards');
 	}
 
-	$('.sui-circle-score').each(function () {
+	$('SHARED_UI_VERSION .sui-circle-score').each(function () {
 		loadCircleScore(this);
 	});
 

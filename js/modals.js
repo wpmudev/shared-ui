@@ -1,5 +1,4 @@
 (function ($) {
-	var version = 'sui-2-0-0-alpha-1';
 	
 	// Enable strict mode.
 	'use strict';
@@ -11,7 +10,7 @@
 
 
 	// Add event handlers to show overlay dialogs.
-	$("." + version).on("click", "a[rel=dialog]", showDialog);
+	$("SHARED_UI_VERSION").on("click", "a[rel=dialog]", showDialog);
 	function showDialog(ev) {
 		var el = $(this);
 		var args = {};
