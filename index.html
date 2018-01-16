@@ -13,6 +13,7 @@
 <nav id="adminmenu">
 	<ul>
 		<li><a href="#usage">Usage</a></li>
+		<li><a href="#header">Page Heading</a></li>
 		<li><a href="#boxes">Boxes</a></li>
 		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#buttons">Buttons</a></li>
@@ -54,7 +55,13 @@
 
 			<section id="usage">
 
-				<h1 class="demo-main-title">Shared UI</h1>
+
+				<div class="sui-header">
+					<h1>Shared UI</h1>
+					<div class="sui-actions-right">
+						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>&nbsp; GitHub Repository</a>
+					</div>
+				</div>
 
 				<div class="demo-info-block">
 					<h2>Usage</h2>
@@ -87,6 +94,38 @@ function plugin_body_classes( $classes ) {
 
 			</section>
 
+			<section id="header">
+				<div class="demo-info-block">
+					<h2>Page Heading</h2>
+					<p>Page Headings contain the h1 and have the options of actions left and right.</p>
+				</div>
+				<div class="sui-header">
+					<h1>Example Heading</h1>
+					<div class="sui-actions-left">
+						<label class="sui-toggle">
+							<input type="checkbox">
+							<span class="sui-toggle-slider"></span>
+						</label>
+					</div>
+					<div class="sui-actions-right">
+						<button class="sui-button sui-button-ghost"><i class="sui-icon-academy"></i>&nbsp; View Documentation</button>
+					</div>
+				</div>
+				<div class="demo-code-block">
+					<pre class="sui-code-snippet html">&lt;div class="sui-header"&gt;
+	&lt;h1&gt;Example Heading&lt;/h1&gt;
+	&lt;div class="sui-actions-left"&gt;
+		&lt;label class="sui-toggle"&gt;
+			&lt;input type="checkbox"&gt;
+			&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-actions-right"&gt;
+		&lt;button class="sui-button sui-button-ghost"&gt;&lt;i class="sui-icon-academy"&gt;&lt;/i&gt;&nbsp; View Documentation&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+			</section>
 			<section id="boxes">
 
 				<div class="demo-info-block">
