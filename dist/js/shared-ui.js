@@ -810,7 +810,25 @@ module.exports = E;
 		$(this).attr('id', id).after(button);
 	});
 
-	new Clipboard('[data-clipboard-target]');
+	var btns = $('[data-clipboard-target]');
+	var clipboard = new Clipboard('[data-clipboard-target]');
+
+	clipboard.on('success', function(e) {
+		e.clearSelection();
+		showTooltip(e.trigger, 'Copied!');
+	});
+
+	btns.mouseleave(function() {
+		$(this).removeClass('sui-tooltip');
+		$(this).removeAttr('aria-label');
+		$(this).removeAttr('data-tooltip');
+	});
+
+	function showTooltip(e, msg) {
+		$(e).addClass('sui-tooltip');
+		$(e).attr('aria-label', msg);
+		$(e).attr('data-tooltip', msg);
+	}
 
 }(jQuery));
 
