@@ -128,6 +128,53 @@ section:after {
 	height: 45px;
 }
 
+.demo-icons .demo-icon {
+	border-radius: 4px;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	line-height: 40px;
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #666;
+	width: 100%;
+	border: 0;
+	background-color: transparent;
+	font-size: inherit;
+	cursor: pointer;
+	outline: 0;
+}
+
+.demo-icon i {
+	width: 40px;
+	text-align: right;
+	color: #888;
+}
+
+.demo-icon-name {
+	padding-left: 15px;
+}
+
+.demo-icons .demo-icon:hover,
+.demo-icons .demo-icon:focus {
+	background-color: #fff;
+	-webkit-box-shadow: 0 2px 0 #eaeaea;
+	box-shadow: 0 2px 0 #eaeaea;
+}
+
+.demo-icons .demo-icon:hover .demo-icon-name,
+.demo-icons .demo-icon:focus .demo-icon-name {
+	color: #666;
+}
+
+.demo-icons .demo-icon:hover i:before,
+.demo-icons .demo-icon:focus i:before {
+	font-size: 30px;
+	vertical-align: -23%;
+}
+
 .demo-box {
 	background-color: #fff;
 	display: block;

@@ -14,10 +14,22 @@
 	window.setTimeout(offsetAnchor, 0);
 
 	// Initialize highlight js for demo code blocks.
-	$(document).ready(function () {
-		$('.demo-code-block .sui-code-snippet').each(function (i, block) {
-			hljs.highlightBlock(block);
-		});
+	$('.demo-code-block .sui-code-snippet').each(function (i, block) {
+		hljs.highlightBlock(block);
+	});
+
+	$('.demo-icons i').each(function(i, block) {
+		var classes = block.className.split(/\s+/);
+		var iconName = classes[0].replace("sui-icon-", "");
+		$(this).wrap('<div class="sui-col-md-3 sui-col-sm-4"><button role="button" data-clipboard-text="&lt;i class=&quot;sui-icon-'+iconName+'&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" class="demo-icon"></button></div>').after('<span class="demo-icon-name"><span class="sui-screen-reader-text">Example of </span>'+iconName+'</span>');
+	});
+
+	var clipboard = new Clipboard('.demo-icon');
+
+	clipboard.on('success', function (e) {
+		console.info('Copied:', e.text);
+
+		e.clearSelection();
 	});
 
 }(jQuery));
