@@ -12,9 +12,18 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync').create(),
 	autoprefixer = require('gulp-autoprefixer'),
 	replace = require('gulp-replace'),
-	packageJson = require('./package.json'),
-	packageVersion = packageJson.version,
-	suiVersion = '.sui-' + packageVersion.replace(/\./g , "-");
+	fs = require('fs');
+
+function getVersion() {
+	var json = JSON.parse(fs.readFileSync('./package.json'));
+	return json.version;
+}
+
+function getBodyClass(selector = true) {
+	var v = getVersion();
+	var p = selector ? '.' : '';
+	return `${p}sui-${v.replace(/\./g, "-")}`;
+}
 
 gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
@@ -30,12 +39,25 @@ gulp.task('styles', function () {
 gulp.task('scripts', function (cb) {
 	pump([
 			gulp.src('./js/*.js'),
-			replace('SHARED_UI_VERSION', suiVersion),
+			replace('SUI_BODY_CLASS', getBodyClass()),
 			concat('shared-ui.js'),
 			gulp.dest('./dist/js/'),
 			uglify(),
 			rename({ suffix: '.min' }),
 			gulp.dest('./dist/js/'),
+			browserSync.stream()
+		],
+		cb
+	);
+});
+
+gulp.task('showcase-scripts', function (cb) {
+	pump([
+			gulp.src('./showcase-assets/*.js'),
+			replace('SUI_VERSION', getVersion()),
+			uglify(),
+			rename({ suffix: '.min' }),
+			gulp.dest('./showcase-assets/dist/'),
 			browserSync.stream()
 		],
 		cb
@@ -52,9 +74,10 @@ gulp.task('browser-sync', function () {
 
 gulp.task('watch', function () {
 	gulp.watch('scss/**/*.scss', ['styles']);
-	gulp.watch('js/*.js', ['scripts']);
+	gulp.watch(['js/*.js', 'package.json'], ['scripts']);
+	gulp.watch(['showcase-assets/*.js', 'package.json'], ['showcase-scripts']);
 	gulp.watch("*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['styles', 'scripts', 'browser-sync', 'watch']);
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('default', ['styles', 'scripts', 'showcase-scripts', 'browser-sync', 'watch']);
+gulp.task('build', ['styles', 'scripts', 'showcase-scripts']);

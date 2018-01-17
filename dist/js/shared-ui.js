@@ -870,7 +870,7 @@ module.exports = E;
 }($));
 
 (function ($) {
-	
+
 	// Enable strict mode.
 	'use strict';
 
@@ -1124,9 +1124,6 @@ module.exports = E;
 		$(this).parent( '.sui-notice' ).stop().slideUp('slow');
 		return false;
 	});
-
-
-
 
 }(jQuery));
 
@@ -1505,7 +1502,7 @@ module.exports = E;
 
 	SUI.upload = function() {
 
-		$('.sui-upload-group input[type="file"]').on('change', function (e) {
+		$('.sui-2-0-0-alpha-1 .sui-upload-group input[type="file"]').on('change', function (e) {
 			var file = $(this)[0].files[0],
 				message = $(this).find('~ .sui-upload-message');
 

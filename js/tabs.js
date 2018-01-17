@@ -110,7 +110,7 @@
 	};
 
 	// Initialize all tab-areas.
-	$("SHARED_UI_VERSION .sui-tabs").each(function(){
+	$("SUI_BODY_CLASS .sui-tabs").each(function(){
 		suiTabs(this);
 	});
 

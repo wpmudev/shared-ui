@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	// Enable strict mode.
 	'use strict';
 
@@ -10,7 +10,7 @@
 
 
 	// Add event handlers to show overlay dialogs.
-	$("SHARED_UI_VERSION").on("click", "a[rel=dialog]", showDialog);
+	$("SUI_BODY_CLASS").on("click", "a[rel=dialog]", showDialog);
 	function showDialog(ev) {
 		var el = $(this);
 		var args = {};

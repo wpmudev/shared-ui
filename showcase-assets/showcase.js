@@ -1,5 +1,8 @@
 (function ($) {
 
+	// Add current version to heading from package.json.
+	$('.demo-sui-version').text('Version SUI_VERSION');
+
 	// Offset scroll for showcase sidenav.
 	function offsetAnchor() {
 		if (location.hash.length !== 0) {

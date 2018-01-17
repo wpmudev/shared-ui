@@ -157,7 +157,7 @@
 		return this;
 	};
 	// Convert all select lists to fancy sui Select lists.
-	$("SHARED_UI_VERSION select").each(function(){
+	$("SUI_BODY_CLASS select").each(function(){
 		suiSelect(this);
 	});
 
