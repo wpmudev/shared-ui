@@ -2213,7 +2213,6 @@ Header set Cache-Control "max-age=691200"
 							</div><!-- end content -->
 						</div><!-- end tab -->
 					</div>
-				</div>
 				<div class="demo-code-block">
 					<pre class="sui-code-snippet html">
 &lt;div class="sui-tabs"&gt;
@@ -3180,63 +3179,87 @@ Header set Cache-Control "max-age=691200"
 					</div>
 				</div><!-- end wphb-upgrade-membership-modal -->
 			</section>
-
-
-			<!--
-			  Dialog container related notes:
-			  - It is not the actual dialog window, just the container with which the script interacts.
-			  - It has to have the `aria-hidden="true"` attribute (if omitted, the script
-			  will add it on instantiation anyway).
-			  - It can have a different id than `my-accessible-dialog`, but it needs an `id`
-			  anyway.
-			-->
-			<div id="my-accessible-dialog" aria-hidden="true">
-
-				<!--
-			    Overlay related notes:
-			    - It has to have the `tabindex="-1"` attribute.
-			    - It doesn’t have to have the `data-a11y-dialog-hide` attribute, however this is recommended. It hides the dialog when clicking outside of it.
-			  -->
-				<div tabindex="-1" data-a11y-dialog-hide></div>
-
-				<!--
-			    Dialog window content related notes:
-			    - It is the actual visual dialog element.
-			    - It has to have the `role="dialog"` attribute.
-			    - It doesn’t have to have the `aria-labelledby` attribute however this is recommended. It should match the `id` of the dialog title.
-			    - It doesn’t have to have a direct child with the `role="document"`, however this is recommended.
-			  -->
-				<div role="dialog" aria-labelledby="dialog-title">
-					<div role="document">
-						<!--
-			        Closing button related notes:
-			        - It does have to have the `type="button"` attribute.
-			        - It does have to have the `data-a11y-dialog-hide` attribute.
-			        - It does have to have an aria-label attribute if you use an icon as content.
-			      -->
-						<button type="button" data-a11y-dialog-hide aria-label="Close this dialog window">
-							&times;
-						</button>
-
-						<!--
-			        Dialog title related notes:
-			        - It should have a different content than `Dialog Title`.
-			        - It can have a different id than `dialog-title`.
-			      -->
-						<h1 id="dialog-title">Dialog Title</h1>
-
-						<!--
-			        Here lives the main content of the dialog.
-			      -->
+			<section id="dialogs">
+				<div class="demo-info-block">
+					<h2>Dialogs</h2>
+					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>dialog.js</code> is required.</p>
 					</div>
 				</div>
-			</div>
 
 
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Open the dialog</button>
+					</div>
+				</div>
 
+			</section>
 		</div><!-- .wrap -->
-	</div><!-- #wpbody -->
-</div><!-- #wpcontent -->
+
+		<!--
+		  Dialog container related notes:
+		  - It is not the actual dialog window, just the container with which the script interacts.
+		  - It has to have the `aria-hidden="true"` attribute (if omitted, the script
+		  will add it on instantiation anyway).
+		  - It can have a different id than `my-accessible-dialog`, but it needs an `id`
+		  anyway.
+		-->
+		<div class="dialog sui-dialog" aria-hidden="true" id="my-accessible-dialog">
+			<div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+			<!--
+				Dialog window content related notes:
+				- It is the actual visual dialog element.
+				- It has to have the `role="dialog"` attribute.
+				- It doesn’t have to have the `aria-labelledby` attribute however this is recommended. It should match the `id` of the dialog title.
+				- It doesn’t have to have a direct child with the `role="document"`, however this is recommended.
+			 -->
+			<div class="dialog-content sui-modal-sm" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+				<div role="document">
+					<!--
+						Closing button related notes:
+						- It does have to have the `type="button"` attribute.
+						- It does have to have the `data-a11y-dialog-hide` attribute.
+						- It does have to have an aria-label attribute if you use an icon as content.
+					  -->
+					<button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">&times;</button>
+					<!--
+						Dialog title related notes:
+						- It should have a different content than `Dialog Title`.
+						- It can have a different id than `dialog-title`.
+					-->
+					<h3 id="dialogTitle">Subscribe to ESPI Newsletter</h3>
+					<!--
+						Here lives the main content of the dialog.
+					-->
+					<p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
+					<div class="sui-row">
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label for="dialog-text" class="sui-label">Text</label>
+								<input type="text" id="dialog-text" class="sui-form-control" placeholder="input type text">
+							</div>
+						</div>
+						<div class="sui-col">
+							<div class="sui-form-field">
+								<label for="dialog-text-2" class="sui-label">Text</label>
+								<input type="text" id="dialog-text-2" class="sui-form-control" placeholder="input type text">
+							</div>
+						</div>
+					</div>
+					<div class="sui-modal-footer sui-modal-footer-space-between">
+						<button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog">Cancel</button>
+						<div class="sui-modal-footer-right">
+							<button class="sui-modal-close sui-button sui-button-blue">Add</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- #wpbody -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>

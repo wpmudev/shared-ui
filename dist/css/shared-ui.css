@@ -6042,3 +6042,99 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   margin: 0;
   min-width: auto;
 }
+
+.sui-2-0-0-alpha-1 {
+  /* -------------------------------------------------------------------------- *	 * Necessary styling for the dialog to work
+	 * -------------------------------------------------------------------------- */
+  /* -------------------------------------------------------------------------- *	 * Styling to make the dialog look like a dialog
+	 * -------------------------------------------------------------------------- */
+  /* -------------------------------------------------------------------------- *	 * Extra dialog styling to make it shiny
+	 * -------------------------------------------------------------------------- */
+}
+
+.sui-2-0-0-alpha-1 .dialog[aria-hidden="true"] {
+  display: none;
+}
+
+.sui-2-0-0-alpha-1 .dialog-overlay {
+  z-index: 2;
+  position: fixed;
+  background-color: rgba(43, 46, 56, 0.9);
+  top: 32px;
+  left: 160px;
+  bottom: 0;
+  right: 0;
+}
+
+.sui-2-0-0-alpha-1 .dialog-content {
+  background-color: white;
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.sui-2-0-0-alpha-1 .dialog-content {
+  padding: 1em;
+  max-width: 90%;
+  width: 600px;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 700px) {
+  .sui-2-0-0-alpha-1 .dialog-content {
+    padding: 2em;
+  }
+}
+
+.sui-2-0-0-alpha-1 .dialog h1 {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+.sui-2-0-0-alpha-1 .dialog-close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.25em;
+  width: 1.2em;
+  height: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+@media screen and (min-width: 700px) {
+  .sui-2-0-0-alpha-1 .dialog-close {
+    top: 1em;
+    right: 1em;
+  }
+}
+
+.sui-2-0-0-alpha-1 .sui-fade-in {
+  -webkit-animation: fadeIn 0.3s ease-in;
+          animation: fadeIn 0.3s ease-in;
+}
+
+.sui-2-0-0-alpha-1 .sui-fade-out {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.sui-2-0-0-alpha-1 .sui-bounce-in {
+  -webkit-animation: bounce-in-jiggle 0.8s ease-in;
+          animation: bounce-in-jiggle 0.8s ease-in;
+}
+
+.sui-2-0-0-alpha-1 .sui-bounce-out {
+  -webkit-animation: bounce-out-jiggle 0.6s ease-out;
+          animation: bounce-out-jiggle 0.6s ease-out;
+}

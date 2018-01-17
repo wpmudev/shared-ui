@@ -1,0 +1,99 @@
+@include body-class {
+
+	/* -------------------------------------------------------------------------- *\
+	 * Necessary styling for the dialog to work
+	 * -------------------------------------------------------------------------- */
+
+	.dialog[aria-hidden="true"] {
+		display: none;
+	}
+
+	/* -------------------------------------------------------------------------- *\
+	 * Styling to make the dialog look like a dialog
+	 * -------------------------------------------------------------------------- */
+
+	.dialog-overlay {
+		z-index: 2;
+		position: fixed;
+		background-color: rgba(43, 46, 56, 0.9);
+		top: 32px;
+		left: 160px;
+		bottom: 0;
+		right: 0;
+	}
+
+	.dialog-content {
+		background-color: rgb(255, 255, 255);
+		z-index: 3;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	/* -------------------------------------------------------------------------- *\
+	 * Extra dialog styling to make it shiny
+	 * -------------------------------------------------------------------------- */
+
+	.dialog-content {
+		padding: 1em;
+		max-width: 90%;
+		width: 600px;
+		border-radius: 2px;
+	}
+
+	@media screen and (min-width: 700px) {
+		.dialog-content {
+			padding: 2em;
+		}
+	}
+
+
+	.dialog h1 {
+		margin: 0;
+		font-size: 1.25em;
+	}
+
+	.dialog-close {
+		position: absolute;
+		top: 0.5em;
+		right: 0.5em;
+		border: 0;
+		padding: 0;
+		background-color: transparent;
+		font-weight: bold;
+		font-size: 1.25em;
+		width: 1.2em;
+		height: 1.2em;
+		text-align: center;
+		cursor: pointer;
+		transition: 0.15s;
+	}
+
+	@media screen and (min-width: 700px) {
+		.dialog-close {
+			top: 1em;
+			right: 1em;
+		}
+	}
+
+	// Animations
+	.sui-fade-in {
+		animation: fadeIn 0.3s ease-in;
+	}
+
+	.sui-fade-out {
+		transition: opacity 0.5s ease-in-out;
+		opacity: 0;
+	}
+
+	.sui-bounce-in {
+		animation: bounce-in-jiggle 0.8s ease-in;
+	}
+
+	.sui-bounce-out {
+		animation: bounce-out-jiggle 0.6s ease-out;
+	}
+}
