@@ -1,3 +1,22 @@
+@include body-class {
+
+	.sui-fade-in {
+		animation: fadeIn 0.3s ease-in;
+	}
+
+	.sui-fade-out {
+		animation: fadeOut 0.3s ease-in;
+	}
+
+	.sui-bounce-in {
+		animation: bounceInJiggle 0.8s ease-in;
+	}
+
+	.sui-bounce-out {
+		animation: bounceOutJiggle 0.6s ease-out;
+	}
+}
+
 @keyframes bounceInDown {
 	from, 60%, 75%, 90%, to {
 		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -21,13 +40,22 @@
 	}
 }
 
-@keyframes bounce-in-jiggle {
+@keyframes bounceInJiggle {
 	0%   { transform: translateY(-200%) scale(1.5); opacity:0; }
 	30%  { opacity:1; }
 	58%  { transform: translateY(0) rotate(1deg) scale(1); opacity: 1 }
 	72%  { transform: translateY(-30px) rotate(-1deg); }
 	80%  { transform: translateY(0) rotate(0.5deg); }
 	100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes bounceOutJiggle {
+	0%   { transform: translateY(0); }
+	10%  { transform: translateY(-10px) rotate(-0.5deg); }
+	30%  { transform: translateY(20px) rotate(8deg); }
+	70%  { opacity: 1; }
+	90%  { transform: translateY(300%) translateX(40px) rotate(35deg); opacity: 0; }
+	100% { display: none; }
 }
 
 @keyframes bounceOut {
@@ -44,21 +72,21 @@
 	}
 }
 
-@keyframes bounce-out-jiggle {
-	0%   { transform: translateY(0); }
-	10%  { transform: translateY(-10px) rotate(-0.5deg); }
-	30%  { transform: translateY(20px) rotate(8deg); }
-	70%  { opacity: 1; }
-	90%  { transform: translateY(300%) translateX(40px) rotate(35deg); opacity: 0; }
-	100% { display: none; }
-}
-
 @keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
 	}
 }
 

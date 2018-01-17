@@ -9,27 +9,25 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
-		var mainEl = document.getElementById('wpbody');
+		var mainEl = $('.sui-wrap');
 
-		// Init the dialog elements
+		// Init the dialog elements.
 		$('.sui-dialog').each(function(){
 			var dialog = new window.A11yDialog(this, mainEl);
 
 			dialog.on('show', function () {
-				$('#' + dialog.node.id).find('.dialog-overlay').removeClass('sui-fade-out');
-				$('#' + dialog.node.id).find('.dialog-content').removeClass('sui-bounce-out');
-				$('#' + dialog.node.id).find('.dialog-overlay').addClass('sui-fade-in');
-				$('#' + dialog.node.id).find('.dialog-content').addClass('sui-bounce-in');
+				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-out');
+				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-out');
+				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-in');
+				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-in');
 
 			});
 			dialog.on('hide', function () {
-				$('#' + dialog.node.id).find('.dialog-overlay').removeClass('sui-fade-in');
-				$('#' + dialog.node.id).find('.dialog-content').removeClass('sui-bounce-in');
-				$('#' + dialog.node.id).find('.dialog-overlay').addClass('sui-fade-out');
-				$('#' + dialog.node.id).find('.dialog-content').addClass('sui-bounce-out');
+				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-in');
+				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-in');
+				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-out');
+				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-out');
 			});
 		});
-
 	});
-
 }($));
