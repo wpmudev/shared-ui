@@ -401,7 +401,7 @@
 
 (function ($) {
 
-	$('.sui-accordion-item').each(function () {
+	$('.sui-2-0-0-alpha-1 .sui-accordion-item').each(function () {
 
 		$('.sui-accordion-item').on('click', function () {
 			$(this).toggleClass('sui-accordion-item--open');
@@ -1203,7 +1203,7 @@ module.exports = E;
 });
 (function ($) {
 
-	$('.sui-code-snippet:not(.sui-no-copy)').each(function (i) {
+	$('.sui-2-0-0-alpha-1 .sui-code-snippet:not(.sui-no-copy)').each(function (i) {
 		var id = 'sui-code-snippet-' + i,
 			button = '<button class="sui-button" data-clipboard-target="#' + id + '">Copy</button>';
 
@@ -1281,7 +1281,7 @@ module.exports = E;
 
 		function close_all_dropdowns($except)
 		{
-			var $dropdowns = $('.sui-dropdown');
+			var $dropdowns = $('.sui-2-0-0-alpha-1 .sui-dropdown');
 			if($except) {
 				$dropdowns = $dropdowns.not($except);
 			}
@@ -1307,8 +1307,7 @@ module.exports = E;
 }($));
 
 (function ($) {
-	var version = 'sui-2-0-0-alpha-1';
-	
+
 	// Enable strict mode.
 	'use strict';
 
@@ -1319,7 +1318,7 @@ module.exports = E;
 
 
 	// Add event handlers to show overlay dialogs.
-	$("." + version).on("click", "a[rel=dialog]", showDialog);
+	$(".sui-2-0-0-alpha-1").on("click", "a[rel=dialog]", showDialog);
 	function showDialog(ev) {
 		var el = $(this);
 		var args = {};
@@ -1556,15 +1555,12 @@ module.exports = E;
 
 (function ($) {
 
-	$('.sui-notice-top:not(.sui-cant-dismiss)').delay(3000).slideUp('slow');
-	$( '.sui-notice-dismiss' ).click( function( e ) {
+	$('.sui-2-0-0-alpha-1 .sui-notice-top:not(.sui-cant-dismiss)').delay(3000).slideUp('slow');
+	$( '.sui-2-0-0-alpha-1 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 		$(this).parent( '.sui-notice' ).stop().slideUp('slow');
 		return false;
 	});
-
-
-
 
 }(jQuery));
 
@@ -1580,7 +1576,7 @@ module.exports = E;
 
 	SUI.showHidePassword = function() {
 
-		$(".sui-password-group").each(function () {
+		$(".sui-2-0-0-alpha-1 .sui-password-group").each(function () {
 			var $this = $(this),
 				$input = $this.find('input[type="password"]'),
 				$button = $this.find('.sui-password-toggle');
@@ -1640,7 +1636,7 @@ module.exports = E;
 		$(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation','sui'+score+' 3s forwards');
 	}
 
-	$('.sui-circle-score').each(function () {
+	$('.sui-2-0-0-alpha-1 .sui-circle-score').each(function () {
 		loadCircleScore(this);
 	});
 
@@ -1805,7 +1801,7 @@ module.exports = E;
 		return this;
 	};
 	// Convert all select lists to fancy sui Select lists.
-	$("select").each(function(){
+	$(".sui-2-0-0-alpha-1 select").each(function(){
 		suiSelect(this);
 	});
 
@@ -1924,7 +1920,7 @@ module.exports = E;
 	};
 
 	// Initialize all tab-areas.
-	$(".sui-tabs").each(function(){
+	$(".sui-2-0-0-alpha-1 .sui-tabs").each(function(){
 		suiTabs(this);
 	});
 
@@ -1943,7 +1939,7 @@ module.exports = E;
 
 	SUI.upload = function() {
 
-		$('.sui-upload-group input[type="file"]').on('change', function (e) {
+		$('.sui-2-0-0-alpha-1 .sui-upload-group input[type="file"]').on('change', function (e) {
 			var file = $(this)[0].files[0],
 				message = $(this).find('~ .sui-upload-message');
 

@@ -1,18 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
 	<title>Shared UI Showcase</title>
 	<link type="text/css" media="all" href="dist/css/shared-ui.min.css" rel="stylesheet">
 	<link type="text/css" media="all" href="showcase-assets/showcase.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body class="sui-2-0-0-alpha-1">
 
 <nav id="adminmenu">
 	<ul>
 		<li><a href="#usage">Usage</a></li>
+		<li><a href="#header">Page Heading</a></li>
 		<li><a href="#boxes">Boxes</a></li>
 		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#buttons">Buttons</a></li>
@@ -41,7 +44,9 @@
 
 <div id="wpcontent">
 
-	<div aria-hidden="true" id="wpadminbar" class=""></div>
+	<div aria-hidden="true" id="wpadminbar" class="">
+		<p class="demo-sui-version"></p>
+	</div>
 
 	<div id="wpbody" role="main">
 
@@ -54,7 +59,12 @@
 
 			<section id="usage">
 
-				<h1 class="demo-main-title">Shared UI</h1>
+				<div class="sui-header">
+					<h1>Shared UI</h1>
+					<div class="sui-actions-right">
+						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>&nbsp; GitHub Repository</a>
+					</div>
+				</div>
 
 				<div class="demo-info-block">
 					<h2>Usage</h2>
@@ -87,6 +97,38 @@ function plugin_body_classes( $classes ) {
 
 			</section>
 
+			<section id="header">
+				<div class="demo-info-block">
+					<h2>Page Heading</h2>
+					<p>Page Headings contain the h1 and have the options of actions left and right.</p>
+				</div>
+				<div class="sui-header">
+					<h1>Example Heading</h1>
+					<div class="sui-actions-left">
+						<label class="sui-toggle">
+							<input type="checkbox">
+							<span class="sui-toggle-slider"></span>
+						</label>
+					</div>
+					<div class="sui-actions-right">
+						<button class="sui-button sui-button-ghost"><i class="sui-icon-academy"></i>&nbsp; View Documentation</button>
+					</div>
+				</div>
+				<div class="demo-code-block">
+					<pre class="sui-code-snippet html">&lt;div class="sui-header"&gt;
+	&lt;h1&gt;Example Heading&lt;/h1&gt;
+	&lt;div class="sui-actions-left"&gt;
+		&lt;label class="sui-toggle"&gt;
+			&lt;input type="checkbox"&gt;
+			&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-actions-right"&gt;
+		&lt;button class="sui-button sui-button-ghost"&gt;&lt;i class="sui-icon-academy"&gt;&lt;/i&gt;&nbsp; View Documentation&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+			</section>
 			<section id="boxes">
 
 				<div class="demo-info-block">
@@ -3264,6 +3306,6 @@ Header set Cache-Control "max-age=691200"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="dist/js/shared-ui.min.js"></script>
-<script src="showcase-assets/showcase.js"></script>
+<script src="showcase-assets/dist/showcase.min.js"></script>
 </body>
 </html>
