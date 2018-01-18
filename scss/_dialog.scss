@@ -11,9 +11,66 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		left: 0;
+		left: 160px;
 		display: flex;
 		align-items: center;
+
+		// Modal sizes
+		&.sui-dialog-sm {
+			.sui-dialog-content {
+				max-width: 400px;
+				@media (max-width: 400px) {
+					max-width: 90%;
+				}
+			}
+			.sui-box-header {
+				border: none;
+				text-align: center;
+				display: block;
+				position: relative;
+
+				h3 {
+					margin-top: 30px;
+					margin-bottom: -30px;
+				}
+				.sui-dialog-close {
+					position: absolute;
+					right: 30px;
+					top: 30px;
+				}
+			}
+			.sui-box-body {
+				p {
+					font-size: 13px;
+					line-height: 22px;
+					text-align: center;
+				}
+			}
+
+			.sui-box-footer {
+				border: none;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		&.sui-dialog-lg {
+			.sui-dialog-content {
+				max-width: 980px;
+				@media (max-width: 1200px) {
+					max-width: 90%;
+				}
+			}
+		}
+		// Responsive
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
+
 	}
 
 	.sui-dialog-overlay {
@@ -23,7 +80,15 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		left: 0;
+		left: 160px;
+		// Responsive
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
 	}
 
 	.sui-dialog-content {

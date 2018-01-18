@@ -1257,11 +1257,15 @@ module.exports = E;
 				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-in');
 
 			});
-			dialog.on('hide', function () {
+			dialog.on('hide', function (dialogEl) {
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-in');
 				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-in');
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-out');
 				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-out');
+				dialogEl.setAttribute('aria-hidden', 'false');
+				window.setTimeout(function() {
+					dialogEl.setAttribute('aria-hidden', 'true');
+				}, 300);
 			});
 		});
 	});
