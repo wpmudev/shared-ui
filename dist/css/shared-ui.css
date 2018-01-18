@@ -84,23 +84,23 @@
 }
 
 .sui-2-0-0-alpha-1 .sui-fade-in {
-  -webkit-animation: fadeIn 0.3s ease-in;
-          animation: fadeIn 0.3s ease-in;
+  -webkit-animation: fadeIn 0.3s ease-in forwards;
+          animation: fadeIn 0.3s ease-in forwards;
 }
 
 .sui-2-0-0-alpha-1 .sui-fade-out {
-  -webkit-animation: fadeOut 0.3s ease-in;
-          animation: fadeOut 0.3s ease-in;
+  -webkit-animation: fadeOut 0.3s ease-in forwards;
+          animation: fadeOut 0.3s ease-in forwards;
 }
 
 .sui-2-0-0-alpha-1 .sui-bounce-in {
-  -webkit-animation: bounceInJiggle 0.8s ease-in;
-          animation: bounceInJiggle 0.8s ease-in;
+  -webkit-animation: bounceInJiggle 0.8s ease-in forwards;
+          animation: bounceInJiggle 0.8s ease-in forwards;
 }
 
 .sui-2-0-0-alpha-1 .sui-bounce-out {
-  -webkit-animation: bounceOutJiggle 0.6s ease-out;
-          animation: bounceOutJiggle 0.6s ease-out;
+  -webkit-animation: bounceOutJiggle 0.6s ease-out forwards;
+          animation: bounceOutJiggle 0.6s ease-out forwards;
 }
 
 @-webkit-keyframes bounceInDown {
@@ -5799,7 +5799,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   min-width: auto;
 }
 
-.sui-2-0-0-alpha-1 .sui-dialog[aria-hidden="true"] {
+.sui-2-0-0-alpha-1 .sui-dialog[data-sui-dialog-hidden="true"] {
   display: none;
 }
 
@@ -5835,7 +5835,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   position: relative;
 }
 
-.sui-2-0-0-alpha-1 .sui-dialog.sui-dialog-sm .sui-box-header h3 {
+.sui-2-0-0-alpha-1 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
   margin-top: 30px;
   margin-bottom: -30px;
 }
@@ -5887,7 +5887,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 .sui-2-0-0-alpha-1 .sui-dialog-overlay {
   position: fixed;
   z-index: 1;
-  background-color: rgba(43, 46, 56, 0.9);
+  background-color: rgba(51, 51, 51, 0.95);
   top: 0;
   right: 0;
   bottom: 0;
@@ -5915,8 +5915,8 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
 }
 
 .sui-2-0-0-alpha-1 .sui-dialog-content > .sui-box {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .sui-2-0-0-alpha-1 .sui-dialog-close {
@@ -5925,6 +5925,7 @@ fieldset[disabled] .sui-2-0-0-alpha-1 .sui-radio + span {
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  color: #AAAAAA;
 }
 
 .sui-2-0-0-alpha-1 .sui-dialog-close:before {
