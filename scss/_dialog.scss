@@ -1,0 +1,114 @@
+@include body-class {
+
+	// Necessary styling for the dialog to work.
+	.sui-dialog[aria-hidden="true"] {
+		display: none;
+	}
+
+	.sui-dialog {
+		position: fixed;
+		z-index: 100000; // On top of wpadminbar.
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 160px;
+		display: flex;
+		align-items: center;
+
+		// Modal sizes
+		&.sui-dialog-sm {
+			.sui-dialog-content {
+				max-width: 400px;
+				@media (max-width: 400px) {
+					max-width: 90%;
+				}
+			}
+			.sui-box-header {
+				border: none;
+				text-align: center;
+				display: block;
+				position: relative;
+
+				h3 {
+					margin-top: 30px;
+					margin-bottom: -30px;
+				}
+				.sui-dialog-close {
+					position: absolute;
+					right: 30px;
+					top: 30px;
+				}
+			}
+			.sui-box-body {
+				p {
+					font-size: 13px;
+					line-height: 22px;
+					text-align: center;
+				}
+			}
+
+			.sui-box-footer {
+				border: none;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		&.sui-dialog-lg {
+			.sui-dialog-content {
+				max-width: 980px;
+				@media (max-width: 1200px) {
+					max-width: 90%;
+				}
+			}
+		}
+		// Responsive
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
+
+	}
+
+	.sui-dialog-overlay {
+		position: fixed;
+		z-index: 1;
+		background-color: rgba(43, 46, 56, 0.9);
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 160px;
+		// Responsive
+		@media (max-width: 960px) {
+			left: 36px;
+		}
+
+		@media (max-width: 782px) {
+			left: 0;
+		}
+	}
+
+	.sui-dialog-content {
+		z-index: 2;
+		position: relative;
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+
+		> .sui-box {
+			box-shadow: none;
+		}
+	}
+
+	.sui-dialog-close {
+		font-size: 1.25em;
+		background-image: none;
+		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+		@include icon(before, 'close');
+	}
+}

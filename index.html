@@ -886,7 +886,7 @@ RewriteRule . /index.php [L]
 
 			</section>
 
-			<section id="modals">
+			<!-- <section id="modals">
 
 				<div class="demo-info-block">
 					<h2>Modals</h2>
@@ -1036,7 +1036,7 @@ RewriteRule . /index.php [L]
 		...
 	&lt;/div&gt;
 &lt;/dialog&gt;</pre>
-				</div>
+				</div> -->
 
 			</section>
 
@@ -2255,7 +2255,6 @@ Header set Cache-Control "max-age=691200"
 							</div><!-- end content -->
 						</div><!-- end tab -->
 					</div>
-				</div>
 				<div class="demo-code-block">
 					<pre class="sui-code-snippet html">
 &lt;div class="sui-tabs"&gt;
@@ -3176,7 +3175,7 @@ Header set Cache-Control "max-age=691200"
 						 alt="">
 				</div>
 				<div class="sui-footer">Made with <i aria-hidden="true" class="sui-icon-heart"></i> by WPMU DEV</div>
-				<div role="dialog" tabindex="-1" aria-labelledby="dialog-title" id="sui-upgrade-membership-modal" class="sui-modal">
+				<!-- <div role="dialog" tabindex="-1" aria-labelledby="dialog-title" id="sui-upgrade-membership-modal" class="sui-modal">
 					<div id="dialog-title" class="sui-dialog-content">
 						<h1>Upgrade Membership</h1>
 						<p>Here's what you'll get by upgrading to Hummingbird Pro.</p>
@@ -3220,10 +3219,148 @@ Header set Cache-Control "max-age=691200"
 								 alt="">
 						</div>
 					</div>
-				</div><!-- end wphb-upgrade-membership-modal -->
+				</div> -->
 			</section>
+			<section id="dialogs">
+				<div class="demo-info-block">
+					<h2>Dialogs</h2>
+					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>dialog.js</code> is required.</p>
+					</div>
+				</div>
 
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Normal</button>
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
+					</div>
+				</div>
+
+			</section>
 		</div><!-- .wrap -->
+
+
+
+		<div class="dialog sui-dialog" aria-hidden="true" id="my-accessible-dialog">
+
+			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+
+			<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+				<div class="sui-box" role="document">
+
+					<div class="sui-box-header">
+						<h3 class="sui-box-title" id="dialogTitle">Dialog Title</h3>
+						<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+					</div>
+
+					<div class="sui-box-body">
+						<p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label for="dialog-text-5" class="sui-label">Text</label>
+									<input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label for="dialog-text-6" class="sui-label">Text</label>
+									<input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="sui-box-footer">
+						<div class="sui-flex-child-right">
+							<button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog">Cancel</button>
+							<button class="sui-modal-close sui-button sui-button-blue">Add</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="dialog sui-dialog sui-dialog-sm" aria-hidden="true" id="my-accessible-dialog-small">
+
+			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+
+			<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+				<div class="sui-box" role="document">
+
+					<div class="sui-box-header">
+						<h3 class="sui-box-title" id="dialogTitle2">Dialog Title</h3>
+						<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+					</div>
+
+					<div class="sui-box-body">
+						<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
+						<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
+					</div>
+
+					<div class="sui-box-footer">
+						<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Got it</button>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="dialog sui-dialog sui-dialog-lg" aria-hidden="true" id="my-accessible-dialog-large">
+
+			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+
+			<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+				<div class="sui-box" role="document">
+
+					<div class="sui-box-header">
+						<h3 class="sui-box-title" id="dialogTitle1">Dialog Title</h3>
+						<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+					</div>
+
+					<div class="sui-box-body">
+						<div class="sui-row">
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label for="dialog-text-56" class="sui-label">Text</label>
+									<input type="text" id="dialog-text-56" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+							<div class="sui-col">
+								<div class="sui-form-field">
+									<label for="dialog-text-6" class="sui-label">Text</label>
+									<input type="text" id="dialog-text-66" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="sui-box-footer">
+						<div class="sui-flex-child-right">
+							<button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-large">Cancel</button>
+							<button class="sui-modal-close sui-button sui-button-blue">Add</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
 	</div><!-- #wpbody -->
 </div><!-- #wpcontent -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
