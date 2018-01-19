@@ -23,7 +23,6 @@
 		<li><a href="#grid">Grid</a></li>
 		<li><a href="#progress-bars">Progress Bars</a></li>
 		<li><a href="#upsells">Upsells</a></li>
-		<li><a href="#modals">Modals</a></li>
 		<li><a href="#tables">Tables</a></li>
 		<li><a href="#accordions">Accordions</a></li>
 		<li><a href="#scores">Scores</a></li>
@@ -38,6 +37,7 @@
 		<li><a href="#typography">Typography</a></li>
 		<li><a href="#toggles">Toggles</a></li>
 		<li><a href="#icons">Icons</a></li>
+		<li><a href="#modals">Modals</a></li>
 		<li><a href="#footer">Footer</a></li>
 	</ul>
 </nav>
@@ -2986,6 +2986,26 @@ Header set Cache-Control "max-age=691200"
 
 			</section>
 
+			<section id="modals">
+
+				<div class="demo-info-block">
+					<h2>Dialogs</h2>
+					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>If you are using individual js components, <code>dialog.js</code> is required.</p>
+					</div>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Default</button>
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
+					</div>
+				</div>
+
+			</section>
+
 			<section id="footer">
 
 				<div class="demo-info-block">
@@ -3221,30 +3241,12 @@ Header set Cache-Control "max-age=691200"
 					</div>
 				</div> -->
 			</section>
-			<section id="dialogs">
-				<div class="demo-info-block">
-					<h2>Dialogs</h2>
-					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
-					<div class="sui-notice sui-notice-warning">
-						<p>If you are using individual js components, <code>dialog.js</code> is required.</p>
-					</div>
-				</div>
 
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Normal</button>
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
-					</div>
-				</div>
-
-			</section>
 		</div><!-- .wrap -->
 
+		<!-- Begin Modals -->
 
-
-		<div class="dialog sui-dialog" aria-hidden="true" id="my-accessible-dialog">
+		<div class="dialog sui-dialog" data-sui-dialog-hidden="true" aria-hidden="true" id="my-accessible-dialog">
 
 			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
 
@@ -3288,7 +3290,7 @@ Header set Cache-Control "max-age=691200"
 
 		</div>
 
-		<div class="dialog sui-dialog sui-dialog-sm" aria-hidden="true" id="my-accessible-dialog-small">
+		<div class="dialog sui-dialog sui-dialog-sm" data-sui-dialog-hidden="true" aria-hidden="true" id="my-accessible-dialog-small">
 
 			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
 
@@ -3316,7 +3318,7 @@ Header set Cache-Control "max-age=691200"
 
 		</div>
 
-		<div class="dialog sui-dialog sui-dialog-lg" aria-hidden="true" id="my-accessible-dialog-large">
+		<div class="dialog sui-dialog sui-dialog-lg" data-sui-dialog-hidden="true" aria-hidden="true" id="my-accessible-dialog-large">
 
 			<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
 
@@ -3359,7 +3361,7 @@ Header set Cache-Control "max-age=691200"
 
 		</div>
 
-
+		<!-- End Modals -->
 
 	</div><!-- #wpbody -->
 </div><!-- #wpcontent -->

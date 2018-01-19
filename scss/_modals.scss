@@ -1,7 +1,7 @@
 @include body-class {
 
 	// Necessary styling for the dialog to work.
-	.sui-dialog[aria-hidden="true"] {
+	.sui-dialog[data-sui-dialog-hidden="true"] {
 		display: none;
 	}
 
@@ -19,26 +19,30 @@
 		&.sui-dialog-sm {
 			.sui-dialog-content {
 				max-width: 400px;
+
 				@media (max-width: 400px) {
 					max-width: 90%;
 				}
 			}
+
 			.sui-box-header {
 				border: none;
 				text-align: center;
 				display: block;
 				position: relative;
 
-				h3 {
+				.sui-box-title {
 					margin-top: 30px;
 					margin-bottom: -30px;
 				}
+
 				.sui-dialog-close {
 					position: absolute;
 					right: 30px;
 					top: 30px;
 				}
 			}
+
 			.sui-box-body {
 				p {
 					font-size: 13px;
@@ -57,11 +61,13 @@
 		&.sui-dialog-lg {
 			.sui-dialog-content {
 				max-width: 980px;
+
 				@media (max-width: 1200px) {
 					max-width: 90%;
 				}
 			}
 		}
+
 		// Responsive
 		@media (max-width: 960px) {
 			left: 36px;
@@ -70,17 +76,17 @@
 		@media (max-width: 782px) {
 			left: 0;
 		}
-
 	}
 
 	.sui-dialog-overlay {
 		position: fixed;
 		z-index: 1;
-		background-color: rgba(43, 46, 56, 0.9);
+		background-color: $modal-overlay-bg-color;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 160px;
+
 		// Responsive
 		@media (max-width: 960px) {
 			left: 36px;
@@ -99,7 +105,7 @@
 		margin: 0 auto;
 
 		> .sui-box {
-			box-shadow: none;
+			box-shadow: 0 10px 40px $modal-box-shadow-color;
 		}
 	}
 
@@ -109,6 +115,7 @@
 		background-color: transparent;
 		border: 0;
 		cursor: pointer;
+		color: $modal-close-color;
 		@include icon(before, 'close');
 	}
 }
