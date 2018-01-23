@@ -85,10 +85,10 @@ npm install @wpmudev/shared-ui</pre>
 
 				<div class="demo-code-block">
 <pre class="sui-code-snippet php">
-add_filter( 'body_class', 'plugin_body_classes' );
-function plugin_body_classes( $classes ) {
+add_filter( 'admin_body_class', 'admin_body_classes' );
+function admin_body_classes( $classes ) {
 
-	$classes[] = 'sui-2-0-0';
+	$classes .= ' sui-2-0-0 ';
 
 	return $classes;
 
