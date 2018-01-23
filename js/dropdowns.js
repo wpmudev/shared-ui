@@ -33,4 +33,4 @@
 		});
 	};
 	SUI.link_dropdown();
-}($));
+}(jQuery));

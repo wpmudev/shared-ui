@@ -1213,7 +1213,6 @@ module.exports = E;
 
 	var btns = $('[data-clipboard-target]');
 	if ( btns.length ) {
-		console.log(btns);
 		var clipboard = new Clipboard('[data-clipboard-target]');
 
 		clipboard.on('success', function (e) {
@@ -1271,7 +1270,7 @@ module.exports = E;
 		});
 	};
 	SUI.link_dropdown();
-}($));
+}(jQuery));
 
 (function ($) {
 
@@ -1311,7 +1310,7 @@ module.exports = E;
 			});
 		});
 	});
-}($));
+}(jQuery));
 
 (function ($) {
 
@@ -1566,7 +1565,7 @@ module.exports = E;
 	});
 
 
-}($));
+}(jQuery));
 
 (function ($) {
 	suiTabs = function(el) {
@@ -1685,7 +1684,7 @@ module.exports = E;
 	});
 
 
-}($));
+}(jQuery));
 
 (function ($) {
 

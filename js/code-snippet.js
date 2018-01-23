@@ -10,7 +10,6 @@
 
 	var btns = $('[data-clipboard-target]');
 	if ( btns.length ) {
-		console.log(btns);
 		var clipboard = new Clipboard('[data-clipboard-target]');
 
 		clipboard.on('success', function (e) {
