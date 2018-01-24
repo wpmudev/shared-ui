@@ -227,17 +227,24 @@
 
 		&:disabled,
 		&[disabled],
-		&.disabled,
-		&.disabled:hover,
-		&.disabled:focus {
+		&.disabled {
 			color: $button-disabled-color;
 			border-color: $button-disabled-border-color;
 			background: $button-disabled-bg-color;
 			box-shadow: none;
-			text-shadow: 0 1px 0 $white;
 			cursor: default;
 			-webkit-transform: none;
 			transform: none;
+			&:hover,
+			&:focus {
+				color: $button-disabled-color;
+				border-color: $button-disabled-border-color;
+				background: $button-disabled-bg-color;
+				box-shadow: none;
+				cursor: default;
+				-webkit-transform: none;
+				transform: none;
+			}
 		}
 
 		&:last-child {
