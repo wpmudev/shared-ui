@@ -1415,14 +1415,13 @@ module.exports = E;
 			jq.hide();
 
 			wrap = jq.parent();
-			handle = $("<span class='dropdown-handle'><i class='sui-ico-arrow-down-carats'></i></span>").prependTo(wrap);
+			handle = $("<span class='dropdown-handle'><i class='sui-icon-chevron-down' aria-hidden='true'></i></span>").prependTo(wrap);
 			list = $("<div class='select-list-container'></div>").appendTo(wrap);
 			value = $("<div class='list-value'>&nbsp;</div>").appendTo(list);
 			items = $("<ul class='list-results'></ul>").appendTo(list);
 
 			wrap.addClass(jq.attr("class"));
 		}
-
 		// When changing selection using JS, you need to trigger a 'sui:change' event
 		// eg: $('select').val('4').trigger('sui:change')
 		function handleSelectionChange() {
