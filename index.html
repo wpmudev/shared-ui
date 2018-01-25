@@ -60,7 +60,7 @@
 			<section id="usage">
 
 				<div class="sui-header">
-					<h1>Shared UI</h1>
+					<h1 class="sui-header-title">Shared UI</h1>
 					<div class="sui-actions-right">
 						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>&nbsp; GitHub Repository</a>
 					</div>
@@ -103,7 +103,7 @@ function admin_body_classes( $classes ) {
 					<p>Page Headings contain the h1 and have the options of actions left and right.</p>
 				</div>
 				<div class="sui-header">
-					<h1>Example Heading</h1>
+					<h1 class="sui-header-title">Example Heading</h1>
 					<div class="sui-actions-left">
 						<label class="sui-toggle">
 							<input type="checkbox">
@@ -116,7 +116,7 @@ function admin_body_classes( $classes ) {
 				</div>
 				<div class="demo-code-block">
 					<pre class="sui-code-snippet html">&lt;div class="sui-header"&gt;
-	&lt;h1&gt;Example Heading&lt;/h1&gt;
+	&lt;h1 class="sui-header-title"&gt;Example Heading&lt;/h1&gt;
 	&lt;div class="sui-actions-left"&gt;
 		&lt;label class="sui-toggle"&gt;
 			&lt;input type="checkbox"&gt;
@@ -183,8 +183,13 @@ function admin_body_classes( $classes ) {
 
 				<div class="sui-box">
 					<div class="sui-box-header">
-						<h3 class="sui-box-title"><i class="sui-icon-icon-hummingbird" aria-hidden="true"></i>Box Title</h3>
-						<button class="sui-button">Default Button</button>
+						<h3 class="sui-box-title"><i class="sui-icon-hummingbird" aria-hidden="true"></i>Box Title</h3>
+						<div class="sui-actions-left">
+							<span class="sui-tag sui-tag-warning">+1</span>
+						</div>
+						<div class="sui-actions-right">
+							<button class="sui-button">Default Button</button>
+						</div>
 					</div>
 					<div class="sui-box-body">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio? Post enim Chrysippum
@@ -200,8 +205,13 @@ function admin_body_classes( $classes ) {
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-box&quot;&gt;
 	&lt;div class=&quot;sui-box-header&quot;&gt;
-		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-icon-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Box Title&lt;/h3&gt;
-		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Box Title&lt;/h3&gt;
+		&lt;div class=&quot;sui-actions-left&quot;&gt;
+			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;+1&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sui-actions-right&quot;&gt;
+			&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;sui-box-body&quot;&gt;
 		...

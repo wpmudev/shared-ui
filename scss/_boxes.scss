@@ -23,6 +23,7 @@
 		padding: 15px 30px;
 		display: flex;
 		align-items: center;
+
 		& > h3 > i {
 			line-height: 30px;
 		}
@@ -191,7 +192,6 @@
 						border-bottom: 7px solid transparent;
 						border-right: 7px solid $box-upsell-p-bg-color;
 
-
 						@include media(max-width, md) {
 							display: none;
 						}
@@ -226,11 +226,8 @@
 		font-size: 15px;
 		line-height: 30px;
 		font-family: $font;
-		margin-left: 0; // Left align with flex parent.
-		margin-top: 0;
-		margin-bottom: 0;
+		margin: 0;
 		@include text-truncate;
-		padding-right: 1px; // Fixes right side clipping of text in some browsers from truncating text.
 
 		* {
 			vertical-align: middle;
