@@ -28,6 +28,7 @@ function getBodyClass(selector = true) {
 gulp.task('styles', function () {
 	gulp.src('./scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+		.pipe(replace('SUI_BODY_CLASS', getBodyClass()))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(cleanCSS())
