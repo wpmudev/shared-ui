@@ -14,20 +14,35 @@ var gulp = require('gulp'),
 	replace = require('gulp-replace'),
 	fs = require('fs');
 
+/**
+ * Get the latest project version from package.json.
+ *
+ * @return {string} version
+ */
 function getVersion() {
 	var json = JSON.parse(fs.readFileSync('./package.json'));
 	return json.version;
+
 }
 
+/**
+ * Get the latest project version from package.json in the form of a CSS class.
+ *
+ * @param {boolean} selector - prepends a `.` to the body class
+ * @return {string} body class
+ */
 function getBodyClass(selector = true) {
-	var v = getVersion();
-	var p = selector ? '.' : '';
+	var v = getVersion(),
+		p = selector ? '.' : '';
+
 	return `${p}sui-${v.replace(/\./g, "-")}`;
 }
 
-gulp.task('styles', function () {
+// Build the Shared UI styles.
+gulp.task('styles:sui', function () {
 	gulp.src('./scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+		.pipe(replace('SUI_BODY_CLASS', getBodyClass()))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(cleanCSS())
@@ -36,7 +51,8 @@ gulp.task('styles', function () {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('scripts', function (cb) {
+// Build the Shared UI scripts.
+gulp.task('scripts:sui', function (cb) {
 	pump([
 			gulp.src('./js/*.js'),
 			replace('SUI_BODY_CLASS', getBodyClass()),
@@ -51,33 +67,87 @@ gulp.task('scripts', function (cb) {
 	);
 });
 
-gulp.task('showcase-scripts', function (cb) {
+// Build the showcase styles.
+gulp.task('styles:showcase', function () {
+	gulp.src('./showcase-assets/**/*.scss')
+		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+		.pipe(autoprefixer('last 2 version', '> 1%'))
+		.pipe(gulp.dest('./showcase-assets/build/css'))
+		.pipe(cleanCSS())
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(gulp.dest('./showcase-assets/build/'))
+		.pipe(browserSync.stream());
+});
+
+// Build the showcase scripts.
+gulp.task('scripts:showcase', function (cb) {
 	pump([
 			gulp.src('./showcase-assets/*.js'),
 			replace('SUI_VERSION', getVersion()),
 			uglify(),
 			rename({ suffix: '.min' }),
-			gulp.dest('./showcase-assets/dist/'),
+			gulp.dest('./showcase-assets/build/'),
 			browserSync.stream()
 		],
 		cb
 	);
 });
 
+// Initialize BrowserSync server.
 gulp.task('browser-sync', function () {
 	browserSync.init({
 		server: {
-			baseDir: "./"
+			baseDir: './'
 		}
 	});
 });
 
+
+// Watch for changes across project.
 gulp.task('watch', function () {
-	gulp.watch('scss/**/*.scss', ['styles']);
-	gulp.watch(['js/*.js', 'package.json'], ['scripts']);
-	gulp.watch(['showcase-assets/*.js', 'package.json'], ['showcase-scripts']);
+
+	// Watch for SUI styling changes.
+	gulp.watch('scss/**/*.scss', ['styles:sui']);
+
+	// Watch for showcase styling changes.
+	gulp.watch('showcase-assets/*.scss', ['styles:showcase']);
+
+	// Watch for SUI js changes.
+	gulp.watch('js/*.js', ['scripts:sui']);
+
+	// Watch for showcase js changes.
+	gulp.watch('showcase-assets/*.js', ['scripts:showcase']);
+
+	// Watch for package.json changes.
+	gulp.watch('package.json', ['build']);
+
+	// Watch for HTML changes.
 	gulp.watch("*.html").on('change', browserSync.reload);
+
 });
 
-gulp.task('default', ['styles', 'scripts', 'showcase-scripts', 'browser-sync', 'watch']);
-gulp.task('build', ['styles', 'scripts', 'showcase-scripts']);
+// Build all Shared UI files.
+gulp.task('build:sui', [
+	'styles:sui',
+	'scripts:sui'
+]);
+
+// Build all Showcase files.
+gulp.task('build:showcase', [
+	'styles:showcase',
+	'scripts:showcase'
+]);
+
+// Build everything.
+gulp.task('build', [
+	'build:sui',
+	'build:showcase'
+]);
+
+// Start development environment.
+gulp.task('dev', [
+	'build:sui',
+	'build:showcase',
+	'browser-sync',
+	'watch'
+]);
