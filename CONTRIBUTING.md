@@ -26,7 +26,6 @@ In order to avoid conflicts with other versions of this library, we are using a 
 When updating the shared-ui library be sure to update version/body-class in the following locations and then build:
 
 + `package.json`
-+ `scss/_variables.scss`
 + `index.html` (in the format .sui-x-x-x)
 
 ## Workflow
