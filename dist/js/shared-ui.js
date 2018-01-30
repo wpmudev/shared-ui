@@ -401,12 +401,23 @@
 
 (function ($) {
 
-	$('.sui-2-0-0-alpha-2 .sui-accordion-item').each(function () {
 
-		$('.sui-accordion-item').on('click', function () {
-			$(this).toggleClass('sui-accordion-item--open');
-		});
+	var accordionTable = $(".sui-2-0-0-alpha-2 .sui-accordion");
 
+	accordionTable.off('click', 'button');
+	accordionTable.on('click', '.sui-accordion-item', function (e) {
+		e.preventDefault();
+
+		var getParentItem = $(this).closest(".sui-accordion-item"),
+			getNextAdditionalContentRow = getParentItem.nextUntil(".sui-accordion-item");
+
+		getNextAdditionalContentRow.toggleClass("sui-accordion-item--open");
+
+		if (getNextAdditionalContentRow.hasClass("sui-accordion-item--open")) {
+			getParentItem.addClass("sui-accordion-item--open");
+		} else {
+			getParentItem.removeClass("sui-accordion-item--open");
+		}
 	});
 
 }(jQuery));
