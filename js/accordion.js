@@ -3,9 +3,7 @@
 
 	var accordionTable = $("SUI_BODY_CLASS .sui-accordion");
 
-	accordionTable.off('click', 'button');
-	accordionTable.on('click', '.sui-accordion-item', function (e) {
-		e.preventDefault();
+	accordionTable.on('click', '.sui-accordion-item', function () {
 
 		var getParentItem = $(this).closest(".sui-accordion-item"),
 			getNextAdditionalContentRow = getParentItem.nextUntil(".sui-accordion-item");
