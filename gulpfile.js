@@ -72,7 +72,6 @@ gulp.task('styles:showcase', function () {
 	gulp.src('./showcase-assets/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 version', '> 1%'))
-		.pipe(gulp.dest('./showcase-assets/build/css'))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./showcase-assets/build/'))

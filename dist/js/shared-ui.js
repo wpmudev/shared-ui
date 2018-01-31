@@ -1324,9 +1324,9 @@ module.exports = E;
 (function ($) {
 
 	$('.sui-2-0-0-alpha-3 .sui-notice-top:not(.sui-cant-dismiss)').delay(3000).slideUp('slow');
-	$( '.sui-2-0-0-alpha-3 .sui-notice-dismiss' ).click( function( e ) {
+	$('.sui-2-0-0-alpha-3 .sui-notice-dismiss').click( function(e) {
 		e.preventDefault();
-		$(this).parent( '.sui-notice' ).stop().slideUp('slow');
+		$(this).parent('.sui-notice').stop().slideUp('slow');
 		return false;
 	});
 
