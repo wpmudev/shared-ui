@@ -16,7 +16,6 @@
 			var dialog = new window.A11yDialog(this, mainEl);
 
 			dialog.on('show', function (dialogEl) {
-				dialogEl.setAttribute('data-sui-dialog-hidden', 'false');
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-out');
 				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-out');
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-in');
@@ -26,12 +25,13 @@
 				$(dialogEl).find('.sui-dialog-close').focus();
 			});
 			dialog.on('hide', function (dialogEl) {
+				dialogEl.setAttribute('aria-hidden', 'false');
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-in');
 				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-in');
 				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-out');
 				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-out');
 				window.setTimeout(function() {
-					dialogEl.setAttribute('data-sui-dialog-hidden', 'true');
+					dialogEl.setAttribute('aria-hidden', 'true');
 				}, 300);
 			});
 		});
