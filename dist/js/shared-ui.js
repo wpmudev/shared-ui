@@ -1600,11 +1600,9 @@ module.exports = E;
 		function updateHash() {
 			var current = jq.find('.sui-tab > input:checked');
 
+			jq.find('.sui-tab label.active').removeClass('active');
 			current.parent().find('label').addClass( 'active' );
 
-			if (current.attr('id').length) {
-				self.updateHash(current.attr('id'));
-			}
 			resizeArea();
 		}
 
@@ -1653,37 +1651,6 @@ module.exports = E;
 		});
 
 		return this;
-	};
-
-	updateHash = function(newHash) {
-		newHash = newHash.replace( /^#/, '' );
-
-		var fx,
-			node = $( '#' + newHash );
-
-		if (node.length) {
-			// Remove the ID value from the actual element.
-			node.attr('id', '');
-
-			// Create a dummy element at current position with the specific ID.
-			fx = $('<div></div>')
-				.css({
-					position: 'absolute',
-					visibility: 'hidden',
-					top: $(document).scrollTop() - 62 + 'px'
-				})
-				.attr('id', newHash)
-				.appendTo(document.body);
-		}
-
-		// Change hash value in the URL. Browser will scroll to _current position_.
-		document.location.hash = newHash;
-
-		// Undo the changes from first part.
-		if (node.length) {
-			fx.remove();
-			node.attr('id', newHash);
-		}
 	};
 
 	// Initialize all tab-areas.
