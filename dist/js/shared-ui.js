@@ -1232,7 +1232,6 @@ module.exports = E;
 
 ( function( $ ) {
 
-
 	$( '.sui-2-0-0-alpha-4 .sui-code-snippet:not(.sui-no-copy)' ).each( function( i ) {
 		var id = 'sui-code-snippet-' + i,
 			button = '<button class="sui-button" data-clipboard-target="#' + id + '">Copy</button>';
@@ -1433,6 +1432,7 @@ module.exports = E;
 }( jQuery ) );
 
 ( function( $ ) {
+
 	suiSelect = function( el ) {
 		var jq = $( el ),
 			wrap, handle, list, value, items;
@@ -1440,6 +1440,7 @@ module.exports = E;
 		if ( ! jq.is( 'select' ) ) {
 			return;
 		}
+
 		if ( jq.closest( '.select-container' ).length || jq.data( 'select2' ) || jq.is( '.none-sui' ) ) {
 			return;
 		}
@@ -1530,6 +1531,7 @@ module.exports = E;
 			if ( ! item ) {
 				item = wrap;
 			}
+
 			item.removeClass( 'active' );
 			item.closest( 'tr' ).removeClass( 'select-open' );
 		}
@@ -1539,6 +1541,7 @@ module.exports = E;
 			$( '.select-container.active' ).each( function() {
 				stateClose( $( this ) );
 			});
+
 			wrap.addClass( 'active' );
 			wrap.closest( 'tr' ).addClass( 'select-open' );
 		}
@@ -1597,9 +1600,11 @@ module.exports = E;
 			});
 
 			selectID = jq.attr( 'id' );
+
 			if ( selectID ) {
 				$( 'label[for=' + selectID + ']' ).on( 'click', stateOpen );
 			}
+
 			jq.addClass( 'sui-styled' );
 		}
 
@@ -1616,6 +1621,7 @@ module.exports = E;
 }( jQuery ) );
 
 ( function( $ ) {
+
 	suiTabs = function( el ) {
 		var jq = $( el ).closest( '.sui-tabs' );
 

@@ -1,4 +1,5 @@
 ( function( $ ) {
+
 	suiSelect = function( el ) {
 		var jq = $( el ),
 			wrap, handle, list, value, items;
@@ -6,6 +7,7 @@
 		if ( ! jq.is( 'select' ) ) {
 			return;
 		}
+
 		if ( jq.closest( '.select-container' ).length || jq.data( 'select2' ) || jq.is( '.none-sui' ) ) {
 			return;
 		}
@@ -96,6 +98,7 @@
 			if ( ! item ) {
 				item = wrap;
 			}
+
 			item.removeClass( 'active' );
 			item.closest( 'tr' ).removeClass( 'select-open' );
 		}
@@ -105,6 +108,7 @@
 			$( '.select-container.active' ).each( function() {
 				stateClose( $( this ) );
 			});
+
 			wrap.addClass( 'active' );
 			wrap.closest( 'tr' ).addClass( 'select-open' );
 		}
@@ -163,9 +167,11 @@
 			});
 
 			selectID = jq.attr( 'id' );
+
 			if ( selectID ) {
 				$( 'label[for=' + selectID + ']' ).on( 'click', stateOpen );
 			}
+
 			jq.addClass( 'sui-styled' );
 		}
 

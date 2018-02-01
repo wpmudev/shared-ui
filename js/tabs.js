@@ -1,4 +1,5 @@
 ( function( $ ) {
+
 	suiTabs = function( el ) {
 		var jq = $( el ).closest( '.sui-tabs' );
 
