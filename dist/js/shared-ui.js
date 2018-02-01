@@ -1400,7 +1400,7 @@ module.exports = E;
 
 		});
 
-	}
+	};
 
 	SUI.showHidePassword();
 
