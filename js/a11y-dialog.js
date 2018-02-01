@@ -83,6 +83,11 @@
       return this;
     }
 
+    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
+    var content = this.node.getElementsByClassName('sui-dialog-content');
+    content[0].className = 'sui-dialog-content sui-bounce-in';
+    overlay[0].className = 'sui-dialog-overlay sui-fade-in';
+
     this.shown = true;
     this.node.removeAttribute('aria-hidden');
 
@@ -131,8 +136,21 @@
       return this;
     }
 
+
+    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
+
+    var content = this.node.getElementsByClassName('sui-dialog-content');
+
+    content[0].className = 'sui-dialog-content sui-bounce-out';
+
+    overlay[0].className = 'sui-dialog-overlay sui-fade-out';
+
     this.shown = false;
-    this.node.setAttribute('aria-hidden', 'true');
+    // This has been set so there is enough time for the animation to show
+    var timeout_node = this.node;
+    setTimeout(function () {
+		timeout_node.setAttribute('aria-hidden', 'true');
+	}, 300);
 
     // Iterate over the targets to enable them by remove their `aria-hidden`
     // attribute or resetting them to their initial value

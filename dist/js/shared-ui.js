@@ -83,6 +83,11 @@
       return this;
     }
 
+    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
+    var content = this.node.getElementsByClassName('sui-dialog-content');
+    content[0].className = 'sui-dialog-content sui-bounce-in';
+    overlay[0].className = 'sui-dialog-overlay sui-fade-in';
+
     this.shown = true;
     this.node.removeAttribute('aria-hidden');
 
@@ -131,8 +136,21 @@
       return this;
     }
 
+
+    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
+
+    var content = this.node.getElementsByClassName('sui-dialog-content');
+
+    content[0].className = 'sui-dialog-content sui-bounce-out';
+
+    overlay[0].className = 'sui-dialog-overlay sui-fade-out';
+
     this.shown = false;
-    this.node.setAttribute('aria-hidden', 'true');
+    // This has been set so there is enough time for the animation to show
+    var timeout_node = this.node;
+    setTimeout(function () {
+		timeout_node.setAttribute('aria-hidden', 'true');
+	}, 300);
 
     // Iterate over the targets to enable them by remove their `aria-hidden`
     // attribute or resetting them to their initial value
@@ -1296,27 +1314,7 @@ module.exports = E;
 
 		// Init the dialog elements.
 		$('.sui-dialog').each(function(){
-			var dialog = new window.A11yDialog(this, mainEl);
-
-			dialog.on('show', function (dialogEl) {
-				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-out');
-				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-out');
-				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-in');
-				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-in');
-
-				// Set focus on close button.
-				$(dialogEl).find('.sui-dialog-close').focus();
-			});
-			dialog.on('hide', function (dialogEl) {
-				dialogEl.setAttribute('aria-hidden', 'false');
-				$('#' + dialog.node.id).find('.sui-dialog-overlay').removeClass('sui-fade-in');
-				$('#' + dialog.node.id).find('.sui-dialog-content').removeClass('sui-bounce-in');
-				$('#' + dialog.node.id).find('.sui-dialog-overlay').addClass('sui-fade-out');
-				$('#' + dialog.node.id).find('.sui-dialog-content').addClass('sui-bounce-out');
-				window.setTimeout(function() {
-					dialogEl.setAttribute('aria-hidden', 'true');
-				}, 300);
-			});
+			new window.A11yDialog(this, mainEl);
 		});
 	});
 }(jQuery));
