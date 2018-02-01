@@ -1,18 +1,19 @@
 'use strict';
 
-var gulp = require('gulp'),
-	watch = require('gulp-watch'),
-	sass = require('gulp-sass'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	pump = require('pump'),
-	postcss = require('gulp-postcss'),
-	cleanCSS = require('gulp-clean-css'),
-	rename = require('gulp-rename'),
-	browserSync = require('browser-sync').create(),
-	autoprefixer = require('gulp-autoprefixer'),
-	replace = require('gulp-replace'),
-	fs = require('fs');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const eslint = require('gulp-eslint');
+const fs = require('fs');
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const pump = require('pump');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const watch = require('gulp-watch');
 
 /**
  * Get the latest project version from package.json.
@@ -20,9 +21,8 @@ var gulp = require('gulp'),
  * @return {string} version
  */
 function getVersion() {
-	var json = JSON.parse(fs.readFileSync('./package.json'));
+	const json = JSON.parse(fs.readFileSync('./package.json'));
 	return json.version;
-
 }
 
 /**
@@ -32,8 +32,8 @@ function getVersion() {
  * @return {string} body class
  */
 function getBodyClass(selector = true) {
-	var v = getVersion(),
-		p = selector ? '.' : '';
+	let v = getVersion();
+	let p = selector ? '.' : '';
 
 	return `${p}sui-${v.replace(/\./g, "-")}`;
 }
@@ -43,7 +43,7 @@ gulp.task('styles:sui', function () {
 	gulp.src('./scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(replace('SUI_BODY_CLASS', getBodyClass()))
-		.pipe(autoprefixer('last 2 version', '> 1%'))
+		.pipe(autoprefixer())
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
@@ -81,7 +81,7 @@ gulp.task('styles:showcase', function () {
 // Build the showcase scripts.
 gulp.task('scripts:showcase', function (cb) {
 	pump([
-			gulp.src('./showcase-assets/*.js'),
+			gulp.src(['./showcase-assets/*.js']),
 			replace('SUI_VERSION', getVersion()),
 			uglify(),
 			rename({ suffix: '.min' }),
@@ -92,6 +92,20 @@ gulp.task('scripts:showcase', function (cb) {
 	);
 });
 
+// Lint project scripts.
+gulp.task('lint', () => {
+	return gulp.src(['./showcase-assets/*.js', './js/*.js'])
+		// eslint() attaches the lint output to the "eslint" property
+		// of the file object so it can be used by other modules.
+		.pipe(eslint())
+		// eslint.format() outputs the lint results to the console.
+		// Alternatively use eslint.formatEach() (see Docs).
+		.pipe(eslint.format())
+		// To have the process exit with an error code (1) on
+		// lint error, return the stream and pipe to failAfterError last.
+		.pipe(eslint.failAfterError());
+});
+
 // Initialize BrowserSync server.
 gulp.task('browser-sync', function () {
 	browserSync.init({
@@ -100,7 +114,6 @@ gulp.task('browser-sync', function () {
 		}
 	});
 });
-
 
 // Watch for changes across project.
 gulp.task('watch', function () {
