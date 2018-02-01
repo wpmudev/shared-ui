@@ -94,7 +94,7 @@ gulp.task('scripts:showcase', function (cb) {
 
 // Lint project scripts.
 gulp.task('lint', () => {
-	return gulp.src(['./showcase-assets/*.js', './js/*.js'])
+	return gulp.src(['./showcase-assets/*.js', './js/*.js', '!js/a11y-dialog.js', '!js/clipboard.js'])
 		// eslint() attaches the lint output to the "eslint" property
 		// of the file object so it can be used by other modules.
 		.pipe(eslint())
