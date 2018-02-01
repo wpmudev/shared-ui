@@ -29,6 +29,7 @@
 			$( e ).attr( 'aria-label', msg );
 			$( e ).attr( 'data-tooltip', msg );
 		}
+
 	}
 
 }( jQuery ) );

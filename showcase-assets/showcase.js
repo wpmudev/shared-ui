@@ -1,13 +1,10 @@
 ( function( $ ) {
+
 	var btns = $( '.demo-icon' );
 	var clipboard = new Clipboard( '.demo-icon' );
 
-	// Clipboard for icons.
-	clipboard.on( 'success', function( e ) {
-		console.info( 'Copied:', e.text );
-		showTooltip( e.trigger, 'Copied Icon!' );
-		e.clearSelection();
-	});
+	// Add current version to heading from package.json.
+	$( '.demo-sui-version' ).text( 'Version SUI_VERSION' );
 
 	// Offset scroll for showcase sidenav.
 	function offsetAnchor() {
@@ -33,6 +30,12 @@
 		$( this ).wrap( '<div class="sui-col-md-3 sui-col-sm-4"><button role="button" data-clipboard-text="&lt;i class=&quot;sui-icon-' + iconName + '&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" class="demo-icon"></button></div>' ).after( '<span class="demo-icon-name"><span class="sui-screen-reader-text">Example of </span>' + iconName + '</span>' );
 	});
 
+	clipboard.on( 'success', function( e ) {
+		console.info( 'Copied:', e.text );
+		showTooltip( e.trigger, 'Copied Icon!' );
+		e.clearSelection();
+	});
+
 	btns.mouseleave( function() {
 		$( this ).removeClass( 'sui-tooltip' );
 		$( this ).removeAttr( 'aria-label' );
@@ -44,8 +47,5 @@
 		$( e ).attr( 'aria-label', msg );
 		$( e ).attr( 'data-tooltip', msg );
 	}
-
-	// Add current version to heading from package.json.
-	$( '.demo-sui-version' ).text( 'Version SUI_VERSION' );
 
 }( jQuery ) );
