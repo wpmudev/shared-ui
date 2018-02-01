@@ -1232,8 +1232,6 @@ module.exports = E;
 
 ( function( $ ) {
 
-	var buttons = $( '[data-clipboard-target]' );
-	var clipboard = new Clipboard( '[data-clipboard-target]' );
 
 	$( '.sui-2-0-0-alpha-4 .sui-code-snippet:not(.sui-no-copy)' ).each( function( i ) {
 		var id = 'sui-code-snippet-' + i,
@@ -1243,26 +1241,32 @@ module.exports = E;
 		$( this ).attr( 'id', id ).after( button );
 	});
 
-	if ( buttons.length ) {
+	$( document ).ready( function() {
+		var btns = $( '[data-clipboard-target]' );
+		var clipboard = new Clipboard( '[data-clipboard-target]' );
 
-		clipboard.on( 'success', function( e ) {
-			e.clearSelection();
-			showTooltip( e.trigger, 'Copied!' );
-		});
+		if ( btns.length ) {
 
-		buttons.mouseleave( function() {
-			$( this ).removeClass( 'sui-tooltip' );
-			$( this ).removeAttr( 'aria-label' );
-			$( this ).removeAttr( 'data-tooltip' );
-		});
+			clipboard.on( 'success', function( e ) {
+				e.clearSelection();
+				showTooltip( e.trigger, 'Copied!' );
+			});
 
-		function showTooltip( e, msg ) {
-			$( e ).addClass( 'sui-tooltip' );
-			$( e ).attr( 'aria-label', msg );
-			$( e ).attr( 'data-tooltip', msg );
+			btns.mouseleave( function() {
+				$( this ).removeClass( 'sui-tooltip' );
+				$( this ).removeAttr( 'aria-label' );
+				$( this ).removeAttr( 'data-tooltip' );
+			});
+
+			function showTooltip( e, msg ) {
+				$( e ).addClass( 'sui-tooltip' );
+				$( e ).attr( 'aria-label', msg );
+				$( e ).attr( 'data-tooltip', msg );
+			}
+
 		}
 
-	}
+	});
 
 }( jQuery ) );
 
