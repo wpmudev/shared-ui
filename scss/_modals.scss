@@ -33,13 +33,15 @@
 
 				.sui-box-title {
 					margin-top: 30px;
-					margin-bottom: -30px;
+					margin-bottom: -10px;
+					font-size: 22px;
 				}
 
 				.sui-dialog-close {
 					position: absolute;
 					right: 30px;
 					top: 30px;
+					outline-style: none;
 				}
 			}
 
@@ -49,6 +51,8 @@
 					line-height: 22px;
 					text-align: center;
 				}
+
+
 			}
 
 			.sui-box-footer {
@@ -106,6 +110,16 @@
 
 		> .sui-box {
 			box-shadow: 0 10px 40px $modal-box-shadow-color;
+		}
+		.sui-box-body {
+			& > * {
+				margin-bottom: 30px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+
 		}
 	}
 
