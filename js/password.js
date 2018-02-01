@@ -16,13 +16,8 @@
 				$button = $this.find( '.sui-password-toggle' );
 
 			$button.on( 'click', function() {
-				var $inputType = '';
-				var $repInput = $( '<input type=' + $inputType + ' />' )
-					.attr( 'id', $input.attr( 'id' ) )
-					.attr( 'name', $input.attr( 'name' ) )
-					.attr( 'class', $input.attr( 'class' ) )
-					.val( $input.val() )
-					.insertBefore( $input );
+				var $inputType = '',
+					$repInput = '';
 
 				$( this ).toggleClass( 'is-visible' );
 
@@ -38,14 +33,22 @@
 					$button.find( '> i' ).removeClass( 'sui-ico-eye' ).addClass( 'sui-ico-eye-hide' );
 				}
 
+				$repInput = $( '<input type=' + $inputType + ' />' )
+					.attr( 'id', $input.attr( 'id' ) )
+					.attr( 'name', $input.attr( 'name' ) )
+					.attr( 'class', $input.attr( 'class' ) )
+					.val( $input.val() )
+					.insertBefore( $input );
+
 				$input.remove();
 				$input = $repInput;
 				$input.focus();
+
 			});
 
 		});
 
-	};
+	}
 
 	SUI.showHidePassword();
 
