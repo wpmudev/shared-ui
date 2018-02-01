@@ -157,6 +157,7 @@
     this._targets.forEach(function (target) {
       var original = target.getAttribute('data-a11y-dialog-original');
 
+
       if (original) {
         target.setAttribute('aria-hidden', original);
         target.removeAttribute('data-a11y-dialog-original');
