@@ -22,6 +22,7 @@ const watch        = require( 'gulp-watch' );
  */
 function getVersion() {
 	const json = JSON.parse( fs.readFileSync( './package.json' ) );
+
 	return json.version;
 }
 
