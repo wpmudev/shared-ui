@@ -418,28 +418,28 @@
   }
 }(typeof global !== 'undefined' ? global : window));
 
-(function ($) {
+( function( $ ) {
 
+	var accordionTable = $( '.sui-2-0-0-alpha-7 .sui-accordion' );
 
-	var accordionTable = $(".sui-2-0-0-alpha-4 .sui-accordion");
+	accordionTable.on( 'click', '.sui-accordion-item', function() {
 
-	accordionTable.on('click', '.sui-accordion-item', function () {
+		var getParentItem = $( this ).closest( '.sui-accordion-item' ),
+			getNextAdditionalContentRow = getParentItem.nextUntil( '.sui-accordion-item' );
 
-		var getParentItem = $(this).closest(".sui-accordion-item"),
-			getNextAdditionalContentRow = getParentItem.nextUntil(".sui-accordion-item");
+		getNextAdditionalContentRow.toggleClass( 'sui-accordion-item--open' );
 
-		getNextAdditionalContentRow.toggleClass("sui-accordion-item--open");
-
-		if (getNextAdditionalContentRow.hasClass("sui-accordion-item--open")) {
-			getParentItem.addClass("sui-accordion-item--open");
+		if ( getNextAdditionalContentRow.hasClass( 'sui-accordion-item--open' ) ) {
+			getParentItem.addClass( 'sui-accordion-item--open' );
 		} else {
-			getParentItem.removeClass("sui-accordion-item--open");
+			getParentItem.removeClass( 'sui-accordion-item--open' );
 		}
+
 	});
 
-}(jQuery));
+}( jQuery ) );
 
-/*!
+/**
  * clipboard.js v1.7.1
  * https://zenorocha.github.io/clipboard.js
  *
@@ -1229,216 +1229,246 @@ module.exports = E;
 
 },{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)
 });
-(function ($) {
 
-	$('.sui-2-0-0-alpha-4 .sui-code-snippet:not(.sui-no-copy)').each(function (i) {
+( function( $ ) {
+
+	$( '.sui-2-0-0-alpha-7 .sui-code-snippet:not(.sui-no-copy)' ).each( function( i ) {
 		var id = 'sui-code-snippet-' + i,
 			button = '<button class="sui-button" data-clipboard-target="#' + id + '">Copy</button>';
 
-		$(this).wrap('<div class="sui-code-snippet-wrapper"></div>');
-		$(this).attr('id', id).after(button);
+		$( this ).wrap( '<div class="sui-code-snippet-wrapper"></div>' );
+		$( this ).attr( 'id', id ).after( button );
 	});
 
-	var btns = $('[data-clipboard-target]');
-	if ( btns.length ) {
-		var clipboard = new Clipboard('[data-clipboard-target]');
+	$( document ).ready( function() {
+		var btns = $( '[data-clipboard-target]' );
+		var clipboard = new Clipboard( '[data-clipboard-target]' );
 
-		clipboard.on('success', function (e) {
-			e.clearSelection();
-			showTooltip(e.trigger, 'Copied!');
-		});
+		if ( btns.length ) {
 
-		btns.mouseleave(function () {
-			$(this).removeClass('sui-tooltip');
-			$(this).removeAttr('aria-label');
-			$(this).removeAttr('data-tooltip');
-		});
+			clipboard.on( 'success', function( e ) {
+				e.clearSelection();
+				showTooltip( e.trigger, 'Copied!' );
+			});
 
-		function showTooltip(e, msg) {
-			$(e).addClass('sui-tooltip');
-			$(e).attr('aria-label', msg);
-			$(e).attr('data-tooltip', msg);
+			btns.mouseleave( function() {
+				$( this ).removeClass( 'sui-tooltip' );
+				$( this ).removeAttr( 'aria-label' );
+				$( this ).removeAttr( 'data-tooltip' );
+			});
+
+			function showTooltip( e, msg ) {
+				$( e ).addClass( 'sui-tooltip' );
+				$( e ).attr( 'aria-label', msg );
+				$( e ).attr( 'data-tooltip', msg );
+			}
+
 		}
-	}
 
-}(jQuery));
+	});
 
-(function ($) {
+}( jQuery ) );
+
+( function( $ ) {
+
 	// Enable strict mode.
 	'use strict';
 
 	// Define global SUI object if it doesn't exist.
-	if ('object' !== typeof window.SUI) {
+	if ( 'object' !== typeof window.SUI ) {
 		window.SUI = {};
 	}
-	SUI.link_dropdown = function(){
 
-		function close_all_dropdowns($except)
-		{
-			var $dropdowns = $('.sui-2-0-0-alpha-4 .sui-dropdown');
-			if($except) {
-				$dropdowns = $dropdowns.not($except);
+	SUI.linkDropdown = function() {
+
+		function closeAllDropdowns( $except ) {
+			var $dropdowns = $( '.sui-2-0-0-alpha-7 .sui-dropdown' );
+
+			if ( $except ) {
+				$dropdowns = $dropdowns.not( $except );
 			}
-			$dropdowns.removeClass('open');
+
+			$dropdowns.removeClass( 'open' );
 		}
 
-		$('body').click(function (e) {
-			var $this = $(e.target),
-				$el = $this.closest('.sui-dropdown');
+		$( 'body' ).click( function( e ) {
+			var $this = $( e.target ),
+				$el = $this.closest( '.sui-dropdown' );
 
-			if ($el.length == 0) {
-				close_all_dropdowns();
-			}
-			else if ($this.is('a')) {
+			if ( 0 == $el.length ) {
+				closeAllDropdowns();
+			} else if ( $this.is( 'a' ) ) {
 				e.preventDefault();
-				close_all_dropdowns($el);
 
-				$el.toggleClass('open');
+				closeAllDropdowns( $el );
+
+				$el.toggleClass( 'open' );
 			}
-		});
-	};
-	SUI.link_dropdown();
-}(jQuery));
 
-(function ($) {
+		});
+
+	};
+
+	SUI.linkDropdown();
+
+}( jQuery ) );
+
+( function( $ ) {
 
 	// Enable strict mode.
 	'use strict';
 
 	// Define global SUI object if it doesn't exist.
-	if ('object' !== typeof window.SUI) {
+	if ( 'object' !== typeof window.SUI ) {
 		window.SUI = {};
 	}
 
-	document.addEventListener('DOMContentLoaded', function () {
-		var mainEl = $('.sui-wrap');
+	document.addEventListener( 'DOMContentLoaded', function() {
+		var mainEl = $( '.sui-wrap' );
 
 		// Init the dialog elements.
-		$('.sui-dialog').each(function(){
-			new window.A11yDialog(this, mainEl);
+		$( '.sui-dialog' ).each( function() {
+			new window.A11yDialog( this, mainEl );
 		});
+
 	});
-}(jQuery));
 
-(function ($) {
+}( jQuery ) );
 
-	$('.sui-2-0-0-alpha-4 .sui-notice-top:not(.sui-cant-dismiss)').delay(3000).slideUp('slow');
-	$('.sui-2-0-0-alpha-4 .sui-notice-dismiss').click( function(e) {
+( function( $ ) {
+
+	$( '.sui-2-0-0-alpha-7 .sui-notice-top:not(.sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+
+	$( '.sui-2-0-0-alpha-7 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
-		$(this).parent('.sui-notice').stop().slideUp('slow');
+
+		$( this ).parent( '.sui-notice' ).stop().slideUp( 'slow' );
+
 		return false;
 	});
 
-}(jQuery));
+}( jQuery ) );
 
-(function ($) {
+( function( $ ) {
 
 	// Enable strict mode.
 	'use strict';
 
 	// Define global SUI object if it doesn't exist.
-	if ('object' !== typeof window.SUI) {
+	if ( 'object' !== typeof window.SUI ) {
 		window.SUI = {};
 	}
 
 	SUI.showHidePassword = function() {
 
-		$(".sui-2-0-0-alpha-4 .sui-password-group").each(function () {
-			var $this = $(this),
-				$input = $this.find('input[type="password"]'),
-				$button = $this.find('.sui-password-toggle');
+		$( '.sui-2-0-0-alpha-7 .sui-password-group' ).each( function() {
+			var $this = $( this ),
+				$input = $this.find( 'input[type="password"]' ),
+				$button = $this.find( '.sui-password-toggle' );
 
-			$button.on('click', function () {
-				var $inputType = '';
-				$(this).toggleClass('is-visible');
+			$button.on( 'click', function() {
+				var $inputType = '',
+					$repInput = '';
 
-				if ($input.hasClass('is-visible')) {
-					$input.removeClass('is-visible').addClass('is-hidden');
+				$( this ).toggleClass( 'is-visible' );
+
+				if ( $input.hasClass( 'is-visible' ) ) {
+					$input.removeClass( 'is-visible' ).addClass( 'is-hidden' );
 					$inputType = 'password';
-					$button.find('> .sui-screen-reader-text').text('Show Password');
-					$button.find('> i').removeClass('sui-ico-eye-hide').addClass('sui-ico-eye');
+					$button.find( '> .sui-screen-reader-text' ).text( 'Show Password' );
+					$button.find( '> i' ).removeClass( 'sui-ico-eye-hide' ).addClass( 'sui-ico-eye' );
 				} else {
-					$input.removeClass('is-hidden').addClass('is-visible');
+					$input.removeClass( 'is-hidden' ).addClass( 'is-visible' );
 					$inputType = 'text';
-					$button.find('> .sui-screen-reader-text').text('Hide Password');
-					$button.find('> i').removeClass('sui-ico-eye').addClass('sui-ico-eye-hide');
+					$button.find( '> .sui-screen-reader-text' ).text( 'Hide Password' );
+					$button.find( '> i' ).removeClass( 'sui-ico-eye' ).addClass( 'sui-ico-eye-hide' );
 				}
-				var $repInput = $('<input type=' + $inputType + ' />')
-					.attr('id', $input.attr('id'))
-					.attr('name', $input.attr('name'))
-					.attr('class', $input.attr('class'))
-					.val($input.val())
-					.insertBefore($input);
+
+				$repInput = $( '<input type=' + $inputType + ' />' )
+					.attr( 'id', $input.attr( 'id' ) )
+					.attr( 'name', $input.attr( 'name' ) )
+					.attr( 'class', $input.attr( 'class' ) )
+					.val( $input.val() )
+					.insertBefore( $input );
+
 				$input.remove();
 				$input = $repInput;
 				$input.focus();
+
 			});
 
 		});
 
-	}
+	};
 
 	SUI.showHidePassword();
 
-}(jQuery));
+}( jQuery ) );
 
-(function ($) {
+( function( $ ) {
 
-	loadCircleScore = function(el) {
-		var dial          = $(el).find('svg circle:last-child'),
-			score         = $(el).data('score'),
+	loadCircleScore = function( el ) {
+		var dial          = $( el ).find( 'svg circle:last-child' ),
+			score         = $( el ).data( 'score' ),
 			radius        = 42,
 			circumference = 2 * Math.PI * radius,
-			dashLength    = (circumference / 100) * score,
+			dashLength    = ( circumference / 100 ) * score,
 			gapLength     = dashLength * 100 - score,
-			svg           = '\
-				<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\
-					<circle stroke-width="16" cx="50" cy="50" r="42" />\
-					<circle stroke-width="16" cx="50" cy="50" r="42" stroke-dasharray="0,'+gapLength+'" />\
-				</svg>\
-				<span class="sui-circle-score-label">'+score+'</span>\
-			';
+			svg           =
+				'<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\n' +
+					'<circle stroke-width="16" cx="50" cy="50" r="42" />\n' +
+					'<circle stroke-width="16" cx="50" cy="50" r="42" stroke-dasharray="0,' + gapLength + '" />\n' +
+				'</svg>\n' +
+				'<span class="sui-circle-score-label">' + score + '</span>\n';
 
 		// Add svg to score element, add loaded class, & change stroke-dasharray to represent target score/percentage.
-		$(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation','sui'+score+' 3s forwards');
-	}
+		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
+	};
 
-	$('.sui-2-0-0-alpha-4 .sui-circle-score').each(function () {
-		loadCircleScore(this);
+	$( '.sui-2-0-0-alpha-7 .sui-circle-score' ).each( function() {
+		loadCircleScore( this );
 	});
 
-}(jQuery));
+}( jQuery ) );
 
-(function ($) {
-	suiSelect = function(el) {
-		var jq = $(el),
+( function( $ ) {
+
+	suiSelect = function( el ) {
+		var jq = $( el ),
 			wrap, handle, list, value, items;
 
-		if (! jq.is("select")) { return; }
-		if (jq.closest(".select-container").length || jq.data("select2") || jq.is(".none-sui") ) { return; }
+		if ( ! jq.is( 'select' ) ) {
+			return;
+		}
+
+		if ( jq.closest( '.select-container' ).length || jq.data( 'select2' ) || jq.is( '.none-sui' ) ) {
+			return;
+		}
 
 		// Add the DOM elements to style the select list.
 		function setupElement() {
-			jq.wrap("<div class='select-container'>");
+			jq.wrap( '<div class="select-container">' );
 			jq.hide();
 
 			wrap = jq.parent();
-			handle = $("<span class='dropdown-handle'><i class='sui-icon-chevron-down' aria-hidden='true'></i></span>").prependTo(wrap);
-			list = $("<div class='select-list-container'></div>").appendTo(wrap);
-			value = $("<div class='list-value'>&nbsp;</div>").appendTo(list);
-			items = $("<ul class='list-results'></ul>").appendTo(list);
+			handle = $( '<span class="dropdown-handle"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span>' ).prependTo( wrap );
+			list = $( '<div class="select-list-container"></div>' ).appendTo( wrap );
+			value = $( '<div class="list-value">&nbsp;</div>' ).appendTo( list );
+			items = $( '<ul class="list-results"></ul>' ).appendTo( list );
 
-			wrap.addClass(jq.attr("class"));
+			wrap.addClass( jq.attr( 'class' ) );
 		}
+
 		// When changing selection using JS, you need to trigger a 'sui:change' event
 		// eg: $('select').val('4').trigger('sui:change')
 		function handleSelectionChange() {
-			jq.on('sui:change',function(){
-				//We need to re-populateList to handle dynamic select options added via JS/ajax
+			jq.on( 'sui:change', function() {
+
+				// We need to re-populateList to handle dynamic select options added via JS/ajax.
 				populateList();
-				items.find("li").not('.optgroup-label').on("click", function onItemClick(ev) {
-					var opt = $(ev.target);
-					selectItem(opt, false);
+				items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
+					var opt = $( ev.target );
+					selectItem( opt, false );
 				});
 			});
 		}
@@ -1446,38 +1476,38 @@ module.exports = E;
 		// Add all the options to the new DOM elements.
 		function populateList() {
 			items.empty();
-			if( jq.find("optgroup").length ){
-				jq.find("optgroup").each(function(){
-					var optgroup = $(this),
-						optgroup_item;
-					optgroup_item = $("<ul></ul>").appendTo(items);
-					$label = $('<li class="optgroup-label"></li>').text( optgroup.prop('label') );
+			if ( jq.find( 'optgroup' ).length ) {
+				jq.find( 'optgroup' ).each( function() {
+					var optgroup = $( this ),
+						optGroupItem;
+					optGroupItem = $( '<ul></ul>' ).appendTo( items );
+					$label = $( '<li class="optgroup-label"></li>' ).text( optgroup.prop( 'label' ) );
 
-					optgroup_item.html( $label );
-					optgroup_item.addClass('optgroup');
+					optGroupItem.html( $label );
+					optGroupItem.addClass( 'optgroup' );
 
-					optgroup.find('option').each(function onPopulateLoop() {
-						var opt = $(this),
+					optgroup.find( 'option' ).each( function onPopulateLoop() {
+						var opt = $( this ),
 							item;
-						item = $("<li></li>").appendTo(optgroup_item);
-						item.text(opt.text());
-						item.data("value", opt.val());
+						item = $( '<li></li>' ).appendTo( optGroupItem );
+						item.text( opt.text() );
+						item.data( 'value', opt.val() );
 
-						if (opt.val() == jq.val()) {
-							selectItem(item);
+						if ( opt.val() == jq.val() ) {
+							selectItem( item );
 						}
 					});
 				});
-			}else{
-				jq.find("option").each(function onPopulateLoop() {
-					var opt = $(this),
+			} else {
+				jq.find( 'option' ).each( function onPopulateLoop() {
+					var opt = $( this ),
 						item;
-					item = $("<li></li>").appendTo(items);
-					item.text(opt.text());
-					item.data("value", opt.val());
+					item = $( '<li></li>' ).appendTo( items );
+					item.text( opt.text() );
+					item.data( 'value', opt.val() );
 
-					if (opt.val() == jq.val()) {
-						selectItem(item, true);
+					if ( opt.val() == jq.val() ) {
+						selectItem( item, true );
 					}
 				});
 			}
@@ -1486,9 +1516,10 @@ module.exports = E;
 
 		// Toggle the dropdown state between open/closed.
 		function stateToggle() {
-			if( wrap.find("select").is(":disabled") ) return;
-
-			if (! wrap.hasClass("active")) {
+			if ( wrap.find( 'select' ).is( ':disabled' ) ) {
+				return;
+			}
+			if ( ! wrap.hasClass( 'active' ) ) {
 				stateOpen();
 			} else {
 				stateClose();
@@ -1496,111 +1527,127 @@ module.exports = E;
 		}
 
 		// Close the dropdown list.
-		function stateClose(item) {
-			if (!item) { item = wrap; }
-			item.removeClass("active");
-			item.closest("tr").removeClass("select-open");
+		function stateClose( item ) {
+			if ( ! item ) {
+				item = wrap;
+			}
+
+			item.removeClass( 'active' );
+			item.closest( 'tr' ).removeClass( 'select-open' );
 		}
 
 		// Open the dropdown list.
 		function stateOpen() {
-			$(".select-container.active").each(function() {
-				stateClose($(this));
+			$( '.select-container.active' ).each( function() {
+				stateClose( $( this ) );
 			});
-			wrap.addClass("active");
-			wrap.closest("tr").addClass("select-open");
+
+			wrap.addClass( 'active' );
+			wrap.closest( 'tr' ).addClass( 'select-open' );
 		}
 
 		// Visually mark the specified option as "selected".
-		function selectItem(opt, is_init) {
-			is_init = typeof is_init === "undefined" ? false : is_init;
-			value.text(opt.text());
-			$(".current", items).removeClass("current");
-			opt.addClass("current");
+		function selectItem( opt, isInit ) {
+			isInit = 'undefined' === typeof isInit ? false : isInit;
+			value.text( opt.text() );
+			$( '.current', items ).removeClass( 'current' );
+			opt.addClass( 'current' );
 			stateClose();
 
 			// Also update the select list value.
-			jq.val(opt.data("value"));
+			jq.val( opt.data( 'value' ) );
 
-			if( !is_init )
-				jq.trigger("change");
+			if ( ! isInit ) {
+				jq.trigger( 'change' );
+			}
+
 		}
 
 		// Element constructor.
 		function init() {
-			var sel_id;
+			var selectID;
 
 			setupElement();
 			populateList();
 			handleSelectionChange();
-			items.find("li").not('.optgroup-label').on("click", function onItemClick(ev) {
-				var opt = $(ev.target);
-				selectItem(opt, false);
+
+			items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
+				var opt = $( ev.target );
+				selectItem( opt, false );
 			});
 
-			handle.on("click", stateToggle);
-			value.on("click", stateToggle);
-			jq.on("focus", stateOpen);
+			handle.on( 'click', stateToggle );
+			value.on( 'click', stateToggle );
+			jq.on( 'focus', stateOpen );
 
-			$(document).click(function onOutsideClick(ev) {
-				var jq = $(ev.target),
-					sel_id;
+			$( document ).click( function onOutsideClick( ev ) {
+				var jq = $( ev.target ),
+					selectID;
 
-				if (jq.closest(".select-container").length) { return; }
-				if (jq.is("label") && jq.attr("for")) {
-					sel_id = jq.attr("for");
-					if ($("select#" + sel_id).length) { return; }
+				if ( jq.closest( '.select-container' ).length ) {
+					return;
+				}
+
+				if ( jq.is( 'label' ) && jq.attr( 'for' ) ) {
+					selectID = jq.attr( 'for' );
+
+					if ( $( 'select#' + selectID ).length ) {
+						return;
+					}
 				}
 
 				stateClose();
 			});
 
-			sel_id = jq.attr("id");
-			if (sel_id) {
-				$("label[for=" + sel_id + "]").on("click", stateOpen);
+			selectID = jq.attr( 'id' );
+
+			if ( selectID ) {
+				$( 'label[for=' + selectID + ']' ).on( 'click', stateOpen );
 			}
-			jq.addClass("sui-styled");
+
+			jq.addClass( 'sui-styled' );
 		}
 
 		init();
 
 		return this;
 	};
+
 	// Convert all select lists to fancy sui Select lists.
-	$(".sui-2-0-0-alpha-4 select").each(function(){
-		suiSelect(this);
+	$( '.sui-2-0-0-alpha-7 select' ).each( function() {
+		suiSelect( this );
 	});
 
+}( jQuery ) );
 
-}(jQuery));
+( function( $ ) {
 
-(function ($) {
-	suiTabs = function(el) {
-		var jq = $(el).closest('.sui-tabs');
+	suiTabs = function( el ) {
+		var jq = $( el ).closest( '.sui-tabs' );
 
-		if (!jq.length) {
+		if ( ! jq.length ) {
 			return;
 		}
 
 		// Resize the tab-area after short delay.
 		function resizeArea() {
-			window.setTimeout(resizeAreaHandler, 20);
+			window.setTimeout( resizeAreaHandler, 20 );
 		}
 
 		// Resize the tab area to match the current tab.
 		function resizeAreaHandler() {
-			var current = jq.find('.sui-tab > input:checked').parent(),
-				content = current.find('.sui-tab-content');
+			var current = jq.find( '.sui-tab > input:checked' ).parent(),
+				content = current.find( '.sui-tab-content' );
 
-			jq.height(content.outerHeight() + current.outerHeight() - 6);
+			jq.height( content.outerHeight() + current.outerHeight() - 6 );
 		}
 
 		// Updates the URL hash to keep tab open during page refresh
 		function updateHash() {
-			var current = jq.find('.sui-tab > input:checked');
+			var current = jq.find( '.sui-tab > input:checked' );
 
-			jq.find('.sui-tab label.active').removeClass('active');
-			current.parent().find('label').addClass( 'active' );
+			jq.find( '.sui-tab label.active' ).removeClass( 'active' );
+			current.parent().find( 'label' ).addClass( 'active' );
 
 			resizeArea();
 		}
@@ -1608,44 +1655,53 @@ module.exports = E;
 		// Open the tab that is specified in window URL hash
 		function switchTab() {
 			var curTab,
-				route = window.location.hash.replace(/[^\w-_]/g, '');
+				route = window.location.hash.replace( /[^\w-_]/g, '' );
 
-			if (route) {
-				curTab = jq.find('input#' + route);
-				if (curTab.parent().find('label').length) {
-					jq.find('.sui-tab label.active').removeClass('active');
-					curTab.parent().find('label').addClass('active');
-					if (curTab.length && !curTab.prop('checked')) {
-						curTab.prop('checked', true);
+			if ( route ) {
+				curTab = jq.find( 'input#' + route );
+
+				if ( curTab.parent().find( 'label' ).length ) {
+					jq.find( '.sui-tab label.active' ).removeClass( 'active' );
+					curTab.parent().find( 'label' ).addClass( 'active' );
+
+					if ( curTab.length && ! curTab.prop( 'checked' ) ) {
+						curTab.prop( 'checked', true );
+
 						scrollWindow();
 					}
+
 				}
+
 			}
+
 		}
 
 		// Scroll the window to top of the tab list.
 		function scrollWindow() {
 			resizeArea();
-			$('html, body').scrollTop(
-				jq.offset().top
-				- parseInt($('html').css('paddingTop'))
-				- 20
+
+			$( 'html, body' ).scrollTop(
+				jq.offset().top -
+				parseInt( $( 'html' ).css( 'paddingTop' ) ) -
+				20
 			);
 		}
 
 		// Constructor.
 		function init() {
-			jq.on('click', '.sui-tab > input[type=radio]', updateHash);
-			$(window).on('hashchange', switchTab);
-			var current = jq.find('.sui-tab > input:checked');
-			current.parent().find('label').addClass( 'active' );
+			var current = jq.find( '.sui-tab > input:checked' );
+
+			jq.on( 'click', '.sui-tab > input[type=radio]', updateHash );
+			$( window ).on( 'hashchange', switchTab );
+			current.parent().find( 'label' ).addClass( 'active' );
 
 			resizeArea();
 			switchTab();
 		}
 
 		init();
-		$(window).resize(function () {
+
+		$( window ).resize( function() {
 			resizeArea();
 		});
 
@@ -1653,35 +1709,36 @@ module.exports = E;
 	};
 
 	// Initialize all tab-areas.
-	$(".sui-2-0-0-alpha-4 .sui-tabs").each(function(){
-		suiTabs(this);
+	$( '.sui-2-0-0-alpha-7 .sui-tabs' ).each( function() {
+		suiTabs( this );
 	});
 
+}( jQuery ) );
 
-}(jQuery));
-
-(function ($) {
+( function( $ ) {
 
 	// Enable strict mode.
 	'use strict';
 
 	// Define global SUI object if it doesn't exist.
-	if ('object' !== typeof window.SUI) {
+	if ( 'object' !== typeof window.SUI ) {
 		window.SUI = {};
 	}
 
 	SUI.upload = function() {
 
-		$('.sui-2-0-0-alpha-4 .sui-upload-group input[type="file"]').on('change', function (e) {
-			var file = $(this)[0].files[0],
-				message = $(this).find('~ .sui-upload-message');
+		$( '.sui-2-0-0-alpha-7 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+			var file = $( this )[0].files[0],
+				message = $( this ).find( '~ .sui-upload-message' );
 
-			if (file) {
-				message.text(file.name);
+			if ( file ) {
+				message.text( file.name );
 			}
+
 		});
-	}
+
+	};
 
 	SUI.upload();
 
-}(jQuery));
+}( jQuery ) );

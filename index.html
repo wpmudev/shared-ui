@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body class="sui-2-0-0-alpha-4">
+<body class="sui-2-0-0-alpha-7">
 
 <nav id="adminmenu">
 	<ul>
@@ -786,7 +786,9 @@ RewriteRule . /index.php [L]
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Options</h2>
-						<a role="button" class="sui-button sui-button-upsell sui-tooltip sui-tooltip-top-left" type="button" data-tooltip="Unlock this as part of a WPMU DEV Membership" href="#sui-upgrade-membership-modal" rel="dialog">Pro Feature </a>
+						<div class="sui-actions-right">
+							<a role="button" class="sui-button sui-button-upsell sui-tooltip sui-tooltip-top-left" type="button" data-tooltip="Unlock this as part of a WPMU DEV Membership" href="#sui-upgrade-membership-modal" rel="dialog">Pro Feature</a>
+						</div>
 					</div>
 					<div class="sui-box-body sui-upsell-items">
 						<div class="sui-box-settings-row">
@@ -2207,8 +2209,8 @@ RewriteRule . /index.php [L]
 											<li>Restart Apache.</li>
 											<li><a href="#">Re-check expiry status.</a></li>
 										</ol>
-										<div id="wphb-code-snippet-apache" class="wphb-code-snippet">
-											<pre class="sui-code-snippet">&lt;IfModule mod_expires.c&gt;
+
+										<pre class="sui-code-snippet">&lt;IfModule mod_expires.c&gt;
 ExpiresActive On
 ExpiresDefault A0
 
@@ -2246,7 +2248,6 @@ Header set Cache-Control "max-age=691200"
 Header set Cache-Control "max-age=691200"
 &lt;/FilesMatch&gt;
 &lt;/IfModule&gt;</pre>
-										</div>
 									</div>
 									<p><strong>Troubleshooting</strong></p>
 									<p>If adding the rules to your .htaccess doesn’t work and you have access to
@@ -2265,6 +2266,7 @@ Header set Cache-Control "max-age=691200"
 							</div><!-- end content -->
 						</div><!-- end tab -->
 					</div>
+				</div>
 				<div class="demo-code-block">
 					<pre class="sui-code-snippet html">
 &lt;div class="sui-tabs"&gt;
@@ -2599,11 +2601,13 @@ Header set Cache-Control "max-age=691200"
 				<div class="sui-box">
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Toggles</h2>
-						<label for="toggle1" class="sui-toggle">
-							<input type="checkbox" id="toggle1">
-							<span aria-hidden="true" class="sui-toggle-slider"></span>
-							<span class="sui-screen-reader-text">Toggle</span>
-						</label>
+						<div class="sui-actions-left">
+							<label for="toggle1" class="sui-toggle">
+								<input type="checkbox" id="toggle1">
+								<span aria-hidden="true" class="sui-toggle-slider"></span>
+								<span class="sui-screen-reader-text">Toggle</span>
+							</label>
+						</div>
 					</div>
 					<div class="sui-box-body">
 						<p>
