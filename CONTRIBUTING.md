@@ -33,10 +33,23 @@ Requirements:
 + Must be a developer member of the [wpmudev organization](https://www.npmjs.com/org/wpmudev/team/developers#members) on npm.
 + Must be on `master` branch with a clean working directory.
 
-The following command handles all aspects of releasing a new version of the Shared UI library:
+**Note:** Do not interact with any of the project's version numbers in a direct way. The following commands handle all aspects of releasing the next version. Once ran, they will auto update `package.json`, `scss/_variables.scss`, and the body class in `index.html` with the next corresponding [semver](https://semver.org/) version. They will then build the new files, commit them, tag the release, and publish to npm.
+
+### Patch Release
 
 ```
-npm run release
+npm run release:patch
 ```
 
-**Note:** This command will auto update `package.json`, `scss/_variables.scss`, and the body class in `index.html` with the next patch version. It will then build the new files, commit them, tag the release, and publish to npm.
+### Minor Release
+
+```
+npm run release:minor
+```
+
+### Major Release
+
+```
+npm run release:major
+```
+
