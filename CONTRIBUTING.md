@@ -28,24 +28,15 @@ Any base styles should also include the `.sui-wrap` class. This class is used in
 
 ## Updating the Shared UI Package
 
-1. Ensure that you are on the **master** branch & working directory is clean.
+Requirements:
 
-2. Manually update the version number ([Follow semantic versioning](http://semver.org/)) in the following 3 locations:
++ Must be a developer member of the [wpmudev organization](https://www.npmjs.com/org/wpmudev/team/developers#members) on npm.
++ Must be on `master` branch with a clean working directory.
 
-	+ `package.json`
-	+ `scss/_variables.scss`
-	+ `index.html` (the body class in the final format .sui-x-x-x)
+The following command handles all aspects of releasing a new version of the Shared UI library:
 
-3. Run the following command where `<number>` is the new version number:
+```
+npm run release
+```
 
-	```
-	npm run version -- <number>
-	```
-
-4. Check demo again to ensure everything looks good.
-
-5. Publish the new package to npm:
-
-	```
-	npm publish
-	```
+**Note:** This command will auto update `package.json`, `scss/_variables.scss`, and the body class in `index.html` with the next patch version. It will then build the new files, commit them, tag the release, and publish to npm.

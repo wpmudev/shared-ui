@@ -109,7 +109,7 @@ gulp.task( 'browser-sync', function() {
 });
 
 // Increase version numbers used in project based off of current package.json.
-gulp.task( 'update:version', function( cb ) {
+gulp.task( 'version:update', function( cb ) {
 
 	// Update SCSS version.
 	gulp.src( './scss/_variables.scss' )

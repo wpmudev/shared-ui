@@ -45,7 +45,9 @@
   "main": "dist/js/shared-ui",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "version": "npm version patch --no-git-tag-version && gulp version:update && npm run build",
+    "release": "npm run version && git commit -m ':package:' && npm version patch --allow-same-version && npm publish"
   },
   "repository": {
     "type": "git",
