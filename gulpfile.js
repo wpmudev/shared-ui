@@ -2,6 +2,7 @@
 
 const autoprefixer = require( 'gulp-autoprefixer' );
 const browserSync  = require( 'browser-sync' ).create();
+const chalk        = require( 'chalk' );
 const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
@@ -42,7 +43,6 @@ function getBodyClass( selector = true ) {
 gulp.task( 'styles:sui', function() {
 	gulp.src( './scss/**/*.scss')
 		.pipe( sass({ outputStyle: 'expanded' }).on( 'error', sass.logError ) )
-		.pipe( replace( 'SUI_BODY_CLASS', getBodyClass() ) )
 		.pipe( autoprefixer())
 		.pipe( gulp.dest( './dist/css' ) )
 		.pipe( cleanCSS() )
@@ -106,6 +106,33 @@ gulp.task( 'browser-sync', function() {
 			baseDir: './'
 		}
 	});
+});
+
+// Increase version numbers used in project based off of current package.json.
+gulp.task( 'update:version', function( cb ) {
+
+	// Update SCSS version.
+	gulp.src( './scss/_variables.scss' )
+		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
+			console.log( `$sui-version has been updated to ${chalk.green( getVersion() )}\n` );
+
+			return `${p1}${getVersion()}${p2}`;
+		}))
+		.pipe( gulp.dest( './scss/' ) );
+
+	// Update demo body class.
+	gulp.src( './index.html' )
+		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './index.html:' ) );
+			console.log( `Demo body class has been updated to ${chalk.green( getBodyClass( false ) )}\n` );
+
+			return `${p1}${getBodyClass( false )}${p2}`;
+		}))
+		.pipe( gulp.dest( './' ) );
+
 });
 
 // Watch for changes across project.

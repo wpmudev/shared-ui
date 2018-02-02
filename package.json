@@ -25,6 +25,7 @@
   ],
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "chalk": "^2.3.0",
     "eslint-config-wordpress": "^2.0.0",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
@@ -43,10 +44,8 @@
   "sass": "scss/shared-ui.scss",
   "main": "dist/js/shared-ui",
   "scripts": {
-    "dev"          : "gulp dev",
-    "build"        : "gulp build",
-    "build:commit" : "npm run build && git commit -m 'Build'",
-    "version"      : "npm run build:commit && npm version --allow-same-version"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
