@@ -1,10 +1,3 @@
-// Convert PX to EM
-$browser-context: 16;
-
-@function getEm($pixels, $context: $browser-context) {
-	@return #{$pixels/$context}em;
-}
-
 // Replace `$search` with `$replace` in `$string`
 @function str-replace($string, $search, $replace: '') {
 	$index: str-index($string, $search);
