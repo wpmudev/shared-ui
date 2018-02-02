@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui",
-  "version": "2.0.1",
+  "version": "2.0.0-alpha.7",
   "description": "For internal use in WPMU DEV plugins",
   "author": "WPMU DEV",
   "license": "GPL-2.0",
@@ -46,8 +46,12 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "version": "npm version patch --no-git-tag-version && gulp version:update && npm run build",
-    "release": "npm run version && git commit -m ':package:' && npm version patch --allow-same-version && npm publish"
+    "update:version:patch": "npm version patch --no-git-tag-version && gulp update:version && npm run build",
+    "update:version:minor": "npm version minor --no-git-tag-version && gulp update:version && npm run build",
+    "update:version:major": "npm version major --no-git-tag-version && gulp update:version && npm run build",
+    "release:patch": "npm run update:version:patch && git commit -m ':package:' && npm version patch --allow-same-version && npm publish",
+    "release:minor": "npm run update:version:minor && git commit -m ':package:' && npm version minor --allow-same-version && npm publish",
+    "release:major": "npm run update:version:major && git commit -m ':package:' && npm version major --allow-same-version && npm publish"
   },
   "repository": {
     "type": "git",
