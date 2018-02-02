@@ -43,9 +43,10 @@
   "sass": "scss/shared-ui.scss",
   "main": "dist/js/shared-ui",
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build",
-    "version": "npm run build && npm version --allow-same-version"
+    "dev"          : "gulp dev",
+    "build"        : "gulp build",
+    "build:commit" : "npm run build && git commit -m 'Build'",
+    "version"      : "npm run build:commit && npm version --allow-same-version"
   },
   "repository": {
     "type": "git",

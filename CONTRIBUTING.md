@@ -4,13 +4,6 @@
 2. Execute npm in root project folder `npm install` will install all needed packages in `node_modules` folder.
 3. Execute `npm run dev` to start watching SCSS and JS files. The demo file will then automatically be served up by [Browsersync](https://browsersync.io/). All changes made will automatically be watched and the page live reloaded when changes are made.
 
-## npm tasks
-Everything should be handled by npm. Note that you don't need to interact with Gulp in a direct way.
-
-* **`npm run dev`**: Fires up a [Browsersync](https://browsersync.io/) server with the project demo (index.html). Changes are automatically updated. This should be the only command needed for submitting code changes to the project.
-* **`npm run build`**: Compiles SCSS & JS then quits.
-* **`npm run version [-- <args>]`**: Compiles SCSS & JS, & tags the version for release. The new version number is the only argument.
-
 ## Workflow
 
 Do not commit on `development` or `master` branches. `development` is the code that will be used for beta testing. `master` should always be synced with the latest version.
@@ -35,20 +28,24 @@ Any base styles should also include the `.sui-wrap` class. This class is used in
 
 ## Updating the Shared UI Package
 
-Manually update the version number ([Follow semantic versioning](http://semver.org/)) in the following 3 locations:
+1. Ensure that you are on the **master** branch & working directory is clean.
 
-+ `package.json`
-+ `scss/_variables.scss`
-+ `index.html` (the body class in the final format .sui-x-x-x)
+2. Manually update the version number ([Follow semantic versioning](http://semver.org/)) in the following 3 locations:
 
-Run the following command where `<number>` is the new version number:
+	+ `package.json`
+	+ `scss/_variables.scss`
+	+ `index.html` (the body class in the final format .sui-x-x-x)
 
-```
-npm run version -- <number>
-```
+3. Run the following command where `<number>` is the new version number:
 
-After checking the demo again to ensure everything looks good, publish the new package to npm:
+	```
+	npm run version -- <number>
+	```
 
-```
-npm publish
-```
+4. Check demo again to ensure everything looks good.
+
+5. Publish the new package to npm:
+
+	```
+	npm publish
+	```
