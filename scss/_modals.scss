@@ -7,7 +7,7 @@
 
 	.sui-dialog {
 		position: fixed;
-		z-index: 100000; // On top of wpadminbar.
+		z-index: 1;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -80,11 +80,15 @@
 		@media (max-width: 782px) {
 			left: 0;
 		}
+
+		& * {
+			box-sizing: border-box;
+		}
 	}
 
 	.sui-dialog-overlay {
 		position: fixed;
-		z-index: 1;
+		z-index: 2;
 		background-color: $modal-overlay-bg-color;
 		top: 0;
 		right: 0;
