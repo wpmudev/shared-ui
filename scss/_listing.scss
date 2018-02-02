@@ -1,0 +1,29 @@
+@include body-class {
+	.sui-listing {
+		li {
+			color: #777771;
+			line-height: 26px;
+			padding: 2px 0 2px 34px;
+			position: relative;
+
+			@include icon('before', check-tick);
+			&:before {
+				color: #17A8E3;
+				top: 1px;
+				font-size: 20px;
+				vertical-align: middle;
+				position: absolute;
+				left: 0;
+				width: 20px;
+				height: 20px;
+				opacity: 0.8;
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+			}
+		}
+	}
+}
