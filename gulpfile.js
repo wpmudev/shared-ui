@@ -136,8 +136,6 @@ gulp.task( 'watch', function() {
 gulp.task( 'update-versions', function( cb ) {
 	const version   = getVersion();
 	const bodyClass = getBodyClass( false );
-	const tag       = `v${version}`;
-	const message   = version;
 
 	// Update SCSS version.
 	gulp.src( './scss/_variables.scss' )
@@ -171,6 +169,9 @@ gulp.task( 'update-versions:build', [
 
 // Git add, commit, & tag release.
 gulp.task( 'tag', function() {
+	const tag = `v${getVersion()}`;
+	const msg = getVersion();
+
 	gulp.src( './*' )
 		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
 });
