@@ -10,6 +10,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+
+<!-- Do not edit body tag - updated via release scripts -->
 <body class="sui-2-0-6">
 
 <nav id="adminmenu">
@@ -84,12 +86,13 @@ npm install @wpmudev/shared-ui</pre>
 					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
 				</div>
 
+				<!-- Do not edit code snippet body clss - updated via release scripts -->
 				<div class="demo-code-block">
 <pre class="sui-code-snippet php">
 add_filter( 'admin_body_class', 'admin_body_classes' );
 function admin_body_classes( $classes ) {
 
-	$classes .= 'sui-2-0-0';
+	$classes .= 'sui-2-0-6';
 
 	return $classes;
 

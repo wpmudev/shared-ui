@@ -159,6 +159,16 @@ gulp.task( 'update-versions', function( cb ) {
 		}))
 		.pipe( gulp.dest( './' ) );
 
+	// Update demo php body class code example.
+	gulp.src( './index.html' )
+		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './index.html:' ) );
+			console.log( `Demo php body class code example has been updated to ${chalk.green( bodyClass )}\n` );
+
+			return `${p1}${bodyClass}${p2}`;
+		}))
+		.pipe( gulp.dest( './' ) );
 });
 
 // Build all Shared UI files with new verions.
