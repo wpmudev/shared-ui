@@ -45,10 +45,9 @@
   "main": "dist/js/shared-ui",
   "scripts": {
     "dev": "gulp dev",
-    "v:pkg": "gulp update:version && gulp build && git add -A && git commit -m \":package:\"",
-    "release:patch": "npm version patch --no-git-tag-version && npm run v:pkg && npm version patch --allow-same-version && npm publish",
-    "release:minor": "npm version minor --no-git-tag-version && npm run v:pkg && npm version minor --allow-same-version && npm publish",
-    "release:major": "npm version major --no-git-tag-version && npm run v:pkg && npm version major --allow-same-version && npm publish"
+    "release:patch": "npm version patch --no-git-tag-version && gulp release",
+    "release:minor": "npm version minor --no-git-tag-version && gulp release",
+    "release:major": "npm version major --no-git-tag-version && gulp release"
   },
   "repository": {
     "type": "git",

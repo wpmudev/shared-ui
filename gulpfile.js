@@ -7,6 +7,7 @@ const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
 const fs           = require( 'fs' );
+const git          = require( 'gulp-git' );
 const gulp         = require( 'gulp' );
 const pump         = require( 'pump' );
 const rename       = require( 'gulp-rename' );
@@ -108,8 +109,31 @@ gulp.task( 'browser-sync', function() {
 	});
 });
 
+// Watch for changes across project.
+gulp.task( 'watch', function() {
+
+	// Watch for SUI styling changes.
+	gulp.watch( 'scss/**/*.scss', ['styles:sui'] );
+
+	// Watch for showcase styling changes.
+	gulp.watch( 'showcase-assets/*.scss', ['styles:showcase'] );
+
+	// Watch for SUI js changes.
+	gulp.watch( 'js/*.js', ['scripts:sui'] );
+
+	// Watch for showcase js changes.
+	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
+
+	// Watch for package.json changes.
+	gulp.watch( 'package.json', ['build'] );
+
+	// Watch for HTML changes.
+	gulp.watch( '*.html' ).on( 'change', browserSync.reload );
+
+});
+
 // Increase version numbers used in project based off of current package.json.
-gulp.task( 'update:version', function( cb ) {
+gulp.task( 'update-versions', function( cb ) {
 
 	// Update SCSS version.
 	gulp.src( './scss/_variables.scss' )
@@ -135,28 +159,23 @@ gulp.task( 'update:version', function( cb ) {
 
 });
 
-// Watch for changes across project.
-gulp.task( 'watch', function() {
+// Git add, commit, & tag release.
+gulp.task( 'package', function() {
+	const tag = `v${getVersion()}`;
+	const msg = getVersion();
 
-	// Watch for SUI styling changes.
-	gulp.watch( 'scss/**/*.scss', ['styles:sui'] );
-
-	// Watch for showcase styling changes.
-	gulp.watch( 'showcase-assets/*.scss', ['styles:showcase'] );
-
-	// Watch for SUI js changes.
-	gulp.watch( 'js/*.js', ['scripts:sui'] );
-
-	// Watch for showcase js changes.
-	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
-
-	// Watch for package.json changes.
-	gulp.watch( 'package.json', ['build'] );
-
-	// Watch for HTML changes.
-	gulp.watch( '*.html' ).on( 'change', browserSync.reload );
-
+	gulp.src( './*' )
+		.pipe( git.add({args: '-A'}) )
+		.pipe( git.commit( ':package:') )
+		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
 });
+
+// Build all Shared UI files.
+gulp.task( 'release', [
+	'update-versions',
+	'build',
+	'package'
+]);
 
 // Build all Shared UI files.
 gulp.task( 'build:sui', [
