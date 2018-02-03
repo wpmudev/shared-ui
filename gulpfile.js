@@ -136,7 +136,7 @@ gulp.task( 'watch', function() {
 gulp.task( 'update-versions', function( cb ) {
 	const version   = getVersion();
 	const bodyClass = getBodyClass( false );
-	const tag       = `v${ver}`;
+	const tag       = `v${version}`;
 	const message   = version;
 
 	// Update SCSS version.
