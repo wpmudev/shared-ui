@@ -165,7 +165,7 @@ gulp.task( 'package', function() {
 	const msg = getVersion();
 
 	gulp.src( './*' )
-		.pipe( git.add({args: '-A'}) )
+		.pipe( git.add() )
 		.pipe( git.commit( ':package:') )
 		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
 });
