@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui",
-  "version": "2.0.1",
+  "version": "2.0.0-alpha.7",
   "description": "For internal use in WPMU DEV plugins",
   "author": "WPMU DEV",
   "license": "GPL-2.0",
@@ -33,6 +33,7 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.2",
+    "gulp-git": "^2.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
@@ -45,10 +46,9 @@
   "main": "dist/js/shared-ui",
   "scripts": {
     "dev": "gulp dev",
-    "v:pkg": "gulp update:version && gulp build && git add -A && git commit -m \":package:\"",
-    "release:patch": "npm version patch --no-git-tag-version && npm run v:pkg && npm version patch --allow-same-version && npm publish",
-    "release:minor": "npm version minor --no-git-tag-version && npm run v:pkg && npm version minor --allow-same-version && npm publish",
-    "release:major": "npm version major --no-git-tag-version && npm run v:pkg && npm version major --allow-same-version && npm publish"
+    "release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish",
+    "release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish",
+    "release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish"
   },
   "repository": {
     "type": "git",

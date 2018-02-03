@@ -7,6 +7,7 @@ const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
 const fs           = require( 'fs' );
+const git          = require( 'gulp-git' );
 const gulp         = require( 'gulp' );
 const pump         = require( 'pump' );
 const rename       = require( 'gulp-rename' );
@@ -108,33 +109,6 @@ gulp.task( 'browser-sync', function() {
 	});
 });
 
-// Increase version numbers used in project based off of current package.json.
-gulp.task( 'update:version', function( cb ) {
-
-	// Update SCSS version.
-	gulp.src( './scss/_variables.scss' )
-		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
-			console.log( `$sui-version has been updated to ${chalk.green( getVersion() )}\n` );
-
-			return `${p1}${getVersion()}${p2}`;
-		}))
-		.pipe( gulp.dest( './scss/' ) );
-
-	// Update demo body class.
-	gulp.src( './index.html' )
-		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Demo body class has been updated to ${chalk.green( getBodyClass( false ) )}\n` );
-
-			return `${p1}${getBodyClass( false )}${p2}`;
-		}))
-		.pipe( gulp.dest( './' ) );
-
-});
-
 // Watch for changes across project.
 gulp.task( 'watch', function() {
 
@@ -156,6 +130,50 @@ gulp.task( 'watch', function() {
 	// Watch for HTML changes.
 	gulp.watch( '*.html' ).on( 'change', browserSync.reload );
 
+});
+
+// Increase version numbers used in project based off of current package.json.
+gulp.task( 'update-versions', function( cb ) {
+	const version   = getVersion();
+	const bodyClass = getBodyClass( false );
+
+	// Update SCSS version.
+	gulp.src( './scss/_variables.scss' )
+		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
+			console.log( `$sui-version has been updated to ${chalk.green( version )}\n` );
+
+			return `${p1}${version}${p2}`;
+		}))
+		.pipe( gulp.dest( './scss/' ) );
+
+	// Update demo body class.
+	gulp.src( './index.html' )
+		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './index.html:' ) );
+			console.log( `Demo body class has been updated to ${chalk.green( bodyClass )}\n` );
+
+			return `${p1}${bodyClass}${p2}`;
+		}))
+		.pipe( gulp.dest( './' ) );
+
+});
+
+// Build all Shared UI files with new verions.
+gulp.task( 'update-versions:build', [
+	'update-versions',
+	'build'
+]);
+
+// Git add, commit, & tag release.
+gulp.task( 'tag', function() {
+	const tag = `v${getVersion()}`;
+	const msg = getVersion();
+
+	gulp.src( './*' )
+		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
 });
 
 // Build all Shared UI files.
