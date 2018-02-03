@@ -134,15 +134,19 @@ gulp.task( 'watch', function() {
 
 // Increase version numbers used in project based off of current package.json.
 gulp.task( 'update-versions', function( cb ) {
+	const version   = getVersion();
+	const bodyClass = getBodyClass( false );
+	const tag       = `v${ver}`;
+	const message   = version;
 
 	// Update SCSS version.
 	gulp.src( './scss/_variables.scss' )
 		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
-			console.log( `$sui-version has been updated to ${chalk.green( getVersion() )}\n` );
+			console.log( `$sui-version has been updated to ${chalk.green( version )}\n` );
 
-			return `${p1}${getVersion()}${p2}`;
+			return `${p1}${version}${p2}`;
 		}))
 		.pipe( gulp.dest( './scss/' ) );
 
@@ -151,31 +155,25 @@ gulp.task( 'update-versions', function( cb ) {
 		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Demo body class has been updated to ${chalk.green( getBodyClass( false ) )}\n` );
+			console.log( `Demo body class has been updated to ${chalk.green( bodyClass )}\n` );
 
-			return `${p1}${getBodyClass( false )}${p2}`;
+			return `${p1}${bodyClass}${p2}`;
 		}))
 		.pipe( gulp.dest( './' ) );
 
 });
 
-// Git add, commit, & tag release.
-gulp.task( 'package', function() {
-	const tag = `v${getVersion()}`;
-	const msg = getVersion();
+// Build all Shared UI files with new verions.
+gulp.task( 'update-versions:build', [
+	'update-versions',
+	'build'
+]);
 
+// Git add, commit, & tag release.
+gulp.task( 'tag', function() {
 	gulp.src( './*' )
-		.pipe( git.add( {args: '-A'} ) )
-		.pipe( git.commit( ':package:') )
 		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
 });
-
-// Build all Shared UI files.
-gulp.task( 'release', [
-	'update-versions',
-	'build',
-	'package'
-]);
 
 // Build all Shared UI files.
 gulp.task( 'build:sui', [
