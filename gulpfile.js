@@ -148,7 +148,7 @@ gulp.task( 'update-versions', function( cb ) {
 		}))
 		.pipe( gulp.dest( './scss/' ) );
 
-	// Update demo body class.
+	// Update demo body class & demo php body class code example.
 	gulp.src( './index.html' )
 		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
 
@@ -157,10 +157,6 @@ gulp.task( 'update-versions', function( cb ) {
 
 			return `${p1}${bodyClass}${p2}`;
 		}))
-		.pipe( gulp.dest( './' ) );
-
-	// Update demo php body class code example.
-	gulp.src( './index.html' )
 		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
@@ -169,6 +165,7 @@ gulp.task( 'update-versions', function( cb ) {
 			return `${p1}${bodyClass}${p2}`;
 		}))
 		.pipe( gulp.dest( './' ) );
+
 });
 
 // Build all Shared UI files with new verions.
