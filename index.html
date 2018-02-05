@@ -10,7 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body class="sui-2-0-0-alpha-7">
+
+<!-- Do not edit body tag - updated via release scripts -->
+<body class="sui-2-0-8">
 
 <nav id="adminmenu">
 	<ul>
@@ -62,6 +64,7 @@
 				<div class="sui-header">
 					<h1 class="sui-header-title">Shared UI</h1>
 					<div class="sui-actions-right">
+						<a href="https://bitbucket.org/incsub/shared-ui-example-plugin" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-plugin-2" aria-hidden="true"></i>&nbsp; Example Plugin</a>
 						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>&nbsp; GitHub Repository</a>
 					</div>
 				</div>
@@ -83,12 +86,13 @@ npm install @wpmudev/shared-ui</pre>
 					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
 				</div>
 
+				<!-- Do not edit code snippet body clss - updated via release scripts -->
 				<div class="demo-code-block">
 <pre class="sui-code-snippet php">
 add_filter( 'admin_body_class', 'admin_body_classes' );
 function admin_body_classes( $classes ) {
 
-	$classes .= ' sui-2-0-0 ';
+	$classes .= 'sui-2-0-8';
 
 	return $classes;
 

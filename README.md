@@ -8,5 +8,3 @@ See [showcase](https://wpmudev.github.io/shared-ui/).
 
 ## Contributing
 Please read through our [contributing guidelines](https://github.com/wpmudev/shared-ui/blob/master/CONTRIBUTING.md).
-
-Editor preferences are available in the editor config for easy use in common text editors. Read more and download plugins at <http://editorconfig.org/>.
