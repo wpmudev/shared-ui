@@ -604,7 +604,7 @@
 }
 
 .sui-2-0-8 [class*="sui-icon-"]:before, .sui-2-0-8 [class*="sui-icon-"]:after, .sui-2-0-8 .sui-notice-top p:before,
-.sui-2-0-8 .sui-notice p:before, .sui-2-0-8 .sui-checkbox span:before, .sui-2-0-8 .sui-radio span:before, .sui-2-0-8 .sui-dialog-close:before {
+.sui-2-0-8 .sui-notice p:before, .sui-2-0-8 .sui-checkbox span:before, .sui-2-0-8 .sui-radio span:before, .sui-2-0-8 .sui-dialog-close:before, .sui-2-0-8 .sui-listing li:before {
   font-family: 'WPMU-DEV-Icon' !important;
   speak: none;
   font-size: 1em;
@@ -6258,6 +6258,8 @@ fieldset[disabled] .sui-2-0-8 .sui-radio + span {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  max-height: 85%;
+  overflow-y: auto;
 }
 
 .sui-2-0-8 .sui-dialog-content > .sui-box {
@@ -6284,4 +6286,33 @@ fieldset[disabled] .sui-2-0-8 .sui-radio + span {
 
 .sui-2-0-8 .sui-dialog-close:before {
   content: ")";
+}
+
+.sui-2-0-8 .sui-listing li {
+  color: #777771;
+  line-height: 26px;
+  padding: 2px 0 2px 34px;
+  position: relative;
+}
+
+.sui-2-0-8 .sui-listing li:before {
+  content: "_";
+}
+
+.sui-2-0-8 .sui-listing li:before {
+  color: #17A8E3;
+  top: 1px;
+  font-size: 20px;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 }
