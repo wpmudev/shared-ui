@@ -1469,6 +1469,7 @@ module.exports = E;
 				items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 					var opt = $( ev.target );
 					selectItem( opt, false );
+					handleValue();
 				});
 			});
 		}
@@ -1512,6 +1513,16 @@ module.exports = E;
 				});
 			}
 
+		}
+
+		// Checks the option value for a link.
+		function handleValue() {
+			var val = jq[0].value;
+
+			// If option is link, navigate to it.
+			if ( val.match( '^https?:\/\/|#' ) ) {
+				window.location.href = val;
+			}
 		}
 
 		// Toggle the dropdown state between open/closed.
@@ -1574,6 +1585,7 @@ module.exports = E;
 			items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 				var opt = $( ev.target );
 				selectItem( opt, false );
+				handleValue();
 			});
 
 			handle.on( 'click', stateToggle );
