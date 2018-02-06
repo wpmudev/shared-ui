@@ -7,7 +7,6 @@ const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
 const fs           = require( 'fs' );
-const git          = require( 'gulp-git' );
 const gulp         = require( 'gulp' );
 const pump         = require( 'pump' );
 const rename       = require( 'gulp-rename' );
@@ -173,15 +172,6 @@ gulp.task( 'update-versions:build', [
 	'update-versions',
 	'build'
 ]);
-
-// Git add, commit, & tag release.
-gulp.task( 'tag', function() {
-	const tag = `v${getVersion()}`;
-	const msg = getVersion();
-
-	gulp.src( './*' )
-		.pipe( git.tag( tag, msg, function (err) { if (err) throw err } ) );
-});
 
 // Build all Shared UI files.
 gulp.task( 'build:sui', [

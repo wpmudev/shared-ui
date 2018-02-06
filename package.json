@@ -33,7 +33,6 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.2",
-    "gulp-git": "^2.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
@@ -46,9 +45,9 @@
   "main": "dist/js/shared-ui",
   "scripts": {
     "dev": "gulp dev",
-    "release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish",
-    "release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish",
-    "release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && gulp tag && npm publish"
+    "release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
+    "release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
+    "release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish"
   },
   "repository": {
     "type": "git",
