@@ -52,8 +52,10 @@
 			width: 100%;
 			margin-top: 30px;
 
-			@media (max-width: 783px) {
+			@include media(max-width, md) {
 				display: block;
+				margin-top: $sui-gutter-md;
+				padding-bottom: $sui-gutter-md;
 			}
 
 			&:first-of-type {
@@ -70,13 +72,14 @@
 				width: 230px;
 				padding-right: 30px;
 
-				@media (max-width: 783px) {
+				@include media(max-width, md) {
 					display: block;
-					padding-top: 30px;
+					padding-top: $sui-gutter-md;
 					width: 100%;
+					padding-right: 0;
 
 					&:first-child {
-						margin-top: 0;
+						padding-top: 0;
 					}
 				}
 			}
@@ -84,9 +87,10 @@
 			.sui-box-settings-col-2 {
 				display: table-cell;
 
-				@media (max-width: 783px) {
+
+				@include media(max-width, md) {
 					display: block;
-					padding-top: 30px;
+					padding-top: $sui-gutter-md;
 				}
 
 				.sui-settings-label {
@@ -158,8 +162,15 @@
 				padding-left: 30px;
 				padding-top: 31px;
 
+				@include media(max-width, md) {
+					padding-right: $sui-gutter-md;
+					padding-left: $sui-gutter-md;
+					padding-top: $sui-gutter-md + 1;
+				}
 				&:first-of-type {
-					padding-top: 30px;
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
 				}
 			}
 		}
@@ -222,6 +233,9 @@
 			padding: 30px;
 			border: 1px solid $box-settings-box-border-color;
 			border-radius: 5px;
+			@include media(max-width, md) {
+				padding: $sui-gutter-md;
+			}
 		}
 	}
 
