@@ -19,6 +19,11 @@
 		padding-left: ($sui-gutter / 2);
 		padding-right: ($sui-gutter / 2);
 		position: relative;
+
+		@include media( max-width, md ) {
+			padding-left: ($sui-gutter-md / 2);
+			padding-right: ($sui-gutter-md / 2);
+		}
 	}
 
 	.sui-row {
@@ -26,6 +31,11 @@
 		flex-flow: wrap;
 		margin-right: (-$sui-gutter / 2);
 		margin-left: (-$sui-gutter / 2);
+
+		@include media( max-width, md ) {
+			margin-left: (-$sui-gutter-md / 2);
+			margin-right: (-$sui-gutter-md / 2);
+		}
 	}
 
 	.sui-reverse {

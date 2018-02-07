@@ -16,6 +16,10 @@
 		border-radius: 5px;
 		margin-bottom: $sui-gutter;
 		box-shadow: 0 2px 0 $box-box-shadow-color;
+
+		@include media( max-width, md ) {
+			margin-bottom: $sui-gutter-md;
+		}
 	}
 
 	.sui-box-header {
@@ -24,6 +28,10 @@
 		display: flex;
 		align-items: center;
 
+		@include media( max-width, md ) {
+			padding: 15px $sui-gutter-md;
+		}
+
 		& > h3 > i {
 			line-height: 30px;
 		}
@@ -31,6 +39,10 @@
 
 	.sui-box-body {
 		padding: 30px;
+
+		@include media( max-width, md ) {
+			padding: $sui-gutter-md;
+		}
 
 		.sui-box-settings-row {
 			position: relative;
@@ -221,6 +233,10 @@
 		&.sui-pull-up {
 			margin-top: -15px;
 		}
+
+		@include media( max-width, md ) {
+			padding: $sui-gutter-md;
+		}
 	}
 
 	.sui-box-title {
@@ -254,6 +270,11 @@
 		padding-bottom: $default-padding;
 		border-bottom: 1px solid $box-settings-box-border-color;
 		margin-bottom: $default-margin;
+
+		@include media( max-width, md ) {
+			margin-bottom: $sui-gutter-md;
+			padding-bottom: $sui-gutter-md;
+		}
 	}
 	.sui-border-frame {
 		border: 1px solid #E6E6E6;

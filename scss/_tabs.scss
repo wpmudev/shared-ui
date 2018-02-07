@@ -62,6 +62,10 @@
 				overflow: auto;
 				border-top: 2px solid $tabs-content-border-color;
 				top: 38px;
+
+				@include media( max-width, md ) {
+					padding: $sui-gutter-md 0 0;
+				}
 			}
 
 			input[type=radio]:checked ~ .sui-tab-content {

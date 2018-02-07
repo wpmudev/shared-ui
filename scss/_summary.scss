@@ -6,6 +6,9 @@
 		background-repeat: no-repeat;
 		background-position: $summary-image-default-position;
 		background-size: $summary-image-default-width $summary-image-default-height;
+		@include media( max-width, md ) {
+			padding: $sui-gutter-md $sui-gutter-md 10px;
+		}
 
 		@media( max-width: 1100px ){
 			background-image: none !important;

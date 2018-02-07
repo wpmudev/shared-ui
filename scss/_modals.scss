@@ -120,6 +120,9 @@
 		.sui-box-body {
 			& > * {
 				margin-bottom: 30px;
+				@include media( max-width, md ) {
+					margin-bottom: $sui-gutter-md;
+				}
 				&:last-child {
 					margin-bottom: 0;
 				}

@@ -39,7 +39,11 @@
 
 		&.sui-mobile-nav {
 			background-color: $white;
-			margin-bottom: 30px;
+			margin-bottom: $sui-gutter;
+
+			@include media( max-width, md ) {
+				margin-bottom: $sui-gutter-md;
+			}
 
 			.dropdown-handle {
 				background-color: $white;

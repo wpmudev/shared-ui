@@ -12,10 +12,14 @@
 
 	.sui-table th {
 		text-align: left;
-		padding: 20px 30px;
+		padding: 20px $sui-gutter;
 		font-weight: 500;
 		line-height: 1;
 		color: $table--th-color;
+
+		@include media( max-width, md ) {
+			padding: $sui-gutter-md;
+		}
 	}
 
 	.sui-table th,

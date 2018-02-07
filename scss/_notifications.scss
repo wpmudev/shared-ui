@@ -11,6 +11,10 @@
 		margin-bottom: $sui-gutter;
 		background-color: $notice-default-bg-color;
 
+		@include media( max-width, md ) {
+			margin-bottom: $sui-gutter-md;
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -166,5 +170,8 @@
 	}
 	p + .sui-notice {
 		margin-top: 30px;
+		@include media( max-width, md ) {
+			margin-top: $sui-gutter-md;
+		}
 	}
 }
