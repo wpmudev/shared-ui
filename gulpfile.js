@@ -8,12 +8,20 @@ const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
 const fs           = require( 'fs' );
 const gulp         = require( 'gulp' );
+const header       = require( 'gulp-header' );
 const pump         = require( 'pump' );
 const rename       = require( 'gulp-rename' );
 const replace      = require( 'gulp-replace' );
 const sass         = require( 'gulp-sass' );
 const uglify       = require( 'gulp-uglify' );
 const watch        = require( 'gulp-watch' );
+
+const banner = ['/*!',
+	' * WPMU DEV Shared UI',
+	' * Copyright 2018 Incsub (https://incsub.com)',
+	' * Licensed under GPL v2 (http://www.gnu.org/licenses/gpl-2.0.html)',
+	' */',
+	''].join('\n');
 
 /**
  * Get the latest project version from package.json.
@@ -44,6 +52,7 @@ gulp.task( 'styles:sui', function() {
 	gulp.src( './scss/**/*.scss')
 		.pipe( sass({ outputStyle: 'expanded' }).on( 'error', sass.logError ) )
 		.pipe( autoprefixer())
+		.pipe( header( banner ) )
 		.pipe( gulp.dest( './dist/css' ) )
 		.pipe( cleanCSS() )
 		.pipe( rename({ suffix: '.min' }) )
@@ -61,9 +70,11 @@ gulp.task( 'scripts:sui', function( cb ) {
 			eslint.format(),
 			eslint.failAfterError(),
 			concat( 'shared-ui.js'),
+			header( banner ),
 			gulp.dest( './dist/js/' ),
 			uglify(),
 			rename({ suffix: '.min' }),
+			header( banner ),
 			gulp.dest( './dist/js/' ),
 			browserSync.stream()
 		],
