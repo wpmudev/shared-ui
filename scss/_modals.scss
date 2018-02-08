@@ -15,7 +15,7 @@
 		display: flex;
 		align-items: center;
 
-		// Modal sizes
+		// Modal sizes.
 		&.sui-dialog-sm {
 			.sui-dialog-content {
 				max-width: 400px;
@@ -41,7 +41,6 @@
 					position: absolute;
 					right: 30px;
 					top: 30px;
-					outline-style: none;
 				}
 			}
 
@@ -51,7 +50,6 @@
 					line-height: 22px;
 					text-align: center;
 				}
-
 
 			}
 
@@ -72,7 +70,6 @@
 			}
 		}
 
-		// Responsive
 		@media (max-width: 960px) {
 			left: 36px;
 		}
@@ -95,7 +92,6 @@
 		bottom: 0;
 		left: 160px;
 
-		// Responsive
 		@media (max-width: 960px) {
 			left: 36px;
 		}
@@ -117,18 +113,18 @@
 		> .sui-box {
 			box-shadow: 0 10px 40px $modal-box-shadow-color;
 		}
+
 		.sui-box-body {
 			& > * {
 				margin-bottom: 30px;
 				@include media( max-width, md ) {
 					margin-bottom: $sui-gutter-md;
 				}
+
 				&:last-child {
 					margin-bottom: 0;
 				}
 			}
-
-
 		}
 	}
 
@@ -140,5 +136,6 @@
 		cursor: pointer;
 		color: $modal-close-color;
 		@include icon(before, 'close');
+		outline-style: none;
 	}
 }
