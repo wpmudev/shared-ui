@@ -13,7 +13,7 @@
 
 		// Init the dialog elements.
 		$( '.sui-dialog' ).each( function() {
-			new window.A11yDialog( this, mainEl );
+			new A11yDialog( this, mainEl );
 		});
 
 	});
