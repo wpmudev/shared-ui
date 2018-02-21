@@ -3,9 +3,6 @@
 	var btns = $( '.demo-icon' );
 	var clipboard = new ClipboardJS( '.demo-icon' );
 
-	// Add current version to heading from package.json.
-	$( '.demo-sui-version' ).text( 'Version SUI_VERSION' );
-
 	// Offset scroll for showcase sidenav.
 	function offsetAnchor() {
 		if ( 0 !== location.hash.length ) {

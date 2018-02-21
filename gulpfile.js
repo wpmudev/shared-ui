@@ -97,7 +97,6 @@ gulp.task( 'styles:showcase', function() {
 gulp.task( 'scripts:showcase', function( cb ) {
 	pump([
 			gulp.src( ['./showcase-assets/*.js'] ),
-			replace( 'SUI_VERSION', getVersion() ),
 			eslint(),
 			eslint.format(),
 			eslint.failAfterError(),
@@ -147,8 +146,10 @@ gulp.task( 'update-versions', function( cb ) {
 	const version   = getVersion();
 	const bodyClass = getBodyClass( false );
 
-	// Update SCSS version.
+	// Update project SCSS version.
 	gulp.src( './scss/_variables.scss' )
+
+		// Update SCSS version.
 		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
@@ -156,10 +157,13 @@ gulp.task( 'update-versions', function( cb ) {
 
 			return `${p1}${version}${p2}`;
 		}))
+
 		.pipe( gulp.dest( './scss/' ) );
 
-	// Update demo body class, demo php body class code example, & query string versions.
+	// Update showcase HTML versions.
 	gulp.src( './index.html' )
+
+		// Update body class version.
 		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
@@ -167,6 +171,8 @@ gulp.task( 'update-versions', function( cb ) {
 
 			return `${p1}${bodyClass}${p2}`;
 		}))
+
+		// Update php code example body class.
 		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
@@ -174,13 +180,25 @@ gulp.task( 'update-versions', function( cb ) {
 
 			return `${p1}${bodyClass}${p2}`;
 		}))
+
+		// Update asset query string versions.
 		.pipe( replace(/(\?ver=).*(">)/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Query strings have been updated to ${chalk.green( `?ver=${version}` )}\n` );
+			console.log( `Asset query string has been updated to ${chalk.green( `?ver=${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}))
+
+		// Update asset query string versions.
+		.pipe( replace(/(<p class="demo-sui-version">Version ).*(<\/p>)/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './index.html:' ) );
+			console.log( `Adminbar version has been updated to ${chalk.green( `?ver=${version}` )}\n` );
+
+			return `${p1}${version}${p2}`;
+		}))
+
 		.pipe( gulp.dest( './' ) );
 
 });
