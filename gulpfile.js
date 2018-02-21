@@ -174,7 +174,7 @@ gulp.task( 'update-versions', function( cb ) {
 
 			return `${p1}${bodyClass}${p2}`;
 		}))
-		.pipe( replace(/(\?ver=).*(")/gm, function( match, p1, p2 ) {
+		.pipe( replace(/(\?ver=).*(">)/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Query strings have been updated to ${chalk.green( `?ver=${version}` )}\n` );
