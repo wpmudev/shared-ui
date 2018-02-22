@@ -6130,17 +6130,12 @@ fieldset[disabled] .sui-2-0-22 .sui-radio + span {
 }
 
 .sui-2-0-22 .sui-table th {
+  white-space: nowrap;
   text-align: left;
   padding: 20px 30px;
   font-weight: 500;
   line-height: 1;
   color: #333333;
-}
-
-@media (max-width: 782px) {
-  .sui-2-0-22 .sui-table th {
-    padding: 20px;
-  }
 }
 
 .sui-2-0-22 .sui-table th,
@@ -6194,6 +6189,23 @@ fieldset[disabled] .sui-2-0-22 .sui-radio + span {
   text-transform: capitalize;
   font-weight: 500;
   margin: 0;
+}
+
+@media (max-width: 782px) {
+  .sui-2-0-22 .sui-table {
+    border: none;
+  }
+  .sui-2-0-22 .sui-table td,
+  .sui-2-0-22 .sui-table th {
+    padding: 15px 15px 15px 0;
+  }
+  .sui-2-0-22 .sui-table td:last-of-type,
+  .sui-2-0-22 .sui-table th:last-of-type {
+    padding-right: 0;
+  }
+  .sui-2-0-22 .sui-table tr:last-child td {
+    border-bottom: 1px solid #E6E6E6;
+  }
 }
 
 .sui-2-0-22 .sui-accordion {
