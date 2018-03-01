@@ -2,7 +2,7 @@
 
 	.sui-list {
 		list-style: none;
-		margin: -20px 0 20px;
+		margin: 0 0 20px;
 		padding: 0;
 
 		&.sui-list-inline {
@@ -26,19 +26,30 @@
 			}
 
 			&.sui-list-header {
-				text-transform: uppercase;
+				color: #333333;
+				font-size: 13px;
 				font-weight: bold;
-				font-family: $font--alt;
-				padding-top: 0;
+				line-height: 30px;
+				padding-bottom: 0;
+				span {
+					display: table-cell;
+					border-bottom: 1px solid #EEEEEE;
+					&:nth-child(2) {
+						text-align: right;
+					}
+				}
 			}
 
-			& .sui-list-detail {
+			.sui-list-detail {
 				text-align: right;
 				padding: 10px 0;
 				font-family: $font--alt;
 				font-size: 13px;
 				font-weight: 500;
 				line-height: 22px;
+				.sui-tag {
+					font-family: $font;
+				}
 			}
 
 			& .sui-list-detail,

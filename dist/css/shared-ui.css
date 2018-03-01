@@ -3323,7 +3323,6 @@
   color: #333333;
   width: calc(100% / 2 - 98px);
   padding-left: 5%;
-  padding-top: 10px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -3417,7 +3416,7 @@
 
 .sui-2-0-22 .sui-list {
   list-style: none;
-  margin: -20px 0 20px;
+  margin: 0 0 20px;
   padding: 0;
 }
 
@@ -3445,10 +3444,20 @@
 }
 
 .sui-2-0-22 .sui-list > li.sui-list-header {
-  text-transform: uppercase;
+  color: #333333;
+  font-size: 13px;
   font-weight: bold;
-  font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
-  padding-top: 0;
+  line-height: 30px;
+  padding-bottom: 0;
+}
+
+.sui-2-0-22 .sui-list > li.sui-list-header span {
+  display: table-cell;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.sui-2-0-22 .sui-list > li.sui-list-header span:nth-child(2) {
+  text-align: right;
 }
 
 .sui-2-0-22 .sui-list > li .sui-list-detail {
@@ -3458,6 +3467,10 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 22px;
+}
+
+.sui-2-0-22 .sui-list > li .sui-list-detail .sui-tag {
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .sui-2-0-22 .sui-list > li .sui-list-detail,
