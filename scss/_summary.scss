@@ -1,7 +1,7 @@
 @include body-class {
 
 	.sui-summary {
-		padding: 30px 30px 10px;
+		padding: 15px 30px 0;
 		background-image: url($summary-image-default-url);
 		background-repeat: no-repeat;
 		background-position: $summary-image-default-position;
@@ -111,7 +111,11 @@
 			}
 
 			.sui-list {
+				margin: 0 0 15px;
 
+				@media( max-width: 783px ){
+					margin: 0 0 10px;
+				}
 				@media( max-width: 600px ){
 					text-align: left;
 				}
