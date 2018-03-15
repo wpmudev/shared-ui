@@ -6,5 +6,8 @@ For internal use in [WPMU DEV](https://wpmudev.org) plugins.
 
 See [showcase](https://wpmudev.github.io/shared-ui/).
 
+##### Example plugin integration using webpack
+See [example plugin](https://bitbucket.org/incsub/shared-ui-example-plugin/src).
+
 ## Contributing
 Please read through our [contributing guidelines](https://github.com/wpmudev/shared-ui/blob/master/CONTRIBUTING.md).
