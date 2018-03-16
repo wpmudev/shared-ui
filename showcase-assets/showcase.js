@@ -9,7 +9,7 @@
 			window.scrollTo( window.scrollX, window.scrollY - 60 );
 		}
 	}
-	$( document ).on( 'click', '#adminmenu a[href^="#"]', function( event ) {
+	$( document ).on( 'click', '#adminmenu a[href^="#"], .demo-internal-link[href^="#"]', function( event ) {
 		window.setTimeout( function() {
 			offsetAnchor();
 		}, 0 );

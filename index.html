@@ -92,7 +92,7 @@ npm install @wpmudev/shared-ui</pre>
 					<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
 				</div>
 
-				<!-- Do not edit code snippet body clss - updated via release scripts -->
+				<!-- Do not edit code snippet body class - updated via release scripts -->
 				<div class="demo-code-block">
 <pre class="sui-code-snippet php">
 add_filter( 'admin_body_class', 'admin_body_classes' );
@@ -125,16 +125,17 @@ function admin_body_classes( $classes ) {
 					</div>
 				</div>
 				<div class="demo-code-block">
-					<pre class="sui-code-snippet html">&lt;div class="sui-header"&gt;
-	&lt;h1 class="sui-header-title"&gt;Example Heading&lt;/h1&gt;
-	&lt;div class="sui-actions-left"&gt;
-		&lt;label class="sui-toggle"&gt;
-			&lt;input type="checkbox"&gt;
-			&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-header&quot;&gt;
+	&lt;h1 class=&quot;sui-header-title&quot;&gt;Example Heading&lt;/h1&gt;
+	&lt;div class=&quot;sui-actions-left&quot;&gt;
+		&lt;label class=&quot;sui-toggle&quot;&gt;
+			&lt;input type=&quot;checkbox&quot;&gt;
+			&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
 		&lt;/label&gt;
 	&lt;/div&gt;
-	&lt;div class="sui-actions-right"&gt;
-		&lt;button class="sui-button sui-button-ghost"&gt;&lt;i class="sui-icon-academy"&gt;&lt;/i&gt;&nbsp; View Documentation&lt;/button&gt;
+	&lt;div class=&quot;sui-actions-right&quot;&gt;
+		&lt;button class=&quot;sui-button sui-button-ghost&quot;&gt;&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt; View Documentation&lt;/button&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
@@ -272,7 +273,7 @@ function admin_body_classes( $classes ) {
 										<div class="sui-form-field">
 											<label for="text-input" class="sui-label">Text</label>
 											<input type="text" aria-describedby="input-description" id="text-input" class="sui-form-control" placeholder="input type text">
-											<span id="input-description" class="sui-description">This is a field with a note.</span>
+											<span id="input-description" class="sui-description">This is a description about the field.</span>
 										</div>
 									</div>
 									<div class="sui-col">
@@ -297,9 +298,16 @@ function admin_body_classes( $classes ) {
 				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
 			&lt;/div&gt;
 			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
-				&lt;div class=&quot;sui-form-field&quot;&gt;
-					...
-				&lt;/div&gt;
+				...
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+				...
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -1763,7 +1771,7 @@ RewriteRule . /index.php [L]
 
 				<div class="demo-info-block">
 					<h2>Forms</h2>
-					<p>Lorem ipsum dolor sit amet.</p>
+					<p>Form layouts, inputs, input groups, and error styles.</p>
 					<div class="sui-notice sui-notice-warning">
 						<p>If you are using individual js components, <code>password.js</code> is required for show/hide password functionality.</p>
 					</div>
@@ -1875,91 +1883,401 @@ RewriteRule . /index.php [L]
 
 				<hr>
 
+				<div class="demo-info-block">
+					<h3>Text Input</h3>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-body">
+						<label for="forms-text-1" class="sui-label">Input Label</label>
+						<input type="text" id="forms-text-1" class="sui-form-control" placeholder="input type text">
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
 
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label for="forms-text-1" class="sui-label">Text</label>
-									<input type="text" id="forms-text-1" class="sui-form-control" placeholder="input type text">
-									<span class="sui-description">This is a field with a note.</span>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<span class="sui-label">File Upload</span>
-									<div class="sui-upload-group">
-										<label for="demo-file-upload" class="sui-upload-label">
-											<input type="file" aria-describedby="demo-file-upload-description" id="demo-file-upload">
-											<span aria-hidden="true" class="sui-upload-button">Choose file</span>
-											<span id="demo-file-upload-description" class="sui-upload-message">No file chosen</span>
-										</label>
-									</div>
-								</div>
-							</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;forms-text-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+		&lt;input type=&quot;text&quot; id=&quot;forms-text-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Number Input</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="forms-number-1" class="sui-label">Input Label</label>
+						<input type="number" id="forms-number-1" class="sui-form-control" placeholder="input type number">
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;forms-number-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+		&lt;input type=&quot;number&quot; id=&quot;forms-number-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type number&quot;&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Email Input</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="forms-email-1" class="sui-label">Input Label</label>
+						<input type="email" id="forms-email-1" class="sui-form-control" placeholder="input type email">
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;forms-email-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+		&lt;input type=&quot;email&quot; id=&quot;forms-email-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type email&quot;&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Textarea</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="textarea" class="sui-label">Textarea</label>
+						<textarea id="textarea" class="sui-form-control"></textarea>
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;textarea&quot; class=&quot;sui-label&quot;&gt;Textarea&lt;/label&gt;
+		&lt;textarea id=&quot;textarea&quot; class=&quot;sui-form-control&quot;&gt;&lt;/textarea&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>File Input</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<span class="sui-label">File Upload</span>
+						<div class="sui-upload-group">
+							<label for="demo-file-upload" class="sui-upload-label">
+								<input type="file" aria-describedby="demo-file-upload-description" id="demo-file-upload">
+								<span aria-hidden="true" class="sui-upload-button">Choose file</span>
+								<span id="demo-file-upload-description" class="sui-upload-message">No file chosen</span>
+							</label>
 						</div>
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
 
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label for="password" class="sui-label">Password <a role="button" href="#" class="sui-label-link">Forgot Password</a></label>
-									<div class="sui-password-group">
-										<input type="password" id="password" class="sui-form-control"
-											   placeholder="input type password" required>
-										<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
-											<i aria-hidden="true" class="sui-icon-eye"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field sui-form-field-error">
-									<label class="sui-label">Error</label>
-									<input type="number" class="sui-form-control" placeholder="input type text">
-									<span class="sui-error-message">This is an error message</span>
-								</div>
-							</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;span class=&quot;sui-label&quot;&gt;File Upload&lt;/span&gt;
+		&lt;div class=&quot;sui-upload-group&quot;&gt;
+			&lt;label for=&quot;demo-file-upload&quot; class=&quot;sui-upload-label&quot;&gt;
+				&lt;input type=&quot;file&quot; aria-describedby=&quot;demo-file-upload-description&quot; id=&quot;demo-file-upload&quot;&gt;
+				&lt;span aria-hidden=&quot;true&quot; class=&quot;sui-upload-button&quot;&gt;Choose file&lt;/span&gt;
+				&lt;span id=&quot;demo-file-upload-description&quot; class=&quot;sui-upload-message&quot;&gt;No file chosen&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Password Input</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="password" class="sui-label">Password <a role="button" href="#" class="sui-label-link">Forgot Password</a></label>
+						<div class="sui-password-group">
+							<input type="password" id="password" class="sui-form-control" placeholder="input type password" required>
+							<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
+								<i aria-hidden="true" class="sui-icon-eye"></i>
+							</button>
 						</div>
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
 
-						<div class="sui-row">
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label for="textarea" class="sui-label">Textarea</label>
-									<textarea id="textarea" class="sui-form-control"></textarea>
-								</div>
-							</div>
-							<div class="sui-col">
-								<div class="sui-form-field">
-									<label for="number" class="sui-label">Number</label>
-									<input type="number" id="number" class="sui-form-control" placeholder="input type number">
-								</div>
-							</div>
-						</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;password&quot; class=&quot;sui-label&quot;&gt;Password &lt;a role=&quot;button&quot; href=&quot;#&quot; class=&quot;sui-label-link&quot;&gt;Forgot Password&lt;/a&gt;&lt;/label&gt;
+		&lt;div class=&quot;sui-password-group&quot;&gt;
+			&lt;input type=&quot;password&quot; id=&quot;password&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type password&quot; required&gt;
+			&lt;button class=&quot;sui-password-toggle sui-tooltip&quot; type=&quot;button&quot; data-tooltip=&quot;View Password&quot;&gt;
+				&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-eye&quot;&gt;&lt;/i&gt;
+			&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
 
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Select List</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="list" class="sui-label">Select List</label>
+						<select id="list" name="select-list">
+							<option value="" selected="selected">Select Option</option>
+							<option value="apache">Apache</option>
+							<option value="LiteSpeed">LiteSpeed</option>
+							<option value="nginx">NGINX</option>
+							<option value="iis">IIS</option>
+							<option value="iis-7">IIS 7</option>
+							<option value="cloudflare">Cloudflare</option>
+						</select>
+						<span class="sui-description">This is a description about the field.</span>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;label for=&quot;list&quot; class=&quot;sui-label&quot;&gt;Select List&lt;/label&gt;
+		&lt;select id=&quot;list&quot; name=&quot;select-list&quot;&gt;
+			&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;Select Option&lt;/option&gt;
+			&lt;option value=&quot;apache&quot;&gt;Apache&lt;/option&gt;
+			&lt;option value=&quot;LiteSpeed&quot;&gt;LiteSpeed&lt;/option&gt;
+			&lt;option value=&quot;nginx&quot;&gt;NGINX&lt;/option&gt;
+			&lt;option value=&quot;iis&quot;&gt;IIS&lt;/option&gt;
+			&lt;option value=&quot;iis-7&quot;&gt;IIS 7&lt;/option&gt;
+			&lt;option value=&quot;cloudflare&quot;&gt;Cloudflare&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Form Groups</h3>
+					<p>When multiple inputs are stacked vertically, they should be wrapped in the <code>.sui-form-field</code> class to create vertical separation.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
 						<div class="sui-form-field">
-							<div class="sui-row">
-								<div class="sui-col">
-									<label for="email" class="sui-label">Email</label>
-									<input type="email" id="email" class="sui-form-control" placeholder="input type email">
+							<label for="demo-form-groups-text-1" class="sui-label">Input Label</label>
+							<input type="text" id="demo-form-groups-text-1" class="sui-form-control" placeholder="input type text">
+						</div>
+						<div class="sui-form-field">
+							<label for="demo-form-groups-text-2" class="sui-label">Input Label</label>
+							<input type="text" id="demo-form-groups-text-2" class="sui-form-control" placeholder="input type text">
+						</div>
+						<div class="sui-form-field">
+							<label for="demo-form-groups-text-3" class="sui-label">Input Label</label>
+							<input type="text" id="demo-form-groups-text-3" class="sui-form-control" placeholder="input type text">
+						</div>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-form-field&quot;&gt;
+			&lt;label for=&quot;demo-form-groups-text-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;text&quot; id=&quot;demo-form-groups-text-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sui-form-field&quot;&gt;
+			&lt;label for=&quot;demo-form-groups-text-2&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;text&quot; id=&quot;demo-form-groups-text-2&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sui-form-field&quot;&gt;
+			&lt;label for=&quot;demo-form-groups-text-3&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;text&quot; id=&quot;demo-form-groups-text-3&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Form Layout</h3>
+					<p>For multiple columns within a form, utilize the Shared UI <a class="demo-internal-link" href="#grid">grid system</a>.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<div class="sui-row">
+							<div class="sui-col-sm-6">
+								<div class="sui-form-field">
+									<label for="demo-form-layout-text-1" class="sui-label">Input Label</label>
+									<input type="text" id="demo-form-layout-text-1" class="sui-form-control" placeholder="input type text">
 								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="list" class="sui-label">Select List</label>
-										<select id="list" name="select-list">
-											<option value="" selected="selected">Select Option</option>
-											<option value="apache">Apache</option>
-											<option value="LiteSpeed">LiteSpeed</option>
-											<option value="nginx">NGINX</option>
-											<option value="iis">IIS</option>
-											<option value="iis-7">IIS 7</option>
-											<option value="cloudflare">Cloudflare</option>
-										</select>
-									</div>
+							</div>
+							<div class="sui-col-sm-6">
+								<div class="sui-form-field">
+									<label for="demo-form-layout-text-2" class="sui-label">Input Label</label>
+									<input type="text" id="demo-form-layout-text-2" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+						</div>
+						<div class="sui-row">
+							<div class="sui-col-sm-4">
+								<div class="sui-form-field">
+									<label for="demo-form-layout-text-3" class="sui-label">Input Label</label>
+									<input type="text" id="demo-form-layout-text-3" class="sui-form-control" placeholder="input type text">
+								</div>
+							</div>
+							<div class="sui-col-sm-8">
+								<div class="sui-form-field">
+									<label for="demo-form-layout-text-4" class="sui-label">Input Label</label>
+									<input type="text" id="demo-form-layout-text-4" class="sui-form-control" placeholder="input type text">
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+		&lt;div class=&quot;sui-row&quot;&gt;
+			&lt;div class=&quot;sui-col-sm-6&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					&lt;label for=&quot;demo-form-layout-text-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+					&lt;input type=&quot;text&quot; id=&quot;demo-form-layout-text-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-col-sm-6&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					&lt;label for=&quot;demo-form-layout-text-2&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+					&lt;input type=&quot;text&quot; id=&quot;demo-form-layout-text-2&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;sui-row&quot;&gt;
+			&lt;div class=&quot;sui-col-sm-4&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					&lt;label for=&quot;demo-form-layout-text-3&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+					&lt;input type=&quot;text&quot; id=&quot;demo-form-layout-text-3&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;sui-col-sm-8&quot;&gt;
+				&lt;div class=&quot;sui-form-field&quot;&gt;
+					&lt;label for=&quot;demo-form-layout-text-4&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+					&lt;input type=&quot;text&quot; id=&quot;demo-form-layout-text-4&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
+					<h3>Inline Errors</h3>
+					<p>These error classes should be used when validating forms. Add the class<code>.sui-form-field-error</code> to the form-field or the direct parent wrapper of the input. <br>Note that the error message should be directly adjacent to the input. This means that if the field also has a description, the error message should be placed in between.</p>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+
+						<!-- text input -->
+						<div class="sui-form-field">
+							<label for="demo-input-error-text-1" class="sui-label">Input Label</label>
+							<input type="text" id="demo-input-error-text-1" class="sui-form-control" placeholder="input type text">
+						</div>
+
+						<!-- text input with error -->
+						<div class="sui-form-field sui-form-field-error">
+							<label for="demo-input-error-text-2" class="sui-label">Input Label</label>
+							<input type="number" id="demo-input-error-text-2" class="sui-form-control" placeholder="input type text">
+							<span class="sui-error-message">This is an error message!</span>
+						</div>
+
+						<!-- text input with description and error -->
+						<div class="sui-form-field sui-form-field-error">
+							<label for="demo-input-error-text-3" class="sui-label">Input Label</label>
+							<input type="number" id="demo-input-error-text-3" class="sui-form-control" placeholder="input type text">
+							<span class="sui-error-message">This is an error message!</span>
+							<span class="sui-description">This is a description about the field.</span>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+
+		&lt;!-- text input --&gt;
+		&lt;div class=&quot;sui-form-field&quot;&gt;
+			&lt;label for=&quot;demo-input-error-text-1&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;text&quot; id=&quot;demo-input-error-text-1&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;!-- text input with error --&gt;
+		&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+			&lt;label for=&quot;demo-input-error-text-2&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;number&quot; id=&quot;demo-input-error-text-2&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+			&lt;span class=&quot;sui-error-message&quot;&gt;This is an error message!&lt;/span&gt;
+		&lt;/div&gt;
+
+		&lt;!-- text input with description and error --&gt;
+		&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+			&lt;label for=&quot;demo-input-error-text-3&quot; class=&quot;sui-label&quot;&gt;Input Label&lt;/label&gt;
+			&lt;input type=&quot;number&quot; id=&quot;demo-input-error-text-3&quot; class=&quot;sui-form-control&quot; placeholder=&quot;input type text&quot;&gt;
+			&lt;span class=&quot;sui-error-message&quot;&gt;This is an error message!&lt;/span&gt;
+			&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
 				</div>
 
 			</section>
@@ -2644,9 +2962,9 @@ Header set Cache-Control "max-age=691200"
 							<div class="sui-row">
 								<div class="sui-col">
 									<div class="sui-form-field">
-										<label for="password2" class="sui-label">Password</label>
+										<label for="password3" class="sui-label">Password</label>
 										<div class="sui-password-group">
-											<input type="password" id="password2" class="sui-form-control" placeholder="input type password">
+											<input type="password" id="password3" class="sui-form-control" placeholder="input type password">
 											<button class="sui-password-toggle" type="button">
 												<span class="sui-screen-reader-text">Show Password</span>
 												<i aria-hidden="true" class="sui-icon-eye"></i>
