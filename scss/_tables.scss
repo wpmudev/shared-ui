@@ -13,13 +13,29 @@
 
 	.sui-table th {
 		text-align: left;
-		padding: 20px $sui-gutter;
+		padding: 20px $sui-gutter/2;
 		font-weight: 500;
 		line-height: 1;
 		color: $table--th-color;
 
+		&:first-child {
+			padding-left: $sui-gutter;
+
+			@include media( max-width, md ) {
+				padding-left: $sui-gutter-md;
+			}
+		}
+
+		&:last-child {
+			padding-right: $sui-gutter;
+
+			@include media( max-width, md ) {
+				padding-right: $sui-gutter-md;
+			}
+		}
+
 		@include media( max-width, md ) {
-			padding: $sui-gutter-md;
+			padding: $sui-gutter-md $sui-gutter-md/2;
 		}
 	}
 
@@ -33,7 +49,27 @@
 	}
 
 	.sui-table td {
-		padding: 20px 30px;
+		padding: 20px $sui-gutter/2;
+
+		&:first-child {
+			padding-left: $sui-gutter;
+
+			@include media( max-width, md ) {
+				padding-left: $sui-gutter-md;
+			}
+		}
+
+		&:last-child {
+			padding-right: $sui-gutter;
+
+			@include media( max-width, md ) {
+				padding-right: $sui-gutter-md;
+			}
+		}
+
+		@include media( max-width, md ) {
+			padding: $sui-gutter-md $sui-gutter-md/2;
+		}
 	}
 
 	.sui-table tfoot th {
