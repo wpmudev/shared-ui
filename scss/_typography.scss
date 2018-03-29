@@ -14,8 +14,18 @@
 		line-height: $font--line-height;
 		color: $font-color;
 		letter-spacing: $font--letter-spacing;
-		text-rendering: optimizeLegibility;
 		margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+
+		* {
+			font-variant-ligatures: none;
+			-webkit-font-variant-ligatures: none;
+			text-rendering: optimizeLegibility;
+			-moz-osx-font-smoothing: grayscale;
+			font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased;
+			text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+		}
+		
 		@include media( max-width, md ) {
 			margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
 		}
