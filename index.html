@@ -33,6 +33,7 @@
 		<li><a href="#scores">Scores</a></li>
 		<li><a href="#dropdowns">Dropdowns</a></li>
 		<li><a href="#forms">Forms</a></li>
+		<li><a href="#pagination">Pagination</a></li>
 		<li><a href="#summary">Summary</a></li>
 		<li><a href="#sidenav">Sidenav</a></li>
 		<li><a href="#tabs">Tabs</a></li>
@@ -2279,6 +2280,103 @@ RewriteRule . /index.php [L]
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
+			</section>
+
+			<section id="pagination">
+
+				<div class="demo-info-block">
+					<h2>Pagination</h2>
+				</div>
+
+				<div class="sui-box">
+
+					<div class="sui-box-body">
+
+						<ul class="sui-pagination">
+							
+							<li><a href="" disabled><i class="sui-icon-arrow-skip-start" aria-hidden="true"></i></a></li>
+							<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
+							<li class="sui-active"><a href="">1</a></li>
+							<li><a href="">5</a></li>
+							<li><a href="">10</a></li>
+							<li><a href="">...</a></li>
+							<li><a href="">20</a></li>
+							<li><a href="">30</a></li>
+							<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="sui-icon-arrow-skip-end" aria-hidden="true"></i></a></li>
+							
+						</ul>
+
+						<div class="sui-pagination-wrap">
+
+							<span class="sui-pagination-results">349 results</span>
+
+							<ul class="sui-pagination">
+
+								<li><a href="" disabled><i class="sui-icon-arrow-skip-start" aria-hidden="true"></i></a></li>
+								<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
+								<li class="sui-active"><a href="">1</a></li>
+								<li><a href="">5</a></li>
+								<li><a href="">10</a></li>
+								<li><a href="">...</a></li>
+								<li><a href="">20</a></li>
+								<li><a href="">30</a></li>
+								<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
+								<li><a href=""><i class="sui-icon-arrow-skip-end" aria-hidden="true"></i></a></li>
+
+							</ul>
+
+							<span class="sui-pagination-open-filter"><i class="sui-icon-filter" aria-hidden="true"></i></span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box&quot;&gt;
+	&lt;div class=&quot;sui-box-body&quot;&gt;
+
+		&lt;!-- pagination --&gt;
+		&lt;ul class=&quot;sui-pagination&quot;&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-arrow-skip-start&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+			&lt;li class=&quot;sui-active&quot;&gt;&lt;a href=&quot;&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;10&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;20&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;30&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-arrow-skip-end&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+
+		&lt;!-- pagination with results --&gt;
+		&lt;div class=&quot;sui-pagination-wrap&quot;&gt;
+			&lt;span class=&quot;sui-pagination-results&quot;&gt;349 results&lt;/span&gt;
+			&lt;ul class=&quot;sui-pagination&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-arrow-skip-start&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+				&lt;li class=&quot;sui-active&quot;&gt;&lt;a href=&quot;&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot;&gt;10&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot;&gt;20&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot;&gt;30&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-arrow-skip-end&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;span class=&quot;sui-pagination-open-filter&quot;&gt;&lt;i class=&quot;sui-icon-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+			</section>
 
 			</section>
 
