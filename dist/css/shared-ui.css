@@ -624,7 +624,7 @@
 }
 
 .sui-2-1-1 [class*="sui-icon-"]:before, .sui-2-1-1 [class*="sui-icon-"]:after, .sui-2-1-1 .sui-notice-top p:before,
-.sui-2-1-1 .sui-notice p:before, .sui-2-1-1 .sui-checkbox span:before, .sui-2-1-1 .sui-radio span:before, .sui-2-1-1 .sui-dialog-close:before, .sui-2-1-1 .sui-listing li:before {
+.sui-2-1-1 .sui-notice p:before, .sui-2-1-1 .sui-checkbox span:not(.sui-description):before, .sui-2-1-1 .sui-radio span:not(.sui-description):before, .sui-2-1-1 .sui-dialog-close:before, .sui-2-1-1 .sui-listing li:before {
   font-family: 'WPMU-DEV-Icon' !important;
   speak: none;
   font-size: 1em;
@@ -4160,7 +4160,7 @@ fieldset[disabled] .sui-2-1-1 .sui-upload-group {
           align-items: start;
 }
 
-.sui-2-1-1 .sui-checkbox span, .sui-2-1-1 .sui-radio span {
+.sui-2-1-1 .sui-checkbox span:not(.sui-description), .sui-2-1-1 .sui-radio span:not(.sui-description) {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   position: relative;
@@ -4175,7 +4175,7 @@ fieldset[disabled] .sui-2-1-1 .sui-upload-group {
   margin-top: 3px;
 }
 
-.sui-2-1-1 .sui-checkbox span:before, .sui-2-1-1 .sui-radio span:before {
+.sui-2-1-1 .sui-checkbox span:not(.sui-description):before, .sui-2-1-1 .sui-radio span:not(.sui-description):before {
   opacity: 0;
   content: "(";
   color: #FFFFFF;
@@ -4188,11 +4188,11 @@ fieldset[disabled] .sui-2-1-1 .sui-upload-group {
   transition: .2s;
 }
 
-.sui-2-1-1 .sui-checkbox input:checked + span, .sui-2-1-1 .sui-radio input:checked + span {
+.sui-2-1-1 .sui-checkbox input:checked + span:not(.sui-description), .sui-2-1-1 .sui-radio input:checked + span:not(.sui-description) {
   background-color: #17A8E3;
 }
 
-.sui-2-1-1 .sui-checkbox input:checked + span:before, .sui-2-1-1 .sui-radio input:checked + span:before {
+.sui-2-1-1 .sui-checkbox input:checked + span:not(.sui-description):before, .sui-2-1-1 .sui-radio input:checked + span:not(.sui-description):before {
   opacity: 1;
 }
 
@@ -4210,19 +4210,19 @@ fieldset[disabled] .sui-2-1-1 .sui-upload-group {
   font-size: 13px;
 }
 
-.sui-2-1-1 .sui-checkbox input[disabled] + span, .sui-2-1-1 .sui-radio input[disabled] + span,
-fieldset[disabled] .sui-2-1-1 .sui-checkbox + span,
-fieldset[disabled] .sui-2-1-1 .sui-radio + span {
+.sui-2-1-1 .sui-checkbox input[disabled] + span:not(.sui-description), .sui-2-1-1 .sui-radio input[disabled] + span:not(.sui-description),
+fieldset[disabled] .sui-2-1-1 .sui-checkbox + span:not(.sui-description),
+fieldset[disabled] .sui-2-1-1 .sui-radio + span:not(.sui-description) {
   cursor: not-allowed;
   opacity: .5;
 }
 
-.sui-2-1-1 .sui-checkbox input[disabled] + span + div.sui-description, .sui-2-1-1 .sui-radio input[disabled] + span + div.sui-description {
+.sui-2-1-1 .sui-checkbox input[disabled] + span + span.sui-description, .sui-2-1-1 .sui-radio input[disabled] + span + span.sui-description {
   color: #AAAAAA;
   cursor: not-allowed;
 }
 
-.sui-2-1-1 .sui-checkbox span {
+.sui-2-1-1 .sui-checkbox span:not(.sui-description) {
   border-radius: 3px;
 }
 
@@ -4230,7 +4230,7 @@ fieldset[disabled] .sui-2-1-1 .sui-radio + span {
   margin-top: 10px;
 }
 
-.sui-2-1-1 .sui-radio span {
+.sui-2-1-1 .sui-radio span:not(.sui-description) {
   border-radius: 50%;
 }
 
