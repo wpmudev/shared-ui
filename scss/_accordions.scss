@@ -3,11 +3,21 @@
 	// Must use in conjunction with .sui-table on the <table> element.
 	.sui-accordion {
 		border: 0;
+		table-layout: initial;
 
 		&:after {
 			content: "";
 			display: table;
 			margin-bottom: $sui-gutter;
+		}
+		th {
+			@include media( max-width, md ) {
+				padding: 15px $sui-gutter-md;
+				&:first-child,
+				&:last-child {
+					padding: 15px $sui-gutter-md;
+				}
+			}
 		}
 	}
 
@@ -64,9 +74,12 @@
 		}
 
 		td {
-			padding: 15px 30px;
 			@include media( max-width, md ) {
 				padding: 15px $sui-gutter-md;
+				&:first-child,
+				&:last-child {
+					padding: 15px $sui-gutter-md;
+				}
 			}
 		}
 
