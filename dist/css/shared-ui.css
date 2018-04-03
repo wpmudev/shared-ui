@@ -6261,12 +6261,22 @@ fieldset[disabled] .sui-2-1-1 .sui-radio + span {
 
 .sui-2-1-1 .sui-accordion {
   border: 0;
+  table-layout: initial;
 }
 
 .sui-2-1-1 .sui-accordion:after {
   content: "";
   display: table;
   margin-bottom: 30px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-1 .sui-accordion th {
+    padding: 15px 20px;
+  }
+  .sui-2-1-1 .sui-accordion th:first-child, .sui-2-1-1 .sui-accordion th:last-child {
+    padding: 15px 20px;
+  }
 }
 
 .sui-2-1-1 .sui-accordion-item {
@@ -6325,12 +6335,11 @@ fieldset[disabled] .sui-2-1-1 .sui-radio + span {
   background-color: #F8F8F8;
 }
 
-.sui-2-1-1 .sui-accordion-item td {
-  padding: 15px 30px;
-}
-
 @media (max-width: 782px) {
   .sui-2-1-1 .sui-accordion-item td {
+    padding: 15px 20px;
+  }
+  .sui-2-1-1 .sui-accordion-item td:first-child, .sui-2-1-1 .sui-accordion-item td:last-child {
     padding: 15px 20px;
   }
 }
