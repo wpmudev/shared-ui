@@ -1432,7 +1432,15 @@ module.exports = E;
 
 ( function( $ ) {
 
-	loadCircleScore = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.loadCircleScore = function( el ) {
 		var dial          = $( el ).find( 'svg circle:last-child' ),
 			score         = $( el ).data( 'score' ),
 			radius        = 42,
@@ -1451,14 +1459,22 @@ module.exports = E;
 	};
 
 	$( '.sui-2-1-4 .sui-circle-score' ).each( function() {
-		loadCircleScore( this );
+		SUI.loadCircleScore( this );
 	});
 
 }( jQuery ) );
 
 ( function( $ ) {
 
-	suiSelect = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.suiSelect = function( el ) {
 		var jq = $( el ),
 			wrap, handle, list, value, items;
 
@@ -1652,14 +1668,22 @@ module.exports = E;
 
 	// Convert all select lists to fancy sui Select lists.
 	$( '.sui-2-1-4 select' ).each( function() {
-		suiSelect( this );
+		SUI.suiSelect( this );
 	});
 
 }( jQuery ) );
 
 ( function( $ ) {
 
-	suiTabs = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.suiTabs = function( el ) {
 		var jq = $( el ).closest( '.sui-tabs' );
 
 		if ( ! jq.length ) {
@@ -1747,7 +1771,7 @@ module.exports = E;
 
 	// Initialize all tab-areas.
 	$( '.sui-2-1-4 .sui-tabs' ).each( function() {
-		suiTabs( this );
+		SUI.suiTabs( this );
 	});
 
 }( jQuery ) );
