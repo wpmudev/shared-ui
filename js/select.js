@@ -1,6 +1,14 @@
 ( function( $ ) {
 
-	suiSelect = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.suiSelect = function( el ) {
 		var jq = $( el ),
 			wrap, handle, list, value, items;
 
@@ -194,7 +202,7 @@
 
 	// Convert all select lists to fancy sui Select lists.
 	$( 'SUI_BODY_CLASS select' ).each( function() {
-		suiSelect( this );
+		SUI.suiSelect( this );
 	});
 
 }( jQuery ) );

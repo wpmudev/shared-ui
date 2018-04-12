@@ -1,6 +1,14 @@
 ( function( $ ) {
 
-	suiTabs = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.suiTabs = function( el ) {
 		var jq = $( el ).closest( '.sui-tabs' );
 
 		if ( ! jq.length ) {
@@ -88,7 +96,7 @@
 
 	// Initialize all tab-areas.
 	$( 'SUI_BODY_CLASS .sui-tabs' ).each( function() {
-		suiTabs( this );
+		SUI.suiTabs( this );
 	});
 
 }( jQuery ) );

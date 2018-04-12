@@ -1,6 +1,14 @@
 ( function( $ ) {
 
-	loadCircleScore = function( el ) {
+    // Enable strict mode.
+    'use strict';
+
+    // Define global SUI object if it doesn't exist.
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+    }
+
+    SUI.loadCircleScore = function( el ) {
 		var dial          = $( el ).find( 'svg circle:last-child' ),
 			score         = $( el ).data( 'score' ),
 			radius        = 42,
@@ -19,7 +27,7 @@
 	};
 
 	$( 'SUI_BODY_CLASS .sui-circle-score' ).each( function() {
-		loadCircleScore( this );
+		SUI.loadCircleScore( this );
 	});
 
 }( jQuery ) );
