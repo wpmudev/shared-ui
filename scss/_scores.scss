@@ -67,6 +67,7 @@ $score-circle-circumference: 2 * pi() * $score-circle-radius;
 		}
 	}
 
+	.sui-grade-success,
 	.sui-grade-aplus,
 	.sui-grade-a,
 	.sui-grade-b {
@@ -75,6 +76,7 @@ $score-circle-circumference: 2 * pi() * $score-circle-radius;
 		}
 	}
 
+	.sui-grade-warning,
 	.sui-grade-c,
 	.sui-grade-d {
 		svg circle:last-child {
@@ -82,10 +84,18 @@ $score-circle-circumference: 2 * pi() * $score-circle-radius;
 		}
 	}
 
+	.sui-grade-error,
 	.sui-grade-e,
 	.sui-grade-f {
 		svg circle:last-child {
 			stroke: $circle-score-error-color;
+		}
+	}
+
+	.sui-grade-dismissed,
+	.sui-grade-disabled {
+		svg circle:last-child {
+			stroke: $circle-score-disabled-color;
 		}
 	}
 }
