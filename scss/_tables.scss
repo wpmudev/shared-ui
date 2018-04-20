@@ -77,6 +77,21 @@
 		}
 	}
 
+	.sui-table-title {
+		margin: 5px 0;
+		color: $table--title-color;
+		font: bold 13px/22px $font;
+		letter-spacing: 0px;
+
+		+ .sui-table {
+			margin-top: 0;
+
+			@include media( max-width, md ) {
+				margin-top: 0;
+			}
+		}
+	}
+
 	.sui-field-list {
 		border: 1px solid $table--border-color;
 		border-radius: 5px;
