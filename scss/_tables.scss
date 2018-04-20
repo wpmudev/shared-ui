@@ -10,40 +10,40 @@
 		color: $table--text-color;
 		font-size: 13px;
 
-		th, td {
-			padding: 20px $sui-gutter/2;
-			border-bottom: 1px solid $table--border-color;
-
-			&:first-child {
-				padding-left: $sui-gutter;
-	
-				@include media( max-width, md ) {
-					padding-left: 0;
-				}
-			}
-	
-			&:last-child {
-				padding-right: $sui-gutter;
-	
-				@include media( max-width, md ) {
-					padding-right: 0;
-				}
-			}
-
-			@include media( max-width, md ) {
-				padding: $sui-gutter-md $sui-gutter-md/2
-			}
-		}
-
-		th {
-			white-space: nowrap;
-			text-align: left;
-			font-weight: 500;
-			line-height: 1;
-			color: $table--th-color;
-		}
-
 		tr {
+
+			th, td {
+				padding: 20px $sui-gutter/2;
+				border-bottom: 1px solid $table--border-color;
+	
+				&:first-child {
+					padding-left: $sui-gutter;
+		
+					@include media( max-width, md ) {
+						padding-left: 0;
+					}
+				}
+		
+				&:last-child {
+					padding-right: $sui-gutter;
+		
+					@include media( max-width, md ) {
+						padding-right: 0;
+					}
+				}
+	
+				@include media( max-width, md ) {
+					padding: $sui-gutter-md $sui-gutter-md/2
+				}
+			}
+
+			th {
+				white-space: nowrap;
+				text-align: left;
+				font-weight: 500;
+				line-height: 1;
+				color: $table--th-color;
+			}
 
 			&:last-child {
 
@@ -53,14 +53,17 @@
 			}
 		}
 
+		tfoot {
+
+			th {
+				border-top: 1px solid $table--border-color;
+				border-bottom: none;
+			}
+		}
+
 		@include media( max-width, md ) {
 			border: 0;
 		}
-	}
-
-	.sui-table tfoot th {
-		border-bottom: none;
-		border-top: 1px solid $table--border-color;
 	}
 
 	.sui-field-list {
