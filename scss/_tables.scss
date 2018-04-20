@@ -3,6 +3,7 @@
 	.sui-table {
 		width: 100%;
 		table-layout: fixed;
+		margin: $sui-gutter 0;
 		border: 1px solid $table--border-color;
 		border-radius: $border-radius;
 		//border-collapse: collapse;
@@ -62,7 +63,16 @@
 			}
 		}
 
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		@include media( max-width, md ) {
+			margin: $sui-gutter-md 0;
 			border: 0;
 		}
 	}
