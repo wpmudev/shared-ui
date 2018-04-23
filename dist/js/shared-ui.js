@@ -1521,7 +1521,8 @@ module.exports = E;
 			if ( jq.find( 'optgroup' ).length ) {
 				jq.find( 'optgroup' ).each( function() {
 					var optgroup = $( this ),
-						optGroupItem;
+						optGroupItem,
+						$label;
 					optGroupItem = $( '<ul></ul>' ).appendTo( items );
 					$label = $( '<li class="optgroup-label"></li>' ).text( optgroup.prop( 'label' ) );
 
