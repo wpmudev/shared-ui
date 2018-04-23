@@ -3,19 +3,21 @@
 	.sui-table {
 		width: 100%;
 		table-layout: fixed;
+		margin: $sui-gutter 0;
 		border: 1px solid $table--border-color;
-		border-collapse: collapse;
+		border-radius: $border-radius;
+		//border-collapse: collapse;
 		border-spacing: unset;
 		border-radius: 5px;
 		color: $table--text-color;
 		font-size: 13px;
 
 		th, td {
-			padding: 20px $sui-gutter/2;
+			padding: calc(#{$sui-gutter}/2 - 1px) 5px;
 			border-bottom: 1px solid $table--border-color;
 
 			&:first-child {
-				padding-left: $sui-gutter;
+				padding-left: calc(#{$sui-gutter} - 1px);
 	
 				@include media( max-width, md ) {
 					padding-left: 0;
@@ -23,7 +25,7 @@
 			}
 	
 			&:last-child {
-				padding-right: $sui-gutter;
+				padding-right: calc(#{$sui-gutter} - 1px);
 	
 				@include media( max-width, md ) {
 					padding-right: 0;
@@ -31,7 +33,7 @@
 			}
 
 			@include media( max-width, md ) {
-				padding: $sui-gutter-md $sui-gutter-md/2
+				padding: calc(#{$sui-gutter-md}/2 - 1px) 5px;
 			}
 		}
 
@@ -53,14 +55,41 @@
 			}
 		}
 
+		tfoot {
+
+			th {
+				border-top: 1px solid $table--border-color;
+				border-bottom: none;
+			}
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		@include media( max-width, md ) {
+			margin: $sui-gutter-md 0;
 			border: 0;
 		}
 	}
 
-	.sui-table tfoot th {
-		border-bottom: none;
-		border-top: 1px solid $table--border-color;
+	.sui-table-title {
+		margin: 5px 0;
+		color: $table--title-color;
+		font: bold 13px/22px $font;
+		letter-spacing: 0px;
+
+		+ .sui-table {
+			margin-top: 0;
+
+			@include media( max-width, md ) {
+				margin-top: 0;
+			}
+		}
 	}
 
 	.sui-field-list {
