@@ -117,7 +117,7 @@
     document.addEventListener('keydown', this._bindKeypress);
 
     // Add overlay class to document body.
-    document.body.classList.add('has_overlay');
+    document.getElementsByTagName( 'html' )[0].classList.add( 'sui-has-overlay' );
 
     // Execute all callbacks registered for the `show` event
     this._fire('show', event);
@@ -181,7 +181,7 @@
     document.removeEventListener('keydown', this._bindKeypress);
 
     // Remove overlay class to document body.
-    document.body.classList.remove('has_overlay');
+    document.getElementsByTagName( 'html' )[0].classList.remove( 'sui-has-overlay' );
 
     // Execute all callbacks registered for the `hide` event
     this._fire('hide', event);
