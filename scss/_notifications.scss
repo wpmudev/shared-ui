@@ -1,191 +1,272 @@
 @include body-class {
 
-	.sui-notice-top,
-	.sui-notice {
-		color: #333;
-		font-weight: $font--weight;
-		padding: 15px 30px;
-		position: relative;
-		width: 100%;
-		border-radius: 5px;
-		margin-bottom: $sui-gutter;
-		background-color: $notice-default-bg-color;
+	.sui-notice,
+	.sui-notice-top {
 
-		@include media( max-width, md ) {
-			margin-bottom: $sui-gutter-md;
-			padding: 15px;
+		p, ul, ol {
+			padding: 0 0 0 $sui-gutter;
+			
+			@include media( max-width, md ) {
+				padding: 0 0 0 $sui-gutter-md;
+			}
 		}
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+		p {
 
-		& p {
 			&:first-of-type {
-				@include icon(before, info);
-
+				@include icon( before, info );
+	
 				&:before {
-				color: $notice-default-icon-color;
-				vertical-align: middle;
-				top: -2px;
-				margin-left: -30px;
-				position: relative;
-				margin-right: 10px;
-				font-size: 20px;
+					position: relative;
+					vertical-align: middle;
+					top: -2px;
+					margin-right: 10px;
+					margin-left: -#{$sui-gutter};
+					color: $notice-default-icon-color;
+					font-size: 20px;
+
+					@include media( max-width, md ) {
+						margin-left: -#{$sui-gutter-md};
+					}
 				}
 			}
-			padding: 0 0 0 30px;
-			color: $gray-alt;
+		}
+
+		.sui-notice-dismiss {
+			display: block;
+			margin: 6px 0 -5px;
+			padding: 0 0 0 $sui-gutter;
+			
 			a {
-				color: $gray-alt;
-				&:hover,
-				&:focus {
-					color: $gray-alt;
-				}
-			}
+				margin-left: -10px;
+				padding: 5px 10px;
+				color: palette( gray, light );
+				font-size: 12px;
+				line-break: 16px;
+				font-weight: $font--medium;
+				text-transform: uppercase;
+				text-decoration: none;
 
-
-			&:last-of-type {
-				margin: 0;
-			}
-		}
-		ul,
-		ol {
-			padding: 0 0 0 30px;
-		}
-
-		&.sui-notice-success {
-			background-color: $notice-success-bg-color;
-			& p:first-of-type {
-				@include icon(before, check-tick, false);
-				&:before {
-					color: $notice-success-icon-color;
+				&:hover, &:active {
+					color: palette( gray, dark );
 				}
 			}
 		}
 
-		&.sui-notice-warning {
-			background-color: $notice-warning-bg-color;
-			& p:first-of-type {
-				@include icon(before, warning-alert, false);
-				&:before {
-					color: $notice-warning-icon-color;
-				}
-			}
-		}
-
-		&.sui-notice-error {
-			background-color: $notice-error-bg-color;
-			& p:first-of-type {
-				@include icon(before, warning-alert, false);
-				&:before {
-					color: $notice-error-icon-color;
-				}
-			}
-		}
-
+		// NOTICE info
 		&.sui-notice-info {
-			background-color: $notice-info-bg-color;
-			& p:first-of-type {
+
+			p:first-of-type {
+				
 				&:before {
 					color: $notice-info-icon-color;
 				}
 			}
 		}
 
+		// NOTICE success
+		&.sui-notice-success {
+			
+			p:first-of-type {
+				@include icon(before, check-tick, false);
+				
+				&:before {
+					color: $notice-success-icon-color;
+				}
+			}
+		}
+
+		// NOTICE warning
+		&.sui-notice-warning {
+			
+			p:first-of-type {
+				@include icon(before, warning-alert, false);
+
+				&:before {
+					color: $notice-warning-icon-color;
+				}
+			}
+		}
+
+		// NOTICE error
+		&.sui-notice-error {
+
+			p:first-of-type {
+				@include icon(before, warning-alert, false);
+
+				&:before {
+					color: $notice-error-icon-color;
+				}
+			}
+		}
+	}
+
+	.sui-notice {
+		display: block;
+		margin: $sui-gutter 0;
+		border-radius: $border-radius;
+		padding: $sui-gutter/2 $sui-gutter;
+		background-color: $notice-default-bg-color;
+
+		p {
+			margin: $sui-gutter/2 0;
+
+			&:first-child,
+			&:first-of-type {
+				margin-top: 0;
+			}
+
+			&:last-child,
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		&, p {
+			color: palette( gray, dark );
+
+			strong {
+				font-weight: $font--medium;
+			}
+		}
+
+		&:first-child {
+			margin-top: 0;
+
+			@include media( max-width, md ) {
+				margin-top: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media( max-width, md ) {
+				margin-bottom: 0;
+			}
+		}
+
+		&.sui-notice-icon-tick {
+
+			p:first-of-type {
+				@include icon(before, check-tick, false);
+			}
+		}
+
+		&.sui-no-notice-icon {
+			
+			ul, ol, p {
+				padding: 0;
+			}
+
+			p:first-of-type:before {
+				content: none;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		// NOTICE info
+		&.sui-notice-info {
+			background-color: $notice-info-bg-color;
+		}
+
+		// NOTICE success
+		&.sui-notice-success {
+			background-color: $notice-success-bg-color;
+		}
+
+		// NOTICE warning
+		&.sui-notice-warning {
+			background-color: $notice-warning-bg-color;
+		}
+		
+		// NOTICE error
+		&.sui-notice-error {
+			background-color: $notice-error-bg-color;
+		}
+
+		// SIZE small
 		&.sui-notice-sm {
-			ul,
-			ol,
-			p {
+			
+			ul, ol, p {
 				font-size: 13px;
 				line-height: 22px;
 
 				&:before {
 					font-size: 16px;
 				}
-
-			}
-			& a {
-				font-size: 13px;
-			}
-
-			.sui-notice-dismiss {
-				a {
-					margin-left: -14px;
-				}
-			}
-
-		}
-
-		& .sui-notice-dismiss {
-				padding: 0 0 0 30px;
-				display: block;
-				margin-top: 6px;
-				margin-bottom: -5px;
-
-
-			& a {
-				font-weight: 500;
-				font-size: 12px;
-				text-transform: uppercase;
-				text-decoration: none;
-				color: #888;
-				line-height: 16px;
-				padding: 5px 10px;
-				margin-left: -10px;
 			}
 		}
 
-		&.sui-notice-icon-tick {
-			& p:first-of-type {
-				@include icon(before, check-tick, false);
-			}
-		}
-
-		&.sui-no-notice-icon {
-			ul,
-			ol,
-			p {
-				padding: 0;
-
-				&:first-of-type:before {
-					content: '';
-					margin: 0;
-					padding: 0;
-				}
-			}
-		}
-
-		&.sui-notice-top {
-			position: absolute;
-			top: 0;
-			width: 600px;
-			z-index: 100;
-			left: 50%;
-			transform: translateX(-50%);
-			box-shadow: rgba(0, 0, 0, 0.15) 0 5px 25px 0;
-			&:last-of-type {
-				margin: 0;
-			}
-
-
-			@media (max-width: 782px) {
-				width: 90%;
-			}
-
-			@media (max-width: 600px) {
-				top: 46px;
-			}
-
-		}
-		.sui-notice-buttons {
-			margin: 10px 30px 0;
+		@include media( max-width, md ) {
+			margin: $sui-gutter-md 0;
+			padding: $sui-gutter-md/2 $sui-gutter-md;
 		}
 	}
-	p + .sui-notice {
-		margin-top: 30px;
-		@include media( max-width, md ) {
-			margin-top: $sui-gutter-md;
+
+	.sui-notice-top {
+		width: 100%;
+		max-width: 600px;
+		display: block;
+		position: fixed;
+		z-index: 99999;
+		top: 17px;
+		left: 50%;
+		margin: 0;
+		margin-left: 80px;
+		border-radius: $border-radius;
+		border-left: 2px solid $notice-default-icon-color;
+		padding: #{$sui-gutter/2} 20px #{$sui-gutter/2} 18px;
+		background-color: $white;
+		box-shadow: rgba(0,0,0,0.15) 0 5px 25px 0;
+		transform: translateX(-50%);
+
+		p {
+			color: palette( gray );
+			font: 400 13px/22px $font;
+
+			&:before {
+				font-size: 16px;
+			}
+
+			strong {
+				color: palette( gray, dark );
+				font-weight: 500;
+			}
+		}
+
+		&.sui-notice-success {
+			border-left-color: $notice-success-icon-color;
+		}
+
+		&.sui-notice-warning {
+			border-left-color: $notice-warning-icon-color;
+		}
+
+		&.sui-notice-error {
+			border-left-color: $notice-error-icon-color;
+		}
+
+		&.sui-notice-info {
+			border-left-color: $notice-info-icon-color;
+		}
+
+		@media (max-width: 782px) {
+			width: 90%;
+			top: 23px;
+			margin-left: 0;
+		}
+	}
+
+	&.wp-admin.folded {
+
+		.sui-notice-top {
+			margin-left: 18px;
+
+			@media (max-width: 782px) {
+				margin-left: 0;
+			}
 		}
 	}
 }
