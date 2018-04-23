@@ -1517,44 +1517,43 @@ module.exports = E;
 
 		// Add all the options to the new DOM elements.
 		function populateList() {
+            var children = jq.children();
 			items.empty();
-			if ( jq.find( 'optgroup' ).length ) {
-				jq.find( 'optgroup' ).each( function() {
-					var optgroup = $( this ),
-						optGroupItem,
-						$label;
-					optGroupItem = $( '<ul></ul>' ).appendTo( items );
-					$label = $( '<li class="optgroup-label"></li>' ).text( optgroup.prop( 'label' ) );
+            children.each( function() {
+                var opt = $( this ),
+                    item,
+					optgroup = $( this ),
+                    optGroupItem,
+                    $label;
+                if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
+                    item = $( '<li></li>' ).appendTo( items );
+                    item.text( opt.text() );
+                    item.data( 'value', opt.val() );
 
-					optGroupItem.html( $label );
-					optGroupItem.addClass( 'optgroup' );
+                    if ( opt.val() == jq.val() ) {
+                        selectItem( item, true );
+                    }
+                } else {
+                    optGroupItem = $( '<ul></ul>' ).appendTo( items );
+                    $label = $( '<li class="optgroup-label"></li>' ).text( optgroup.prop( 'label' ) );
 
-					optgroup.find( 'option' ).each( function onPopulateLoop() {
-						var opt = $( this ),
-							item;
-						item = $( '<li></li>' ).appendTo( optGroupItem );
-						item.text( opt.text() );
-						item.data( 'value', opt.val() );
+                    optGroupItem.html( $label );
+                    optGroupItem.addClass( 'optgroup' );
 
-						if ( opt.val() == jq.val() ) {
-							selectItem( item );
-						}
-					});
-				});
-			} else {
-				jq.find( 'option' ).each( function onPopulateLoop() {
-					var opt = $( this ),
-						item;
-					item = $( '<li></li>' ).appendTo( items );
-					item.text( opt.text() );
-					item.data( 'value', opt.val() );
+                    optgroup.find( 'option' ).each( function onPopulateLoop() {
+                        var opt = $( this ),
+                            item;
+                        item = $( '<li></li>' ).appendTo( optGroupItem );
+                        item.text( opt.text() );
+                        item.data( 'value', opt.val() );
 
-					if ( opt.val() == jq.val() ) {
-						selectItem( item, true );
-					}
-				});
-			}
+                        if ( opt.val() == jq.val() ) {
+                            selectItem( item );
+                        }
+                    });
+                }
 
+            });
 		}
 
 		// Checks the option value for a link.
