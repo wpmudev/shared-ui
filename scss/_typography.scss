@@ -92,6 +92,14 @@
 			margin-top: 0;
 		}
 
+		&:last-of-type:not(:last-child) {
+			margin-bottom: $sui-gutter;
+
+			@include media( max-width, md ) {
+				margin-bottom: $sui-gutter-md;
+			}
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}
