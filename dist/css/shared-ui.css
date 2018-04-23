@@ -555,6 +555,16 @@
   margin-top: 0;
 }
 
+.sui-2-1-6 p:last-of-type:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-6 p:last-of-type:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
 .sui-2-1-6 p:last-child {
   margin-bottom: 0;
 }
@@ -6208,8 +6218,9 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 .sui-2-1-6 .sui-table {
   width: 100%;
   table-layout: fixed;
+  margin: 30px 0;
   border: 1px solid #E6E6E6;
-  border-collapse: collapse;
+  border-radius: 4px;
   border-spacing: unset;
   border-radius: 5px;
   color: #666666;
@@ -6217,12 +6228,12 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-6 .sui-table th, .sui-2-1-6 .sui-table td {
-  padding: 20px 15px;
+  padding: calc(30px/2 - 1px) 5px;
   border-bottom: 1px solid #E6E6E6;
 }
 
 .sui-2-1-6 .sui-table th:first-child, .sui-2-1-6 .sui-table td:first-child {
-  padding-left: 30px;
+  padding-left: calc(30px - 1px);
 }
 
 @media (max-width: 782px) {
@@ -6232,7 +6243,7 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-6 .sui-table th:last-child, .sui-2-1-6 .sui-table td:last-child {
-  padding-right: 30px;
+  padding-right: calc(30px - 1px);
 }
 
 @media (max-width: 782px) {
@@ -6243,7 +6254,7 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 
 @media (max-width: 782px) {
   .sui-2-1-6 .sui-table th, .sui-2-1-6 .sui-table td {
-    padding: 20px 10px;
+    padding: calc(20px/2 - 1px) 5px;
   }
 }
 
@@ -6259,15 +6270,41 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
   border-bottom: 0;
 }
 
+.sui-2-1-6 .sui-table tfoot th {
+  border-top: 1px solid #E6E6E6;
+  border-bottom: none;
+}
+
+.sui-2-1-6 .sui-table:first-child {
+  margin-top: 0;
+}
+
+.sui-2-1-6 .sui-table:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 782px) {
   .sui-2-1-6 .sui-table {
+    margin: 20px 0;
     border: 0;
   }
 }
 
-.sui-2-1-6 .sui-table tfoot th {
-  border-bottom: none;
-  border-top: 1px solid #E6E6E6;
+.sui-2-1-6 .sui-table-title {
+  margin: 5px 0;
+  color: #333333;
+  font: bold 13px/22px "Roboto", Arial, sans-serif;
+  letter-spacing: 0px;
+}
+
+.sui-2-1-6 .sui-table-title + .sui-table {
+  margin-top: 0;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-6 .sui-table-title + .sui-table {
+    margin-top: 0;
+  }
 }
 
 .sui-2-1-6 .sui-field-list {
@@ -6306,6 +6343,7 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-6 .sui-accordion {
+  margin: 0;
   border: 0;
   table-layout: initial;
 }
