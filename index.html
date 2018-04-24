@@ -2062,17 +2062,35 @@ RewriteRule . /index.php [L]
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<label for="list" class="sui-label">Select List</label>
-						<select id="list" name="select-list">
-							<option value="" selected="selected">Select Option</option>
-							<option value="apache">Apache</option>
-							<option value="LiteSpeed">LiteSpeed</option>
-							<option value="nginx">NGINX</option>
-							<option value="iis">IIS</option>
-							<option value="iis-7">IIS 7</option>
-							<option value="cloudflare">Cloudflare</option>
-						</select>
-						<span class="sui-description">This is a description about the field.</span>
+						<div class="sui-form-field">
+							<label for="list" class="sui-label">Select List</label>
+							<select id="list" name="select-list">
+								<option value="" selected="selected">Select Option</option>
+								<option value="apache">Apache</option>
+								<option value="LiteSpeed">LiteSpeed</option>
+								<option value="nginx">NGINX</option>
+								<option value="iis">IIS</option>
+								<option value="iis-7">IIS 7</option>
+								<option value="cloudflare">Cloudflare</option>
+							</select>
+							<span class="sui-description">This is a description about the field.</span>
+						</div>
+						<div class="sui-form-field">
+							<label for="optgroup-demo" class="sui-label">Select List With Optgroups</label>
+							<select id="optgroup-demo">
+								<option value="">Please select one</option>
+								<optgroup label="Group 1">
+									<option value="group1_item1">Item 1</option>
+									<option value="group1_item2">Item 2</option>
+								</optgroup>
+								<optgroup label="Group 2">
+									<option value="group2_item1">Item 1</option>
+									<option value="group2_item2">Item 2</option>
+								</optgroup>
+								<option value="all">All Above</option>
+							</select>
+							<span class="sui-description">This is a description about the field.</span>
+						</div>
 					</div>
 				</div>
 
