@@ -32,27 +32,6 @@
 			}
 		}
 
-		.sui-notice-dismiss {
-			display: block;
-			margin: 6px 0 -5px;
-			padding: 0 0 0 $sui-gutter;
-			
-			a {
-				margin-left: -10px;
-				padding: 5px 10px;
-				color: palette( gray, light );
-				font-size: 12px;
-				line-break: 16px;
-				font-weight: $font--medium;
-				text-transform: uppercase;
-				text-decoration: none;
-
-				&:hover, &:active {
-					color: palette( gray, dark );
-				}
-			}
-		}
-
 		// NOTICE info
 		&.sui-notice-info {
 
@@ -127,6 +106,27 @@
 
 			strong {
 				font-weight: $font--medium;
+			}
+		}
+
+		.sui-notice-dismiss {
+			display: block;
+			margin: 6px 0 -5px;
+			padding: 0 0 0 $sui-gutter;
+			
+			a {
+				margin-left: -10px;
+				padding: 5px 10px;
+				color: palette( gray, light );
+				font-size: 12px;
+				line-break: 16px;
+				font-weight: $font--medium;
+				text-transform: uppercase;
+				text-decoration: none;
+
+				&:hover, &:active {
+					color: palette( gray, dark );
+				}
 			}
 		}
 
@@ -223,16 +223,29 @@
 		transform: translateX(-50%);
 
 		p {
+			margin: $sui-gutter/2 0;
 			color: palette( gray );
 			font: 400 13px/22px $font;
+			letter-spacing: -0.19px;
 
-			&:before {
+			&:first-of-type:before {
+				top: -1px;
 				font-size: 16px;
 			}
 
 			strong {
 				color: palette( gray, dark );
 				font-weight: 500;
+			}
+
+			&:first-child,
+			&:first-of-type {
+				margin-top: 0;
+			}
+
+			&:last-child,
+			&:last-of-type {
+				margin-bottom: 0;
 			}
 		}
 
@@ -250,6 +263,46 @@
 
 		&.sui-notice-info {
 			border-left-color: $notice-info-icon-color;
+		}
+
+		&.sui-can-dismiss {
+			display: flex;
+			
+			.sui-notice-content {
+				flex: 1;
+				align-self: center;
+			}
+
+			.sui-notice-dismiss {
+				display: flex;
+				flex-direction: column;
+				flex: 0 0 60px;
+				margin: -#{$sui-gutter/2} -20px -#{$sui-gutter/2} 0;
+				
+				a {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					flex: 1 1 auto;
+					border-radius: 0 #{$border-radius} #{$border-radius} 0;
+					background-color: palette( silver, light );
+					color: palette( gray, light );
+					font: $font--medium 11px/13px $font;
+					text-transform: uppercase;
+					text-align: center;
+					transition: 0.3s ease;
+
+					&:before {
+						color: palette( gray, light );
+						font-size: 13px;
+					}
+
+					&:hover, &:active {
+						background-color: palette( silver, alt );
+					}
+				}
+			}
 		}
 
 		@media (max-width: 782px) {
