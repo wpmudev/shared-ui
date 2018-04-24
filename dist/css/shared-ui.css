@@ -6528,6 +6528,7 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: auto;
 }
 
 .sui-2-1-6 .sui-dialog.sui-dialog-sm .sui-dialog-content {
@@ -6631,7 +6632,6 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
   max-width: 600px;
   margin: 0 auto;
   max-height: 85%;
-  overflow-y: auto;
 }
 
 .sui-2-1-6 .sui-dialog-content > .sui-box {
@@ -6665,6 +6665,10 @@ fieldset[disabled] .sui-2-1-6 .sui-radio + span:not(.sui-description) {
 
 .sui-2-1-6 .sui-dialog-close:before {
   content: ")";
+}
+
+html.sui-has-overlay {
+  overflow: hidden;
 }
 
 .sui-2-1-6 .sui-listing li {

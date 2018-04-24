@@ -14,6 +14,7 @@
 		left: 160px;
 		display: flex;
 		align-items: center;
+		overflow: auto;
 
 		// Modal sizes.
 		&.sui-dialog-sm {
@@ -108,7 +109,6 @@
 		max-width: 600px;
 		margin: 0 auto;
 		max-height: 85%;
-		overflow-y: auto;
 
 		> .sui-box {
 			box-shadow: 0 10px 40px $modal-box-shadow-color;
@@ -138,4 +138,8 @@
 		@include icon(before, 'close');
 		outline-style: none;
 	}
+
+}
+html.sui-has-overlay {
+	overflow: hidden;
 }
