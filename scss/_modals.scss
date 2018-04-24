@@ -139,7 +139,27 @@
 		outline-style: none;
 	}
 
+	// Folded sidebar
+	&.wp-admin.folded {
+		
+		.sui-dialog {
+			left: 36px;
+
+			@media (max-width: 782px) {
+				left: 0;
+			}
+		}
+
+		.sui-dialog-overlay {
+			left: 36px;
+
+			@media (max-width: 782px) {
+				left: 0;
+			}
+		}
+	}
 }
+
 html.sui-has-overlay {
 	overflow: hidden;
 }
