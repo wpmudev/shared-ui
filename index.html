@@ -2851,6 +2851,35 @@ Header set Cache-Control "max-age=691200"
 				<hr>
 
 				<div class="demo-info-block">
+					<h3>Top Notifications</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<p>The top notifications have a different styling and are fixed. They use the class <code>.sui-notice-top</code> in the parent
+						class instead of <code>.sui-notice</code>. You will see an example of how the top notification
+						looks when you refresh this page.</p>
+						<p>The default notification will automatically hide after 3 seconds. If you prefer the user to
+						hide the notification themselves you can add <code>.sui-can-dismiss</code> to the parent div and
+						add a dismiss button to the notice shown in the code sample below.</p>
+						<p>If you don't want the notice dismissed at all you can add <code>.sui-cant-dismiss</code> to
+						the parent div.</p>
+					</div>
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice-top sui-notice-success&quot;&gt;
+	&lt;p&gt;&lt;strong&gt;Notice success:&lt;/strong&gt; Page caching is currently active.&lt;/p&gt;
+	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
+		&lt;a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"&gt;&lt;/a&gt;
+	&lt;/span&gt;
+&lt;/div&gt;</pre>
+				</div>
+
+				<hr>
+
+				<div class="demo-info-block">
 					<h3>Sizes</h3>
 					<p>For a smaller size, add <code>.sui-notice-sm</code> to the notice.</p>
 				</div>
