@@ -1,6 +1,7 @@
 // Buttons
 
 @include body-class {
+	
 	button.sui-button,
 	a.sui-button,
 	.sui-button {
@@ -254,6 +255,48 @@
 
 		&.sui-button-icon {
 			min-width: 0;
+		}
+	}
+
+	// To be used without .sui-button class
+	.sui-button-icon {
+		cursor: pointer;
+		display: inline-block;
+		margin: 0;
+		padding: 0 5px;
+		border: 0;
+		border-radius: 4px;
+		background-color: transparent;
+		color: palette( gray, light );
+		font-size: 12px;
+		transition: 0.3s ease;
+
+		i {
+			width: 20px;
+			height: 30px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			&:before {
+				display: block;
+				color: palette( gray, light );
+			}
+		}
+
+		&, &:hover, &:active {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:hover, &:active {
+			background-color: $silver;
+			color: palette( gray, dark );
+
+			i:before {
+				color: palette( gray, dark );
+			}
 		}
 	}
 }
