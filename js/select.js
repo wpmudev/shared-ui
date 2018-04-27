@@ -16,7 +16,7 @@
 			return;
 		}
 
-		if ( jq.closest( '.select-container' ).length || jq.data( 'select2' ) || jq.is( '.none-sui' ) ) {
+		if ( jq.closest( '.select-container' ).length || jq.data( 'select2' ) || jq.is( '.sui-select2' )  || jq.is( '.none-sui' ) ) {
 			return;
 		}
 
