@@ -19,8 +19,8 @@
 			.select2-selection--single,
 			.select2-selection--multiple {
 				border-radius: $border-radius;
-				border: 1px solid $select-container-border-color;
-				background-color: $select-container-bg-color;
+				border: 1px solid $select2-border-color;
+				background-color: $select2-background-color;
 			}
 
 			.select2-selection--single {
@@ -30,7 +30,7 @@
 
 				.select2-selection__rendered {
 					padding: 7px 28px 6px #{$sui-gutter/2};
-					color: $select-list-value-color;
+					color: $select2-color;
 					font: 500 15px/25px $font;
 					transition-property: color;
 					transition-duration: 0.3s;
@@ -65,7 +65,7 @@
 				&:hover {
 
 					.select2-selection__rendered {
-						color: $select-list-value-hover-color;
+						color: $select2-color-hover;
 					}
 				}
 
@@ -134,7 +134,7 @@
 				.select2-selection--single {
 
 					.select2-selection__rendered {
-						color: $select-list-value-hover-color;
+						color: $select2-color-hover;
 					}
 
 					.select2-selection__arrow {
@@ -153,13 +153,13 @@
 	}
 
 	.sui-select-dropdown {
-		border: 1px solid $select-list-results-border-color;
+		border: 1px solid $select2-dropdown-border;
 		border-radius: $border-radius;
-		background: $select-list-results-bg-color;
+		background: $select2-dropdown-background-color;
 
 		.select2-search--dropdown {
 			padding: 7px #{$sui-gutter/2} 6px;
-			border-bottom: 1px solid $select-list-results-border-color;
+			border-bottom: 1px solid $select2-dropdown-border;
 
 			.select2-search__field {
 				@extend .sui-form-control;
@@ -169,25 +169,25 @@
 		.select2-results {
 
 			> .select2-results__options {
-				background: $select-list-results-bg-color;
+				background: $select2-dropdown-background-color;
 			}
 
 			.select2-results__option {
 				padding: 7px #{$sui-gutter/2} 6px;
 				background-color: transparent;
-				color: $select-list-value-color;
+				color: $select2-dropdown-option-color;
 				font: 400 15px/25px $font;
 				transition-property: color;
 				transition-duration: 0.3s;
 
 				&[aria-selected="true"] {
-					background: $select-current-bg-color;
-					color: $white;
+					background-color: $select2-dropdown-option-background-hover;
+					color: $select2-dropdown-option-color-selected;
 				}
 
 				&--highlighted[aria-selected] {
-					background-color: $select-list-hover-bg-color;
-					color: $select-list-value-hover-color;
+					background-color: $select2-dropdown-option-background-selected;
+					color: $select2-dropdown-option-color-hover;
 				}
 
 				@include media( max-width, md ) {
@@ -198,7 +198,7 @@
 			.select2-results__group {
 				cursor: default;
 				pointer-events: none;
-				color: $select-list-results-li-optgroup-color;
+				color: $select2-dropdown-optgroup-color;
 				font-size: 12px;
 				line-height: 12px;
 				font-weight: 500;
