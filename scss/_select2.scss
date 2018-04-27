@@ -33,10 +33,6 @@
 					color: $select2-color;
 					font: 500 15px/25px $font;
 					transition: 0.25s ease;
-
-					@include media( max-width, md ) {
-						padding-left: #{$sui-gutter-md/2};
-					}
 				}
 
 				.select2-selection__arrow {
@@ -152,30 +148,77 @@
 	}
 
 	.sui-select-dropdown {
-		border: 1px solid $select2-dropdown-border;
+		border: 1px solid $select2-dropdown-border-color;
 		border-radius: $border-radius;
 		background: $select2-dropdown-background-color;
 
+		* {
+			box-sizing: border-box;
+			font-variant-ligatures: none;
+			-webkit-font-variant-ligatures: none;
+			text-rendering: optimizeLegibility;
+			-moz-osx-font-smoothing: grayscale;
+			font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased;
+			text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+		}
+
 		.select2-search--dropdown {
-			padding: 7px #{$sui-gutter/2} 6px;
-			border-bottom: 1px solid $select2-dropdown-border;
+			position: relative;
+			margin: 0 0 10px;
+			padding: #{$sui-gutter/2 - 1px} #{$sui-gutter/2 - 1px} 0;
+			@include icon(after, magnifying-glass-search, true);
+
+			&:after {
+				width: 20px;
+				height: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: #{$sui-gutter/2 - 1px + 10px};
+				right: #{$sui-gutter/2 - 1px + $sui-gutter/2};
+				font-size: 16px;
+			}
 
 			.select2-search__field {
-				@extend .sui-form-control;
+				width: 100%;
+				display: block;
+				margin: 0;
+				padding: 9px 40px 9px #{$sui-gutter/2 - 1px};
+				border: 1px solid $select2-search-border-color;
+				border-radius: $border-radius;
+				background-color: $select2-search-background-color;
+				color: $select2-search-color;
+				font: 500 15px/20px $font;
+				letter-spacing: -0.25px;
+				transition: 0.25s ease;
+
+				&:hover, &:focus {
+					color: $select2-search-color-active;
+				}
+
+				&:active, &:focus {
+					outline: none;
+					box-shadow: none;
+				}
 			}
 		}
 
 		.select2-results {
+			margin: 10px 0 0;
+			padding: 0 0 #{$sui-gutter/2 - 1px};
 
 			> .select2-results__options {
 				background: $select2-dropdown-background-color;
 			}
 
 			.select2-results__option {
-				padding: 7px #{$sui-gutter/2} 6px;
+				padding: 10px #{$sui-gutter/2 - 1px};
 				background-color: transparent;
 				color: $select2-dropdown-option-color;
-				font: 400 15px/25px $font;
+				font: 400 15px/20px $font;
 				transition: 0.25s ease;
 
 				&[aria-selected="true"] {
@@ -188,18 +231,22 @@
 					color: $select2-dropdown-option-color-hover;
 				}
 
-				@include media( max-width, md ) {
-					padding: 7px #{$sui-gutter-md/2} 6px;
+				.select2-results__options--nested {
+					margin: 0 -#{$sui-gutter/2 - 1px};
 				}
+			}
+
+			.select2-results__group,
+			.select2-results__message {
+				color: $select2-dropdown-results-message;
+				font: bold 12px/22px $font;
+				letter-spacing: -0.23px;
 			}
 
 			.select2-results__group {
 				cursor: default;
 				pointer-events: none;
-				color: $select2-dropdown-optgroup-color;
-				font-size: 12px;
-				line-height: 12px;
-				font-weight: 500;
+				padding: 0 0 5px;
 			}
 		}
 	}
