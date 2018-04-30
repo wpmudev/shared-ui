@@ -2231,7 +2231,7 @@
   }
 }
 
-.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 .sui-settings-label {
+.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 .sui-settings-label, .sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-box-settings-col-2 .sui-settings-label-with-tag {
   color: #666666;
 }
 
@@ -2239,11 +2239,24 @@
   margin-bottom: 0;
 }
 
-.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-settings-label {
+.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-settings-label, .sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-settings-label-with-tag {
   display: block;
   font-weight: 500;
   line-height: 22px;
   color: #333333;
+}
+
+.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-settings-label-with-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-settings-label-with-tag .sui-tag {
+  margin-left: 10px;
 }
 
 .sui-2-1-7 .sui-box-body .sui-box-settings-row .sui-description {
@@ -4160,6 +4173,25 @@
   line-height: 15px;
   background: transparent;
   padding: 4px 16px;
+}
+
+.sui-2-1-7 .sui-tag.sui-tag-pro {
+  min-width: 24px;
+  height: 12px;
+  padding: 2px 4px 1px;
+  border-radius: 6px;
+  color: #FFFFFF;
+  background-color: #8D00B1;
+  font-size: 8px;
+  line-height: 9px;
+  text-align: center;
+}
+
+@-moz-document {
+  .sui-2-1-7 .sui-tag.sui-tag-pro {
+    padding: 0 4px;
+    line-height: 12px;
+  }
 }
 
 .sui-2-1-7 .sui-label, .sui-2-1-7 .sui-inline-label {
