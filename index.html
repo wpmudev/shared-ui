@@ -75,8 +75,8 @@
 				<div class="sui-header">
 					<h1 class="sui-header-title">Shared UI</h1>
 					<div class="sui-actions-right">
-						<a href="https://bitbucket.org/incsub/shared-ui-example-plugin" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-plugin-2" aria-hidden="true"></i>&nbsp; Example Plugin</a>
-						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>&nbsp; GitHub Repository</a>
+						<a href="https://bitbucket.org/incsub/shared-ui-example-plugin" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-plugin-2" aria-hidden="true"></i>Example Plugin</a>
+						<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button sui-button-ghost"><i class="sui-icon-social-github" aria-hidden="true"></i>GitHub Repository</a>
 					</div>
 				</div>
 
@@ -353,7 +353,8 @@ function admin_body_classes( $classes ) {
 &lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-red&quot;&gt;Red&lt;/button&gt;
 
 &lt;!-- Contextual button for informational alert messages --&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Ghost&lt;/button&gt;</pre>
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Ghost&lt;/button&gt;
+</pre>
 				</div>
 
 				<hr>
@@ -380,28 +381,33 @@ function admin_body_classes( $classes ) {
 
 				<div class="demo-info-block">
 					<h3>Button Icons</h3>
-					<p>Include the icon inside of the button or link. The <code>.sui-fw</code> class should be added to the icons when they are inline with text to create the appropriate separation.</p>
+					<p>Include the icon inside of the button or link. The <code>sui-button-icon-right</code> class should be added to the button when they are displayed on the right of the text to ensure the appropriate separation.</p>
 				</div>
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<button type="button" class="sui-button sui-button-ghost sui-button-lg"><i class="sui-icon-alert sui-fw" aria-hidden="true"></i> Large Ghost Button</button>
-						<button type="button" class="sui-button sui-button-ghost sui-button-lg">Large Ghost Button <i class="sui-icon-alert sui-fw" aria-hidden="true"></i></button>
-						<button type="button" class="sui-button sui-button-green"><i class="sui-icon-alert sui-fw" aria-hidden="true"></i> Green</button>
-						<button type="button" class="sui-button sui-button-green">Green Button <i class="sui-icon-alert sui-fw" aria-hidden="true"></i><span class="sui-screen-reader-text">Text for SR, never need empty buttons</span></button>
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg"><i class="sui-icon-alert" aria-hidden="true"></i>Large Ghost Button</button>
+						<button type="button" class="sui-button sui-button-ghost sui-button-lg sui-button-icon-right">Large Ghost Button<i class="sui-icon-alert" aria-hidden="true"></i></button>
+						<button type="button" class="sui-button sui-button-green"><i class="sui-icon-alert" aria-hidden="true"></i> Green</button>
+						<button type="button" class="sui-button sui-button-green sui-button-icon-right">Green Button<i class="sui-icon-alert" aria-hidden="true"></i></button>
 						<button type="button" class="sui-button sui-button-icon"><i class="sui-icon-arrow-right sui-fw" aria-hidden="true"></i><span class="sui-screen-reader-text">More Text</span></button>
 						<button type="button" class="sui-button sui-button-icon sui-button-lg"><i class="sui-icon-arrow-right sui-fw" aria-hidden="true"><span class="sui-screen-reader-text">More Text</span></i></button>
+						<button type="button" class="sui-button-icon sui-tooltip" data-tooltip="Configure Integration">
+							<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+						</button>
 					</div>
 				</div>
 
 				<div class="demo-code-block">
 <pre class="sui-code-snippet sui-no-copy html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;&lt;i class=&quot;sui-icon-alert sui-fw&quot;&gt;&lt;/i&gt; Large Ghost Button&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-lg&quot;&gt;Large Ghost Button &lt;i class=&quot;sui-icon-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;&lt;i class=&quot;sui-icon-alert sui-fw&quot;&gt;&lt;/i&gt; Green&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Green Button &lt;i class=&quot;sui-icon-alert sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon&quot;&gt;&lt;i class=&quot;sui-icon-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-icon sui-button-lg&quot;&gt;&lt;i class=&quot;sui-icon-arrow-right sui-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;</pre>
+&lt;button type="button" class="sui-button sui-button-ghost sui-button-lg"&gt;&lt;i class="sui-icon-alert" aria-hidden="true"&gt;&lt;/i&gt;Large Ghost Button&lt;/button&gt;
+&lt;button type="button" class="sui-button sui-button-ghost sui-button-lg sui-button-icon-right"&gt;Large Ghost Button&lt;i class="sui-icon-alert" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type="button" class="sui-button sui-button-green"&gt;&lt;i class="sui-icon-alert" aria-hidden="true"&gt;&lt;/i&gt; Green&lt;/button&gt;
+&lt;button type="button" class="sui-button sui-button-green sui-button-icon-right"&gt;Green Button&lt;i class="sui-icon-alert" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button type="button" class="sui-button sui-button-icon"&gt;&lt;i class="sui-icon-arrow-right sui-fw" aria-hidden="true"&gt;&lt;/i&gt;&lt;span class="sui-screen-reader-text"&gt;More Text&lt;/span&gt;&lt;/button&gt;
+&lt;button type="button" class="sui-button sui-button-icon sui-button-lg"&gt;&lt;i class="sui-icon-arrow-right sui-fw" aria-hidden="true"&gt;&lt;span class="sui-screen-reader-text"&gt;More Text&lt;/span&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;!-- Icon-only button for settings or show a dialog (modal) - Note doesn't use the sui-button class --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon&quot;&gt;&lt;i class="sui-icon-widget-settings-config" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;</pre>
 				</div>
 
 			</section>
