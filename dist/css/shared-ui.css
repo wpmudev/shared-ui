@@ -1984,7 +1984,7 @@
   min-width: 0;
 }
 
-.sui-2-1-7 .sui-button-icon {
+.sui-2-1-7 .sui-button-icon:not(.sui-button) {
   cursor: pointer;
   display: inline-block;
   margin: 0;
@@ -1998,7 +1998,7 @@
   transition: 0.3s ease;
 }
 
-.sui-2-1-7 .sui-button-icon i {
+.sui-2-1-7 .sui-button-icon:not(.sui-button) i {
   width: 20px;
   height: 30px;
   display: -webkit-box;
@@ -2016,23 +2016,23 @@
           justify-content: center;
 }
 
-.sui-2-1-7 .sui-button-icon i:before {
+.sui-2-1-7 .sui-button-icon:not(.sui-button) i:before {
   display: block;
   color: #888888;
 }
 
-.sui-2-1-7 .sui-button-icon, .sui-2-1-7 .sui-button-icon:hover, .sui-2-1-7 .sui-button-icon:active {
+.sui-2-1-7 .sui-button-icon:not(.sui-button), .sui-2-1-7 .sui-button-icon:not(.sui-button):hover, .sui-2-1-7 .sui-button-icon:not(.sui-button):active {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.sui-2-1-7 .sui-button-icon:hover, .sui-2-1-7 .sui-button-icon:active {
+.sui-2-1-7 .sui-button-icon:not(.sui-button):hover, .sui-2-1-7 .sui-button-icon:not(.sui-button):active {
   background-color: #F2F2F2;
   color: #333333;
 }
 
-.sui-2-1-7 .sui-button-icon:hover i:before, .sui-2-1-7 .sui-button-icon:active i:before {
+.sui-2-1-7 .sui-button-icon:not(.sui-button):hover i:before, .sui-2-1-7 .sui-button-icon:not(.sui-button):active i:before {
   color: #333333;
 }
 
@@ -4189,7 +4189,7 @@
   background-color: transparent;
 }
 
-.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 [disabled].sui-upload-group,
+.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 .sui-upload-group[disabled],
 fieldset[disabled] .sui-2-1-7 .sui-form-control,
 fieldset[disabled] .sui-2-1-7 .sui-upload-group {
   cursor: not-allowed;
