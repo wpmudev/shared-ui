@@ -3635,7 +3635,6 @@
 .sui-2-1-7 .sui-list > li .sui-list-label.sui-list-header {
   font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
   width: 200px;
-  color: #777771;
 }
 
 .sui-2-1-7 .sui-list > li:last-of-type .sui-list-detail,
@@ -3978,7 +3977,7 @@
 .sui-2-1-7 .select-list-container .list-results li {
   padding: 10px 15px;
   background: none;
-  color: #777771;
+  color: #888888;
   cursor: pointer;
   list-style: none;
   font-weight: 400;
@@ -4017,7 +4016,7 @@
   border-radius: 0 0 3px 3px;
 }
 
-.sui-2-1-7 .select-list-container .list-results li:hover {
+.sui-2-1-7 .select-list-container .list-results li:not(.current):hover {
   background: #F2F2F2;
   color: #333333;
 }
@@ -4447,7 +4446,7 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 
 .sui-2-1-7 .sui-tabs .sui-tab input[type=radio]:checked + label {
   background-color: #FFFFFF;
-  color: #777771;
+  color: #888888;
   height: 61px;
   z-index: 3;
 }
@@ -4663,7 +4662,7 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 .sui-2-1-7 .sui-dropdown ul li {
   padding: 10px 15px;
   background: none;
-  color: #777771;
+  color: #888888;
   cursor: pointer;
   list-style: none;
   font-weight: 400;
@@ -6764,7 +6763,7 @@ html.sui-has-overlay {
 }
 
 .sui-2-1-7 .sui-listing li {
-  color: #777771;
+  color: #888888;
   line-height: 26px;
   padding: 2px 0 2px 34px;
   position: relative;
@@ -7097,7 +7096,7 @@ html.sui-has-overlay {
 }
 
 .sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline {
-  margin: 0;
+  margin: 0 0 0 8px;
 }
 
 .sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field {
@@ -7110,6 +7109,22 @@ html.sui-has-overlay {
   font: 500 15px/26px "Roboto", Arial, sans-serif;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
+}
+
+.sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.sui-2-1-7 select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field::placeholder {
+  color: #aaa;
 }
 
 .sui-2-1-7 select.sui-select + .select2-container.select2-container--open .select2-selection--single .select2-selection__rendered {
@@ -7212,7 +7227,7 @@ html.sui-has-overlay {
 .sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__option {
   padding: 10px 14px;
   background-color: transparent;
-  color: #AAAAAA;
+  color: #888888;
   font: 400 15px/20px "Roboto", Arial, sans-serif;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
@@ -7223,7 +7238,7 @@ html.sui-has-overlay {
   color: #FFFFFF;
 }
 
-.sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__option--highlighted[aria-selected] {
+.sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__option--highlighted:not([aria-selected="true"]) {
   background-color: #F2F2F2;
   color: #333333;
 }
@@ -7232,7 +7247,10 @@ html.sui-has-overlay {
   margin: 0 -14px;
 }
 
-.sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__group,
+.sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__option .select2-results__options--nested li {
+  padding-left: 30px;
+}
+
 .sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__message {
   color: #888888;
   font: bold 12px/22px "Roboto", Arial, sans-serif;
@@ -7240,7 +7258,11 @@ html.sui-has-overlay {
 }
 
 .sui-2-1-7 .sui-select-dropdown .select2-results .select2-results__group {
+  color: #AAAAAA;
+  font-weight: 500;
+  padding-left: 0;
+  font-size: 12px;
+  line-height: 12px;
   cursor: default;
   pointer-events: none;
-  padding: 0 0 5px;
 }
