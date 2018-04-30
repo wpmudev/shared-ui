@@ -473,7 +473,7 @@
             this.$element.on( 'click.sui.accordion', '.sui-accordion-item', function( event ) {
 
                 var getParentItem = $( this ).closest( '.sui-accordion-item' ),
-                    getNextAdditionalContentRow = getParentItem.nextUntil( '.sui-accordion-item' );
+                    getNextAdditionalContentRow = getParentItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' );
 
                 getNextAdditionalContentRow.toggleClass( 'sui-accordion-item--open' );
 
