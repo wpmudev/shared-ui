@@ -3922,17 +3922,32 @@ dialog.hide();
 					<div class="sui-box" role="document">
 
 						<div class="sui-box-header">
-							<h3 class="sui-box-title" id="dialogTitle2">Dialog Title</h3>
 							<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							<div class="sui-dialog-image" aria-hidden="true">
+								<img src="dist/images/activecampaign.png"
+									srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Active Campaign"
+									class="sui-image sui-image-center" />
+							</div>
+							<h3 class="sui-box-title" id="dialogTitle2">Configure ActiveCampaign</h3>
+							<p>Change the list you want to send form data to, or disconnect this integration below.</p>
 						</div>
 
 						<div class="sui-box-body">
-							<p>Advanced mode gives you full control over your files but can easily break your website if configured incorrectly.</p>
-							<p>We recommend you make one tweak at a time and check the frontend of your website each change to avoid any mishaps. </p>
+							<div class="sui-form-field">
+								<label class="sui-label">Email List</label>
+								<select>
+									<option>Newsletter List</option>
+									<option>Acme News</option>
+									<option>Simple List</option>
+								</select>
+							</div>
 						</div>
 
 						<div class="sui-box-footer">
-							<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Got it</button>
+							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-hide="my-accessible-dialog-small">Disconnect</button>
+							<div class="sui-actions-right">
+								<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Cancel</button>
+							</div>
 						</div>
 
 					</div>
