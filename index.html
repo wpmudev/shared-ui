@@ -3566,10 +3566,51 @@ Header set Cache-Control "max-age=691200"
 
 				<div class="demo-info-block">
 					<h2>Dialogs</h2>
-					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
 					<div class="sui-notice sui-notice-warning">
-						<p>If you are using individual js components, <code>dialog.js</code> is required.</p>
+						<p>If you are using individual js components, <code>dialog.js</code> and <code>a11y-dialog.js</code> are both required.</p>
 					</div>
+					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+					<p>We use the library <a target="_blank" href="https://github.com/edenspiekermann/a11y-dialog">A11y-Dialog</a> to make sure they're accessible as possible.</p>
+					<p>Any dialogs with the class <code>sui-dialog</code> will be instantiated and stored in <code>SUI.dialogs</code> with their id. You will be able to call methods on these instances
+						eg <code>SUI.dialogs['my-accessible-dialog'].hide()</code> will hide the corresponding dialog with the id my-accessible-dialog. </p>
+				</div>
+
+				<h4>Javascript Instantiation</h4>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// Get the dialog element (with the accessor method you want)
+const el = document.getElementById('my-accessible-dialog');
+
+// Instantiate a new A11yDialog module
+const dialog = new A11yDialog(el);
+</pre>
+				</div>
+
+
+				<h4>DOM API</h4>
+				<p>The following button will open the dialog with the <code>my-accessible-dialog</code> id when interacted with. </p>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;button type="button" data-a11y-dialog-show="my-accessible-dialog"&gt;Open the dialog&lt;/button&gt;
+</pre>
+				</div>
+				<p>The following button will hide the dialog with the <code>my-accessible-dialog</code> id when interacted with. </p>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;button type="button" data-a11y-dialog-hide&gt;Close the dialog&lt;/button&gt;
+</pre>
+				</div>
+
+				<h4>JS API</h4>
+				<p>Regarding the JS API, it simply consists on <code>show()</code> and <code>hide()</code> methods on the dialog instance.</p>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// Show the dialog
+dialog.show();
+
+// Hide the dialog
+dialog.hide();
+</pre>
 				</div>
 
 				<div class="sui-box">
@@ -3577,9 +3618,58 @@ Header set Cache-Control "max-age=691200"
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Default</button>
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
+						<p>The following code snippet is an example of the dialog code.</p>
 					</div>
 				</div>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class="sui-dialog" aria-hidden="true" id="my-accessible-dialog"&gt;
 
+	&lt;div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide&gt;&lt;/div&gt;
+
+	&lt;div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog"&gt;
+
+		&lt;div class="sui-box" role="document"&gt;
+
+			&lt;div class="sui-box-header"&gt;
+				&lt;h3 class="sui-box-title" id="dialogTitle"&gt;Dialog Title&lt;/h3&gt;
+				&lt;div class="sui-actions-right"&gt;
+					&lt;button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"&gt;&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="sui-box-body"&gt;
+				&lt;p id="dialogDescription"&gt;Fill in the ridiculously small form below to receive our ridiculously cool newsletter!&lt;/p&gt;
+				&lt;div class="sui-row"&gt;
+					&lt;div class="sui-col"&gt;
+						&lt;div class="sui-form-field"&gt;
+							&lt;label for="dialog-text-5" class="sui-label"&gt;Text&lt;/label&gt;
+							&lt;input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text"&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div class="sui-col"&gt;
+						&lt;div class="sui-form-field"&gt;
+							&lt;label for="dialog-text-6" class="sui-label"&gt;Text&lt;/label&gt;
+							&lt;input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text"&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class="sui-box-footer"&gt;
+				&lt;div class="sui-flex-child-right"&gt;
+					&lt;button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog"&gt;Cancel&lt;/button&gt;
+					&lt;button class="sui-modal-close sui-button sui-button-blue"&gt;Add&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+				</div>
 			</section>
 
 			<section id="footer">
@@ -3658,50 +3748,7 @@ Header set Cache-Control "max-age=691200"
 		 alt="Try pro features for free!"&gt;
 &lt;/div&gt;
 &lt;div class="sui-footer"&gt;Made with &lt;i class="sui-icon-heart"&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
-&lt;dialog id="sui-upgrade-membership-modal" class="sui-modal" title="Upgrade Membership"&gt;
-
-	&lt;p&gt;Here's what you'll get by upgrading to Hummingbird Pro.&lt;/p&gt;
-
-	&lt;ul class="sui-listing"&gt;
-		&lt;li&gt;
-			&lt;strong&gt;Automation&lt;/strong&gt;
-			&lt;p&gt;Schedule Hummingbird to run regular performance tests daily, weekly or monthly and get
-				email reports delivered straight to your inbox.&lt;/p&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;strong&gt;Enhanced Minify Compression&lt;/strong&gt;
-			&lt;p&gt;Compress your minified files up to 2x more than regular optimization and reuce your page
-				load speed even further.&lt;/p&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;strong&gt;WPMU DEV CDN&lt;/strong&gt;
-			&lt;p&gt;By default we minify your files via our API and send them back to your server. Pro users
-				can host their files on WPMU DEV’s secure and hyper fast CDN, which will mean less load
-				on your server and a fast visitor experience.&lt;/p&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;strong&gt;Smush Pro&lt;/strong&gt;
-			&lt;p&gt;A membership for Hummingbird Pro also gets you the award winning Smush Pro with unlimited
-				advanced lossy compression that’ll give image heavy websites a speed boost.&lt;/p&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-
-	&lt;p class="sui-block-content-center"&gt;Get all of this, plus heaps more as part of a WPMU DEV
-		membership.&lt;/p&gt;
-
-	&lt;div class="sui-block-content-center"&gt;
-		&lt;a target="_blank" href="" class="sui-button sui-button-green"&gt;Upgrade
-			Membership&lt;/a&gt;
-	&lt;/div&gt;
-
-	&lt;div class="sui-modal-image sui-modal-image-bottom dev-man"&gt;
-		&lt;img class="sui-image sui-image-center"
-			 src="dist/images/dev-team.png"
-			 srcset="dist/images/dev-team@2x.png 2x"
-			 alt="WPMU DEV Team"&gt;
-	&lt;/div&gt;
-
-&lt;/dialog&gt;</pre>
+</pre>
 				</div>
 
 				<div class="sui-row" id="sui-cross-sell-footer">

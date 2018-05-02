@@ -4248,7 +4248,7 @@
   background-color: transparent;
 }
 
-.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 [disabled].sui-upload-group,
+.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 .sui-upload-group[disabled],
 fieldset[disabled] .sui-2-1-7 .sui-form-control,
 fieldset[disabled] .sui-2-1-7 .sui-upload-group {
   cursor: not-allowed;
@@ -4512,6 +4512,39 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 
 .sui-2-1-7 .sui-upload-message {
   font-weight: 400;
+}
+
+.sui-2-1-7 .sui-date {
+  position: relative;
+}
+
+.sui-2-1-7 .sui-date .sui-form-control, .sui-2-1-7 .sui-date .sui-upload-group {
+  padding-right: 40px;
+}
+
+.sui-2-1-7 .sui-date i {
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.sui-2-1-7 .sui-date i:before {
+  display: block;
 }
 
 .sui-2-1-7 .sui-tabs {
@@ -7148,6 +7181,17 @@ html.sui-has-overlay {
   }
 }
 
+.sui-2-1-7 .sui-pagination .sui-pagination-dots span {
+  min-width: 38px;
+  height: 28px;
+  display: block;
+  margin: 0;
+  padding: 0 5px;
+  border: 0;
+  line-height: 28px;
+  text-align: center;
+}
+
 .sui-2-1-7 .sui-pagination:first-child {
   margin-top: 0;
 }
@@ -7204,6 +7248,11 @@ html.sui-has-overlay {
   .sui-2-1-7 .sui-pagination-wrap .sui-pagination-results {
     display: none;
   }
+}
+
+.sui-2-1-7 .sui-pagination-wrap .sui-pagination {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .sui-2-1-7 .sui-pagination-wrap .sui-pagination + .sui-pagination-open-filter {
