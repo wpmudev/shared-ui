@@ -18,11 +18,12 @@
 
 		// Modal sizes.
 		&.sui-dialog-sm {
+
 			.sui-dialog-content {
-				max-width: 400px;
+				max-width: calc(400px + (#{$sui-gutter}*2));
 
 				@media (max-width: 400px) {
-					max-width: 90%;
+					max-width: calc(400px + (#{$sui-gutter-md}*2));
 				}
 			}
 
@@ -46,6 +47,7 @@
 			}
 
 			.sui-box-body {
+
 				p {
 					font-size: 13px;
 					line-height: 22px;
@@ -62,11 +64,12 @@
 		}
 
 		&.sui-dialog-lg {
+			
 			.sui-dialog-content {
-				max-width: 980px;
+				max-width: calc(980px + (#{$sui-gutter}*2));
 
 				@media (max-width: 1200px) {
-					max-width: 90%;
+					max-width: calc(980px + (#{sui-gutter-md}*2));
 				}
 			}
 		}
@@ -103,18 +106,25 @@
 	}
 
 	.sui-dialog-content {
-		z-index: 2;
-		position: relative;
 		width: 100%;
-		max-width: 600px;
-		margin: 0 auto;
+		max-width: calc(600px + (#{$sui-gutter}*2));
 		max-height: 85%;
+		position: relative;
+		z-index: 2;
+		margin: 0 auto;
+		padding: 0 $sui-gutter;
 
 		> .sui-box {
+			margin: $sui-gutter 0;
 			box-shadow: 0 10px 40px $modal-box-shadow-color;
+
+			@media (max-width: 782px) {
+				margin: $sui-gutter-md 0;
+			}
 		}
 
 		.sui-box-body {
+			
 			& > * {
 				margin-bottom: 30px;
 				@include media( max-width, md ) {
@@ -125,6 +135,11 @@
 					margin-bottom: 0;
 				}
 			}
+		}
+
+		@media (max-width: 782px) {
+			max-width: calc(600px + (#{$sui-gutter-md}*2));
+			padding: 0 $sui-gutter-md;
 		}
 	}
 

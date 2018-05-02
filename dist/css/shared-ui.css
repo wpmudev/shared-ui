@@ -4248,7 +4248,7 @@
   background-color: transparent;
 }
 
-.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 .sui-upload-group[disabled],
+.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 [disabled].sui-upload-group,
 fieldset[disabled] .sui-2-1-7 .sui-form-control,
 fieldset[disabled] .sui-2-1-7 .sui-upload-group {
   cursor: not-allowed;
@@ -6716,12 +6716,12 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-dialog-content {
-  max-width: 400px;
+  max-width: calc(400px + (30px*2));
 }
 
 @media (max-width: 400px) {
   .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-dialog-content {
-    max-width: 90%;
+    max-width: calc(400px + (20px*2));
   }
 }
 
@@ -6761,12 +6761,12 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-7 .sui-dialog.sui-dialog-lg .sui-dialog-content {
-  max-width: 980px;
+  max-width: calc(980px + (30px*2));
 }
 
 @media (max-width: 1200px) {
   .sui-2-1-7 .sui-dialog.sui-dialog-lg .sui-dialog-content {
-    max-width: 90%;
+    max-width: calc(980px + (sui-gutter-md*2));
   }
 }
 
@@ -6810,17 +6810,25 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-1-7 .sui-dialog-content {
-  z-index: 2;
-  position: relative;
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: calc(600px + (30px*2));
   max-height: 85%;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
 .sui-2-1-7 .sui-dialog-content > .sui-box {
+  margin: 30px 0;
   -webkit-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog-content > .sui-box {
+    margin: 20px 0;
+  }
 }
 
 .sui-2-1-7 .sui-dialog-content .sui-box-body > * {
@@ -6835,6 +6843,13 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
 
 .sui-2-1-7 .sui-dialog-content .sui-box-body > *:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog-content {
+    max-width: calc(600px + (20px*2));
+    padding: 0 20px;
+  }
 }
 
 .sui-2-1-7 .sui-dialog-close {
