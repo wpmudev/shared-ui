@@ -6730,34 +6730,173 @@ fieldset[disabled] .sui-2-1-7 .sui-radio + span:not(.sui-description) {
   text-align: center;
   display: block;
   position: relative;
-}
-
-.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
-  margin-top: 30px;
-  margin-bottom: -10px;
-  font-size: 22px;
+  padding-top: 30px;
 }
 
 .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close {
-  position: absolute;
-  right: 30px;
-  top: 30px;
-}
-
-.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body p {
-  font-size: 13px;
-  line-height: 22px;
-  text-align: center;
-}
-
-.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer {
-  border: none;
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close, .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close:before {
+  color: #888888;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close:before {
+  font-size: 16px;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close:hover, .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close:focus {
+  outline: none;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close {
+    top: 20px;
+    right: 10px;
+  }
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-image {
+  width: 70px;
+  height: 70px;
+  display: block;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  margin-left: -35px;
+  border: 5px solid #FFFFFF;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-image img {
+  display: block;
+  border-radius: 3px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-image {
+    display: none;
+  }
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
+  margin: 30px 0 0;
+  color: #333333;
+  font: bold 22px/30px "Roboto Condensed", "Roboto", Arial, sans-serif;
+  letter-spacing: 0px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
+    margin: 20px 0 0;
+  }
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header p {
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header p:last-child {
+  margin-bottom: 0;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header p:last-of-type:last-child {
+  margin-bottom: 0;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header.sui-dialog-with-image {
+  margin-top: 35px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-header.sui-dialog-with-image {
+    margin-top: 0;
+  }
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body p {
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body:last-child {
+  padding-bottom: 30px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer.sui-align-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer:last-child {
+  padding-bottom: 30px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-dialog.sui-dialog-sm .sui-box-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .sui-2-1-7 .sui-dialog.sui-dialog-lg .sui-dialog-content {
