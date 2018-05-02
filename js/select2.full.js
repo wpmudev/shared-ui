@@ -9,10 +9,11 @@
  * For easy debugging process or update upstream of select
  */
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
+    // SUI-SELECT2 disable AMD and module exports
+    if (false && typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
+    } else if (false && typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function (root, jQuery) {
             if (jQuery === undefined) {
@@ -6511,7 +6512,7 @@
 
     // // Autoload the jQuery bindings
     // // We know that all of the modules exist above this, so we're safe
-    // var select2 = S2.require('jquery.select2');
+    // browserSync = S2.require('jquery.select2');
     //
     // // Hold the AMD module references on the jQuery function that was just loaded
     // // This allows Select2 to use the internal loader outside of this file, such
@@ -6522,6 +6523,7 @@
     // return select2;
 
     // SUI-SELECT2
-    S2.require('sui.select2');
+    var select2 = S2.require('sui.select2');
+    return select2;
 }));
 
