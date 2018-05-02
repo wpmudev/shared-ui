@@ -16,6 +16,12 @@
 
 	.sui-label {
 		@extend %label;
+		display: block;
+		margin: 0 0 5px;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 
 	.sui-label-link {
@@ -39,6 +45,7 @@
 		width: 100%;
 		height: $form--input-height-base;
 		padding: 7px 15px;
+		margin: 0;
 		font-size: $font--size;
 		font-weight: $form--input-font-weight;
 		line-height: $form--input-line-height;
@@ -64,6 +71,7 @@
 		&:focus {
 			background-color: $white;
 			border: 1px solid $form--input-border-color-hover;
+			box-shadow: none;
 		}
 
 		&:focus {
@@ -103,6 +111,14 @@
 
 	.sui-form-field {
 		margin-bottom: $sui-gutter;
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media( max-width, md ) {
+				margin-bottom: 0;
+			}
+		}
 
 		@include media( max-width, md ) {
 			margin-bottom: $sui-gutter-md;
@@ -187,6 +203,7 @@
 			background-color: $checkbox-radio-bg-color;
 			cursor: pointer;
 			transition: .2s;
+			border: 1px solid palette(gray, lighter);
 			border-radius: 3px;
 			margin-top: 3px;
 			&:before {
@@ -195,7 +212,7 @@
 				content: "(";
 				color: $white;
 				font-size: 10px;
-				line-height: $size;
+				line-height: 14px;
 				position: absolute;
 				width: 100%;
 				text-align: center;
@@ -204,6 +221,7 @@
 		}
 
 		input:checked + span:not(.sui-description) {
+			border: 1px solid $checkbox-radio-active-color;
 			background-color: $checkbox-radio-active-color;
 			&:before {
 				opacity: 1;
@@ -301,5 +319,72 @@
 
 	.sui-upload-message {
 		font-weight: 400;
+	}
+
+	.sui-date {
+		position: relative;
+
+		.sui-form-control {
+			padding-right: 40px;
+		}
+
+		i {
+			width: 30px;
+			height: 30px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+
+			&:before {
+				display: block;
+			}
+		}
+	}
+
+	.sui-multi-checkbox {
+		@extend .sui-form-control;
+		height: auto;
+		max-height: 114px;
+		overflow-y: auto;
+		padding: 1px;
+
+		label {
+			@extend .sui-description;
+			margin: 1px 0;
+
+			input {
+				@extend %sui-screen-reader-text;
+
+				&:checked + span {
+					background-color: $blue;
+					color: $white;
+				}
+			}
+
+			span {
+				display: block;
+				padding: 10px;
+			}
+
+			&:first-child {
+				margin-top: 0;
+
+				span {
+					border-radius: #{$border-radius - 1px} #{$border-radius - 1px} 0 0;
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+
+				span {
+					border-radius: 0 0 #{$border-radius - 1px} #{$border-radius - 1px};
+				}
+			}
+		}
 	}
 }

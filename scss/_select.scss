@@ -5,7 +5,7 @@
 		z-index: 1;
 		display: block;
 		cursor: pointer;
-		border-radius: 4px;
+		border-radius: $border-radius;
 		transition-property: background, border-color;
 		transition-duration: 0.3s;
 		text-align: left;
@@ -137,13 +137,12 @@
 			background-clip: padding-box;
 			text-decoration: none;
 			white-space: nowrap;
-			line-height: 24px;
 			height: auto;
 			width: 100%;
 			padding: 8px 8px 8px 15px;
 			border: 0;
 			color: $select-list-value-color;
-			font: 500 15px/25px $font;
+			font: 500 15px/22px $font;
 			transition-property: color;
 			transition-duration: 0.3s;
 		}
@@ -161,8 +160,8 @@
 			margin-right: -1px;
 			margin-top: 1px;
 			display: none;
-			border-radius: 4px;
-			font: 500 15px/25px $font;
+			border-radius: $border-radius;
+			font: 500 15px/22px $font;
 			transition-property: opacity, border-color;
 			transition-duration: 0.3s;
 			padding-left: 0;
@@ -207,7 +206,7 @@
 				&:last-child {
 					border-radius: 0 0 3px 3px;
 				}
-				&:hover {
+				&:not(.current):hover {
 					background: $select-list-hover-bg-color;
 					color: $select-list-value-hover-color;
 				}
