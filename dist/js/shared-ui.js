@@ -1422,10 +1422,11 @@ module.exports = E;
 
 	document.addEventListener( 'DOMContentLoaded', function() {
 		var mainEl = $( '.sui-wrap' );
+		SUI.dialogs = {};
 
 		// Init the dialog elements.
 		$( '.sui-dialog' ).each( function() {
-			new A11yDialog( this, mainEl );
+			SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
 		});
 
 	});
