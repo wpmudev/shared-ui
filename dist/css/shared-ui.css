@@ -4248,7 +4248,7 @@
   background-color: transparent;
 }
 
-.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 .sui-upload-group[disabled],
+.sui-2-1-7 .sui-form-control[disabled], .sui-2-1-7 [disabled].sui-upload-group,
 fieldset[disabled] .sui-2-1-7 .sui-form-control,
 fieldset[disabled] .sui-2-1-7 .sui-upload-group {
   cursor: not-allowed;
@@ -4314,6 +4314,16 @@ fieldset[disabled] .sui-2-1-7 .sui-upload-group {
 
 .sui-2-1-7 .sui-form-field {
   margin-bottom: 30px;
+}
+
+.sui-2-1-7 .sui-form-field:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 782px) {
+  .sui-2-1-7 .sui-form-field:last-child {
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 782px) {

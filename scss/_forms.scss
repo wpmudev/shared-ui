@@ -106,6 +106,14 @@
 	.sui-form-field {
 		margin-bottom: $sui-gutter;
 
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media( max-width, md ) {
+				margin-bottom: 0;
+			}
+		}
+
 		@include media( max-width, md ) {
 			margin-bottom: $sui-gutter-md;
 		}
