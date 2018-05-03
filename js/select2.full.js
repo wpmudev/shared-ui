@@ -9,10 +9,11 @@
  * For easy debugging process or update upstream of select
  */
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
+    // SUI-SELECT2 disable AMD and module exports
+    if (false && typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
+    } else if (false && typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function (root, jQuery) {
             if (jQuery === undefined) {
@@ -1462,7 +1463,9 @@
 
                         var $element = $this.data('element');
 
-                        $element.select2('close');
+                        // SUI-SELECT2 renamed function to SUIselect2
+                        $element.SUIselect2('close');
+                        // $element.select2('close');
                     });
                 });
             };
@@ -6479,7 +6482,7 @@
                                     'element that is not using Select2.'
                                 );
 
-                        }
+                            }
                             ret = instance[options].apply(instance, args);
                         });
 
@@ -6522,6 +6525,6 @@
     // return select2;
 
     // SUI-SELECT2
-    S2.require('sui.select2');
+    var select2 = S2.require('sui.select2');
+    return select2;
 }));
-

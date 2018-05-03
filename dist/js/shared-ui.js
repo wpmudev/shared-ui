@@ -527,7 +527,7 @@
     $( document ).ready( function() {
 
         // Convert all accordions.
-        $( '.sui-2-1-9 .sui-accordion' ).each( function() {
+        $( '.sui-2-2-0 .sui-accordion' ).each( function() {
 
             // backward compat of instantiate new accordion
             SUI.suiAccordion( this );
@@ -1329,7 +1329,7 @@ module.exports = E;
 
 ( function( $ ) {
 
-	$( '.sui-2-1-9 .sui-code-snippet:not(.sui-no-copy)' ).each( function( i ) {
+	$( '.sui-2-2-0 .sui-code-snippet:not(.sui-no-copy)' ).each( function( i ) {
 		var id = 'sui-code-snippet-' + i,
 			button = '<button class="sui-button" data-clipboard-target="#' + id + '">Copy</button>';
 
@@ -1379,7 +1379,7 @@ module.exports = E;
 	SUI.linkDropdown = function() {
 
 		function closeAllDropdowns( $except ) {
-			var $dropdowns = $( '.sui-2-1-9 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-2-0 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -1436,9 +1436,9 @@ module.exports = E;
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-1-9 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-2-0 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-1-9 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-2-0 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -1460,7 +1460,7 @@ module.exports = E;
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-1-9 .sui-password-group' ).each( function() {
+		$( '.sui-2-2-0 .sui-password-group' ).each( function() {
 			var $this = $( this ),
 				$input = $this.find( 'input[type="password"]' ),
 				$button = $this.find( '.sui-password-toggle' );
@@ -1532,7 +1532,7 @@ module.exports = E;
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-1-9 .sui-circle-score' ).each( function() {
+	$( '.sui-2-2-0 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -1741,7 +1741,7 @@ module.exports = E;
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-1-9 select' ).each( function() {
+	$( '.sui-2-2-0 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -1758,10 +1758,11 @@ module.exports = E;
  * For easy debugging process or update upstream of select
  */
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
+    // SUI-SELECT2 disable AMD and module exports
+    if (false && typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
-    } else if (typeof module === 'object' && module.exports) {
+    } else if (false && typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function (root, jQuery) {
             if (jQuery === undefined) {
@@ -3211,7 +3212,9 @@ module.exports = E;
 
                         var $element = $this.data('element');
 
-                        $element.select2('close');
+                        // SUI-SELECT2 renamed function to SUIselect2
+                        $element.SUIselect2('close');
+                        // $element.select2('close');
                     });
                 });
             };
@@ -8228,7 +8231,7 @@ module.exports = E;
                                     'element that is not using Select2.'
                                 );
 
-                        }
+                            }
                             ret = instance[options].apply(instance, args);
                         });
 
@@ -8271,9 +8274,9 @@ module.exports = E;
     // return select2;
 
     // SUI-SELECT2
-    S2.require('sui.select2');
+    var select2 = S2.require('sui.select2');
+    return select2;
 }));
-
 
 ( function( $ ) {
 
@@ -8381,7 +8384,7 @@ module.exports = E;
 	};
 
 	// Initialize all tab-areas.
-	$( '.sui-2-1-9 .sui-tabs' ).each( function() {
+	$( '.sui-2-2-0 .sui-tabs' ).each( function() {
 		SUI.suiTabs( this );
 	});
 
@@ -8399,7 +8402,7 @@ module.exports = E;
 
 	SUI.upload = function() {
 
-		$( '.sui-2-1-9 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-2-0 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
