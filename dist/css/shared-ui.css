@@ -1310,22 +1310,39 @@
 .sui-2-2-0 button.sui-button .sui-loading,
 .sui-2-2-0 a.sui-button .sui-loading,
 .sui-2-2-0 .sui-button .sui-loading {
+  width: 16px;
+  height: 16px;
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -8px;
+  margin: 0;
+}
+
+.sui-2-2-0 button.sui-button .sui-loading:before,
+.sui-2-2-0 a.sui-button .sui-loading:before,
+.sui-2-2-0 .sui-button .sui-loading:before {
+  display: block;
 }
 
 .sui-2-2-0 button.sui-button .sui-loading-text,
 .sui-2-2-0 a.sui-button .sui-loading-text,
 .sui-2-2-0 .sui-button .sui-loading-text {
+  display: block;
   pointer-events: none;
 }
 
-.sui-2-2-0 button.sui-button i:not(.sui-fw),
-.sui-2-2-0 a.sui-button i:not(.sui-fw),
-.sui-2-2-0 .sui-button i:not(.sui-fw) {
+.sui-2-2-0 button.sui-button i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 a.sui-button i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 .sui-button i:not(.sui-fw):not(.sui-loading) {
   margin-right: 5px;
 }
 
@@ -1337,9 +1354,9 @@
   color: #FFFFFF;
 }
 
-.sui-2-2-0 button.sui-button.sui-button-icon-right i:not(.sui-fw),
-.sui-2-2-0 a.sui-button.sui-button-icon-right i:not(.sui-fw),
-.sui-2-2-0 .sui-button.sui-button-icon-right i:not(.sui-fw) {
+.sui-2-2-0 button.sui-button.sui-button-icon-right i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 a.sui-button.sui-button-icon-right i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 .sui-button.sui-button-icon-right i:not(.sui-fw):not(.sui-loading) {
   margin-right: 0;
   margin-left: 5px;
 }
@@ -1580,15 +1597,15 @@
   padding: 9px 20px 9px;
 }
 
-.sui-2-2-0 button.sui-button.sui-button-lg i:not(.sui-fw),
-.sui-2-2-0 a.sui-button.sui-button-lg i:not(.sui-fw),
-.sui-2-2-0 .sui-button.sui-button-lg i:not(.sui-fw) {
+.sui-2-2-0 button.sui-button.sui-button-lg i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 a.sui-button.sui-button-lg i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 .sui-button.sui-button-lg i:not(.sui-fw):not(.sui-loading) {
   margin-right: 10px;
 }
 
-.sui-2-2-0 button.sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw),
-.sui-2-2-0 a.sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw),
-.sui-2-2-0 .sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw) {
+.sui-2-2-0 button.sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 a.sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw):not(.sui-loading),
+.sui-2-2-0 .sui-button.sui-button-lg.sui-button-icon-right i:not(.sui-fw):not(.sui-loading) {
   margin-right: 0;
   margin-left: 10px;
 }
@@ -1597,12 +1614,33 @@
 .sui-2-2-0 a.sui-button.sui-button-onload,
 .sui-2-2-0 .sui-button.sui-button-onload {
   pointer-events: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .sui-2-2-0 button.sui-button.sui-button-onload .sui-loading,
 .sui-2-2-0 a.sui-button.sui-button-onload .sui-loading,
 .sui-2-2-0 .sui-button.sui-button-onload .sui-loading {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sui-2-2-0 button.sui-button.sui-button-onload .sui-loading-text,
+.sui-2-2-0 a.sui-button.sui-button-onload .sui-loading-text,
+.sui-2-2-0 .sui-button.sui-button-onload .sui-loading-text {
+  opacity: 0;
 }
 
 .sui-2-2-0 button.sui-button.sui-button-onload, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-blue, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-green, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-red,
@@ -1617,29 +1655,11 @@
   background: #E6E6E6;
 }
 
-.sui-2-2-0 button.sui-button.sui-button-onload .sui-loading-text, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-blue .sui-loading-text, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-green .sui-loading-text, .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-red .sui-loading-text,
-.sui-2-2-0 a.sui-button.sui-button-onload .sui-loading-text,
-.sui-2-2-0 a.sui-button.sui-button-onload.sui-button-blue .sui-loading-text,
-.sui-2-2-0 a.sui-button.sui-button-onload.sui-button-green .sui-loading-text,
-.sui-2-2-0 a.sui-button.sui-button-onload.sui-button-red .sui-loading-text,
-.sui-2-2-0 .sui-button.sui-button-onload .sui-loading-text,
-.sui-2-2-0 .sui-button.sui-button-onload.sui-button-blue .sui-loading-text,
-.sui-2-2-0 .sui-button.sui-button-onload.sui-button-green .sui-loading-text,
-.sui-2-2-0 .sui-button.sui-button-onload.sui-button-red .sui-loading-text {
-  color: #E6E6E6;
-}
-
 .sui-2-2-0 button.sui-button.sui-button-onload.sui-button-ghost,
 .sui-2-2-0 a.sui-button.sui-button-onload.sui-button-ghost,
 .sui-2-2-0 .sui-button.sui-button-onload.sui-button-ghost {
   border-color: #E6E6E6;
   background: transparent;
-}
-
-.sui-2-2-0 button.sui-button.sui-button-onload.sui-button-ghost .sui-loading-text,
-.sui-2-2-0 a.sui-button.sui-button-onload.sui-button-ghost .sui-loading-text,
-.sui-2-2-0 .sui-button.sui-button-onload.sui-button-ghost .sui-loading-text {
-  color: transparent;
 }
 
 .sui-2-2-0 button.sui-button:disabled, .sui-2-2-0 button.sui-button[disabled], .sui-2-2-0 button.sui-button.disabled,
