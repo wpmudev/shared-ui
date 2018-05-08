@@ -26,10 +26,10 @@ $palettes: (
 		medium:  #0A9BD6,
 	),
 	red: (
-		default: #C40000,
+		default: #FF7F83,
 		lighter: #FFE5E9,
 		light:   #CB4B57,
-		soft:    #FF7F83,
+		darker:  #FF6D6D,
 	),
 	yellow: (
 		default: #FECF2F,
@@ -44,7 +44,7 @@ $palettes: (
 
 $success:                               palette(green)                !default;
 $warning:                               palette(yellow)               !default;
-$error:                                 palette(red, soft)            !default;
+$error:                                 palette(red)                  !default;
 $info:                                  palette(blue)                 !default;
 
 // Primary Colors
@@ -78,8 +78,9 @@ $button-blue-ghost-color:               palette(blue)                 !default;
 $button-blue-action-bg-color:           palette(blue, medium)         !default;
 
 // Red Button
-$button-red-bg-color:                   palette(red, light)           !default;
-$button-red-action-bg-color:            palette(red)                  !default;
+$button-red-bg-color:                   $red                          !default;
+$button-red-action-bg-color:            palette(red, darker)          !default;
+$button-red-ghost-bdr-color:            palette(red, lighter)         !default;
 
 // Green Button
 $button-green-bg-color:                 palette(green)                !default;
