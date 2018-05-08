@@ -3546,6 +3546,7 @@ dialog.hide();
 					<div class="sui-box-body">
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Default</button>
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
+						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small-complex">Small (Complex)</button>
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
 						<p>The following code snippet is an example of the dialog code.</p>
 					</div>
@@ -3851,31 +3852,58 @@ dialog.hide();
 					<div class="sui-box" role="document">
 
 						<div class="sui-box-header">
+							<h3 class="sui-box-title" id="dialogTitle2">Are you sure?</h3>
+							<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+						</div>
+
+						<div class="sui-box-body">
+							<p>Are you sure you wish to ignore the current performance test results? You can re-run the test anytime to check your performance score again.</p>
+						</div>
+
+						<div class="sui-box-footer">
+							<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Cancel</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-dialog sui-dialog-sm" aria-hidden="true" id="my-accessible-dialog-small-complex">
+
+				<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-dialog-with-image">
 							<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
 							<div class="sui-dialog-image" aria-hidden="true">
 								<img src="dist/images/activecampaign.png"
 									srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Active Campaign"
 									class="sui-image sui-image-center" />
 							</div>
-							<h3 class="sui-box-title" id="dialogTitle2">Configure ActiveCampaign</h3>
-							<p>Change the list you want to send form data to, or disconnect this integration below.</p>
+							<h3 class="sui-box-title" id="dialogTitle2">Connect ActiveCampaign</h3>
 						</div>
 
 						<div class="sui-box-body">
+							<p>Enter your ActiveCampaign API credentials below to connect your account. You can find your credentials <a href="">here</a>.</p>
 							<div class="sui-form-field">
-								<label class="sui-label">Email List</label>
-								<select>
-									<option>Newsletter List</option>
-									<option>Acme News</option>
-									<option>Simple List</option>
-								</select>
+								<label class="sui-label">API URL</label>
+								<input class="sui-form-control" placeholder="Enter URL">
+							</div>
+							<div class="sui-form-field">
+								<label class="sui-label">API Key</label>
+								<input class="sui-form-control" placeholder="Enter Key">
 							</div>
 						</div>
 
 						<div class="sui-box-footer">
-							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-hide="my-accessible-dialog-small">Disconnect</button>
+							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-hide="my-accessible-dialog-small-complex">Disconnect</button>
 							<div class="sui-actions-right">
-								<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Cancel</button>
+								<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small-complex">Cancel</button>
 							</div>
 						</div>
 
