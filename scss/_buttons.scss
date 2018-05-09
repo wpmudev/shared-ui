@@ -176,11 +176,11 @@
 			}
 
 			&.sui-button-red {
-				border-color: $button-red-action-bg-color;
+				border-color: $button-red-ghost-bdr-color;
 				color: $button-red-action-bg-color;
 
 				i:before {
-					color: red;
+					color: $button-red-action-bg-color;
 				}
 
 				&:hover,
@@ -189,6 +189,10 @@
 					border-color: $red;
 					background: $red;
 					color: $white;
+
+					i:before {
+						color: $white;
+					}
 				}
 			}
 
