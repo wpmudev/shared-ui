@@ -456,7 +456,7 @@
 }
 
 .sui-2-2-1 [class*="sui-icon-"]:before, .sui-2-2-1 [class*="sui-icon-"]:after, .sui-2-2-1 .sui-notice p:first-of-type:before,
-.sui-2-2-1 .sui-notice-top p:first-of-type:before, .sui-2-2-1 .sui-checkbox span:not(.sui-description):before, .sui-2-2-1 .sui-radio span:not(.sui-description):before, .sui-2-2-1 .sui-dialog-close:before, .sui-2-2-1 .sui-listing li:before, .sui-2-2-1 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-2-1 .sui-select-dropdown .select2-search--dropdown:after {
+.sui-2-2-1 .sui-notice-top p:first-of-type:before, .sui-2-2-1 .sui-checkbox span:not(.sui-description):before, .sui-2-2-1 .sui-radio span:not(.sui-description):before, .sui-2-2-1 .sui-dialog-close:before, .sui-2-2-1 .sui-listing li:before, .sui-2-2-1 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-2-1 .sui-select-dropdown .select2-search--dropdown:after, .sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before, .sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before {
   font-family: 'wpmudev-plugin-icons' !important;
   speak: none;
   font-size: 1em;
@@ -1235,7 +1235,7 @@
 .sui-2-2-1 button.sui-button.sui-button-red,
 .sui-2-2-1 a.sui-button.sui-button-red,
 .sui-2-2-1 .sui-button.sui-button-red {
-  background: #CB4B57;
+  background: #FF7F83;
 }
 
 .sui-2-2-1 button.sui-button.sui-button-red i:before,
@@ -1250,7 +1250,7 @@
 .sui-2-2-1 .sui-button.sui-button-red:hover,
 .sui-2-2-1 .sui-button.sui-button-red:focus {
   opacity: 1;
-  background: #C40000;
+  background: #FF6D6D;
 }
 
 .sui-2-2-1 button.sui-button.sui-button-green,
@@ -1358,14 +1358,14 @@
 .sui-2-2-1 button.sui-button.sui-button-ghost.sui-button-red,
 .sui-2-2-1 a.sui-button.sui-button-ghost.sui-button-red,
 .sui-2-2-1 .sui-button.sui-button-ghost.sui-button-red {
-  border-color: #C40000;
-  color: #C40000;
+  border-color: #FFE5E9;
+  color: #FF6D6D;
 }
 
 .sui-2-2-1 button.sui-button.sui-button-ghost.sui-button-red i:before,
 .sui-2-2-1 a.sui-button.sui-button-ghost.sui-button-red i:before,
 .sui-2-2-1 .sui-button.sui-button-ghost.sui-button-red i:before {
-  color: #C40000;
+  color: #FF6D6D;
 }
 
 .sui-2-2-1 button.sui-button.sui-button-ghost.sui-button-red:hover, .sui-2-2-1 button.sui-button.sui-button-ghost.sui-button-red:focus,
@@ -1374,8 +1374,8 @@
 .sui-2-2-1 .sui-button.sui-button-ghost.sui-button-red:hover,
 .sui-2-2-1 .sui-button.sui-button-ghost.sui-button-red:focus {
   opacity: 1;
-  border-color: #C40000;
-  background: #C40000;
+  border-color: #FF7F83;
+  background: #FF7F83;
   color: #FFFFFF;
 }
 
@@ -6361,7 +6361,8 @@ fieldset[disabled] .sui-2-2-1 .sui-radio + span:not(.sui-description) {
   text-align: center;
   display: block;
   position: relative;
-  padding-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 10px;
 }
 
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header .sui-dialog-close {
@@ -6431,38 +6432,26 @@ fieldset[disabled] .sui-2-2-1 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
-  margin: 30px 0 0;
+  margin: 0;
   color: #333333;
   font: bold 22px/30px "Roboto Condensed", "Roboto", Arial, sans-serif;
   letter-spacing: 0px;
 }
 
-@media (max-width: 782px) {
-  .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header .sui-box-title {
-    margin: 20px 0 0;
-  }
-}
-
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header p {
-  margin: 10px 0;
+  margin: 10px 0 0;
+  color: #666666;
   font-size: 13px;
   line-height: 22px;
 }
 
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header p:last-child {
-  margin-bottom: 0;
-}
-
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header p:last-of-type {
-  margin-bottom: 20px;
-}
-
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header p:last-of-type:last-child {
-  margin-bottom: 0;
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header p:first-child {
+  margin-top: 0;
 }
 
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-header.sui-dialog-with-image {
   margin-top: 35px;
+  padding-top: 60px;
 }
 
 @media (max-width: 782px) {
@@ -6472,28 +6461,39 @@ fieldset[disabled] .sui-2-2-1 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body {
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 15px;
+  text-align: center;
 }
 
 .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body p {
+  color: #888888;
   font-size: 13px;
+  line-height: 20px;
+}
+
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body label {
+  text-align: left;
+}
+
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body .sui-label {
   line-height: 22px;
 }
 
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body:last-child {
-  padding-bottom: 30px;
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body .sui-form-field {
+  margin-bottom: 20px;
 }
 
-@media (max-width: 782px) {
-  .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body:last-child {
-    padding-bottom: 20px;
-  }
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body .sui-form-field:last-child {
+  margin-bottom: 0;
+}
+
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body:last-child {
+  padding-bottom: 40px;
 }
 
 @media (max-width: 782px) {
   .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-body {
-    padding-top: 10px;
     padding-bottom: 10px;
   }
 }
@@ -6502,31 +6502,23 @@ fieldset[disabled] .sui-2-2-1 .sui-radio + span:not(.sui-description) {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border: 0;
-}
-
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-footer.sui-align-center {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 40px;
+  border: 0;
 }
 
-.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-footer:last-child {
-  padding-bottom: 30px;
-}
-
-@media (max-width: 782px) {
-  .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-footer:last-child {
-    padding-bottom: 20px;
-  }
+.sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-footer.sui-align-unset {
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
 }
 
 @media (max-width: 782px) {
   .sui-2-2-1 .sui-dialog.sui-dialog-sm .sui-box-footer {
     padding-top: 10px;
-    padding-bottom: 10px;
   }
 }
 
@@ -7178,6 +7170,146 @@ html.sui-has-overlay {
   font-size: 12px;
   line-height: 12px;
   cursor: default;
+  pointer-events: none;
+}
+
+.sui-2-2-1 .sui-calendar {
+  margin: 5px 0 0;
+  padding: 15px;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header {
+  display: block;
+  position: relative;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background-color: transparent;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all:before {
+  display: block;
+  color: #888888;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all:hover, .sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all:active {
+  background-color: #F2F2F2;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all:hover:before, .sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all:active:before {
+  color: #333333;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all span {
+  display: none;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev {
+  left: 0;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before {
+  content: "Ó";
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next {
+  right: 0;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before {
+  content: "˜";
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-header .ui-datepicker-title {
+  display: block;
+  padding: 0 40px;
+  color: #333333;
+  font: 600 12px/30px "Roboto", Arial, sans-serif;
+  text-align: center;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar {
+  margin: 15px 0 0;
+  border-collapse: collapse;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr th, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr td,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr th,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td {
+  margin: 0;
+  padding: 2px;
+  border: 0;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr th a, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr th span, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr td a, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr td span,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr th a,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr th span,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a,
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td span {
+  width: 26px;
+  height: 26px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: bold 12px/26px "Roboto", Arial, sans-serif;
+  text-align: center;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar thead tr th {
+  color: #333333;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td {
+  color: #888888;
+  font: 500 12px/26px "Roboto", Arial, sans-serif;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td span {
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a {
+  color: #888888;
+  font-weight: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a:hover, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a:active, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a.ui-state-hover, .sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a.ui-state-active {
+  background-color: #F2F2F2;
+  color: #333333;
+}
+
+.sui-2-2-1 .sui-calendar .ui-datepicker-calendar tbody tr td a.ui-state-active {
   pointer-events: none;
 }
 
