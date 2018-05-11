@@ -30,11 +30,21 @@
 		display: flex;
 		flex-flow: wrap;
 		margin-right: (-$sui-gutter / 2);
+		margin-bottom: $sui-gutter;
 		margin-left: (-$sui-gutter / 2);
 
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media( max-width, md ) {
+				margin-bottom: 0;
+			}
+		}
+
 		@include media( max-width, md ) {
-			margin-left: (-$sui-gutter-md / 2);
 			margin-right: (-$sui-gutter-md / 2);
+			margin-bottom: $sui-gutter-md;
+			margin-left: (-$sui-gutter-md / 2);
 		}
 	}
 
