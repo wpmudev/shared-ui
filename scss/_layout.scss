@@ -75,4 +75,64 @@
 			@include generate-column-class($size);
 		}
 	}
+
+	[class*="sui-col-lg-"] {
+		
+		&:last-child {
+			
+			@media (max-width: map-get($sui-breakpoints, 'lg')) {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: map-get($sui-breakpoints, 'lg')) {
+			margin-bottom: $sui-gutter;
+		}
+
+		@media (max-width: map-get($sui-breakpoints, 'md')) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
+
+	[class*="sui-col-md-"] {
+		
+		&:last-child {
+			
+			@media (max-width: map-get($sui-breakpoints, 'md')) {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: map-get($sui-breakpoints, 'md')) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
+
+	[class*="sui-col-sm-"] {
+		
+		&:last-child {
+			
+			@media (max-width: map-get($sui-breakpoints, 'sm')) {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: map-get($sui-breakpoints, 'sm')) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
+
+	[class*="sui-col-xs-"] {
+		
+		&:last-child {
+			
+			@media (max-width: map-get($sui-breakpoints, 'xs')) {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: map-get($sui-breakpoints, 'xs')) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
 }
