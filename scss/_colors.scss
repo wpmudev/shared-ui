@@ -9,7 +9,6 @@ $palettes: (
 		default: #666666,
 		lighter: #DDDDDD,
 		light:   #888888,
-		medium:  #7B7B7B,
 		dark:    #333333,
 	),
 	silver: (
@@ -17,19 +16,14 @@ $palettes: (
 		light:   #F8F8F8,
 		soft:    #E6E6E6,
 		medium:  #AAAAAA,
-		alt:     #EAEAEA,
 	),
 	blue: (
 		default: #17A8E3,
-		light:   #D2F0FF,
-		soft:    #E1F6FF,
-		medium:  #0A9BD6,
+		light:   #E1F6FF,
 	),
 	red: (
-		default: #FF7F83,
-		lighter: #FFE5E9,
-		light:   #CB4B57,
-		darker:  #FF6D6D,
+		default: #FF6D6D,
+		light:   #FFE5E9,
 	),
 	yellow: (
 		default: #FECF2F,
@@ -37,8 +31,7 @@ $palettes: (
 	),
 	green: (
 		default: #1ABC9C,
-		soft:    #D1F1EA,
-		medium:  #148F77,
+		light:   #D1F1EA,
 	)
 ) !default;
 
@@ -59,32 +52,32 @@ $silver:                                palette(silver)               !default;
 
 // Boxes Colors (_boxes.scss)
 $box-bg-color:                          palette(mono, white)          !default;
-$box-box-shadow-color:                  palette(silver, alt)          !default;
-$box-header-border-color:               palette(silver, alt)          !default;
-$box-footer-border-color:               palette(silver, alt)          !default;
+$box-box-shadow-color:                  palette(silver, soft)          !default;
+$box-header-border-color:               palette(silver, soft)          !default;
+$box-footer-border-color:               palette(silver, soft)          !default;
 $box-settings-box-border-color:         palette(silver, soft)         !default;
 $box-settings-label-color:              palette(gray, dark)           !default;
 $box-upsell-p-color:                    palette(gray, dark)           !default;
-$box-upsell-p-bg-color:                 palette(blue, soft)           !default;
+$box-upsell-p-bg-color:                 palette(blue, light)           !default;
 
 // Buttons Colors (_buttons.scss)
 // Default Button
 $button-bg-color:                       palette(gray, light)          !default;
-$button-action-bg-color:                palette(gray, medium)         !default;
+$button-action-bg-color:                darken($button-bg-color, 4%)  !default;
 
 // Blue Button
-$button-blue-bg-color:                  palette(blue)                 !default;
-$button-blue-ghost-color:               palette(blue)                 !default;
-$button-blue-action-bg-color:           palette(blue, medium)         !default;
+$button-blue-bg-color:                  palette(blue)                      !default;
+$button-blue-ghost-color:               palette(blue)                      !default;
+$button-blue-action-bg-color:           darken($button-blue-bg-color, 4%)  !default;
 
 // Red Button
 $button-red-bg-color:                   $red                          !default;
-$button-red-action-bg-color:            palette(red, darker)          !default;
-$button-red-ghost-bdr-color:            palette(red, lighter)         !default;
+$button-red-action-bg-color:            darken($button-red-bg-color, 4%)         !default;
+$button-red-ghost-bdr-color:            palette(red, light)         !default;
 
 // Green Button
 $button-green-bg-color:                 palette(green)                !default;
-$button-green-action-bg-color:          palette(green, medium)        !default;
+$button-green-action-bg-color:          darken($button-green-bg-color, 4%)      !default;
 
 // Ghost Button
 $button-ghost-border-color:             palette(gray, lighter)        !default;
@@ -111,7 +104,7 @@ $headings-color:                        palette(gray, dark)           !default;
 $font-color:                            $gray !default;
 $p-small-color:                         palette(gray, light)          !default;
 $a-color:                               palette(blue)                 !default;
-$a-action-color:                        palette(blue, medium)         !default;
+$a-action-color:                        darken($a-color, 10%)         !default;
 $a-disabled-color:                      palette(gray, light)          !default;
 $code-bg-color:                         palette(silver, light)        !default;
 $code-border-color:                     palette(silver, soft)         !default;
@@ -124,11 +117,11 @@ $notice-default-bg-color:               palette(silver)               !default;
 $notice-default-icon-color:             palette(gray, light)          !default;
 $notice-warning-bg-color:               palette(yellow, light)        !default;
 $notice-warning-icon-color:             $warning                      !default;
-$notice-success-bg-color:               palette(green, soft)          !default;
+$notice-success-bg-color:               palette(green, light)         !default;
 $notice-success-icon-color:             $success                      !default;
-$notice-error-bg-color:                 palette(red, lighter)         !default;
+$notice-error-bg-color:                 palette(red, light)         !default;
 $notice-error-icon-color:               $error                        !default;
-$notice-info-bg-color:                  palette(blue, soft)           !default;
+$notice-info-bg-color:                  palette(blue, light)           !default;
 $notice-info-icon-color:                palette(blue)                 !default;
 
 // Tooltips (_tooltips.scss)
@@ -143,7 +136,7 @@ $select-dropdown-handle-color:          palette(grey, light)          !default;
 $select-list-value-color:               palette(silver, medium)       !default;
 $select-list-value-hover-color:         palette(gray, dark)           !default;
 $select-list-results-bg-color:          palette(mono, white)          !default;
-$select-list-results-border-color:      palette(silver, alt)          !default;
+$select-list-results-border-color:      palette(silver, soft)          !default;
 $select-list-results-li-color:          palette(gray, light)          !default;
 $select-list-results-li-optgroup-color: palette(silver, medium)       !default;
 $select-list-hover-bg-color:            palette(silver)               !default;
@@ -158,7 +151,7 @@ $select2-border-color:							palette(gray, lighter)		!default;
 $select2-background-color:						#FAFAFA						!default;
 $select2-color:									palette(silver, medium)		!default;
 $select2-color-hover:							palette(gray, dark)			!default;
-$select2-dropdown-border-color:					palette(silver, alt)		!default;
+$select2-dropdown-border-color:					palette(silver, soft)		!default;
 $select2-dropdown-background-color:				palette(mono, white)		!default;
 $select2-dropdown-option-color:					palette(gray, light)		!default;
 $select2-dropdown-option-color-hover:			palette(gray, dark)			!default;
@@ -192,7 +185,7 @@ $tag-success-bg-color:                  $success                      !default;
 $tag-error-bg-color:                    $error                        !default;
 $tag-inactive-bg-color:                 palette(silver, soft)         !default;
 $tag-upgrade-bg-color:                  palette(green)                !default;
-$tag-upsell-color:                      palette(green, soft)          !default;
+$tag-upsell-color:                      palette(green, light)         !default;
 $tag-disabled-color:                    palette(silver, medium)       !default;
 $tag-disabled-bg-color:                 palette(silver, light)        !default;
 $tag-pro-color:							palette(mono, white)		  !default;
@@ -220,7 +213,7 @@ $tabs-label-color:                      palette(gray, light)          !default;
 $tabs-label-checked-color:              palette(gray, light)          !default;
 $tabs-label-active-color:               palette(gray, dark)           !default;
 $tabs-label-active-border-color:        palette(gray, dark)           !default;
-$tabs-content-border-color:             palette(silver, alt)          !default;
+$tabs-content-border-color:             palette(silver, soft)          !default;
 
 // Modals (_modals.scss)
 $modal-overlay-bg-color:                rgba(51, 51, 51, 0.95)        !default;
