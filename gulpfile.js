@@ -69,6 +69,7 @@ gulp.task( 'scripts:sui', function( cb ) {
 			eslint(),
 			eslint.format(),
 			eslint.failAfterError(),
+            gulp.dest( './dist/js/_src' ),
 			concat( 'shared-ui.js'),
 			header( banner ),
 			gulp.dest( './dist/js/' ),
