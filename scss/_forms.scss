@@ -155,6 +155,64 @@
 		}
 	}
 
+	.sui-with-button {
+		display: flex;
+		align-items: center;
+
+		.sui-button {
+			flex: 0 0 auto;
+		}
+
+		.sui-form-control {
+			flex: 1;
+			margin: 0 5px;
+			
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&.sui-with-button-icon,
+		&.sui-with-button-inside {
+			display: block;
+			position: relative;
+
+			.sui-button,
+			.sui-button-icon {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+
+			.sui-button-lg {
+				top: 0;
+				right: 0;
+			}
+
+			.sui-form-control {
+				margin: 0;
+			}
+		}
+
+		&.sui-with-button-icon {
+			
+			.sui-form-control {
+				padding-right: 40px;
+			}
+		}
+
+		&.sui-with-button-inside {
+
+			.sui-form-control {
+				padding-right: 90px;
+			}
+		}
+	}
+
 	.sui-input-group {
 		position: relative;
 		display: flex;
