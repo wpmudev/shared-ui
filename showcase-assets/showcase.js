@@ -27,6 +27,13 @@
 		$( this ).wrap( '<div class="sui-col-md-3 sui-col-sm-4"><button role="button" data-clipboard-text="&lt;i class=&quot;sui-icon-' + iconName + '&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;" class="demo-icon"></button></div>' ).after( '<span class="demo-icon-name"><span class="sui-screen-reader-text">Example of </span>' + iconName + '</span>' );
 	});
 
+	$( '.sui-date .sui-form-control' ).datepicker({
+		beforeShow: function( input, inst ) {
+			$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
+		},
+		'dateFormat': 'd MM yy'
+	});
+
 	clipboard.on( 'success', function( e ) {
 		console.info( 'Copied:', e.text );
 		showTooltip( e.trigger, 'Copied Icon!' );
