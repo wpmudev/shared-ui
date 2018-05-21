@@ -2073,6 +2073,35 @@ RewriteRule . /index.php [L]
 				</div>
 
 				<hr>
+				<div class="demo-info-block">
+					<h3>jQuery UI – Calendar</h3>
+					<p>The Shared UI supports styling of the jQuery UI datepicker but doesn't include the library so you will need to
+						include that in your plugin yourself. To use the styles you will need to add the class
+						<code>sui-calendar</code> to your datepicker element.</p>
+					<p>See code snippet below to see how it was done in this showcase.</p>
+					<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+$( '.sui-date .sui-form-control' ).datepicker({
+		beforeShow: function( input, inst ) {
+			$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
+		},
+		'dateFormat': 'd MM yy'
+	});
+</pre>
+					</div>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label for="calendar" class="sui-label">Select a day</label>
+						<div class="sui-date">
+							<input type="text" id="calendar" class="sui-form-control" placeholder="19 Jan 1989">
+							<i class="sui-icon-calendar" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+
+				<hr>
 
 				<div class="demo-info-block">
 					<h3>Select List</h3>
@@ -4092,6 +4121,7 @@ dialog.hide();
 </div><!-- #wpcontent -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
