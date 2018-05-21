@@ -39,21 +39,21 @@
 	}
 
 	.sui-form-control {
-		font-family: $font;
-		letter-spacing: -0.025em;
-		display: block;
 		width: 100%;
 		height: $form--input-height-base;
-		padding: 7px 15px;
+		display: block;
 		margin: 0;
-		font-size: $font--size;
-		font-weight: $form--input-font-weight;
-		line-height: $form--input-line-height;
-		color: $form--input-color;
-		background-color: $form--input-bg-color;
-		background-image: none;
+		padding: 9px 14px;
 		border: 1px solid $form--input-border-color;
 		border-radius: $form--input-border-radius;
+		background-color: $form--input-bg-color;
+		background-image: none;
+		color: $form--input-color;
+		font-size: $font--size;
+		line-height: $form--input-line-height;
+		font-family: $font;
+		font-weight: $form--input-font-weight;
+		letter-spacing: $font--letter-spacing;
 		transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
 
 		// Unstyle the caret on `<select>`s in IE10+.
@@ -65,6 +65,14 @@
 		&[disabled],
 		fieldset[disabled] & {
 			cursor: not-allowed;
+
+			&,
+			&:hover,
+			&:focus {
+				border-color: $form--input--disabled;
+				background-color: $form--input--disabled;
+				color: $form--input-color-disabled;
+			}
 		}
 
 		&,
@@ -123,12 +131,85 @@
 			left: 14px;
 
 			&:before {
+				color: $form--input-icon;
 				display: block;
 			}
 		}
 
 		.sui-form-control {
 			padding-left: 40px;
+		}
+
+		&.sui-right-icon {
+
+			i {
+				right: 14px;
+				left: auto;
+				color: $form--input-icon-right;
+			}
+
+			.sui-form-control {
+				padding-right: 40px;
+				padding-left: 14px;
+			}
+		}
+	}
+
+	.sui-with-button {
+		display: flex;
+		align-items: center;
+
+		.sui-button {
+			flex: 0 0 auto;
+		}
+
+		.sui-form-control {
+			flex: 1;
+			margin: 0 5px;
+			
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&.sui-with-button-icon,
+		&.sui-with-button-inside {
+			display: block;
+			position: relative;
+
+			.sui-button,
+			.sui-button-icon {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+
+			.sui-button-lg {
+				top: 0;
+				right: 0;
+			}
+
+			.sui-form-control {
+				margin: 0;
+			}
+		}
+
+		&.sui-with-button-icon {
+			
+			.sui-form-control {
+				padding-right: 40px;
+			}
+		}
+
+		&.sui-with-button-inside {
+
+			.sui-form-control {
+				padding-right: 90px;
+			}
 		}
 	}
 
