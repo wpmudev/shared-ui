@@ -314,7 +314,7 @@
 			@extend %sui-screen-reader-text;
 		}
 
-		span:not(.sui-description) {
+		span:not(.sui-description, .sui-tag) {
 			flex-shrink: 0;
 			position: relative;
 			display: inline-block;
@@ -340,7 +340,7 @@
 			}
 		}
 
-		input:checked + span:not(.sui-description) {
+		input:checked + span:not(.sui-description, .sui-tag) {
 			border: 1px solid $checkbox-radio-active-color;
 			background-color: $checkbox-radio-active-color;
 			&:before {
@@ -363,7 +363,7 @@
 			}
 		}
 
-		input[disabled] + span:not(.sui-description),
+		input[disabled] + span:not(.sui-description, .sui-tag),
 		fieldset[disabled] & + span:not(.sui-description) {
 			cursor: not-allowed;
 			opacity: .5;
