@@ -22,6 +22,11 @@
 		&:last-child {
 			margin: 0;
 		}
+
+		span.sui-tag {
+			vertical-align: text-top;
+			margin-left: 5px;
+		}
 	}
 
 	.sui-label-link {
@@ -314,7 +319,7 @@
 			@extend %sui-screen-reader-text;
 		}
 
-		span:not(.sui-description) {
+		span:not(.sui-description, .sui-tag) {
 			flex-shrink: 0;
 			position: relative;
 			display: inline-block;
@@ -338,6 +343,11 @@
 				text-align: center;
 				transition: .2s;
 			}
+		}
+		span.sui-tag {
+			margin-top: auto;
+			margin-bottom: auto;
+			margin-left: 10px;
 		}
 
 		input:checked + span:not(.sui-description) {
@@ -378,7 +388,7 @@
 	.sui-checkbox {
 		@extend %radio-checkbox;
 
-		span:not(.sui-description) {
+		span:not(.sui-description, .sui-tag) {
 			border-radius: 3px;
 		}
 
@@ -390,7 +400,7 @@
 	.sui-radio {
 		@extend %radio-checkbox;
 
-		span:not(.sui-description) {
+		span:not(.sui-description, .sui-tag) {
 			border-radius: 50%;
 		}
 

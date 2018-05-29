@@ -456,7 +456,7 @@
 }
 
 .sui-2-2-2 [class*="sui-icon-"]:before, .sui-2-2-2 [class*="sui-icon-"]:after, .sui-2-2-2 .sui-notice p:first-of-type:before,
-.sui-2-2-2 .sui-notice-top p:first-of-type:before, .sui-2-2-2 .sui-checkbox span:not(.sui-description):before, .sui-2-2-2 .sui-radio span:not(.sui-description):before, .sui-2-2-2 .sui-dialog-close:before, .sui-2-2-2 .sui-listing li:before, .sui-2-2-2 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-2-2 .sui-select-dropdown .select2-search--dropdown:after, .sui-2-2-2 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before, .sui-2-2-2 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before {
+.sui-2-2-2 .sui-notice-top p:first-of-type:before, .sui-2-2-2 .sui-checkbox span:not(.sui-description):not(.sui-tag):before, .sui-2-2-2 .sui-radio span:not(.sui-description):not(.sui-tag):before, .sui-2-2-2 .sui-dialog-close:before, .sui-2-2-2 .sui-listing li:before, .sui-2-2-2 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-2-2 .sui-select-dropdown .select2-search--dropdown:after, .sui-2-2-2 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before, .sui-2-2-2 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before {
   font-family: 'wpmudev-plugin-icons' !important;
   speak: none;
   font-size: 1em;
@@ -1169,6 +1169,12 @@
   pointer-events: none;
 }
 
+.sui-2-2-2 button.sui-button i,
+.sui-2-2-2 a.sui-button i,
+.sui-2-2-2 .sui-button i {
+  vertical-align: middle;
+}
+
 .sui-2-2-2 button.sui-button i:not(.sui-fw):not(.sui-loading),
 .sui-2-2-2 a.sui-button i:not(.sui-fw):not(.sui-loading),
 .sui-2-2-2 .sui-button i:not(.sui-fw):not(.sui-loading) {
@@ -1432,6 +1438,12 @@
 .sui-2-2-2 a.sui-button.sui-button-lg.sui-button-ghost,
 .sui-2-2-2 .sui-button.sui-button-lg.sui-button-ghost {
   padding: 9px 20px 9px;
+}
+
+.sui-2-2-2 button.sui-button.sui-button-lg i,
+.sui-2-2-2 a.sui-button.sui-button-lg i,
+.sui-2-2-2 .sui-button.sui-button-lg i {
+  font-size: 16px;
 }
 
 .sui-2-2-2 button.sui-button.sui-button-lg i:not(.sui-fw):not(.sui-loading),
@@ -2896,6 +2908,7 @@
 
 .sui-2-2-2 .sui-notice.sui-notice-sm ul:before, .sui-2-2-2 .sui-notice.sui-notice-sm ol:before, .sui-2-2-2 .sui-notice.sui-notice-sm p:before {
   font-size: 16px;
+  margin-right: 14px;
 }
 
 @media (max-width: 782px) {
@@ -3782,9 +3795,9 @@
 }
 
 .sui-2-2-2 .sui-tag.sui-tag-pro {
-  min-width: 24px;
+  min-width: auto;
   height: 12px;
-  padding: 2px 4px 1px;
+  padding: 2px 5px 1px;
   border-radius: 6px;
   color: #FFFFFF;
   background-color: #8D00B1;
@@ -3823,6 +3836,11 @@
 
 .sui-2-2-2 .sui-label:last-child {
   margin: 0;
+}
+
+.sui-2-2-2 .sui-label span.sui-tag {
+  vertical-align: text-top;
+  margin-left: 5px;
 }
 
 .sui-2-2-2 .sui-label-link {
@@ -4154,7 +4172,7 @@ fieldset[disabled] .sui-2-2-2 .sui-multi-checkbox:focus {
           align-items: start;
 }
 
-.sui-2-2-2 .sui-checkbox span:not(.sui-description), .sui-2-2-2 .sui-radio span:not(.sui-description) {
+.sui-2-2-2 .sui-checkbox span:not(.sui-description):not(.sui-tag), .sui-2-2-2 .sui-radio span:not(.sui-description):not(.sui-tag) {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   position: relative;
@@ -4170,7 +4188,7 @@ fieldset[disabled] .sui-2-2-2 .sui-multi-checkbox:focus {
   margin-top: 3px;
 }
 
-.sui-2-2-2 .sui-checkbox span:not(.sui-description):before, .sui-2-2-2 .sui-radio span:not(.sui-description):before {
+.sui-2-2-2 .sui-checkbox span:not(.sui-description):not(.sui-tag):before, .sui-2-2-2 .sui-radio span:not(.sui-description):not(.sui-tag):before {
   opacity: 0;
   content: "(";
   color: #FFFFFF;
@@ -4181,6 +4199,12 @@ fieldset[disabled] .sui-2-2-2 .sui-multi-checkbox:focus {
   text-align: center;
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+.sui-2-2-2 .sui-checkbox span.sui-tag, .sui-2-2-2 .sui-radio span.sui-tag {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
 }
 
 .sui-2-2-2 .sui-checkbox input:checked + span:not(.sui-description), .sui-2-2-2 .sui-radio input:checked + span:not(.sui-description) {
@@ -4218,7 +4242,7 @@ fieldset[disabled] .sui-2-2-2 .sui-radio + span:not(.sui-description) {
   cursor: not-allowed;
 }
 
-.sui-2-2-2 .sui-checkbox span:not(.sui-description) {
+.sui-2-2-2 .sui-checkbox span:not(.sui-description):not(.sui-tag) {
   border-radius: 3px;
 }
 
@@ -4226,7 +4250,7 @@ fieldset[disabled] .sui-2-2-2 .sui-radio + span:not(.sui-description) {
   margin-top: 10px;
 }
 
-.sui-2-2-2 .sui-radio span:not(.sui-description) {
+.sui-2-2-2 .sui-radio span:not(.sui-description):not(.sui-tag) {
   border-radius: 50%;
 }
 
@@ -6730,7 +6754,6 @@ fieldset[disabled] .sui-2-2-2 .sui-radio + span:not(.sui-description) {
   margin: 0;
   color: #333333;
   font: bold 22px/30px "Roboto Condensed", "Roboto", Arial, sans-serif;
-  letter-spacing: 0px;
 }
 
 .sui-2-2-2 .sui-dialog.sui-dialog-sm .sui-box-header p {
@@ -6762,7 +6785,6 @@ fieldset[disabled] .sui-2-2-2 .sui-radio + span:not(.sui-description) {
 }
 
 .sui-2-2-2 .sui-dialog.sui-dialog-sm .sui-box-body p {
-  color: #888888;
   font-size: 13px;
   line-height: 20px;
 }
