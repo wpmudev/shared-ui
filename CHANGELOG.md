@@ -1,3 +1,8 @@
+v2.2.4
+
+ - [Fix] Forms pro tag
+ - [Enhance] Update Icon fonts to latest version.
+ - [Fix] Remove @-moz-document code as it was causing an error when compiling webpack.
 
 v2.2.3
  - [Improvement] Add support to add sui-tag-pro to form labels.
