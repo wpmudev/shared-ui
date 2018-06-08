@@ -2076,6 +2076,29 @@ RewriteRule . /index.php [L]
 				</div>
 
 				<hr>
+
+				<div class="demo-insert-variables">
+					<h3>Insert Variables</h3>
+				</div>
+
+				<div class="sui-box">
+					<div class="sui-box-body">
+						<label class="sui-label">Insert variable with suiSelect</label>
+						<div class="sui-insert-variables">
+							<input type="text" class="sui-form-control" value="New enquiry from {first-name}">
+							<select>
+								<option data-content="{user_ip}">User IP Address</option>
+								<option data-content="{date_mdy}">Date (mm/dd/yyyy)</option>
+								<option data-content="{embed_id}">Embed Post/Page ID</option>
+								<option data-content="{first_name}">First Name</option>
+								<option data-content="{last_name}">Last Name</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<hr>
+
 				<div class="demo-info-block">
 					<h3>jQuery UI – Calendar</h3>
 					<p>The Shared UI supports styling of the jQuery UI datepicker but doesn't include the library so you will need to
