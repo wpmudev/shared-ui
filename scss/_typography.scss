@@ -5,36 +5,32 @@
 }
 
 // Base
-@include body-class {
+@include body-class(true) {
 
-	.sui-wrap {
-		font-family: $font;
-		font-weight: $font--weight;
-		font-size: $font--size;
-		line-height: $font--line-height;
-		color: $font-color;
-		letter-spacing: $font--letter-spacing;
-		margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+	font-family: $font;
+	font-weight: $font--weight;
+	font-size: $font--size;
+	line-height: $font--line-height;
+	color: $font-color;
+	letter-spacing: $font--letter-spacing;
+	margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
 
-		* {
-			font-variant-ligatures: none;
-			-webkit-font-variant-ligatures: none;
-			text-rendering: optimizeLegibility;
-			-moz-osx-font-smoothing: grayscale;
-			font-smoothing: antialiased;
-			-webkit-font-smoothing: antialiased;
-			text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-		}
-		
-		@include media( max-width, md ) {
-			margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
-		}
+	* {
+		font-variant-ligatures: none;
+		-webkit-font-variant-ligatures: none;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
+		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	}
 
-}
+	@include media( max-width, md ) {
+		margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
+	}
 
-// Headings
-@include body-class {
+
+	// Headings
 
 	h1, h2, h3, h4, h5, h6 {
 		display: block;
@@ -74,10 +70,7 @@
 		font-size: $h6-font-size;
 	}
 
-}
-
-// Paragraph
-@include body-class {
+	// Paragraph
 
 	p {
 		font-family: $font;
@@ -112,10 +105,7 @@
 		color: $p-small-color;
 	}
 
-}
-
-// Links
-@include body-class {
+	// Links
 
 	a {
 		text-decoration: none;
@@ -143,10 +133,7 @@
 
 	}
 
-}
-
-// Code
-@include body-class {
+	// Code
 
 	code,
 	pre {
@@ -171,11 +158,7 @@
 		padding: 2px 5px;
 	}
 
-}
-
-// Misc
-@include body-class {
-
+	// Misc
 	b, strong {
 		font-weight: 500;
 	}
