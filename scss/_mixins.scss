@@ -2,8 +2,8 @@
 @mixin body-class($wrap: false) {
 	$formatted-version: str-replace($sui-version, '.', '-');
 
-	@if ( $wrap ) {
-		.sui-#{$formatted-version} .sui-wrap {
+	@if ( $wrap and $sui-wrap-class  ) {
+		.sui-#{$formatted-version} .#{$sui-wrap-class} {
 			@content;
 		}
 	}
