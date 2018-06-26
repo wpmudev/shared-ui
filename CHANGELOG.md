@@ -1,3 +1,13 @@
+v2.2.5
+
+ - [Enhance] Update body-class mixin to take variable $wrap to add another class.
+            Dev Notes: The wrap class isn't included in _calendar.scss & _select2.scss
+            as the generated code is out of the sui-wrap. PLEASE check your plugin thoroughly to make sure nothing is
+            broken from this update.
+ - [Enhance] Update icon font and add version to icon font imports.
+ - [Fix] Toggle stylings not including hover states.
+
+
 v2.2.4
 
  - [Fix] Forms pro tag
