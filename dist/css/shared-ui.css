@@ -474,8 +474,8 @@
 
 @font-face {
   font-family: 'wpmudev-plugin-icons';
-  src: url("../fonts/wpmudev-plugin-icons.eot");
-  src: url("../fonts/wpmudev-plugin-icons.eot") format("embedded-opentype"), url("../fonts/wpmudev-plugin-icons.ttf") format("truetype"), url("../fonts/wpmudev-plugin-icons.woff") format("woff"), url("../fonts/wpmudev-plugin-icons.woff2") format("woff2"), url("../fonts/wpmudev-plugin-icons.svg") format("svg");
+  src: url("../fonts/wpmudev-plugin-icons.eot?2.2.4");
+  src: url("../fonts/wpmudev-plugin-icons.eot?2.2.4") format("embedded-opentype"), url("../fonts/wpmudev-plugin-icons.ttf?2.2.4") format("truetype"), url("../fonts/wpmudev-plugin-icons.woff?2.2.4") format("woff"), url("../fonts/wpmudev-plugin-icons.woff2?2.2.4") format("woff2"), url("../fonts/wpmudev-plugin-icons.svg?2.2.4") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -544,7 +544,7 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-plus-circle:before {
-  content: "ª";
+  content: "@";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-warning-alert:before {
@@ -679,6 +679,14 @@
   content: '"';
 }
 
+.sui-2-2-4 .sui-wrap .sui-icon-play:before {
+  content: "";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-pause:before {
+  content: "";
+}
+
 .sui-2-2-4 .sui-wrap .sui-icon-arrows-out:before {
   content: "˚";
 }
@@ -717,6 +725,18 @@
 
 .sui-2-2-4 .sui-wrap .sui-icon-movefooter:before {
   content: "u";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-popup:before {
+  content: "1";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-slide-in:before {
+  content: "2";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-embed:before {
+  content: "3";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-list:before {
@@ -800,7 +820,7 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-code:before {
-  content: "1";
+  content: ";";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-color-pick-eyedropper:before {
@@ -835,6 +855,10 @@
   content: "m";
 }
 
+.sui-2-2-4 .sui-wrap .sui-icon-phone:before {
+  content: ">";
+}
+
 .sui-2-2-4 .sui-wrap .sui-icon-folder:before {
   content: "˘";
 }
@@ -860,7 +884,19 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-copy:before {
-  content: "Œ";
+  content: "4";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-graph-bar:before {
+  content: "Ç";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-graph-bar-2:before {
+  content: "˛";
+}
+
+.sui-2-2-4 .sui-wrap .sui-icon-graph-line:before {
+  content: "¡";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-page:before {
@@ -923,6 +959,10 @@
   content: "X";
 }
 
+.sui-2-2-4 .sui-wrap .sui-icon-save:before {
+  content: "ß";
+}
+
 .sui-2-2-4 .sui-wrap .sui-icon-lightbulb:before {
   content: "L";
 }
@@ -936,7 +976,7 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-user-reputation-points:before {
-  content: "2";
+  content: "E";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-tablet-portrait:before {
@@ -964,7 +1004,7 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-refresh:before {
-  content: "E";
+  content: "H";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-web-globe-world:before {
@@ -988,7 +1028,7 @@
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-help-support:before {
-  content: "H";
+  content: "M";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-like:before {
@@ -1053,14 +1093,6 @@
 
 .sui-2-2-4 .sui-wrap .sui-icon-social-github:before {
   content: "h";
-}
-
-.sui-2-2-4 .sui-wrap .sui-icon-graph-bar:before {
-  content: "Ç";
-}
-
-.sui-2-2-4 .sui-wrap .sui-icon-graph-bar-2:before {
-  content: "˛";
 }
 
 .sui-2-2-4 .sui-wrap .sui-icon-wpmudev-logo:before {
@@ -1635,7 +1667,7 @@
 .sui-2-2-4 .sui-wrap .sui-toggle-label {
   vertical-align: text-bottom;
   line-height: 22px;
-  margin-left: 10px;
+  font-weight: 500;
 }
 
 .sui-2-2-4 .sui-wrap .sui-toggle input[type="checkbox"][disabled] + .sui-toggle-slider {
@@ -1646,32 +1678,37 @@
 .sui-2-2-4 .sui-wrap .sui-toggle-slider {
   position: absolute;
   cursor: pointer;
+  width: 34px;
+  height: 16px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #F8F8F8;
-  border-radius: 100px;
+  background-color: #AAAAAA;
+  border-radius: 8px;
   -webkit-transition: .4s;
   transition: .4s;
-  border: 1px solid #E6E6E6;
+  border: none;
 }
 
 .sui-2-2-4 .sui-wrap .sui-toggle-slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
-  left: -1px;
-  bottom: -1px;
-  background-color: #888888;
+  height: 14px;
+  width: 14px;
+  top: 1px;
+  left: 1px;
+  background-color: #FFFFFF;
   border-radius: 50%;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
-.sui-2-2-4 .sui-wrap input[type="checkbox"]:checked + .sui-toggle-slider:before {
+.sui-2-2-4 .sui-wrap input[type="checkbox"]:checked + .sui-toggle-slider {
   background-color: #17A8E3;
+}
+
+.sui-2-2-4 .sui-wrap input[type="checkbox"]:checked + .sui-toggle-slider:before {
   -webkit-transform: translateX(18px);
           transform: translateX(18px);
 }
