@@ -96,7 +96,7 @@
     $( document ).ready( function() {
 
         // Convert all accordions.
-        $( '.sui-2-2-4 .sui-accordion' ).each( function() {
+        $( '.sui-2-2-5 .sui-accordion' ).each( function() {
 
             // backward compat of instantiate new accordion
             SUI.suiAccordion( this );
