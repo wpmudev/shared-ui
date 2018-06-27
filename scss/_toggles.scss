@@ -43,6 +43,9 @@
 		border-radius: 8px;
 		transition: .4s;
 		border: none;
+		&:hover {
+			box-shadow: 0 0 0 5px $toggle-slider-bg-hover-color;
+		}
 	}
 
 	// Knob when off.
@@ -63,6 +66,10 @@
 		background-color: $blue;
 		&:before {
 			transform: translateX(18px);
+		}
+
+		&:hover {
+			box-shadow: 0 0 0 5px $toggle-slider-active-bg-hover-color;
 		}
 	}
 
