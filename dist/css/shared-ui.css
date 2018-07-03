@@ -1007,6 +1007,10 @@
   content: "H";
 }
 
+.sui-2-2-5 .sui-wrap .sui-icon-undo:before {
+  content: "‰";
+}
+
 .sui-2-2-5 .sui-wrap .sui-icon-web-globe-world:before {
   content: "W";
 }
@@ -1029,6 +1033,10 @@
 
 .sui-2-2-5 .sui-wrap .sui-icon-help-support:before {
   content: "M";
+}
+
+.sui-2-2-5 .sui-wrap .sui-icon-gdpr:before {
+  content: "∑";
 }
 
 .sui-2-2-5 .sui-wrap .sui-icon-like:before {
@@ -1691,6 +1699,11 @@
   border: none;
 }
 
+.sui-2-2-5 .sui-wrap .sui-toggle-slider:hover {
+  -webkit-box-shadow: 0 0 0 5px #F2F2F2;
+          box-shadow: 0 0 0 5px #F2F2F2;
+}
+
 .sui-2-2-5 .sui-wrap .sui-toggle-slider:before {
   position: absolute;
   content: "";
@@ -1711,6 +1724,11 @@
 .sui-2-2-5 .sui-wrap input[type="checkbox"]:checked + .sui-toggle-slider:before {
   -webkit-transform: translateX(18px);
           transform: translateX(18px);
+}
+
+.sui-2-2-5 .sui-wrap input[type="checkbox"]:checked + .sui-toggle-slider:hover {
+  -webkit-box-shadow: 0 0 0 5px #E1F6FF;
+          box-shadow: 0 0 0 5px #E1F6FF;
 }
 
 .sui-2-2-5 .sui-wrap * {
@@ -2769,22 +2787,6 @@
   }
 }
 
-.sui-2-2-5 .sui-wrap .sui-notice p, .sui-2-2-5 .sui-wrap .sui-notice ul, .sui-2-2-5 .sui-wrap .sui-notice ol,
-.sui-2-2-5 .sui-wrap .sui-notice-top p,
-.sui-2-2-5 .sui-wrap .sui-notice-top ul,
-.sui-2-2-5 .sui-wrap .sui-notice-top ol {
-  padding: 0 0 0 30px;
-}
-
-@media (max-width: 782px) {
-  .sui-2-2-5 .sui-wrap .sui-notice p, .sui-2-2-5 .sui-wrap .sui-notice ul, .sui-2-2-5 .sui-wrap .sui-notice ol,
-  .sui-2-2-5 .sui-wrap .sui-notice-top p,
-  .sui-2-2-5 .sui-wrap .sui-notice-top ul,
-  .sui-2-2-5 .sui-wrap .sui-notice-top ol {
-    padding: 0 0 0 20px;
-  }
-}
-
 .sui-2-2-5 .sui-wrap .sui-notice p:first-of-type:before,
 .sui-2-2-5 .sui-wrap .sui-notice-top p:first-of-type:before {
   content: "I";
@@ -2792,25 +2794,24 @@
 
 .sui-2-2-5 .sui-wrap .sui-notice p:first-of-type:before,
 .sui-2-2-5 .sui-wrap .sui-notice-top p:first-of-type:before {
-  position: relative;
-  vertical-align: middle;
-  top: -2px;
-  margin-right: 10px;
-  margin-left: -30px;
+  position: absolute;
   color: #888888;
-  font-size: 20px;
+  font-size: 16px;
 }
 
-@media (max-width: 782px) {
-  .sui-2-2-5 .sui-wrap .sui-notice p:first-of-type:before,
-  .sui-2-2-5 .sui-wrap .sui-notice-top p:first-of-type:before {
-    margin-left: -20px;
-  }
+.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-info,
+.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-info {
+  border-left: 2px solid #17A8E3;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-info p:first-of-type:before,
 .sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-info p:first-of-type:before {
   color: #17A8E3;
+}
+
+.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-success,
+.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-success {
+  border-left: 2px solid #1ABC9C;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-success p:first-of-type:before,
@@ -2823,6 +2824,11 @@
   color: #1ABC9C;
 }
 
+.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-warning,
+.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-warning {
+  border-left: 2px solid #FECF2F;
+}
+
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-warning p:first-of-type:before,
 .sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-warning p:first-of-type:before {
   content: "!";
@@ -2831,6 +2837,11 @@
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-warning p:first-of-type:before,
 .sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-warning p:first-of-type:before {
   color: #FECF2F;
+}
+
+.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-error,
+.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-error {
+  border-left: 2px solid #FF6D6D;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-error p:first-of-type:before,
@@ -2844,15 +2855,20 @@
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice {
+  position: relative;
   display: block;
   margin: 30px 0;
+  border: 1px solid #E6E6E6;
+  border-left: 2px solid #888;
   border-radius: 4px;
-  padding: 15px 30px;
-  background-color: #F2F2F2;
+  padding: 15px 20px 15px 50px;
+  background-color: #FFFFFF;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice p {
   margin: 15px 0;
+  font: 400 13px/22px "Roboto", Arial, sans-serif;
+  letter-spacing: -0.25px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice p:first-child, .sui-2-2-5 .sui-wrap .sui-notice p:first-of-type {
@@ -2861,6 +2877,11 @@
 
 .sui-2-2-5 .sui-wrap .sui-notice p:last-child, .sui-2-2-5 .sui-wrap .sui-notice p:last-of-type {
   margin-bottom: 0;
+}
+
+.sui-2-2-5 .sui-wrap .sui-notice p:first-of-type:before {
+  top: 18px;
+  left: 22px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice, .sui-2-2-5 .sui-wrap .sui-notice p {
@@ -2874,7 +2895,6 @@
 .sui-2-2-5 .sui-wrap .sui-notice .sui-notice-dismiss {
   display: block;
   margin: 6px 0 -5px;
-  padding: 0 0 0 30px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice .sui-notice-dismiss a {
@@ -2882,7 +2902,6 @@
   padding: 5px 10px;
   color: #888888;
   font-size: 12px;
-  line-break: 16px;
   font-weight: 500;
   text-transform: uppercase;
   text-decoration: none;
@@ -2896,20 +2915,8 @@
   margin-top: 0;
 }
 
-@media (max-width: 782px) {
-  .sui-2-2-5 .sui-wrap .sui-notice:first-child {
-    margin-top: 0;
-  }
-}
-
 .sui-2-2-5 .sui-wrap .sui-notice:last-child {
   margin-bottom: 0;
-}
-
-@media (max-width: 782px) {
-  .sui-2-2-5 .sui-wrap .sui-notice:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-icon-tick p:first-of-type:before {
@@ -2917,12 +2924,11 @@
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice .sui-notice-buttons {
-  margin-left: 30px;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
-.sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon ul, .sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon ol, .sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon p {
-  padding: 0;
+.sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon {
+  padding: 15px 20px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon p:first-of-type:before {
@@ -2933,39 +2939,6 @@
 
 .sui-2-2-5 .sui-wrap .sui-notice.sui-no-notice-icon .sui-notice-buttons {
   margin-left: 0;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-info {
-  background-color: #E1F6FF;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-success {
-  background-color: #D1F1EA;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-warning {
-  background-color: #FFF5D5;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-error {
-  background-color: #FFE5E9;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm ul, .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm ol, .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm p {
-  font-size: 13px;
-  line-height: 22px;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm ul:before, .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm ol:before, .sui-2-2-5 .sui-wrap .sui-notice.sui-notice-sm p:before {
-  font-size: 16px;
-  margin-right: 14px;
-}
-
-@media (max-width: 782px) {
-  .sui-2-2-5 .sui-wrap .sui-notice {
-    margin: 20px 0;
-    padding: 10px 20px;
-  }
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice-top {
@@ -2980,7 +2953,7 @@
   margin-left: 80px;
   border-radius: 4px;
   border-left: 2px solid #888888;
-  padding: 15px 20px 15px 18px;
+  padding: 15px 20px 15px 50px;
   background-color: #FFFFFF;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 5px 25px 0;
           box-shadow: rgba(0, 0, 0, 0.15) 0 5px 25px 0;
@@ -2988,16 +2961,21 @@
           transform: translateX(-50%);
 }
 
+.sui-2-2-5 .sui-wrap .sui-notice-top .sui-notice-content {
+  position: relative;
+}
+
 .sui-2-2-5 .sui-wrap .sui-notice-top p {
-  margin: 15px 0;
+  position: relative;
+  margin: 15px 10px 15px 0;
   color: #666666;
   font: 400 13px/22px "Roboto", Arial, sans-serif;
   letter-spacing: -0.19px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice-top p:first-of-type:before {
-  top: -1px;
-  font-size: 16px;
+  top: 2px;
+  left: -28px;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice-top p strong {
@@ -3011,22 +2989,6 @@
 
 .sui-2-2-5 .sui-wrap .sui-notice-top p:last-child, .sui-2-2-5 .sui-wrap .sui-notice-top p:last-of-type {
   margin-bottom: 0;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-success {
-  border-left-color: #1ABC9C;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-warning {
-  border-left-color: #FECF2F;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-error {
-  border-left-color: #FF6D6D;
-}
-
-.sui-2-2-5 .sui-wrap .sui-notice-top.sui-notice-info {
-  border-left-color: #17A8E3;
 }
 
 .sui-2-2-5 .sui-wrap .sui-notice-top.sui-can-dismiss {
@@ -7862,5 +7824,21 @@ html.sui-has-overlay {
 @media (min-width: 1200px) {
   .sui-hidden-lg {
     display: none !important;
+  }
+}
+
+/**
+WP Admin Notices
+
+This is used to give admin notices that are loaded outside of the .wrap but inside .sui-*-*-* the proper styles
+
+ */
+.sui-2-2-5 #wpbody-content > .notice {
+  margin: 10px 30px 15px 10px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-2-5 #wpbody-content > .notice {
+    margin: 20px 10px 0 0px;
   }
 }
