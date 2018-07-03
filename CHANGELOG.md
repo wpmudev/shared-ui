@@ -1,3 +1,12 @@
+v2.2.6
+
+ - [Enhance] Update notification styles
+             Dev Notes: Go through plugin and check all notifications are displaying correctly.
+                        Remove any instances of sui-notice-sm as they're all one size now.
+ - [Enhance] Update to latest font icon file.
+ - [Enhance] Add toggle shadow on hover.
+
+
 v2.2.5
 
  - [Enhance] Update body-class mixin to take variable $wrap to add another class.
