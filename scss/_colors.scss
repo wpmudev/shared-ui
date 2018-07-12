@@ -32,6 +32,14 @@ $palettes: (
 	green: (
 		default: #1ABC9C,
 		light:   #D1F1EA,
+	),
+	orange: (
+		default: #FF7E41,
+		light:   #FFE5D9,
+	),
+	purple: (
+		default: #8D00B1,
+		light:   #F9E1FF,
 	)
 ) !default;
 
@@ -186,7 +194,8 @@ $tag-upsell-color:                      palette(green, light)         !default;
 $tag-disabled-color:                    palette(silver, medium)       !default;
 $tag-disabled-bg-color:                 palette(silver, light)        !default;
 $tag-pro-color:							palette(mono, white)		  !default;
-$tag-pro-background:					#8D00B1					      !default;
+$tag-pro-background:					palette(purple)               !default;
+$tag-beta-background:					palette(orange)               !default;
 
 // Forms (_forms.scss)
 $form--input-border-color:				palette(gray, lighter)			!default;
