@@ -616,5 +616,75 @@
 				}
 			}
 		}
+
+		.sui-variables + .select2 {
+			width: auto !important;
+			height: auto !important;
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			* {
+				display: block;
+				outline: none;
+			}
+
+			.select2-selection--single {
+				height: auto;
+				border: 1px solid $form--input-border-color;
+				border-left-color: transparent;
+				border-radius: 0 $border-radius $border-radius 0;
+				background-color: transparent;
+				transition: 0.2s ease;
+				
+				.select2-selection__rendered {
+					@extend %sui-screen-reader-text;
+				}
+
+				.select2-selection__arrow {
+					width: #{$form--input-height-base - 2px};
+					height: #{$form--input-height-base - 2px};
+					display: flex;
+					align-items: center;
+					position: relative;
+					top: auto;
+					right: auto;
+					
+					@include icon(before, plus-circle) {
+						display: block;
+						margin: 0 auto;
+						color: palette(gray, light);
+						font-size: 16px;
+					}
+
+					b {
+						display: none;
+					}
+				}
+
+				&:hover {
+					border-left-color: $form--input-border-color;
+					background-color: $silver;
+
+					.select2-selection__arrow:before {
+						color: palette(gray);
+					}
+				}
+			}
+
+			&.select2-container--open {
+
+				.select2-selection--single {
+					border-left-color: $form--input-border-color;
+					background-color: $white;
+					border-bottom-right-radius: 0;
+
+					.select2-selection__arrow:before {
+						color: palette(gray, dark);
+					}
+				}
+			}
+		}
 	}
 }
