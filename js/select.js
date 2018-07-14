@@ -61,8 +61,8 @@
                     $label;
                 if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
                     item = $( '<li></li>' ).appendTo( items );
-                    item.text( opt.text() );
-                    item.data( 'value', opt.val() );
+					item.html( opt.text() + '<span>{data-content}</span>' );
+					item.data( 'value', opt.val() );
 
                     if ( opt.val() == jq.val() ) {
                         selectItem( item, true );

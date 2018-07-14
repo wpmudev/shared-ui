@@ -523,8 +523,8 @@
 
 		.select-container {
 			position: absolute;
-			top: 1px;
-			right: 1px;
+			top: 0;
+			right: 0;
 			border: 0;
 			background-color: transparent;
 			pointer-events: none;
@@ -538,22 +538,23 @@
 				pointer-events: initial;
 				
 				.list-value {
-					width: #{$form--input-height-base - 1px};
-					height: #{$form--input-height-base - 2px};
+					width: $form--input-height-base;
+					height: $form--input-height-base;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
 					justify-content: center;
 					position: relative;
 					padding: 0;
-					border-left: 1px solid transparent;
-					border-radius: 0 #{$border-radius - 1px} #{$border-radius - 1px} 0;
-					color: $form--input-bg-color;
+					border: 1px solid $form--input-border-color;
+					border-left-color: transparent;
+					border-radius: 0 $border-radius $border-radius 0;
+					color: transparent;
 					font-size: 16px;
 					transition: 0.2s ease;
 
 					&:hover {
-						border-left-color: #E6E6E6;
+						border-left-color: $form--input-border-color;
 						background-color: $silver;
 
 						&:before {
@@ -572,7 +573,16 @@
 				.list-results {
 					width: 320px;
 					left: auto;
+					margin-right: 0;
+					border-color: $form--input-border-color;
 					background-color: $white;
+
+					li span {
+						float: right;
+						margin-left: 5px;
+						color: #AAA;
+						font-size: 12px;
+					}
 
 					.current {
 						background-color: transparent;
@@ -589,14 +599,20 @@
 			&.active {
 
 				.select-list-container .list-value {
-					border-left-color: #E6E6E6;
+					z-index: 1011;
+					border-bottom-color: $white;
+					border-left-color: $form--input-border-color;
 					background-color: $white;
-					box-shadow: 0 1px 0 $white;
 					border-bottom-right-radius: 0;
 
 					&:before {
 						color: palette(gray, dark);
 					}
+				}
+
+				.select-list-container .list-results {
+					top: 38px;
+					border-top-right-radius: 0;
 				}
 			}
 		}
