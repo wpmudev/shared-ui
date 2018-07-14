@@ -61,7 +61,13 @@
                     $label;
                 if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
                     item = $( '<li></li>' ).appendTo( items );
-					item.html( opt.text() + '<span>{data-content}</span>' );
+
+					if ( opt.data( 'content' ) ) {
+						item.html( opt.text() + '<span>' + opt.data( 'content' ) + '</span>' );
+					} else {
+						item.text( opt.text() );
+					}
+
 					item.data( 'value', opt.val() );
 
                     if ( opt.val() == jq.val() ) {
