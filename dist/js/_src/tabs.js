@@ -95,7 +95,7 @@
 	};
 
 	// Initialize all tab-areas.
-	$( '.sui-2-2-4 .sui-tabs' ).each( function() {
+	$( '.sui-2-2-6 .sui-tabs' ).each( function() {
 		SUI.suiTabs( this );
 	});
 

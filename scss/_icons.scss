@@ -40,7 +40,7 @@ $icons: (
 		close: "\29",
 		check-tick: "\5f",
 		cross-close: "\2b",
-		plus-circle: "\aa",
+		plus-circle: "\40",
 		warning-alert: "\21",
 		info: "\49",
 		question: "\3f",
@@ -74,6 +74,8 @@ $icons: (
 		arrow-skip-forward: "\7d",
 		arrow-skip-start: "\3a",
 		arrow-skip-end: "\22",
+		play: "\e900",
+		pause: "\e901",
 		arrows-out: "\2da",
 		arrows-in: "\2264",
 		arrows-expand: "\ac",
@@ -84,6 +86,9 @@ $icons: (
 		defer: "\70",
 		inlinecss: "\63",
 		movefooter: "\75",
+		popup: "\31",
+		slide-in: "\32",
+		embed: "\33",
 		list: "\60",
 		layout-grid: "\221e",
 		layout: "\a9",
@@ -104,7 +109,7 @@ $icons: (
 		link: "\35",
 		unlink: "\36",
 		paperclip: "\41",
-		code: "\31",
+		code: "\3b",
 		color-pick-eyedropper: "\a5",
 		crop: "\43",
 		paint-bucket: "\222b",
@@ -113,13 +118,17 @@ $icons: (
 		animation-video: "\46",
 		home: "\4a",
 		mail: "\6d",
+		phone: "\3e",
 		folder: "\2d8",
 		folder-open: "\bb",
 		archive: "\62",
 		book: "\2206",
 		page-multiple: "\e7",
 		layers: "\e6",
-		copy: "\152",
+		copy: "\34",
+		graph-bar: "\c7",
+		graph-bar-2: "\2db",
+		graph-line: "\a1",
 		page: "\d2",
 		clipboard-notes: "\bf",
 		page-pdf: "\c6",
@@ -135,23 +144,26 @@ $icons: (
 		cloud: "\2122",
 		cloud-migration: "\6c",
 		download: "\58",
+		save: "\df",
 		lightbulb: "\4c",
 		sitemap: "\b8",
 		storage-server-data: "\ce",
-		user-reputation-points: "\32",
+		user-reputation-points: "\45",
 		tablet-portrait: "\5d",
 		laptop: "\ab",
 		monitor: "\24",
 		eye: "\65",
 		eye-hide: "\71",
 		update: "\ae",
-		refresh: "\45",
+		refresh: "\48",
+		undo: "\2030",
 		web-globe-world: "\57",
 		flag: "\7c",
 		academy: "\3c0",
 		profile-male: "\b5",
 		community-people: "\2018",
-		help-support: "\48",
+		help-support: "\4d",
+		gdpr: "\2211",
 		like: "\6a",
 		dislike: "\6b",
 		finger-point: "\2248",
@@ -168,8 +180,6 @@ $icons: (
 		social-youtube: "\79",
 		cloudflare: "\d0",
 		social-github: "\68",
-		graph-bar: "\c7",
-		graph-bar-2: "\2db",
 		wpmudev-logo: "\2039",
 		defender: "\b7",
 		smush: "\2021",
@@ -185,19 +195,20 @@ $icons: (
 		hub: "\fb02"
 );
 
+
 @font-face {
 	font-family: 'wpmudev-plugin-icons';
-	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot');
-	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot') format('embedded-opentype'),
-	url('#{$sui-font-path}wpmudev-plugin-icons.ttf') format('truetype'),
-	url('#{$sui-font-path}wpmudev-plugin-icons.woff') format('woff'),
-	url('#{$sui-font-path}wpmudev-plugin-icons.woff2') format('woff2'),
-	url('#{$sui-font-path}wpmudev-plugin-icons.svg') format('svg');
+	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot?#{$sui-version}');
+	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot?#{$sui-version}') format('embedded-opentype'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.ttf?#{$sui-version}') format('truetype'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.woff?#{$sui-version}') format('woff'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.woff2?#{$sui-version}') format('woff2'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.svg?#{$sui-version}') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
-@include body-class {
+@include body-class(true) {
 
 	.sui-loading:before {
 		animation: spin 1.3s linear infinite;

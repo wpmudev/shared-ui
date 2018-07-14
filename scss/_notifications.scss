@@ -1,39 +1,23 @@
-@include body-class {
+@include body-class(true) {
 
 	.sui-notice,
 	.sui-notice-top {
-
-		p, ul, ol {
-			padding: 0 0 0 $sui-gutter;
-			
-			@include media( max-width, md ) {
-				padding: 0 0 0 $sui-gutter-md;
-			}
-		}
-
 		p {
 
 			&:first-of-type {
 				@include icon( before, info );
 	
 				&:before {
-					position: relative;
-					vertical-align: middle;
-					top: -2px;
-					margin-right: 10px;
-					margin-left: -#{$sui-gutter};
+					position: absolute;
 					color: $notice-default-icon-color;
-					font-size: 20px;
-
-					@include media( max-width, md ) {
-						margin-left: -#{$sui-gutter-md};
-					}
+					font-size: 16px;
 				}
 			}
 		}
 
 		// NOTICE info
 		&.sui-notice-info {
+			border-left: 2px solid $info;
 
 			p:first-of-type {
 				
@@ -45,6 +29,7 @@
 
 		// NOTICE success
 		&.sui-notice-success {
+			border-left: 2px solid $success;
 			
 			p:first-of-type {
 				@include icon(before, check-tick, false);
@@ -57,6 +42,7 @@
 
 		// NOTICE warning
 		&.sui-notice-warning {
+			border-left: 2px solid $warning;
 			
 			p:first-of-type {
 				@include icon(before, warning-alert, false);
@@ -69,6 +55,7 @@
 
 		// NOTICE error
 		&.sui-notice-error {
+			border-left: 2px solid $error;
 
 			p:first-of-type {
 				@include icon(before, warning-alert, false);
@@ -81,14 +68,19 @@
 	}
 
 	.sui-notice {
+		position: relative;
 		display: block;
 		margin: $sui-gutter 0;
+		border: 1px solid #E6E6E6;
+		border-left: 2px solid #888;
 		border-radius: $border-radius;
-		padding: $sui-gutter/2 $sui-gutter;
+		padding: 15px 20px 15px 50px;
 		background-color: $notice-default-bg-color;
 
 		p {
 			margin: $sui-gutter/2 0;
+			font: 400 13px/22px $font;
+			letter-spacing: -0.25px;
 
 			&:first-child,
 			&:first-of-type {
@@ -98,6 +90,11 @@
 			&:last-child,
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+
+			&:first-of-type:before {
+				top: 18px;
+				left: 22px;
 			}
 		}
 
@@ -112,14 +109,11 @@
 		.sui-notice-dismiss {
 			display: block;
 			margin: 6px 0 -5px;
-			padding: 0 0 0 $sui-gutter;
-			
 			a {
 				margin-left: -10px;
 				padding: 5px 10px;
 				color: palette( gray, light );
 				font-size: 12px;
-				line-break: 16px;
 				font-weight: $font--medium;
 				text-transform: uppercase;
 				text-decoration: none;
@@ -132,18 +126,10 @@
 
 		&:first-child {
 			margin-top: 0;
-
-			@include media( max-width, md ) {
-				margin-top: 0;
-			}
 		}
 
 		&:last-child {
 			margin-bottom: 0;
-
-			@include media( max-width, md ) {
-				margin-bottom: 0;
-			}
 		}
 
 		&.sui-notice-icon-tick {
@@ -154,15 +140,11 @@
 		}
 
 		.sui-notice-buttons {
-			margin-left: 30px;
-			margin-top: 15px;
+			margin-top: 5px;
 		}
 
 		&.sui-no-notice-icon {
-			
-			ul, ol, p {
-				padding: 0;
-			}
+			padding: 15px 20px;
 
 			p:first-of-type:before {
 				content: none;
@@ -173,45 +155,6 @@
 			.sui-notice-buttons {
 				margin-left: 0;
 			}
-		}
-
-		// NOTICE info
-		&.sui-notice-info {
-			background-color: $notice-info-bg-color;
-		}
-
-		// NOTICE success
-		&.sui-notice-success {
-			background-color: $notice-success-bg-color;
-		}
-
-		// NOTICE warning
-		&.sui-notice-warning {
-			background-color: $notice-warning-bg-color;
-		}
-		
-		// NOTICE error
-		&.sui-notice-error {
-			background-color: $notice-error-bg-color;
-		}
-
-		// SIZE small
-		&.sui-notice-sm {
-			
-			ul, ol, p {
-				font-size: 13px;
-				line-height: 22px;
-
-				&:before {
-					font-size: 16px;
-					margin-right: 14px;
-				}
-			}
-		}
-
-		@include media( max-width, md ) {
-			margin: $sui-gutter-md 0;
-			padding: $sui-gutter-md/2 $sui-gutter-md;
 		}
 	}
 
@@ -227,20 +170,25 @@
 		margin-left: 80px;
 		border-radius: $border-radius;
 		border-left: 2px solid $notice-default-icon-color;
-		padding: #{$sui-gutter/2} 20px #{$sui-gutter/2} 18px;
+		padding: 15px 20px 15px 50px;
 		background-color: $white;
 		box-shadow: rgba(0,0,0,0.15) 0 5px 25px 0;
 		transform: translateX(-50%);
 
+		.sui-notice-content {
+			position: relative;
+		}
+
 		p {
-			margin: $sui-gutter/2 0;
+			position: relative;
+			margin: $sui-gutter/2 10px $sui-gutter/2 0;
 			color: palette( gray );
 			font: 400 13px/22px $font;
 			letter-spacing: -0.19px;
 
 			&:first-of-type:before {
-				top: -1px;
-				font-size: 16px;
+				top: 2px;
+				left: -28px;
 			}
 
 			strong {
@@ -257,22 +205,6 @@
 			&:last-of-type {
 				margin-bottom: 0;
 			}
-		}
-
-		&.sui-notice-success {
-			border-left-color: $notice-success-icon-color;
-		}
-
-		&.sui-notice-warning {
-			border-left-color: $notice-warning-icon-color;
-		}
-
-		&.sui-notice-error {
-			border-left-color: $notice-error-icon-color;
-		}
-
-		&.sui-notice-info {
-			border-left-color: $notice-info-icon-color;
 		}
 
 		&.sui-can-dismiss {

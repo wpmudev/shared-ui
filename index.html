@@ -9,13 +9,13 @@
 	<title>Shared UI Showcase</title>
 
 	<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
-	<link rel="stylesheet" type="text/css" media="all" href="dist/css/shared-ui.min.css?ver=2.2.4">
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.2.4">
+	<link rel="stylesheet" type="text/css" media="all" href="dist/css/shared-ui.min.css?ver=2.2.6">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.2.6">
 
 </head>
 
 <!-- Do not edit body tag - updated via release scripts -->
-<body class="sui-2-2-4">
+<body class="sui-2-2-6">
 
 <nav id="adminmenu">
 	<ul>
@@ -53,7 +53,7 @@
 	<div aria-hidden="true" id="wpadminbar">
 
 		<!-- Do not edit .demo-sui-version - updated via release scripts -->
-		<p class="demo-sui-version">Version 2.2.4</p>
+		<p class="demo-sui-version">Version 2.2.6</p>
 
 	</div>
 
@@ -103,7 +103,7 @@ npm install @wpmudev/shared-ui</pre>
 add_filter( 'admin_body_class', 'admin_body_classes' );
 function admin_body_classes( $classes ) {
 
-	$classes .= 'sui-2-2-4';
+	$classes .= 'sui-2-2-6';
 
 	return $classes;
 
@@ -3153,69 +3153,6 @@ Header set Cache-Control "max-age=691200"
 &lt;/div&gt;</pre>
 				</div>
 
-				<hr>
-
-				<div class="demo-info-block">
-					<h3>Sizes</h3>
-					<p>For a smaller size, add <code>.sui-notice-sm</code> to the notice.</p>
-				</div>
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-notice sui-notice-sm">
-							<p>Default</p>
-						</div>
-						<div class="sui-notice sui-notice-sm sui-notice-success">
-							<p>Page caching is currently active.</p>
-						</div>
-						<div class="sui-notice sui-notice-sm sui-notice-warning">
-							<p>Notice warning</p>
-							<span class="sui-notice-dismiss">
-								<a role="button" href="#">Dismiss</a>
-							</span>
-						</div>
-						<div class="sui-notice sui-notice-sm sui-notice-error">
-							<p>Notice error</p>
-						</div>
-						<div class="sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick">
-							<p aria-hidden="true" class="sui-icon-check-tick"></p><p class="sui-screen-reader-text">Success</p>
-						</div>
-						<div class="sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon">
-							<p class="sui-icon-check-tick"></p><p class="sui-screen-reader-text">Success</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-sm&quot;&gt;
-	&lt;p&gt;Default&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-success&quot;&gt;
-	&lt;p&gt;Page caching is currently active.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-warning&quot;&gt;
-	&lt;p&gt;Notice warning&lt;/p&gt;
-	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
-		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
-	&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-error&quot;&gt;
-	&lt;p&gt;Notice error&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-info sui-notice-icon-tick&quot;&gt;
-	&lt;p class=&quot;sui-icon-check-tick&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;sui-notice sui-notice-sm sui-notice-info sui-no-notice-icon&quot;&gt;
-	&lt;p class=&quot;sui-icon-check-tick&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;</pre>
-				</div>
-
 			</section>
 
 			<section id="tooltips">
@@ -3373,49 +3310,12 @@ Header set Cache-Control "max-age=691200"
 								<span class="sui-screen-reader-text">Toggle</span>
 							</label>
 						</p>
-						<span class="sui-toggle">
+						<label class="sui-toggle">
 							<input type="checkbox" id="toggle4">
 							<span aria-hidden="true" class="sui-toggle-slider"></span>
 							<span class="sui-screen-reader-text">Toggle</span>
-						</span>
+						</label>
 						<label for="toggle4" class="sui-toggle-label">Toggle with label.</label>
-						<div class="sui-settings-box">
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="password3" class="sui-label">Password</label>
-										<div class="sui-password-group">
-											<input type="password" id="password3" class="sui-form-control" placeholder="input type password">
-											<button class="sui-password-toggle" type="button">
-												<span class="sui-screen-reader-text">Show Password</span>
-												<i aria-hidden="true" class="sui-icon-eye"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field sui-form-field-error">
-										<label class="sui-label">Error</label>
-										<input type="number" class="sui-form-control" placeholder="input type text">
-										<span class="sui-error-message">This is an error message</span>
-									</div>
-								</div>
-							</div>
-							<div class="sui-row">
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="textarea2" class="sui-label">Textarea</label>
-										<textarea id="textarea2" class="sui-form-control"></textarea>
-									</div>
-								</div>
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="number2" class="sui-label">Number</label>
-										<input type="number" id="number2" class="sui-form-control" placeholder="input type number">
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 
@@ -3429,10 +3329,10 @@ Header set Cache-Control "max-age=691200"
 	&lt;input type="checkbox" disabled&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
-&lt;span class="sui-toggle"&gt;
+&lt;label class="sui-toggle"&gt;
 	&lt;input type="checkbox" id="toggle-with-label"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
-&lt;/span&gt;
+&lt;/label&gt;
 &lt;label for="toggle-with-label" class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;</pre>
 				</div>
 
@@ -3495,6 +3395,8 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-arrow-skip-forward" aria-hidden="true"></i>
 						<i class="sui-icon-arrow-skip-start" aria-hidden="true"></i>
 						<i class="sui-icon-arrow-skip-end" aria-hidden="true"></i>
+						<i class="sui-icon-play" aria-hidden="true"></i>
+						<i class="sui-icon-pause" aria-hidden="true"></i>
 						<i class="sui-icon-arrows-out" aria-hidden="true"></i>
 						<i class="sui-icon-arrows-in" aria-hidden="true"></i>
 						<i class="sui-icon-arrows-expand" aria-hidden="true"></i>
@@ -3505,6 +3407,9 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-defer" aria-hidden="true"></i>
 						<i class="sui-icon-inlinecss" aria-hidden="true"></i>
 						<i class="sui-icon-movefooter" aria-hidden="true"></i>
+						<i class="sui-icon-popup" aria-hidden="true"></i>
+						<i class="sui-icon-slide-in" aria-hidden="true"></i>
+						<i class="sui-icon-embed" aria-hidden="true"></i>
 						<i class="sui-icon-list" aria-hidden="true"></i>
 						<i class="sui-icon-layout-grid" aria-hidden="true"></i>
 						<i class="sui-icon-layout" aria-hidden="true"></i>
@@ -3534,6 +3439,7 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-animation-video" aria-hidden="true"></i>
 						<i class="sui-icon-home" aria-hidden="true"></i>
 						<i class="sui-icon-mail" aria-hidden="true"></i>
+						<i class="sui-icon-phone" aria-hidden="true"></i>
 						<i class="sui-icon-folder" aria-hidden="true"></i>
 						<i class="sui-icon-folder-open" aria-hidden="true"></i>
 						<i class="sui-icon-archive" aria-hidden="true"></i>
@@ -3541,6 +3447,9 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-page-multiple" aria-hidden="true"></i>
 						<i class="sui-icon-layers" aria-hidden="true"></i>
 						<i class="sui-icon-copy" aria-hidden="true"></i>
+						<i class="sui-icon-graph-bar" aria-hidden="true"></i>
+						<i class="sui-icon-graph-bar-2" aria-hidden="true"></i>
+						<i class="sui-icon-graph-line" aria-hidden="true"></i>
 						<i class="sui-icon-page" aria-hidden="true"></i>
 						<i class="sui-icon-clipboard-notes" aria-hidden="true"></i>
 						<i class="sui-icon-page-pdf" aria-hidden="true"></i>
@@ -3556,6 +3465,7 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-cloud" aria-hidden="true"></i>
 						<i class="sui-icon-cloud-migration" aria-hidden="true"></i>
 						<i class="sui-icon-download" aria-hidden="true"></i>
+						<i class="sui-icon-save" aria-hidden="true"></i>
 						<i class="sui-icon-lightbulb" aria-hidden="true"></i>
 						<i class="sui-icon-sitemap" aria-hidden="true"></i>
 						<i class="sui-icon-storage-server-data" aria-hidden="true"></i>
@@ -3567,12 +3477,14 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-eye-hide" aria-hidden="true"></i>
 						<i class="sui-icon-update" aria-hidden="true"></i>
 						<i class="sui-icon-refresh" aria-hidden="true"></i>
+						<i class="sui-icon-undo" aria-hidden="true"></i>
 						<i class="sui-icon-web-globe-world" aria-hidden="true"></i>
 						<i class="sui-icon-flag" aria-hidden="true"></i>
 						<i class="sui-icon-academy" aria-hidden="true"></i>
 						<i class="sui-icon-profile-male" aria-hidden="true"></i>
 						<i class="sui-icon-community-people" aria-hidden="true"></i>
 						<i class="sui-icon-help-support" aria-hidden="true"></i>
+						<i class="sui-icon-gdpr" aria-hidden="true"></i>
 						<i class="sui-icon-like" aria-hidden="true"></i>
 						<i class="sui-icon-dislike" aria-hidden="true"></i>
 						<i class="sui-icon-finger-point" aria-hidden="true"></i>
@@ -3589,8 +3501,6 @@ Header set Cache-Control "max-age=691200"
 						<i class="sui-icon-social-youtube" aria-hidden="true"></i>
 						<i class="sui-icon-cloudflare" aria-hidden="true"></i>
 						<i class="sui-icon-social-github" aria-hidden="true"></i>
-						<i class="sui-icon-graph-bar" aria-hidden="true"></i>
-						<i class="sui-icon-graph-bar-2" aria-hidden="true"></i>
 						<i class="sui-icon-wpmudev-logo" aria-hidden="true"></i>
 						<i class="sui-icon-defender" aria-hidden="true"></i>
 						<i class="sui-icon-smush" aria-hidden="true"></i>
@@ -3746,9 +3656,9 @@ dialog.hide();
 				</div>
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
-&lt;div class="sui-dialog" aria-hidden="true" id="my-accessible-dialog"&gt;
+&lt;div class="sui-dialog" aria-hidden="true" tabindex="-1" id="my-accessible-dialog"&gt;
 
-	&lt;div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide&gt;&lt;/div&gt;
+	&lt;div class="sui-dialog-overlay" data-a11y-dialog-hide&gt;&lt;/div&gt;
 
 	&lt;div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog"&gt;
 
@@ -3990,9 +3900,9 @@ dialog.hide();
 
 			<!-- Begin Modals -->
 
-			<div class="sui-dialog" aria-hidden="true" id="my-accessible-dialog">
+			<div class="sui-dialog" aria-hidden="true" tabindex="-1" id="my-accessible-dialog">
 
-				<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
 
 				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
 
@@ -4036,9 +3946,9 @@ dialog.hide();
 
 			</div>
 
-			<div class="sui-dialog sui-dialog-sm" aria-hidden="true" id="my-accessible-dialog-small">
+			<div class="sui-dialog sui-dialog-sm" tabindex="-1" aria-hidden="true" id="my-accessible-dialog-small">
 
-				<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
 
 				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
 
@@ -4063,9 +3973,9 @@ dialog.hide();
 
 			</div>
 
-			<div class="sui-dialog sui-dialog-sm" aria-hidden="true" id="my-accessible-dialog-small-complex">
+			<div class="sui-dialog sui-dialog-sm" tabindex="-1" aria-hidden="true" id="my-accessible-dialog-small-complex">
 
-				<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
 
 				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
 
@@ -4163,8 +4073,8 @@ dialog.hide();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
 <!-- Do not edit query string versions - updated via release scripts -->
-<script src="dist/js/shared-ui.min.js?ver=2.2.4"></script>
-<script src="showcase-assets/build/showcase.min.js?ver=2.2.4"></script>
+<script src="dist/js/shared-ui.min.js?ver=2.2.6"></script>
+<script src="showcase-assets/build/showcase.min.js?ver=2.2.6"></script>
 
 </body>
 </html>
