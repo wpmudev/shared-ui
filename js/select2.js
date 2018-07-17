@@ -5,4 +5,8 @@
 		dropdownCssClass: 'sui-select-dropdown'
 	});
 
+	$( '.sui-variables' ).SUIselect2({
+		dropdownCssClass: 'sui-variables-dropdown'
+	});
+
 }( jQuery ) );
