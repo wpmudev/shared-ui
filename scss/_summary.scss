@@ -1,11 +1,14 @@
 @include body-class(true) {
 
 	.sui-summary {
-		padding: 15px 30px 0;
+		padding: 30px;
 		background-image: url($summary-image-default-url);
 		background-repeat: no-repeat;
 		background-position: $summary-image-default-position;
 		background-size: $summary-image-default-width $summary-image-default-height;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
 		@include media( max-width, md ) {
 			padding: $sui-gutter-md $sui-gutter-md 10px;
 		}
@@ -34,9 +37,6 @@
 			vertical-align: middle;
 
 			.sui-summary-details {
-				position: absolute;
-				top: -5px;
-				transform: translateY(-50%);
 				min-height: 80px;
 
 				@media( max-width: 600px ){
@@ -111,7 +111,7 @@
 			}
 
 			.sui-list {
-				margin: 0 0 15px;
+				margin: -19px 0;
 
 				@media( max-width: 783px ){
 					margin: 0 0 10px;
