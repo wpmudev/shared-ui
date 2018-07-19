@@ -3192,24 +3192,38 @@ Header set Cache-Control "max-age=691200"
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<p>The top notifications have a different styling and are fixed. They use the class <code>.sui-notice-top</code> in the parent
+						<p>The top notifications have a different styling and are fixed. They use the class <code>.sui-notice-top</code> or <code>.sui-notice-floating</code> in the parent
 						class instead of <code>.sui-notice</code>. You will see an example of how the top notification
 						looks when you refresh this page.</p>
-						<p>The default notification will automatically hide after 3 seconds. If you prefer the user to
+						<p>The default sui-notice-top notification will automatically hide after 3 seconds. If you prefer the user to
 						hide the notification themselves you can add <code>.sui-can-dismiss</code> to the parent div and
 						add a dismiss button to the notice shown in the code sample below.</p>
 						<p>If you don't want the notice dismissed at all you can add <code>.sui-cant-dismiss</code> to
 						the parent div.</p>
+						<p>Below are examples of both the sui-notice-top and the sui-notice-floating (floating with button)</p>
+						<p>You can override the icon with the following code</p>
+						<pre>
+p:first-of-type {
+	@include icon(before, update)
+}</pre>
 					</div>
 				</div>
 
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice-top sui-notice-success&quot;&gt;
+// Top notice with button.
+&lt;div class=&quot;sui-notice-top sui-notice-success sui-can-dismiss&quot;&gt;
 	&lt;p&gt;&lt;strong&gt;Notice success:&lt;/strong&gt; Page caching is currently active.&lt;/p&gt;
 	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
 		&lt;a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"&gt;&lt;/a&gt;
 	&lt;/span&gt;
+&lt;/div&gt;
+// Floating notice with button.
+&lt;div class=&quot;sui-notice-floating sui-notice-info&quot;&gt;
+	&lt;p&gt;You've made changes to your file structure&lt;/p&gt;
+	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
+		&lt;button href="#" class="sui-button sui-button-blue"&gt;&lt;i class="sui-icon-web-globe-world" aria-hidden="true"&gt;&lt;/i&gt;Publish&lt;/button&gt;
+	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
 
