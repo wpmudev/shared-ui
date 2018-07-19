@@ -1,3 +1,14 @@
+v2.2.7
+
+ - [Enhance] Feature/public clipboard js
+ - [Fix] Button cut-off on ie
+ - [Enhance] Add beta tag and update some colours.
+ - [Enhance] Insert Variables Field
+ - [Enhance] Improve vertical spacing in Summary
+             Dev Notes: Go through plugin and check all summaries to make sure there are no overrides coming
+                        from the plugin messing up styles.
+
+
 v2.2.6
 
  - [Enhance] Update notification styles
