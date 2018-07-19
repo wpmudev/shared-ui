@@ -527,7 +527,7 @@
     $( document ).ready( function() {
 
         // Convert all accordions.
-        $( '.sui-2-2-7 .sui-accordion' ).each( function() {
+        $( '.sui-2-2-6 .sui-accordion' ).each( function() {
 
             // backward compat of instantiate new accordion
             SUI.suiAccordion( this );
@@ -1602,7 +1602,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-2-7 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-2-6 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -1629,7 +1629,7 @@
 	SUI.linkDropdown = function() {
 
 		function closeAllDropdowns( $except ) {
-			var $dropdowns = $( '.sui-2-2-7 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-2-6 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -1686,9 +1686,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-2-7 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-2-6 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-2-7 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-2-6 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -1710,7 +1710,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-2-7 .sui-password-group' ).each( function() {
+		$( '.sui-2-2-6 .sui-password-group' ).each( function() {
 			var $this = $( this ),
 				$input = $this.find( 'input[type="password"]' ),
 				$button = $this.find( '.sui-password-toggle' );
@@ -1782,7 +1782,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-2-7 .sui-circle-score' ).each( function() {
+	$( '.sui-2-2-6 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -1997,7 +1997,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-2-7 select' ).each( function() {
+	$( '.sui-2-2-6 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -8644,7 +8644,7 @@
 	};
 
 	// Initialize all tab-areas.
-	$( '.sui-2-2-7 .sui-tabs' ).each( function() {
+	$( '.sui-2-2-6 .sui-tabs' ).each( function() {
 		SUI.suiTabs( this );
 	});
 
@@ -8662,7 +8662,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-2-7 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-2-6 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
