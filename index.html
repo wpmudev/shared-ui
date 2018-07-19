@@ -428,6 +428,8 @@ function admin_body_classes( $classes ) {
 					<div class="sui-notice sui-notice-warning">
 						<p>If you are using individual js components, <code>code-snippet.js</code> is required for copy to clipboard functionality.</p>
 					</div>
+					<p>We use the library <a target="_blank" href="https://clipboardjs.com/">clipboard.js</a> to allow code snippet copied.</p>
+					<p>Any element with the class <code>sui-code-snippet</code> will be instantiated SUICodeSnippet and the instance is accessible using jQuery selector like <code>$('selector').data('SUICodeSnippet')</code>. </p>
 				</div>
 
 				<div class="sui-box">
@@ -474,6 +476,37 @@ RewriteRule . /index.php [L]
 &lt;pre class="sui-code-snippet sui-no-copy"&gt;
 	...
 &lt;/pre&gt;</pre>
+				</div>
+
+				<h4>Javascript Instantiation</h4>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// initiate all sui-code-snippet
+SUI.suiCodeSnippet();
+
+// initiate single sui-code-snippet
+$('.my-selector').SUICodeSnippet();
+</pre>
+				</div>
+
+				<h4>JS API</h4>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// initiate with custom copy text
+$('.my-selector').SUICodeSnippet({
+	'copyText': 'Copy .htaccess', // button text
+	'copiedText': '.htaccess copied', // tooltip text when copied
+});
+
+// get Clipboard.JS inistance
+const clipboard = $('.my-selector').data('SUICodeSnippet').getClipboardJs();
+clipboard.on('success', function(e){
+	alert('Copied!');
+});
+
+// destroy instance
+$('.my-selector').data('SUICodeSnippet').destroy();
+</pre>
 				</div>
 
 			</section>
@@ -2545,7 +2578,7 @@ $( '.sui-date .sui-form-control' ).datepicker({
 								</div>
 
 							</div>
-							
+
 						</div>
 
 						<div class="sui-row">
@@ -2560,7 +2593,7 @@ $( '.sui-date .sui-form-control' ).datepicker({
 								</div>
 
 							</div>
-							
+
 						</div>
 
 					</div>
