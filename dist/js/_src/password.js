@@ -10,7 +10,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-2-6 .sui-password-group' ).each( function() {
+		$( '.sui-2-2-7 .sui-password-group' ).each( function() {
 			var $this = $( this ),
 				$input = $this.find( 'input[type="password"]' ),
 				$button = $this.find( '.sui-password-toggle' );
