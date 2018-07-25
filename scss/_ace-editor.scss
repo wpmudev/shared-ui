@@ -1,0 +1,44 @@
+@include body-class(true) {
+
+	.sui-ace-selectors {
+		display: block;
+		margin: 0 0 20px;
+
+		.sui-selector {
+			display: inline-block;
+			margin: 0 5px;
+			padding: 5px 12px;
+			border-radius: $border-radius;
+			background-color: $ace-selector-background;
+			font: 500 12px/16px $font;
+			letter-spacing: $font--letter-spacing;
+			transition: 0.3s ease;
+
+			&,
+			&:hover,
+			&:active {
+				border: 0;
+				outline: none;
+				box-shadow: none;
+				color: $ace-selector-color;
+			}
+
+			&:hover,
+			&:active {
+				background-color: $ace-selector-background-hover;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
