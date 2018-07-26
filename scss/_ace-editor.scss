@@ -1,13 +1,15 @@
 @include body-class(true) {
 
 	.sui-ace-selectors {
-		display: block;
-		margin: 0 0 20px;
+		display: flex;
+		margin-bottom: #{$sui-gutter-md / 2};
+		margin-left: -5px;
 
 		.sui-selector {
 			height: 26px;
-			display: inline-block;
-			margin: 0 5px;
+			display: inline-flex;
+			flex: 0 0 auto;
+			margin: 0 0 5px 5px;
 			padding: 5px 12px;
 			border-radius: $border-radius;
 			background-color: $ace-selector-background;
@@ -30,18 +32,18 @@
 			&:active {
 				background-color: $ace-selector-background-hover;
 			}
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
 		}
 
 		&:last-child {
-			margin: 0;
+			margin-bottom: 0;
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			margin-bottom: #{$sui-gutter / 2};
 		}
 	}
 
