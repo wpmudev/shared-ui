@@ -4224,5 +4224,32 @@ dialog.hide();
 <script src="dist/js/shared-ui.min.js?ver=2.2.7"></script>
 <script src="showcase-assets/build/showcase.min.js?ver=2.2.7"></script>
 
+<!-- Embed ACE -->
+<script>
+	var editor = ace.edit( "sui-ace-editor" );
+
+	editor.getSession().setUseWorker( false );
+	editor.setShowPrintMargin( false );
+
+	editor.setTheme( "ace/theme/sui" );
+	editor.getSession().setMode( "ace/mode/css" );
+
+	editor.session.setTabSize(4);
+
+	var insertSelector = function(e) {
+		e.preventDefault();
+
+		var $el = $( e.target ),
+			$selector = $el.data( "selector" ) + " {}"
+			;
+
+		editor.insert( $selector );
+		editor.navigateLeft( 1 );
+		editor.focus();
+	};
+
+	jQuery( ".sui-ace-selectors .sui-selector" ).on( 'click', insertSelector );
+</script>
+
 </body>
 </html>
