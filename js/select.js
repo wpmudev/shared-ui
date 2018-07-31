@@ -63,7 +63,8 @@
                     item = $( '<li></li>' ).appendTo( items );
 
 					if ( opt.data( 'content' ) ) {
-						item.html( opt.text() + '<span>' + opt.data( 'content' ) + '</span>' );
+						item.addClass( 'sui-element-flex' );
+						item.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
 					} else {
 						item.text( opt.text() );
 					}
