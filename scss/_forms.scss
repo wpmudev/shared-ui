@@ -521,6 +521,10 @@
 	.sui-insert-variables {
 		position: relative;
 
+		.sui-form-control {
+			padding-right: #{($form--input-height-base - 1px) + 14px};
+		}
+
 		.select-container {
 			position: absolute;
 			top: 0;
@@ -577,11 +581,27 @@
 					border-color: $form--input-border-color;
 					background-color: $white;
 
-					li span {
-						float: right;
-						margin-left: 5px;
-						color: #AAA;
-						font-size: 12px;
+					li.sui-element-flex {
+						display: flex;
+
+						span {
+							pointer-events: none;
+							overflow: hidden;
+							display: block;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+
+						span {
+							flex: 1;
+
+							+ span {
+								flex: 0 0 auto;
+								margin-left: 5px;
+								color: #AAA;
+								font-size: 12px;
+							}
+						}
 					}
 
 					.current {
@@ -683,6 +703,29 @@
 					.select2-selection__arrow:before {
 						color: palette(gray, dark);
 					}
+				}
+			}
+		}
+
+		textarea.sui-form-control + .select-container {
+
+			.select-list-container {
+
+				.list-value {
+					border-color: transparent;
+
+					&:hover {
+						border-left-color: transparent;
+						background-color: transparent;
+					}
+				}
+			}
+
+			&.active .select-list-container {
+
+				.list-value {
+					border-left-color: transparent;
+					background-color: transparent;
 				}
 			}
 		}
