@@ -129,7 +129,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( 'showcase-assets/*.scss', ['styles:showcase'] );
 
 	// Watch for SUI js changes.
-	gulp.watch( 'js/*.js', ['scripts:sui'] );
+	gulp.watch( 'js/**/*.js', ['scripts:sui'] );
 
 	// Watch for showcase js changes.
 	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
