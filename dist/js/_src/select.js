@@ -208,7 +208,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-2-7 select' ).each( function() {
+	$( '.sui-2-2-8 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 

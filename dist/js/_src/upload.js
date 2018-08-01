@@ -10,7 +10,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-2-7 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-2-8 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
