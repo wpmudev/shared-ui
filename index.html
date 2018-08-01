@@ -33,6 +33,7 @@
 		<li><a href="#scores">Scores</a></li>
 		<li><a href="#dropdowns">Dropdowns</a></li>
 		<li><a href="#forms">Forms</a></li>
+		<li><a href="#ace">ACE Editor</a></li>
 		<li><a href="#pagination">Pagination</a></li>
 		<li><a href="#summary">Summary</a></li>
 		<li><a href="#sidenav">Sidenav</a></li>
@@ -2672,6 +2673,51 @@ $( '.sui-date .sui-form-control' ).datepicker({
 
 			</section>
 
+			<section id="ace">
+
+				<div class="demo-info-block">
+					<h2>ACE Editor</h2>
+				</div>
+
+				<div class="sui-box">
+
+					<div class="sui-box-body">
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Sample selectors</label>
+
+							<div class="sui-ace-selectors">
+								<a href="#" class="sui-selector" data-selector="body">Body</a>
+								<a href="#" class="sui-selector" data-selector="header">Header</a>
+								<a href="#" class="sui-selector" data-selector="section">Section</a>
+								<a href="#" class="sui-selector" data-selector="article">Article</a>
+								<a href="#" class="sui-selector" data-selector="footer">Footer</a>
+							</div>
+
+							<label class="sui-label">Other selectors</label>
+
+							<div class="sui-ace-selectors">
+								<a href="#" class="sui-selector" data-selector=".sample-1">Sample Class #1</a>
+								<a href="#" class="sui-selector" data-selector=".sample-2">Sample Class #2</a>
+								<a href="#" class="sui-selector" data-selector=".sample-3">Sample Class #3</a>
+								<a href="#" class="sui-selector" data-selector=".sample-4">Sample Class #4</a>
+								<a href="#" class="sui-selector" data-selector=".sample-5">Sample Class #5</a>
+							</div>
+
+							<div id="sui-ace-editor">.hustle-modal .hustle-modal-container {
+	background-color: #FF6D6D;
+	color: #FFFFFF;
+}</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
 			<section id="pagination">
 
 				<div class="demo-info-block">
@@ -4199,6 +4245,33 @@ dialog.hide();
 <!-- Do not edit query string versions - updated via release scripts -->
 <script src="dist/js/shared-ui.min.js?ver=2.2.7"></script>
 <script src="showcase-assets/build/showcase.min.js?ver=2.2.7"></script>
+
+<!-- Embed ACE -->
+<script>
+	var editor = ace.edit( "sui-ace-editor" );
+
+	editor.getSession().setUseWorker( false );
+	editor.setShowPrintMargin( false );
+
+	editor.setTheme( "ace/theme/sui" );
+	editor.getSession().setMode( "ace/mode/css" );
+
+	editor.session.setTabSize(4);
+
+	var insertSelector = function(e) {
+		e.preventDefault();
+
+		var $el = $( e.target ),
+			$selector = $el.data( "selector" ) + " {}"
+			;
+
+		editor.insert( $selector );
+		editor.navigateLeft( 1 );
+		editor.focus();
+	};
+
+	jQuery( ".sui-ace-selectors .sui-selector" ).on( 'click', insertSelector );
+</script>
 
 </body>
 </html>
