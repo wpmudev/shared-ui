@@ -1,3 +1,10 @@
+v2.2.8
+
+ - Enhance/update fonts
+ - ACE editor theme
+ - Enhance/insert variables
+
+
 v2.2.7
 
  - [Enhance] Feature/public clipboard js
