@@ -33,6 +33,7 @@
 		<li><a href="#scores">Scores</a></li>
 		<li><a href="#dropdowns">Dropdowns</a></li>
 		<li><a href="#forms">Forms</a></li>
+		<li><a href="#ace">ACE Editor</a></li>
 		<li><a href="#pagination">Pagination</a></li>
 		<li><a href="#summary">Summary</a></li>
 		<li><a href="#sidenav">Sidenav</a></li>
@@ -2116,18 +2117,35 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<label class="sui-label">Insert variable with suiSelect</label>
-						<div class="sui-insert-variables">
-							<input type="text" class="sui-form-control" value="New enquiry from {first-name}">
-							<select>
-								<option value="{address}" data-content="{address}">Address</option>
-								<option value="{email-address}" data-content="{email-address}">Email Address</option>
-								<option value="{first-name}" data-content="{first-name}">First Name</option>
-								<option value="{last-name}" data-content="{last-name}">Last Name</option>
-								<option value="{mobile}" data-content="{mobile}">Mobile</option>
-								<option value="{telephone}" data-content="{telephone}">Telephone</option>
-								<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
-							</select>
+						<div class="sui-form-field">
+							<label class="sui-label">Insert variable with suiSelect</label>
+							<div class="sui-insert-variables">
+								<input type="text" class="sui-form-control" placeholder="New enquiry from {first-name}">
+								<select>
+									<option value="{address}" data-content="{address}">Address</option>
+									<option value="{email-address}" data-content="{email-address}">Email Address</option>
+									<option value="{first-name}" data-content="{first-name}">First Name</option>
+									<option value="{last-name}" data-content="{last-name}">Last Name</option>
+									<option value="{mobile}" data-content="{mobile}">Mobile</option>
+									<option value="{telephone}" data-content="{telephone}">Telephone</option>
+									<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
+								</select>
+							</div>
+						</div>
+						<div class="sui-form-field">
+							<label class="sui-label">Insert variable with suiSelect</label>
+							<div class="sui-insert-variables">
+								<textarea class="sui-form-control" placeholder="New enquiry from {first-name}"></textarea>
+								<select>
+									<option value="{address}" data-content="{address}">Address</option>
+									<option value="{email-address}" data-content="{email-address}">Email Address</option>
+									<option value="{first-name}" data-content="{first-name}">First Name</option>
+									<option value="{last-name}" data-content="{last-name}">Last Name</option>
+									<option value="{mobile}" data-content="{mobile}">Mobile</option>
+									<option value="{telephone}" data-content="{telephone}">Telephone</option>
+									<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
+								</select>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -2651,6 +2669,51 @@ $( '.sui-date .sui-form-control' ).datepicker({
 						</div>
 
 					</div>
+				</div>
+
+			</section>
+
+			<section id="ace">
+
+				<div class="demo-info-block">
+					<h2>ACE Editor</h2>
+				</div>
+
+				<div class="sui-box">
+
+					<div class="sui-box-body">
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Sample selectors</label>
+
+							<div class="sui-ace-selectors">
+								<a href="#" class="sui-selector" data-selector="body">Body</a>
+								<a href="#" class="sui-selector" data-selector="header">Header</a>
+								<a href="#" class="sui-selector" data-selector="section">Section</a>
+								<a href="#" class="sui-selector" data-selector="article">Article</a>
+								<a href="#" class="sui-selector" data-selector="footer">Footer</a>
+							</div>
+
+							<label class="sui-label">Other selectors</label>
+
+							<div class="sui-ace-selectors">
+								<a href="#" class="sui-selector" data-selector=".sample-1">Sample Class #1</a>
+								<a href="#" class="sui-selector" data-selector=".sample-2">Sample Class #2</a>
+								<a href="#" class="sui-selector" data-selector=".sample-3">Sample Class #3</a>
+								<a href="#" class="sui-selector" data-selector=".sample-4">Sample Class #4</a>
+								<a href="#" class="sui-selector" data-selector=".sample-5">Sample Class #5</a>
+							</div>
+
+							<div id="sui-ace-editor">.hustle-modal .hustle-modal-container {
+	background-color: #FF6D6D;
+	color: #FFFFFF;
+}</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>
@@ -3521,6 +3584,7 @@ p:first-of-type {
 						<i class="sui-icon-layout-grid" aria-hidden="true"></i>
 						<i class="sui-icon-layout" aria-hidden="true"></i>
 						<i class="sui-icon-thumbnails" aria-hidden="true"></i>
+						<i class="sui-icon-drag" aria-hidden="true"></i>
 						<i class="sui-icon-align-left" aria-hidden="true"></i>
 						<i class="sui-icon-align-center" aria-hidden="true"></i>
 						<i class="sui-icon-align-right" aria-hidden="true"></i>
@@ -3546,7 +3610,15 @@ p:first-of-type {
 						<i class="sui-icon-animation-video" aria-hidden="true"></i>
 						<i class="sui-icon-home" aria-hidden="true"></i>
 						<i class="sui-icon-mail" aria-hidden="true"></i>
+						<i class="sui-icon-send" aria-hidden="true"></i>
 						<i class="sui-icon-phone" aria-hidden="true"></i>
+						<i class="sui-icon-pin" aria-hidden="true"></i>
+						<i class="sui-icon-post-pin" aria-hidden="true"></i>
+						<i class="sui-icon-calculator" aria-hidden="true"></i>
+						<i class="sui-icon-element-checkbox" aria-hidden="true"></i>
+						<i class="sui-icon-element-radio" aria-hidden="true"></i>
+						<i class="sui-icon-element-select" aria-hidden="true"></i>
+						<i class="sui-icon-element-number" aria-hidden="true"></i>
 						<i class="sui-icon-folder" aria-hidden="true"></i>
 						<i class="sui-icon-folder-open" aria-hidden="true"></i>
 						<i class="sui-icon-archive" aria-hidden="true"></i>
@@ -3557,6 +3629,7 @@ p:first-of-type {
 						<i class="sui-icon-graph-bar" aria-hidden="true"></i>
 						<i class="sui-icon-graph-bar-2" aria-hidden="true"></i>
 						<i class="sui-icon-graph-line" aria-hidden="true"></i>
+						<i class="sui-icon-tracking-disabled" aria-hidden="true"></i>
 						<i class="sui-icon-page" aria-hidden="true"></i>
 						<i class="sui-icon-clipboard-notes" aria-hidden="true"></i>
 						<i class="sui-icon-page-pdf" aria-hidden="true"></i>
@@ -3571,6 +3644,7 @@ p:first-of-type {
 						<i class="sui-icon-download-cloud" aria-hidden="true"></i>
 						<i class="sui-icon-cloud" aria-hidden="true"></i>
 						<i class="sui-icon-cloud-migration" aria-hidden="true"></i>
+						<i class="sui-icon-unpublish" aria-hidden="true"></i>
 						<i class="sui-icon-download" aria-hidden="true"></i>
 						<i class="sui-icon-save" aria-hidden="true"></i>
 						<i class="sui-icon-lightbulb" aria-hidden="true"></i>
@@ -4182,6 +4256,33 @@ dialog.hide();
 <!-- Do not edit query string versions - updated via release scripts -->
 <script src="dist/js/shared-ui.min.js?ver=2.2.7"></script>
 <script src="showcase-assets/build/showcase.min.js?ver=2.2.7"></script>
+
+<!-- Embed ACE -->
+<script>
+	var editor = ace.edit( "sui-ace-editor" );
+
+	editor.getSession().setUseWorker( false );
+	editor.setShowPrintMargin( false );
+
+	editor.setTheme( "ace/theme/sui" );
+	editor.getSession().setMode( "ace/mode/css" );
+
+	editor.session.setTabSize(4);
+
+	var insertSelector = function(e) {
+		e.preventDefault();
+
+		var $el = $( e.target ),
+			$selector = $el.data( "selector" ) + " {}"
+			;
+
+		editor.insert( $selector );
+		editor.navigateLeft( 1 );
+		editor.focus();
+	};
+
+	jQuery( ".sui-ace-selectors .sui-selector" ).on( 'click', insertSelector );
+</script>
 
 </body>
 </html>

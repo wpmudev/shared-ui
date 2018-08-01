@@ -64,7 +64,7 @@ gulp.task( 'styles:sui', function() {
 gulp.task( 'scripts:sui', function( cb ) {
 	pump(
 		[
-			gulp.src( './js/*.js' ),
+			gulp.src( './js/**/*.js' ),
 			replace( 'SUI_BODY_CLASS', getBodyClass() ),
 			eslint(),
 			eslint.format(),
@@ -129,7 +129,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( 'showcase-assets/*.scss', ['styles:showcase'] );
 
 	// Watch for SUI js changes.
-	gulp.watch( 'js/*.js', ['scripts:sui'] );
+	gulp.watch( 'js/**/*.js', ['scripts:sui'] );
 
 	// Watch for showcase js changes.
 	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
