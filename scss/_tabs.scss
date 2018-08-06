@@ -83,6 +83,53 @@
 		}
 	}
 
+	// Side tabs
+	.sui-tabs.sui-side-tabs {
+		border-top: 0;
+		background-color: transparent;
+
+		.sui-tab {
+
+			> label {
+				margin-right: 1px;
+				margin-left: 0;
+				padding: 9px 20px;
+				border-bottom: 0;
+				background-color: $side-tabs--label-background;
+				color: $side-tabs--label-color;
+				font-size: 13px;
+				text-transform: none;
+
+				&.active {
+					background-color: $side-tabs--label-active-background;
+					color: $side-tabs--label-active-color;
+				}
+			}
+
+			.sui-tab-content {
+				margin-top: 10px;
+				padding: $sui-gutter-md;
+				border: 1px solid $tabs-content-border-color;
+				border-radius: $border-radius;
+
+				@include media(min-width, md) {
+					padding: $sui-gutter;
+				}
+			}
+
+			&:first-child > label {
+				border-top-left-radius: $border-radius;
+				border-bottom-left-radius: $border-radius;
+			}
+
+			&:last-child > label {
+				margin-right: 0;
+				border-top-right-radius: $border-radius;
+				border-bottom-right-radius: $border-radius;
+			}
+		}
+	}
+
 	// Flushed tabs
 	.sui-box-body.sui-tabs-flush {
 		padding-top: 0;
