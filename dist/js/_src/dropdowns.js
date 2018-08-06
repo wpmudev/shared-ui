@@ -11,7 +11,7 @@
 	SUI.linkDropdown = function() {
 
 		function closeAllDropdowns( $except ) {
-			var $dropdowns = $( '.sui-2-2-8 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-2-9 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );

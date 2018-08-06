@@ -124,7 +124,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-2-8 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-2-9 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
