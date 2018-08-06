@@ -1,3 +1,10 @@
+v2.2.9
+
+ - [Enhance] Dialog alternative design
+ - [Enhance] Update horizontal tabs to match newer designs
+ - [Fix] Tabs are overwriting label styles placed inside tab content.
+
+
 v2.2.8
 
  - Enhance/update fonts
