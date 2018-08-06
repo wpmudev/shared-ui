@@ -98,6 +98,31 @@
 			}
 		}
 
+		// ELEMENT: Back button
+		.sui-dialog-back {
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline-style: none;
+			background-image: none;
+			background-color: transparent;
+			transition: 0.3s ease;
+
+			&:hover:before,
+			&:active:before {
+				color: $modal-close-action-color;
+			}
+
+			@include icon(before, 'chevron-left') {
+				color: $modal-close-color;
+				font-size: 16px;
+				line-height: 30px;
+			}
+		}
+
 		// ALTERNATIVE DIALOG
 		&.sui-dialog-alt {
 
@@ -125,6 +150,12 @@
 						position: absolute;
 						top: 20px;
 						right: 20px;
+					}
+
+					.sui-dialog-back {
+						position: absolute;
+						top: 20px;
+						left: 20px;
 					}
 
 					.sui-box-title {
