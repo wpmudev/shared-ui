@@ -196,16 +196,8 @@
 			}
 		}
 
-		// DIALOG SIZE: Small
-		&.sui-dialog-sm {
-
-			.sui-dialog-content {
-				max-width: #{400px + ($sui-gutter * 2)};
-
-				@media (max-width: 400px) {
-					max-width: calc(400px + (#{$sui-gutter-md}*2));
-				}
-			}
+		// DIALOG: Small (special design)
+		&.sui-dialog-sm:not(.sui-dialog-alt) {
 
 			.sui-dialog-content > .sui-box {
 
@@ -346,6 +338,18 @@
 					@include media( max-width, md ) {
 						padding-top: #{$sui-gutter-md / 2};
 					}
+				}
+			}
+		}
+
+		// DIALOG SIZE: Small
+		&.sui-dialog-sm {
+
+			.sui-dialog-content {
+				max-width: #{400px + ($sui-gutter * 2)};
+
+				@media (max-width: 400px) {
+					max-width: calc(400px + (#{$sui-gutter-md}*2));
 				}
 			}
 		}
