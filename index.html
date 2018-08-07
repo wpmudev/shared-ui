@@ -35,6 +35,7 @@
 		<li><a href="#forms">Forms</a></li>
 		<li><a href="#ace">ACE Editor</a></li>
 		<li><a href="#pagination">Pagination</a></li>
+		<li><a href="#recipient">Recipients</a></li>
 		<li><a href="#summary">Summary</a></li>
 		<li><a href="#sidenav">Sidenav</a></li>
 		<li><a href="#tabs">Tabs</a></li>
@@ -2808,8 +2809,106 @@ $( '.sui-date .sui-form-control' ).datepicker({
 				</div>
 
 			</section>
+<section id="recipient">
+
+				<div class="demo-info-block">
+					<h2>Recipient</h2>
+				</div>
+
+				<div class="sui-box">
+
+					<div class="sui-box-body">
+						<div class="sui-recipient">
+							<span class="sui-recipient-name">Calum Brash</span>
+							<span class="sui-recipient-email">calum.brash@incsub.com</span>
+							<button type="button" class="sui-button-icon"><i class="sui-icon-trash" aria-hidden="true"></i></button>
+						</div>
+						<hr>
+						<h3>Example of recipients used in an email notification setting</h3>
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">Email notifications</span>
+								<span class="sui-description">Choose who you want to receive uptime email notifications when your website becomes unavailable.</span>
+							</div>
+							<div class="sui-box-settings-col-2">
+								<label class="sui-toggle">
+									<input type="checkbox" id="email-notification" checked>
+									<span class="sui-toggle-slider"></span>
+								</label>
+								<label for="email-notification" class="sui-toggle-label">Send an email notification when this website goes down</label>
+								<div class="sui-border-frame sui-toggle-content">
+									<div class="sui-recipients">
+										<div class="sui-recipient">
+											<span class="sui-recipient-name">Calum Brash</span>
+											<span class="sui-recipient-email">calum.brash@incsub.com</span>
+											<button type="button" class="sui-button-icon"><i class="sui-icon-trash" aria-hidden="true"></i></button>
+										</div>
+										<div class="sui-recipient">
+											<span class="sui-recipient-name">Andy Crone</span>
+											<span class="sui-recipient-email">andy.crone@incsub.com</span>
+											<button type="button" class="sui-button-icon"><i class="sui-icon-trash" aria-hidden="true"></i></button>
+										</div>
+									</div>
+									<button class="sui-add-recipient sui-button sui-button-ghost"><i class="sui-icon-plus" aria-hidden="true"></i>Add Recipient</button>
+									<label for="threshold" class="sui-label">Threshold</label>
+									<select id="threshold" name="select-list">
+										<option value="5" selected="selected">5 Minutes</option>
+										<option value="10">10 Minutes</option>
+									</select>
+									<span class="sui-description">We won’t notify you if your website becomes available again within the specified timeframe. All downtimes are still recorded in the downtime report, you just won’t get notified.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="demo-code-block">
+<pre class="sui-code-snippet html">&lt;!-- Recipient --&gt;
+&lt;div class="sui-recipient"&gt;
+	&lt;span class="sui-recipient-name"&gt;Calum Brash&lt;/span&gt;
+	&lt;span class="sui-recipient-email"&gt;calum.brash@incsub.com&lt;/span&gt;
+	&lt;button type="button" class="sui-button-icon"&gt;&lt;i class="sui-icon-trash" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Recipients settings example --&gt;
+&lt;div class="sui-box-settings-row"&gt;
+	&lt;div class="sui-box-settings-col-1"&gt;
+		&lt;span class="sui-settings-label"&gt;Email notifications&lt;/span&gt;
+		&lt;span class="sui-description"&gt;Choose who you want to receive uptime email notifications when your website becomes unavailable.&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="sui-box-settings-col-2"&gt;
+		&lt;label class="sui-toggle"&gt;
+			&lt;input type="checkbox" id="email-notification" checked&gt;
+			&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label for="email-notification" class="sui-toggle-label"&gt;Send an email notification when this website goes down&lt;/label&gt;
+		&lt;div class="sui-border-frame sui-toggle-content"&gt;
+			&lt;div class="sui-recipients"&gt;
+				&lt;div class="sui-recipient"&gt;
+					&lt;span class="sui-recipient-name"&gt;Calum Brash&lt;/span&gt;
+					&lt;span class="sui-recipient-email"&gt;calum.brash@incsub.com&lt;/span&gt;
+					&lt;button type="button" class="sui-button-icon"&gt;&lt;i class="sui-icon-trash" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="sui-recipient"&gt;
+					&lt;span class="sui-recipient-name"&gt;Andy Crone&lt;/span&gt;
+					&lt;span class="sui-recipient-email"&gt;andy.crone@incsub.com&lt;/span&gt;
+					&lt;button type="button" class="sui-button-icon"&gt;&lt;i class="sui-icon-trash" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;button class="sui-add-recipient sui-button sui-button-ghost"&gt;&lt;i class="sui-icon-plus" aria-hidden="true"&gt;&lt;/i&gt;Add Recipient&lt;/button&gt;
+			&lt;label for="threshold" class="sui-label"&gt;Threshold&lt;/label&gt;
+			&lt;select id="threshold" name="select-list"&gt;
+				&lt;option value="5" selected="selected"&gt;5 Minutes&lt;/option&gt;
+				&lt;option value="10"&gt;10 Minutes&lt;/option&gt;
+			&lt;/select&gt;
+			&lt;span class="sui-description"&gt;We won’t notify you if your website becomes available again within the specified timeframe. All downtimes are still recorded in the downtime report, you just won’t get notified.&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+				</div>
 
 			</section>
+
 
 			<section id="summary">
 
@@ -3503,7 +3602,7 @@ p:first-of-type {
 	&lt;input type="checkbox" id="toggle-with-label"&gt;
 	&lt;span class="sui-toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;
-&lt;label for="toggle-with-label" class="sui-toggle-label"&gt;Toggle with label.&lt;/span&gt;</pre>
+&lt;label for="toggle-with-label" class="sui-toggle-label"&gt;Toggle with label.&lt;/label&gt;</pre>
 				</div>
 
 			</section>
