@@ -31,44 +31,37 @@
 
 			li {
 				list-style: none;
-				margin-bottom: 10px;
+				margin-bottom: 6px;
 			}
 
 			.sui-vertical-tabs {
 
 				.sui-vertical-tab {
 					position: relative;
-					display: flex;
-					justify-content: space-between;
 					padding: 5px 15px;
-					height: auto;
-					border-radius: 15px;
+					height: 30px;
+					line-height: 1.5em;
 
 					&.current {
 						background-color: $sidenav-tab-active-bg-color;
+						border-radius: 20px;
 
 						a {
 							color: $sidenav-tab-active-color;
+							font-weight: 500;
 						}
 					}
 
 					i,
 					.sui-tag {
-						align-self: center;
-					}
-
-					.sui-tag {
-						margin: -3px -13px -3px 5px;
-						&.sui-tag-beta,
-						&.sui-tag-pro {
-							margin: -3px -5px -3px 5px;
-						}
+						position: absolute;
+						top: 2px;
+						right: 3px;
 					}
 
 					i {
-						line-height: 16px;
-						height: 16px;
-						margin-right: -7px;
+						top: 6px;
+						right: 7px;
 					}
 
 					i:before {
@@ -79,9 +72,8 @@
 				a {
 					color: $sidenav-tab-color;
 					display: block;
-					font-weight: 500;
+					font-weight: 400;
 					transition: .3s;
-					line-height: 20px;
 
 					&:hover,
 					&:focus {
