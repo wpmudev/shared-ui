@@ -8558,96 +8558,162 @@
         window.SUI = {};
     }
 
-    SUI.suiTabs = function( el ) {
-		var jq = $( el ).closest( '.sui-tabs' );
+    SUI.suiTabs = function( options ) {
+        var data;
+        var types = [ 'tab', 'pane' ];
+        var type;
+        var groups = [];
+        var activeGroups = [];
+        var activeChildren = [];
+        var activeItems = [];
+        var indexGroup;
+        var indexItem;
+        var memory = [];
 
-		if ( ! jq.length ) {
-			return;
-		}
+        function init( options ) {
+            var itemIndex;
+            var groupIndex;
+            var tabItems;
+            data = options;
+            setDefaults();
+            setMemory();
 
-		// Resize the tab-area after short delay.
-		function resizeArea() {
-			window.setTimeout( resizeAreaHandler, 20 );
-		}
+            groups.tab = document.querySelectorAll( data.tabGroup );
+            groups.pane = document.querySelectorAll( data.paneGroup );
 
-		// Resize the tab area to match the current tab.
-		function resizeAreaHandler() {
-			var current = jq.find( '.sui-tab > input:checked' ).parent(),
-				content = current.find( '.sui-tab-content' );
+            for ( groupIndex = 0; groupIndex < groups.tab.length; groupIndex++ ) {
+                tabItems = groups.tab[groupIndex].children;
 
-			jq.height( content.outerHeight() + current.outerHeight() - 6 );
-		}
+                for ( itemIndex = 0; itemIndex < tabItems.length; itemIndex++ ) {
+                    tabItems[itemIndex].addEventListener( 'click', onClick.bind( this, groupIndex, itemIndex ), false );
 
-		// Updates the URL hash to keep tab open during page refresh
-		function updateHash() {
-			var current = jq.find( '.sui-tab > input:checked' );
+                    indexGroup = groupIndex;
+                    indexItem = itemIndex;
 
-			jq.find( '.sui-tab label.active' ).removeClass( 'active' );
-			current.parent().find( 'label' ).addClass( 'active' );
+                    if ( ! hasMemory() ) {
+                        continue;
+                    }
+                    setNodes( groupIndex, itemIndex );
+                }
+            }
+        }
 
-			resizeArea();
-		}
+        function onClick( groupIndex, itemIndex ) {
+            setNodes( groupIndex, itemIndex );
 
-		// Open the tab that is specified in window URL hash
-		function switchTab() {
-			var curTab,
-				route = window.location.hash.replace( /[^\w-_]/g, '' );
+            setCallback( indexGroup, indexItem );
+        }
 
-			if ( route ) {
-				curTab = jq.find( 'input#' + route );
+        function setNodes( groupIndex, itemIndex ) {
+            var i;
+            indexGroup = groupIndex;
+            indexItem = itemIndex;
 
-				if ( curTab.parent().find( 'label' ).length ) {
-					jq.find( '.sui-tab label.active' ).removeClass( 'active' );
-					curTab.parent().find( 'label' ).addClass( 'active' );
+            for ( i = 0; i < types.length; i++ ) {
+                type = types[i];
 
-					if ( curTab.length && ! curTab.prop( 'checked' ) ) {
-						curTab.prop( 'checked', true );
+                setActiveGroup();
+                setActiveChildren();
+                setActiveItems();
+                putActiveClass();
+            }
 
-						scrollWindow();
-					}
+            memory[groupIndex] = [];
+            memory[groupIndex][itemIndex] = true;
 
-				}
+            localStorage.setItem( 'tabbis', JSON.stringify( memory ) );
+        }
 
-			}
+        function hasMemory() {
+            if ( 'undefined' === typeof memory ) {
+                return;
+            }
+            if  ( 'undefined' === typeof memory[indexGroup]) {
+                return;
+            }
+            if ( 'undefined' === typeof memory[indexGroup][indexItem]) {
+                return;
+            }
+            if ( true !== memory[indexGroup][indexItem]) {
+                return;
+            }
+            return true;
+        }
 
-		}
+        function setMemory() {
+            if ( null === localStorage.getItem( 'tabbis' ) ) {
+                return;
+            }
+            if ( 0 === localStorage.getItem( 'tabbis' ).length ) {
+                return;
+            }
 
-		// Scroll the window to top of the tab list.
-		function scrollWindow() {
-			resizeArea();
+            memory = Object.values( JSON.parse( localStorage.getItem( 'tabbis' ) ) );
+        }
 
-			$( 'html, body' ).scrollTop(
-				jq.offset().top -
-				parseInt( $( 'html' ).css( 'paddingTop' ) ) -
-				20
-			);
-		}
+        function putActiveClass() {
+            var i;
+            for ( i = 0; i < activeChildren[type].length; i++ ) {
+                activeChildren[type][i].classList.remove( data[type + 'Active']);
+            }
 
-		// Constructor.
-		function init() {
-			var current = jq.find( '.sui-tab > input:checked' );
+            activeItems[type].classList.add( data[type + 'Active']);
+        }
 
-			jq.on( 'click', '.sui-tab > input[type=radio]', updateHash );
-			$( window ).on( 'hashchange', switchTab );
-			current.parent().find( 'label' ).addClass( 'active' );
+        function setDefaults() {
+            var i;
+            for ( i = 0; i < types.length; i++ ) {
+                type = types[i];
 
-			resizeArea();
-			switchTab();
-		}
+                setOption( type + 'Group', '[data-' + type + 's]' );
+                setOption( type + 'Active', 'active' );
+            }
+        }
 
-		init();
+        function setOption( key, value ) {
+            data = data || [];
+            data[key] = data[key] || value;
+        }
 
-		$( window ).resize( function() {
-			resizeArea();
-		});
+        function setActiveGroup() {
+            activeGroups[type] = groups[type][indexGroup];
+        }
 
-		return this;
-	};
+        function setActiveChildren() {
+            activeChildren[type] = activeGroups[type].children;
+        }
 
-	// Initialize all tab-areas.
-	$( '.sui-2-2-9 .sui-tabs' ).each( function() {
-		SUI.suiTabs( this );
-	});
+        function setActiveItems() {
+            activeItems[type] = activeChildren[type][indexItem];
+        }
+
+        function setCallback() {
+            if ( 'function' === typeof data.callback ) {
+                data.callback( activeItems.tab, activeItems.pane );
+            }
+        }
+
+        function reset() {
+            var groupIndex;
+            var itemIndex;
+            for ( groupIndex = 0;  groupIndex < groups.tab.length; groupIndex++ ) {
+                tabItems = groups.tab[groupIndex].children;
+                paneItems = groups.pane[groupIndex].children;
+
+                for ( itemIndex = 0; itemIndex < tabItems.length; itemIndex++ ) {
+                    tabItems[itemIndex].classList.remove( data['tab-active']);
+                    paneItems[itemIndex].classList.remove( data['pane-active']);
+                }
+            }
+            localStorage.removeItem( 'tabbis' );
+        }
+
+        init( options );
+    };
+
+    if ( 0 !== $( '.sui-2-2-9 .sui-tabs' ).length ) {
+        SUI.suiTabs();
+    }
 
 }( jQuery ) );
 
