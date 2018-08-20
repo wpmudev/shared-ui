@@ -1,125 +1,81 @@
 @include body-class(true) {
 
 	.sui-tabs {
-		float: none;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		border-top: 1px solid $tabs-content-border-color;
-		background-color: $white;
-
-		&:before, &:after {
-			content: '';
-			display: table;
-			clear: both;
+		[data-tabs] {
+			display: flex;
+			border-top: 1px solid $tabs-content-border-color;
+			background-color: $white;
 		}
-
-		.sui-tab {
-			float: left;
-
-			> label {
-				cursor: pointer;
-				display: block;
-				position: relative;
-				top: 0;
-				margin: 0 10px;
-				padding: 14px 0 12px;
-				border: 0;
-				border-bottom: 2px solid transparent;
-				color: $tabs-label-color;
-				font-size: 12px;
-				line-height: 22px;
-				font-weight: 500;
-				text-transform: uppercase;
-			}
-
-			input[type=radio] {
-				display: none;
-				&:checked + label {
-					background-color: $white;
-					color: $tabs-label-checked-color;
-					height: 61px;
-					z-index: 3;
-				}
-			}
-
-			.sui-tab-content {
-				z-index: 2;
-				display: none;
-				text-align: left;
-				left: 0;
-				right: 0;
-				width: auto;
-				padding: 30px 0 0;
-				position: absolute;
-				min-height: 150px;
-				border-top: 1px solid $tabs-content-border-color;
-				background-color: $white;
-				overflow: auto;
-				top: 49px;
-
-				@include media( max-width, md ) {
-					padding: $sui-gutter-md 0 0;
-				}
-			}
-
-			input[type=radio]:checked ~ .sui-tab-content {
-				display: block;
-			}
-
-			& > .active {
-				color: $tabs-label-active-border-color;
-				border-bottom-color: $tabs-label-active-color;
-				z-index: 10;
-			}
-
-			&:first-child > label {
+		[data-tabs] > * {
+			margin: 0 10px;
+			padding: 14px 0 12px;
+			cursor: pointer;
+			border-bottom: 2px solid transparent;
+			color: $tabs-label-color;
+			font-size: 12px;
+			line-height: 22px;
+			font-weight: 500;
+			text-transform: uppercase;
+			&:first-child {
 				margin-left: 0;
 			}
 
-			&:last-child > label {
+			&:last-child {
 				margin-right: 0;
 			}
 		}
-	}
+		[data-tabs] .active {
+			color: $tabs-label-active-border-color;
+			border-bottom-color: $tabs-label-active-color;
+		}
+		[data-panes] > * {
+			display: none;
+			padding: 30px 0 0;
+			border-top: 1px solid #e6e6e6;
+			margin-top: -1px;
+		}
+		[data-panes] > .active {
+			display: block;
+		}
 
-	// Side tabs
-	.sui-tabs.sui-side-tabs {
-		border-top: 0;
-		background-color: transparent;
+		&.sui-side-tabs {
+			border-top: 0;
+			background-color: transparent;
 
-		.sui-tab {
+			[data-tabs] {
+				border-top: 0;
 
-			> label {
-				margin-right: 1px;
-				margin-left: 0;
-				padding: 9px 20px;
-				border-bottom: 0;
-				background-color: $side-tabs--label-background;
-				color: $side-tabs--label-color;
-				font-size: 13px;
-				text-transform: none;
+				> * {
+					margin-right: 1px;
+					margin-left: 0;
+					padding: 9px 20px;
+					border-bottom: 0;
+					background-color: $side-tabs--label-background;
+					color: $side-tabs--label-color;
+					font-size: 13px;
+					text-transform: none;
 
-				&.active {
-					background-color: $side-tabs--label-active-background;
-					color: $side-tabs--label-active-color;
+					&.active {
+						background-color: $side-tabs--label-active-background;
+						color: $side-tabs--label-active-color;
+					}
+
+					&:first-child {
+						border-top-left-radius: $border-radius;
+						border-bottom-left-radius: $border-radius;
+					}
+
+					&:last-child {
+						margin-right: 0;
+						border-top-right-radius: $border-radius;
+						border-bottom-right-radius: $border-radius;
+					}
 				}
 			}
 
-			.sui-tab-content {
+			[data-panes] > * {
 				top: 40px;
 				border-top: 0;
-			}
-
-			&:first-child > label {
-				border-top-left-radius: $border-radius;
-				border-bottom-left-radius: $border-radius;
-			}
-
-			&:last-child > label {
-				margin-right: 0;
-				border-top-right-radius: $border-radius;
-				border-bottom-right-radius: $border-radius;
 			}
 		}
 	}
@@ -129,23 +85,14 @@
 		padding-top: 0;
 
 		> .sui-tabs {
-			border-top: 0;
-		}
-
-		> .sui-tabs > .sui-tab {
-
-			> label {
-				height: auto;
-				padding-bottom: 7px;
-				line-height: 22px;
-
-				@include media(min-width, md) {
-					padding-bottom: 12px;
-				}
+			[data-tabs] {
+				border-top: 0;
 			}
 		}
 
-		> .sui-tabs > .sui-tab > .sui-tab-content {
+		[data-panes] {
+			border-top: 1px solid #e6e6e6;
+			margin-top: -1px;
 			margin-right: -#{$sui-gutter-md};
 			margin-left: -#{$sui-gutter-md};
 			padding-right: $sui-gutter-md;
@@ -159,4 +106,5 @@
 			}
 		}
 	}
+
 }
