@@ -3056,12 +3056,11 @@ $( '.sui-date .sui-form-control' ).datepicker({
 					<div class="sui-sidenav">
 						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 							<li class="sui-vertical-tab current">
-								<a role="button" href="#demo-sidenav-link-1">Sidenav Link </a>
+								<a role="button" href="#demo-sidenav-link-1">Sidenav Link 1</a>
 								<span class="sui-tag sui-tag-warning">4</span>
 							</li>
 							<li class="sui-vertical-tab">
 								<a role="button" href="#demo-sidenav-link-2">Sidenav Link 2</a>
-								<span class="sui-tag sui-tag-beta">beta</span>
 							</li>
 							<li class="sui-vertical-tab">
 								<a role="button" href="#demo-sidenav-link-3">Sidenav Link 3</a>
@@ -3128,22 +3127,20 @@ $( '.sui-date .sui-form-control' ).datepicker({
 
 				<div class="demo-info-block">
 					<h2>Tabs</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
 					<div class="sui-notice sui-notice-warning">
 						<p>If you are using individual js components, <code>tabs.js</code> is required.</p>
 					</div>
-					<p>If you add some tabs after the DOM has loaded you can initialise them by calling <code>SUI.suiTabs();</code></p>
 				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-body">
 						<div class="sui-tabs">
-							<div data-tabs>
-								<div>Automatic</div>
-								<div class="active">Manual</div>
-							</div>
-
-							<div data-panes>
-								<div>
-									<p>Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</p>
+							<div class="sui-tab">
+								<label id="auto-apache" for="apache-config-auto" class="">Automatic</label>
+								<input type="radio" name="apache-config-type" id="apache-config-auto" checked>
+								<div class="sui-tab-content">
+									<p>Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</span>
 
 									<div class="sui-notice sui-notice-info">
 										<p>Automatic browser caching is active.</p>
@@ -3152,8 +3149,12 @@ $( '.sui-date .sui-form-control' ).datepicker({
 									<div>
 										<a role="button" href="#" class="sui-button sui-button-ghost">Deactivate</a>
 									</div>
-								</div>
-								<div>
+								</div><!-- end content -->
+							</div><!-- end tab -->
+							<div class="sui-tab">
+								<label id="manual-apache" for="apache-config-manual">Manual</label>
+								<input type="radio" name="apache-config-type" id="apache-config-manual">
+								<div class="sui-tab-content">
 									<div class="apache-instructions">
 										<p>Follow the steps below to add browser caching to your Apache server.</p>
 
@@ -3217,59 +3218,27 @@ Header set Cache-Control "max-age=691200"
 																href="https://premium.wpmudev.org/live-support/">Start
 										a
 										live chat.</a></p>
-								</div>
-							</div>
-						</div>
-						<hr>
-						<h2>Nested Tabs</h2>
-
-						<div class="sui-tabs">
-							<div data-tabs>
-								<div>Tab1</div>
-								<div>Tab2</div>
-								<div>Tab3</div>
-							</div>
-
-							<div data-panes>
-								<div>Pane1</div>
-								<div>
-									<div data-tabs>
-										<div>Tab4</div>
-										<div>Tab5</div>
-									</div>
-
-									<div data-panes>
-										<div>Pane4</div>
-										<div>
-											<div data-tabs>
-												<div>Tab6</div>
-												<div>Tab7</div>
-											</div>
-
-											<div data-panes>
-												<div>Pane6</div>
-												<div>Pane7</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div>Pane3</div>
-							</div>
-						</div>
+								</div><!-- end apache-instructions -->
+							</div><!-- end content -->
+						</div><!-- end tab -->
 					</div>
 				</div>
 				<div class="demo-code-block">
 					<pre class="sui-code-snippet html">
 &lt;div class="sui-tabs"&gt;
-	&lt;div data-tabs&gt;
-		&lt;div&gt;Tab1&lt;/div&gt;
-		&lt;div&gt;Tab2&lt;/div&gt;
-		&lt;div&gt;Tab3&lt;/div&gt;
+	&lt;div class="sui-tab"&gt;
+		&lt;label for="first-tab-content"&gt;Automatic&lt;/label&gt;
+		&lt;input type="radio" id="first-tab-content" checked&gt;
+		&lt;div class="sui-tab-content"&gt;
+			&lt;p&gt;First Tab Content&lt;/p&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div data-panes&gt;
-		&lt;div&gt;Pane1&lt;/div&gt;
-		&lt;div&gt;Pane2&lt;/div&gt;
-		&lt;div&gt;Pane3&lt;/div&gt;
+	&lt;div class="sui-tab"&gt;
+		&lt;label for="second-tab-content"&gt;Manual&lt;/label&gt;
+		&lt;input type="radio" id="second-tab-content"&gt;
+		&lt;div class="sui-tab-content"&gt;
+			&lt;p&gt;Second Tab Content&lt;/p&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
