@@ -1,3 +1,13 @@
+v2.2.10
+
+ - [Enhance] Refactor tabs.
+             Dev Notes: IMPORTANT - sui-tabs have changed structure. You will need to go through your plugin and update
+             every sui-tab to use the new structure.
+ - [New] Add recipient component with example.
+ - [Enhance] Dialog alternative design
+ - [Improvement] Update horizontal tabs to match newer designs
+
+
 v2.2.9
 
  - [Enhance] Dialog alternative design
