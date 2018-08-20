@@ -6,6 +6,7 @@ v2.2.10
  - [New] Add recipient component with example.
  - [Enhance] Dialog alternative design
  - [Improvement] Update horizontal tabs to match newer designs
+ - [Improvement] Improve sidenav
 
 
 v2.2.9
