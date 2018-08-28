@@ -1,150 +1,78 @@
 @include body-class(true) {
 
-	// Must use in conjunction with .sui-table on the <table> element.
 	.sui-accordion {
-		margin: 0;
-		border: 0;
-		table-layout: initial;
 
-		&:after {
-			content: "";
-			display: table;
-			margin-bottom: $sui-gutter;
-		}
-		th {
-			@include media( max-width, md ) {
-				padding: 15px $sui-gutter-md;
-				&:first-child,
-				&:last-child {
-					padding: 15px $sui-gutter-md;
+		// Must use in conjunction with .sui-table on the <table> element.
+		&.sui-table {
+
+			tbody {
+	
+				.sui-accordion-item {
+					cursor: pointer;
+	
+					th, td {
+						transition: background-color 0.2s;
+					}
+		
+					.sui-accordion-open-indicator {
+						float: right;
+						margin-left: 10px;
+		
+						[class*="sui-icon-"] {
+							display: block;
+							margin-right: 0;
+							font-size: 12px;
+						}
+					}
+	
+					&:hover,
+					&:focus {
+	
+						th, td {
+							background-color: $accordion--content-bg-color;
+						}
+					}
+		
+					// Open content
+					&.sui-accordion-item--open {
+	
+						th, td {
+							border-bottom-color: $accordion--content-bg-color;
+							background-color: $accordion--content-bg-color;
+						}
+	
+						.sui-accordion-open-indicator i {
+							transform: rotate(180deg);
+						}
+	
+						&.sui-error,
+						&.sui-warning,
+						&.sui-success {
+	
+							th, td {
+								box-shadow: none;
+							}
+						}
+		
+						+ .sui-accordion-item-content {
+							display: table-row;
+						}
+					}
+				}
+		
+				.sui-accordion-item-content {
+					display: none;
+					background-color: $accordion--content-bg-color;
+	
+					th, td {
+						padding: 0 $sui-gutter-md $sui-gutter-md;
+	
+						@include media(min-width, md) {
+							padding: 0 $sui-gutter $sui-gutter;
+						}
+					}
 				}
 			}
 		}
 	}
-
-	.sui-accordion-item {
-		display: table-row;
-		vertical-align: middle;
-		cursor: pointer;
-		transition: background-color .2s;
-		border-left: 2px solid transparent;
-
-		+ .sui-accordion-item-content {
-			border-left: 2px solid transparent;
-		}
-
-		&.sui-success {
-			color: inherit;
-			border-color: $success;
-			i:before {
-				color: inherit;
-			}
-
-			+ .sui-accordion-item-content {
-				border-color: $success;
-			}
-		}
-
-		&.sui-warning {
-			color: inherit;
-			border-color: $warning;
-			i:before {
-				color: inherit;
-			}
-
-			+ .sui-accordion-item-content {
-				border-color: $warning;
-			}
-		}
-
-		&.sui-error {
-			color: inherit;
-			border-color: $error;
-			i:before {
-				color: inherit;
-			}
-
-			+ .sui-accordion-item-content {
-				border-color: $error;
-			}
-		}
-
-		&:hover,
-		&:focus {
-			background-color: $accordion--content-bg-color;
-		}
-
-		td {
-			@include media( max-width, md ) {
-				padding: 15px $sui-gutter-md;
-				&:first-child,
-				&:last-child {
-					padding: 15px $sui-gutter-md;
-				}
-			}
-		}
-
-		td > * {
-			vertical-align: middle;
-		}
-
-		&--open td {
-			background-color: $accordion--content-bg-color;
-			border-bottom: 1px solid $accordion--content-bg-color;
-		}
-
-		&--open + .sui-accordion-item-content {
-			display: table-row;
-		}
-
-		&--open .sui-accordion-open-indicator i {
-			transform: rotate(180deg);
-		}
-	}
-
-	.sui-accordion-open-indicator {
-		float: right;
-		text-align: center;
-
-		i {
-			transform-origin: center;
-			font-size: 10px;
-			color: $accordion--open-indicator-color;
-			transition: .5s;
-
-			&:before {
-				position: relative;
-				top: 2px;
-			}
-		}
-	}
-
-	.sui-accordion-item-title {
-		font-size: 15px;
-
-		i {
-			font-size: 20px;
-			margin-right: 10px;
-		}
-	}
-
-	.sui-accordion-item-content {
-		display: none;
-		background-color: $accordion--content-bg-color;
-		border-top: 0;
-
-		td {
-			width: 100%;
-			padding: 0 30px 30px 30px;
-
-			@include media( max-width, md ) {
-				padding: 0 $sui-gutter-md $sui-gutter-md $sui-gutter-md;
-			}
-		}
-
-		.sui-box {
-			margin-bottom: 0;
-		}
-	}
-
 }
