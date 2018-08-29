@@ -1,0 +1,278 @@
+@include body-class(true) {
+
+	&.sui-color-accessible {
+		color: $accessible-dark;
+
+		// Typography.
+		h1, h2, h3, h4, h5, h6, p, p small, li, code, pre {
+			color: $accessible-dark;
+		}
+		a {
+			color: lighten($accessible-dark, 10%);
+			&:hover {
+				color: $accessible-dark;
+			}
+		}
+
+		pre,
+		code {
+			background: $accessible-light;
+		}
+
+		// Box Settings
+		.sui-settings-label,
+		.sui-description {
+			color: $accessible-dark;
+		}
+
+		// Forms.
+		.sui-form-control,
+		.sui-label,
+		.sui-error-message {
+			border-color: $accessible-dark;
+			color: $accessible-dark;
+		}
+
+		.sui-upload-button {
+			color: $accessible-dark;
+			background: $accessible-light;
+		}
+
+		.sui-upload-label {
+			&:hover {
+				.sui-upload-button {
+					color: $accessible-light;
+					background: $accessible-dark;
+				}
+			}
+		}
+
+		.select-container {
+			.select-list-container {
+				.list-value {
+					border-color: $accessible-dark;
+				}
+				.list-results {
+					li.sui-element-flex {
+						span + span {
+							color: $accessible-dark;
+						}
+					}
+				}
+			}
+
+		}
+		.sui-insert-variables {
+			.sui-variables+.select2 {
+				.select2-selection--single {
+					border-color: $accessible-dark;
+				}
+			}
+
+		}
+
+		// Recipient.
+		.sui-recipient {
+			span {
+				color: $accessible-dark;
+			}
+		}
+
+		// Summary.
+		.sui-summary {
+			.sui-summary-segment {
+				.sui-summary-details {
+					.sui-summary-sub {
+						color: $accessible-dark;
+					}
+				}
+
+				.sui-list {
+					.sui-list-label,
+					.sui-list-detail {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Sidenav.
+		.sui-row-with-sidenav {
+			.sui-sidenav {
+				.sui-vertical-tabs {
+					a {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Tabs.
+		.sui-tabs {
+			[data-tabs] > * {
+				color: $accessible-dark;
+			}
+
+		}
+
+		// Tags.
+		.sui-tag {
+			background: $accessible-dark;
+			color: $accessible-light;
+		}
+
+		// Notifications.
+		.sui-notice,
+		.sui-notice-top {
+			border-left-color: $accessible-dark;
+			.sui-notice-dismiss a,
+			p:first-of-type:before {
+				color: $accessible-dark;
+			}
+		}
+
+		// Icons.
+		[class*="sui-icon-"] {
+			&:before {
+				color: $accessible-dark !important;
+			}
+		}
+
+		// Progress bars.
+		.sui-progress-state {
+			.sui-progress-state-text {
+				color: $accessible-dark;
+			}
+		}
+		.sui-progress-block {
+			.sui-progress {
+				.sui-progress-bar {
+					span {
+						background: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Tables.
+		.sui-table {
+			border-color: $accessible-dark;
+			th,
+			td {
+				border-color: $accessible-dark;
+				color: $accessible-dark;
+			}
+		}
+
+		// Accordions.
+		.sui-accordion {
+			.sui-accordion-open-indicator {
+				i {
+					color: $accessible-dark;
+				}
+			}
+			.sui-accordion-item {
+				&:hover {
+					background: transparent;
+				}
+			}
+			.sui-accordion-item-title {
+				i {
+					color: $accessible-dark;
+				}
+			}
+		}
+
+		// Scores.
+		.sui-grade-a,
+		.sui-grade-b,
+		.sui-grade-c,
+		.sui-grade-d,
+		.sui-grade-e,
+		.sui-grade-f  {
+			svg circle:last-child {
+				stroke: $accessible-dark;
+			}
+		}
+
+		// Dropdowns.
+		.sui-dropdown {
+			ul {
+				li {
+					color: $accessible-dark;
+					&:hover {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Buttons.
+		.sui-button-icon:not(.sui-button),
+		.sui-button {
+			color: $accessible-light !important;
+			background: $accessible-dark !important;
+			i {
+				&:before {
+					color: $accessible-light !important;
+				}
+			}
+			&.sui-button-ghost {
+				padding: 7px 16px;
+				border: 0;
+			}
+
+		}
+
+		// Lists.
+		.sui-list {
+			.sui-list-label,
+			.sui-list-detail {
+				color: $accessible-dark;
+			}
+		}
+
+		// Toggles.
+		.sui-toggle {
+			input[type=checkbox]:checked+.sui-toggle-slider {
+				background-color: $accessible-dark;
+			}
+		}
+
+	}
+}
+
+// Loaded outside of sui-wrap.
+@include body-class() {
+
+	// Select2.
+	.sui-select-dropdown {
+		.select2-results {
+			.select2-results__group,
+			.select2-results__option {
+				color: $accessible-dark;
+			}
+		}
+	}
+	select.sui-select+.select2-container {
+		.select2-selection--single {
+			.select2-selection__rendered {
+				color: $accessible-dark;
+			}
+		}
+	}
+	.sui-variables-dropdown {
+		.select2-results {
+			.select2-results__message {
+				color: $accessible-dark;
+			}
+		}
+		.select2-search--dropdown:after {
+			color: $accessible-dark;
+		}
+	}
+}
