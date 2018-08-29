@@ -1,3 +1,9 @@
+v2.3.0
+ - [Improvement] Add class sui-color-accessible to sui-wrap to change all components to black and white
+ - [Improvement] Enhance/accordions
+             Dev Notes: Check all accordions to make sure they're displaying correctly. You may need to update
+             the accordion title class. Check showcase for code.
+
 v2.2.10
 
  - [Enhance] Refactor tabs.
