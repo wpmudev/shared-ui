@@ -2,6 +2,383 @@
 
 	.sui-accordion {
 
+		// Flexbox accordion
+		&:not(.sui-table) {
+			margin: $sui-gutter-md 0;
+			border: 1px solid $table--border-color;
+			border-radius: $border-radius;
+
+			.sui-accordion-header,
+			.sui-accordion-item-header {
+				min-height: 40px;
+				display: flex;
+				align-items: center;
+				padding: 5px 0;
+				font-size: $table--text-font-size;
+				line-height: $table--text-line-height;
+				font-family: $font;
+				font-weight: 400;
+				letter-spacing: $font--letter-spacing;
+
+				> div {
+					display: flex;
+					align-items: center;
+					flex: 1;
+					padding: 0 #{($sui-gutter-md / 2) - 1px};
+
+					&:first-child {
+						padding-left: #{$sui-gutter-md - 1px};
+
+						@include media(min-width, md) {
+							padding-left: #{$sui-gutter - 1px};
+						}
+					}
+
+					&:last-child {
+						padding-right: #{$sui-gutter-md - 1px};
+
+						@include media(min-width, md) {
+							padding-right: #{$sui-gutter - 1px};
+						}
+					}
+
+					@include media(min-width, md) {
+						padding-right: #{($sui-gutter / 2) - 1px};
+						padding-left: #{($sui-gutter / 2) - 1px};
+					}
+				}
+
+				> [class^="sui-accordion-col-"] {
+					flex: 0 0 auto;
+				}
+
+				// GRID
+				// To guarantee accordion columns agree on size we can apply
+				// below column classes based on a 12-columns grid.
+				.sui-accordion-col-1 {
+					min-width: #{(100%*1)/$accordion--grid};
+					flex-basis: #{(100%*1)/$accordion--grid};
+				}
+
+				.sui-accordion-col-2 {
+					min-width: #{(100%*2)/$accordion--grid};
+					flex-basis: #{(100%*2)/$accordion--grid};
+				}
+
+				.sui-accordion-col-3 {
+					min-width: #{(100%*3)/$accordion--grid};
+					flex-basis: #{(100%*3)/$accordion--grid};
+				}
+
+				.sui-accordion-col-4 {
+					min-width: #{(100%*4)/$accordion--grid};
+					flex-basis: #{(100%*4)/$accordion--grid};
+				}
+
+				.sui-accordion-col-5 {
+					min-width: #{(100%*5)/$accordion--grid};
+					flex-basis: #{(100%*5)/$accordion--grid};
+				}
+
+				.sui-accordion-col-6 {
+					min-width: #{(100%*6)/$accordion--grid};
+					flex-basis: #{(100%*6)/$accordion--grid};
+				}
+
+				.sui-accordion-col-7 {
+					min-width: #{(100%*7)/$accordion--grid};
+					flex-basis: #{(100%*7)/$accordion--grid};
+				}
+
+				.sui-accordion-col-8 {
+					min-width: #{(100%*8)/$accordion--grid};
+					flex-basis: #{(100%*8)/$accordion--grid};
+				}
+
+				.sui-accordion-col-9 {
+					min-width: #{(100%*9)/$accordion--grid};
+					flex-basis: #{(100%*9)/$accordion--grid};
+				}
+
+				.sui-accordion-col-10 {
+					min-width: #{(100%*10)/$accordion--grid};
+					flex-basis: #{(100%*10)/$accordion--grid};
+				}
+
+				.sui-accordion-col-11 {
+					min-width: #{(100%*11)/$accordion--grid};
+					flex-basis: #{(100%*11)/$accordion--grid};
+				}
+
+				.sui-accordion-col-12 {
+					min-width: #{(100%*12)/$accordion--grid};
+					flex-basis: #{(100%*12)/$accordion--grid};
+				}
+
+				@include media(min-width, md) {
+					min-height: 60px;
+				}
+			}
+
+			.sui-accordion-header {
+				border-bottom: 1px solid $table--border-color;
+
+				> div {
+					overflow: hidden;
+					color: $table--th-color;
+					font-weight: bold;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+
+			.sui-accordion-item {
+				border-bottom: 1px solid $table--border-color;
+
+				.sui-accordion-item-header {
+					cursor: pointer;
+					color: $table--text-color;
+					transition: 0.3s ease;
+
+					[class*="sui-icon-"] {
+						margin-right: 10px;
+						font-size: 12px;
+
+						&:before {
+							display: block;
+						}
+
+						&.sui-icon-right {
+							margin-right: 0;
+							margin-left: 10px;
+						}
+					}
+
+					.sui-accordion-item-title {
+						color: $table--th-color;
+						font-weight: 500;
+
+						.sui-toggle {
+							align-items: flex-start;
+						}
+
+						[class*="sui-icon-"] {
+							font-size: 20px;
+						}
+					}
+
+					.sui-accordion-open-indicator {
+						align-self: flex-start;
+						margin-right: 0;
+						margin-left: auto;
+
+						[class*="sui-icon-"] {
+							margin: 0;
+							transition: 0.2s linear;
+						}
+					}
+
+					&:hover,
+					&:focus {
+						background-color: $accordion--content-bg-color;
+					}
+				}
+
+				.sui-accordion-item-body {
+					display: none;
+					padding: 0 #{$sui-gutter-md - 1px} #{$sui-gutter-md - 1px};
+					background-color: $accordion--content-bg-color;
+
+					.sui-box:last-child {
+						margin-bottom: 0;
+					}
+
+					@include media(min-width, md) {
+						padding: 0 #{$sui-gutter - 1px} #{$sui-gutter - 1px};
+					}
+				}
+
+				&:first-child {
+
+					.sui-accordion-item-header {
+						border-top-left-radius: #{$border-radius - 1px};
+						border-top-right-radius: #{$border-radius - 1px};
+					}
+				}
+
+				&:last-child {
+					border-bottom: 0;
+
+					.sui-accordion-item-header,
+					.sui-accordion-item-body {
+						border-bottom-right-radius: #{$border-radius - 1px};
+						border-bottom-left-radius: #{$border-radius - 1px};
+					}
+				}
+
+				// STATUS: Error
+				&.sui-error {
+
+					.sui-accordion-item-header,
+					.sui-accordion-item-body {
+						box-shadow: inset 3px 0 $error;
+					}
+				}
+
+				// STATUS: Warning
+				&.sui-warning {
+
+					.sui-accordion-item-header,
+					.sui-accordion-item-body {
+						box-shadow: inset 3px 0 $warning;
+					}
+				}
+
+				// STATUS: Success
+				&.sui-success {
+
+					.sui-accordion-item-header,
+					.sui-accordion-item-body {
+						box-shadow: inset 3px 0 $success;
+					}
+				}
+
+				// When item is open
+				&.sui-accordion-item--open {
+
+					.sui-accordion-item-header {
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+						background-color: $accordion--content-bg-color;
+
+						.sui-accordion-open-indicator {
+
+							[class*="sui-icon-"] {
+								transform: rotate(180deg);
+							}
+						}
+					}
+
+					.sui-accordion-item-body {
+						display: block;
+					}
+				}
+
+				// When item is disabled
+				&.sui-accordion-item--disabled {
+
+					.sui-accordion-item-header {
+						cursor: default;
+						background-color: $accordion--content-bg-color;
+
+						&, .sui-accordion-item-title {
+							color: palette(silver, medium);
+						}
+
+						&, .sui-accordion-open-indicator {
+							pointer-events: none;
+						}
+
+						.sui-toggle {
+							pointer-events: initial;
+						}
+
+						.sui-circle-score svg circle:last-child {
+							stroke: palette(gray, lighter);
+						}
+
+						[class*="sui-icon-"]:before {
+							color: palette(gray, lighter);
+						}
+					}
+
+					&.sui-error,
+					&.sui-warning,
+					&.sui-success {
+
+						.sui-accordion-item-header {
+							box-shadow: inset 3px 0 palette(gray, lighter);
+						}
+					}
+
+					&.sui-accordion-item--open {
+
+						.sui-accordion-item-body {
+							display: none;
+						}
+					}
+				}
+			}
+
+			// Flushed accordion
+			&.sui-accordion-flushed {
+				margin: 0;
+				border-right-width: 0;
+				border-left-width: 0;
+				border-radius: 0;
+
+				&:first-child {
+					border-top-width: 0;
+				}
+
+				&:last-child {
+					border-bottom-width: 0;
+				}
+
+				&:not(:first-child) {
+
+					.sui-accordion-item:first-child {
+
+						.sui-accordion-item-header {
+							border-top-left-radius: 0;
+							border-top-right-radius: 0;
+						}
+					}
+				}
+
+				&:not(:last-child) {
+
+					.sui-accordion-item:last-child {
+
+						.sui-accordion-item-header,
+						.sui-accordion-item-body {
+							border-bottom-right-radius: 0;
+							border-bottom-left-radius: 0;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			&:first-child {
+				margin-top: 0;
+
+				@include media(min-width, md) {
+					margin-top: 0;
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+
+				@include media(min-width, md) {
+					margin-bottom: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				margin-top: $sui-gutter;
+				margin-bottom: $sui-gutter;
+			}
+		}
+
 		// Must use in conjunction with .sui-table on the <table> element.
 		&.sui-table {
 
@@ -62,15 +439,63 @@
 		
 				.sui-accordion-item-content {
 					display: none;
-					background-color: $accordion--content-bg-color;
 	
 					th, td {
 						padding: 0 $sui-gutter-md $sui-gutter-md;
+						background-color: $accordion--content-bg-color;
 	
 						@include media(min-width, md) {
 							padding: 0 $sui-gutter $sui-gutter;
 						}
 					}
+				}
+
+				// FIX:
+				// Assign border radius to last group of items on table.
+				// Each group is defined by:
+				// .sui-accordion-item and .sui-accordion-item-content
+				.sui-item-last {
+
+					&.sui-accordion-item,
+					&.sui-accordion-item-content {
+
+						th:first-child,
+						td:first-child {
+							border-bottom-left-radius: #{$border-radius - 1px};
+						}
+
+						th:last-child,
+						td:last-child {
+							border-bottom-right-radius: #{$border-radius - 1px};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// FIX:
+	// Improve styles of flushed accordions inside .sui-box
+	.sui-box {
+
+		.sui-box-header {
+
+			+ .sui-accordion-flushed {
+				border-top-width: 0;
+			}
+		}
+
+		.sui-box-body {
+
+			> .sui-accordion-flushed {
+				margin-right: -#{$sui-gutter-md};
+				margin-bottom: -#{$sui-gutter-md};
+				margin-left: -#{$sui-gutter-md};
+
+				@include media(min-width, md) {
+					margin-right: -#{$sui-gutter};
+					margin-bottom: -#{$sui-gutter};
+					margin-left: -#{$sui-gutter};
 				}
 			}
 		}
