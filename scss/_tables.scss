@@ -27,7 +27,7 @@
 				th, td {
 					height: 40px;
 					vertical-align: middle;
-					padding: #{$sui-gutter-md - ($table--text-line-height / 2)} #{($sui-gutter-md / 2) - $table--border-width} #{$sui-gutter-md - ($table--border-width + ($table--text-line-height / 2))};
+					padding: 5px #{($sui-gutter-md / 2) - $table--border-width};
 					border: 0;
 					border-bottom: $table--border-width $table--border-style $table--border-color;
 
@@ -49,7 +49,8 @@
 	
 					@include media(min-width, md) {
 						height: 60px;
-						padding: #{$sui-gutter - ($table--text-line-height / 2)} #{($sui-gutter / 2) - $table--border-width} #{$sui-gutter - ($table--border-width + ($table--text-line-height / 2))};
+						padding-right: #{($sui-gutter / 2) - $table--border-width};
+						padding-left: #{($sui-gutter / 2) - $table--border-width};
 					}
 				}
 			}
