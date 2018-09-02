@@ -1423,177 +1423,144 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 					<div class="sui-notice sui-notice-warning">
 						<p>If you are using individual js components, <code>accordion.js</code> is required.</p>
 					</div>
-					<div class="sui-notice sui-notice-info">
-						<p>If you need to disable an item try with <strong>flexbox accordions</strong> and do the following: <code>&lt;div class=&quot;sui-accordion-item sui-accordion-item--disabled&quot;&gt;</code></p>
-					</div>
 				</div>
 
-				<!-- Flexbox accordion – Normal -->
 				<div role="navigation" aria-label="Filters" class="sui-row-with-sidenav">
 
 					<div class="sui-sidenav">
 						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 							<li class="sui-vertical-tab current">
-								<a role="button" href="#demo-improvements">Improvements</a>
-								<span class="sui-tag sui-tag-success">3</span>
+								<a href="#" role="button" data-tab="accordion-flexbox">Flexbox based</a>
 							</li>
 							<li class="sui-vertical-tab">
-								<a role="button" href="#demo-reporting">Reporting</a>
+								<a href="#" role="button" data-tab="accordion-table">Table based</a>
+							</li>
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="accordion-documentation">Documentation</a>
 							</li>
 						</ul>
 						<div class="sui-sidenav-hide-lg">
-							<div class="select-container sui-mobile-nav">
-								<span class="dropdown-handle">
-									<i aria-hidden="true" class="sui-icon-chevron-down"></i>
-								</span>
-								<select class="sui-mobile-nav" style="display: none;">
-									<option value="" selected="selected">Improvements</option>
-									<option value="#reporting">Reporting</option>
-								</select>
-								<div class="select-list-container">
-									<div class="list-value">Improvements</div>
-									<ul class="list-results">
-										<li class="current">Improvements</li>
-										<li>Reporting</li>
-									</ul>
-								</div>
-							</div>
+							<select class="sui-mobile-nav">
+								<option>Flexbox Accordion</option>
+								<option>Table Accordion</option>
+								<option>Documentation</option>
+							</select>
 						</div>
 					</div>
 
-					<div class="sui-box">
+					<!-- TAB: Flexbox based -->
+					<div class="sui-box" data-tab="accordion-flexbox">
 
 						<div class="sui-box-header">
-							<h2 class="sui-box-title">Accordion samples</h2>
+							<h2 class="sui-box-title">Flexbox Accordions</h2>
 						</div>
 
 						<div class="sui-box-body">
 
-							<h3>Flexbox Accordion</h3>
+							<div class="sui-box-settings-row">
 
-							<p>Below you can find latest performance test results using <strong>flebox accordions</strong>. The element starts like this: <code>&lt;div class=&quot;sui-accordion&quot;&gt;...&lt;/div&gt;</code></p>
-
-							<div class="sui-accordion">
-
-								<div class="sui-accordion-header">
-
-									<div class="sui-accordion-col-4">Recommendation</div>
-									<div class="sui-accordion-col-4">Score / 100</div>
-									<div class="sui-accordion-col-4">Type</div>
-
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #1</span>
+									<span class="sui-description">Latest performance test results sample. This kind of data is used on projects like Hummingbird.</span>
 								</div>
 
-								<div class="sui-accordion-item sui-error">
+								<div class="sui-box-settings-col-2">
 
-									<div class="sui-accordion-item-header">
+									<div class="sui-accordion">
 
-										<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-error"></i> Item</div>
+										<div class="sui-accordion-header">
 
-										<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-f" data-score="8"></div></div>
+											<div class="sui-accordion-col-4">Recommendation</div>
+											<div class="sui-accordion-col-4">Score / 100</div>
+											<div class="sui-accordion-col-4">Type</div>
 
-										<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
-											<i class="sui-icon-chevron-down" aria-hidden="true"></i>
-										</button></div>
+										</div>
 
-									</div>
+										<div class="sui-accordion-item sui-error">
 
-									<div class="sui-accordion-item-body">
+											<div class="sui-accordion-item-header">
 
-										<div class="sui-box">
+												<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-error"></i> Item</div>
 
-											<div class="sui-box-body">
+												<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-f" data-score="8"></div></div>
 
-												<p>Item content – Hello!</p>
+												<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+													<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+												</button></div>
+
+											</div>
+
+											<div class="sui-accordion-item-body">
+
+												<div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+
+												</div>
 
 											</div>
 
 										</div>
 
-									</div>
+										<div class="sui-accordion-item sui-warning">
 
-								</div>
+											<div class="sui-accordion-item-header">
 
-								<div class="sui-accordion-item sui-warning">
+												<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-warning"></i> Item</div>
 
-									<div class="sui-accordion-item-header">
+												<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-c" data-score="67"></div></div>
 
-										<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-warning"></i> Item</div>
+												<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+													<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+												</button></div>
 
-										<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-c" data-score="67"></div></div>
+											</div>
 
-										<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
-											<i class="sui-icon-chevron-down" aria-hidden="true"></i>
-										</button></div>
+											<div class="sui-accordion-item-body">
 
-									</div>
+												<div class="sui-box">
 
-									<div class="sui-accordion-item-body">
+													<div class="sui-box-body">
 
-										<div class="sui-box">
+														<p>Item content – Hello!</p>
 
-											<div class="sui-box-body">
+													</div>
 
-												<p>Item content – Hello!</p>
+												</div>
 
 											</div>
 
 										</div>
 
-									</div>
+										<div class="sui-accordion-item sui-success">
 
-								</div>
+											<div class="sui-accordion-item-header">
 
-								<div class="sui-accordion-item sui-success">
+												<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item</div>
 
-									<div class="sui-accordion-item-header">
+												<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-a" data-score="95"></div></div>
 
-										<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item</div>
-
-										<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-a" data-score="95"></div></div>
-
-										<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
-											<i class="sui-icon-chevron-down" aria-hidden="true"></i>
-										</button></div>
-
-									</div>
-
-									<div class="sui-accordion-item-body">
-
-										<div class="sui-box">
-
-											<div class="sui-box-body">
-
-												<p>Item content – Hello!</p>
+												<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+													<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+												</button></div>
 
 											</div>
 
-										</div>
+											<div class="sui-accordion-item-body">
 
-									</div>
+												<div class="sui-box">
 
-								</div>
+													<div class="sui-box-body">
 
-								<div class="sui-accordion-item sui-success sui-accordion-item--disabled">
+														<p>Item content – Hello!</p>
 
-									<div class="sui-accordion-item-header">
+													</div>
 
-										<div class="sui-accordion-item-title sui-accordion-col-4"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item (disabled)</div>
-
-										<div class="sui-accordion-col-4"><div class="sui-circle-score sui-grade-a" data-score="95"></div></div>
-
-										<div class="sui-accordion-col-4">More info on something <button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
-											<i class="sui-icon-chevron-down" aria-hidden="true"></i>
-										</button></div>
-
-									</div>
-
-									<div class="sui-accordion-item-body">
-
-										<div class="sui-box">
-
-											<div class="sui-box-body">
-
-												<p>Item content – Hello!</p>
+												</div>
 
 											</div>
 
@@ -1605,193 +1572,133 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 							</div>
 
-							<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-accordion&quot;&gt;
+							<div class="sui-box-settings-row">
 
-	&lt;div class=&quot;sui-accordion-header&quot;&gt;
-		&lt;div&gt;Recommendation&lt;/div&gt;
-		&lt;div&gt;Score / 100&lt;/div&gt;
-		&lt;div&gt;Type&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class=&quot;sui-accordion-item&quot;&gt;
-
-		&lt;div class=&quot;sui-accordion-item-header&quot;&gt;
-			&lt;div class=&quot;sui-accordion-item-title&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-warning-alert sui-error&quot;&gt;&lt;/i&gt; Item&lt;/div&gt;
-			&lt;div&gt;&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;8&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-			&lt;div&gt;More info on something &lt;button class=&quot;sui-button-icon sui-accordion-open-indicator&quot; aria-label=&quot;Open item&quot;&gt;&lt;i class=&quot;sui-icon-chevron-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class=&quot;sui-accordion-item-body&quot;&gt;
-			&lt;div class=&quot;sui-box&quot;&gt;
-				&lt;div class=&quot;sui-box-body&quot;&gt;
-					&lt;p&gt;Item content – Hello!&lt;/p&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-
-&lt;/div&gt;
-</pre>
-							</div>
-
-							<h3>Table Accordion</h3>
-
-							<p>Below you can find latest performance test results using <strong>table accordions</strong>. The element requires the use of <code>sui-table</code> and starts like this: <code>&lt;table class=&quot;sui-table sui-accordion&quot;&gt;...&lt;/table&gt;</code></p>
-
-							<table class="sui-table sui-accordion">
-
-								<thead><tr>
-									<th>Recommendation</th>
-									<th>Score / 100</th>
-									<th>Type</th>
-								</tr></thead>
-
-								<tbody>
-
-									<tr class="sui-accordion-item sui-error">
-
-										<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-error"></i> Item</td>
-
-										<td><div class="sui-circle-score sui-grade-f" data-score="6"></div></td>
-
-										<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
-
-									</tr>
-
-									<tr class="sui-accordion-item-content">
-
-										<td colspan="3"><div class="sui-box">
-											<div class="sui-box-body">Item content – Hello!</div>
-										</div></td>
-
-									</tr>
-
-									<tr class="sui-accordion-item sui-warning">
-
-										<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-warning"></i> Item</td>
-
-										<td><div class="sui-circle-score sui-grade-d" data-score="80"></div></td>
-
-										<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
-
-									</tr>
-
-									<tr class="sui-accordion-item-content">
-
-										<td colspan="3"><div class="sui-box">
-											<div class="sui-box-body">Item content – Hello!</div>
-										</div></td>
-
-									</tr>
-
-									<tr class="sui-accordion-item sui-success">
-
-										<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item</td>
-
-										<td><div class="sui-circle-score sui-grade-a" data-score="100"></div></td>
-
-										<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
-
-									</tr>
-
-									<tr class="sui-accordion-item-content">
-
-										<td colspan="3"><div class="sui-box">
-											<div class="sui-box-body">Item content – Hello!</div>
-										</div></td>
-
-									</tr>
-
-								</tbody>
-
-							</table>
-
-							<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;table class=&quot;sui-table sui-accordion&quot;&gt;
-
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Recommendation&lt;/th&gt;
-			&lt;th&gt;Score / 100&lt;/th&gt;
-			&lt;th&gt;Type&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-
-	&lt;tbody&gt;
-
-		&lt;tr class=&quot;sui-accordion-item&quot;&gt;
-			&lt;td class=&quot;sui-table-item-title&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-warning-alert sui-error&quot;&gt;&lt;/i&gt; Item&lt;/td&gt;
-			&lt;td&gt;&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;6&quot;&gt;&lt;/div&gt;&lt;/td&gt;
-			&lt;td&gt;More info on something. &lt;button class=&quot;sui-button-icon sui-accordion-open-indicator&quot; aria-label=&quot;Expand&quot;&gt;&lt;i class=&quot;sui-icon-chevron-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-
-		&lt;tr class=&quot;sui-accordion-item-content&quot;&gt;
-			&lt;td colspan=&quot;3&quot;&gt;
-				&lt;div class=&quot;sui-box&quot;&gt;
-					&lt;div class=&quot;sui-box-body&quot;&gt;
-						&lt;p&gt;Item content – Hello!&lt;/p&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/td&gt;
-		&lt;/tr&gt;
-
-	&lt;/tbody&gt;
-
-&lt;/table&gt;
-</pre>
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<!-- Flexbox accordion – Flushed -->
-				<div role="navigation" aria-label="Filters" class="sui-row-with-sidenav">
-
-					<div class="sui-sidenav">
-						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
-							<li class="sui-vertical-tab current">
-								<a role="button" href="#demo-improvements">Improvements</a>
-								<span class="sui-tag sui-tag-success">3</span>
-							</li>
-							<li class="sui-vertical-tab">
-								<a role="button" href="#demo-reporting">Reporting</a>
-							</li>
-						</ul>
-						<div class="sui-sidenav-hide-lg">
-							<div class="select-container sui-mobile-nav">
-								<span class="dropdown-handle">
-									<i aria-hidden="true" class="sui-icon-chevron-down"></i>
-								</span>
-								<select class="sui-mobile-nav" style="display: none;">
-									<option value="" selected="selected">Improvements</option>
-									<option value="#reporting">Reporting</option>
-								</select>
-								<div class="select-list-container">
-									<div class="list-value">Improvements</div>
-									<ul class="list-results">
-										<li class="current">Improvements</li>
-										<li>Reporting</li>
-									</ul>
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #2</span>
+									<span class="sui-description">Enable field and its settings sample. This kind of data is used on projects like Forminator.</span>
 								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-accordion">
+
+										<div class="sui-accordion-item">
+
+											<div class="sui-accordion-item-header">
+
+												<div class="sui-accordion-item-title">
+													<label for="flexbox-accordion-sample-item-1" class="sui-toggle">
+														<input type="checkbox" id="flexbox-accordion-sample-item-1" checked="checked">
+														<span aria-hidden="true" class="sui-toggle-slider"></span>
+														<span class="sui-screen-reader-text">Toggle</span>
+													</label>
+													<span>Item</span>
+													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+													</button>
+												</div>
+
+											</div>
+
+											<div class="sui-accordion-item-body">
+
+												<div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-accordion-item">
+
+											<div class="sui-accordion-item-header">
+
+												<div class="sui-accordion-item-title">
+													<label for="flexbox-accordion-sample-item-2" class="sui-toggle">
+														<input type="checkbox" id="flexbox-accordion-sample-item-2" checked="checked">
+														<span aria-hidden="true" class="sui-toggle-slider"></span>
+														<span class="sui-screen-reader-text">Toggle</span>
+													</label>
+													<span>Item</span>
+													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+													</button>
+												</div>
+
+											</div>
+
+											<div class="sui-accordion-item-body">
+
+												<div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-accordion-item">
+
+											<div class="sui-accordion-item-header">
+
+												<div class="sui-accordion-item-title">
+													<label for="flexbox-accordion-sample-item-3" class="sui-toggle">
+														<input type="checkbox" id="flexbox-accordion-sample-item-3">
+														<span aria-hidden="true" class="sui-toggle-slider"></span>
+														<span class="sui-screen-reader-text">Toggle</span>
+													</label>
+													<span>Item</span>
+													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
+														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+													</button>
+												</div>
+
+											</div>
+
+											<div class="sui-accordion-item-body">
+
+												<div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
 							</div>
-						</div>
-					</div>
 
-					<div class="sui-box">
+							<div class="sui-box-settings-row">
 
-						<div class="sui-box-header">
-							<h2 class="sui-box-title">Flexbox accordion – Flushed</h2>
-						</div>
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #3</span>
+									<span class="sui-description">On some projects you gonna need to make accordion fill the entire box. We call this <strong>flushed accordion</strong> and can be achieved including <code>sui-accordion-flushed</code> class and works better when you place it outside <code>sui-box-body</code> as another box element.</span>
+								</div>
 
-						<div class="sui-box-body">
-
-							<p>Below you can find latest performance test results using <strong>flebox accordions</strong>. This element starts like this: <code>&lt;div class=&quot;sui-accordion sui-accordion-flushed&quot;&gt;...&lt;/div&gt;</code></p>
+							</div>
 
 						</div>
 
@@ -1899,50 +1806,192 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 					</div>
 
-				</div>
-
-				<!-- Table accordion – Flushed -->
-				<div role="navigation" aria-label="Filters" class="sui-row-with-sidenav">
-
-					<div class="sui-sidenav">
-						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
-							<li class="sui-vertical-tab current">
-								<a role="button" href="#demo-improvements">Improvements</a>
-								<span class="sui-tag sui-tag-success">3</span>
-							</li>
-							<li class="sui-vertical-tab">
-								<a role="button" href="#demo-reporting">Reporting</a>
-							</li>
-						</ul>
-						<div class="sui-sidenav-hide-lg">
-							<div class="select-container sui-mobile-nav">
-								<span class="dropdown-handle">
-									<i aria-hidden="true" class="sui-icon-chevron-down"></i>
-								</span>
-								<select class="sui-mobile-nav" style="display: none;">
-									<option value="" selected="selected">Improvements</option>
-									<option value="#reporting">Reporting</option>
-								</select>
-								<div class="select-list-container">
-									<div class="list-value">Improvements</div>
-									<ul class="list-results">
-										<li class="current">Improvements</li>
-										<li>Reporting</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="sui-box">
+					<!-- TAB: Table based -->
+					<div class="sui-box" data-tab="accordion-table" style="display: none;">
 
 						<div class="sui-box-header">
-							<h2 class="sui-box-title">Table accordion – Flushed</h2>
+							<h2 class="sui-box-title">Table Accordions</h2>
 						</div>
 
 						<div class="sui-box-body">
 
-							<p>Below you can find latest performance test results using <strong>table accordions</strong>. This element starts like this: <code>&lt;table class=&quot;sui-table sui-table-flushed sui-accordion&quot;&gt;...&lt;/table&gt;</code></p>
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #1</span>
+									<span class="sui-description">Latest performance test results sample. This kind of data is used on projects like Hummingbird.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<thead><tr>
+											<th>Recommendation</th>
+											<th>Score / 100</th>
+											<th>Type</th>
+										</tr></thead>
+
+										<tbody>
+
+											<tr class="sui-accordion-item sui-error">
+
+												<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-error"></i> Item</td>
+
+												<td><div class="sui-circle-score sui-grade-f" data-score="6"></div></td>
+
+												<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td colspan="3"><div class="sui-box">
+													<div class="sui-box-body"><p>Item content – Hello!</p></div>
+												</div></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item sui-warning">
+
+												<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-warning"></i> Item</td>
+
+												<td><div class="sui-circle-score sui-grade-d" data-score="80"></div></td>
+
+												<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td colspan="3"><div class="sui-box">
+													<div class="sui-box-body"><p>Item content – Hello!</p></div>
+												</div></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item sui-success sui-table-item-last">
+
+												<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item</td>
+
+												<td><div class="sui-circle-score sui-grade-a" data-score="100"></div></td>
+
+												<td>More info on something. <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span><button type="button" class="sui-screen-reader-text">Expand</button></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content sui-table-item-last">
+
+												<td colspan="3"><div class="sui-box">
+													<div class="sui-box-body"><p>Item content – Hello!</p></div>
+												</div></td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #2</span>
+									<span class="sui-description">Enable field and its settings sample. This kind of data is used on projects like Forminator.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<tbody>
+
+											<tr class="sui-accordion-item sui-table-item-first">
+
+												<td class="sui-table-item-title"><label for="table-accordion-sample-item-1" class="sui-toggle"><input type="checkbox" id="table-accordion-sample-item-1" checked="checked"><span aria-hidden="true" class="sui-toggle-slider"></span><span class="sui-screen-reader-text">Toggle</span></label>Item <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+	
+												</div></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item">
+
+												<td class="sui-table-item-title"><label for="table-accordion-sample-item-2" class="sui-toggle"><input type="checkbox" id="table-accordion-sample-item-2" checked="checked"><span aria-hidden="true" class="sui-toggle-slider"></span><span class="sui-screen-reader-text">Toggle</span></label>Item <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+	
+												</div></td>
+
+											</tr>
+
+											<tr class="sui-accordion-item sui-table-item-last">
+
+												<td class="sui-table-item-title">
+													<label for="table-accordion-sample-item-3" class="sui-toggle">
+														<input type="checkbox" id="table-accordion-sample-item-3">
+														<span aria-hidden="true" class="sui-toggle-slider"></span>
+														<span class="sui-screen-reader-text">Toggle</span>
+													</label>
+													Item <span class="sui-accordion-open-indicator" aria-label="Expand"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span>
+												</td>
+
+											</tr>
+
+											<tr class="sui-accordion-item-content sui-table-item-last">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-body">
+
+														<p>Item content – Hello!</p>
+
+													</div>
+	
+												</div></td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Sample #3</span>
+									<span class="sui-description">For flushed accordions using tables, it's gonna be defined by table class not accordion. In this case you gonna need to do this: <code>&lt;table class=&quot;sui-table sui-table-flushed sui-accordion&quot;&gt;</code>.</span>
+								</div>
+
+							</div>
 
 						</div>
 
@@ -1992,7 +2041,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 									</tr>
 
-									<tr class="sui-accordion-item sui-success">
+									<tr class="sui-accordion-item sui-success sui-table-item-last">
 
 										<td class="sui-table-item-title"><i aria-hidden="true" class="sui-icon-warning-alert sui-success"></i> Item</td>
 
@@ -2002,7 +2051,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 									</tr>
 
-									<tr class="sui-accordion-item-content">
+									<tr class="sui-accordion-item-content sui-table-item-last">
 
 										<td colspan="3"><div class="sui-box">
 											<div class="sui-box-body">Item content – Hello!</div>
@@ -2012,7 +2061,175 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 								</tbody>
 
-							</table>
+						</table>
+
+					</div>
+
+					<!-- TAB: Documentation -->
+					<div class="sui-box" data-tab="accordion-documentation" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Documentation</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Flexbox Accordions</span>
+									<span class="sui-description"></span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-accordion&quot;&gt;
+
+	&lt;div class=&quot;sui-accordion-header&quot;&gt;
+		&lt;div&gt;Recommendation&lt;/div&gt;
+		&lt;div&gt;Score / 100&lt;/div&gt;
+		&lt;div&gt;Type&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-accordion-item&quot;&gt;
+
+		&lt;div class=&quot;sui-accordion-item-header&quot;&gt;
+			&lt;div class=&quot;sui-accordion-item-title&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-warning-alert sui-error&quot;&gt;&lt;/i&gt; Item&lt;/div&gt;
+			&lt;div&gt;&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;8&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+			&lt;div&gt;More info on something &lt;button class=&quot;sui-button-icon sui-accordion-open-indicator&quot; aria-label=&quot;Open item&quot;&gt;&lt;i class=&quot;sui-icon-chevron-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;sui-accordion-item-body&quot;&gt;
+			&lt;div class=&quot;sui-box&quot;&gt;
+				&lt;div class=&quot;sui-box-body&quot;&gt;
+					&lt;p&gt;Item content – Hello!&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Table Accordions</span>
+									<span class="sui-description"></span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;table class=&quot;sui-table sui-accordion&quot;&gt;
+
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Recommendation&lt;/th&gt;
+			&lt;th&gt;Score / 100&lt;/th&gt;
+			&lt;th&gt;Type&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+
+	&lt;tbody&gt;
+
+		&lt;tr class=&quot;sui-accordion-item&quot;&gt;
+			&lt;td class=&quot;sui-table-item-title&quot;&gt;&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-warning-alert sui-error&quot;&gt;&lt;/i&gt; Item&lt;/td&gt;
+			&lt;td&gt;&lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score=&quot;6&quot;&gt;&lt;/div&gt;&lt;/td&gt;
+			&lt;td&gt;More info on something. &lt;button class=&quot;sui-button-icon sui-accordion-open-indicator&quot; aria-label=&quot;Expand&quot;&gt;&lt;i class=&quot;sui-icon-chevron-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+
+		&lt;tr class=&quot;sui-accordion-item-content&quot;&gt;
+			&lt;td colspan=&quot;3&quot;&gt;
+				&lt;div class=&quot;sui-box&quot;&gt;
+					&lt;div class=&quot;sui-box-body&quot;&gt;
+						&lt;p&gt;Item content – Hello!&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+
+	&lt;/tbody&gt;
+
+&lt;/table&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Disabled Item</span>
+									<span class="sui-description">Disable the row and prevent from opening.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<p><strong>Disable a flexbox accordion item:</strong></p>
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-accordion-item&quot;&gt; ... &lt;/div&gt;
+&lt;div class=&quot;sui-accordion-item&quot;&gt; ... &lt;/div&gt;
+&lt;div class=&quot;sui-accordion-item sui-accordion-item--disabled&quot;&gt; ... &lt;/div&gt;
+</pre>
+									</div>
+
+									<p><strong>Disable a table accordion item:</strong></p>
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;tbody&gt;
+	&lt;tr class=&quot;sui-accordion-item sui-accordion-item--disabled&quot;&gt; ... &lt;/tr&gt;
+	&lt;tr class=&quot;sui-accordion-item-content&quot;&gt; ... &lt;/tr&gt;
+&lt;/tbody&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Accordion samples</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<h3>Flexbox Accordion</h3>
+
+							<p>Below you can find latest performance test results using <strong>flebox accordions</strong>. The element starts like this: <code>&lt;div class=&quot;sui-accordion&quot;&gt;...&lt;/div&gt;</code></p>
+
+							
+
+							
+
+							<h3>Table Accordion</h3>
+
+							<p>Below you can find latest performance test results using <strong>table accordions</strong>. The element requires the use of <code>sui-table</code> and starts like this: <code>&lt;table class=&quot;sui-table sui-accordion&quot;&gt;...&lt;/table&gt;</code></p>
+
+							
+
+							
+
+						</div>
 
 					</div>
 
