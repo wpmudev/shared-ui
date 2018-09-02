@@ -76,6 +76,10 @@
 			tr th,
 			tr td {
 
+				.sui-toggle {
+					vertical-align: text-top;
+				}
+
 				[class*="sui-icon-"] {
 					margin-right: 10px;
 					font-size: 10px;
@@ -128,33 +132,15 @@
 			}
 
 			tr.sui-error {
-
-				th, td {
-
-					&:first-child {
-						box-shadow: inset 3px 0 0 $error;
-					}
-				}
+				box-shadow: inset 3px 0 0 $error;
 			}
 
 			tr.sui-warning {
-
-				th, td {
-
-					&:first-child {
-						box-shadow: inset 3px 0 0 $warning;
-					}
-				}
+				box-shadow: inset 3px 0 0 $warning;
 			}
 
 			tr.sui-success {
-
-				th, td {
-
-					&:first-child {
-						box-shadow: inset 3px 0 0 $success;
-					}
-				}
+				box-shadow: inset 3px 0 0 $success;
 			}
 		}
 
