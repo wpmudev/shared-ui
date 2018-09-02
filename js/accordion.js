@@ -40,7 +40,7 @@
         init: function() {
 
             // namespaced event
-            this.$element.on( 'click.sui.accordion', '.sui-accordion-item', function( event ) {
+            this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
 
 				var getItem = $( this ).closest( '.sui-accordion-item' ),
 					getContent = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
