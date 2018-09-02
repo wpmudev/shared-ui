@@ -62,7 +62,7 @@
 			margin-top: 0;
 			padding: 10px 0;
 			font: 500 15px/25px $font;
-			background: $select-list-results-bg-color;
+			background: $white;
 			position: absolute;
 			left: auto;
 			right: -22px;
@@ -74,7 +74,7 @@
 			li {
 				padding: 10px 15px;
 				background: none;
-				color: $select-list-results-li-color;
+				color: palette(gray, light);
 				cursor: pointer;
 				list-style: none;
 				font-weight: 400;
@@ -93,16 +93,16 @@
 					}
 				}
 				&:hover:not(.sui-dropdown-label) {
-					background: $select-list-hover-bg-color;
-					color: $select-list-value-hover-color;
+					background: palette(silver);
+					color: palette(gray, dark);
 				}
 
 				&.active {
-					background: $select-active-list-value-bg-color;
-					color: $select-active-list-value-color;
+					background: palette(silver, light);
+					color: palette(gray, dark);
 				}
 				&.current {
-					background: $select-current-bg-color;
+					background: palette(gray, light);
 					color: $white;
 				}
 
