@@ -1,21 +1,32 @@
 @include body-class(true) {
 
 	.sui-tabs {
-		[data-tabs] {
+
+		> [data-tabs] {
 			display: flex;
 			border-top: 1px solid $tabs-content-border-color;
 			background-color: $white;
 		}
-		[data-tabs] > * {
+
+		> [data-tabs] > * {
+			cursor: pointer;
 			margin: 0 10px;
 			padding: 14px 0 12px;
-			cursor: pointer;
-			border-bottom: 2px solid transparent;
-			color: $tabs-label-color;
-			font-size: 12px;
-			line-height: 22px;
-			font-weight: 500;
-			text-transform: uppercase;
+
+			&,
+			&:focus,
+			&:hover,
+			&:active,
+			&:visited {
+				border-bottom: 2px solid transparent;
+				color: $tabs-label-color;
+				font-size: 12px;
+				line-height: 22px;
+				font-weight: 500;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+
 			&:first-child {
 				margin-left: 0;
 			}
@@ -24,17 +35,20 @@
 				margin-right: 0;
 			}
 		}
-		[data-tabs] .active {
+
+		> [data-tabs] > .active {
 			color: $tabs-label-active-border-color;
 			border-bottom-color: $tabs-label-active-color;
 		}
-		[data-panes] > * {
+
+		> [data-panes] > * {
 			display: none;
+			margin-top: -1px;
 			padding: 30px 0 0;
 			border-top: 1px solid #e6e6e6;
-			margin-top: -1px;
 		}
-		[data-panes] > .active {
+
+		> [data-panes] > .active {
 			display: block;
 		}
 
@@ -42,7 +56,7 @@
 			border-top: 0;
 			background-color: transparent;
 
-			[data-tabs] {
+			> [data-tabs] {
 				border-top: 0;
 
 				> * {
@@ -73,9 +87,31 @@
 				}
 			}
 
-			[data-panes] > * {
-				top: 40px;
+			> [data-panes] > * {
 				border-top: 0;
+			}
+
+			> [data-panes] > .sui-tab-boxed {
+				margin-top: 10px;
+				border: 1px solid #E6E6E6;
+				border-radius: $border-radius;
+				padding: $sui-gutter-md;
+
+				@include media(min-width, md) {
+					padding: $sui-gutter;
+				}
+			}
+
+			> [data-panes] > .sui-tab-empty {
+				display: none;
+				padding: 0;
+			}
+		}
+
+		&.sui-tabs-react {
+
+			> [data-panes] > * {
+				display: block;
 			}
 		}
 	}
@@ -85,26 +121,26 @@
 		padding-top: 0;
 
 		> .sui-tabs {
-			[data-tabs] {
+
+			> [data-tabs] {
 				border-top: 0;
 			}
-		}
 
-		[data-panes] {
-			border-top: 1px solid #e6e6e6;
-			margin-top: -1px;
-			margin-right: -#{$sui-gutter-md};
-			margin-left: -#{$sui-gutter-md};
-			padding-right: $sui-gutter-md;
-			padding-left: $sui-gutter-md;
-
-			@include media(min-width, md) {
-				margin-right: -#{$sui-gutter};
-				margin-left: -#{$sui-gutter};
-				padding-right: $sui-gutter;
-				padding-left: $sui-gutter;
+			> [data-panes] {
+				margin-top: -1px;
+				margin-right: -#{$sui-gutter-md};
+				margin-left: -#{$sui-gutter-md};
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
+				border-top: 1px solid #e6e6e6;
+	
+				@include media(min-width, md) {
+					margin-right: -#{$sui-gutter};
+					margin-left: -#{$sui-gutter};
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
 			}
 		}
 	}
-
 }
