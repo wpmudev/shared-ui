@@ -22,7 +22,10 @@
 				flex: 0 0 #{$summary-image--width + $sui-gutter};
 
 				@if variable-exists(summary-image) {
-					display: block;
+
+					@if $summary-image != '' {
+						display: block;
+					}
 				}
 			}
 		}
@@ -30,6 +33,44 @@
 		// ELEMENT: Content
 		.sui-summary-segment {
 			flex: 1;
+
+			.sui-list {
+
+				@include media(min-width, md) {
+					padding-right: #{$sui-gutter / 2};
+					padding-left: #{$sui-gutter / 2};
+				}
+			}
+
+			.sui-summary-details {
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
+			&:first-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-left: 0;
+					}
+				}
+			}
+
+			&:last-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-right: 0;
+					}
+				}
+			}
 		}
 
 		// ELEMENT: Summary details
@@ -116,47 +157,6 @@
 			}
 		}
 
-		.sui-summary-segment {
-
-			.sui-list {
-
-				@include media(min-width, md) {
-					padding-right: #{$sui-gutter / 2};
-					padding-left: #{$sui-gutter / 2};
-				}
-			}
-
-			.sui-summary-details {
-
-				@include media(min-width, md) {
-					padding-right: $sui-gutter;
-					padding-left: $sui-gutter;
-				}
-			}
-
-			&:first-child {
-
-				.sui-list,
-				.sui-summary-details {
-
-					@include media(min-width, md) {
-						padding-left: 0;
-					}
-				}
-			}
-
-			&:last-child {
-
-				.sui-list,
-				.sui-summary-details {
-
-					@include media(min-width, md) {
-						padding-right: 0;
-					}
-				}
-			}
-		}
-
 		@include media(min-width, md) {
 			display: flex;
 			align-items: center;
@@ -174,7 +174,23 @@
 		// This fil will allow us to add the correct margins
 		// in case summary-image variable doesn't exist.
 		@if variable-exists(summary-image) {
-			// Do nothing
+
+			@if $summary-image == '' {
+
+				.sui-summary-image-space {
+
+					&:first-child + .sui-summary-segment {
+	
+						.sui-list,
+						.sui-summary-details {
+		
+							@include media(min-width, md) {
+								padding-left: 0;
+							}
+						}
+					}
+				}
+			}
 		} @else {
 
 			.sui-summary-image-space {
