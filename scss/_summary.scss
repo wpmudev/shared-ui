@@ -32,7 +32,7 @@
 
 		// ELEMENT: Content
 		.sui-summary-segment {
-			flex: 1;
+			display: block;
 
 			.sui-list {
 
@@ -71,6 +71,13 @@
 					}
 				}
 			}
+
+			@include media(min-width, md) {
+				overflow: hidden;
+				flex: 1;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 		}
 
 		// ELEMENT: Summary details
@@ -102,6 +109,7 @@
 
 				@include media(min-width, md) {
 					margin-bottom: 24px;
+					white-space: normal;
 				}
 			}
 
@@ -122,11 +130,18 @@
 			}
 
 			.sui-summary-detail {
+				display: block;
 				font-size: 15px;
 				font-weight: 500;
 
 				+ .sui-summary-sub {
 					margin-top: 5px;
+				}
+
+				@include media(min-width, md) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
 				}
 			}
 
@@ -150,6 +165,10 @@
 
 		// ELEMENT: List of data
 		.sui-list {
+
+			li span {
+				white-space: normal;
+			}
 
 			@include media(min-width, md) {
 				padding-top: #{$sui-gutter / 2};
