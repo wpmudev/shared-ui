@@ -1,133 +1,192 @@
 @include body-class(true) {
 
 	.sui-summary {
-		padding: 30px;
-		background-image: url($summary-image-default-url);
-		background-repeat: no-repeat;
-		background-position: $summary-image-default-position;
-		background-size: $summary-image-default-width $summary-image-default-height;
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		@include media( max-width, md ) {
-			padding: $sui-gutter-md $sui-gutter-md 10px;
+		padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+
+		.sui-summary-image-space,
+		.sui-summary-segment {
+			padding: #{$sui-gutter-md / 2} 0;
+
+			@include media(min-width, md) {
+				padding: 0 #{$sui-gutter / 2};
+			}
 		}
 
-		@media( max-width: 1100px ){
-			background-image: none !important;
-		}
-
+		// ELEMENT: Image
 		.sui-summary-image-space {
-			width: 100%;
-			min-height: $summary-image-default-height;
-			float: left;
-			max-width: $summary-image-default-width;
+			display: none;
 
-			@media( max-width: 1100px ){
-				display: none !important;
+			@include media(min-width, md) {
+				min-width: #{$summary-image--width + $sui-gutter};
+				min-height: $summary-size;
+				flex: 0 0 #{$summary-image--width + $sui-gutter};
+
+				@if variable-exists(summary-image) {
+					display: block;
+				}
+			}
+		}
+
+		// ELEMENT: Content
+		.sui-summary-segment {
+			flex: 1;
+		}
+
+		// ELEMENT: Summary details
+		.sui-summary-details {
+			color: $summary-details--color;
+			font-size: 13px;
+			line-height: 22px;
+			font-family: $font;
+			letter-spacing: $font--letter-spacing;
+			text-align: center;
+
+			span {
+				display: inline-block;
+			}
+
+			.sui-summary-sub {
+				display: block;
+				margin-top: 0;
+				margin-bottom: 5px;
+				color: $summary-details--sub-color;
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@include media(min-width, md) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(min-width, md) {
+					margin-bottom: 24px;
+				}
+			}
+
+			.sui-summary-percent {
+				margin-left: -5px;
+			}
+
+			.sui-summary-large {
+				font-size: 50px;
+				line-height: 55px;
+
+				+ .sui-summary-sub {
+
+					@include media(min-width, md) {
+						margin-top: -1px;
+					}
+				}
+			}
+
+			.sui-summary-detail {
+				font-size: 15px;
+				font-weight: 500;
+
+				+ .sui-summary-sub {
+					margin-top: 5px;
+				}
+			}
+
+			[class*="sui-icon-"] {
+				position: relative;
+				top: -22px;
+				left: 5px;
+				font-size: 16px;
+
+				+ .sui-summary-percent {
+					margin-left: -20px;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-top: #{$sui-gutter / 2};
+				padding-bottom: #{$sui-gutter / 2};
+				text-align: left;
+			}
+		}
+
+		// ELEMENT: List of data
+		.sui-list {
+
+			@include media(min-width, md) {
+				padding-top: $sui-gutter;
+				padding-bottom: $sui-gutter;
 			}
 		}
 
 		.sui-summary-segment {
-			position: relative;
-			color: #333333;
-			width: calc(100% / 2 - 98px);
-			padding-left: 5%;
-			display: inline-block;
-			vertical-align: middle;
-
-			.sui-summary-details {
-				min-height: 80px;
-
-				@media( max-width: 600px ){
-					position: inherit;
-					top: 0;
-					transform: translateY(0);
-				}
-
-				.sui-summary-sub {
-					display: block;
-					font-size: 13px;
-					margin-top: 0;
-					margin-bottom: 20px;
-					line-height: 22px;
-					color: $list-summary-small-color;
-
-					&:last-of-type {
-						margin-bottom: 0;
-					}
-
-					@media ( max-width: 960px ) {
-						margin-bottom: 5px;
-					}
-				}
-
-				.sui-summary-percent {
-					font-size: 13px;
-					line-height: 22px;
-					margin-left: -5px;
-				}
-
-				i {
-					position: relative;
-					top: -22px;
-					left: 5px;
-					font-size: 16px;
-
-					+ .sui-summary-percent {
-						margin-left: -20px;
-
-					}
-					&.sui-warning,
-					&.sui-info,
-					&.sui-error,
-					&.sui-success {
-						&:before {
-							color: inherit;
-						}
-					}
-
-				}
-
-				.sui-summary-large {
-					font-size: 50px;
-					line-height: 55px;
-					margin-bottom: 20px;
-				}
-
-
-			}
-
-			@media( max-width: 1100px ){
-				text-align: left;
-				padding-left: 0;
-				width: 49%;
-			}
-
-			@media( max-width: 600px ){
-				display: block;
-				text-align: center;
-				width: 100%;
-			}
 
 			.sui-list {
-				margin: -19px 0;
 
-				@media( max-width: 783px ){
-					margin: 0 0 10px;
+				@include media(min-width, md) {
+					padding-right: #{$sui-gutter / 2};
+					padding-left: #{$sui-gutter / 2};
 				}
-				@media( max-width: 600px ){
-					text-align: left;
-				}
+			}
 
-				.sui-list-detail {
-					font-size: 13px;
-					font-weight: 500;
-					line-height: 22px;
-					color: $list-summary-number-color;
-					i {
-						line-height: 0;
-						vertical-align: middle;
+			.sui-summary-details {
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
+			&:first-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-left: 0;
+					}
+				}
+			}
+
+			&:last-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+
+		@include media(min-width, md) {
+			display: flex;
+			align-items: center;
+			padding: 0 #{$sui-gutter / 2};
+
+			@if variable-exists(summary-image) {
+				background-image: url($summary-image);
+				background-size: $summary-image--width $summary-image--height;
+				background-position: $summary-image--position;
+				background-repeat: no-repeat;
+			}
+		}
+
+		// FIX:
+		// This fil will allow us to add the correct margins
+		// in case summary-image variable doesn't exist.
+		@if variable-exists(summary-image) {
+			// Do nothing
+		} @else {
+
+			.sui-summary-image-space {
+
+				&:first-child + .sui-summary-segment {
+
+					.sui-list,
+					.sui-summary-details {
+	
+						@include media(min-width, md) {
+							padding-left: 0;
+						}
 					}
 				}
 			}
