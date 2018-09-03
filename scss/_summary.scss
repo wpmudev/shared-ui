@@ -134,6 +134,19 @@
 				font-size: 15px;
 				font-weight: 500;
 
+				img {
+					position: relative;
+					vertical-align: middle;
+					top: -1px;
+					margin-right: 6px;
+		
+					@include media(min-width, md) {
+						float: left;
+						vertical-align: unset;
+						top: 1px;
+					}
+				}
+
 				+ .sui-summary-sub {
 					margin-top: 5px;
 				}
