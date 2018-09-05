@@ -2,7 +2,7 @@
 
 	.sui-pagination {
 		display: flex;
-		margin: $sui-gutter/2 0;
+		margin: 10px 0;
 		padding: 0 1px;
 		border: 0;
 		list-style: none;
@@ -70,11 +70,11 @@
 			}
 
 			&:first-child {
-				border-radius: 5px 0 0 5px;
+				border-radius: $border-radius 0 0 $border-radius;
 			}
 
 			&:last-child {
-				border-radius: 0 5px 5px 0;
+				border-radius: 0 $border-radius $border-radius 0;
 			}
 
 			@include media( max-width, md ) {
@@ -103,10 +103,6 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
-
-		@include media( max-width, md ) {
-			margin: $sui-gutter-md/2 0;
-		}
 	}
 
 	.sui-pagination-results {
@@ -115,22 +111,10 @@
 		font: 400 13px/22px $font;
 	}
 
-	.sui-pagination-open-filter {
-		width: 40px;
-		cursor: pointer;
-		display: inline-block;
-		margin: 0;
-		padding: 0 5px;
-		border: 2px solid $pagination-filter-border;
-		border-radius: 4px;
-		font-size: 12px;
-		line-height: 26px;
-		text-align: center;
-	}
-
 	.sui-pagination-wrap {
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
 
 		.sui-pagination-results {
 
@@ -151,17 +135,47 @@
 			margin-top: 0;
 			margin-bottom: 0;
 
-			+ .sui-pagination-open-filter {
-				margin-left: $sui-gutter/2;
-	
-				@include media( max-width, md ) {
-					margin-left: $sui-gutter-md/2;
-				}
+			+ .sui-button-icon {
+				margin-left: 10px;
 			}
 
 			@include media( max-width, md ) {
 				flex: 1;
 			}
+		}
+
+		+ .sui-table,
+		+ .sui-accordion {
+			margin-top: 10px;
+		}
+	}
+
+	.sui-pagination-filter {
+		display: none;
+		margin: 10px 0;
+		padding: #{$sui-gutter-md - 1px};
+		border: 1px solid $pagination-filter-border;
+		border-radius: $border-radius;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&.sui-open {
+			display: block;
+		}
+
+		+ .sui-table,
+		+ .sui-accordion {
+			margin-top: 10px;
+		}
+
+		@include media(min-width, md) {
+			padding: #{$sui-gutter - 1px};
 		}
 	}
 }
