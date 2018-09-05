@@ -78,6 +78,7 @@
 
 	// Side Tabs
 	.sui-side-tabs {
+		margin: 0 0 $sui-gutter-md;
 
 		> [data-tabs],
 		> .sui-tabs-menu {
@@ -143,6 +144,18 @@
 					display: block;
 				}
 			}
+		}
+
+		&:last-child {
+			margin: 0;
+
+			@include media(min-width, md) {
+				margin: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			margin: 0 0 $sui-gutter;
 		}
 	}
 
