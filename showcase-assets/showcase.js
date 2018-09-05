@@ -1,7 +1,10 @@
 ( function( $ ) {
 
-	var btns = $( '.demo-icon' );
-	var clipboard = new ClipboardJS( '.demo-icon' );
+	var btns            = $( '.demo-icon' ),
+		clipboard       = new ClipboardJS( '.demo-icon' ),
+		navbutton       = $( '.sui-vertical-tab a' ),
+		toggleAccordion = $( 'div.sui-accordion-item-header .sui-toggle, tr.sui-accordion-item .sui-toggle' )
+		;
 
 	// Offset scroll for showcase sidenav.
 	function offsetAnchor() {
@@ -50,6 +53,28 @@
 		$( e ).addClass( 'sui-tooltip' );
 		$( e ).attr( 'aria-label', msg );
 		$( e ).attr( 'data-tooltip', msg );
+	}
+
+	// Side navigation
+	navbutton.on( 'click', function( e ) {
+		currentNav( e.target );
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	function currentNav( e ) {
+		var navButton  = $( e ),
+			navParent  = navButton.closest( '.sui-vertical-tabs' ),
+			navWrapper = navButton.closest( '.sui-row-with-sidenav' ),
+			navBox     = navWrapper.find( '> .sui-box' )
+			;
+		var navData = $( e ).data( 'tab' ),
+			boxData = navWrapper.find( '.sui-box[data-tab="' + navData + '"]' )
+			;
+		navParent.find( 'li' ).removeClass( 'current' );
+		navButton.parent().addClass( 'current' );
+		navBox.hide();
+		boxData.show();
 	}
 
 }( jQuery ) );
