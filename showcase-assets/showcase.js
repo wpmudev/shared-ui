@@ -2,7 +2,8 @@
 
 	var btns            = $( '.demo-icon' ),
 		clipboard       = new ClipboardJS( '.demo-icon' ),
-		navbutton       = $( '.sui-vertical-tab a' )
+		navbutton       = $( '.sui-vertical-tab a' ),
+		demoPagFilter   = $( '#demo--open-pagination-filter' )
 		;
 
 	// Offset scroll for showcase sidenav.
@@ -74,6 +75,23 @@
 		navButton.parent().addClass( 'current' );
 		navBox.hide();
 		boxData.show();
+	}
+
+	// Pagination filter
+	demoPagFilter.on( 'click', function( e ) {
+		openFilter( e.target );
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	function openFilter( e ) {
+		var pagButton  = $( e ),
+			pagWrapper = pagButton.closest( '.sui-pagination-wrap' ),
+			pagFilter  = pagWrapper.next( '.sui-pagination-filter' )
+			;
+
+		pagButton.toggleClass( 'sui-active' );
+		pagFilter.toggleClass( 'sui-open' );
 	}
 
 }( jQuery ) );
