@@ -3126,151 +3126,238 @@ $( '.sui-date .sui-form-control' ).datepicker({
 			<section id="tabs">
 
 				<div class="demo-info-block">
+
 					<h2>Tabs</h2>
+
 					<div class="sui-notice sui-notice-warning">
 						<p>If you are using individual js components, <code>tabs.js</code> is required.</p>
 					</div>
+
 					<p>If you add some tabs after the DOM has loaded you can initialise them by calling <code>SUI.suiTabs();</code></p>
+
 				</div>
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-tabs">
-							<div data-tabs>
-								<div>Automatic</div>
-								<div class="active">Manual</div>
-							</div>
 
-							<div data-panes>
-								<div>
-									<p>Hummingbird can automatically apply browser caching for Apache servers by writing your .htaccess file. Alternately, switch to Manual to apply these rules yourself.</p>
+				<div class="sui-row-with-sidenav">
 
-									<div class="sui-notice sui-notice-info">
-										<p>Automatic browser caching is active.</p>
-									</div>
+					<div class="sui-sidenav">
 
-									<div>
-										<a role="button" href="#" class="sui-button sui-button-ghost">Deactivate</a>
-									</div>
-								</div>
-								<div>
-									<div class="apache-instructions">
-										<p>Follow the steps below to add browser caching to your Apache server.</p>
+						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+							<li class="sui-vertical-tab current">
+								<a href="#" data-tab="demo-tabs">Tabs</a>
+							</li>
+							<li class="sui-vertical-tab">
+								<a href="#" data-tab="demo-side-tabs">Side Tabs</a>
+							</li>
+						</ul>
 
-										<ol class="wphb-listing wphb-listing-ordered">
-											<li>Copy the generated code into your .htaccess file &amp; save your
-												changes.
-											</li>
-											<li>Restart Apache.</li>
-											<li><a href="#">Re-check expiry status.</a></li>
-										</ol>
-
-										<pre class="sui-code-snippet">&lt;IfModule mod_expires.c&gt;
-ExpiresActive On
-ExpiresDefault A0
-
-&lt;FilesMatch "\.(txt|xml|js)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(css)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-ExpiresDefault A691200
-&lt;/FilesMatch&gt;
-&lt;/IfModule&gt;
-
-&lt;IfModule mod_headers.c&gt;
-&lt;FilesMatch "\.(txt|xml|js)$"&gt;
-Header set Cache-Control "max-age=691200"
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(css)$"&gt;
-Header set Cache-Control "max-age=691200"
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$"&gt;
-Header set Cache-Control "max-age=691200"
-&lt;/FilesMatch&gt;
-
-&lt;FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$"&gt;
-Header set Cache-Control "max-age=691200"
-&lt;/FilesMatch&gt;
-&lt;/IfModule&gt;</pre>
-									</div>
-									<p><strong>Troubleshooting</strong></p>
-									<p>If adding the rules to your .htaccess doesn’t work and you have access to
-										vhosts.conf or httpd.conf try to find the line that starts with &lt;Directory&gt;
-										- add the code above into that section and save the file.</p>
-									<p>If you don't know where those files are, or you aren't able to reload Apache,
-										you
-										would need to consult with your hosting provider or a system administrator
-										who
-										has access to change the configuration of your server</p>
-									<p>Still having trouble? <a target="_blank"
-																href="https://premium.wpmudev.org/live-support/">Start
-										a
-										live chat.</a></p>
-								</div>
-							</div>
-						</div>
-						<hr>
-						<h2>Nested Tabs</h2>
-
-						<div class="sui-tabs">
-							<div data-tabs>
-								<div>Tab1</div>
-								<div>Tab2</div>
-								<div>Tab3</div>
-							</div>
-
-							<div data-panes>
-								<div>Pane1</div>
-								<div>
-									<div data-tabs>
-										<div>Tab4</div>
-										<div>Tab5</div>
-									</div>
-
-									<div data-panes>
-										<div>Pane4</div>
-										<div>
-											<div data-tabs>
-												<div>Tab6</div>
-												<div>Tab7</div>
-											</div>
-
-											<div data-panes>
-												<div>Pane6</div>
-												<div>Pane7</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div>Pane3</div>
-							</div>
-						</div>
 					</div>
-				</div>
-				<div class="demo-code-block">
-					<pre class="sui-code-snippet html">
-&lt;div class="sui-tabs"&gt;
-	&lt;div data-tabs&gt;
-		&lt;div&gt;Tab1&lt;/div&gt;
-		&lt;div&gt;Tab2&lt;/div&gt;
-		&lt;div&gt;Tab3&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div data-panes&gt;
-		&lt;div&gt;Pane1&lt;/div&gt;
-		&lt;div&gt;Pane2&lt;/div&gt;
-		&lt;div&gt;Pane3&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
+
+					<div class="sui-box" data-tab="demo-tabs">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Tabs</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Tabs can be used to add multiple content boxes into a smaller screen space.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">The standard state for any tabs where they are already in a padded container.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-tabs">
+
+										<div data-tabs>
+											<div class="active">Tab 1</div>
+											<div>Tab 2</div>
+											<div>Tab 3</div>
+											<div>Tab 4</div>
+										</div>
+
+										<div data-panes>
+
+											<div class="active"><p>Content. Tab 1.</p></div>
+											<div><p>Content. Tab 2.</p></div>
+											<div><p>Content. Tab 3.</p></div>
+											<div><p>Content. Tab 4.</p></div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Flush</span>
+									<span class="sui-description">For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<tr class="sui-accordion-item">
+											<td class="sui-table-item-title">Item #1 <span class="sui-accordion-open-indicator"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+										</tr>
+
+										<tr class="sui-accordion-item-content">
+											<td><div class="sui-box">
+												<div class="sui-box-body">
+													<div class="sui-tabs sui-tabs-flushed">
+														<div data-tabs>
+															<div class="active">Tab 1</div>
+															<div>Tab 2</div>
+															<div>Tab 3</div>
+															<div>Tab 4</div>
+														</div>
+														<div data-panes>
+															<div class="active"><p>Content. Tab 1.</p></div>
+															<div><p>Content. Tab 2.</p></div>
+															<div><p>Content. Tab 3.</p></div>
+															<div><p>Content. Tab 4.</p></div>
+														</div>
+													</div>
+												</div>
+											</div></td>
+										</tr>
+
+										<tr class="sui-accordion-item">
+											<td class="sui-table-item-title">Item #2 <span class="sui-accordion-open-indicator"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+										</tr>
+
+										<tr class="sui-accordion-item-content">
+											<td><div class="sui-box">
+												<div class="sui-box-body">
+													<div class="sui-tabs sui-tabs-flushed">
+														<div data-tabs>
+															<div class="active">Tab 1</div>
+															<div>Tab 2</div>
+															<div>Tab 3</div>
+															<div>Tab 4</div>
+														</div>
+														<div data-panes>
+															<div class="active"><p>Content. Tab 1.</p></div>
+															<div><p>Content. Tab 2.</p></div>
+															<div><p>Content. Tab 3.</p></div>
+															<div><p>Content. Tab 4.</p></div>
+														</div>
+													</div>
+												</div>
+											</div></td>
+										</tr>
+
+										<tr class="sui-accordion-item">
+											<td class="sui-table-item-title">Item #3 <span class="sui-accordion-open-indicator"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+										</tr>
+
+										<tr class="sui-accordion-item-content">
+											<td><div class="sui-box">
+												<div class="sui-box-body">
+													<div class="sui-tabs sui-tabs-flushed">
+														<div data-tabs>
+															<div class="active">Tab 1</div>
+															<div>Tab 2</div>
+															<div>Tab 3</div>
+															<div>Tab 4</div>
+														</div>
+														<div data-panes>
+															<div class="active"><p>Content. Tab 1.</p></div>
+															<div><p>Content. Tab 2.</p></div>
+															<div><p>Content. Tab 3.</p></div>
+															<div><p>Content. Tab 4.</p></div>
+														</div>
+													</div>
+												</div>
+											</div></td>
+										</tr>
+
+									</table>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-side-tabs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Side Tabs</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Side tabs are used more like a selector. They can used for yes/no, or more usually for choosing which option out of 2+ to choose from and then showing content for that choice.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">Default tabs state, with no content - just a plain selector.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-side-tabs sui-tabs">
+
+										<div data-tabs>
+											<div class="active">Active</div>
+											<div>Default</div>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">With Content</span>
+									<span class="sui-description">This example shows how the selection made can show a block based on their selection.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-side-tabs sui-tabs">
+
+										<div data-tabs>
+											<div class="active">Tab 1</div>
+											<div>Tab 2</div>
+											<div>Tab 3</div>
+											<div>Tab 4</div>
+										</div>
+
+										<div data-panes>
+											<div class="sui-tab-boxed active"><p>Content. Tab 1.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 2.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 3.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 4.</p></div>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>
