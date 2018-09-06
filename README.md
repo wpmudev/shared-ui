@@ -11,3 +11,16 @@ See [example plugin](https://bitbucket.org/incsub/shared-ui-example-plugin/src).
 
 ## Contributing
 Please read through our [contributing guidelines](https://github.com/wpmudev/shared-ui/blob/master/CONTRIBUTING.md).
+
+
+## Releasing a new version
+1. Merge `development` into `master`
+2. run changelog.sh script to update CHANGELOG.md and update the commits to be logical and nice adding DEV NOTES where applicable
+3. Push `master`
+4. Add a git tag `git tag v2.3.1` replace the version number with the new version.
+5. Push the tag `git push --tags`
+6. You will need to be added to the npm package as a contributor before the next step.
+7. Run either `npm run release:patch` `npm run release:minor` `npm run release:major` based on the version you want.
+8. Push to `master`
+DONE :)
+
