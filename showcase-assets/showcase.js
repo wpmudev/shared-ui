@@ -4,7 +4,8 @@
 		clipboard       = new ClipboardJS( '.demo-icon' ),
 		navbutton       = $( '.sui-vertical-tab a' ),
 		toggleAccordion = $( 'div.sui-accordion-item-header .sui-toggle, tr.sui-accordion-item .sui-toggle' ),
-		demoPagFilter   = $( '#demo--open-pagination-filter' )
+		demoPagFilter   = $( '#demo--open-pagination-filter' ),
+		sideTabItem     = $( '#demo-side-tabs-options .sui-tab-item' )
 		;
 
 	// Offset scroll for showcase sidenav.
@@ -135,6 +136,21 @@
 
 		pagButton.toggleClass( 'sui-active' );
 		pagFilter.toggleClass( 'sui-open' );
+	}
+
+	// Side tabs
+	// Demo "side tabs" using label
+	sideTabItem.on( 'click', function( e ) {
+		currentTab( e.target );
+	});
+
+	function currentTab( e ) {
+		var tabItem   = $( e ),
+			tabParent = tabItem.parent()
+			;
+
+		tabParent.find( '.sui-tab-item' ).removeClass( 'active' );
+		tabItem.addClass( 'active' );
 	}
 
 }( jQuery ) );
