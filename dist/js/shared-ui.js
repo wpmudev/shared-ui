@@ -429,6 +429,7 @@
   }
 }(typeof global !== 'undefined' ? global : window));
 
+
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
 ;
@@ -470,18 +471,31 @@
         init: function() {
 
             // namespaced event
-            this.$element.on( 'click.sui.accordion', '.sui-accordion-item', function( event ) {
+            this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
 
-                var getParentItem = $( this ).closest( '.sui-accordion-item' ),
-                    getNextAdditionalContentRow = getParentItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' );
+				var getItem = $( this ).closest( '.sui-accordion-item' ),
+					getContent = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
+					getParent = getItem.closest( '.sui-accordion' )
+					;
 
-                getNextAdditionalContentRow.toggleClass( 'sui-accordion-item--open' );
+				if ( getParent.hasClass( 'sui-table' ) ) {
 
-                if ( getNextAdditionalContentRow.hasClass( 'sui-accordion-item--open' ) ) {
-                    getParentItem.addClass( 'sui-accordion-item--open' );
-                } else {
-                    getParentItem.removeClass( 'sui-accordion-item--open' );
-                }
+					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
+
+						getContent.toggleClass( 'sui-accordion-item--open' );
+
+						if ( getContent.hasClass( 'sui-accordion-item--open' ) ) {
+							getItem.addClass( 'sui-accordion-item--open' );
+						} else {
+							getItem.removeClass( 'sui-accordion-item--open' );
+						}
+					}
+				} else {
+
+					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
+						getItem.toggleClass( 'sui-accordion-item--open' );
+					}
+				}
 
             });
         }
@@ -523,16 +537,12 @@
         return this;
     };
 
-    // wait document ready first
-    $( document ).ready( function() {
+	if ( 0 !== $( '.sui-2-3-0 .sui-accordion' ).length ) {
 
-        // Convert all accordions.
-        $( '.sui-2-3-0 .sui-accordion' ).each( function() {
-
-            // backward compat of instantiate new accordion
-            SUI.suiAccordion( this );
-        });
-    });
+		$( '.sui-2-3-0 .sui-accordion' ).each( function() {
+			SUI.suiAccordion( this );
+		});
+	}
 
 }( jQuery ) );
 
