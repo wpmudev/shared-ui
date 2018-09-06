@@ -1,5 +1,4 @@
 // Buttons
-
 @include body-class(true) {
 	
 	.sui-button,
@@ -14,17 +13,16 @@
 		padding: 7px 16px;
 		margin: 0 10px 0 0;
 		border: 0;
+		border-radius: $border-radius;
 		background-color: $button-bg-color;
 		color: $white;
 		font: 500 12px/16px $font;
-		letter-spacing: -.025em;
+		letter-spacing: $font--letter-spacing;
 		text-transform: uppercase;
-		text-align: center;
 		text-decoration: none;
-		border-radius: 3px;
-		transition: all .3s ease;
-		text-shadow: none;
+		text-align: center;
 		white-space: nowrap;
+		transition: all .3s ease;
 
 		.sui-loading {
 			width: 16px;
@@ -46,48 +44,48 @@
 			pointer-events: none;
 		}
 
-		i {
+		[class*="sui-icon-"] {
 			vertical-align: middle;
-			// Most buttons will have icon on left so give default margin.
+			font-size: 12px;
+
 			&:not(.sui-fw):not(.sui-loading) {
 				margin-right: 5px;
 			}
+
 			&:before {
-				transition: all .3s ease;
-				color: $white;
+				color: inherit;
 			}
 		}
 
 		&.sui-button-icon-right {
-			i:not(.sui-fw):not(.sui-loading) {
-				margin-right: 0;
-				margin-left: 5px;
+
+			[class*="sui-icon-"] {
+				
+				&:not(.sui-fw):not(.sui-loading) {
+					margin-right: 0;
+					margin-left: 5px;
+				}
 			}
 		}
 
-
 		&:hover,
 		&:focus {
+			border-color: $button-action-bg-color;
 			outline: none;
 			background: $button-action-bg-color;
-			border-color: $button-action-bg-color;
 		}
 
 		&:focus,
 		&:active {
-			outline: none;
-			box-shadow: none;
-			background: $button-action-bg-color;
 			border-color: $button-action-bg-color;
+			outline: none;
+			background: $button-action-bg-color;
+			box-shadow: none;
 		}
 
 		&.sui-button-primary,
 		&.sui-button-blue {
 			background: $button-blue-bg-color;
-
-			i:before {
-				color: $white;
-			}
 
 			&:hover,
 			&:focus {
@@ -98,10 +96,6 @@
 		&.sui-button-red {
 			background: $button-red-bg-color;
 
-			i:before {
-				color: $white;
-			}
-
 			&:hover,
 			&:focus {
 				opacity: 1;
@@ -111,10 +105,6 @@
 
 		&.sui-button-green {
 			background: $button-green-bg-color;
-
-			i:before {
-				color: $white;
-			}
 
 			&:hover,
 			&:focus {
@@ -128,11 +118,14 @@
 			color: $green;
 			width: auto;
 			height: 26px;
-			line-height: 15px;
-			background: transparent;
 			padding: 4px 16px;
+			border: 2px solid $tag-upsell-color;
 			border-radius: 15px;
+			background: transparent;
+			color: $green;
+			line-height: 15px;
 			text-transform: none;
+
 			&:hover,
 			&:focus {
 				opacity: 1;
@@ -148,26 +141,16 @@
 			background: transparent;
 			color: $button-ghost-color;
 
-			i:before {
-				color: $button-ghost-color;
-			}
 			&:hover,
 			&:focus {
 				border-color: $button-ghost-action-border-color;
 				background: $button-ghost-action-bg-color;
 				color: $white;
-				i:before {
-					color: $white;
-				}
 			}
 
 			&.sui-button-blue {
 				border-color: $blue;
 				color: $blue;
-
-				i:before {
-					color: $blue;
-				}
 
 				&:hover,
 				&:focus {
@@ -181,30 +164,18 @@
 				border-color: $button-red-ghost-bdr-color;
 				color: $button-red-action-bg-color;
 
-				i:before {
-					color: $button-red-action-bg-color;
-				}
-
 				&:hover,
 				&:focus {
 					opacity: 1;
 					border-color: $red;
 					background: $red;
 					color: $white;
-
-					i:before {
-						color: $white;
-					}
 				}
 			}
 
 			&.sui-button-green {
 				border-color: $green;
 				color: $green;
-
-				i:before {
-					color: $green;
-				}
 
 				&:hover,
 				&:focus {
@@ -219,24 +190,28 @@
 		&.sui-button-lg {
 			height: 40px;
 			padding: 11px 20px 9px;
-			border-radius: $border-radius;
 			font: 500 15px/20px $font;
 
 			&.sui-button-ghost {
 				padding: 9px 20px 9px;
 			}
-			i {
-				font-size: 16px;
-			}
 
-			i:not(.sui-fw):not(.sui-loading) {
-				margin-right: 10px;
+			[class*="sui-icon-"] {
+				font-size: 16px;
+
+				&:not(.sui-fw):not(.sui-loading) {
+					margin-right: 10px;
+				}
 			}
 
 			&.sui-button-icon-right {
-				i:not(.sui-fw):not(.sui-loading) {
-					margin-right: 0;
-					margin-left: 10px;
+
+				[class*="sui-icon-"] {
+
+					&:not(.sui-fw):not(.sui-loading) {
+						margin-right: 0;
+						margin-left: 10px;
+					}
 				}
 			}
 		}
@@ -272,22 +247,21 @@
 		&:disabled,
 		&[disabled],
 		&.disabled {
+			cursor: default;
+			pointer-events: none;
 			color: $button-disabled-color;
 			border-color: $button-disabled-border-color;
 			background: $button-disabled-bg-color;
 			box-shadow: none;
-			pointer-events: none;
-			cursor: default;
-			-webkit-transform: none;
 			transform: none;
+
 			&:hover,
 			&:focus {
+				cursor: default;
 				color: $button-disabled-color;
 				border-color: $button-disabled-border-color;
 				background: $button-disabled-bg-color;
 				box-shadow: none;
-				cursor: default;
-				-webkit-transform: none;
 				transform: none;
 			}
 		}
@@ -297,12 +271,14 @@
 		}
 
 		&.sui-button-icon {
-			min-width: 0;
+			min-width: unset;
 		}
 	}
 
 	// To be used without .sui-button class
-	.sui-button-icon:not(.sui-button) {
+	.sui-button-icon:not(.sui-button),
+	a.sui-button-icon:not(.sui-button),
+	button.sui-button-icon:not(.sui-button) {
 		cursor: pointer;
 		display: inline-block;
 		margin: 0;
@@ -310,13 +286,13 @@
 		border: 1px solid transparent;
 		border-radius: $border-radius;
 		background-color: transparent;
-		color: palette( gray, light );
+		color: palette(gray, light);
 		font-size: 12px;
 		transition: 0.3s ease;
 
-		i {
+		[class*="sui-icon-"] {
 			width: 20px;
-			height: 30px;
+			height: 28px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -324,31 +300,35 @@
 
 			&:before {
 				display: block;
-				color: palette( gray, light );
+				color: inherit;
 			}
 		}
 
-		&, &:hover, &:active {
+		&,
+		&:hover,
+		&:active {
 			outline: none;
 			box-shadow: none;
 		}
 
-		&:hover, &:active {
+		&:hover,
+		&:active {
 			background-color: $silver;
 			color: palette( gray, dark );
+		}
 
-			i:before {
-				color: palette( gray, dark );
+		&.sui-button-red {
+			color: $red;
+
+			&:hover,
+			&:active {
+				background-color: palette(red, light);
 			}
 		}
 
 		&.sui-button-outlined {
 			padding: 0 11px;
 			border-color: palette(gray, lighter);
-
-			i {
-				height: 28px;
-			}
 
 			&:hover, &:active {
 				border-color: $silver;
@@ -358,7 +338,7 @@
 				border-color: palette(gray, light);
 				background-color: palette(gray, light);
 
-				i:before {
+				[class*="sui-icon-"]:before {
 					color: $white;
 				}
 			}
