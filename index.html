@@ -2725,51 +2725,225 @@ $( '.sui-date .sui-form-control' ).datepicker({
 					<h2>Pagination</h2>
 				</div>
 
-				<div class="sui-box">
+				<div class="sui-row-with-sidenav">
 
-					<div class="sui-box-body">
+					<div class="sui-sidenav">
 
-						<ul class="sui-pagination">
-
-							<li><a href="" disabled><i class="sui-icon-arrow-skip-start" aria-hidden="true"></i></a></li>
-							<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
-							<li class="sui-active"><a href="">1</a></li>
-							<li><a href="">10</a></li>
-							<li><a href="">...</a></li>
-							<li><a href="">20</a></li>
-							<li><a href="">30</a></li>
-							<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
-							<li><a href=""><i class="sui-icon-arrow-skip-end" aria-hidden="true"></i></a></li>
-
+						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+							<li class="sui-vertical-tab current">
+								<a href="#" data-tab="pagination-demos">Demos</a>
+							</li>
+							<li class="sui-vertical-tab">
+								<a href="#" data-tab="pagination-docs">Documentation</a>
+							</li>
 						</ul>
 
-						<div class="sui-pagination-wrap">
+					</div>
 
-							<span class="sui-pagination-results">349 results</span>
+					<!-- TAB: Demos -->
+					<div class="sui-box" data-tab="pagination-demos">
 
-							<ul class="sui-pagination">
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Pagination</h3>
+						</div>
 
-								<li><a href="" disabled><i class="sui-icon-arrow-skip-start" aria-hidden="true"></i></a></li>
-								<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
-								<li class="sui-active"><a href="">1</a></li>
-								<li><a href="">10</a></li>
-								<li><a href="">...</a></li>
-								<li><a href="">20</a></li>
-								<li><a href="">30</a></li>
-								<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href=""><i class="sui-icon-arrow-skip-end" aria-hidden="true"></i></a></li>
+						<div class="sui-box-body">
 
-							</ul>
+							<!-- With Results -->
+							<div class="sui-box-settings-row">
 
-							<span class="sui-pagination-open-filter"><i class="sui-icon-filter" aria-hidden="true"></i></span>
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">With Results</span>
+									<span class="sui-description">Display pagination and total number of items.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-pagination-wrap">
+
+										<span class="sui-pagination-results">25 results</span>
+
+										<ul class="sui-pagination">
+
+											<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
+											<li class="sui-active"><a href="">1</a></li>
+											<li><a href="">2</a></li>
+											<li><a href="">3</a></li>
+											<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
+
+										</ul>
+
+									</div>
+
+									<table class="sui-table">
+
+										<thead>
+											<tr>
+												<th>Module</th>
+												<th>User Role</th>
+											</tr>
+										</thead>
+
+										<tbody>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+							<!-- Filter Options -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Filter Options</span>
+									<span class="sui-description">Display pagination and button to filter them.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-pagination-wrap">
+
+										<ul class="sui-pagination">
+
+											<li><a href="" disabled><i class="sui-icon-chevron-left" aria-hidden="true"></i></a></li>
+											<li class="sui-active"><a href="">1</a></li>
+											<li><a href="">2</a></li>
+											<li><a href="">3</a></li>
+											<li><a href=""><i class="sui-icon-chevron-right" aria-hidden="true"></i></a></li>
+
+										</ul>
+
+										<button id="demo--open-pagination-filter" class="sui-button-icon sui-button-outlined sui-pagination-open-filter" aria-label="Filter pagination"><i class="sui-icon-filter" aria-hidden="true"></i></button>
+
+									</div>
+
+									<div class="sui-pagination-filter">
+
+										<div class="sui-form-field">
+											<label class="sui-label">Module name has keyword</label>
+											<div class="sui-control-with-icon">
+												<input type="text" placeholder="E.g. Discount" class="sui-form-control">
+												<i class="sui-icon-magnifying-glass-search" aria-hidden="true"></i>
+											</div>
+										</div>
+
+										<div class="sui-row">
+											<div class="sui-col-md-6">
+												<label class="sui-label">Use role assigned for editing</label>
+												<select>
+													<option>Any</option>
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+												</select>
+											</div>
+											<div class="sui-col-md-6">
+												<label class="sui-label">Sort by</label>
+												<select>
+													<option>Creation date</option>
+													<option>Module type</option>
+												</select>
+											</div>
+										</div>
+
+									</div>
+
+									<table class="sui-table">
+
+										<thead>
+											<tr>
+												<th>Module</th>
+												<th>User Role</th>
+											</tr>
+										</thead>
+
+										<tbody>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+											<tr>
+												<td class="sui-table-item-title">Item</td>
+												<td><select class="sui-select-sm">
+													<option>Administrator</option>
+													<option>Editor</option>
+													<option>Writer</option>
+													<option>Visitor</option>
+												</select></td>
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
 
 						</div>
 
 					</div>
 
-				</div>
+					<!-- PAGINATION: Documentation -->
+					<div class="sui-box" data-tab="pagination-docs" style="display: none;">
 
-				<div class="demo-code-block">
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+											<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-box&quot;&gt;
 	&lt;div class=&quot;sui-box-body&quot;&gt;
@@ -2801,12 +2975,20 @@ $( '.sui-date .sui-form-control' ).datepicker({
 				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
 				&lt;li&gt;&lt;a href=&quot;&quot; disabled&gt;&lt;i class=&quot;sui-icon-arrow-skip-end&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/li&gt;
 			&lt;/ul&gt;
-			&lt;span class=&quot;sui-pagination-open-filter&quot;&gt;&lt;i class=&quot;sui-icon-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+			&lt;button class=&quot;sui-button-icon sui-button-outlined&quot;&gt;&lt;i class=&quot;sui-icon-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
 		&lt;/div&gt;
 
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
 				</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
 
 			</section>
 <section id="recipient">

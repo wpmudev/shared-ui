@@ -306,9 +306,9 @@
 		cursor: pointer;
 		display: inline-block;
 		margin: 0;
-		padding: 0 5px;
-		border: 0;
-		border-radius: 4px;
+		padding: 0 4px;
+		border: 1px solid transparent;
+		border-radius: $border-radius;
 		background-color: transparent;
 		color: palette( gray, light );
 		font-size: 12px;
@@ -339,6 +339,28 @@
 
 			i:before {
 				color: palette( gray, dark );
+			}
+		}
+
+		&.sui-button-outlined {
+			padding: 0 11px;
+			border-color: palette(gray, lighter);
+
+			i {
+				height: 28px;
+			}
+
+			&:hover, &:active {
+				border-color: $silver;
+			}
+
+			&.sui-active {
+				border-color: palette(gray, light);
+				background-color: palette(gray, light);
+
+				i:before {
+					color: $white;
+				}
 			}
 		}
 	}
