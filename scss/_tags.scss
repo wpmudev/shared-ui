@@ -1,71 +1,138 @@
 @include body-class(true) {
 
 	.sui-tag {
-		display: inline-block;
-		background-color: $tag-bg-color;
-		color: $tag-color;
-		border-radius: 15px;
-		min-width: 39px;
+		min-width: 40px;
 		height: 26px;
-		font-size: 12px;
-		line-height: 26px;
-		text-align: center;
-		font-weight: 500;
-		padding: 0 16px;
 		cursor: default;
+		display: inline-block;
+		margin: 0 3px;
+		padding: 0 16px;
+		border: 2px solid transparent;
+		border-radius: 13px;
+		background-color: $tag--default-background;
+		color: $tag--default-color;
+		font: 500 12px/22px $font;
+		letter-spacing: $font--letter-spacing;
+		text-align: center;
 
-		&.sui-tag-success {
-			background-color: $tag-success-bg-color;
-			color: $tag-color-alt;
-		}
-
+		// TAG: Red
+		&.sui-tag-red,
 		&.sui-tag-error {
-			background-color: $tag-error-bg-color;
-			color: $tag-color-alt;
+			background-color: $tag--red-background;
+			color: $tag--red-color;
 		}
 
-		&.sui-tag-inactive {
-			background-color: $tag-inactive-bg-color;
-			color: $tag-disabled-color;
+		// TAG: Yellow
+		&.sui-tag-yellow,
+		&.sui-tag-warning {
+			background-color: $tag--yellow-background;
+			color: $tag--yellow-color;
 		}
 
-		&.sui-tag-disabled {
-			background-color: $tag-disabled-bg-color;
-			color: $tag-disabled-color;
-		}
-
+		// TAG: Green
+		&.sui-tag-green,
+		&.sui-tag-upsell,
+		&.sui-tag-success,
 		&.sui-tag-upgrade {
-			background-color: $tag-upgrade-bg-color;
-			color: $tag-color-alt;
+			background-color: $tag--green-background;
+			color: $tag--green-color;
 		}
 
-		&.sui-tag-upsell {
-			border: 2px solid $tag-upsell-color;
-			color: $green;
-			width: auto;
-			height: 26px;
-			line-height: 15px;
-			background: transparent;
-			padding: 4px 16px;
+		// TAG: Blue
+		&.sui-tag-blue,
+		&.sui-tag-branded {
+			background-color: $tag--blue-background;
+			color: $tag--blue-color;
 		}
 
-		&.sui-tag-beta,
-		&.sui-tag-pro {
+		// TAG: Purple
+		&.sui-tag-purple {
+			background-color: $tag--purple-background;
+			color: $tag--purple-color;
+		}
+
+		// TAG: Disabled
+		&.sui-tag-disabled,
+		&.sui-tag-inactive {
+			background-color: $tag--disabled-background;
+			color: $tag--disabled-color;
+		}
+
+		&.sui-tag-pro,
+		&.sui-tag-beta {
 			min-width: auto;
 			height: 12px;
-			padding: 2px 5px 1px;
+			padding: 2px 8px 1px;
+			border: 0;
 			border-radius: 6px;
-			color: $tag-pro-color;
 			font-size: 8px;
 			line-height: 9px;
 			text-align: center;
 		}
 
-		&.sui-tag-beta {
-			background-color: $tag-beta-background;
-		}
+		// TAG: Pro
 		&.sui-tag-pro {
-			background-color: $tag-pro-background;
+			background-color: $tag--pro-background;
+			color: $tag--pro-color;
+		}
+
+		// TAG: Beta
+		&.sui-tag-beta {
+			background-color: $tag--beta-background;
+			color: $tag--beta-color;
+		}
+
+		// GHOST TAGS
+		&.sui-tag-ghost {
+
+			// TAG: Red
+			&.sui-tag-red,
+			&.sui-tag-error {
+				border-color: $tag--red-border-color;
+				background-color: transparent;
+				color: $tag--red-background;
+			}
+
+			// TAG: Yellow
+			&.sui-tag-yellow,
+			&.sui-tag-warning {
+				border-color: $tag--yellow-border-color;
+				background-color: transparent;
+				color: $tag--yellow-background;
+			}
+
+			// TAG: Green
+			&.sui-tag-green,
+			&.sui-tag-upsell,
+			&.sui-tag-success,
+			&.sui-tag-upgrade {
+				border-color: $tag--green-border-color;
+				background-color: transparent;
+				color: $tag--green-background;
+			}
+
+			// TAG: Blue
+			&.sui-tag-blue,
+			&.sui-tag-branded {
+				border-color: $tag--blue-border-color;
+				background-color: transparent;
+				color: $tag--blue-background;
+			}
+
+			// TAG: Purple
+			&.sui-tag-purple {
+				border-color: $tag--purple-border-color;
+				background-color: transparent;
+				color: $tag--purple-background;
+			}
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 }
