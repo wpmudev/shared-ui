@@ -9,8 +9,8 @@
 	<title>Shared UI Showcase</title>
 
 	<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
-	<link rel="stylesheet" type="text/css" media="all" href="dist/css/shared-ui.min.css?ver=2.3.1">
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.1">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.2.10">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.2.10">
 
 </head>
 
@@ -3660,6 +3660,9 @@ $( '.sui-date .sui-form-control' ).datepicker({
 					<h2>Summary</h2>
 					<p>The summary is used to display a summary of the pages information. The Shared UI provides the following two examples for your plugin page summaries. Please note you will need to add a class to the <code>sui-summary-image-space</code>
 					to override the background image.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>Summary box variables has been updated on <strong>SUI 2.3.1</strong>. To load an image into summary box you need to use <code>$summary-image: 'path-to-image';</code>. For other variables like image size and position you can check <code>_variables.scss</code> file.</p>
+					</div>
 				</div>
 
 				<div aria-hidden="true" class="sui-box sui-summary">

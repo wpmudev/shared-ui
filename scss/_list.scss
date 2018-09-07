@@ -1,92 +1,107 @@
 @include body-class(true) {
 
 	.sui-list {
-		list-style: none;
-		margin: 0 0 20px;
+		margin: $sui-gutter-md 0;
 		padding: 0;
+		border: 0;
 
-		&.sui-list-inline {
-			margin-top: 20px;
-			margin-bottom: 0;
-		}
-		&.sui-list-standalone {
-			margin-bottom: 20px;
+		&, li {
+			list-style: none;
 		}
 
-		& > li {
-			position: relative;
-			display: table;
-			width: 100%;
-			padding: 6px 0;
+		li {
+			display: flex;
 			margin: 0;
-			border-collapse: collapse;
-			border-spacing: 0;
-			& > div {
-				display: table-row;
-			}
+			padding: 9px 0;
+			border: 0;
+			border-bottom: 1px solid palette(silver, soft);
+			color: $summary-list--color;
+			font-size: 13px;
+			line-height: 22px;
+			font-family: $font;
+			font-weight: 500;
+			letter-spacing: $font--letter-spacing;
 
-			&.sui-list-header {
-				color: #333333;
-				font-size: 13px;
-				font-weight: bold;
-				line-height: 30px;
-				padding-bottom: 0;
-				span {
-					display: table-cell;
-					border-bottom: 1px solid #EEEEEE;
-					&:nth-child(2) {
-						text-align: right;
+			span {
+				flex: 1;
+				padding: 0 #{$sui-gutter-md / 2};
+
+				&:first-child {
+					padding-left: 0;
+
+					@include media(min-width, md) {
+						padding-left: 0;
 					}
 				}
+
+				&:last-child {
+					padding-right: 0;
+
+					@include media(min-width, md) {
+						padding-right: 0;
+					}
+				}
+
+				@include media(min-width, md) {
+					padding: 0 #{$sui-gutter / 2};
+				}
+			}
+
+			.sui-list-label {
+				color: $summary-list--label;
 			}
 
 			.sui-list-detail {
-				color: $list-detail-color;
 				text-align: right;
-				padding: 10px 0;
-				font-size: 13px;
-				font-weight: 500;
-				line-height: 22px;
-				.sui-tag {
-					font-family: $font;
+			}
+
+			&:first-child {
+				padding-top: 0;
+
+				@include media(min-width, md) {
+					padding-top: 0;
 				}
 			}
 
-			& .sui-list-detail,
-			& .sui-list-label {
-				display: table-cell;
-				vertical-align: middle;
-				cursor: default;
-				border-bottom: 1px solid #EEEEEE;
-			}
+			&:last-child {
+				padding-bottom: 0;
+				border-bottom: 0;
 
-			& .sui-list-label {
-				font-size: 13px;
-				font-weight: 500;
-				line-height: 22px;
-				padding: 19px 10px 19px 0;
-				color: $gray-alt;
-
-				&.sui-list-header {
-					font-family: $font--alt;
-					width: 200px;
-					color: palette(gray, alt);
-
+				@include media(min-width, md) {
+					padding-bottom: 0;
 				}
 			}
 
-			&:last-of-type {
-				.sui-list-detail,
-				.sui-list-label {
-					border-bottom: none;
-				}
+			@include media(min-width, md) {
+				padding: 19px 0;
 			}
 		}
-		&.sui-list-top-border {
-			border-top: 1px solid #EEEEEE;
+
+		&:first-child {
+			margin-top: 0;
+
+			@include media(min-width, md) {
+				margin-top: 0;
+			}
 		}
-		&.sui-list-bottom-border {
-			border-bottom: 1px solid #EEEEEE;
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		// FIX:
+		// Prevent .sui-list from having nested lists
+		// since this element doesn't support it.
+		ul, ol {
+			display: none;
+		}
+
+		@include media(min-width, md) {
+			margin: $sui-gutter 0;
 		}
 	}
 }
