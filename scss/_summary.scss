@@ -239,5 +239,35 @@
 				}
 			}
 		}
+
+		// SIZE: Small
+		&.sui-summary-sm {
+
+			// ELEMENT: Image
+			.sui-summary-image-space {
+
+				@include media(min-width, md) {
+					min-width: #{$summary-image-sm--width + $sui-gutter};
+					min-height: $summary-size-sm;
+					flex: 0 0 #{$summary-image-sm--width + $sui-gutter};
+
+					@if variable-exists(summary-image-sm) {
+
+						@if $summary-image-sm != '' {
+							display: block;
+						}
+					}
+				}
+			}
+
+			@include media(min-width, md) {
+	
+				@if variable-exists(summary-image-sm) {
+					background-image: url($summary-image-sm);
+					background-size: $summary-image-sm--width $summary-image-sm--height;
+					background-position: $summary-image-sm--position;
+				}
+			}
+		}
 	}
 }
