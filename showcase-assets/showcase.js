@@ -68,7 +68,7 @@
 		var navButton  = $( e ),
 			navParent  = navButton.closest( '.sui-vertical-tabs' ),
 			navWrapper = navButton.closest( '.sui-row-with-sidenav' ),
-			navBox     = navWrapper.find( '> .sui-box, > .demo-sidenav-content' )
+			navBox     = navWrapper.find( '> .sui-box, > .sui-accordion' )
 			;
 
 		var navData = $( e ).data( 'tab' ),
