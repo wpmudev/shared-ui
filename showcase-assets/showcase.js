@@ -155,10 +155,12 @@
 
 }( jQuery ) );
 
+
+// Chartjs Demo
 ( function( $ ) {
 
-	var getElements = 'demo-accordion-chart-1, demo-accordion-chart-2',
-		ctx         = document.getElementById( getElements )
+	var demoChartPublished = document.getElementById( 'demo-accordion-chart-published' ),
+		demoChartDrafted   = document.getElementById( 'demo-accordion-chart-drafted' )
 		;
 
 	var monthDays = [
@@ -173,10 +175,22 @@
 		330, 320, 315, 320, 325, 320, 315, 310, 305, 310
 	];
 
+	var viewsDraft = [
+		300, 310, 305, 315, 300, 290, 270, 280, 275, 295,
+		320, 315, 310, 305, 310, 305, 310, 320, 330, 340,
+		330, 320, 315, 320, 325, 320, 100, 10, 0, 0
+	];
+
 	var submissions = [
 		220, 230, 220, 225, 215, 230, 200, 210, 205, 195,
 		190, 150, 160, 155, 165, 170, 180, 160, 200, 180,
 		205, 210, 215, 220, 205, 210, 205, 210, 220, 230
+	];
+
+	var submissionsDraft = [
+		220, 230, 220, 225, 215, 230, 200, 210, 205, 195,
+		190, 150, 160, 155, 165, 170, 180, 160, 200, 180,
+		205, 210, 215, 220, 205, 210, 0, 0, 0, 0
 	];
 
 	var chartData = {
@@ -213,6 +227,40 @@
 		]
 	};
 
+	var chartDataDraft = {
+		labels: monthDays,
+		datasets: [
+			{
+				label: 'Submissions',
+				data: submissionsDraft,
+				backgroundColor: [
+					'#E1F6FF'
+				],
+				borderColor: [
+					'#17A8E3'
+				],
+				borderWidth: 2,
+				pointHoverRadius: 5,
+				pointHoverBorderColor: '#17A8E3',
+				pointHoverBackgroundColor: '#17A8E3'
+			},
+			{
+				label: 'Views',
+				data: viewsDraft,
+				backgroundColor: [
+					'#F8F8F8'
+				],
+				borderColor: [
+					'#DDDDDD'
+				],
+				borderWidth: 2,
+				pointHoverRadius: 5,
+				pointHoverBorderColor: '#DDDDDD',
+				pointHoverBackgroundColor: '#DDDDDD'
+			}
+		]
+	};
+
 	var chartOptions = {
 		maintainAspectRatio: false,
 		legend: {
@@ -234,7 +282,9 @@
 						color: 'rgba(0, 0, 0, 0)'
 					},
 					ticks: {
-						beginAtZero: true,
+						beginAtZero: false,
+						min: 0,
+						max: 350,
 						stepSize: 1
 					}
 				}
@@ -278,10 +328,17 @@
 		}
 	};
 
-	var myChart = new Chart( ctx, {
+	var myChart = new Chart( demoChartPublished, {
 		type: 'line',
 		fill: 'start',
 		data: chartData,
+		options: chartOptions
+	});
+
+	var myChart = new Chart( demoChartDrafted, {
+		type: 'line',
+		fill: 'start',
+		data: chartDataDraft,
 		options: chartOptions
 	});
 
