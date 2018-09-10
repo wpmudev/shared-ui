@@ -68,11 +68,11 @@
 		var navButton  = $( e ),
 			navParent  = navButton.closest( '.sui-vertical-tabs' ),
 			navWrapper = navButton.closest( '.sui-row-with-sidenav' ),
-			navBox     = navWrapper.find( '> .sui-box' )
+			navBox     = navWrapper.find( '> .sui-box, > .demo-sidenav-content' )
 			;
 
 		var navData = $( e ).data( 'tab' ),
-			boxData = navWrapper.find( '.sui-box[data-tab="' + navData + '"]' )
+			boxData = navWrapper.find( 'div[data-tab="' + navData + '"]' )
 			;
 
 		navParent.find( 'li' ).removeClass( 'current' );
