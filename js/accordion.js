@@ -42,10 +42,11 @@
 			// namespaced event
 			this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
 
-				var getItem = $( this ).closest( '.sui-accordion-item' ),
-					getContent = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
-					getParent = getItem.closest( '.sui-accordion' ),
-					clickedTarget = $( event.target )
+				var getItem       = $( this ).closest( '.sui-accordion-item' ),
+					getContent    = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
+					getParent     = getItem.closest( '.sui-accordion' ),
+					clickedTarget = $( event.target ),
+					getChart      = getItem.find( '.sui-chartjs-animated' )
 					;
 
 				if ( clickedTarget.closest( '.sui-accordion-item-actions' ).length ) {
@@ -67,6 +68,23 @@
 
 					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
 						getItem.toggleClass( 'sui-accordion-item--open' );
+					}
+				}
+
+				if ( getParent.hasClass( 'sui-accordion-block' ) && ( 0 !== getChart.length ) ) {
+
+					getItem.find( '.sui-accordion-item-data' ).addClass( 'sui-onload' );
+					getChart.removeClass( 'sui-chartjs-loaded' );
+
+					if ( getItem.hasClass( 'sui-accordion-item--open' ) ) {
+
+						setTimeout( function() {
+
+							getItem.find( '.sui-accordion-item-data' ).removeClass( 'sui-onload' );
+							getChart.addClass( 'sui-chartjs-loaded' );
+
+						}, 1200 );
+
 					}
 				}
 
