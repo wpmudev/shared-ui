@@ -3,7 +3,7 @@
 	.sui-chartjs {
 		position: relative;
 
-		.sui-chartjs-mask {
+		.sui-chartjs-message {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -32,6 +32,20 @@
 					}
 				}
 			}
+
+			&.sui-chartjs-message--empty,
+			&.sui-chartjs-message--loading {
+
+				@if variable-exists(chartjs-image--loading) {
+
+					@if $chartjs-image--loading != null {
+						background-image: url($chartjs-image--loading);
+						background-size: cover;
+						background-position: center bottom;
+						background-repeat: no-repeat;
+					}
+				}
+			}
 		}
 
 		.sui-chartjs-canvas {
@@ -39,6 +53,42 @@
 	
 			@include media(min-width, md) {
 				height: 170px;
+			}
+		}
+
+		&.sui-chartjs-animated {
+
+			.sui-chartjs-message {
+				opacity: 0;
+				visibility: hidden;
+				transition: 0.25s ease;
+
+				&.sui-chartjs-message--loading {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			.sui-chartjs-canvas {
+				visibility: hidden;
+				transition: 0.2s ease;
+			}
+
+			&.sui-chartjs-loaded {
+
+				.sui-chartjs-message {
+					opacity: 1;
+					visibility: visible;
+
+					&.sui-chartjs-message--loading {
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				.sui-chartjs-canvas {
+					visibility: visible;
+				}
 			}
 		}
 	}
