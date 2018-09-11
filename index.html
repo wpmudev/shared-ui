@@ -2136,7 +2136,11 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 								</ul>
 
-								<div class="sui-chartjs">
+								<div class="sui-chartjs sui-chartjs-animated">
+
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
 
 									<div class="sui-chartjs-canvas">
 										<canvas id="demo-accordion-chart-published"></canvas>
@@ -2204,15 +2208,93 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 								</ul>
 
-								<div class="sui-chartjs">
+								<div class="sui-chartjs sui-chartjs-animated">
 
-									<div class="sui-chartjs-mask">
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
+
+									<div class="sui-chartjs-message">
 										<p><i class="sui-icon-info" aria-hidden="true"></i> This form is in draft state, so we’ve paused collecting data until you publish it live.</p>
 									</div>
 
 									<div class="sui-chartjs-canvas" aria-hidden="true">
 										<canvas id="demo-accordion-chart-drafted"></canvas>
 									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+
+								<div><span class="sui-accordion-item-title">Title</span> <span class="sui-tag">Draft</span></div>
+
+								<div class="sui-accordion-item-date"><strong>Last Submission</strong> Never</div>
+
+								<div class="sui-accordion-col-auto">
+									<button class="sui-button sui-button-ghost sui-accordion-item-actions"><i class="sui-icon-pencil" aria-hidden="true"></i> Edit</button>
+									<div class="sui-dropdown sui-accordion-item-actions">
+										<a href="#" class="sui-dropdown-anchor sui-icon-widget-settings-config" aria-label="Open Item Settings"></a>
+										<ul>
+											<li><a href=""><i class="sui-icon-eye" aria-hidden="true"></i> Preview</a></li>
+											<li><a href=""><i class="sui-icon-community-people" aria-hidden="true"></i> View</a></li>
+											<li><a href=""><i class="sui-icon-page-multiple" aria-hidden="true"></i> Duplicate</a></li>
+											<li><a href=""><i class="sui-icon-cloud-migration" aria-hidden="true"></i> Export</a></li>
+											<li><a href=""><i class="sui-icon-trash" aria-hidden="true"></i> Delete</a></li>
+										</ul>
+									</div>
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open Item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<ul class="sui-accordion-item-data">
+
+									<li data-col="large">
+										<strong>Last Submission</strong>
+										<span>Never</span>
+									</li>
+
+									<li>
+										<strong>Views</strong>
+										<span>0</span>
+									</li>
+
+									<li>
+										<strong>Submissions</strong>
+										<a href="">0</a>
+									</li>
+
+									<li>
+										<strong>Conversion Rate</strong>
+										<span>0%</span>
+									</li>
+
+									<li>
+										<strong>Fields</strong>
+										<span>7</span>
+									</li>
+
+								</ul>
+
+								<div class="sui-chartjs sui-chartjs-animated">
+
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
+
+									<div class="sui-chartjs-message sui-chartjs-message--empty">
+										<p><i class="sui-icon-info" aria-hidden="true"></i> This form is still in draft state. You can test your form, but we won't start collecting conversion data until you publish it live.</p>
+									</div>
+
+									<div class="sui-chartjs-canvas" aria-hidden="true"></div>
 
 								</div>
 
