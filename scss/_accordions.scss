@@ -2,18 +2,13 @@
 
 	.sui-accordion {
 
-		// Flexbox accordion
-		&:not(.sui-table) {
-			margin: $sui-gutter-md 0;
-			border: 1px solid $table--border-color;
-			border-radius: $border-radius;
+		// Accordion Grid
+		&, &-block {
 
 			.sui-accordion-header,
 			.sui-accordion-item-header {
-				min-height: 40px;
 				display: flex;
 				align-items: center;
-				padding: 5px 0;
 				font-size: $table--text-font-size;
 				line-height: $table--text-line-height;
 				font-family: $font;
@@ -114,6 +109,55 @@
 					min-width: #{(100%*12)/$accordion--grid};
 					flex-basis: #{(100%*12)/$accordion--grid};
 				}
+			}
+
+			.sui-accordion-item {
+
+				.sui-accordion-item-header {
+					cursor: pointer;
+
+					.sui-accordion-open-indicator {
+
+						[class*="sui-icon-"] {
+							transition: 0.2s linear;
+						}
+					}
+				}
+
+				.sui-accordion-item-body {
+					display: none;
+				}
+
+				// When item is open
+				&.sui-accordion-item--open {
+
+					.sui-accordion-item-header {
+
+						.sui-accordion-open-indicator {
+
+							[class*="sui-icon-"] {
+								transform: rotate(180deg);
+							}
+						}
+					}
+
+					.sui-accordion-item-body {
+						display: block;
+					}
+				}
+			}
+		}
+
+		// DESIGN: Table (Flexbox)
+		&:not(.sui-table):not(.sui-accordion-block) {
+			margin: $sui-gutter-md 0;
+			border: 1px solid $table--border-color;
+			border-radius: $border-radius;
+
+			.sui-accordion-header,
+			.sui-accordion-item-header {
+				min-height: 40px;
+				padding: 5px 0;
 
 				@include media(min-width, md) {
 					min-height: 60px;
@@ -140,7 +184,6 @@
 				border-bottom: 1px solid $table--border-color;
 
 				.sui-accordion-item-header {
-					cursor: pointer;
 					color: $table--text-color;
 					transition: 0.3s ease;
 
@@ -190,7 +233,6 @@
 
 						[class*="sui-icon-"] {
 							margin: 0;
-							transition: 0.2s linear;
 						}
 					}
 
@@ -212,7 +254,6 @@
 				}
 
 				.sui-accordion-item-body {
-					display: none;
 					padding: 0 #{$sui-gutter-md - 1px} #{$sui-gutter-md - 1px};
 					background-color: $accordion--content-bg-color;
 
@@ -277,17 +318,6 @@
 						border-bottom-right-radius: 0;
 						border-bottom-left-radius: 0;
 						background-color: $accordion--content-bg-color;
-
-						.sui-accordion-open-indicator {
-
-							[class*="sui-icon-"] {
-								transform: rotate(180deg);
-							}
-						}
-					}
-
-					.sui-accordion-item-body {
-						display: block;
 					}
 				}
 
@@ -402,6 +432,7 @@
 			}
 		}
 
+		// DESIGN: Table
 		// Must use in conjunction with .sui-table on the <table> element.
 		&.sui-table {
 
@@ -544,6 +575,202 @@
 				// Assign border radius to first row if thead doesn't exist.
 				.sui-table-item-first {
 					border-radius: $border-radius $border-radius 0 0;
+				}
+			}
+		}
+
+		// DESIGN: Blocks (Flexbox)
+		&-block {
+
+			.sui-accordion-item {
+				margin: 0 0 $sui-gutter-md;
+				border-radius: $border-radius;
+				background-color: $accordion--block-background;
+				box-shadow: 0 2px 0 0 $accordion--block-shadow;
+
+				.sui-accordion-item-header {
+					min-height: 60px;
+					padding: 10px 0;
+					color: $accordion--block-color;
+					font-size: 13px;
+					line-height: 22px;
+					font-family: $font;
+					letter-spacing: $font--letter-spacing;
+
+					strong {
+						margin-right: 10px;
+						color: $table--th-color;
+					}
+
+					.sui-accordion-item-title {
+						color: $table--th-color;
+						font-size: 22px;
+						line-height: 30px;
+						font-family: $font--alt;
+						font-weight: bold;
+
+						&.sui-trim-title {
+							overflow: hidden;
+							display: flex;
+							align-items: center;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+
+							span {
+								flex: 0 0 auto;
+							}
+
+							.sui-trim-text {
+								overflow: hidden;
+								display: block;
+								flex: 0 1 auto;
+								align-items: center;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+							}
+						}
+					}
+
+					.sui-accordion-item-date {
+
+						@include media(max-width, md) {
+							display: none;
+						}
+					}
+
+					.sui-button,
+					.sui-dropdown,
+					.sui-button-icon {
+						margin: 0 5px;
+
+						&:first-child {
+							margin-left: 0;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+
+					.sui-tag {
+						margin-left: 10px;
+
+						&.sui-tag-right {
+							margin-right: 10px;
+							margin-left: 0;
+						}
+					}
+
+					@include media(min-width, md) {
+						min-height: 90px;
+					}
+				}
+
+				.sui-accordion-item-body {
+					padding: 0 $sui-gutter-md $sui-gutter-md;
+
+					.sui-accordion-item-data {
+						display: block;
+						padding: 0;
+
+						&, li {
+							border: 0;
+							list-style: none;
+						}
+
+						li {
+							margin: 0 0 10px;
+							padding: 0;
+							font-size: 13px;
+							line-height: 22px;
+							font-family: $font;
+							letter-spacing: $font--letter-spacing;
+							transition: 0.3s ease;
+							text-align: center;
+
+							strong, span {
+								display: block;
+
+								@include media(min-width, md) {
+									margin-right: 20px;
+								}
+							}
+
+							strong {
+								color: $table--th-color;
+								font-weight: 500;
+							}
+
+							&[data-col="large"] {
+
+								@include media(min-width, md) {
+									min-width: 200px;
+								}
+							}
+
+							&:last-child {
+								margin: 0;
+							}
+
+							@include media(min-width, md) {
+								flex: 0 0 auto;
+								margin: 0;
+								padding: 0 5px;
+								text-align: left;
+							}
+						}
+
+						// Loading data animation when accordion opens
+						&.sui-onload {
+
+							li > * {
+								display: block;
+								margin-right: 0;
+								background-color: palette(silver, light);
+								color: transparent;
+
+								&:first-child {
+									border-radius: $border-radius $border-radius 0 0;
+								}
+
+								&:last-child {
+									border-radius: 0 0 $border-radius $border-radius;
+								}
+							}
+						}
+
+						@include media(min-width, md) {
+							display: flex;
+							margin: 0 -5px;
+						}
+					}
+
+					@include media(min-width, md) {
+						padding: 0 $sui-gutter $sui-gutter;
+					}
+				}
+
+				&:last-child {
+					margin: 0;
+
+					@include media(min-width, md) {
+						margin: 0;
+					}
+				}
+
+				// When item is open
+				&.sui-accordion-item--open {
+
+					.sui-accordion-item-header {
+
+						.sui-accordion-item-date {
+							display: none;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+					margin: 0 0 $sui-gutter;
 				}
 			}
 		}
