@@ -49,7 +49,7 @@
 					getChart      = getItem.find( '.sui-chartjs-animated' )
 					;
 
-				if ( clickedTarget.closest( '.sui-accordion-item-actions' ).length ) {
+				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
 					return true;
 				}
 
