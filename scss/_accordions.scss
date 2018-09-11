@@ -608,6 +608,27 @@
 						line-height: 30px;
 						font-family: $font--alt;
 						font-weight: bold;
+
+						&.sui-trim-title {
+							overflow: hidden;
+							display: flex;
+							align-items: center;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+
+							span {
+								flex: 0 0 auto;
+							}
+
+							.sui-trim-text {
+								overflow: hidden;
+								display: block;
+								flex: 0 1 auto;
+								align-items: center;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+							}
+						}
 					}
 
 					.sui-accordion-item-date {
