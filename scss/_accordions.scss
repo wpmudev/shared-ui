@@ -618,8 +618,9 @@
 					}
 
 					.sui-button,
-					.sui-dropdown {
-						margin: 0 10px;
+					.sui-dropdown,
+					.sui-button-icon {
+						margin: 0 5px;
 
 						&:first-child {
 							margin-left: 0;
@@ -648,8 +649,7 @@
 					padding: 0 $sui-gutter-md $sui-gutter-md;
 
 					.sui-accordion-item-data {
-						display: flex;
-						margin: 0 -5px;
+						display: block;
 						padding: 0;
 
 						&, li {
@@ -658,17 +658,21 @@
 						}
 
 						li {
-							flex: 0 0 auto;
-							margin: 0;
-							padding: 0 5px;
+							margin: 0 0 10px;
+							padding: 0;
 							font-size: 13px;
 							line-height: 22px;
 							font-family: $font;
 							letter-spacing: $font--letter-spacing;
+							transition: 0.3s ease;
+							text-align: center;
 
 							strong, span {
 								display: block;
-								margin-right: 20px;
+
+								@include media(min-width, md) {
+									margin-right: 20px;
+								}
 							}
 
 							strong {
@@ -677,8 +681,46 @@
 							}
 
 							&[data-col="large"] {
-								min-width: 200px;
+
+								@include media(min-width, md) {
+									min-width: 200px;
+								}
 							}
+
+							&:last-child {
+								margin: 0;
+							}
+
+							@include media(min-width, md) {
+								flex: 0 0 auto;
+								margin: 0;
+								padding: 0 5px;
+								text-align: left;
+							}
+						}
+
+						// Loading data animation when accordion opens
+						&.sui-onload {
+
+							li > * {
+								display: block;
+								margin-right: 0;
+								background-color: palette(silver, light);
+								color: transparent;
+
+								&:first-child {
+									border-radius: $border-radius $border-radius 0 0;
+								}
+
+								&:last-child {
+									border-radius: 0 0 $border-radius $border-radius;
+								}
+							}
+						}
+
+						@include media(min-width, md) {
+							display: flex;
+							margin: 0 -5px;
 						}
 					}
 
