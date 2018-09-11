@@ -1,3 +1,13 @@
+v2.3.2
+
+- [New] Accordion blocks.
+- [Enhance] Dropdown menu styles.
+- [New] Chartjs styles.
+			Dev Notes: This contains basic styles for the element chartjs, but doesn't include an integration with the
+			Chartjs bundle.
+- [Fix] Prevent accordion from opening or closing when clicking on actions like buttons or toggles.
+- [New] Loading animation when accordion opens if item contains chartjs element.
+
 v2.3.1
 
 - [New] Add flexbox accordion component with example.
