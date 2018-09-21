@@ -1,9 +1,5 @@
 @include body-class(true) {
 
-	#wpfooter {
-		display: none;
-	}
-
 	.sui-footer {
 		text-align: center;
 		margin-top: 50px;
@@ -205,4 +201,12 @@
 		}
 	}
 
+}
+
+// Remove WordPress footer
+@include body-class() {
+
+	#wpfooter {
+		display: none;
+	}
 }
