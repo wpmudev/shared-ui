@@ -2592,88 +2592,288 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 			<section id="dropdowns">
 
 				<div class="demo-info-block">
+
 					<h2>Dropdowns</h2>
 					<p>Lorem ipsum dolor sit amet.</p>
-					<div class="sui-notice sui-notice-warning">
-						<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
-					</div>
+
 				</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						Default
-						<div class="sui-dropdown">
-							<a role="button" aria-expanded="false" class="sui-dropdown-anchor sui-icon-more" href="#"><span class="sui-screen-reader-text">Dropdown</span></a>
-							<ul>
-								<li><a role="button" href="#remove">Options</a></li>
-								<li><a role="button" href="#remove">Add to sitemap</a></li>
-								<li><a role="button" href="#remove">Remove</a></li>
-							</ul>
+				<div class="sui-row-with-sidenav">
+
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current"><a href="#" role="button" data-tab="demo-element--dropdown-samples">Samples</a></li>
+							<li class="sui-vertical-tab"><a href="#" role="button" data-tab="demo-element--dropdown-docs">Documentation</a></li>
+
+						</ul>
+
+					</div>
+
+					<!-- DROPDOWNS: Samples-->
+					<div class="sui-box" data-tab="demo-element--dropdown-samples">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Samples</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">Menu by default is right-aligned with the button.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-dropdown">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/"
+												target="_blank">
+												External link
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												CTA button
+											</button></li>
+										</ul>
+									</div>
+
+									<div class="sui-dropdown">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/hub/support/"
+												target="_blank">
+												<i class="sui-icon-wpmudev-logo" aria-hidden="true"></i> Link with icon
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												<i class="sui-icon-popup" aria-hidden="true"></i> Button with icon
+											</button></li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Left Menu</span>
+									<span class="sui-description">Menu will be left-aligned with the button.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-dropdown sui-dropdown-right">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/"
+												target="_blank">
+												External link
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												CTA button
+											</button></li>
+										</ul>
+									</div>
+
+									<div class="sui-dropdown sui-dropdown-right">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/hub/support/"
+												target="_blank">
+												<i class="sui-icon-wpmudev-logo" aria-hidden="true"></i> Link with icon
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												<i class="sui-icon-popup" aria-hidden="true"></i> Button with icon
+											</button></li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Center Menu</span>
+									<span class="sui-description">Menu will be center-aligned with the button.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-dropdown sui-dropdown-center">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/"
+												target="_blank">
+												External link
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												CTA button
+											</button></li>
+										</ul>
+									</div>
+
+									<div class="sui-dropdown sui-dropdown-center">
+										<button aria-expanded="false"
+											class="sui-button-icon sui-dropdown-anchor"
+											aria-label="More Options">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										</button>
+										<ul>
+											<li><a href="https://premium.wpmudev.org/hub/support/"
+												target="_blank">
+												<i class="sui-icon-wpmudev-logo" aria-hidden="true"></i> Link with icon
+											</a></li>
+											<li><button type="button"
+												data-a11y-dialog-show="my-accessible-dialog">
+												<i class="sui-icon-popup" aria-hidden="true"></i> Button with icon
+											</button></li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 					</div>
-				</div>
 
-				<div class="demo-code-block">
+					<!-- DROPDOWNS: Documentation -->
+					<div class="sui-box" data-tab="demo-element--dropdown-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-error">
+								<p>If you are using <code>SUI 2.3.2</code> or older version, you need to update the dropdown button markup when you upgrate to <code>SUI 2.3.3</code>.</p>
+							</div>
+
+							<div class="sui-notice sui-notice-warning">
+								<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Element Markup</span>
+									<span class="sui-description">This is the correct markup to use for dropdown elements.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+										<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-dropdown&quot;&gt;
-	&lt;a class=&quot;sui-dropdown-anchor sui-icon-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+	&lt;button class=&quot;sui-button-icon sui-dropdown-anchor&quot; aria-label=&quot;Dropdown&quot;&gt;
+		&lt;i class=&quot;sui-icon-widget-settings-config&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;/button&gt;
 	&lt;ul&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Options&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;button&gt;CTA Button&lt;/button&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;http://external-link.com/&quot; target=&quot;_blank&quot;&gt;External link&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;button&gt;&lt;i class=&quot;sui-icon-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Button with icon&lt;/button&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-&lt;/div&gt;</pre>
-				</div>
+&lt;/div&gt;
+</pre>
+										</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						Right
-						<div class="sui-dropdown sui-dropdown-right">
-							<a role="button" aria-expanded="false" class="sui-dropdown-anchor sui-icon-more" href="#"></a>
-							<ul>
-								<li><a role="button" href="#remove">Add to sitemap</a></li>
-								<li><a role="button" href="#remove">Remove</a></li>
-							</ul>
-						</div>
+								</div>
 
-					</div>
-				</div>
+							</div>
 
-				<div class="demo-code-block">
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+	
+									<span class="sui-settings-label">Menu Variations</span>
+									<span class="sui-description">There are some projects where the menu should display in different places.</span>
+	
+								</div>
+	
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-box-settings-row">
+			
+										<div class="sui-box-settings-col-2">
+
+											<label class="sui-settings-label">Left menu</label>
+											<span class="sui-description">In case you need the menu aligns to the left, you can make use of <code>sui-dropdown-right</code> class. For example:</span>
+
+											<div class="demo-code-block" style="margin-top: 20px;">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-dropdown sui-dropdown-right&quot;&gt;
-	&lt;a class=&quot;sui-dropdown-anchor sui-icon-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
-	&lt;ul&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;</pre>
-				</div>
+	&lt;!-- The rest of the element goes here --&gt;
+&lt;/div&gt;
+</pre>
+											</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						Center
-						<div class="sui-dropdown sui-dropdown-center">
-							<a role="button" aria-expanded="false" class="sui-dropdown-anchor sui-icon-more" href="#"></a>
-							<ul>
-								<li><a role="button" href="#remove">Add to sitemap</a></li>
-								<li><a role="button" href="#remove">Remove</a></li>
-							</ul>
+										</div>
+
+									</div>
+
+									<div class="sui-box-settings-row">
+			
+										<div class="sui-box-settings-col-2">
+
+											<label class="sui-settings-label">Center menu</label>
+											<span class="sui-description">In case you need the menu aligns to the middle, you can make use of <code>sui-dropdown-center</code> class. For example:</span>
+
+											<div class="demo-code-block" style="margin-top: 20px;">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-dropdown sui-dropdown-center&quot;&gt;
+	&lt;!-- The rest of the element goes here --&gt;
+&lt;/div&gt;
+</pre>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 					</div>
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-dropdown sui-dropdown-center&quot;&gt;
-	&lt;a class=&quot;sui-dropdown-anchor sui-icon-more&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
-	&lt;ul&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Add to sitemap&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;Remove&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;</pre>
 
 				</div>
 
