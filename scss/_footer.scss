@@ -53,6 +53,7 @@
 		[class*="sui-cross-"] {
 			min-height: 150px;
 			border-radius: $border-radius $border-radius 0 0;
+			background-size: cover;
 
 			> span {
 				width: 56px;
@@ -91,31 +92,70 @@
 
 		.sui-cross-1,
 		.sui-cross-smush {
-			background: url("#{$sui-image-path}plugins-smush.jpg") center;
-			background-size: cover;
 
 			> span {
-				@include background-2x("#{$sui-image-path}plugins-smush-icon", 'png', 50px, 50px, center center, no-repeat);
+
+				@if variable-exists(sui-cross-sell-icon--smush) {
+					@include background-2x("#{$sui-cross-sell-icon--smush}", 'png', 50px, 50px, center center, no-repeat);
+				}
+	
+				@else {
+					@include background-2x("#{$sui-image-path}plugins-smush-icon", 'png', 50px, 50px, center center, no-repeat);
+				}
+			}
+
+			@if variable-exists(sui-cross-sell-image--smush) {
+				background: url($sui-cross-sell-image--smush) center;
+			}
+
+			@else {
+				background: url("#{$sui-image-path}plugins-smush.jpg") center;
 			}
 		}
 
 		.sui-cross-2,
 		.sui-cross-defender {
-			background: url("#{$sui-image-path}plugins-defender.jpg") center;
-			background-size: cover;
 
 			> span {
-				@include background-2x("#{$sui-image-path}plugins-defender-icon", 'png', 50px, 50px, center center, no-repeat);
+
+				@if variable-exists(sui-cross-sell-icon--defender) {
+					@include background-2x("#{$sui-cross-sell-icon--defender}", 'png', 50px, 50px, center center, no-repeat);
+				}
+	
+				@else {
+					@include background-2x("#{$sui-image-path}plugins-defender-icon", 'png', 50px, 50px, center center, no-repeat);
+				}
+			}
+
+			@if variable-exists(sui-cross-sell-image--defender) {
+				background: url($sui-cross-sell-image--defender) center;
+			}
+
+			@else {
+				background: url("#{$sui-image-path}plugins-defender.jpg") center;
 			}
 		}
 
 		.sui-cross-3,
 		.sui-cross-smartcrawl {
-			background: url("#{$sui-image-path}plugins-crawl.jpg") center;
-			background-size: cover;
 
 			> span {
-				@include background-2x("#{$sui-image-path}plugins-crawl-icon", 'png', 50px, 50px, center center, no-repeat);
+
+				@if variable-exists(sui-cross-sell-icon--smartcrawl) {
+					@include background-2x("#{$sui-cross-sell-icon--smartcrawl}", 'png', 50px, 50px, center center, no-repeat);
+				}
+	
+				@else {
+					@include background-2x("#{$sui-image-path}plugins-crawl-icon", 'png', 50px, 50px, center center, no-repeat);
+				}
+			}
+
+			@if variable-exists(sui-cross-sell-image--smartcrawl) {
+				background: url($sui-cross-sell-image--smartcrawl) center;
+			}
+
+			@else {
+				background: url("#{$sui-image-path}plugins-crawl.jpg") center;
 			}
 		}
 
