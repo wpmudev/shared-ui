@@ -20,13 +20,6 @@
 				min-width: #{$summary-image--width + $sui-gutter};
 				min-height: $summary-size;
 				flex: 0 0 #{$summary-image--width + $sui-gutter};
-
-				@if variable-exists(summary-image) {
-
-					@if $summary-image != '' {
-						display: block;
-					}
-				}
 			}
 		}
 
@@ -189,57 +182,6 @@
 			}
 		}
 
-		@include media(min-width, md) {
-			display: flex;
-			align-items: center;
-			padding: 0 #{$sui-gutter / 2};
-
-			@if variable-exists(summary-image) {
-				background-image: url($summary-image);
-				background-size: $summary-image--width $summary-image--height;
-				background-position: $summary-image--position;
-				background-repeat: no-repeat;
-			}
-		}
-
-		// FIX:
-		// This fil will allow us to add the correct margins
-		// in case summary-image variable doesn't exist.
-		@if variable-exists(summary-image) {
-
-			@if $summary-image == '' {
-
-				.sui-summary-image-space {
-
-					&:first-child + .sui-summary-segment {
-	
-						.sui-list,
-						.sui-summary-details {
-		
-							@include media(min-width, md) {
-								padding-left: 0;
-							}
-						}
-					}
-				}
-			}
-		} @else {
-
-			.sui-summary-image-space {
-
-				&:first-child + .sui-summary-segment {
-
-					.sui-list,
-					.sui-summary-details {
-	
-						@include media(min-width, md) {
-							padding-left: 0;
-						}
-					}
-				}
-			}
-		}
-
 		// SIZE: Small
 		&.sui-summary-sm {
 
@@ -250,24 +192,225 @@
 					min-width: #{$summary-image-sm--width + $sui-gutter};
 					min-height: $summary-size-sm;
 					flex: 0 0 #{$summary-image-sm--width + $sui-gutter};
+				}
+			}
+		}
 
-					@if variable-exists(summary-image-sm) {
+		// VARIATION: Branded
+		// When box is using white labelling settings from WPMU DEV Dashboard.
+		&:not(.sui-unbranded) {
 
-						@if $summary-image-sm != '' {
-							display: block;
+			// SIZE: Regular
+			&:not(.sui-summary-sm) {
+
+				// ELEMENT: Image
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+		
+						@if variable-exists(summary-image) {
+		
+							@if $summary-image != '' {
+								display: block;
+							}
 						}
+					}
+				}
+
+				// FIX:
+				// This fil will allow us to add the correct margins
+				// in case summary-image variable doesn't exist or
+				// variable is empty.
+				@if variable-exists(summary-image) {
+
+					@if $summary-image == '' {
+
+						.sui-summary-image-space {
+
+							&:first-child + .sui-summary-segment {
+			
+								.sui-list,
+								.sui-summary-details {
+				
+									@include media(min-width, md) {
+										padding-left: 0;
+									}
+								}
+							}
+						}
+					}
+				} @else {
+
+					.sui-summary-image-space {
+
+						&:first-child + .sui-summary-segment {
+
+							.sui-list,
+							.sui-summary-details {
+			
+								@include media(min-width, md) {
+									padding-left: 0;
+								}
+							}
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+	
+					@if variable-exists(summary-image) {
+						background-image: url($summary-image);
+						background-size: $summary-image--width $summary-image--height;
+						background-position: $summary-image--position;
+						background-repeat: no-repeat;
 					}
 				}
 			}
 
-			@include media(min-width, md) {
-	
+			// SIZE: Small
+			&.sui-summary-sm {
+
+				// ELEMENT: Image
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image-sm) {
+
+							@if $summary-image-sm != '' {
+								display: block;
+							}
+						}
+					}
+				}
+
+				// FIX:
+				// This fil will allow us to add the correct margins
+				// in case summary-image-sm variable doesn't exist or
+				// variable is empty.
 				@if variable-exists(summary-image-sm) {
-					background-image: url($summary-image-sm);
-					background-size: $summary-image-sm--width $summary-image-sm--height;
-					background-position: $summary-image-sm--position;
+
+					@if $summary-image-sm == '' {
+
+						.sui-summary-image-space {
+
+							&:first-child + .sui-summary-segment {
+			
+								.sui-list,
+								.sui-summary-details {
+				
+									@include media(min-width, md) {
+										padding-left: 0;
+									}
+								}
+							}
+						}
+					}
+				} @else {
+
+					.sui-summary-image-space {
+
+						&:first-child + .sui-summary-segment {
+
+							.sui-list,
+							.sui-summary-details {
+			
+								@include media(min-width, md) {
+									padding-left: 0;
+								}
+							}
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+		
+					@if variable-exists(summary-image-sm) {
+						background-image: url($summary-image-sm);
+						background-size: $summary-image-sm--width $summary-image-sm--height;
+						background-position: $summary-image-sm--position;
+						background-repeat: no-repeat;
+					}
 				}
 			}
+		}
+
+		// VARIATION: Unbranded
+		// When box is using white labelling settings from WPMU DEV Dashboard
+		// but no image has been added.
+		&.sui-unbranded {
+
+			.sui-summary-image-space {
+
+				&:first-child + .sui-summary-segment {
+		
+					.sui-list,
+					.sui-summary-details {
+	
+						@include media(min-width, md) {
+							padding-left: 0;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+	
+					@if variable-exists(summary-image) {
+	
+						@if $summary-image != '' {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		// VARIATION: Rebranded
+		// When box is using white labelling settings from WPMU DEV Dashboard
+		// and an image has been assigned by user.
+		&.sui-rebranded {
+
+			// SIZE: Regular
+			&:not(.sui-summary-sm) {
+
+				@include media(max-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-image: unset !important;
+					}
+				}
+
+				@include media(min-width, md) {
+	
+					@if variable-exists(summary-image) {
+						background-position: $summary-image--position-x center;
+					}
+				}
+			}
+
+			// SIZE: Small
+			&.sui-summary-sm {
+
+				@include media(max-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-image: unset !important;
+					}
+				}
+
+				@include media(min-width, md) {
+	
+					@if variable-exists(summary-image-sm) {
+						background-position: $summary-image--position-x center;
+					}
+				}
+			}
+		}
+
+		@include media(min-width, md) {
+			display: flex;
+			align-items: center;
+			padding: 0 #{$sui-gutter / 2};
 		}
 	}
 }
