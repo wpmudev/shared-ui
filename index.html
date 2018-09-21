@@ -9,13 +9,13 @@
 	<title>Shared UI Showcase</title>
 
 	<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.2.10">
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.2.10">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.2">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.2">
 
 </head>
 
 <!-- Do not edit body tag - updated via release scripts -->
-<body class="sui-2-3-1">
+<body class="sui-2-3-2">
 
 <nav id="adminmenu">
 	<ul>
@@ -55,7 +55,7 @@
 	<div aria-hidden="true" id="wpadminbar">
 
 		<!-- Do not edit .demo-sui-version - updated via release scripts -->
-		<p class="demo-sui-version">Version 2.3.1</p>
+		<p class="demo-sui-version">Version 2.3.2</p>
 
 	</div>
 
@@ -105,7 +105,7 @@ npm install @wpmudev/shared-ui</pre>
 add_filter( 'admin_body_class', 'admin_body_classes' );
 function admin_body_classes( $classes ) {
 
-	$classes .= 'sui-2-3-1';
+	$classes .= 'sui-2-3-2';
 
 	return $classes;
 
@@ -1436,6 +1436,9 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 								<a href="#" role="button" data-tab="accordion-table">Table based</a>
 							</li>
 							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="accordion-blocks">Blocks</a>
+							</li>
+							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="accordion-documentation">Documentation</a>
 							</li>
 						</ul>
@@ -1443,6 +1446,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 							<select class="sui-mobile-nav">
 								<option>Flexbox Accordion</option>
 								<option>Table Accordion</option>
+								<option>Blocks</option>
 								<option>Documentation</option>
 							</select>
 						</div>
@@ -1588,12 +1592,15 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 											<div class="sui-accordion-item-header">
 
 												<div class="sui-accordion-item-title">
-													<label for="flexbox-accordion-sample-item-1" class="sui-toggle">
+													<label for="flexbox-accordion-sample-item-1" class="sui-toggle sui-accordion-item-action">
 														<input type="checkbox" id="flexbox-accordion-sample-item-1" checked="checked">
 														<span aria-hidden="true" class="sui-toggle-slider"></span>
 														<span class="sui-screen-reader-text">Toggle</span>
 													</label>
 													<span>Item</span>
+												</div>
+
+												<div class="sui-accordion-col-auto">
 													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
 														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
 													</button>
@@ -1622,12 +1629,15 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 											<div class="sui-accordion-item-header">
 
 												<div class="sui-accordion-item-title">
-													<label for="flexbox-accordion-sample-item-2" class="sui-toggle">
+													<label for="flexbox-accordion-sample-item-2" class="sui-toggle sui-accordion-item-action">
 														<input type="checkbox" id="flexbox-accordion-sample-item-2" checked="checked">
 														<span aria-hidden="true" class="sui-toggle-slider"></span>
 														<span class="sui-screen-reader-text">Toggle</span>
 													</label>
 													<span>Item</span>
+												</div>
+
+												<div class="sui-accordion-col-auto">
 													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
 														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
 													</button>
@@ -1656,12 +1666,15 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 											<div class="sui-accordion-item-header">
 
 												<div class="sui-accordion-item-title">
-													<label for="flexbox-accordion-sample-item-3" class="sui-toggle">
+													<label for="flexbox-accordion-sample-item-3" class="sui-toggle sui-accordion-item-action">
 														<input type="checkbox" id="flexbox-accordion-sample-item-3">
 														<span aria-hidden="true" class="sui-toggle-slider"></span>
 														<span class="sui-screen-reader-text">Toggle</span>
 													</label>
 													<span>Item</span>
+												</div>
+
+												<div class="sui-accordion-col-auto">
 													<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item">
 														<i class="sui-icon-chevron-down" aria-hidden="true"></i>
 													</button>
@@ -2065,6 +2078,233 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 					</div>
 
+					<!-- TAB: Blocks -->
+					<div class="sui-accordion sui-accordion-block" data-tab="accordion-blocks" style="display: none;">
+
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+
+								<div class="sui-accordion-item-title sui-trim-title">Title <span class="sui-tag sui-tag-blue">Published</span></div>
+
+								<div class="sui-accordion-item-date"><strong>Last Submission</strong> March 11, 2017 @ 10:18am</div>
+
+								<div class="sui-accordion-col-auto">
+									<button class="sui-button sui-button-ghost sui-accordion-item-action"><i class="sui-icon-pencil" aria-hidden="true"></i> Edit</button>
+									<div class="sui-dropdown sui-accordion-item-action">
+										<a href="#" class="sui-dropdown-anchor sui-icon-widget-settings-config" aria-label="Open Item Settings"></a>
+										<ul>
+											<li><a href=""><i class="sui-icon-eye" aria-hidden="true"></i> Preview</a></li>
+											<li><a href=""><i class="sui-icon-community-people" aria-hidden="true"></i> View</a></li>
+											<li><a href=""><i class="sui-icon-page-multiple" aria-hidden="true"></i> Duplicate</a></li>
+											<li><a href=""><i class="sui-icon-cloud-migration" aria-hidden="true"></i> Export</a></li>
+											<li><a href=""><i class="sui-icon-trash" aria-hidden="true"></i> Delete</a></li>
+										</ul>
+									</div>
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open Item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<ul class="sui-accordion-item-data">
+
+									<li data-col="large">
+										<strong>Last Submission</strong>
+										<span>March 11, 2017 @ 10:18am</span>
+									</li>
+
+									<li>
+										<strong>Views</strong>
+										<span>10000</span>
+									</li>
+
+									<li>
+										<strong>Submissions</strong>
+										<a href="">1000</a>
+									</li>
+
+									<li>
+										<strong>Conversion Rate</strong>
+										<span>10%</span>
+									</li>
+
+									<li>
+										<strong>Fields</strong>
+										<span>4</span>
+									</li>
+
+								</ul>
+
+								<div class="sui-chartjs sui-chartjs-animated">
+
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
+
+									<div class="sui-chartjs-canvas">
+										<canvas id="demo-accordion-chart-published"></canvas>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+
+								<div class="sui-accordion-item-title">Title <span class="sui-tag">Draft</span></div>
+
+								<div class="sui-accordion-item-date"><strong>Last Submission</strong> March 11, 2017 @ 10:18am</div>
+
+								<div class="sui-accordion-col-auto">
+									<button class="sui-button sui-button-ghost sui-accordion-item-action"><i class="sui-icon-pencil" aria-hidden="true"></i> Edit</button>
+									<div class="sui-dropdown sui-accordion-item-action">
+										<a href="#" class="sui-dropdown-anchor sui-icon-widget-settings-config" aria-label="Open Item Settings"></a>
+										<ul>
+											<li><a href=""><i class="sui-icon-eye" aria-hidden="true"></i> Preview</a></li>
+											<li><a href=""><i class="sui-icon-community-people" aria-hidden="true"></i> View</a></li>
+											<li><a href=""><i class="sui-icon-page-multiple" aria-hidden="true"></i> Duplicate</a></li>
+											<li><a href=""><i class="sui-icon-cloud-migration" aria-hidden="true"></i> Export</a></li>
+											<li><a href=""><i class="sui-icon-trash" aria-hidden="true"></i> Delete</a></li>
+										</ul>
+									</div>
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open Item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<ul class="sui-accordion-item-data">
+
+									<li data-col="large">
+										<strong>Last Submission</strong>
+										<span>March 11, 2017 @ 10:18am</span>
+									</li>
+
+									<li>
+										<strong>Views</strong>
+										<span>10000</span>
+									</li>
+
+									<li>
+										<strong>Submissions</strong>
+										<a href="">1000</a>
+									</li>
+
+									<li>
+										<strong>Conversion Rate</strong>
+										<span>10%</span>
+									</li>
+
+									<li>
+										<strong>Fields</strong>
+										<span>4</span>
+									</li>
+
+								</ul>
+
+								<div class="sui-chartjs sui-chartjs-animated">
+
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
+
+									<div class="sui-chartjs-message">
+										<p><i class="sui-icon-info" aria-hidden="true"></i> This form is in draft state, so we’ve paused collecting data until you publish it live.</p>
+									</div>
+
+									<div class="sui-chartjs-canvas" aria-hidden="true">
+										<canvas id="demo-accordion-chart-drafted"></canvas>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+
+								<div class="sui-accordion-item-title">Title <span class="sui-tag">Draft</span></div>
+
+								<div class="sui-accordion-item-date"><strong>Last Submission</strong> Never</div>
+
+								<div class="sui-accordion-col-auto">
+									<button class="sui-button sui-button-ghost sui-accordion-item-action"><i class="sui-icon-pencil" aria-hidden="true"></i> Edit</button>
+									<div class="sui-dropdown sui-accordion-item-action">
+										<a href="#" class="sui-dropdown-anchor sui-icon-widget-settings-config" aria-label="Open Item Settings"></a>
+										<ul>
+											<li><a href=""><i class="sui-icon-eye" aria-hidden="true"></i> Preview</a></li>
+											<li><a href=""><i class="sui-icon-community-people" aria-hidden="true"></i> View</a></li>
+											<li><a href=""><i class="sui-icon-page-multiple" aria-hidden="true"></i> Duplicate</a></li>
+											<li><a href=""><i class="sui-icon-cloud-migration" aria-hidden="true"></i> Export</a></li>
+											<li><a href=""><i class="sui-icon-trash" aria-hidden="true"></i> Delete</a></li>
+										</ul>
+									</div>
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open Item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<ul class="sui-accordion-item-data">
+
+									<li data-col="large">
+										<strong>Last Submission</strong>
+										<span>Never</span>
+									</li>
+
+									<li>
+										<strong>Views</strong>
+										<span>0</span>
+									</li>
+
+									<li>
+										<strong>Submissions</strong>
+										<a href="">0</a>
+									</li>
+
+									<li>
+										<strong>Conversion Rate</strong>
+										<span>0%</span>
+									</li>
+
+									<li>
+										<strong>Fields</strong>
+										<span>7</span>
+									</li>
+
+								</ul>
+
+								<div class="sui-chartjs sui-chartjs-animated">
+
+									<div class="sui-chartjs-message sui-chartjs-message--loading">
+										<p><i class="sui-icon-loader sui-loading" aria-hidden="true"></i> Loading data...</p>
+									</div>
+
+									<div class="sui-chartjs-message sui-chartjs-message--empty">
+										<p><i class="sui-icon-info" aria-hidden="true"></i> This form is still in draft state. You can test your form, but we won't start collecting conversion data until you publish it live.</p>
+									</div>
+
+									<div class="sui-chartjs-canvas" aria-hidden="true"></div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 					<!-- TAB: Documentation -->
 					<div class="sui-box" data-tab="accordion-documentation" style="display: none;">
 
@@ -2073,6 +2313,10 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 						</div>
 
 						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>If you want to perform some actions, like open a menu or adding a link, inside accordion items header remember to add <code>sui-accordion-item-action</code> to the element, that way when user clicks on the item it won't open/close the accordion but instead perform the action you want to like openning a dropdown menu with more options.</p>
+							</div>
 
 							<div class="sui-box-settings-row">
 
@@ -2160,6 +2404,58 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 	&lt;/tbody&gt;
 
 &lt;/table&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Accordion Blocks</span>
+									<span class="sui-description"></span>
+								</div>
+	
+								<div class="sui-box-settings-col-2">
+	
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-accordion sui-accordion-block&quot;&gt;
+
+	&lt;div class=&quot;sui-accordion-item&quot;&gt;
+
+		&lt;!-- Item header --&gt;
+		&lt;div class=&quot;sui-accordion-item-header&quot;&gt;
+
+			&lt;div class=&quot;sui-accordion-item-title sui-trim-title&quot;&gt;Title &lt;span class=&quot;sui-tag sui-tag-blue&quot;&gt;Published&lt;/span&gt;&lt;/div&gt;
+
+			&lt;div class=&quot;sui-accordion-item-date&quot;&gt;&lt;strong&gt;Last Submission&lt;/strong&gt; March 11, 2017 @ 10:18am&lt;/div&gt;
+
+			&lt;div class=&quot;sui-accordion-col-auto&quot;&gt;
+				&lt;button class=&quot;sui-button sui-button-ghost sui-accordion-item-action&quot;&gt;&lt;i class=&quot;sui-icon-pencil&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Edit&lt;/button&gt;
+				&lt;div class=&quot;sui-dropdown sui-accordion-item-action&quot;&gt;
+					&lt;a href=&quot;#&quot; class=&quot;sui-dropdown-anchor sui-icon-widget-settings-config&quot; aria-label=&quot;Open Item Settings&quot;&gt;&lt;/a&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;sui-icon-eye&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Preview&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;sui-icon-community-people&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; View&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;sui-icon-page-multiple&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Duplicate&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;sui-icon-cloud-migration&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Export&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;i class=&quot;sui-icon-trash&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Delete&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;
+				&lt;button class=&quot;sui-button-icon sui-accordion-open-indicator&quot; aria-label=&quot;Open Item&quot;&gt;&lt;i class=&quot;sui-icon-chevron-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+		&lt;!-- Item content --&gt;
+		&lt;div class=&quot;sui-accordion-item-body&quot;&gt;Your content goes here&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
 </pre>
 									</div>
 
@@ -5221,13 +5517,14 @@ dialog.hide();
 </div><!-- #wpcontent -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="showcase-assets/build/Chart.min.js?ver=2.3.2"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
 <!-- Do not edit query string versions - updated via release scripts -->
-<script src="dist/js/shared-ui.min.js?ver=2.3.1"></script>
-<script src="showcase-assets/build/showcase.min.js?ver=2.3.1"></script>
+<script src="dist/js/shared-ui.min.js?ver=2.3.2"></script>
+<script src="showcase-assets/build/showcase.min.js?ver=2.3.2"></script>
 
 <!-- Embed ACE -->
 <script>

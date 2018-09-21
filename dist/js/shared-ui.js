@@ -429,59 +429,64 @@
   }
 }(typeof global !== 'undefined' ? global : window));
 
-
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
 ;
 ( function( $, window, document, undefined ) {
 
-    'use strict';
+	'use strict';
 
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
+	// undefined is used here as the undefined global variable in ECMAScript 3 is
+	// mutable (ie. it can be changed by someone else). undefined isn't really being
+	// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
+	// can no longer be modified.
 
-    // window and document are passed through as local variables rather than global
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
+	// window and document are passed through as local variables rather than global
+	// as this (slightly) quickens the resolution process and can be more efficiently
+	// minified (especially when both are regularly referenced in your plugin).
 
-    // Create the defaults once
-    var pluginName = 'SUIAccordion',
-        defaults = {};
+	// Create the defaults once
+	var pluginName = 'SUIAccordion',
+		defaults = {};
 
-    // The actual plugin constructor
-    function SUIAccordion( element, options ) {
-        this.element = element;
-        this.$element = $( this.element );
+	// The actual plugin constructor
+	function SUIAccordion( element, options ) {
+		this.element = element;
+		this.$element = $( this.element );
 
 
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
-        this.settings = $.extend({}, defaults, options );
-        this._defaults = defaults;
-        this._name = pluginName;
-        this.init();
-    }
+		// jQuery has an extend method which merges the contents of two or
+		// more objects, storing the result in the first object. The first object
+		// is generally empty as we don't want to alter the default options for
+		// future instances of the plugin
+		this.settings = $.extend({}, defaults, options );
+		this._defaults = defaults;
+		this._name = pluginName;
+		this.init();
+	}
 
-    // Avoid Plugin.prototype conflicts
-    $.extend( SUIAccordion.prototype, {
-        init: function() {
+	// Avoid Plugin.prototype conflicts
+	$.extend( SUIAccordion.prototype, {
+		init: function() {
+			var self = this;
 
-            // namespaced event
-            this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
+			// namespaced event
+			this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
 
-				var getItem = $( this ).closest( '.sui-accordion-item' ),
-					getContent = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
-					getParent = getItem.closest( '.sui-accordion' )
+				var getItem       = $( this ).closest( '.sui-accordion-item' ),
+					getContent    = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
+					getParent     = getItem.closest( '.sui-accordion' ),
+					clickedTarget = $( event.target ),
+					getChart      = getItem.find( '.sui-chartjs-animated' )
 					;
+
+				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
+					return true;
+				}
 
 				if ( getParent.hasClass( 'sui-table' ) ) {
 
 					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
-
 						getContent.toggleClass( 'sui-accordion-item--open' );
 
 						if ( getContent.hasClass( 'sui-accordion-item--open' ) ) {
@@ -497,49 +502,66 @@
 					}
 				}
 
-            });
-        }
-    });
+				if ( getParent.hasClass( 'sui-accordion-block' ) && ( 0 !== getChart.length ) ) {
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
-    $.fn[ pluginName ] = function( options ) {
-        return this.each( function() {
+					getItem.find( '.sui-accordion-item-data' ).addClass( 'sui-onload' );
+					getChart.removeClass( 'sui-chartjs-loaded' );
 
-            // instance of SUIAccordion can be called with $(element).data('SUIAccordion')
-            if ( ! $.data( this, pluginName ) ) {
-                $.data( this, pluginName, new SUIAccordion( this, options ) );
-            }
-        });
-    };
+					if ( getItem.hasClass( 'sui-accordion-item--open' ) ) {
+
+						setTimeout( function() {
+
+							getItem.find( '.sui-accordion-item-data' ).removeClass( 'sui-onload' );
+							getChart.addClass( 'sui-chartjs-loaded' );
+
+						}, 1200 );
+
+					}
+				}
+
+			});
+		}
+	});
+
+	// A really lightweight plugin wrapper around the constructor,
+	// preventing against multiple instantiations
+	$.fn[ pluginName ] = function( options ) {
+		return this.each( function() {
+
+			// instance of SUIAccordion can be called with $(element).data('SUIAccordion')
+			if ( ! $.data( this, pluginName ) ) {
+				$.data( this, pluginName, new SUIAccordion( this, options ) );
+			}
+		});
+	};
 
 }( jQuery, window, document ) );
 
 ( function( $ ) {
 
-    // Enable strict mode.
-    'use strict';
+	// Enable strict mode.
+	'use strict';
 
-    // Define global SUI object if it doesn't exist.
-    if ( 'object' !== typeof window.SUI ) {
-        window.SUI = {};
-    }
+	// Define global SUI object if it doesn't exist.
+	if ( 'object' !== typeof window.SUI ) {
+		window.SUI = {};
+	}
 
-    SUI.suiAccordion = function( el ) {
-        var accordionTable = $( el );
+	SUI.suiAccordion = function( el ) {
+		var accordionTable = $( el );
 
-        function init() {
-            accordionTable.SUIAccordion({});
-        }
+		function init() {
+			accordionTable.SUIAccordion({});
+		}
 
-        init();
+		init();
 
-        return this;
-    };
+		return this;
+	};
 
-	if ( 0 !== $( '.sui-2-3-1 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-2 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-1 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-2 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1612,7 +1634,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-1 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-3-2 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -1639,7 +1661,7 @@
 	SUI.linkDropdown = function() {
 
 		function closeAllDropdowns( $except ) {
-			var $dropdowns = $( '.sui-2-3-1 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-3-2 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -1696,9 +1718,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-1 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-3-2 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-1 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-3-2 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -1720,7 +1742,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-1 .sui-password-group' ).each( function() {
+		$( '.sui-2-3-2 .sui-password-group' ).each( function() {
 			var $this = $( this ),
 				$input = $this.find( 'input[type="password"]' ),
 				$button = $this.find( '.sui-password-toggle' );
@@ -1792,7 +1814,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-1 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-2 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2008,7 +2030,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-1 select' ).each( function() {
+	$( '.sui-2-3-2 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -8721,7 +8743,7 @@
         init( options );
     };
 
-    if ( 0 !== $( '.sui-2-3-1 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-2 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
@@ -8739,7 +8761,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-1 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-3-2 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
