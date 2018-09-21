@@ -3954,43 +3954,178 @@ $( '.sui-date .sui-form-control' ).datepicker({
 
 				<div class="demo-info-block">
 					<h2>Summary</h2>
-					<p>The summary is used to display a summary of the pages information. The Shared UI provides the following two examples for your plugin page summaries. Please note you will need to add a class to the <code>sui-summary-image-space</code>
-					to override the background image.</p>
+					<p>The summary is used to display a summary of the pages information.</p>
 					<div class="sui-notice sui-notice-warning">
 						<p>Summary box variables has been updated on <strong>SUI 2.3.1</strong>. To load an image into summary box you need to use <code>$summary-image: 'path-to-image';</code>. For other variables like image size and position you can check <code>_variables.scss</code> file.</p>
 					</div>
 				</div>
 
-				<div aria-hidden="true" class="sui-box sui-summary">
-					<div class="sui-summary-image-space">
-					</div>
-					<div class="sui-summary-segment">
-						<div class="sui-summary-details">
-							<span class="sui-summary-large">97</span>
-							<i aria-hidden="true" class="sui-icon-info sui-warning"></i>
-							<span class="sui-summary-percent">/100</span>
-							<span class="sui-summary-sub">Current performance score</span>
-							<span class="sui-summary-detail">December 12, 2017 at 1:46 am</span>
-							<span class="sui-summary-sub">Last test</span>
-						</div>
-					</div>
-					<div class="sui-summary-segment">
-						<ul class="sui-list">
-							<li>
-								<span class="sui-list-label">Previous score</span>
-								<span class="sui-list-detail">76</span>
+				<div class="sui-row-with-sidenav">
+
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--summary-regular">Regular</a>
 							</li>
-							<li>
-								<span class="sui-list-label">Improvement</span>
-								<span class="sui-list-detail"><span class="sui-tag sui-tag-error">-1</span></span>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--summary-small">Small</a>
 							</li>
-							<li>
-								<span class="sui-list-label">Recommendations</span>
-								<span class="sui-list-detail">4</span>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--summary-docs">Documentation</a>
 							</li>
+
 						</ul>
+
 					</div>
+
+					<div data-tab="demo-element--summary-regular">
+
+						<div class="sui-box sui-summary">
+							<div class="sui-summary-image-space" aria-hidden="true">
+							</div>
+							<div class="sui-summary-segment">
+								<div class="sui-summary-details">
+									<span class="sui-summary-large">97</span>
+									<i aria-hidden="true" class="sui-icon-info sui-warning"></i>
+									<span class="sui-summary-percent">/100</span>
+									<span class="sui-summary-sub">Current performance score</span>
+									<span class="sui-summary-detail">December 12, 2017 at 1:46 am</span>
+									<span class="sui-summary-sub">Last test</span>
+								</div>
+							</div>
+							<div class="sui-summary-segment">
+								<ul class="sui-list">
+									<li>
+										<span class="sui-list-label">Previous score</span>
+										<span class="sui-list-detail">76</span>
+									</li>
+									<li>
+										<span class="sui-list-label">Improvement</span>
+										<span class="sui-list-detail"><span class="sui-tag sui-tag-error">-1</span></span>
+									</li>
+									<li>
+										<span class="sui-list-label">Recommendations</span>
+										<span class="sui-list-detail">4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div data-tab="demo-element--summary-small" style="display: none;">
+
+						<div class="sui-box sui-summary sui-summary-sm">
+
+							<div class="sui-summary-image-space" aria-hidden="true"></div>
+
+							<div class="sui-summary-segment">
+
+								<div class="sui-summary-details">
+
+									<span class="sui-summary-large">1</span>
+									<span class="sui-summary-sub">Active Form</span>
+
+								</div>
+
+							</div>
+
+							<div class="sui-summary-segment">
+
+								<ul class="sui-list">
+
+									<li>
+										<span class="sui-list-label">Last Submission</span>
+										<span class="sui-list-detail">5 minutes ago</span>
+									</li>
+
+									<li>
+										<span class="sui-list-label">Submissions in the last 30 days</span>
+										<span class="sui-list-detail">1000</span>
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--summary-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Variables</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label">Regular summary</label>
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet scss">
+// Set summary image
+//
+// NOTE: If you don't enter this variable, the image won't show on the summary.
+$summary-image: &#39;path-to-plugin/assets/images/your-image.png&#39;;
+
+// ========================================
+// Overwrite image size
+$summary-image--width:  192px;
+$summary-image--height: 182px;
+
+// ========================================
+// Overwrite image position
+$summary-image--position-x: 30px; // Horizontal position (only)
+$summary-image--position-y: bottom; // Vertical position (only)
+</pre>
+									</div>
+
+									<label class="sui-settings-label">Small summary</label>
+
+									<div class="demo-code-block">
+<pre class="sui-code-snippet scss">
+// Set small summary image
+//
+// NOTE: If you don't enter this variable and $summary-image exists
+// this will show instead regular summary image, but if none of them
+// exist the image won't show on the summary.
+$summary-image-sm: &#39;path-to-plugin/assets/images/your-image-small.png&#39;;
+
+// Overwrite image size
+$summary-image-sm--width:  192px;
+$summary-image-sm--height: 121px;
+
+// ========================================
+// Overwrite image position
+$summary-image-sm--position-x: 30px; // Horizontal position (only)
+$summary-image-sm--position-y: bottom; // Vertical position (only)
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+				
 
 				<div class="demo-code-block">
 <pre class="sui-code-snippet html">&lt;div class="sui-box sui-summary"&gt;
