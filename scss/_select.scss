@@ -53,7 +53,7 @@
 				overflow: hidden;
 				display: block;
 				position: relative;
-				padding: 8px 8px 8px 14px;
+				padding: 6px 8px 6px 14px;
 				border: 0;
 				background-clip: padding-box;
 				color: $select-value--color;
@@ -199,7 +199,7 @@
 				padding-right: #{$select-dropdown-handle-size-sm - 1px};
 
 				.list-value {
-					padding: 7px 7px 7px 11px;
+					padding: 6px 7px 6px 11px;
 					font-size: 13px;
 					line-height: 16px;
 				}
@@ -213,6 +213,23 @@
 						line-height: 20px;
 					}
 				}
+			}
+		}
+
+		// VARIATION: Inline
+		&.sui-select-inline {
+			width: auto;
+			max-width: 100%;
+			min-width: 120px;
+			display: inline-flex;
+			margin-right: 10px;
+
+			.select-list-container {
+				flex: 0 0 100%;
+			}
+
+			&:last-child {
+				margin-right: 0;
 			}
 		}
 	}
