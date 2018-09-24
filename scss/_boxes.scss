@@ -159,6 +159,53 @@
 			}
 		}
 
+		// BOX: Search Bar
+		.sui-box-search {
+
+			.sui-search-left {
+
+				&:not(:last-child) {
+
+					@include media(min-width, md) {
+						margin-right: #{$sui-gutter / 2};
+					}
+				}
+
+				@include media(min-width, md) {
+					display: flex;
+					flex: 1;
+				}
+			}
+
+			.sui-search-right {
+
+				&:only-child {
+
+					@include media(min-width, md) {
+						flex: 1;
+					}
+				}
+
+				&:not(:only-child) {
+
+					&:not(:last-child) {
+
+						@include media(min-width, md) {
+							margin-right: #{$sui-gutter / 2};
+						}
+					}
+
+					@include media(min-width, md) {
+						flex: 0 0 auto;
+					}
+				}
+			}
+			
+			@include media(min-width, md) {
+				display: flex;
+			}
+		}
+
 		@include media(max-width, md) {
 			margin-bottom: $sui-gutter-md;
 		}
