@@ -36,6 +36,21 @@
 		// BOX: Body
 		.sui-box-body {
 
+			&.sui-box-slim {
+				padding-top: #{$sui-gutter / 2};
+				padding-bottom: #{$sui-gutter / 2};
+
+				@include media(max-width, md) {
+					padding-right: $sui-gutter-md;
+					padding-left: $sui-gutter-md;
+				}
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
 			@include media(max-width, md) {
 				padding: $sui-gutter-md;
 			}
