@@ -1,3 +1,37 @@
+v2.3.2
+
+- [New] Accordion blocks.
+- [Enhance] Dropdown menu styles.
+- [New] Chartjs styles.
+			Dev Notes: This contains basic styles for the element chartjs, but doesn't include an integration with the
+			Chartjs bundle.
+- [Fix] Prevent accordion from opening or closing when clicking on actions like buttons or toggles.
+- [New] Loading animation when accordion opens if item contains chartjs element.
+
+v2.3.1
+
+- [New] Add flexbox accordion component with example.
+- [Enhance] Make accordion work with and without table component.
+			Dev Notes: You can choose to use sui-accordions with and without sui-tabs.
+- [Enhance] Pagination filter button with filter content box.
+			Dev Notes: IMPORTANT – Filter button has changed structure. You will need to go through your plugin and updated
+			every pagination filter button to use new structure.
+- [Enhance] Tags have new styles.
+			Dev Notes: IMPORTANT – Default tag style has changed and now are gray instead of yellow. You will need to update
+			every sui-tag to use sui-tag-warning class if you want to keep it yellow. Upsell tag changed too.
+- [Enhance] Improved styles for icon button.
+- [Enhance] Tabs and side tabs can be used separately.
+			Dev Notes: IMPORTAT – There are some side tabs that doesn't have content, for those cases use sui-side-tabs only,
+			without sui-tabs, to avoid conflicts with the JS.
+- [Enhance] Improve flushed tabs inside sui-box-body.
+
+v2.3.0
+
+ - [Improvement] Add class sui-color-accessible to sui-wrap to change all components to black and white
+ - [Improvement] Enhance/accordions
+             Dev Notes: Check all accordions to make sure they're displaying correctly. You may need to update
+             the accordion title class. Check showcase for code.
+
 v2.2.10
 
  - [Enhance] Refactor tabs.

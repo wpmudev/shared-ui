@@ -177,20 +177,49 @@ $sidenav-tab-icon-color:                palette(green)                !default;
 $list-summary-number-color:             palette(gray, light)          !default;
 $list-summary-small-color:              palette(gray, light)          !default;
 
+// ============================================================
 // Tags (_tags.scss)
-$tag-color:                             palette(gray, dark)           !default;
-$tag-color-alt:                         palette(mono, white)          !default;
-$tag-bg-color:                          $warning                      !default;
-$tag-success-bg-color:                  $success                      !default;
-$tag-error-bg-color:                    $error                        !default;
-$tag-inactive-bg-color:                 palette(silver, soft)         !default;
-$tag-upgrade-bg-color:                  palette(green)                !default;
-$tag-upsell-color:                      palette(green, light)         !default;
-$tag-disabled-color:                    palette(silver, medium)       !default;
-$tag-disabled-bg-color:                 palette(silver, light)        !default;
-$tag-pro-color:							palette(mono, white)		  !default;
-$tag-pro-background:					palette(purple)               !default;
-$tag-beta-background:					palette(orange)               !default;
+
+// Default tags
+$tag--default-background: palette(silver) !default;
+$tag--default-color: palette(gray, dark) !default;
+
+// Red tags
+$tag--red-border-color: palette(red, light) !default;
+$tag--red-background: $error !default;
+$tag--red-color: $white !default;
+
+// Yellow tags
+$tag--yellow-border-color: palette(yellow, light) !default;
+$tag--yellow-background: $warning !default;
+$tag--yellow-color: palette(gray, dark) !default;
+
+// Green tags
+$tag--green-border-color: palette(green, light) !default;
+$tag--green-background: $success !default;
+$tag--green-color: $white !default;
+
+// Blue tags
+$tag--blue-border-color: palette(blue, light) !default;
+$tag--blue-background: palette(blue) !default;
+$tag--blue-color: $white !default;
+
+// Purple tags
+$tag--purple-border-color: palette(purple, light) !default;
+$tag--purple-background: palette(purple) !default;
+$tag--purple-color: $white;
+
+// Disabled tags
+$tag--disabled-background: palette(silver) !default;
+$tag--disabled-color: palette(silver, medium) !default;
+
+// Pro tags
+$tag--pro-background: palette(purple) !default;
+$tag--pro-color: $white !default;
+
+// Beta tags
+$tag--beta-background: palette(orange) !default;
+$tag--beta-color: $white !default;
 
 // Forms (_forms.scss)
 $form--input-border-color:				palette(gray, lighter)			!default;
@@ -259,16 +288,24 @@ $progress-state-text-color:             palette(gray, light)          !default;
 $progress-close-color:                  palette(silver, medium)       !default;
 
 // Tables (_tables.scss)
-$table--border-color:                   palette(silver, soft)         !default;
+$table--border-color:                   palette(silver, soft)       !default;
 $table--th-color:                       $headings-color               !default;
 $table--text-color:                     $font-color                   !default;
 $table--field-list-title-color:         $headings-color               !default;
 $table--title-color:                    $headings-color               !default;
 
+// ============================================================
 // Accordions (_accordions.scss)
 $accordion--content-bg-color:           palette(silver,light)         !default;
 $accordion--open-indicator-color:       palette(gray,light)           !default;
+$accordion--disabled-color:             palette(silver, medium)       !default;
+$accordion--disabled-icon:              palette(gray, lighter)        !default;
 
+$accordion--block-background:           $white                          !default;
+$accordion--block-shadow:               palette(silver, soft)         !default;
+$accordion--block-color:                palette(gray, light)          !default;
+
+// ============================================================
 // Icons (_icons.scss)
 $icon-color:                            palette(gray,light)           !default;
 
@@ -283,7 +320,7 @@ $pagination-item-color-hover:           palette(blue, default)        !default;
 $pagination-item-color-active:          palette(gray, dark)           !default;
 $pagination-item-color-disabled:        palette(gray, lighter)        !default;
 $pagination-item-bg-active:             palette(silver, light)        !default;
-$pagination-filter-border:              palette(gray, lighter)        !default;
+$pagination-filter-border:              palette(silver, soft)         !default;
 $pagination-results:                    palette(gray, light)          !default;
 
 // ACE Editor (_ace-editor.scss)

@@ -3,107 +3,158 @@
 	.sui-dropdown {
 		position: relative;
 		display: inline-block;
-		text-align: left;
 
-		&-anchor {
-			$anchor: &;
-			display: inline-block;
-			color: $dropdown-anchor-color;
+		.sui-dropdown-anchor {
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			padding: 0 5px;
+			border: 0;
+			font-size: 12px;
+			transition: 0.3s ease;
 
-			&:hover:not(:focus):not(:active),
+			&:before {
+				display: block;
+				color: inherit;
+			}
+
+			&,
 			&:hover,
+			&:focus,
 			&:active,
-			&:focus {
-				color: $blue;
+			&:visited {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&,
+			&:focus,
+			&:visited {
+				border-radius: $border-radius;
+				background-color: transparent;
+				color: palette(gray, light);
+			}
+
+			&:hover,
+			&:active {
+				background-color: $silver;
+				color: palette( gray, dark );
 			}
 		}
 
-		&.open {
-			.sui-dropdown-anchor {
-				color: $blue;
-			}
+		ul {
+			min-width: 170px;
+			display: none;
+			position: absolute;
+			z-index: 10;
+			top: 100%;
+			right: -10px;
+			left: auto;
+			margin: 15px 0 0;
+			padding: 10px 0;
+			border: 1px solid palette(gray, lighter);
+			border-radius: $border-radius;
+			background-color: $white;
+			box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
 
-			ul {
-				display: block;
-				list-style: none;
-			}
-
-			&:after,
-			&:before {
-				content: '';
-				position: absolute;
-				border-style: solid;
-				border-width: 0 9px 9px;
-				display: block;
+			&:before,
+			&:after {
+				content: " ";
 				width: 0;
-				border-top-color: $tooltips-color;
-				margin: 7px 0 0;
+				position: absolute;
+				right: 15px;
+				border-width: 0 8px 10px;
+				border-style: solid;
+				border-top-color: palette(gray, lighter);
+			}
+
+			&:before {
+				z-index: 10;
+				top: -10px;
+				border-color: palette(gray, lighter) transparent;
 			}
 
 			&:after {
-				border-color: $white transparent;
 				z-index: 11;
-				top: 24px;
+				top: -8px;
+				border-color: $white transparent;
 			}
 
-			&:before {
-				border-color: $dropdown-ul-before-border-color transparent;
-				z-index: 10;
-				top: 23px;
+			&, li {
+				list-style: none;
 			}
-		}
-
-
-		ul {
-			border: 1px solid $dropdown-ul-border-color;
-			box-shadow: 0 3px 7px 0 rgba(0,0,0,0.05);
-			min-width: 180px;
-			margin-bottom: 0;
-			margin-top: 0;
-			padding: 10px 0;
-			font: 500 15px/25px $font;
-			background: $white;
-			position: absolute;
-			left: auto;
-			right: -22px;
-			top: 130%;
-			z-index: 10;
-			border-radius: 4px;
-			display: none;
 
 			li {
-				padding: 10px 15px;
-				background: none;
-				color: palette(gray, light);
-				cursor: pointer;
-				list-style: none;
-				font-weight: 400;
-				line-height: 15px;
-				word-wrap: break-word;
+				display: block;
 				margin: 0;
-				opacity: 0.8;
-				transition-property: opacity;
-				transition-duration: 0.3s;
-				border-radius: 0 !important;
-				a {
-					font-weight: 300;
-					color: inherit;
-					&:hover {
-						color: inherit;
+				border: 0;
+
+				a, button, > span {
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						margin: 0;
+						padding: 0 8px;
+						border: 0;
+						outline: none;
+						box-shadow: none;
 					}
 				}
-				&:hover:not(.sui-dropdown-label) {
-					background: palette(silver);
-					color: palette(gray, dark);
+
+				a, button {
+					width: 100%;
+					cursor: pointer;
+					display: block;
+					font: 500 13px/30px $font;
+					text-align: left;
+					transition: 0.3s ease;
+
+					&,
+					&:focus,
+					&:visited {
+						background-color: transparent;
+						color: palette(gray, light);
+					}
+
+					&:hover,
+					&:active {
+						background-color: $silver;
+						color: palette(gray, dark);
+
+						[class*="sui-icon-"]:before {
+							color: palette(gray, dark);
+						}
+					}
 				}
 
-				&.active {
-					background: palette(silver, light);
-					color: palette(gray, dark);
+				[class*="sui-icon-"] {
+					width: 24px;
+					margin-right: 4px;
+					font-size: 12px;
+					text-align: center;
+
+					&:before {
+						display: block;
+						color: palette(gray, light);
+						transition: 0.3s ease;
+					}
 				}
+
+				&.active,
 				&.current {
-					background: palette(gray, light);
-					color: $white;
+					background-color: $silver;
+					color: palette(gray, dark);
+
+					[class*="sui-icon-"]:before {
+						color: palette(gray, dark);
+					}
 				}
 
 				&.sui-dropdown-label {
@@ -113,28 +164,76 @@
 					color: $gray;
 				}
 
+				// FIX:
+				// In some cases, there are buttons that are wrapped inside a form
+				// to execute special actions.
+				form {
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+				}
 			}
 		}
 
-		&.sui-dropdown-right{
+		// POSITION: Right
+		&.sui-dropdown-right {
+
 			ul {
-				left: -22px;
-				transform: none;
+				right: unset;
+				left: -10px;
+
+				&:before,
+				&:after {
+					right: unset;
+					left: 15px;
+				}
 			}
 		}
 
-		&.sui-dropdown-center{
+		// POSITION: Center
+		&.sui-dropdown-center {
+
 			ul {
+				right: unset;
 				left: 50%;
 				transform: translateX(-50%);
+
+				&:before,
+				&:after {
+					right: unset;
+					left: 50%;
+					transform: translateX(-50%);
+				}
 			}
 		}
 
+		// Extra fixes
 		&.wds-item-loading {
 			font-size: 18px;
 
 			.sui-dropdown-anchor {
 				visibility: hidden;
+			}
+		}
+
+		// When menu is open
+		&.open {
+
+			.sui-dropdown-anchor {
+
+				&,
+				&:hover,
+				&:focus,
+				&:active,
+				&:visited {
+					background-color: $silver;
+					color: palette( gray, dark );
+				}
+			}
+
+			ul {
+				display: block;
 			}
 		}
 	}
