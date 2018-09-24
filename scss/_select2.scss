@@ -2,154 +2,195 @@
 
 @include body-class {
 
-	select.sui-select + .select2-container {
-		width: 100% !important;
-		display: block;
+	select.sui-select {
 
-		.selection {
+		+ .select2-container {
+			width: 100% !important;
 			display: block;
-
-			&:focus, *:focus {
-				outline: none;
-			}
-		}
-
-		.select2-selection--single,
-		.select2-selection--multiple {
-			border-radius: $border-radius;
-			border: 1px solid $select-container--border-color;
-			background-color: $select-container--background;
-			transition: 0.3s ease;
-
-			&:hover {
-				background-color: $select-container--background-active;
-			}
-		}
-
-		// Single value
-		.select2-selection--single {
-			height: auto;
-			display: block;
-			position: relative;
-
-			.select2-selection__rendered {
-				padding: 7px 28px 6px #{$sui-gutter/2};
-				color: $select-value--color;
-				font: 500 15px/25px $font;
-				transition: 0.3s ease;
-			}
-
-			.select2-selection__arrow {
-				width: 20px;
-				height: 20px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				position: absolute;
-				top: 9px;
-				right: 9px;
-
-				@include icon(before, chevron-down) {
-					font-size: 12px;
-					transition: transform 0.2s linear;
-				};
-
-				b {
-					display: none;
-				}
-			}
-		}
-
-		// Multiple values
-		.select2-selection--multiple {
-			padding: 7px 12px 7px;
-
-			.select2-selection__rendered {
+	
+			.selection {
 				display: block;
-				margin: -5px;
-				padding: 0;
-
-				.select2-selection__clear {
-					display: none;
-				}
-
-				li {
-					display: inline-flex;
-					margin-right: 5px;
-					margin-bottom: 5px;
-					font: 500 15px/24px $font;
-
-					&:before, &:after {
-						content: none;
-					}
-				}
-
-				.select2-selection__choice {
-					padding-left: 10px;
-					padding-right: 0;
-					border: none;
-					border-radius: $border-radius;
-					background: $gray;
-					color: $white;
-					font-size: 12px;
-
-					.select2-selection__choice__remove {
-						margin-left: 10px;
-						margin-right: 0;
-						padding: 0 10px;
-						color: $white;
-						order: 2;
-						background-color: #5E5E5E;
-						font-weight: 500;
-						font-size: 16px;
-						line-height: 24px;
-						transition: all .3s ease;
-						border-radius: 0 $border-radius $border-radius 0;
-
-						&:hover {
-							color: $white;
-							background-color: #565656;
-						}
-					}
-				}
-
-				.select2-search--inline {
-					margin: 0 0 0 8px;
-
-					.select2-search__field {
-						width: 100% !important;
-						height: 34px;
-						display: block;
-						margin: 0;
-						padding: 0;
-						color: palette(gray, dark);
-						font: 500 15px/24px $font;
-						transition: 0.2s ease;
-
-						&::placeholder {
-							color: #AAA;
-						}
-					}
+	
+				&:focus, *:focus {
+					outline: none;
 				}
 			}
-		}
-
-		&.select2-container--open {
-
+	
 			.select2-selection--single,
 			.select2-selection--multiple {
-				background-color: $select-container--background-active;
+				border-radius: $border-radius;
+				border: 1px solid $select-container--border-color;
+				background-color: $select-container--background;
+				transition: 0.3s ease;
+	
+				&:hover {
+					background-color: $select-container--background-active;
+				}
+			}
+	
+			// Single value
+			.select2-selection--single {
+				height: auto;
+				display: block;
+				position: relative;
+	
+				.select2-selection__rendered {
+					padding: 7px 28px 6px #{$sui-gutter/2};
+					color: $select-value--color;
+					font: 500 15px/25px $font;
+					transition: 0.3s ease;
+				}
+	
+				.select2-selection__arrow {
+					width: 20px;
+					height: 20px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					top: 9px;
+					right: 9px;
+	
+					@include icon(before, chevron-down) {
+						font-size: 12px;
+						transition: transform 0.2s linear;
+					};
+	
+					b {
+						display: none;
+					}
+				}
+			}
+	
+			// Multiple values
+			.select2-selection--multiple {
+				padding: 7px 12px 7px;
+	
+				.select2-selection__rendered {
+					display: block;
+					margin: -5px;
+					padding: 0;
+	
+					.select2-selection__clear {
+						display: none;
+					}
+	
+					li {
+						display: inline-flex;
+						margin-right: 5px;
+						margin-bottom: 5px;
+						font: 500 15px/24px $font;
+	
+						&:before, &:after {
+							content: none;
+						}
+					}
+	
+					.select2-selection__choice {
+						padding-left: 10px;
+						padding-right: 0;
+						border: none;
+						border-radius: $border-radius;
+						background: $gray;
+						color: $white;
+						font-size: 12px;
+	
+						.select2-selection__choice__remove {
+							margin-left: 10px;
+							margin-right: 0;
+							padding: 0 10px;
+							color: $white;
+							order: 2;
+							background-color: #5E5E5E;
+							font-weight: 500;
+							font-size: 16px;
+							line-height: 24px;
+							transition: all .3s ease;
+							border-radius: 0 $border-radius $border-radius 0;
+	
+							&:hover {
+								color: $white;
+								background-color: #565656;
+							}
+						}
+					}
+	
+					.select2-search--inline {
+						margin: 0 0 0 8px;
+	
+						.select2-search__field {
+							width: 100% !important;
+							height: 34px;
+							display: block;
+							margin: 0;
+							padding: 0;
+							color: palette(gray, dark);
+							font: 500 15px/24px $font;
+							transition: 0.2s ease;
+	
+							&::placeholder {
+								color: #AAA;
+							}
+						}
+					}
+				}
+			}
+	
+			&.select2-container--open {
+	
+				.select2-selection--single,
+				.select2-selection--multiple {
+					background-color: $select-container--background-active;
+				}
+	
+				// Single value
+				.select2-selection--single {
+	
+					.select2-selection__arrow {
+							
+						&:before {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+		}
+
+		// VARIATION: Inline
+		&.sui-select-inline + .select2-container {
+			width: auto !important;
+			max-width: 100%;
+			min-width: 240px;
+			display: inline-flex;
+			margin-right: 10px;
+
+			.selection {
+				min-width: 100%;
+				flex: 0 0 100%;
 			}
 
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		// SIZE: Small
+		&.sui-select-sm + .select2-container {
+			
 			// Single value
 			.select2-selection--single {
 
+				.select2-selection__rendered {
+					padding-top: 6px;
+					padding-left: 11px;
+					font-size: 13px;
+					line-height: 16px;
+				}
+
 				.select2-selection__arrow {
-						
-					&:before {
-						transform: rotate(180deg);
-					}
+					top: 4px;
+					right: 4px;
 				}
 			}
 		}
