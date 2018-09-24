@@ -3,49 +3,7 @@
 	.sui-dropdown {
 		position: relative;
 		display: inline-block;
-
-		.sui-dropdown-anchor {
-			width: 30px;
-			height: 30px;
-			cursor: pointer;
-			display: inline-flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			margin: 0;
-			padding: 0 5px;
-			border: 0;
-			font-size: 12px;
-			transition: 0.3s ease;
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-
-			&,
-			&:hover,
-			&:focus,
-			&:active,
-			&:visited {
-				outline: none;
-				box-shadow: none;
-			}
-
-			&,
-			&:focus,
-			&:visited {
-				border-radius: $border-radius;
-				background-color: transparent;
-				color: palette(gray, light);
-			}
-
-			&:hover,
-			&:active {
-				background-color: $silver;
-				color: palette( gray, dark );
-			}
-		}
+		margin: 0 10px;
 
 		ul {
 			min-width: 170px;
@@ -61,6 +19,7 @@
 			border-radius: $border-radius;
 			background-color: $white;
 			box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
+			transition: 0.3s ease;
 
 			&:before,
 			&:after {
@@ -174,6 +133,14 @@
 					border: 0;
 				}
 			}
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
 		}
 
 		// POSITION: Right
