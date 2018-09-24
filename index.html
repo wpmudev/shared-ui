@@ -172,6 +172,10 @@ function admin_body_classes( $classes ) {
 							</li>
 
 							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-search">Search Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--box-message">Message Box</a>
 							</li>
 
@@ -183,6 +187,7 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
+					<!-- BOX: Basic -->
 					<div class="sui-box" data-tab="demo-element--box-basic">
 
 						<div class="sui-box-header">
@@ -213,6 +218,7 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
+					<!-- BOX: Settings -->
 					<div class="sui-box" data-tab="demo-element--box-settings" style="display: none;">
 
 						<div class="sui-box-header">
@@ -316,6 +322,7 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
+					<!-- BOX: Status -->
 					<div data-tab="demo-element--box-status" style="display: none;">
 
 						<div class="sui-box">
@@ -420,24 +427,79 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
-					<div data-tab="demo-element--box-message" style="display: none;">
+					<!-- BOX: Status -->
+					<div data-tab="demo-element--box-search" style="display: none;">
 
-						<div class="sui-row">
+						<div class="sui-box">
 
-							<div class="sui-col-md-6">
+							<div class="sui-box-search">
 
-								<div class="sui-box sui-message">
+								<select class="sui-select-sm sui-select-inline">
+									<option>Forms</option>
+									<option>Polls</option>
+									<option>Quizzes</option>
+								</select>
 
-									<img src="dist/images/forminator-empty-message.png"
-										srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
-										class="sui-image"
-										aria-hidden="true" />
+								<select class="sui-select sui-select-sm sui-select-inline">
+									<option>Contact Form</option>
+									<option>Design Request</option>
+									<option>Development Request</option>
+									<option>Another Form</option>
+								</select>
 
-									<div class="sui-message-content">
+								<button class="sui-button">Bulk Actions</button>
 
-										<h2>Message Box</h2>
+							</div>
 
-										<p>This normal message box usually contains: image, title and text.</p>
+						</div>
+
+						<div class="sui-box">
+
+							<div class="sui-box-body">
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
 
 									</div>
 
@@ -445,22 +507,56 @@ function admin_body_classes( $classes ) {
 
 							</div>
 
-							<div class="sui-col-md-6">
+							<div class="sui-box-footer">
 
-								<div class="sui-box sui-message sui-message-lg">
+								<div class="sui-actions-right">
+									<button class="sui-button sui-button-blue">Save Settings</button>
+								</div>
 
-									<img src="dist/images/forminator-empty-message.png"
-										srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
-										class="sui-image"
-										aria-hidden="true" />
+							</div>
 
-									<div class="sui-message-content">
+						</div>
 
-										<p>This large message box usually contains: image, text and button(s).</p>
+					</div>
 
-										<p><button class="sui-button sui-button-blue">CTA Button</button></p>
+					<!-- BOX: Message -->
+					<div data-tab="demo-element--box-message" style="display: none;">
 
-									</div>
+						<div class="sui-box">
+
+							<div class="sui-message">
+
+								<img src="dist/images/forminator-empty-message.png"
+									srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
+									class="sui-image"
+									aria-hidden="true" />
+
+								<div class="sui-message-content">
+
+									<h2>Message Box</h2>
+
+									<p>This normal message box usually contains: image, title and text.</p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box">
+
+							<div class="sui-message sui-message-lg">
+
+								<img src="dist/images/forminator-empty-message.png"
+									srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
+									class="sui-image"
+									aria-hidden="true" />
+
+								<div class="sui-message-content">
+
+									<p>This large message box usually contains: image, text and button(s).</p>
+
+									<p><button class="sui-button sui-button-blue">CTA Button</button></p>
 
 								</div>
 
