@@ -191,23 +191,23 @@
 				}
 			}
 
-			&:not(.sui-box-body) {
-				padding-top: #{$sui-gutter / 2};
-				padding-bottom: #{$sui-gutter / 2};
+			@include media(min-width, md) {
+				display: flex;
+			}
+		}
 
-				@include media(max-width, md) {
-					padding-right: $sui-gutter-md;
-					padding-left: $sui-gutter-md;
-				}
+		> .sui-box-search {
+			padding-top: #{$sui-gutter / 2};
+			padding-bottom: #{$sui-gutter / 2};
 
-				@include media(min-width, md) {
-					padding-right: $sui-gutter;
-					padding-left: $sui-gutter;
-				}
+			@include media(max-width, md) {
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
 			}
 
 			@include media(min-width, md) {
-				display: flex;
+				padding-right: $sui-gutter;
+				padding-left: $sui-gutter;
 			}
 		}
 
