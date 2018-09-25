@@ -54,6 +54,7 @@
 			min-height: 150px;
 			border-radius: $border-radius $border-radius 0 0;
 			background-size: cover;
+			background-position: center;
 
 			> span {
 				width: 56px;
@@ -90,72 +91,48 @@
 			}
 		}
 
-		.sui-cross-1,
-		.sui-cross-smush {
+		@if variable-exists(promote-plugin-1) {
 
-			> span {
+			@if $promote-plugin-1 != '' {
 
-				@if variable-exists(sui-cross-sell-icon--smush) {
-					@include background-2x("#{$sui-cross-sell-icon--smush}", 'png', 50px, 50px, center center, no-repeat);
+				.sui-cross-1 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$promote-plugin-1}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$promote-plugin-1}.jpg");
 				}
-	
-				@else {
-					@include background-2x("#{$sui-image-path}plugins-smush-icon", 'png', 50px, 50px, center center, no-repeat);
-				}
-			}
-
-			@if variable-exists(sui-cross-sell-image--smush) {
-				background: url($sui-cross-sell-image--smush) center;
-			}
-
-			@else {
-				background: url("#{$sui-image-path}plugins-smush.jpg") center;
 			}
 		}
 
-		.sui-cross-2,
-		.sui-cross-defender {
+		@if variable-exists(promote-plugin-2) {
 
-			> span {
+			@if $promote-plugin-2 != '' {
 
-				@if variable-exists(sui-cross-sell-icon--defender) {
-					@include background-2x("#{$sui-cross-sell-icon--defender}", 'png', 50px, 50px, center center, no-repeat);
+				.sui-cross-2 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$promote-plugin-2}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$promote-plugin-2}.jpg");
 				}
-	
-				@else {
-					@include background-2x("#{$sui-image-path}plugins-defender-icon", 'png', 50px, 50px, center center, no-repeat);
-				}
-			}
-
-			@if variable-exists(sui-cross-sell-image--defender) {
-				background: url($sui-cross-sell-image--defender) center;
-			}
-
-			@else {
-				background: url("#{$sui-image-path}plugins-defender.jpg") center;
 			}
 		}
 
-		.sui-cross-3,
-		.sui-cross-smartcrawl {
+		@if variable-exists(promote-plugin-3) {
 
-			> span {
+			@if $promote-plugin-3 != '' {
 
-				@if variable-exists(sui-cross-sell-icon--smartcrawl) {
-					@include background-2x("#{$sui-cross-sell-icon--smartcrawl}", 'png', 50px, 50px, center center, no-repeat);
+				.sui-cross-3 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$promote-plugin-3}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$promote-plugin-3}.jpg");
 				}
-	
-				@else {
-					@include background-2x("#{$sui-image-path}plugins-crawl-icon", 'png', 50px, 50px, center center, no-repeat);
-				}
-			}
-
-			@if variable-exists(sui-cross-sell-image--smartcrawl) {
-				background: url($sui-cross-sell-image--smartcrawl) center;
-			}
-
-			@else {
-				background: url("#{$sui-image-path}plugins-crawl.jpg") center;
 			}
 		}
 
