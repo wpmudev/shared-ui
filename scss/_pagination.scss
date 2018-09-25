@@ -157,6 +157,24 @@
 		border: 1px solid $pagination-filter-border;
 		border-radius: $border-radius;
 
+		.sui-filter-footer {
+			display: flex;
+			align-items: center;
+			border-top: 1px solid $pagination-filter-border;
+
+			@include media(max-width, md) {
+				margin-right: -#{$sui-gutter-md - 1px};
+				margin-left: -#{$sui-gutter-md - 1px};
+				padding: #{$sui-gutter-md - 1px} #{$sui-gutter-md - 1px} 0;
+			}
+
+			@include media(min-width, md) {
+				margin-right: -#{$sui-gutter - 1px};
+				margin-left: -#{$sui-gutter - 1px};
+				padding: #{$sui-gutter - 1px} #{$sui-gutter - 1px} 0;
+			}
+		}
+
 		&:first-child {
 			margin-top: 0;
 		}
