@@ -1661,6 +1661,7 @@
 	SUI.linkDropdown = function() {
 
 		function closeAllDropdowns( $except ) {
+
 			var $dropdowns = $( '.sui-2-3-2 .sui-dropdown' );
 
 			if ( $except ) {
@@ -1668,20 +1669,30 @@
 			}
 
 			$dropdowns.removeClass( 'open' );
+
 		}
 
-		$( 'body' ).click( function( e ) {
-			var $this = $( e.target ),
-				$el = $this.closest( '.sui-dropdown' );
+		$( 'body' ).on( 'click', '.sui-dropdown-anchor', function( e ) {
 
-			if ( 0 == $el.length ) {
+			var $button = $( this ),
+				$parent = $button.parent();
+
+			closeAllDropdowns( $parent );
+
+			if ( $parent.hasClass( 'sui-dropdown' ) ) {
+				$parent.toggleClass( 'open' );
+			}
+
+			e.preventDefault();
+
+		});
+
+		$( 'body' ).mouseup( function( e ) {
+
+			var $anchor = $( '.sui-2-3-2 .sui-dropdown-anchor' );
+
+			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
-			} else if ( $this.is( 'a' ) ) {
-				e.preventDefault();
-
-				closeAllDropdowns( $el );
-
-				$el.toggleClass( 'open' );
 			}
 
 		});
