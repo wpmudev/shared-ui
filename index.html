@@ -22,7 +22,6 @@
 		<li><a href="#usage">Usage</a></li>
 		<li><a href="#header">Page Heading</a></li>
 		<li><a href="#boxes">Boxes</a></li>
-		<li><a href="#box-settings">Box Settings</a></li>
 		<li><a href="#buttons">Buttons</a></li>
 		<li><a href="#code-snippets">Code Snippets</a></li>
 		<li><a href="#grid">Grid</a></li>
@@ -154,171 +153,646 @@ function admin_body_classes( $classes ) {
 					<p>Boxes are the primary visual containers. They should be used to hold related information.</p>
 				</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec nihil sane ad rem; Quid est, quod ab ea absolvi et perficidebeat? Nunc haec primum fortasse audientis servire debemus. Itaque primos congressus copulationesque et consuetudinum instituendarumvoluntates fieri propter voluptatem; Age sane, inquam. Fortasse id optimum, sed ubi illud Plus semper voluptatis?</p>
+				<div class="sui-row-with-sidenav">
+
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--box-basic">Basic Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-settings">Settings Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-status">Status Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-search">Search Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-message">Message Box</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--box-docs">Documentation</a>
+							</li>
+
+						</ul>
+
 					</div>
-				</div>
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class="sui-box"&gt;
-	&lt;div class="sui-box-body"&gt;
-		...
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-				</div>
+					<!-- BOX: Basic -->
+					<div class="sui-box" data-tab="demo-element--box-basic">
 
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title">Box Title</h3>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si mala non sunt, iacet omnis ratio Peripateticorum. An vero,
-							inquit,quisquam potest probare, quod perceptfum, quod. Ergo id est convenienter naturae vivere, a natura discedere. Sed
-							venio adinconstantiae crimen, ne saepius dicas me aberrare; Dici enim nihil potest verius. Nihil opus est exemplis hoc
-							facere longius.Duo Reges: constructio interrete. Ita credo.</p>
-					</div>
-					<div class="sui-box-footer">
-						<button class="sui-button">Default Button</button>
-					</div>
-				</div>
+						<div class="sui-box-header">
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-header&quot;&gt;
-		&lt;h3 class=&quot;sui-box-title&quot;&gt;Box Title&lt;/h3&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		...
-	&lt;/div&gt;
-	&lt;div class=&quot;sui-box-footer&quot;&gt;
-		&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-				</div>
+							<h3 class="sui-box-title"><i class="sui-icon-hummingbird" aria-hidden="true"></i> Basic Box</h3>
 
-				<div class="sui-box">
-					<div class="sui-box-header">
-						<h3 class="sui-box-title"><i class="sui-icon-hummingbird" aria-hidden="true"></i>Box Title</h3>
-						<div class="sui-actions-left">
-							<span class="sui-tag sui-tag-warning">+1</span>
-						</div>
-						<div class="sui-actions-right">
-							<button class="sui-button">Default Button</button>
-						</div>
-					</div>
-					<div class="sui-box-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed potestne rerum maior esse dissensio? Post enim Chrysippum
-							eumnon sane est disputatum. Istic sum, inquit. Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse
-							quamceteros. Duo Reges: constructio interrete. Non est ista, inquam, Piso, magna dissensio. Quae cum ita sint, effectum
-							est nihilesse malum, quod turpe non sit. Et certamen honestum et disputatio splendida! omnis est enim de virtutis dignitate
-							contentio.
-						</p>
-					</div>
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-header&quot;&gt;
-		&lt;h3 class=&quot;sui-box-title&quot;&gt;&lt;i class=&quot;sui-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Box Title&lt;/h3&gt;
-		&lt;div class=&quot;sui-actions-left&quot;&gt;
-			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;+1&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;sui-actions-right&quot;&gt;
-			&lt;button class=&quot;sui-button&quot;&gt;Default Button&lt;/button&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		...
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-				</div>
-
-			</section>
-
-			<section id="box-settings">
-
-				<div class="demo-info-block">
-					<h2>Box Settings</h2>
-					<p>Lorem ipsum dolor sit amet.</p>
-				</div>
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Server type</span>
-								<span class="sui-description">Choose your server type so Hummingbird can give you the rules to apply caching.</span>
+							<div class="sui-actions-left">
+								<span class="sui-tag sui-tag-warning">+1</span>
 							</div>
-							<div class="sui-box-settings-col-2">
-								<div class="sui-form-field">
-									<label for="hb-select-list" class="sui-label">Server Type</label>
-									<select aria-describedby="hb-description" id="hb-select-list" name="select-list">
-										<option value="" selected="selected">Select Option</option>
-										<option value="apache">Apache</option>
-										<option value="LiteSpeed">LiteSpeed</option>
-										<option value="nginx">NGINX</option>
-										<option value="iis">IIS</option>
-										<option value="iis-7">IIS 7</option>
-										<option value="cloudflare">Cloudflare</option>
-									</select>
+
+							<div class="sui-actions-right">
+								<button class="sui-button sui-button-ghost"><i class="sui-icon-paperclip" aria-hidden="true"></i> Export CSV</button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum.</p>
+
+							<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor.</p>
+
+						</div>
+
+						<div class="sui-box-footer">
+							<button class="sui-button">Tortor Consectetur</button>
+						</div>
+
+					</div>
+
+					<!-- BOX: Settings -->
+					<div class="sui-box" data-tab="demo-element--box-settings" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Normal Settings</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Settings Label</span>
+									<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
 								</div>
-								<span id="hb-description" class="sui-description">This is the server type your website is hosted on. If you are using CloudFlare	connect your account to control your cache settings from here.</span>
-							</div>
-						</div>
-						<div class="sui-box-settings-row">
-							<div class="sui-box-settings-col-1">
-								<span class="sui-settings-label">Expiry Time</span>
-								<span class="sui-description">Please choose your desired expiry time. Google recommends 8 days as a good benchmark.</span>
-							</div>
-							<div class="sui-box-settings-col-2">
-								<div class="sui-row">
-									<div class="sui-col">
-										<div class="sui-form-field">
-											<label for="text-input" class="sui-label">Text</label>
-											<input type="text" aria-describedby="input-description" id="text-input" class="sui-form-control" placeholder="input type text">
-											<span id="input-description" class="sui-description">This is a description about the field.</span>
-										</div>
-									</div>
-									<div class="sui-col">
-										<div class="sui-form-field">
-											<label for="text-22" class="sui-label">Text</label>
-											<input type="text" id="text-22" class="sui-form-control" placeholder="input type text">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<div class="demo-code-block">
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Fermentum</label>
+										<select>
+											<option>Ipsum Ornare</option>
+											<option>Quam Fringilla</option>
+											<option>Parturient Tortor</option>
+										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Settings Label</span>
+									<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Fermentum</label>
+										<select>
+											<option>Ipsum Ornare</option>
+											<option>Quam Fringilla</option>
+											<option>Parturient Tortor</option>
+										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Flushed Settings</span>
+									<span class="sui-description">Notice the separation border reaches the end of the box, while the normal settings have a separation from box edge.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-tabs sui-side-tabs">
+
+										<div data-tabs>
+											<div class="active">Tab 1</div>
+											<div>Tab 2</div>
+											<div>Tab 3</div>
+											<div>Tab 4</div>
+										</div>
+
+										<div data-panes>
+
+											<div class="sui-tab-boxed active"><p>Content. Tab 1.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 2.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 3.</p></div>
+											<div class="sui-tab-boxed"><p>Content. Tab 4.</p></div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer">
+
+							<div class="sui-actions-right">
+								<button class="sui-button sui-button-blue">Save Settings</button>
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- BOX: Status -->
+					<div data-tab="demo-element--box-status" style="display: none;">
+
+						<div class="sui-box">
+
+							<div class="sui-box-status">
+
+								<div class="sui-status">
+
+									<div class="sui-status-module">Status <span class="sui-tag">Draft</span></div>
+
+									<div class="sui-status-changes"><i class="sui-icon-update" aria-hidden="true"></i> Unsaved changes</div>
+
+								</div>
+
+								<div class="sui-actions">
+
+									<button id="forminator-module-save" class="sui-button">
+										<span class="sui-loading-text">
+											<i class="sui-icon-save" aria-hidden="true"></i>
+											<span class="button-text">Save Draft</span>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+									</button>
+
+									<button id="forminator-module-publish" class="sui-button sui-button-blue">
+										<span class="sui-loading-text">
+											<i class="sui-icon-web-globe-world" aria-hidden="true"></i>
+											<span class="button-text">Publish</span>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box">
+
+							<div class="sui-box-body">
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-footer">
+
+								<div class="sui-actions-right">
+									<button class="sui-button sui-button-blue">Save Settings</button>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- BOX: Status -->
+					<div data-tab="demo-element--box-search" style="display: none;">
+
+						<div class="sui-box">
+
+							<div class="sui-box-search">
+
+								<select class="sui-select-sm sui-select-inline">
+									<option>Forms</option>
+									<option>Polls</option>
+									<option>Quizzes</option>
+								</select>
+
+								<select class="sui-select sui-select-sm sui-select-inline">
+									<option>Contact Form</option>
+									<option>Design Request</option>
+									<option>Development Request</option>
+									<option>Another Form</option>
+								</select>
+
+								<button class="sui-button">Bulk Actions</button>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box">
+
+							<div class="sui-box-body">
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-settings-row sui-flushed">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Sollicitudin Ornare</span>
+										<span class="sui-description">Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="sui-form-field">
+
+											<label class="sui-label">Fermentum</label>
+											<select>
+												<option>Ipsum Ornare</option>
+												<option>Quam Fringilla</option>
+												<option>Parturient Tortor</option>
+											</select>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-footer">
+
+								<div class="sui-actions-right">
+									<button class="sui-button sui-button-blue">Save Settings</button>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- BOX: Message -->
+					<div data-tab="demo-element--box-message" style="display: none;">
+
+						<div class="sui-box">
+
+							<div class="sui-message">
+
+								<img src="dist/images/forminator-empty-message.png"
+									srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
+									class="sui-image"
+									aria-hidden="true" />
+
+								<div class="sui-message-content">
+
+									<h2>Message Box</h2>
+
+									<p>This normal message box usually contains: image, title and text.</p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box">
+
+							<div class="sui-message sui-message-lg">
+
+								<img src="dist/images/forminator-empty-message.png"
+									srcset="dist/images/forminator-empty-message.png 1x, dist/images/forminator-empty-message@2x.png 2x"
+									class="sui-image"
+									aria-hidden="true" />
+
+								<div class="sui-message-content">
+
+									<p>This large message box usually contains: image, text and button(s).</p>
+
+									<p><button class="sui-button sui-button-blue">CTA Button</button></p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--box-docs" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Base Structure</span>
+									<span class="sui-description">This white-box contains several box-elements depending on what you need.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
-			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
-				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
-				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
-				...
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;sui-box-settings-row&quot;&gt;
-			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
-				&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
-				&lt;span class=&quot;sui-description&quot;&gt;Settings Description&lt;/span&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
-				...
-			&lt;/div&gt;
-		&lt;/div&gt;
+
+	...
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Box Header</span>
+									<span class="sui-description">This is an element for <code>sui-box</code>.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-header&quot;&gt;
+
+	&lt;!-- Box title with icon --&gt;
+	&lt;h3 class=&quot;sui-box-title&quot;&gt;
+		&lt;i class=&quot;sui-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Basic Box
+	&lt;/h3&gt;
+
+	&lt;!-- Elements aligned to left, next to title --&gt;
+	&lt;div class=&quot;sui-actions-left&quot;&gt;
+		...
 	&lt;/div&gt;
-&lt;/div&gt;</pre>
+
+	&lt;!-- Elements aligned to right --&gt;
+	&lt;div class=&quot;sui-actions-right&quot;&gt;
+		...
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Box Content</span>
+									<span class="sui-description">This is an element for <code>sui-box</code>.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-body&quot;&gt;
+
+	...
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Box Settings</span>
+									<span class="sui-description">This is an element for <code>sui-box-body</code>.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-warning">
+										<p>In case you need a flushed settings, add <code>sui-flushed</code> next to <code>sui-box-settings-row</code> class.</p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+
+	&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+		&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+		&lt;span class=&quot;sui-description&quot;&gt;Some description you want to add.&lt;/span&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+		...
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Box Status</span>
+									<span class="sui-description">Commonly used on plugins that make use of builders.</span>
+									&nbsp;
+									<span class="sui-description"><strong>NOTE:</strong> This is a lonely element inside <code>sui-box</code>.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-status&quot;&gt;
+
+	&lt;div class=&quot;sui-status&quot;&gt;
+
+		&lt;div class=&quot;sui-status-module&quot;&gt;Status &lt;span class=&quot;sui-tag&quot;&gt;Draft&lt;/span&gt;&lt;/div&gt;
+
+		&lt;div class=&quot;sui-status-changes&quot;&gt;&lt;i class=&quot;sui-icon-update&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Unsaved changes&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-actions&quot;&gt;
+
+		&lt;button id=&quot;forminator-module-save&quot; class=&quot;sui-button&quot;&gt;
+			&lt;span class=&quot;sui-loading-text&quot;&gt;
+				&lt;i class=&quot;sui-icon-save&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+				&lt;span class=&quot;button-text&quot;&gt;Save Draft&lt;/span&gt;
+			&lt;/span&gt;
+			&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+
+		&lt;button id=&quot;forminator-module-publish&quot; class=&quot;sui-button sui-button-blue&quot;&gt;
+			&lt;span class=&quot;sui-loading-text&quot;&gt;
+				&lt;i class=&quot;sui-icon-web-globe-world&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+				&lt;span class=&quot;button-text&quot;&gt;Publish&lt;/span&gt;
+			&lt;/span&gt;
+			&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Box Message</span>
+									<span class="sui-description">Commonly used to show an "empty" or "call-to-action" message.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-warning">
+										<p>In case you need a box with large margins use <code>sui-message-lg</code> next to <code>sui-message</code> class.</p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box sui-message&quot;&gt;
+
+	&lt;img src=&quot;image.png&quot;
+		srcset=&quot;image.png 1x, image@2x.png 2x&quot;
+		class=&quot;sui-image&quot;
+		aria-hidden=&quot;true&quot; /&gt;
+
+	&lt;div class=&quot;sui-message-content&quot;&gt;
+		&lt;h2&gt;... title ...&lt;/h2&gt;
+		&lt;p&gt;... content ...&lt;/p&gt;
+		&lt;p&gt;&lt;button class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;&lt;/p&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+		...
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>

@@ -9,109 +9,385 @@
 		box-sizing: border-box;
 	}
 
+	// ELEMENT: Box
 	.sui-box {
-		position: relative;
 		min-height: 20px;
+		position: relative;
+		border-radius: $border-radius;
 		background-color: $box-bg-color;
-		border-radius: 5px;
-		margin-bottom: $sui-gutter;
 		box-shadow: 0 2px 0 $box-box-shadow-color;
 
-		@include media( max-width, md ) {
-			margin-bottom: $sui-gutter-md;
-		}
-	}
-
-	.sui-box-header {
-		border-bottom: 1px solid $box-header-border-color;
-		padding: 15px 30px;
-		display: flex;
-		align-items: center;
-
-		@include media( max-width, md ) {
-			padding: 15px $sui-gutter-md;
-		}
-
-		& > h3 > i {
-			line-height: 30px;
-		}
-	}
-
-	.sui-box-body {
-		padding: $sui-gutter-md;
-
-		@include media( min-width, md ) {
-			padding: $sui-gutter;
+		// BOX: Header
+		.sui-box-header {
+			border-bottom: 1px solid $box-header-border-color;
+			padding: 15px 30px;
+			display: flex;
+			align-items: center;
+	
+			@include media( max-width, md ) {
+				padding: 15px $sui-gutter-md;
+			}
+	
+			& > h3 > i {
+				line-height: 30px;
+			}
 		}
 
-		.sui-box-settings-row {
-			position: relative;
-			border-bottom: 1px solid #E6E6E6;
-			padding-bottom: 30px;
-			display: table;
-			width: 100%;
-			margin-top: 30px;
+		// BOX: Body
+		.sui-box-body {
 
 			@include media(max-width, md) {
-				display: block;
-				margin-top: $sui-gutter-md;
-				padding-bottom: $sui-gutter-md;
+				padding: $sui-gutter-md;
 			}
 
-			&:first-of-type {
-				margin-top: 0;
+			@include media(min-width, md) {
+				padding: $sui-gutter;
+			}
+		}
+
+		// BOX: Footer
+		.sui-box-footer {
+			border-top: 1px solid $box-footer-border-color;
+			padding: 30px;
+			display: flex;
+			align-items: center;
+			&.sui-pull-up {
+				margin-top: -15px;
+			}
+	
+			@include media( max-width, md ) {
+				padding: $sui-gutter-md;
+			}
+		}
+
+		// BOX: Status Bar
+		.sui-box-status {
+			padding: #{$sui-gutter / 2} $sui-gutter-md $sui-gutter-md;
+
+			.sui-status {
+				display: flex;
+
+				[class*="sui-status-"] {
+					font-size: 12px;
+					line-height: 30px;
+					font-family: $font;
+					letter-spacing: $font--letter-spacing;
+
+					.sui-tag {
+						margin-left: 8px;
+					}
+
+					[class*="sui-icon-"] {
+						margin-right: 4px;
+						font-size: 12px;
+
+						&:before {
+							display: block;
+						}
+					}
+
+					&:not(:last-child) {
+						margin-right: 20px;
+					}
+
+					&:not(:first-child) {
+						padding-left: 20px;
+						border-left: 1px solid palette(silver, soft);
+					}
+				}
+
+				.sui-status-module {
+					color: palette(gray, light);
+					font-weight: bold;
+				}
+
+				.sui-status-changes {
+					color: palette(silver, medium);
+					font-weight: 500;
+					letter-spacing: $font--letter-spacing;
+
+					.sui-icon-check-tick:before {
+						color: palette(green, default);
+					}
+		
+					.sui-icon-update:before {
+						color: palette(gray, light);
+					}
+				}
+
+				+ .sui-actions {
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter / 2};
+					}
+
+					@include media(min-width, md) {
+						margin-left: #{$sui-gutter / 2};
+					}
+				}
+
+				@include media(min-width, md) {
+					flex: 1;
+				}
 			}
 
-			&:last-of-type {
-				padding-bottom: 0;
-				border: 0;
+			.sui-actions {
+
+				@include media(min-width, md) {
+					flex: 0 0 auto;
+				}
 			}
 
-			.sui-box-settings-col-1 {
-				display: table-cell;
-				width: 230px;
-				padding-right: 30px;
+			@include media(min-width, md) {
+				display: flex;
+				padding: #{$sui-gutter / 2} $sui-gutter;
+			}
+		}
 
-				@include media(max-width, md) {
-					display: block;
-					padding-top: $sui-gutter-md;
-					width: 100%;
-					padding-right: 0;
+		// BOX: Search Bar
+		.sui-box-search {
+			padding-top: #{$sui-gutter / 2};
+			padding-bottom: #{$sui-gutter / 2};
 
-					&:first-child {
-						padding-top: 0;
+			> * {
+				max-width: 100%;
+				flex: 0 1 auto;
+			}
+
+			> .sui-search-left {
+
+				&:not(:last-child) {
+
+					@include media(min-width, md) {
+						margin-right: #{$sui-gutter / 2};
+					}
+				}
+
+				@include media(min-width, md) {
+					display: flex;
+					flex: 1;
+				}
+			}
+
+			> .sui-search-right {
+
+				&:only-child {
+
+					@include media(min-width, md) {
+						flex: 1;
+					}
+				}
+
+				&:not(:only-child) {
+
+					&:not(:last-child) {
+
+						@include media(min-width, md) {
+							margin-right: #{$sui-gutter / 2};
+						}
+					}
+
+					@include media(min-width, md) {
+						flex: 0 0 auto;
 					}
 				}
 			}
 
-			.sui-box-settings-col-2 {
-				display: table-cell;
-
-
-				@include media(max-width, md) {
-					display: block;
-					padding-top: $sui-gutter-md;
-				}
-
-				.sui-settings-label {
-					color: $gray;
-				}
+			@include media(max-width, md) {
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
 			}
 
-			.sui-form-field {
-				&:last-of-type {
+			@include media(min-width, md) {
+				display: flex;
+				padding-right: $sui-gutter;
+				padding-left: $sui-gutter;
+			}
+		}
+
+		@include media(max-width, md) {
+			margin-bottom: $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
+			margin-bottom: $sui-gutter;
+		}
+	}
+
+	// ELEMENT: Box Message
+	// Commonly used for "empty message" or text with image on top.
+	// To use with sui-box preferrably.
+	.sui-message {
+		display: block;
+		text-align: center;
+
+		.sui-message-content {
+			max-width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 0 0 $sui-gutter-md;
+
+				&:last-child {
 					margin-bottom: 0;
 				}
 			}
 
-			.sui-settings-label {
-				display: block;
-				font-weight: 500;
-				line-height: 22px;
-				color: $box-settings-label-color;
+			p {
+				margin: 0 0 $sui-gutter;
+				letter-spacing: -0.25px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 
-			.sui-settings-label-with-tag {
+			@include media(max-width, md) {
+				margin-top: $sui-gutter-md;
+				margin-bottom: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-top: $sui-gutter;
+				margin-bottom: $sui-gutter;
+			}
+		}
+
+		// SIZE: Regular
+		&:not(.sui-message-lg) {
+
+			.sui-image {
+				margin: 10px auto;
+			}
+
+			.sui-message-content {
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		// SIZE: Large
+		&.sui-message-lg {
+
+			.sui-image {
+				margin: $sui-gutter auto;
+			}
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include media(max-width, md) {
+			padding: $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
+			padding: $sui-gutter;
+		}
+	}
+
+	// ELEMENT: Box Title
+	.sui-box {
+
+		.sui-box-title {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font: $font--weight-bold 15px/30px $font;
+			text-transform: none;
+			@include text-truncate;
+
+			* {
+				vertical-align: middle;
+			}
+
+			[class*="sui-icon-"] {
+				float: left;
+				display: block;
+				margin-right: 10px;
+
+				&:before {
+					color: inherit;
+					font-size: 20px;
+					vertical-align: text-bottom;
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Box Settings
+	.sui-box-body {
+
+		.sui-box-settings-row {
+			position: relative;
+			margin-bottom: $sui-gutter;
+			padding-bottom: $sui-gutter;
+			border-bottom: 1px solid palette(silver, soft);
+
+			&:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				border-bottom-width: 0;
+			}
+
+			// Disabled box settings
+			&.sui-disabled {
+				opacity: 0.5;
+				pointer-events: none;
+				background-color: rgba(242, 242, 242, 0.5);
+			}
+
+			// Flushed box settings
+			&.sui-flushed {
+				margin-right: -#{$sui-gutter-md};
+				margin-left: -#{sui-gutter-md};
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
+
+				@include media(min-width, md) {
+					margin-right: -#{$sui-gutter};
+					margin-left: -#{$sui-gutter};
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+			}
+		}
+
+		.sui-settings-label {
+			display: block;
+			margin: 0 0 5px;
+			padding: 0;
+			border: 0;
+			color: palette(gray, default);
+			font: 500 15px/22px $font;
+			letter-spacing: $font--letter-spacing;
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&.sui-dark {
+				color: palette(gray, dark);
+			}
+
+			&-with-tag {
 				@extend .sui-settings-label;
 				display: flex;
 				align-items: center;
@@ -120,109 +396,82 @@
 					margin-left: 10px;
 				}
 			}
+		}
 
-			.sui-description {
-				line-height: 22px;
-			}
+		.sui-description {
+			line-height: 22px;
 
-			&.sui-disabled {
-				background-color: rgba(242, 242, 242, 0.5);
-				opacity: 0.5;
-				pointer-events: none;
+			+ .sui-settings-box {
+				margin-top: 10px;
 			}
 		}
 
-		&.sui-upsell-items {
-			padding: 0;
+		.sui-box-settings-col-1 {
 
-			.sui-box-settings-row {
-				border-bottom: none;
-				margin-top: 0;
-
-				&:before {
-					position: absolute;
-					display: block;
-					clear: both;
-					height: 1px;
-					content: '';
-					background-color: #E6E6E6;
-					left: 30px;
-					right: 30px;
-					top: 0;
-
-				}
-
-				&:first-of-type {
-					margin-top: 0;
-
-					&:before {
-						display: none;
-					}
-				}
-
-				&:last-of-type {
-					padding-bottom: 30px;
-
-					&:before {
-						display: none;
-					}
-				}
+			.sui-settings-label {
+				color: palette(gray, dark);
 			}
 
-			.sui-box-settings-row {
-				padding-right: 30px;
-				padding-left: 30px;
-				padding-top: 31px;
+			+ .sui-box-settings-col-2 {
 
 				@include media(max-width, md) {
-					padding-right: $sui-gutter-md;
-					padding-left: $sui-gutter-md;
-					padding-top: $sui-gutter-md + 1;
+					padding-top: $sui-gutter-md;
 				}
-				&:first-of-type {
-					@include media(max-width, md) {
-						padding-top: $sui-gutter-md;
-					}
+
+				@include media(min-width, md) {
+					padding-left: $sui-gutter;
 				}
 			}
+
+			@include media(min-width, md) {
+				max-width: 230px;
+				flex: 0 1 230px;
+			}
 		}
+
+		.sui-box-settings-col-2 {
+
+			@include media(min-width, md) {
+				flex: 1;
+			}
+		}
+	}
+
+	// ELEMENT: Upsell
+	.sui-box-body {
 
 		.sui-upsell-row {
 			position: relative;
 
 			.sui-upsell-image {
+				width: 100px;
 				position: absolute;
 				bottom: 0;
-				width: 100px;
+
 				@include media(max-width, md) {
 					display: none;
 				}
 			}
 
 			.sui-upsell-notice {
-				padding-left: 130px;
-
-				@include media(max-width, md) {
-					padding-left: 0;
-				}
 
 				p {
 					position: relative;
-					border-radius: 4px;
-					background-color: $box-upsell-p-bg-color;
 					padding: 20px 30px;
+					border-radius: $border-radius;
+					background-color: $box-upsell-p-bg-color;
 					color: $box-upsell-p-color;
 					font-size: 13px;
 					line-height: 22px;
 
 					&:after {
+						content: ' ';
+						width: 0;
+						height: 0;
 						position: absolute;
 						top: 43%;
 						left: 0;
 						margin-left: -7px;
-						content: '';
-						width: 0;
-						height: 0;
 						border-top: 7px solid transparent;
 						border-bottom: 7px solid transparent;
 						border-right: 7px solid $box-upsell-p-bg-color;
@@ -234,81 +483,103 @@
 
 					a {
 						color: $box-upsell-p-color;
-						text-decoration: underline;
 						font-weight: 500;
+						text-decoration: underline;
 					}
+				}
+
+				@include media(min-width, md) {
+					padding-left: 130px;
 				}
 			}
 		}
 
+		&.sui-upsell-items {
+			padding: 0;
+
+			.sui-box-settings-row {
+				margin-top: 0;
+				padding-top: #{$sui-gutter-md + 1px};
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
+				border-bottom: none;
+
+				&:before {
+					content: '';
+					height: 1px;
+					clear: both;
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 30px;
+					left: 30px;
+					background-color: palette(silver, soft);
+				}
+
+				&:first-child,
+				&:first-of-type {
+					margin-top: 0;
+
+					&:before {
+						content: unset;
+					}
+				}
+
+				&:last-child,
+				&:last-of-type {
+					padding-bottom: 30px;
+
+					&:before {
+						content: unset;
+					}
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+				}
+
+				@include media(min-width, md) {
+					padding-top: #{$sui-gutter + 1px};
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Other(s)
+	.sui-box-body {
+
 		.sui-settings-box {
-			padding: 30px;
-			border: 1px solid $box-settings-box-border-color;
-			border-radius: 5px;
-			@include media(max-width, md) {
-				padding: $sui-gutter-md;
-			}
-		}
-	}
-
-	.sui-box-footer {
-		border-top: 1px solid $box-footer-border-color;
-		padding: 30px;
-		display: flex;
-		align-items: center;
-		&.sui-pull-up {
-			margin-top: -15px;
-		}
-
-		@include media( max-width, md ) {
 			padding: $sui-gutter-md;
-		}
-	}
+			border: 1px solid $box-settings-box-border-color;
+			border-radius: $border-radius;
 
-	.sui-box-title {
-		display: block;
-		font-weight: $font--weight-bold;
-		font-size: 15px;
-		line-height: 30px;
-		font-family: $font;
-		margin: 0;
-		@include text-truncate;
-
-		* {
-			vertical-align: middle;
-		}
-
-		i {
-			margin-right: 10px;
-			display: block;
-			float: left;
-			&:before {
-				color: inherit;
-				font-size: 20px;
-				vertical-align: text-bottom;
+			@include media(min-width, md) {
+				padding: $sui-gutter;
 			}
 		}
 	}
-	h3.sui-box-title {
-		text-transform: none;
-	}
+
 	.sui-with-bottom-border {
+		margin-bottom: $default-margin;
 		padding-bottom: $default-padding;
 		border-bottom: 1px solid $box-settings-box-border-color;
-		margin-bottom: $default-margin;
 
-		@include media( max-width, md ) {
+		@include media(max-width, md) {
 			margin-bottom: $sui-gutter-md;
 			padding-bottom: $sui-gutter-md;
 		}
 	}
+
 	.sui-border-frame {
-		border: 1px solid #E6E6E6;
-		border-radius: 5px;
 		margin: 10px 0 0;
-		padding: 30px;
-		@include media( max-width, md ) {
-			padding: $sui-gutter-md;
+		padding: $sui-gutter-md;
+		border: 1px solid palette(silver, soft);
+		border-radius: $border-radius;
+
+		@include media(max-width, md) {
+			padding: $sui-gutter;
 		}
 	}
 }
