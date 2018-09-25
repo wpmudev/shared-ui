@@ -1,3 +1,15 @@
+v2.3.3
+
+ - [Enhance] Footer - Update styling and add variables to allow easier manipulation of images.
+			 Dev Notes: Check showcase to see updates & changes.
+ - [Enhance] Summary - Improve styling and add options.
+			 Dev Notes: Check showcase to see updates & changes.
+ - [Enhance] Select - Several improvements for select and select2.
+ - [Enhance] Boxes - Add a sui-box variation that allow us to show a simple message.
+ - [Enhance] Dropdown - allow tooltips on button.
+ - [Fix] Dropdown menu links not working
+
+
 v2.3.2
 
 - [New] Accordion blocks.
