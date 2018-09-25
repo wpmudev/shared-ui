@@ -1,9 +1,5 @@
 @include body-class(true) {
 
-	#wpfooter {
-		display: none;
-	}
-
 	.sui-footer {
 		text-align: center;
 		margin-top: 50px;
@@ -19,6 +15,7 @@
 	}
 
 	#sui-cross-sell-footer {
+
 		> div {
 			width: 100%;
 			text-align: center;
@@ -45,27 +42,19 @@
 
 	.sui-cross-sell-modules {
 		margin-top: 30px;
+
 		.sui-col-md-4 {
-			@media(min-width: 600px) and (max-width: 783px) {
+
+			@media (min-width: 600px) and (max-width: 783px) {
 				display: flex;
 			}
 		}
 
-		.sui-cross-1,
-		.sui-cross-2,
-		.sui-cross-3 {
+		[class*="sui-cross-"] {
 			min-height: 150px;
-			border-radius: 5px 5px 0 0;
-
-			@media(min-width: 600px) and (max-width: 783px) {
-				flex: none;
-				width: 180px;
-				border-radius: 5px 0 0 5px;
-			}
-			@media(max-width: 600px) {
-				height: 80px;
-				min-height: auto;
-			}
+			border-radius: $border-radius $border-radius 0 0;
+			background-size: cover;
+			background-position: center;
 
 			> span {
 				width: 56px;
@@ -78,87 +67,126 @@
 				left: 15px;
 				box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
 
-				@media(min-width: 600px) and (max-width: 783px) {
+				@media (min-width: 600px) and (max-width: 783px) {
 					top: 110px;
 				}
-				@media(max-width: 600px) {
+
+				@media (max-width: 600px) {
 					z-index: 1;
 					top: 45px;
 					left: 50%;
 					transform: translateX(-50%);
 				}
 			}
-		}
 
-		.sui-cross-1 {
-			background: url("#{$sui-image-path}plugins-smush.jpg") center;
-			background-size: cover;
-
-			> span {
-				@include background-2x("#{$sui-image-path}plugins-smush-icon", 'png', 50px, 50px, center center, no-repeat);
-			}
-		}
-		.sui-cross-2 {
-			background: url("#{$sui-image-path}plugins-defender.jpg") center;
-			background-size: cover;
-
-			> span {
-				@include background-2x("#{$sui-image-path}plugins-defender-icon", 'png', 50px, 50px, center center, no-repeat);
+			@media (min-width: 600px) and (max-width: 783px) {
+				width: 180px;
+				flex: none;
+				border-radius: $border-radius 0 0 $border-radius;
 			}
 
-		}
-		.sui-cross-3 {
-			background: url("#{$sui-image-path}plugins-crawl.jpg") center;
-			background-size: cover;
-
-			> span {
-				@include background-2x("#{$sui-image-path}plugins-crawl-icon", 'png', 50px, 50px, center center, no-repeat);
+			@media (max-width: 600px) {
+				height: 80px;
+				min-height: auto;
 			}
 		}
 
+		@if variable-exists(cross-sell-1) {
+
+			@if $cross-sell-1 != '' {
+
+				.sui-cross-1 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$cross-sell-1}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$cross-sell-1}.jpg");
+				}
+			}
+		}
+
+		@if variable-exists(cross-sell-2) {
+
+			@if $cross-sell-2 != '' {
+
+				.sui-cross-2 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$cross-sell-2}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$cross-sell-2}.jpg");
+				}
+			}
+		}
+
+		@if variable-exists(cross-sell-3) {
+
+			@if $cross-sell-3 != '' {
+
+				.sui-cross-3 {
+
+					> span {
+						@include background-2x("#{$sui-image-path}plugins-#{$cross-sell-3}-icon", 'png', 50px, 50px, center center, no-repeat);
+					}
+		
+					background-image: url("#{$sui-image-path}plugins-#{$cross-sell-3}.jpg");
+				}
+			}
+		}
 
 		.sui-box {
 			margin-bottom: 0;
-			@media(min-width: 600px) and (max-width: 783px) {
-				border-radius: 0 5px 5px 0;
-			}
-			.sui-box-body {
-				text-align: center;
-				padding: 30px;
-				border-radius: 0 0 5px 5px;
-				@media(min-width: 600px) and (max-width: 783px) {
-					text-align: left;
-				}
-				@media(max-width: 600px) {
-					padding: 26px 20px 20px 20px;
-				}
 
-				p {
-					color: $footer-cross-sell-p-color;
-					font-size: 13px;
-					line-height: 22px;
-					margin-bottom: 30px;
-					@media(min-width: 600px) and (max-width: 783px) {
-						margin-bottom: 14px;
-					}
-					@media(max-width: 600px) {
-						margin-bottom: 20px;
-					}
-				}
-			}
 			h3 {
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 30px;
-				text-transform: none;
 				margin-top: 0;
+				font-size: 18px;
+				line-height: 30px;
+				font-weight: 700;
+				text-transform: none;
+
 				@media(min-width: 600px) and (max-width: 783px) {
 					margin: 0;
 					min-height: auto;
 				}
+
 				@media(max-width: 600px) {
 					min-height: auto;
 				}
+			}
+
+			.sui-box-body {
+				padding: 30px;
+				border-radius: 0 0 $border-radius $border-radius;
+				text-align: center;
+
+				p {
+					margin-bottom: 30px;
+					color: $footer-cross-sell-p-color;
+					font-size: 13px;
+					line-height: 22px;
+
+					@media(min-width: 600px) and (max-width: 783px) {
+						margin-bottom: 14px;
+					}
+
+					@media(max-width: 600px) {
+						margin-bottom: 20px;
+					}
+				}
+
+				@media(min-width: 600px) and (max-width: 783px) {
+					text-align: left;
+				}
+
+				@media(max-width: 600px) {
+					padding: 26px 20px 20px 20px;
+				}
+			}
+
+			@media(min-width: 600px) and (max-width: 783px) {
+				border-radius: 0 $border-radius $border-radius 0;
 			}
 		}
 	}
@@ -190,4 +218,12 @@
 		}
 	}
 
+}
+
+// Remove WordPress footer
+@include body-class() {
+
+	#wpfooter {
+		display: none;
+	}
 }
