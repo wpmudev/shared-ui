@@ -5329,72 +5329,33 @@ dialog.hide();
 
 								<div class="sui-box-settings-col-2">
 
-									<!-- BANNER: Smush -->
-									<div class="sui-box-settings-row">
+									<span class="sui-settings-label">Markup</span>
 
-										<div class="sui-box-settings-col-2">
-
-											<label class="sui-settings-label">Download Smush Image Compression and Optimization <a href="https://wordpress.org/plugins/wp-smushit/" target="_blank"class="sui-button-icon"><i class="sui-icon-open-new-window" aria-hidden="true"></i></a></label>
-
-											<div class="demo-code-block" style="margin-top: 20px;">
+									<div class="demo-code-block" style="margin-top: 20px;">
 
 <pre class="sui-code-snippet html">
-&lt;!-- Method #1: Using plugin short-name. --&gt;
-&lt;div class="sui-cross-smush"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;!-- Have in mind you can have a max of 3 banners in the footer --&gt;
 
-&lt;!-- Method #2: Using plugin ID. --&gt;
-&lt;div class="sui-cross-1"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div class="sui-cross-1"&gt;
+	&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
 </pre>
-
-											</div>
-
-										</div>
 
 									</div>
 
-									<!-- BANNER: Defender -->
-									<div class="sui-box-settings-row">
+									<span class="sui-settings-label">SCSS File</span>
+									<span class="sui-description"></span>
 
-										<div class="sui-box-settings-col-2">
+									<div class="demo-code-block" style="margin-top: 20px;">
 
-											<label class="sui-settings-label">Defender Security, Monitoring, and Hack Protection <a href="https://wordpress.org/plugins/defender-security/" target="_blank"class="sui-button-icon"><i class="sui-icon-open-new-window" aria-hidden="true"></i></a></label>
+<pre class="sui-code-snippet scss">
+// Cross-sell Banners
+// In lowercase insert the name of the plugin you want to promote.
 
-											<div class="demo-code-block" style="margin-top: 20px;">
-
-<pre class="sui-code-snippet html">
-&lt;!-- Method #1: Using plugin short-name. --&gt;
-&lt;div class="sui-cross-defender"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-
-&lt;!-- Method #2: Using plugin ID. --&gt;
-&lt;div class="sui-cross-2"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+$cross-sell-1: 'smush';
+$cross-sell-2: 'defender';
+$cross-sell-3: 'smartcrawl';
 </pre>
-
-											</div>
-
-										</div>
-
-									</div>
-
-									<!-- BANNER: SmartCrawl -->
-									<div class="sui-box-settings-row">
-
-										<div class="sui-box-settings-col-2">
-
-											<label class="sui-settings-label">SmartCrawl</label>
-
-											<div class="demo-code-block" style="margin-top: 20px;">
-
-<pre class="sui-code-snippet html">
-&lt;!-- Method #1: Using plugin short-name. --&gt;
-&lt;div class="sui-cross-smartcrawl"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-
-&lt;!-- Method #2: Using plugin ID. --&gt;
-&lt;div class="sui-cross-3"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-</pre>
-
-											</div>
-
-										</div>
 
 									</div>
 
@@ -5425,8 +5386,8 @@ dialog.hide();
 
 	&lt;div class=&quot;sui-col-md-4&quot;&gt;
 
-		&lt;!-- SMUSH: Cross-Sell Banner --&gt;
-		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-smush&quot;&gt;
+		&lt;!-- Cross-Sell Banner #1 --&gt;
+		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-1&quot;&gt;
 			&lt;span&gt;&lt;/span&gt;
 		&lt;/div&gt;
 		
@@ -5446,8 +5407,8 @@ dialog.hide();
 
 	&lt;div class=&quot;sui-col-md-4&quot;&gt;
 
-		&lt;!-- DEFENDER: Cross-Sell Banner --&gt;
-		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-defender&quot;&gt;
+		&lt;!-- Cross-Sell Banner #2 --&gt;
+		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-2&quot;&gt;
 			&lt;span&gt;&lt;/span&gt;
 		&lt;/div&gt;
 
@@ -5467,8 +5428,8 @@ dialog.hide();
 
 	&lt;div class=&quot;sui-col-md-4&quot;&gt;
 
-		&lt;!-- SMARTCRAWL: Cross-Sell Banner --&gt;
-		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-smartcrawl&quot;&gt;
+		&lt;!-- Cross-Sell Banner #3 --&gt;
+		&lt;div aria-hidden=&quot;true&quot; class=&quot;sui-cross-3&quot;&gt;
 			&lt;span&gt;&lt;/span&gt;
 		&lt;/div&gt;
 
