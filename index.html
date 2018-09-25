@@ -4628,133 +4628,259 @@ $( '.sui-date .sui-form-control' ).datepicker({
 
 				<div class="demo-info-block">
 					<h2>Summary</h2>
-					<p>The summary is used to display a summary of the pages information. The Shared UI provides the following two examples for your plugin page summaries. Please note you will need to add a class to the <code>sui-summary-image-space</code>
-					to override the background image.</p>
+					<p>The summary is used to display a summary of the pages information.</p>
+					<div class="sui-notice sui-notice-warning">
+						<p>Summary box variables has been updated on <strong>SUI 2.3.1</strong>. To load an image into summary box you need to use <code>$summary-image: 'path-to-image';</code>. For other variables like image size and position you can check <code>_variables.scss</code> file.</p>
+					</div>
 				</div>
 
-				<div aria-hidden="true" class="sui-box sui-summary">
-					<div class="sui-summary-image-space">
-					</div>
-					<div class="sui-summary-segment">
-						<div class="sui-summary-details">
-							<span class="sui-summary-large">97</span>
-							<i aria-hidden="true" class="sui-icon-info sui-warning"></i>
-							<span class="sui-summary-percent">/100</span>
-							<span class="sui-summary-sub">Current performance score</span>
-							<span class="sui-summary-detail">December 12, 2017 at 1:46 am</span>
-							<span class="sui-summary-sub">Last test</span>
-						</div>
-					</div>
-					<div class="sui-summary-segment">
-						<ul class="sui-list">
-							<li>
-								<span class="sui-list-label">Previous score</span>
-								<span class="sui-list-detail">76</span>
+				<div class="sui-row-with-sidenav">
+
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--summary-regular">Regular</a>
 							</li>
-							<li>
-								<span class="sui-list-label">Improvement</span>
-								<span class="sui-list-detail"><span class="sui-tag sui-tag-error">-1</span></span>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--summary-small">Small</a>
 							</li>
-							<li>
-								<span class="sui-list-label">Recommendations</span>
-								<span class="sui-list-detail">4</span>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--summary-docs">Documentation</a>
 							</li>
+
 						</ul>
-					</div>
-				</div>
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">&lt;div class="sui-box sui-summary"&gt;
-	&lt;div class="sui-summary-image-space"&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-summary-segment"&gt;
-		&lt;div class="sui-summary-details"&gt;
-			&lt;span class="sui-summary-large"&gt;97&lt;/span&gt;
-			&lt;i class="sui-icon-info sui-warning"&gt;&lt;/i&gt;
-			&lt;span class="sui-summary-percent"&gt;/100&lt;/span&gt;
-			&lt;span class="sui-summary-sub"&gt;Current performance score&lt;/span&gt;
-			&lt;span class="sui-summary-detail"&gt;December 12, 2017 at 1:46 am&lt;/span&gt;
-			&lt;span class="sui-summary-sub"&gt;Last test&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-summary-segment"&gt;
-		&lt;ul class="sui-list"&gt;
-			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;Previous score&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;76&lt;/span&gt;
-			&lt;/li&gt;
-			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;Improvement&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-tag sui-tag-error"&gt;-1&lt;/span&gt;&lt;/span&gt;
-			&lt;/li&gt;
-			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;Recommendations&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;4&lt;/span&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-				</div>
-
-				<div aria-hidden="true" class="sui-box sui-summary">
-					<div class="sui-summary-image-space">
 					</div>
-					<div class="sui-summary-segment">
-						<div class="sui-summary-details">
-							<span class="sui-summary-large">12</span>
-							<i aria-hidden="true" class="sui-icon-info sui-warning sui-lg"></i>
-							<span class="sui-summary-sub">security issues</span>
+
+					<div data-tab="demo-element--summary-regular">
+
+						<div class="sui-box sui-summary">
+
+							<div class="sui-summary-image-space" aria-hidden="true"></div>
+
+							<div class="sui-summary-segment">
+
+								<div class="sui-summary-details">
+									<span class="sui-summary-large">97</span>
+									<i aria-hidden="true" class="sui-icon-info sui-warning"></i>
+									<span class="sui-summary-percent">/100</span>
+									<span class="sui-summary-sub">Current performance score</span>
+									<span class="sui-summary-detail">December 12, 2017 at 1:46 am</span>
+									<span class="sui-summary-sub">Last test</span>
+								</div>
+
+							</div>
+
+							<div class="sui-summary-segment">
+
+								<ul class="sui-list">
+
+									<li>
+										<span class="sui-list-label">Previous score</span>
+										<span class="sui-list-detail">76</span>
+									</li>
+
+									<li>
+										<span class="sui-list-label">Improvement</span>
+										<span class="sui-list-detail"><span class="sui-tag sui-tag-error">-1</span></span>
+									</li>
+
+									<li>
+										<span class="sui-list-label">Recommendations</span>
+										<span class="sui-list-detail">4</span>
+									</li>
+
+								</ul>
+
+							</div>
+
 						</div>
-					</div>
-					<div class="sui-summary-segment">
-						<ul class="sui-list">
-							<li>
-								<span class="sui-list-label">Security Tweaks Actioned</span>
-								<span class="sui-list-detail"><button class="sui-button">test</button> </span>
-							</li>
-							<li>
-								<span class="sui-list-label">File Scan Issues</span>
-								<span class="sui-list-detail"><span class="sui-tag sui-tag-success">0</span>
-						</span>
-							</li>
-							<li>
-								<span class="sui-list-label">Last Lockout</span>
-								<span class="sui-list-detail">January 10, 2018 1:05 pm</span>
-							</li>
-						</ul>
-					</div>
-				</div>
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">&lt;div class="sui-box sui-summary"&gt;
-	&lt;div class="sui-summary-image-space"&gt;
-	&lt;/div&gt;
-	&lt;div class="sui-summary-segment"&gt;
-		&lt;div class="sui-summary-details"&gt;
-			&lt;span class="sui-summary-large"&gt;12&lt;/span&gt;
-			&lt;i class="sui-icon-info sui-warning sui-lg"&gt;&lt;/i&gt;
-			&lt;span class="sui-summary-sub"&gt;security issues&lt;/span&gt;
+					</div>
+
+					<div data-tab="demo-element--summary-small" style="display: none;">
+
+						<div class="sui-box sui-summary sui-summary-sm">
+
+							<div class="sui-summary-image-space" aria-hidden="true"></div>
+
+							<div class="sui-summary-segment">
+
+								<div class="sui-summary-details">
+
+									<span class="sui-summary-large">1</span>
+									<span class="sui-summary-sub">Active Form</span>
+
+								</div>
+
+							</div>
+
+							<div class="sui-summary-segment">
+
+								<ul class="sui-list">
+
+									<li>
+										<span class="sui-list-label">Last Submission</span>
+										<span class="sui-list-detail">5 minutes ago</span>
+									</li>
+
+									<li>
+										<span class="sui-list-label">Submissions in the last 30 days</span>
+										<span class="sui-list-detail">1000</span>
+									</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--summary-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Variables</span>
+									<span class="sui-description">Depending on the project and the image size you gonna use for the Summary element, you gonna have to overwrite some base variables.</span>
+									&nbsp;
+									<span class="sui-description"><strong>NOTE:</strong> Remember to include these variables on top of your file to call them correctly during build.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label">Regular summary</label>
+									<span class="sui-description">This element is set to have <code>min-height: 212px</code>, making it the most used through projects.</span>
+
+									<div class="demo-code-block" style="margin-top: 20px;">
+<pre class="sui-code-snippet scss">
+// Set summary image
+//
+// NOTE: If you don't enter this variable, the image won't show on the summary.
+$summary-image: &#39;path-to-plugin/assets/images/your-image.png&#39;;
+
+// ========================================
+// Overwrite image size
+$summary-image--width:  192px;
+$summary-image--height: 182px;
+
+// ========================================
+// Overwrite image position
+$summary-image--position-x: 30px; // Horizontal position (only)
+$summary-image--position-y: bottom; // Vertical position (only)
+</pre>
+									</div>
+
+									<label class="sui-settings-label">Small summary</label>
+									<span class="sui-description">This element is set to have <code>min-height: 151px</code>, used mostly on projects that require a small resume to display, like Forminator's forms listings page.</span>
+
+									<div class="demo-code-block" style="margin-top: 20px;">
+<pre class="sui-code-snippet scss">
+// Set small summary image
+//
+// NOTE: If you don't enter this variable and $summary-image exists,
+// this image will show instead small summary image, but if none of them
+// exist the image won't show on the summary.
+$summary-image-sm: &#39;path-to-plugin/assets/images/your-small-image.png&#39;;
+
+// Overwrite image size
+$summary-image-sm--width:  192px;
+$summary-image-sm--height: 121px;
+
+// ========================================
+// Overwrite image position
+$summary-image-sm--position-x: 30px; // Horizontal position (only)
+$summary-image-sm--position-y: bottom; // Vertical position (only)
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Markup</span>
+									<span class="sui-description">There's one base markup for the summary element with just a slight change based on the box size.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-warning">
+										<p>If you need a small summary you can add next to <code>sui-summary</code> a new class called <code>sui-summary-sm</code>.</p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box sui-summary&quot;&gt;
+
+	&lt;div class=&quot;sui-summary-image-space&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;sui-summary-segment&quot;&gt;
+
+		&lt;div class=&quot;sui-summary-details&quot;&gt;
+
+			&lt;span class=&quot;sui-summary-large&quot;&gt;97&lt;/span&gt;
+			&lt;i aria-hidden=&quot;true&quot; class=&quot;sui-icon-info sui-warning&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;sui-summary-percent&quot;&gt;/100&lt;/span&gt;
+			&lt;span class=&quot;sui-summary-sub&quot;&gt;Current performance score&lt;/span&gt;
+
+			&lt;span class=&quot;sui-summary-detail&quot;&gt;December 12, 2017 at 1:46 am&lt;/span&gt;
+			&lt;span class=&quot;sui-summary-sub&quot;&gt;Last test&lt;/span&gt;
+
 		&lt;/div&gt;
+
 	&lt;/div&gt;
-	&lt;div class="sui-summary-segment"&gt;
-		&lt;ul class="sui-list"&gt;
+
+	&lt;div class=&quot;sui-summary-segment&quot;&gt;
+
+		&lt;ul class=&quot;sui-list&quot;&gt;
+
 			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;Security Tweaks Actioned&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;11/11&lt;/span&gt;
+				&lt;span class=&quot;sui-list-label&quot;&gt;Previous score&lt;/span&gt;
+				&lt;span class=&quot;sui-list-detail&quot;&gt;76&lt;/span&gt;
 			&lt;/li&gt;
+
 			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;File Scan Issues&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;&lt;span class="sui-tag sui-tag-success"&gt;0&lt;/span&gt;
-						&lt;/span&gt;
+				&lt;span class=&quot;sui-list-label&quot;&gt;Improvement&lt;/span&gt;
+				&lt;span class=&quot;sui-list-detail&quot;&gt;&lt;span class=&quot;sui-tag sui-tag-error&quot;&gt;-1&lt;/span&gt;&lt;/span&gt;
 			&lt;/li&gt;
+
 			&lt;li&gt;
-				&lt;span class="sui-list-label"&gt;Last Lockout&lt;/span&gt;
-				&lt;span class="sui-list-detail"&gt;January 10, 2018 1:05 pm&lt;/span&gt;
+				&lt;span class=&quot;sui-list-label&quot;&gt;Recommendations&lt;/span&gt;
+				&lt;span class=&quot;sui-list-detail&quot;&gt;4&lt;/span&gt;
 			&lt;/li&gt;
+
 		&lt;/ul&gt;
+
 	&lt;/div&gt;
+
 &lt;/div&gt;
 </pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>
