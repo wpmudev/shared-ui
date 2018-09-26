@@ -92,7 +92,7 @@
 
 	@include media(min-width, md) {
 		display: inline-flex;
-		margin-right: #{$sui-gutter / 2};
+		margin: 0 #{$sui-gutter / 2} 0 0;
 	}
 }
 
@@ -132,6 +132,25 @@
 			}
 		}
 
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-radio-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+				margin: 0 0 #{$sui-gutter-md / 2};
+			}
+		}
+
+		// VARIATION: Small
+		// This variation will affect label (text) only.
 		&.sui-radio-sm {
 
 			input + span {
@@ -175,6 +194,25 @@
 			}
 		}
 
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-checkbox-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+				margin: 0 0 #{$sui-gutter-md / 2};
+			}
+		}
+
+		// VARIATION: Small
+		// This variation will affect label (text) only.
 		&.sui-checkbox-sm {
 
 			input + span {
