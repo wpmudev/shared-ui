@@ -3363,111 +3363,411 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 					</div>
 				</div>
 
-				<hr>
+				<div class="sui-row-with-sidenav">
 
-				<div class="demo-info-block">
-					<h3>Radio Buttons</h3>
-				</div>
+					<div class="sui-sidenav">
 
-				<div class="sui-box">
-					<div class="sui-box-body">
+						<ul class="sui-vertical-tabs">
 
-						<label for="radio1" class="sui-radio">
-							<input type="radio" id="radio1" name="demo-radio-group">
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this option.</span>
-						</label>
-						<label for="radio2" class="sui-radio">
-							<input type="radio" id="radio2" name="demo-radio-group">
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this option.</span>
-						</label>
-						<label for="radio3" class="sui-radio">
-							<input type="radio" id="radio3" name="demo-radio-group" disabled>
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this disabled option.</span>
-						</label>
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--radio">Radio</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--checkbox">Checkbox</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--form-docs">Documentation</a>
+							</li>
+
+						</ul>
 
 					</div>
-				</div>
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;!-- Radio button --&gt;
-&lt;label class=&quot;sui-radio&quot;&gt;
-	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot;&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this option.&lt;/span&gt;
-&lt;/label&gt;
+					<!-- TAB: Radio -->
+					<div class="sui-box" data-tab="demo-element--radio">
 
-&lt;!-- Radio button --&gt;
-&lt;label class=&quot;sui-radio&quot;&gt;
-	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot;&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this option.&lt;/span&gt;
-&lt;/label&gt;
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Radio</h2>
+						</div>
 
-&lt;!-- Disabled radio button --&gt;
-&lt;label class=&quot;sui-radio&quot;&gt;
-	&lt;input type=&quot;radio&quot; name=&quot;demo-radio-group&quot; disabled&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this disabled option.&lt;/span&gt;
-&lt;/label&gt;</pre>
-				</div>
+						<div class="sui-box-body">
 
-				<hr>
+							<p>Used for inline field selection when only a few options are present. If that are enough options that it can take up a lot of space it may make more sense to use multiselect or select.</p>
 
-				<div class="demo-info-block">
-					<h3>Checkboxes</h3>
-				</div>
+							<div class="sui-box-settings-row">
 
-				<div class="sui-box">
-					<div class="sui-box-body">
+								<div class="sui-box-settings-col-1">
 
-						<label for="checkbox1" class="sui-checkbox">
-							<input type="checkbox" id="checkbox1">
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this checkbox.</span>
+									<span class="sui-settings-label">Inline</span>
+									<span class="sui-description">A standard radio layout, placed next to eachoter.</span>
 
-						</label>
-						<label for="checkbox2" class="sui-checkbox">
-							<input type="checkbox" id="checkbox2">
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this checkbox.</span>
-						</label>
-						<label for="checkbox3" class="sui-checkbox">
-							<input type="checkbox" id="checkbox3" disabled>
-							<span aria-hidden="true"></span>
-							<span class="sui-description">Description for this disabled checkbox.</span>
-							<span class="sui-tag sui-tag-pro">Pro</span>
-						</label>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-radio--inline-option-one" class="sui-radio">
+										<input type="radio"
+											name="demo-radio--inline-options"
+											id="demo-radio--inline-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--inline-option-two" class="sui-radio">
+										<input type="radio"
+											name="demo-radio--inline-options"
+											id="demo-radio--inline-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--inline-option-three" class="sui-radio">
+										<input type="radio"
+											name="demo-radio--inline-options"
+											id="demo-radio--inline-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Stacked</span>
+									<span class="sui-description">A standard radio layout, stacked on top of one another.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-radio--stacked-option-one" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options"
+											id="demo-radio--stacked-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--stacked-option-two" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options"
+											id="demo-radio--stacked-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--stacked-option-three" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options"
+											id="demo-radio--stacked-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--stacked-option-four" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options"
+											id="demo-radio--stacked-option-four"
+											checked="checked" />
+										<span aria-hidden="true"></span>
+										<span>Checked</span>
+									</label>
+
+									<label for="demo-radio--stacked-option-five" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options"
+											id="demo-radio--stacked-option-five"
+											disabled />
+										<span aria-hidden="true"></span>
+										<span>Disabled</span>
+									</label>
+
+									<label for="demo-radio--stacked-option-six" class="sui-radio sui-radio-stacked">
+										<input type="radio"
+											name="demo-radio--stacked-options-disabled"
+											id="demo-radio--stacked-option-six"
+											checked="checked"
+											disabled />
+										<span aria-hidden="true"></span>
+										<span>Disabled - Checked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Small</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-radio--small-option-one" class="sui-radio sui-radio-stacked sui-radio-sm">
+										<input type="radio"
+											name="demo-radio--small-options"
+											id="demo-radio--small-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--small-option-two" class="sui-radio sui-radio-stacked sui-radio-sm">
+										<input type="radio"
+											name="demo-radio--small-options"
+											id="demo-radio--small-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-radio--small-option-three" class="sui-radio sui-radio-stacked sui-radio-sm">
+										<input type="radio"
+											name="demo-radio--small-options"
+											id="demo-radio--small-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					</div>
-				</div>
 
-				<div class="demo-code-block">
+					<!-- TAB: Checkbox -->
+					<div class="sui-box" data-tab="demo-element--checkbox" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Checkbox</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Used for inline field selection when only a few options are present. If that are enough options that it can take up a lot of space it may make more sense to use multiselect or select.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Inline</span>
+									<span class="sui-description">A standard checkbox layout, placed next to eachoter.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-checkbox--inline-option-one" class="sui-checkbox">
+										<input type="checkbox"
+											id="demo-checkbox--inline-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--inline-option-two" class="sui-checkbox">
+										<input type="checkbox"
+											id="demo-checkbox--inline-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--inline-option-three" class="sui-checkbox">
+										<input type="checkbox"
+											name="demo-checkbox--inline-options"
+											id="demo-checkbox--inline-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Stacked</span>
+									<span class="sui-description">A standard checkbox layout, stacked on top of one another.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-checkbox--stacked-option-one" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--stacked-option-two" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--stacked-option-three" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--stacked-option-four" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-four"
+											checked="checked" />
+										<span aria-hidden="true"></span>
+										<span>Checked</span>
+									</label>
+
+									<label for="demo-checkbox--stacked-option-five" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-five"
+											disabled />
+										<span aria-hidden="true"></span>
+										<span>Disabled</span>
+									</label>
+
+									<label for="demo-checkbox--stacked-option-six" class="sui-checkbox sui-checkbox-stacked">
+										<input type="checkbox"
+											id="demo-checkbox--stacked-option-six"
+											checked="checked"
+											disabled />
+										<span aria-hidden="true"></span>
+										<span>Disabled - Checked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Small</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<label for="demo-checkbox--small-option-one" class="sui-checkbox sui-checkbox-stacked sui-checkbox-sm">
+										<input type="checkbox"
+											id="demo-checkbox--small-option-one" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--small-option-two" class="sui-checkbox sui-checkbox-stacked sui-checkbox-sm">
+										<input type="checkbox"
+											id="demo-checkbox--small-option-two" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+									<label for="demo-checkbox--small-option-three" class="sui-checkbox sui-checkbox-stacked sui-checkbox-sm">
+										<input type="checkbox"
+											id="demo-checkbox--small-option-three" />
+										<span aria-hidden="true"></span>
+										<span>Unchecked</span>
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Documentation -->
+					<div class="sui-box" data-tab="demo-element--form-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Documentation</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<!-- ELEMENT: Radio -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Radio</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-info">
+										<p>This element allows two variations: stacked and small.</p>
+										<p>For stacked radios you need to use <code>&lt;label class=&quot;sui-radio sui-radio-stacked&quot;&gt;</code>. For small radios try with <code>&lt;label class=&quot;sui-radio sui-radio-sm&quot;&gt;</code></p>
+									</div>
+
+									<div class="demo-code-block">
+
 <pre class="sui-code-snippet html">
-&lt;!-- Checkbox --&gt;
-&lt;label class=&quot;sui-checkbox&quot;&gt;
-	&lt;input type=&quot;checkbox&quot;&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this checkbox.&lt;/span&gt;
+&lt;label for=&quot;demo-radio--option-one&quot; class=&quot;sui-radio&quot;&gt;
+	&lt;input type=&quot;radio&quot;
+		name=&quot;demo-radio--options&quot;
+		id=&quot;demo-radio--option-one&quot; /&gt;
+	&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span&gt;Radio label&lt;/span&gt;
 &lt;/label&gt;
+</pre>
 
-&lt;!-- Checkbox --&gt;
-&lt;label class=&quot;sui-checkbox&quot;&gt;
-	&lt;input type=&quot;checkbox&quot;&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this checkbox.&lt;/span&gt;
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Checkbox -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Checkbox</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-info">
+										<p>This element allows two variations: stacked and small.</p>
+										<p>For stacked checkboxes you need to use <code>&lt;label class=&quot;sui-checkbox sui-checkbox-stacked&quot;&gt;</code>. For small checkboxes try with <code>&lt;label class=&quot;sui-checkbox sui-checkbox-sm&quot;&gt;</code></p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;label for=&quot;demo-checkbox--option-one&quot; class=&quot;sui-checkbox&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;
+		id=&quot;demo-checkbox--option-one&quot; /&gt;
+	&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span&gt;Checkbox label&lt;/span&gt;
 &lt;/label&gt;
+</pre>
 
-&lt;!-- Disabled checkbox --&gt;
-&lt;label class=&quot;sui-checkbox&quot;&gt;
-	&lt;input type=&quot;checkbox&quot; disabled&gt;
-	&lt;span&gt;&lt;/span&gt;
-	&lt;span class=&quot;sui-description&quot;&gt;Description for this disabled checkbox.&lt;/span&gt;
-	&lt;span class=&quot;sui-tag sui-tag-pro&quot;&gt;Pro&lt;/span&gt;
-&lt;/label&gt;</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 				<hr>

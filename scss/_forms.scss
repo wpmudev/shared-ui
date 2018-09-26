@@ -1,480 +1,143 @@
 @include body-class(true) {
 
+	// HELPER: Label
 	%label {
-		font-family: $form--label-font;
-		font-size: $form--label-font-size;
-		font-weight: $form--label-font-weight;
-		line-height: $form--label-line-height;
-		color: $form--label-color;
 		display: inline-flex;
-		width: 100%;
-	}
-
-	label[for] {
-		cursor: pointer;
-	}
-
-	.sui-label {
-		@extend %label;
-		display: block;
-		margin: 0 0 5px;
-
-		&:last-child {
-			margin: 0;
-		}
-
-		span.sui-tag {
-			vertical-align: text-top;
-			margin-left: 5px;
-		}
-	}
-
-	.sui-label-link {
-		margin-left: auto;
-		margin-right: 0;
-		font-weight: 400;
-		color: $form--label-color;
-	}
-
-	.sui-inline-label {
-		@extend %label;
-		display: inline-block;
-		margin: 0;
 		padding: 0;
+		border: 0;
+		color: $form--label-color;
+		font: $form--label-font-weight #{$form--label-font-size}/#{$form--label-line-height} $form--label-font;
 	}
 
-	.sui-form-control {
+	// HELPER: Form control
+	%form-control {
 		width: 100%;
 		height: $form--input-height-base;
-		display: block;
 		margin: 0;
-		padding: 9px 14px;
+		padding: #{($form--input-height-base - ($form--input-line-height + 2px)) / 2} 14px;
 		border: 1px solid $form--input-border-color;
-		border-radius: $form--input-border-radius;
+		border-radius: $border-radius;
 		background-color: $form--input-bg-color;
 		background-image: none;
 		color: $form--input-color;
-		font-size: $font--size;
-		line-height: $form--input-line-height;
-		font-family: $font;
-		font-weight: $form--input-font-weight;
+		font: $form--input-font-weight #{$font--size}/#{$form--input-line-height} $font;
 		letter-spacing: $font--letter-spacing;
-		transition: color .3s ease-in-out, border-color .3s ease-in-out, background-color .3s ease-in-out;
+		transition: 0.3s ease-in-out;
 
-		// Unstyle the caret on `<select>`s in IE10+.
-		&::-ms-expand {
-			border: 0;
-			background-color: transparent;
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: none;
 		}
 
+		&:hover,
+		&:focus {
+			border-color: $form--input-border-color-hover;
+			background-color: $white;
+		}
+
+		&:focus {
+			background-color: $form--input-bg-color-focus;
+			color: $form--input-color-focus;
+		}
+
+		&::placeholder {
+			color: $form--input-placeholder-color;
+		}
+
+		// STATE: Disabled
 		&[disabled],
+		&.sui-disabled,
 		fieldset[disabled] & {
 			cursor: not-allowed;
 
 			&,
-			&:hover,
-			&:focus {
+			&:focus,
+			&:hover {
 				border-color: $form--input--disabled;
 				background-color: $form--input--disabled;
 				color: $form--input-color-disabled;
 			}
 		}
 
-		&,
-		&:hover,
-		&:focus {
-			box-shadow: none;
-		}
-
-		&:hover,
-		&:focus {
-			background-color: $white;
-			border: 1px solid $form--input-border-color-hover;
-		}
-
-		&:focus {
-			color: $form--input-color-focus;
-			outline: 0;
-			background-color: $form--input-bg-color-focus;
-		}
-
-		&::placeholder {
-			color: $form--input-placeholder-color;
+		// FIX:
+		// Unstyle the caret on <select> in IE10+
+		&::-ms-expand {
+			border: 0;
+			background-color: transparent;
 		}
 	}
 
-	// Reset height for `textarea`s.
-	textarea.sui-form-control {
-		line-height: 20px;
-		height: auto;
-		max-width: 100%;
-		resize: vertical;
-	}
+	// ELEMENT: Label (Global)
+	label {
+		cursor: default;
 
-	select.sui-form-control {
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAs0lEQVQ4T6WS2w0CIRBF59KA2oklaAdbgpbgB48SIBThduKWYClrA2CGgEEXNWH5moR7Zu48QJ0PnRytA6WUe67svb//clDrUkWt9UxEMYRw/AYzJIS4sd45t0ugMeZERNcY49yCCwRgS0Rna+346rGGAVz4s06aW0gQx2/DUUoNAEYAG86cxezkAWCw1k5lBoupZltThomhEMLhs/fmOgrM2VvQwmq9in8rWncAPWfXXfEJ6RpWD7sJ1JwAAAAASUVORK5CYII=);
-		background-repeat: no-repeat;
-		background-position: center right 10px;
-		appearance: none;
-		cursor: pointer;
-		line-height: 1;
-	}
-
-	.sui-control-with-icon {
-		position: relative;
-
-		i {
-			width: 16px;
-			height: 16px;
-			pointer-events: none;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			top: 11px;
-			left: 14px;
-
-			&:before {
-				color: $form--input-icon;
-				display: block;
-			}
-		}
-
-		.sui-form-control {
-			padding-left: 40px;
-		}
-
-		&.sui-right-icon {
-
-			i {
-				right: 14px;
-				left: auto;
-				color: $form--input-icon-right;
-			}
-
-			.sui-form-control {
-				padding-right: 40px;
-				padding-left: 14px;
-			}
+		&[for] {
+			cursor: pointer;
 		}
 	}
 
-	.sui-with-button {
+	// ELEMENT: Label
+	.sui-label {
+		@extend %label;
 		display: flex;
 		align-items: center;
+		margin: 0 0 5px;
 
-		.sui-button {
-			flex: 0 0 auto;
-		}
+		.sui-tag {
+			margin-left: 5px;
 
-		.sui-form-control {
-			flex: 1;
-			margin: 0 5px;
-			
-			&:first-child {
+			&.sui-left {
+				margin-right: 5px;
 				margin-left: 0;
 			}
-
-			&:last-child {
-				margin-right: 0;
-			}
 		}
-
-		&.sui-with-button-icon,
-		&.sui-with-button-inside {
-			display: block;
-			position: relative;
-
-			.sui-button,
-			.sui-button-icon {
-				position: absolute;
-				top: 5px;
-				right: 5px;
-			}
-
-			.sui-button-lg {
-				top: 0;
-				right: 0;
-			}
-
-			.sui-form-control {
-				margin: 0;
-			}
-		}
-
-		&.sui-with-button-icon {
-			
-			.sui-form-control {
-				padding-right: 40px;
-			}
-		}
-
-		&.sui-with-button-inside {
-
-			.sui-form-control {
-				padding-right: 90px;
-			}
-		}
-	}
-
-	.sui-input-group {
-		position: relative;
-		display: flex;
-		align-items: stretch;
-		width: 100%;
-	}
-
-	.sui-form-field {
-		margin-bottom: $sui-gutter;
 
 		&:last-child {
-			margin-bottom: 0;
-
-			@include media( max-width, md ) {
-				margin-bottom: 0;
-			}
+			margin: 0;
 		}
 
-		@include media( max-width, md ) {
-			margin-bottom: $sui-gutter-md;
+		// VARIATION: Label link
+		&-link {
+			margin-right: 0;
+			margin-left: auto;
+			color: $form--label-color;
+			font-weight: 400;
 		}
-	}
 
-	.sui-form-field-error {
-		
-		.sui-form-control {
-			border-bottom: 2px solid $form--input-border-color-error;
-		}
-		
-		.sui-control-with-icon {
-			
-			i:before {
-				color: $form--input-border-color-error;
-			}
+		// VARIATION: Inline label
+		&-label {
+			@extend %label;
+			margin: 0;
 		}
 	}
 
-	.sui-error-message {
+	// ELEMENT: Form control
+	// This element allow us to style textarea and inputs (all except checkbox and radio)
+	.sui-form-control {
+		@extend %form-control;
 		display: block;
-		margin-top: 8px;
-		color: $form--input-error-color;
-		font-size: $form--input-error-font-size;
-		line-height: $form--input-error-line-height;
-		font-weight: $form--input-error-font-weight;
 	}
 
-	.sui-description,
-	.sui-multi-checkbox label {
-		display: block;
-		margin-top: 5px;
-		color: $form--description-color;
-		font-size: $form--description-font-size;
-		line-height: $form--label-line-height;
-		font-weight: $form--description-font-weight;
-		&.sui-toggle-description {
-			margin-left: 48px;
-		}
-		&.sui-checkbox-description,
-		&.sui-radio-description {
-			margin: 0 27px 5px;
-		}
-	}
+	// ELEMENT: Form control (inline)
+	.sui-form-control-inline {
+		@extend %form-control;
+		width: auto;
+		display: inline-flex;
 
-	.sui-password-group {
-		position: relative;
+		&[type=number] {
+			width: 120px;
 
-		.sui-password-toggle {
-			cursor: pointer;
-			background: transparent;
-			border: none;
-			color: $form--input-icon-color;
-			font-size: 15px;
-			line-height: 1em;
-			padding: 0;
-			position: absolute;
-			top: 50%;
-			right: 7px;
-			height: 30px;
-			width: 30px;
-			transform: translateY(-50%);
-			outline: 0;
-			border-radius: 4px;
-			&:hover {
-				background-color: rgba(0, 0, 0, .03);
-				i:before {
-					color: $gray;
-				}
+			+ .select-container {
+				display: inline-flex;
+				margin-left: 7px;
 			}
 		}
 	}
 
-	%radio-checkbox {
-		$size: 16px;
-		user-select: none;
-		display: flex;
-		align-items: start;
-
-		input {
-			@extend %sui-screen-reader-text;
-		}
-
-		span:not(.sui-description):not(.sui-tag) {
-			flex-shrink: 0;
-			position: relative;
-			display: inline-block;
-			width: $size;
-			height: $size;
-			background-color: $checkbox-radio-bg-color;
-			cursor: pointer;
-			transition: .2s;
-			border: 1px solid palette(gray, lighter);
-			border-radius: 3px;
-			margin-top: 3px;
-			&:before {
-				@extend %sui-icons;
-				opacity: 0;
-				content: "(";
-				color: $white;
-				font-size: 10px;
-				line-height: 14px;
-				position: absolute;
-				width: 100%;
-				text-align: center;
-				transition: .2s;
-			}
-		}
-		span.sui-tag {
-			margin-top: auto;
-			margin-bottom: auto;
-			margin-left: 10px;
-		}
-
-		input:checked + span:not(.sui-description) {
-			border: 1px solid $checkbox-radio-active-color;
-			background-color: $checkbox-radio-active-color;
-			&:before {
-				opacity: 1;
-			}
-		}
-
-		.sui-description {
-
-			cursor: pointer;
-			margin-top: 0;
-			margin-left: 10px;
-			font-size: 15px;
-			line-height: 22px;
-			color: #666;
-			font-weight: 500;
-
-			&.sui-description-sm {
-				font-size: 13px;
-			}
-		}
-
-		input[disabled] + span:not(.sui-description),
-		fieldset[disabled] & + span:not(.sui-description) {
-			cursor: not-allowed;
-			opacity: .5;
-		}
-
-		input[disabled] + span + span.sui-description {
-			color: $checkbox-radio-disabled-color;
-			cursor: not-allowed;
-		}
-	}
-
-	.sui-checkbox {
-		@extend %radio-checkbox;
-
-		span:not(.sui-description):not(.sui-tag) {
-			border-radius: 3px;
-		}
-
-		+ .sui-checkbox {
-			margin-top: 10px;
-		}
-	}
-
-	.sui-radio {
-		@extend %radio-checkbox;
-
-		span:not(.sui-description):not(.sui-tag) {
-			border-radius: 50%;
-		}
-
-		+ .sui-radio {
-			margin-top: 10px;
-		}
-	}
-
-	.sui-upload-group {
-		@extend .sui-form-control;
-		display: flex;
-		align-items: center;
-
-		input[type="file"] {
-			@extend %sui-screen-reader-text;
-		}
-	}
-
-	.sui-upload-button {
-		background-color: transparent;
-		border-radius: 4px;
-		display: inline-block;
-		margin: 0 5px 0 0;
-		font-size: 13px;
-		font-weight: 400;
-		line-height: 1.5;
-		pointer-events: none;
-		padding: 1px 16px;
-		border: 1px solid $button-ghost-border-color;
-		background: 0 0;
-		color: #888;
-		transition: all .2s;
-	}
-
-	.sui-upload-label {
-		width: 100%;
-
-		&:hover, &:focus {
-			.sui-upload-button {
-				background-color: $button-ghost-action-bg-color;
-				border-color: $button-ghost-action-border-color;
-				color: $white;
-			}
-		}
-	}
-
-	.sui-upload-message {
-		font-weight: 400;
-	}
-
-	.sui-date {
-		position: relative;
-
-		.sui-form-control {
-			padding-right: 40px;
-		}
-
-		i {
-			width: 30px;
-			height: 30px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			top: 5px;
-			right: 5px;
-
-			&:before {
-				display: block;
-			}
-		}
-	}
-
+	// ELEMENT: Multi checkbox
 	.sui-multi-checkbox {
 		@extend .sui-form-control;
 		height: auto;
@@ -517,7 +180,582 @@
 		}
 	}
 
-	// Insert Variables
+	// ELEMENT: Field description
+	.sui-description,
+	.sui-multi-checkbox label {
+		display: block;
+		margin-top: 5px;
+		color: $form--description-color;
+		font-size: $form--description-font-size;
+		line-height: $form--label-line-height;
+		font-weight: $form--description-font-weight;
+
+		&.sui-toggle-description {
+			margin-left: 48px;
+		}
+
+		&.sui-checkbox-description,
+		&.sui-radio-description {
+			margin: 0 27px 5px;
+		}
+
+		+ .sui-form-field,
+		+ .sui-form-field-inline {
+			margin-top: 20px;
+		}
+	}
+
+	// ELEMENT: Error message
+	.sui-error-message {
+		display: block;
+		margin-top: 8px;
+		color: $form--input-error-color;
+		font-size: $form--input-error-font-size;
+		line-height: $form--input-error-line-height;
+		font-weight: $form--input-error-font-weight;
+	}
+
+	// ELEMENT: Upload image
+	.sui-upload-image {
+		display: inline-flex;
+
+		.sui-image-holder {
+			width: 40px;
+			height: 40px;
+			flex: 0 0 40px;
+			position: relative;
+			margin-right: 5px;
+			padding: 2px;
+			border: 1px solid palette(silver, soft);
+			border-radius: #{$border-radius - 2px};
+
+			[class*="sui-image-"] {
+				width: 34px;
+				height: 34px;
+				display: block;
+				border-radius: #{$border-radius - 2px};
+			}
+
+			.sui-image-mask {
+				background-color: palette(gray, lighter);
+				background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+				background-size: 12px 12px;
+				background-position: 0 0, 6px 6px;
+			}
+
+			.sui-image-preview {
+				cursor: pointer;
+				display: none;
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				background-color: transparent;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+
+				@include icon(before, close) {
+					opacity: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					border-radius: #{$border-radius - 2px};
+					color: $white;
+					font-size: 12px;
+					line-height: 12px;
+					background-color: rgba(0,0,0,0.5);
+					transition: 0.2s ease;
+				}
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+
+					&:before {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.sui-image-input {
+			display: none;
+			position: relative;
+
+			input {
+				width: auto;
+				min-width: 146px;
+				height: 40px;
+				display: block;
+				margin: 0;
+				padding: 11px 61px 11px 19px;
+				border: 1px solid palette(gray, lighter);
+				border-radius: $border-radius;
+				background-color: $white;
+				color: palette(gray, dark);
+				font: 500 12px/16px $font;
+				letter-spacing: $font--letter-spacing;
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			button {
+				width: 41px;
+				height: 38px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: 1px;
+				right: 1px;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-left: 1px solid palette(gray, lighter);
+				border-radius: 0 #{$border-radius - 1px} #{$border-radius - 1px} 0;
+				background-color: $white;
+				transition: 0.3s ease;
+
+				[class*="sui-icon-"] {
+					display: block;
+					font-size: 12px;
+
+					&:before {
+						display: block;
+						color: palette(silver, medium);
+						transition: 0.2s ease;
+					}
+				}
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: rgba(51, 51, 51, 0.04);
+
+					[class*="sui-icon-"]:before {
+						color: $gray;
+					}
+				}
+			}
+		}
+
+		.sui-button-upload {
+			cursor: pointer;
+			margin: 0;
+			padding: 11px 19px;
+			border: 1px dashed palette(gray, lighter);
+			border-radius: $border-radius;
+			background-color: $white;
+			color: palette(silver, medium);
+			font: 500 12px/16px $font;
+			letter-spacing: $font--letter-spacing;
+			transition: 0.2s ease;
+
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				border-color: palette(silver, medium);
+				background-color: #FAFAFA;
+			}
+
+			[class*="sui-icon-"] {
+				width: 24px;
+				font-size: 16px;
+				line-height: 16px;
+				vertical-align: bottom;
+				text-align: center;
+
+				&:before {
+					display: block;
+				}
+			}
+		}
+
+		&.sui-has_image {
+
+			.sui-image-holder {
+
+				.sui-image-preview {
+					display: block;
+				}
+			}
+
+			.sui-image-input {
+				display: block;
+			}
+
+			.sui-button-upload {
+				display: none;
+			}
+		}
+	}
+
+	// GROUP: Form field
+	.sui-form-field {
+		margin-bottom: $sui-gutter;
+
+		> .sui-row {
+
+			[class^="sui-col"] {
+
+				@include media(min-width, md) {
+					padding-right: 5px;
+					padding-left: 5px;
+				}
+			}
+
+			&:first-child {
+
+				@include media(min-width, md) {
+					margin-top: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				margin-top: 10px;
+				margin-right: -5px;
+				margin-bottom: 0;
+				margin-left: -5px;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media( max-width, md ) {
+				margin-bottom: 0;
+			}
+		}
+
+		// STATE: Error
+		&.sui-has_error,
+		&.sui-form-field-error {
+		
+			.sui-form-control {
+				border-bottom: 2px solid $form--input-border-color-error;
+			}
+			
+			.sui-control-with-icon {
+				
+				[class*="sui-icon-"]:before {
+					color: $form--input-border-color-error;
+				}
+			}
+		}
+
+		@include media( max-width, md ) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
+
+	// GROUP: Form field (inline)
+	.sui-form-field-inline {
+		margin-bottom: $sui-gutter-md;
+		
+		.sui-form-field {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin-right: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				flex: 0 0 auto;
+				margin-bottom: 0;
+				margin-right: 10px;
+			}
+		}
+
+		&:last-child {
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			display: flex;
+			margin-bottom: $sui-gutter;
+		}
+	}
+
+	// GROUP: Input with icon
+	// This group doesn't work with inline form control
+	.sui-control-with-icon {
+		position: relative;
+
+		.sui-form-control {
+			padding-left: 40px;
+		}
+
+		[class*="sui-icon-"] {
+			width: 16px;
+			height: 16px;
+			pointer-events: none;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 11px;
+			left: 14px;
+
+			&:before {
+				color: $form--input-icon;
+				display: block;
+			}
+		}
+
+		&.sui-right-icon {
+
+			.sui-form-control {
+				padding-right: 40px;
+				padding-left: 14px;
+			}
+
+			[class*="sui-icon-"] {
+				right: 14px;
+				left: auto;
+				color: $form--input-icon-right;
+			}
+		}
+	}
+
+	// GROUP: Input with button
+	.sui-with-button {
+		display: flex;
+		align-items: center;
+
+		.sui-button {
+			flex: 0 0 auto;
+		}
+
+		.sui-form-control {
+			flex: 1;
+			margin: 0 5px;
+			
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		// VARIATION: Inside button
+		&.sui-with-button-inside {
+			display: block;
+			position: relative;
+
+			.sui-button,
+			.sui-button-icon {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+
+			.sui-button-lg {
+				top: 0;
+				right: 0;
+			}
+
+			.sui-form-control {
+				margin: 0;
+				padding-right: 90px;
+			}
+		}
+
+		// VARIATION: Icon button
+		&.sui-with-button-icon {
+			display: block;
+			position: relative;
+
+			.sui-button,
+			.sui-button-icon {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+
+			.sui-button-lg {
+				top: 0;
+				right: 0;
+			}
+
+			.sui-form-control {
+				margin: 0;
+				padding-right: 40px;
+			}
+		}
+	}
+
+	// GROUP: Inputs
+	.sui-input-group {
+		width: 100%;
+		display: flex;
+		align-items: stretch;
+		position: relative;
+	}
+
+	// GROUP: Password
+	.sui-password-group {
+		position: relative;
+
+		.sui-password-toggle {
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			right: 7px;
+			padding: 0;
+			border: 0;
+			border-radius: $border-radius;
+			background: transparent;
+			color: $form--input-icon-color;
+			font-size: 15px;
+			line-height: 1em;
+			transform: translateY(-50%);
+
+			&:hover,
+			&:focus,
+			&:active {
+				outline: 0;
+			}
+
+			&:hover {
+				background-color: rgba(0, 0, 0, .03);
+
+				[class*="sui-icon-"]:before {
+					color: $gray;
+				}
+			}
+		}
+	}
+
+	// GROUP: Upload
+	.sui-upload-group {
+		@extend %form-control;
+		display: flex;
+		align-items: center;
+
+		input[type="file"] {
+			@extend %sui-screen-reader-text;
+		}
+
+		.sui-upload-label {
+			width: 100%;
+	
+			&:hover, &:focus {
+
+				.sui-upload-button {
+					border-color: $button-ghost-action-border-color;
+					background-color: $button-ghost-action-bg-color;
+					color: $white;
+				}
+			}
+		}
+
+		.sui-upload-button {
+			pointer-events: none;
+			display: inline-block;
+			margin: 0 5px 0 0;
+			padding: 1px 16px;
+			border: 1px solid $button-ghost-border-color;
+			border-radius: $border-radius;
+			background-color: transparent;
+			background-image: none;
+			color: #888;
+			font-size: 13px;
+			line-height: 1.5;
+			font-weight: 400;
+			transition: all .2s;
+		}
+
+		.sui-upload-message {
+			font-weight: 400;
+		}
+	}
+
+	// GROUP: Date
+	.sui-date {
+		position: relative;
+
+		.sui-form-control {
+
+			&:first-child {
+				padding-right: 40px;
+			}
+
+			&:last-child {
+				padding-left: 40px;
+			}
+		}
+
+		[class*="sui-icon-"] {
+			width: 30px;
+			height: 30px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 5px;
+
+			&:before {
+				display: block;
+			}
+
+			&:first-child {
+				left: 5px;
+			}
+
+			&:last-child {
+				right: 5px;
+			}
+		}
+	}
+
+	// GROUP: Insert variables
 	.sui-insert-variables {
 		position: relative;
 
@@ -729,5 +967,28 @@
 				}
 			}
 		}
+	}
+
+	// FIX:
+	// Reset height for textarea
+	textarea.sui-form-control {
+		max-width: 100%;
+		height: auto;
+		resize: vertical;
+		line-height: 20px;
+	}
+
+	// FIX:
+	// Add special styles if <select> is being used with .sui-form-control class.
+	//
+	// NOTE: There's no need to use <select> with this class but just in case,
+	// a fix for it must be included.
+	select.sui-form-control {
+		cursor: pointer;
+		appearance: none;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAs0lEQVQ4T6WS2w0CIRBF59KA2oklaAdbgpbgB48SIBThduKWYClrA2CGgEEXNWH5moR7Zu48QJ0PnRytA6WUe67svb//clDrUkWt9UxEMYRw/AYzJIS4sd45t0ugMeZERNcY49yCCwRgS0Rna+346rGGAVz4s06aW0gQx2/DUUoNAEYAG86cxezkAWCw1k5lBoupZltThomhEMLhs/fmOgrM2VvQwmq9in8rWncAPWfXXfEJ6RpWD7sJ1JwAAAAASUVORK5CYII=);
+		background-repeat: no-repeat;
+		background-position: center right 10px;
+		line-height: 1;
 	}
 }
