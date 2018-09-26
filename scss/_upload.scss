@@ -245,48 +245,4 @@
 			margin-top: 10px;
 		}
 	}
-
-	// ELEMENT: File upload
-	.sui-upload-group {
-		@extend %form-control;
-		display: flex;
-		align-items: center;
-
-		input[type="file"] {
-			@extend %sui-screen-reader-text;
-		}
-
-		.sui-upload-label {
-			width: 100%;
-	
-			&:hover, &:focus {
-
-				.sui-upload-button {
-					border-color: $button-ghost-action-border-color;
-					background-color: $button-ghost-action-bg-color;
-					color: $white;
-				}
-			}
-		}
-
-		.sui-upload-button {
-			pointer-events: none;
-			display: inline-block;
-			margin: 0 5px 0 0;
-			padding: 1px 16px;
-			border: 1px solid $button-ghost-border-color;
-			border-radius: $border-radius;
-			background-color: transparent;
-			background-image: none;
-			color: #888;
-			font-size: 13px;
-			line-height: 1.5;
-			font-weight: 400;
-			transition: all .2s;
-		}
-
-		.sui-upload-message {
-			font-weight: 400;
-		}
-	}
 }
