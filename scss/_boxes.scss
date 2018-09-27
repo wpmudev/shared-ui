@@ -580,11 +580,25 @@
 
 	.sui-border-frame {
 		margin: 10px 0 0;
-		padding: $sui-gutter-md;
 		border: 1px solid palette(silver, soft);
 		border-radius: $border-radius;
 
+		&:not(:last-child) {
+			
+			@include media(max-width, md) {
+				margin-bottom: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: $sui-gutter;
+			}
+		}
+
 		@include media(max-width, md) {
+			padding: $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
 			padding: $sui-gutter;
 		}
 	}
