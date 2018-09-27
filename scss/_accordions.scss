@@ -790,14 +790,74 @@
 		.sui-box-body {
 
 			> .sui-accordion-flushed {
-				margin-right: -#{$sui-gutter-md};
-				margin-bottom: -#{$sui-gutter-md};
-				margin-left: -#{$sui-gutter-md};
 
-				@include media(min-width, md) {
-					margin-right: -#{$sui-gutter};
-					margin-bottom: -#{$sui-gutter};
-					margin-left: -#{$sui-gutter};
+				&:not(.sui-accordion-block) {
+					margin-right: -#{$sui-gutter-md};
+					margin-left: -#{$sui-gutter-md};
+
+					@include media(min-width, md) {
+						margin-right: -#{$sui-gutter};
+						margin-left: -#{$sui-gutter};
+					}
+				}
+			}
+
+			.sui-side-tabs .sui-tab-content {
+
+				> .sui-accordion-flushed {
+
+					&:not(.sui-accordion-block) {
+						margin-bottom: -#{$sui-gutter-md};
+	
+						@include media(min-width, md) {
+							margin-bottom: -#{$sui-gutter};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// FIX:
+	// Improve flushed accordions inside .sui-tabs
+	.sui-tabs:not(.sui-side-tabs) {
+
+		> [data-panes],
+		> .sui-tabs-content {
+
+			> *,
+			> .sui-tab-content {
+
+				> .sui-accordion-flushed {
+
+					&:not(.sui-accordion-block) {
+						margin: -#{$sui-gutter-md};
+	
+						@include media(min-width, md) {
+							margin: -#{$sui-gutter};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// FIX:
+	// Improve flushed accordions inside .sui-side-tabs
+	.sui-side-tabs {
+
+		.sui-tab-content {
+
+			> .sui-accordion-flushed {
+
+				&:not(.sui-accordion-block) {
+					margin-right: -#{$sui-gutter-md};
+					margin-left: -#{$sui-gutter-md};
+
+					@include media(min-width, md) {
+						margin-right: -#{$sui-gutter};
+						margin-left: -#{$sui-gutter};
+					}
 				}
 			}
 		}
