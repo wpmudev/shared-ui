@@ -1,3 +1,26 @@
+v2.3.4
+
+- [Enhance] Inputs – Add small and medium size variations.
+- [Enhance] Search Box - Improve spacing when used inside .sui-box.
+- [Enhance] Radio & Checkbox - Add inline and stacked variations.
+			Dev Notes: All radio and checkbox elements are inline by default,
+			if you need them stacked (listed) you must use new stacked class.
+			For more details, please go to https://wpmudev.github.io/shared-ui/#forms
+- [Enhance] Pagination – Add filtering box (content) footer.
+			Dev Notes: Pagination footer is going to be used in case filtering allows
+			some action buttons like "apply" or "cancel".
+- [New] File Uploads - New form element.
+			Dev Notes: Go to https://wpmudev.github.io/shared-ui/#forms for some samples.
+- [New] Image Uploads - New form element.
+			Dev Notes: Go to https://wpmudev.github.io/shared-ui/#forms for some samples.
+- [Fix] Summary Box - Allow different aspect ratio for rebranded images.
+			Dev Notes: White Labelling variations were documented on the SUI demo site.
+			For more details, please go to http://localhost:3000/#summary
+- [Fix] Border Frame - Improve spacing when another element is placed at the bottom of it.
+- [Fix] Table - Prevent styles to be overwritten when parent table uses accordion.
+- [Enhance] Accordions - Improve flushed accordions when used inside tabs and side-tabs.
+
+
 v2.3.3
 
  - [Enhance] Footer - Update styling and add variables to allow easier manipulation of images.
