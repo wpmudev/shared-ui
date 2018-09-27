@@ -282,25 +282,54 @@
 	// ============================================================
 	// ELEMENT: Checkbox Image
 	.sui-checkbox-image {
-		display: inline-flex;
 		flex-direction: column;
 		align-items: center;
 
-		.sui-graphic {
+		img {
 			display: block;
 			margin: 0;
 			padding: 0;
 			border: 0;
 
 			+ .sui-checkbox {
-				margin-top: 13px;
+				margin-top: 15px;
+			}
+		}
+
+		+ * {
+
+			@include media(max-width, md) {
+				margin-top: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-left: $sui-gutter-md;
 			}
 		}
 
 		// VARIATION: Stacked
 		// To pile one element per-line
 		&.sui-checkbox-stacked {
+
+			+ * {
+	
+				@include media(min-width, md) {
+					margin-top: $sui-gutter;
+					margin-left: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: inline-flex;
+			}
+		}
+
+		@include media(max-width, md) {
 			display: flex;
+		}
+
+		@include media(min-width, md) {
+			display: inline-flex;
 		}
 	}
 }
