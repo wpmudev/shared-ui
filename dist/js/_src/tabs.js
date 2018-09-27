@@ -161,7 +161,7 @@
         init( options );
     };
 
-    if ( 0 !== $( '.sui-2-3-3 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-4 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
