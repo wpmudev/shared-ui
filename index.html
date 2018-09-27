@@ -4507,14 +4507,16 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 				<div class="sui-box">
 					<div class="sui-box-body">
-						<label for="password" class="sui-label">Password <a role="button" href="#" class="sui-label-link">Forgot Password</a></label>
-						<div class="sui-password-group">
-							<input type="password" id="password" class="sui-form-control" placeholder="input type password" required>
-							<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
-								<i aria-hidden="true" class="sui-icon-eye"></i>
-							</button>
+						<div class="sui-form-field">
+							<label for="password" class="sui-label">Password <a role="button" href="#" class="sui-label-link">Forgot Password</a></label>
+							<div class="sui-password-group">
+								<input type="password" id="password" class="sui-form-control" placeholder="input type password" required>
+								<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
+									<i aria-hidden="true" class="sui-icon-eye"></i>
+								</button>
+							</div>
+							<span class="sui-description">This is a description about the field.</span>
 						</div>
-						<span class="sui-description">This is a description about the field.</span>
 					</div>
 				</div>
 
@@ -4867,6 +4869,27 @@ $( '.sui-date .sui-form-control' ).datepicker({
 								</div>
 							</div>
 						</div>
+						<hr>
+						<h4>Input Sizes</h4>
+						<p>Input fields have a default width of 100%.</p>
+						<p>To constrain the size of the input field you can add the following classes to either the <code>sui-form-field</code>
+							or to the <code>sui-form-control</code></p>
+						<p><code>sui-input-sm</code> for a width of 80px, this is usually used when the expected input is 1 to 5 chars.</p>
+						<p><code>sui-input-md</code> for a width of 240px, this is the standard size of an input when 100% is to wide.</p>
+						<p>You would use the sizing class in <code>sui-form-field</code> when there are other labels around the input that need
+						to be constrained e.g. password input</p>
+						<div class="sui-form-field sui-input-md">
+							<label for="password1" class="sui-label">Password <a role="button" href="#" class="sui-label-link">Forgot Password</a></label>
+							<div class="sui-password-group">
+								<input type="password" id="password1" class="sui-form-control" placeholder="input type password" required>
+								<button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password">
+									<i aria-hidden="true" class="sui-icon-eye"></i>
+								</button>
+							</div>
+							<span class="sui-description">This is a description about the field.</span>
+						</div>
+						<p>Example of using <code>sui-input-sm</code> in <code>sui-form-control</code></p>
+						<input type="number" id="forms-number-3" class="sui-form-control sui-input-sm" placeholder="input type number">
 					</div>
 				</div>
 
@@ -4903,6 +4926,23 @@ $( '.sui-date .sui-form-control' ).datepicker({
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Input Sizes --&gt;
+&lt;div class="sui-form-field sui-input-md"&gt;
+	&lt;label for="password1" class="sui-label"&gt;Password &lt;a role="button" href="#" class="sui-label-link"&gt;Forgot Password&lt;/a&gt;&lt;/label&gt;
+	&lt;div class="sui-password-group"&gt;
+		&lt;input type="password" id="password1" class="sui-form-control" placeholder="input type password" required&gt;
+		&lt;button class="sui-password-toggle sui-tooltip" type="button" data-tooltip="View Password"&gt;
+			&lt;i aria-hidden="true" class="sui-icon-eye"&gt;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;span class="sui-description"&gt;This is a description about the field.&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="sui-form-field"&gt;
+	&lt;label for="forms-number-3" class="sui-label"&gt;Input Label&lt;/label&gt;
+	&lt;input type="number" id="forms-number-3" class="sui-form-control sui-input-sm" placeholder="input type number"&gt;
+	&lt;span class="sui-description"&gt;Tiny Number&lt;/span&gt;
 &lt;/div&gt;</pre>
 				</div>
 
