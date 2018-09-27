@@ -164,6 +164,31 @@
 	}
 
 	// ============================================================
+	// ELEMENT: Radio Image
+	.sui-radio-image {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+
+		.sui-graphic {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+
+			+ .sui-radio {
+				margin-top: 13px;
+			}
+		}
+
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-radio-stacked {
+			display: flex;
+		}
+	}
+
+	// ============================================================
 	// ELEMENT: Checkbox
 	.sui-checkbox {
 		@extend %radio-checkbox;
