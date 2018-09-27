@@ -373,17 +373,22 @@
 			// SIZE: Regular
 			&:not(.sui-summary-sm) {
 
-				@include media(max-width, md) {
+				.sui-summary-image-space {
 
-					@if variable-exists(summary-image-sm) {
-						background-image: unset !important;
+					@include media(min-width, md) {
+	
+						@if variable-exists(summary-image) {
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
 					}
 				}
 
 				@include media(min-width, md) {
-	
-					@if variable-exists(summary-image) {
-						background-position: $summary-image--position-x center;
+
+					@if variable-exists(summary-image-sm) {
+						background-image: unset !important;
 					}
 				}
 			}
@@ -391,17 +396,22 @@
 			// SIZE: Small
 			&.sui-summary-sm {
 
-				@include media(max-width, md) {
+				.sui-summary-image-space {
 
-					@if variable-exists(summary-image-sm) {
-						background-image: unset !important;
+					@include media(min-width, md) {
+	
+						@if variable-exists(summary-image-sm) {
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
 					}
 				}
 
 				@include media(min-width, md) {
-	
+
 					@if variable-exists(summary-image-sm) {
-						background-position: $summary-image--position-x center;
+						background-image: unset !important;
 					}
 				}
 			}
