@@ -15,7 +15,7 @@
 
 		thead, tbody, tfoot {
 
-			tr {
+			> tr > {
 
 				th,
 				.sui-table-item-title,
@@ -55,7 +55,7 @@
 				}
 			}
 
-			&:last-child tr:last-child {
+			&:last-child > tr:last-child > {
 
 				th, td {
 					border-bottom: 0;
@@ -185,9 +185,11 @@
 	// Remove top padding from thead when table is placed after .sui-box-body
 	.sui-box-body + .sui-table.sui-table-flushed {
 
-		thead, tbody, tfoot {
+		> thead,
+		> tbody,
+		> tfoot {
 
-			&:first-child tr:first-child {
+			&:first-child > tr:first-child > {
 
 				th, td {
 					height: auto;
