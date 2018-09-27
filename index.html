@@ -3378,6 +3378,14 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 							</li>
 
 							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--file-uploads">File Uploads</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--image-uploads">Image Uploads</a>
+							</li>
+
+							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--form-docs">Documentation</a>
 							</li>
 
@@ -3692,6 +3700,533 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 					</div>
 
+					<!-- TAB: File Uploads -->
+					<div class="sui-box" data-tab="demo-element--file-uploads" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">File Uploads</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>To be used when the user only needs to upload a general file, not image.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">For use as a general file uploader that doesn’t require an image previewer.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span></span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Selected</span>
+									<span class="sui-description">When the user has selected a file.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload sui-has_file">
+
+											<input type="file"
+												value="example-file.pdf"
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span>example-file.pdf</span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<span class="sui-description">The user can click the whole block to change the file, or click the X to remove file.</span>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Upload error</span>
+									<span class="sui-description">When there is an issue uploading the file, or it’s the wrong file type.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span></span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<div class="sui-notice sui-notice-error">
+											<p>Whoops, only .pdf and .doc filetypes are allowed.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Multi - Default</span>
+									<span class="sui-description">When the user is allowed to upload multiple files.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span></span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Multi - Selected</span>
+									<span class="sui-description">When files have been chosen we keep the button.<br />Note: The button copy can be changed to be more contextual.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload sui-has_file">
+
+											<input type="file"
+												value="example-file.pdf"
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span>example-file.pdf</span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload another
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span></span>
+
+												<button aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Image Uploads -->
+					<div class="sui-box" data-tab="demo-element--image-uploads" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Image Uploads</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>To be used when we want to show image previews.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">Before a file is chosen for upload. When clicked it uses the native WP Media uploader.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span></span>
+
+												<button class="sui-upload-button--remove"
+													aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Selected</span>
+									<span class="sui-description">When the user has selected an image.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload sui-has_file">
+
+											<input type="file"
+												value="filename.jpg"
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('dist/images/plugins-smartcrawl.jpg');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span>filename.jpg</span>
+
+												<button class="sui-upload-button--remove"
+													aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<span class="sui-description">The user can click the image to change the file, or click the X to remove file.</span>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Upload error</span>
+									<span class="sui-description">When there is an issue uploading the image.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+										</div>
+
+										<div class="sui-notice sui-notice-error">
+											<p>Whoops, there was a problem with the image you chose.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Multi - Selected</span>
+									<span class="sui-description">When the user has selected an image.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Multi - Selected</span>
+									<span class="sui-description">When the user has selected an image.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Label</label>
+
+										<div class="sui-upload sui-has_file">
+
+											<input type="file"
+												value="filename.jpg"
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('dist/images/plugins-smartcrawl.jpg');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span>filename.jpg</span>
+
+												<button class="sui-upload-button--remove"
+													aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<div class="sui-upload sui-has_file">
+
+											<input type="file"
+												value="filename.jpg"
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('dist/images/plugins-smartcrawl.jpg');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+											</button>
+
+											<div class="sui-upload-file">
+
+												<span>filename.jpg</span>
+
+												<button class="sui-upload-button--remove"
+													aria-label="Remove file">
+													<i class="sui-icon-close" aria-hidden="true"></i>
+												</button>
+
+											</div>
+
+										</div>
+
+										<div class="sui-upload">
+
+											<input type="file"
+												value=""
+												readonly="readonly" />
+
+											<div class="sui-upload-image" aria-hidden="true">
+												<div class="sui-image-mask"></div>
+												<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+											</div>
+
+											<button class="sui-upload-button">
+												<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload another
+											</button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 					<!-- TAB: Documentation -->
 					<div class="sui-box" data-tab="demo-element--form-docs" style="display: none;">
 
@@ -3756,6 +4291,100 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 	&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 	&lt;span&gt;Checkbox label&lt;/span&gt;
 &lt;/label&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: File Uploads -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">File Uploads</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+&lt;div class=&quot;sui-upload&quot;&gt;
+
+	&lt;input type=&quot;file&quot;
+		value=&quot;filename.pdf&quot;
+		readonly=&quot;readonly&quot; /&gt;
+
+	&lt;button class=&quot;sui-upload-button&quot;&gt;
+		&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Upload file
+	&lt;/button&gt;
+
+	&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+		&lt;span&gt;filename.pdf&lt;/span&gt;
+
+		&lt;button aria-label=&quot;Remove file&quot;&gt;
+			&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Image Uploads -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Image Uploads</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+&lt;div class=&quot;sui-upload&quot;&gt;
+
+	&lt;input type=&quot;file&quot;
+		value=&quot;filename.png&quot;
+		readonly=&quot;readonly&quot; /&gt;
+
+	&lt;div class=&quot;sui-upload-image&quot; aria-hidden=&quot;true&quot;&gt;
+		&lt;div class=&quot;sui-image-mask&quot;&gt;&lt;/div&gt;
+		&lt;div role=&quot;button&quot;
+			class=&quot;sui-image-preview&quot;
+			style=&quot;background-image: url('path-to-image/filename.png');&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;button class=&quot;sui-upload-button&quot;&gt;
+		&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Upload file
+	&lt;/button&gt;
+
+	&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+		&lt;span&gt;filename.png&lt;/span&gt;
+
+		&lt;button aria-label=&quot;Remove file&quot;&gt;
+			&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
 </pre>
 
 									</div>
@@ -3865,43 +4494,6 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 	&lt;div class=&quot;sui-box-body&quot;&gt;
 		&lt;label for=&quot;textarea&quot; class=&quot;sui-label&quot;&gt;Textarea&lt;/label&gt;
 		&lt;textarea id=&quot;textarea&quot; class=&quot;sui-form-control&quot;&gt;&lt;/textarea&gt;
-		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</pre>
-				</div>
-
-				<hr>
-
-				<div class="demo-info-block">
-					<h3>File Input</h3>
-				</div>
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<span class="sui-label">File Upload</span>
-						<div class="sui-upload-group">
-							<label for="demo-file-upload" class="sui-upload-label">
-								<input type="file" aria-describedby="demo-file-upload-description" id="demo-file-upload">
-								<span aria-hidden="true" class="sui-upload-button">Choose file</span>
-								<span id="demo-file-upload-description" class="sui-upload-message">No file chosen</span>
-							</label>
-						</div>
-						<span class="sui-description">This is a description about the field.</span>
-					</div>
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		&lt;span class=&quot;sui-label&quot;&gt;File Upload&lt;/span&gt;
-		&lt;div class=&quot;sui-upload-group&quot;&gt;
-			&lt;label for=&quot;demo-file-upload&quot; class=&quot;sui-upload-label&quot;&gt;
-				&lt;input type=&quot;file&quot; aria-describedby=&quot;demo-file-upload-description&quot; id=&quot;demo-file-upload&quot;&gt;
-				&lt;span aria-hidden=&quot;true&quot; class=&quot;sui-upload-button&quot;&gt;Choose file&lt;/span&gt;
-				&lt;span id=&quot;demo-file-upload-description&quot; class=&quot;sui-upload-message&quot;&gt;No file chosen&lt;/span&gt;
-			&lt;/label&gt;
-		&lt;/div&gt;
 		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</pre>
