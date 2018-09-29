@@ -238,6 +238,30 @@
 						}
 					}
 
+					// ELEMENT: Slider offset
+					.iris-slider-offset {
+						top: $colorpicker--iris-slider-handle-size;
+						bottom: 0;
+					}
+
+					// ELEMENT: Slider handle
+					// A visual element that allow user to find the
+					// desired opacity or tone for the color.
+					.ui-slider-handle {
+						height: $colorpicker--iris-slider-handle-size;
+						opacity: 1;
+						right: -#{$colorpicker--iris-slider-handle-border-width};
+						left: -#{$colorpicker--iris-slider-handle-border-width};
+						border-width: $colorpicker--iris-slider-handle-border-width;
+						border-color: $colorpicker--iris-slider-handle-border-color;
+						border-radius: #{$colorpicker--iris-slider-handle-border-width * 2};
+						box-shadow: 0 1px 3px 1px rgba(0,0,0,0.3);
+
+						&:before {
+							content: unset;
+						}
+					}
+
 					// ELEMENT: Palette
 					// Predefined colors for user to quick-select.
 					.iris-palette {
