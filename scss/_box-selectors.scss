@@ -10,7 +10,10 @@
 		ul {
 			display: flex;
 			flex-wrap: wrap;
-			margin: 0 -#{$box-selectors--spacing / 2};
+			margin-right: -#{$box-selectors--spacing / 2};
+			margin-left: -#{$box-selectors--spacing / 2};
+			padding: 0;
+			border: 0;
 
 			li {
 				margin: 0;
@@ -23,6 +26,13 @@
 
 			ul li {
 				flex: 0 0 auto;
+			}
+		}
+
+		&:not([class*="sui-box-selectors-col-"]) {
+
+			ul li {
+				flex: 1;
 			}
 		}
 
