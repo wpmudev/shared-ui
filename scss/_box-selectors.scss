@@ -179,20 +179,26 @@
 		// VARIATION: Vertical
 		&.sui-box-selector-vertical {
 
-			input + span {
-				display: block;
-				padding-top: $box-selector-vertical--padding-bottom;
-				padding-right: $box-selector--padding;
-				padding-bottom: $box-selector-vertical--padding-top;
-				padding-left: $box-selector--padding;
-				text-align: center;
-				
-				[class*="sui-icon"] {
-					display: block;
-					margin: 0 auto $box-selector-vertical--icon-spacing;
+			input {
 
-					&:before {
-						line-height: $box-selector--icon-size;
+				~ span {
+					text-align: center;
+				}
+
+				+ span {
+					display: block;
+					padding-top: $box-selector-vertical--padding-bottom;
+					padding-right: $box-selector--padding;
+					padding-bottom: $box-selector-vertical--padding-top;
+					padding-left: $box-selector--padding;
+					
+					[class*="sui-icon"] {
+						display: block;
+						margin: 0 auto $box-selector-vertical--icon-spacing;
+	
+						&:before {
+							line-height: $box-selector--icon-size;
+						}
 					}
 				}
 			}
