@@ -29,6 +29,7 @@ $h2-line-height:                        35px;
 $h3-line-height:                        40px;
 
 $border-radius:							4px                           !default;
+$transition:                            all 0.3s ease                 !default;
 
 // Layout
 $sui-gutter:                            30px                          !default;
@@ -172,3 +173,33 @@ $colorpicker--iris-slider-size:                190px !default;
 $colorpicker--iris-slider-handle-size:         10px  !default;
 $colorpicker--iris-slider-handle-border-width: 2px   !default;
 $colorpicker--iris-palette-size:               20px  !default;
+
+// ============================================================
+// Box Selectors (_box-selectors.scss)
+
+// Container
+$box-selectors--spacing:                20px !default;
+$box-selectors--total-cols:             6    !default;
+
+// Item
+$box-selector--height:                  60px !default;
+$box-selector--padding:                 10px !default;
+$box-selector--font-size:               12px !default;
+$box-selector--line-height:             20px !default;
+
+$box-selector--font-size-lg:            13px !default;
+$box-selector--line-height-lg:          22px !default;
+
+// Item icon
+$box-selector--icon-width:              30px !default;
+$box-selector--icon-size:               16px !default;
+
+// Item ribbon
+// Used as blue triangle on top-right corner when item is selected
+$box-selector--ribbon-height:           80px !default;
+
+// Item (vertical)
+$box-selector-vertical--height:         80px !default;
+$box-selector-vertical--padding-top:    16px !default;
+$box-selector-vertical--icon-spacing:   7px !default;
+$box-selector-vertical--padding-bottom: #{$box-selector-vertical--height - ($box-selector--line-height + $box-selector--icon-size + $box-selector-vertical--icon-spacing + $box-selector-vertical--padding-top)} !default;
