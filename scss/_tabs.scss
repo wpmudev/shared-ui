@@ -167,7 +167,6 @@
 	.sui-box-body {
 
 		> .sui-tabs-flushed {
-			margin: -#{$sui-gutter-md};
 
 			> [data-tabs],
 			> .sui-tabs-menu {
@@ -191,8 +190,12 @@
 				}
 			}
 
+			@include media(max-width, md) {
+				margin: -#{$sui-gutter-md} !important;
+			}
+
 			@include media(min-width, md) {
-				margin: -#{$sui-gutter};
+				margin: -#{$sui-gutter} !important;
 			}
 		}
 	}
