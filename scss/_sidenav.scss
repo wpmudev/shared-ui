@@ -1,46 +1,28 @@
 @include body-class(true) {
 
 	.sui-row-with-sidenav {
-		clear: both;
-		position: relative;
-		display: table;
 		width: 100%;
+		display: table;
 		table-layout: fixed;
+		clear: both;
 		margin-bottom: 30px;
 
-		@media (max-width: 1100px) {
-			display: block;
-		}
-
 		.sui-sidenav {
-			width: $sidenav-width;
-			padding-right: 30px;
-			display: table-cell;
-			position: relative;
 			vertical-align: top;
 
-			@media (max-width: 1100px) {
-				display: block;
-				width: 100%;
-				padding: 0;
-			}
-
-			ul {
-				padding: 0;
-			}
-
-			li {
-				list-style: none;
-				margin-bottom: 6px;
-			}
-
 			.sui-vertical-tabs {
+				margin: 15px 0;
+				padding: 0;
+				border: 0;
+				list-style: none;
 
 				.sui-vertical-tab {
-					position: relative;
-					padding: 5px 15px;
 					height: 30px;
+					position: relative;
+					margin: 0 0 6px;
+					padding: 5px 15px;
 					line-height: 1.5em;
+					list-style: none;
 
 					&.current {
 						background-color: $sidenav-tab-active-bg-color;
@@ -59,21 +41,21 @@
 						right: 3px;
 					}
 
-					i {
+					[class*="sui-icon-"] {
 						top: 6px;
 						right: 7px;
-					}
 
-					i:before {
-						font-size: 16px;
+						&:before {
+							font-size: 16px;
+						}
 					}
 				}
 
 				a {
-					color: $sidenav-tab-color;
 					display: block;
+					color: $sidenav-tab-color;
 					font-weight: 400;
-					transition: .3s;
+					transition: 0.3s ease;
 
 					&:hover,
 					&:focus {
@@ -104,27 +86,82 @@
 				}
 			}
 
+			.sui-with-floating-input {
+
+				@include media(max-width, lg) {
+					left: 0 !important;
+				}
+
+				@include media(min-width, lg) {
+					width: 240px;
+					position: absolute;
+					top: 30px;
+					left: #{$sidenav-width + 10px};
+					margin: 0;
+				}
+			}
+
+			.sui-sidenav-settings {
+
+				.sui-form-field {
+					margin: 0 0 10px;
+
+					.sui-mobile-nav {
+						margin-bottom: 0;
+					}
+
+					&:last-child {
+						margin: 0;
+					}
+				}
+
+				@include media(max-width, lg) {
+					margin-bottom: $sui-gutter-md;
+				}
+
+				@include media(min-width, lg) {
+					padding-left: 15px;
+				}
+			}
+
+			// FIX:
+			// Hide elements on large screens (only)
 			.sui-sidenav-hide-md {
-				@media (max-width: 1100px) {
+
+				@include media(max-width, lg) {
 					display: none;
 				}
 			}
 
+			// FIX:
+			// Show elements on large screens (only)
 			.sui-sidenav-hide-lg {
-				@media (min-width: 1100px) {
+
+				@include media(min-width, lg) {
 					display: none;
 				}
+			}
+
+			@include media(max-width, lg) {
+				width: 100%;
+				display: block;
+			}
+
+			@include media(min-width, lg) {
+				width: $sidenav-width;
+				display: table-cell;
+				padding-right: $sui-gutter;
 			}
 		}
 
-		> .sui-box {
+		.sui-box {
 			display: block;
 			position: relative;
 			vertical-align: top;
+		}
 
-			@media (max-width: 1100px) {
-				display: block;
-			}
+		@media (max-width: 1100px) {
+			display: block;
 		}
 	}
 }
