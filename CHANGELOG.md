@@ -1,3 +1,34 @@
+v2.3.5
+
+- [Enhance] Update to latest icon font file.
+			Dev Notes: Instagram icon has been added. You can use new class:
+			"sui-icon-instagram".
+- [Enhance] Box settings side column width.
+- [New] Radio options with image.
+			Dev Notes: Find here https://wpmudev.github.io/shared-ui/#forms the
+			demo for this new element. Just click on "Radio" option from sidenav.
+- [New] Checkbox options with image.
+			Dev Notes: Find here https://wpmudev.github.io/shared-ui/#forms the
+			demo for this new element. Just click on "Checkbox" option from sidenav.
+- [Enhance] Flexbox accordion footer.
+- [New] Color pickers element styles.
+			Dev Notes: Demo hasn't been added for this element since wpColorPicker
+			doesn't perform correctly. Until then, you can check Hustle project and
+			grab branch v4.0 to see some samples.
+- [New] Box selectors element, for single and multiple options.
+			Dev Notes: Find here https://wpmudev.github.io/shared-ui/#boxes the demo
+			for this element, it's placed on the "Selectors Box" section.
+- [Enhance] New classes that handles sidenav and header with floating input.
+			Dev Notes: This variation is commonly used on wizards or pages that have
+			status box element.
+- [Fix] Flushed tabs spacing inside box body.
+- [Enhance] Side tabs variation for more spacing between navigation and content.
+- [Enhance] New footer for FREE and PRO plugins.
+			Dev Notes: Two new elements have been added: navigation and social links.
+			You can grab here https://wpmudev.github.io/shared-ui/#footer the new footer
+			elements markup.
+
+
 v2.3.4
 
 - [Enhance] Inputs – Add small and medium size variations.
