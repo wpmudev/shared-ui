@@ -148,6 +148,17 @@
 					display: block;
 				}
 			}
+
+			// VARIATION: Large
+			// This class will increase the space
+			// between data-tabs and data-panes.
+			&.sui-tabs-content-lg {
+
+				> *,
+				> .sui-tab-content {
+					margin-top: 30px;
+				}
+			}
 		}
 
 		&:last-child {
@@ -167,7 +178,6 @@
 	.sui-box-body {
 
 		> .sui-tabs-flushed {
-			margin: -#{$sui-gutter-md};
 
 			> [data-tabs],
 			> .sui-tabs-menu {
@@ -191,8 +201,12 @@
 				}
 			}
 
+			@include media(max-width, md) {
+				margin: -#{$sui-gutter-md} !important;
+			}
+
 			@include media(min-width, md) {
-				margin: -#{$sui-gutter};
+				margin: -#{$sui-gutter} !important;
 			}
 		}
 	}
