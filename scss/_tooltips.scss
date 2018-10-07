@@ -5,159 +5,226 @@
 
 		&:before,
 		&:after {
-			content: "";
+			content: " ";
 			opacity: 0;
 			backface-visibility: hidden;
 			pointer-events: none;
 			position: absolute;
 			z-index: 1;
-			transition: margin .2s, opacity .2s;
+			transition: 0.2s;
 		}
 
 		&:before {
+			bottom: 100%;
 			border: 5px solid transparent;
+			border-top-color: $tooltips-color;
+			left: 50%;
+			transform: translateX(-50%);
 		}
 
 		&:after {
 			content: attr(data-tooltip);
-			min-width: 40px;
-			padding: 8px 12px;
-			border-radius: 4px;
-			background: $tooltips-color;
+			min-width: var(--tooltip-width, 40px);
+			bottom: 100%;
+			margin-bottom: 10px;
+			padding: 12px;
+			border-radius: $border-radius;
+			background-color: $tooltips-color;
 			box-sizing: border-box;
 			color: $white;
 			font: 500 12px/18px $font;
+			letter-spacing: $font--letter-spacing;
 			text-transform: none;
-			text-align: center;
-			white-space: nowrap;
+			text-align: var(--tooltip-text-align, center);
+
+			@include media(min-width, md) {
+				left: 50%;
+				transform: translateX(-50%);
+				white-space: nowrap;
+			}
 		}
 
+		// VARIATION: Constrained tooltip
+		&.sui-tooltip-constrained {
+
+			&:after {
+
+				@include media(min-width, md) {
+					min-width: var(--tooltip-width, 240px);
+					white-space: normal;
+				}
+			}
+		}
+
+		// POSITION: Top
+		&.sui-tooltip-top {
+
+			// POSITION: Left
+			&-left {
+
+				&:after {
+
+					@include media(min-width, md) {
+						left: 0;
+						transform: translateX(0);
+					}
+				}
+			}
+
+			// POSITION: Right
+			&-right {
+
+				&:after {
+
+					@include media(min-width, md) {
+						right: 0;
+						left: auto;
+						transform: translateX(0);
+					}
+				}
+			}
+		}
+
+		// POSITION: Bottom
+		&.sui-tooltip-bottom {
+
+			&,
+			&-left,
+			&-right {
+
+				&:before {
+					top: 100%;
+					bottom: unset;
+					border-top-color: transparent;
+					border-bottom-color: $tooltips-color;
+				}
+	
+				&:after {
+					top: 100%;
+					bottom: unset;
+					margin-top: 10px;
+					margin-bottom: 0;
+				}
+			}
+
+			// POSITION: Left
+			&-left {
+
+				&:after {
+
+					@include media(min-width, md) {
+						left: 0;
+						transform: translate(0);
+					}
+				}
+			}
+
+			// POSITION: Right
+			&-right {
+
+				&:after {
+
+					@include media(min-width, md) {
+						left: auto;
+						right: 0;
+						transform: translate(0);
+					}
+				}
+			}
+		}
+
+		// POSITION: Left
+		&.sui-tooltip-left {
+
+			&:before {
+
+				@include media(min-width, md) {
+					top: 50%;
+					right: 100%;
+					bottom: unset;
+					left: unset;
+					border-top-color: transparent;
+					border-left-color: $tooltips-color;
+					transform: translateY(-50%);
+				}
+			}
+
+			&:after {
+
+				@include media(min-width, md) {
+					top: 50%;
+					right: 100%;
+					bottom: unset;
+					left: unset;
+					margin-right: 10px;
+					margin-bottom: 0;
+					transform: translateY(-50%);
+				}
+			}
+		}
+
+		// POSITION: Right
+		&.sui-tooltip-right {
+
+			&:before {
+
+				@include media(min-width, md) {
+					top: 50%;
+					bottom: unset;
+					left: 100%;
+					border-top-color: transparent;
+					border-right-color: $tooltips-color;
+					transform: translateY(-50%);
+				}
+			}
+
+			&:after {
+
+				@include media(min-width, md) {
+					top: 50%;
+					bottom: unset;
+					left: 100%;
+					margin-left: 10px;
+					margin-bottom: 0;
+					transform: translateY(-50%);
+				}
+			}
+		}
+
+		// VARIATION: Mobile Left
+		// Tooltips aligned to left on small screens
+		&.sui-tooltip-mobile-left {
+
+			&:after {
+
+				@include media(max-width, md) {
+					min-width: var(--tooltip-width-mobile, 80px);
+					left: 0;
+				}
+			}
+		}
+
+		// VARIATION: Mobile Right
+		// Tooltips aligned to right on small screens
+		&.sui-tooltip-mobile-right {
+
+			&:after {
+
+				@include media(max-width, md) {
+					min-width: var(--tooltip-width-mobile, 80px);
+					right: 0;
+				}
+			}
+		}
+
+		// STATE: Hover
+		// Show tooltips when user hovers on it.
 		&:hover {
+
 			&:before,
 			&:after {
 				opacity: 1;
-			}
-		}
-
-		// Size: One Line Constrained Width
-		&.sui-tooltip-constrained {
-			&:after {
-				min-width: 240px;
-				white-space: normal;
-			}
-		}
-
-		// Position: Top
-		&.sui-tooltip-top:before,
-		&:before {
-			bottom: 100%;
-			left: 50%;
-			border-top-color: $tooltips-color;
-			transform: translateX(-50%);
-		}
-
-		&.sui-tooltip-top:after,
-		&:after {
-			bottom: 100%;
-			left: 50%;
-			margin: 0 0 10px;
-			transform: translateX(-50%);
-		}
-
-		// Position: Top-right & Top-left
-		&.sui-tooltip-top {
-			&-right {
-				&:after {
-					left: 0;
-					transform: translateX(0);
-				}
-			}
-			&-left {
-				&:after {
-					left: auto;
-					transform: translateX(0);
-					right: 0;
-				}
-			}
-		}
-
-		// Position: Bottom, Bottom-right & Bottom-left
-		&.sui-tooltip-bottom {
-			&-left:before,
-			&-right:before,
-			&:before {
-				top: 100%;
-				bottom: inherit;
-				border-top-color: transparent;
-				border-bottom-color: $tooltips-color;
-			}
-
-			&-left:after,
-			&-right:after,
-			&:after {
-				top: 100%;
-				bottom: inherit;
-				margin: 10px 0 0;
-				transform: translateX(0);
-			}
-
-			&:after {
-				transform: translateX(-50%);
-			}
-
-			&-right {
-				&:after {
-					left: 0;
-				}
-			}
-
-			&-left {
-				&:after {
-					left: auto;
-					right: 0;
-				}
-			}
-		}
-
-		// Position: Left
-		&.sui-tooltip-left {
-			&:before {
-				top: 50%;
-				right: 100%;
-				bottom: inherit;
-				left: inherit;
-				border-top-color: transparent;
-				border-left-color: $tooltips-color;
-				transform: translateY(-50%);
-			}
-
-			&:after {
-				top: 50%;
-				right: 100%;
-				bottom: inherit;
-				left: inherit;
-				margin: 0 10px 0 0;
-				transform: translateY(-50%);
-			}
-		}
-
-		// Position: Right
-		&.sui-tooltip-right {
-			&:before {
-				top: 50%;
-				bottom: inherit;
-				left: 100%;
-				border-top-color: transparent;
-				border-right-color: $tooltips-color;
-				transform: translateY(-50%);
-			}
-
-			&:after {
-				top: 50%;
-				bottom: inherit;
-				left: 100%;
-				margin: 0 0 0 10px;
-				transform: translateY(-50%);
+				backface-visibility: visible;
 			}
 		}
 	}
