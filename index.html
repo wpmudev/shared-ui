@@ -7419,6 +7419,10 @@ p:first-of-type {
 							</li>
 
 							<li class="sui-vertical-tab">
+								<a href="#" data-tab="demo-tooltips--special">Special Cases</a>
+							</li>
+
+							<li class="sui-vertical-tab">
 								<a href="#" data-tab="demo-tooltips--docs">Documentation</a>
 							</li>
 
@@ -7434,30 +7438,355 @@ p:first-of-type {
 
 								<div class="sui-box-settings-col-1">
 									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">Tooltips will appear to <strong>top</strong> of the element and <strong>center</strong> aligned to it.</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
 									<div class="sui-form-field">
-										<span class="sui-settings-label">Default tooltips on buttons</span>
-										<span class="sui-description">There are some cases where you gonna need to use tooltips with your buttons.</span>
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>top-center</strong> alignment.</span>
 										<div class="sui-border-frame" style="margin-top: 10px;">
 											<button class="sui-button sui-tooltip"
-												data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-												Button
+												data-tooltip="I'm a button">
+												Auto Width
 											</button>
-											<button class="sui-button-icon sui-tooltip"
-												data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+											<button class="sui-button sui-tooltip"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
 											</button>
 										</div>
 									</div>
 
 									<div class="sui-form-field">
-										<span class="sui-settings-label">Default tooltips on regular text</span>
-										<span class="sui-description">You can also add some tooltips on regular text if you need.</span>
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>top-center</strong> alignment.</span>
 										<div class="sui-border-frame" style="margin-top: 10px;">
-											<p>Nullam quis risus <strong class="sui-tooltip" data-tooltip="I am a tooltip for bold text.">eget urna mollis</strong> ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, <a href="" class="sui-tooltip" data-tooltip="I am a tooltip for regular links.">nisi erat porttitor ligula</a>, eget lacinia odio sem nec elit.</p>
+											<button class="sui-button sui-tooltip sui-tooltip-constrained"
+												data-tooltip="I'm a button with default constrained tooltip set to 240px width">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with custom constrained tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Top Left</span>
+									<span class="sui-description">Tooltips will appear to <strong>top</strong> of the element and stick to <strong>left</strong> of it.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>top-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-top-left"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-top-left"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>top-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-top-left sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained top-left tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-top-left sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained top-left tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Top Right</span>
+									<span class="sui-description">Tooltips will appear to <strong>top</strong> of the element and stick to <strong>right</strong> of it.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>top-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-top-right"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-top-right"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>top-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-top-right sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained top-right tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-top-right sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained top-right tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Bottom</span>
+									<span class="sui-description">Tooltips will appear to <strong>bottom</strong> of the element and <strong>center</strong> aligned to it.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>bottom-center</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>bottom-center</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained bottom-center tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained bottom-center tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Bottom Left</span>
+									<span class="sui-description">Tooltips will appear to <strong>bottom</strong> of the element and stick to <strong>left</strong> of it.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>bottom-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-left"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-left"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>bottom-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-left sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained bottom-left tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-left sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained bottom-left tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Bottom Right</span>
+									<span class="sui-description">Tooltips will appear to <strong>bottom</strong> of the element and stick to <strong>right</strong> of it.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>bottom-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-right"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-right"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>bottom-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-right sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained bottom-right tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-bottom-right sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained bottom-right tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Right</span>
+									<span class="sui-description">Tooltips will appear to <strong>right</strong> side of the element.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>center-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-right"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-right"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>center-right</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-right sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained center-right tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-right sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained center-right tooltip">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Left</span>
+									<span class="sui-description">Tooltips will appear to <strong>left</strong> side of the element.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Regular</span>
+										<span class="sui-description">This is a sample of regular tooltips with <strong>center-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-left"
+												data-tooltip="I'm a button">
+												Auto Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-left"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button">
+												Custom Width
+											</button>
+										</div>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">Constrained</span>
+										<span class="sui-description">This is a sample of constrained tooltips with <strong>center-left</strong> alignment.</span>
+										<div class="sui-border-frame" style="margin-top: 10px; text-align: right;">
+											<button class="sui-button sui-tooltip sui-tooltip-left sui-tooltip-constrained"
+												data-tooltip="I'm a button with constrained center-left tooltip">
+												Default Width
+											</button>
+											<button class="sui-button sui-tooltip sui-tooltip-left sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="I'm a button with constrained center-left tooltip">
+												Custom Width
+											</button>
 										</div>
 									</div>
 
@@ -7469,45 +7798,114 @@ p:first-of-type {
 
 					</div>
 
-					<div class="sui-box" data-tab="demo-tooltips--docs" style="display: none;"></div>
+					<div class="sui-box" data-tab="demo-tooltips--special">
 
-				</div>
+						<div class="sui-box-body">
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<button class="sui-button sui-tooltip" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Default
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-bottom" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Bottom
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Bottom Left
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Bottom Right
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Top Left
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Top Right
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Left
-						</button>
-						<br>
-						<br>
-						<button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Right
-						</button>
-						<button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip="This will clear your Page, Gravatar, Minification & CloudFlare caches">
-							Constrained
-						</button>
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Case #1</label>
+									<span class="sui-description">There are times when you need a <strong>top-center</strong> tooltip displayed on desktops, but on small screens content is being cut-off.</span>
+
+									<div class="sui-border-frame" style="margin-top: 10px;">
+
+										<label class="sui-settings-label">The Problem</label>
+
+										<div style="margin-top: 10px; margin-bottom: 30px;">
+											<button class="sui-button sui-tooltip"
+												data-tooltip="Maecenas sed diam eget risus varius blandit sit amet non magna">
+												View Stats
+											</button>
+										</div>
+
+										<label class="sui-settings-label">Solution #1</label>
+										<span class="sui-description">You can add <strong>sui-tooltip-mobile</strong> to keep original position but constrain content on small screens only.</span>
+										
+										<div style="margin-top: 10px; margin-bottom: 30px;">
+											<button class="sui-button sui-tooltip sui-tooltip-mobile"
+												style="--tooltip-width-mobile: 161px;"
+												data-tooltip="Maecenas sed diam eget risus varius blandit sit amet non magna">
+												View Stats
+											</button>
+										</div>
+
+										<label class="sui-settings-label">Solution #2</label>
+										<span class="sui-description">You can add <strong>sui-tooltip-{position}-mobile</strong> to re-position your tooltip on small screens only.</span>
+										
+										<div style="margin-top: 10px;">
+											<button class="sui-button sui-tooltip sui-tooltip-top-left-mobile"
+												style="--tooltip-width-mobile: 161px;"
+												data-tooltip="Maecenas sed diam eget risus varius blandit sit amet non magna">
+												View Stats
+											</button>
+										</div>
+
+										<div class="sui-notice sui-notice-warning">
+											<p>Remember to replace <strong>{position}</strong> with: top, top-left, top-right, bottom, bottom-left, bottom-right, left, or right.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Case #2</label>
+									<span class="sui-description">There are times when you need a <strong>171px</strong> tooltip but constrained tooltips width is set to 240px by default.</span>
+
+									<div class="sui-border-frame" style="margin-top: 10px;">
+
+										<label class="sui-settings-label">The Problem</label>
+
+										<div style="margin-top: 10px; margin-bottom: 30px;">
+											<button class="sui-button-icon sui-tooltip sui-tooltip-top-left sui-tooltip-constrained"
+												data-tooltip="This option is enabled in the Email field settings">
+												<i class="sui-icon-info" aria-hidden="true"></i>
+											</button>
+										</div>
+
+										<label class="sui-settings-label">The Solution</label>
+										<span class="sui-description">You can add <code>--tooltip-width: 171px</code> as inline style and this will be applied to tooltips only.</span>
+										
+										<div style="margin-top: 10px;">
+											<button class="sui-button-icon sui-tooltip sui-tooltip-top-left sui-tooltip-constrained"
+												style="--tooltip-width: 171px;"
+												data-tooltip="This option is enabled in the Email field settings">
+												<i class="sui-icon-info" aria-hidden="true"></i>
+											</button>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
 					</div>
-				</div>
 
-				<div class="demo-code-block">
+					<div class="sui-box" data-tab="demo-tooltips--docs" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Base Structure</span>
+									<span class="sui-description">Tooltips are simple, you just need the base structure and extra classes are for special alignment.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
 <pre class="sui-code-snippet html">
 &lt;button class="sui-button sui-tooltip" data-tooltip=""&gt;Default&lt;/button&gt;
 
@@ -7522,8 +7920,90 @@ p:first-of-type {
 &lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Left&lt;/button&gt;
 
 &lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Right&lt;/button&gt;
+</pre>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-constrained" data-tooltip=""&gt;Constrained&lt;/button&gt;</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Constrained</span>
+									<span class="sui-description">There are cases when you need tooltips with an specific width.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!-- Constrained: Default Width --&gt;
+&lt;button class="sui-button sui-constrained"
+	data-tooltip=""&gt;
+	Default
+&lt;/button&gt;
+
+&lt;!-- Constrained: Custom Width --&gt;
+&lt;button class="sui-button sui-constrained"
+	style="--tooltip-width: 170px;"
+	data-tooltip=""&gt;
+	Default
+&lt;/button&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Special Fixes</span>
+									<span class="sui-description">You can further modify tooltips using the following inline styles.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!-- Tooltips Width --&gt;
+&lt;button class="sui-button"
+	style="--tooltip-width: 170px;"
+	data-tooltip=""&gt;
+	Default
+&lt;/button&gt;
+
+&lt;!-- Tooltips Width (Small Screens Only) --&gt;
+&lt;button class="sui-button sui-button-mobile"
+	style="--tooltip-width-mobile: 170px;"
+	data-tooltip=""&gt;
+	Default
+&lt;/button&gt;
+
+&lt;!-- Tooltips Text Align --&gt;
+&lt;button class="sui-button"
+	style="--tooltip-text-align: left;"
+	data-tooltip=""&gt;
+	Default
+&lt;/button&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>
