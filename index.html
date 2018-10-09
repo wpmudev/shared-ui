@@ -7899,7 +7899,7 @@ p:first-of-type {
 
 								<div class="sui-box-settings-col-1">
 									<span class="sui-settings-label">Base Structure</span>
-									<span class="sui-description">Tooltips are simple, you just need the base structure and extra classes are for special alignment.</span>
+									<span class="sui-description">Tooltips are simple, you just need the base structure and add extra classes for special alignment.</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
@@ -7907,19 +7907,110 @@ p:first-of-type {
 									<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;button class="sui-button sui-tooltip" data-tooltip=""&gt;Default&lt;/button&gt;
+&lt;!-- Base Structure --&gt;
+&lt;div class="sui-tooltip"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+</pre>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-left" data-tooltip=""&gt;Bottom Left&lt;/button&gt;
+									</div>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-bottom-right" data-tooltip=""&gt;Bottom Right&lt;/button&gt;
+								</div>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-top-left" data-tooltip=""&gt;Top Left&lt;/button&gt;
+							</div>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-top-right" data-tooltip=""&gt;Top Right&lt;/button&gt;
+							<div class="sui-box-settings-row">
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-left" data-tooltip=""&gt;Left&lt;/button&gt;
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Variations</span>
+									<span class="sui-description">Sample code to position your tooltips based on design requirements.</span><br />
+									<span class="sui-description">In case you have some doubts on what you need, go to "Samples" tab and take a look at the different tooltip variations.</span>
+								</div>
 
-&lt;button class="sui-button sui-tooltip sui-tooltip-right" data-tooltip=""&gt;Right&lt;/button&gt;
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label">Top Tooltips</label>
+
+									<div class="demo-code-block" style="margin-bottom: 30px;">
+
+<pre class="sui-code-snippet html">
+&lt;!-- POSITION: Top Center --&gt;
+&lt;div class="sui-tooltip"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+
+&lt;div class="sui-tooltip sui-tooltip-top"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+
+&lt;!-- POSITION: Top Left --&gt;
+&lt;div class="sui-tooltip sui-tooltip-top-left"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+
+&lt;!-- POSITION: Top Right --&gt;
+&lt;div class="sui-tooltip sui-tooltip-top-right"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+									<label class="sui-settings-label">Bottom Tooltips</label>
+
+									<div class="demo-code-block" style="margin-bottom: 30px;">
+
+<pre class="sui-code-snippet html">
+&lt;!-- POSITION: Bottom Center --&gt;
+&lt;div class="sui-tooltip sui-tooltip-bottom"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+
+&lt;!-- POSITION: Bottom Left --&gt;
+&lt;div class="sui-tooltip sui-tooltip-bottom-left"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+
+&lt;!-- POSITION: Bottom Right --&gt;
+&lt;div class="sui-tooltip sui-tooltip-bottom-right"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+									<label class="sui-settings-label">Left Tooltip</label>
+
+									<div class="demo-code-block" style="margin-bottom: 30px;">
+
+<pre class="sui-code-snippet html">
+&lt;!-- POSITION: Center Left --&gt;
+&lt;div class="sui-tooltip sui-tooltip-left"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+									<label class="sui-settings-label">Right Tooltip</label>
+
+									<div class="demo-code-block" style="margin-bottom: 30px;">
+
+<pre class="sui-code-snippet html">
+&lt;!-- POSITION: Center Right --&gt;
+&lt;div class="sui-tooltip sui-tooltip-right"
+	data-tooltip="Tooltip content goes here"&gt;
+	Element content
+&lt;/div&gt;
 </pre>
 
 									</div>
