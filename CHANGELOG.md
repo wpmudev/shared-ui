@@ -1,3 +1,27 @@
+v2.3.6
+
+ - [Improvement] Footer
+ - [Improvement] Selectors box
+ - Enhance/floating sui box
+ - [Fix] Tooltips are cut-off on small screens.
+ - Add Recaptcha icon.
+ - [Bug] Truncated text doesn't work inside settings col.
+ - [Fix] Select height is wrong.
+ - [Fix] ACE selector overflows container.
+ - Development
+ - [Improvement] Footer navigation and social links.
+ - [Improvement] New variation for side-tabs.
+ - [Improvement] Header with floating input.
+ - [Fix] Flushed tabs inside box body.
+ - [Improvement] Side navigation with floating input.
+ - [New] Box selectors for single and multiple options.
+ - [New] Color pickers
+ - [Improvement] Radio and checkbox options with image.
+ - [Improvement] Footer for flexbox accordions
+ - [Improvement] Box settings side column width it's bigger than design.
+ - [Update] New instagram icon.
+
+
 v2.3.5
 
 - [Enhance] Update to latest icon font file.
