@@ -196,6 +196,19 @@
 			}
 		}
 
+		// BOX: Sticky box
+		&.sui-box-sticky {
+			position: sticky;
+			top: 32px;
+			z-index: 11;
+
+			// Won't be sticky on smaller than medium screens
+			@include media(max-width, md) {
+				position: relative;
+				top: inherit;
+			}
+		}
+
 		> .sui-box-search {
 			padding-top: #{$sui-gutter / 2};
 			padding-bottom: #{$sui-gutter / 2};
