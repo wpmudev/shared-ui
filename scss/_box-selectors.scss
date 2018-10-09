@@ -36,36 +36,20 @@
 			}
 		}
 
-		@for $i from 1 through $box-selectors--total-cols {
-	
-			@if $i != $box-selectors--total-cols {
+		@each $column, $size in $box-selectors--columns {
 
-				$box-selector--col-width: percentage($i / $box-selectors--total-cols);
-	
-				&.sui-box-selectors-col-#{$i} {
-	
-					ul li {
-	
-						@include media(max-width, md) {
-							min-width: 100%;
-							flex-basis: 100%;
-						}
-						
-						@include media(min-width, md) {
-							min-width: $box-selector--col-width;
-							flex-basis: $box-selector--col-width;
-						}
-					}
-				}
-			}
-	
-			@else {
-	
-				&.sui-box-selectors-col-#{$i} {
-	
-					ul li {
+			&.sui-box-selectors-#{$column} {
+
+				ul li {
+
+					@include media(max-width, md) {
 						min-width: 100%;
 						flex-basis: 100%;
+					}
+					
+					@include media(min-width, md) {
+						min-width: $size;
+						flex-basis: $size;
 					}
 				}
 			}
