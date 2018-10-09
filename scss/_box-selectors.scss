@@ -114,7 +114,7 @@
 					width: $box-selector--icon-width;
 					flex: 0 0 $box-selector--icon-width;
 					align-self: flex-start;
-					margin-right: 5px;
+					margin: 0 5px 0 0;
 					font-size: $box-selector--icon-size;
 					text-align: center;
 	
@@ -124,6 +124,13 @@
 						line-height: $box-selector--line-height;
 						transition: $transition;
 					}
+				}
+
+				img {
+					max-width: $box-selector--image-width;
+					height: auto;
+					display: block;
+					margin: 0 5px 0 0;
 				}
 
 				~ span {
@@ -199,6 +206,10 @@
 						&:before {
 							line-height: $box-selector--icon-size;
 						}
+					}
+
+					img {
+						margin: 0 auto;
 					}
 				}
 			}
