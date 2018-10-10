@@ -4312,41 +4312,31 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Input Sizes</span>
-									<span class="sui-description">Some projects will require constrained input fields, for those cases you can use size variation.</span>
+									<span class="sui-settings-label">Input Prefix & Suffix</span>
+									<span class="sui-description">Sometimes a field will require a prefix or suffix.</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
 									<div class="sui-form-field">
 
-										<label for="demo-input--size-small" class="sui-label">Small size input</label>
+										<label for="demo-input--suffix" class="sui-label">Input with suffix</label>
 										<input type="number"
-											placeholder="E.g. 10"
-											id="demo-input--size-small"
-											class="sui-form-control sui-input-sm" />
-										<span class="sui-description">Usually used when the expected input is 1 to 4 chars.</span>
+											placeholder="512"
+											id="demo-input--suffix"
+											class="sui-form-control sui-input-sm sui-field-has-suffix" />
+										<span class="sui-field-suffix">Mb</span>
 
 									</div>
 
 									<div class="sui-form-field">
 
-										<label for="demo-input--size-medium" class="sui-label">Medium size input</label>
+										<label for="demo-input--prefix" class="sui-label">Input with prefix</label>
+										<span class="sui-field-prefix">$</span>
 										<input type="number"
-											placeholder="E.g. 10"
-											id="demo-input--size-medium"
-											class="sui-form-control sui-input-md" />
-										<span class="sui-description">This is the standard size of an input when 100% is to wide.</span>
-
-									</div>
-
-									<div class="sui-form-field">
-
-										<label for="demo-input--size-large" class="sui-label">Large size input (default)</label>
-										<input type="number"
-											placeholder="E.g. 10"
-											id="demo-input--size-large"
-											class="sui-form-control" />
+											   placeholder="200"
+											   id="demo-input--prefix"
+											   class="sui-form-control  sui-input-sm sui-field-has-prefix" />
 
 									</div>
 
@@ -5509,6 +5499,47 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 		&lt;/button&gt;
 
 	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Field Prefix & Suffix -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Field Prefix & Suffix</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class="sui-form-field"&gt;
+
+	&lt;label for="demo-input--suffix" class="sui-label"&gt;Input with suffix&lt;/label&gt;
+	&lt;input type="number"
+		   placeholder="512"
+		   id="demo-input--suffix"
+		   class="sui-form-control sui-input-sm sui-field-has-suffix" /&gt;
+	&lt;span class="sui-field-suffix"&gt;Mb&lt;/span&gt;
+
+&lt;/div&gt;
+
+&lt;div class="sui-form-field"&gt;
+
+	&lt;label for="demo-input--prefix" class="sui-label"&gt;Input with prefix&lt;/label&gt;
+	&lt;span class="sui-field-prefix"&gt;$&lt;/span&gt;
+	&lt;input type="number"
+		   placeholder="200"
+		   id="demo-input--prefix"
+		   class="sui-form-control  sui-input-sm sui-field-has-prefix" /&gt;
 
 &lt;/div&gt;
 </pre>

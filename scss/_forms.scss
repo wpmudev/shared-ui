@@ -132,6 +132,13 @@
 		&.sui-input-md {
 			max-width: var(--input-width, 240px);
 		}
+
+		// Form field prefix and suffix
+		&.sui-field-has-prefix,
+		&.sui-field-has-suffix {
+			width: auto;
+			display: inline-block;
+		}
 	}
 
 	// ELEMENT: Multi checkbox
@@ -278,6 +285,21 @@
 		@include media(min-width, md) {
 			margin-bottom: $sui-gutter;
 		}
+	}
+
+	.sui-field-suffix,
+	.sui-field-prefix {
+		display: inline-block;
+		color: #888888;
+		font-size: 13px;
+		line-height: 22px;
+	}
+
+	.sui-field-prefix {
+		margin-right: 10px;
+	}
+	.sui-field-suffix {
+		margin-left: 10px;
 	}
 
 	// GROUP: Form field (inline)
