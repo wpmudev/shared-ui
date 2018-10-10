@@ -299,7 +299,8 @@
 	// GROUP: Form field (inline)
 	.sui-form-field-inline {
 		
-		.sui-form-field {
+		> .sui-form-field,
+		> .select-container {
 
 			&:first-child {
 
@@ -317,9 +318,28 @@
 
 			@include media(min-width, md) {
 				flex: 0 0 auto;
+				margin-top: 0;
 				margin-bottom: 0;
 				margin-right: 10px;
 				margin-left: 10px;
+			}
+		}
+
+		> .sui-form-field {
+
+			@include media(min-width, md) {
+				flex: 0 0 auto;
+				margin-bottom: 0;
+			}
+		}
+
+		> p,
+		> span,
+		> .sui-label {
+
+			@include media(min-width, md) {
+				flex: 0 0 auto;
+				margin: 0;
 			}
 		}
 
@@ -336,6 +356,7 @@
 
 		@include media(min-width, md) {
 			display: flex;
+			align-items: center;
 			margin-bottom: $sui-gutter;
 		}
 
