@@ -538,6 +538,32 @@
 		}
 	}
 
+	.sui-multi-date {
+		display: flex;
+		align-items: center;
+
+		.sui-date {
+			flex: 1;
+
+			+ button {
+				flex: 0 0 auto;
+				margin-left: 10px;
+			}
+
+			@include media(max-width, md) {
+				margin-bottom: 0;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
 	// GROUP: Insert variables
 	.sui-insert-variables {
 		position: relative;
