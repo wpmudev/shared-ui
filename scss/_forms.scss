@@ -108,9 +108,15 @@
 		}
 
 		// VARIATION: Inline label
-		&-label {
+		&-inline {
 			@extend %label;
 			margin: 0;
+		}
+
+		// VARIATION: Label note
+		&-note {
+			margin-right: 0;
+			margin-left: auto;
 		}
 	}
 
@@ -121,10 +127,10 @@
 		display: block;
 
 		&.sui-input-sm {
-			max-width: 80px;
+			max-width: var(--input-width, 80px);
 		}
 		&.sui-input-md {
-			max-width: 240px;
+			max-width: var(--input-width, 240px);
 		}
 	}
 
@@ -224,7 +230,6 @@
 
 	// GROUP: Form field
 	.sui-form-field {
-		margin-bottom: $sui-gutter;
 
 		&.sui-input-sm {
 			max-width: 80px;
@@ -282,16 +287,26 @@
 			}
 		}
 
-		@include media( max-width, md ) {
+		@include media(max-width, md) {
 			margin-bottom: $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
+			margin-bottom: $sui-gutter;
 		}
 	}
 
 	// GROUP: Form field (inline)
 	.sui-form-field-inline {
-		margin-bottom: $sui-gutter-md;
 		
 		.sui-form-field {
+
+			&:first-child {
+
+				@include media(min-width, md) {
+					margin-left: 0;
+				}
+			}
 
 			&:last-child {
 
@@ -304,10 +319,15 @@
 				flex: 0 0 auto;
 				margin-bottom: 0;
 				margin-right: 10px;
+				margin-left: 10px;
 			}
 		}
 
 		&:last-child {
+
+			@include media(max-width, md) {
+				margin-bottom: 0;
+			}
 
 			@include media(min-width, md) {
 				margin-bottom: 0;
@@ -317,6 +337,10 @@
 		@include media(min-width, md) {
 			display: flex;
 			margin-bottom: $sui-gutter;
+		}
+
+		@include media(max-width, md) {
+			margin-bottom: $sui-gutter-md;
 		}
 	}
 
