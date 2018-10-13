@@ -7444,83 +7444,285 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 					<p>Below are examples of success, warning, error, info and a notification with buttons.</p>
 				</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-notice">
-							<p>Default</p>
-						</div>
-						<div class="sui-notice sui-notice-success">
-							<p>Success</p>
-						</div>
-						<div class="sui-notice sui-notice-warning">
-							<p>Warning</p>
-						</div>
-						<div class="sui-notice sui-notice-error">
-							<p>Error</p>
-						</div>
-						<div class="sui-notice sui-notice-info">
-							<p>Info</p>
-						</div>
-						<div class="sui-notice sui-notice-error">
-							<p>The performance test didn't return any results. This probably means you're on a local website (which we can't scan) or something went wrong trying to access WPMU DEV. Try again and if this error continues to appear please open a ticket with our support heroes</p>
-							<div class="sui-notice-buttons">
-								<a href="#" class="sui-button">
-									Try again		</a>
-								<a href="#" class="sui-button">
-									Support		</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div class="sui-row-with-sidenav">
 
-				<div class="demo-code-block">
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-notifications--samples">Samples</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-notifications--docs">Documentation</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-notifications--samples">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Basic notifications</label>
+
+									<div class="sui-notice">
+										<p>Default notice.</p>
+									</div>
+
+									<div class="sui-notice sui-notice-success">
+										<p>Success notice.</p>
+									</div>
+
+									<div class="sui-notice sui-notice-warning">
+										<p>Warning notice.</p>
+									</div>
+
+									<div class="sui-notice sui-notice-error">
+										<p>Error notice.</p>
+									</div>
+
+									<div class="sui-notice sui-notice-info">
+										<p>Informative notice.</p>
+									</div>
+
+									<div class="sui-notice sui-notice-loading">
+										<p>Loading content notice.</p>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Dismissable Notification</label>
+
+									<div class="sui-notice sui-notice-success">
+
+										<p>Success!</p>
+
+										<span class="sui-notice-dismiss">
+											<a role="button" href="#">Dismiss</a>
+										</span>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">CTA Notification</label>
+
+									<div class="sui-notice sui-notice-error">
+
+										<p>The performance test didn't return any results. This probably means you're on a local website (which we can't scan) or something went wrong trying to access WPMU DEV. Try again and if this error continues to appear please open a ticket with our support heroes</p>
+
+										<div class="sui-notice-buttons">
+											<a href="#" class="sui-button">Try again</a>
+											<a href="#" class="sui-button">Support</a>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-notifications--docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<!-- Base Structure -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Base Structure</span>
+									<span class="sui-description">All notifications start with this structure but the use of this alone will show a gray notice.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-notice&quot;&gt;
-	&lt;p&gt;Default&lt;/p&gt;
+	&lt;p&gt; ... &lt;/p&gt;
 &lt;/div&gt;
+</pre>
+									</div>
+								</div>
 
-&lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
-	&lt;p&gt;Success&lt;/p&gt;
-&lt;/div&gt;
+							</div>
 
-&lt;div class=&quot;sui-notice sui-notice-warning&quot;&gt;
-	&lt;p&gt;Warning&lt;/p&gt;
-&lt;/div&gt;
+							<!-- Success Notice -->
+							<div class="sui-box-settings-row">
 
-&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
-	&lt;p&gt;Error&lt;/p&gt;
-&lt;/div&gt;
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Success Notice</span>
+								</div>
 
-&lt;div class=&quot;sui-notice sui-notice-info&quot;&gt;
-	&lt;p&gt;Info&lt;/p&gt;
-&lt;/div&gt;</pre>
-				</div>
-
-				<hr>
-
-				<div class="demo-info-block">
-					<h3>Dismissable</h3>
-				</div>
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-notice sui-notice-success">
-							<p>Success!</p>
-							<span class="sui-notice-dismiss">
-								<a role="button" href="#">Dismiss</a>
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="demo-code-block">
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
-	&lt;p&gt;Success!&lt;/p&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Success Warning -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Warning Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-warning&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Error Notice -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Error Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Info Notice -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Info Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-info&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Loading Notice -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Loading Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-loading&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Dismissable Notice -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Dismissable Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice&quot;&gt;
+
+	&lt;p&gt; ... &lt;/p&gt;
+
 	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
 		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
 	&lt;/span&gt;
-&lt;/div&gt;</pre>
+
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- CTA Notice -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">CTA Notice</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
+
+	&lt;p&gt; ... &lt;/p&gt;
+
+	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
+		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
+		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 				<hr>
