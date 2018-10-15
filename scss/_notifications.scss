@@ -2,9 +2,11 @@
 
 	.sui-notice,
 	.sui-notice-top {
+
 		p {
 
 			&:first-of-type {
+
 				@include icon( before, info );
 	
 				&:before {
@@ -62,6 +64,20 @@
 
 				&:before {
 					color: $notice-error-icon-color;
+				}
+			}
+		}
+
+		// NOTICE loading
+		&.sui-notice-loading {
+			border-width: 0;
+			background-color: palette(silver, default);
+
+			p:first-of-type {
+				@include icon(before, loader, false);
+
+				&:before {
+					animation: spin 1.3s linear infinite;
 				}
 			}
 		}
@@ -275,6 +291,9 @@
 		}
 
 	}
+}
+
+@include body-class() {
 
 	&.wp-admin.folded {
 
