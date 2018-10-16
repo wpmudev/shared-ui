@@ -134,6 +134,7 @@
 
 					&.sui-block-content-center {
 
+						.sui-notice,
 						.sui-form-field {
 							text-align: initial;
 						}
@@ -142,6 +143,7 @@
 
 				.sui-box-header {
 					display: block;
+					position: relative;
 					padding-top: #{$sui-gutter-md * 2};
 					padding-bottom: #{$sui-gutter-md / 2};
 					border-bottom: 0;
@@ -164,6 +166,28 @@
 						font-family: $font--alt;
 					}
 
+					.sui-dialog-image {
+						width: 70px;
+						height: 70px;
+						display: block;
+						position: absolute;
+						top: -30px;
+						left: 50%;
+						margin-left: -35px;
+						border: 5px solid $white;
+						border-radius: $border-radius;
+						background-color: $white;
+	
+						img {
+							display: block;
+							border-radius: 3px;
+						}
+	
+						@include media( max-width, md ) {
+							display: none;
+						}
+					}
+
 					&:last-child {
 						padding-bottom: $sui-gutter-md;
 
@@ -172,7 +196,7 @@
 						}
 					}
 
-					+ .sui-box-body {
+					+ .sui-box-body-slim {
 						padding-top: #{$sui-gutter-md / 2};
 					}
 
