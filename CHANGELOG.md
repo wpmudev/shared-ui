@@ -1,8 +1,33 @@
+v2.3.7
+
+- [Fix] Side tabs shouldn't shrink.
+- [Fix] Sticky box not working with sidenav and sui-box.
+- [Fix] Password script to show/hide text.
+- [Fix] Password script to switch eye icon depending password visibility.
+- [New] Loading notice.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#notifications
+			for changes.
+- [New] Box settings has a new variation without border.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#boxes for changes.
+- [Enhance] New variation to have reduced spacing on box selectors.
+- [Enhance] Add text beside input field.
+- [Enhance] Move textarea field to new docs section.
+- [Enhance] Password field has an improved markup.
+			Dev Notes: Even when old markup is still supported, it is recommended to
+			switch to new markup. To review changes see: https://wpmudev.github.io/shared-ui/#forms
+- [Enhance] Support for floating header image on alternative design.
+			Dev Notes: This floating image is commonly used by designers on
+			dialogs to setup Integrations.
+- [Enhance] Update to latest icon font file.
+			Dev Notes: Target icon, used in Defender, has been added. You can use new
+			class: "sui-icon-target".
+
+
 v2.3.6
 
- - [Improvement] Footer - Three types - Pro, free and free with cross-sell
+ - [Enhance] Footer - Three types - Pro, free and free with cross-sell
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#footer for changes
- - [Improvement] Selectors box - 4 and 5 columns now available
+ - [Enhance] Selectors box - 4 and 5 columns now available
  - [Enhance] Sticky sui-box using sui-box-sticky class
  - [Fix] Tooltips are cut-off on small screens.
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#tooltips for changes
@@ -107,8 +132,8 @@ v2.3.1
 
 v2.3.0
 
- - [Improvement] Add class sui-color-accessible to sui-wrap to change all components to black and white
- - [Improvement] Enhance/accordions
+ - [Enhance] Add class sui-color-accessible to sui-wrap to change all components to black and white
+ - [Enhance] Enhance/accordions
              Dev Notes: Check all accordions to make sure they're displaying correctly. You may need to update
              the accordion title class. Check showcase for code.
 
@@ -119,8 +144,8 @@ v2.2.10
              every sui-tab to use the new structure.
  - [New] Add recipient component with example.
  - [Enhance] Dialog alternative design
- - [Improvement] Update horizontal tabs to match newer designs
- - [Improvement] Improve sidenav
+ - [Enhance] Update horizontal tabs to match newer designs
+ - [Enhance] Improve sidenav
 
 
 v2.2.9
@@ -174,16 +199,16 @@ v2.2.4
  - [Fix] Remove @-moz-document code as it was causing an error when compiling webpack.
 
 v2.2.3
- - [Improvement] Add support to add sui-tag-pro to form labels.
+ - [Enhance] Add support to add sui-tag-pro to form labels.
  - [Bug] Fix up p alignment in small notice with an icon present.
  - [Bug] Fix up small modal p color.
  - [Fix] Icon alignment in buttons and size for large button.
- - [Improvement] Fix up missing icons.
- - [Improvement] New/jquery-calendar
+ - [Enhance] Fix up missing icons.
+ - [Enhance] New/jquery-calendar
             Dev Notes: See showcase for example on how to use.
- - [Improvement] Enhance/input-styles
- - [Improvement] Update the colours.
- - [Improvement] Tooltip styles
+ - [Enhance] Enhance/input-styles
+ - [Enhance] Update the colours.
+ - [Enhance] Tooltip styles
  - [New] Input field with icon
  - [Fix] Form layout when using grid has incorrect spacing
  - [Fix] incorrect input placeholder color.
