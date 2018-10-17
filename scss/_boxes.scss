@@ -198,14 +198,11 @@
 
 		// BOX: Sticky box
 		&.sui-box-sticky {
-			position: sticky;
-			top: 32px;
-			z-index: 11;
 
-			// Won't be sticky on smaller than medium screens
-			@include media(max-width, md) {
-				position: relative;
-				top: inherit;
+			@include media(min-width, md) {
+				position: sticky !important;
+				top: 32px;
+				z-index: 11;
 			}
 		}
 

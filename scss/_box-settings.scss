@@ -9,20 +9,34 @@
 			padding-bottom: $sui-gutter;
 			border-bottom: 1px solid palette(silver, soft);
 
+			[class*="sui-box-settings-col-"] {
+
+				+ div {
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+	
+					@include media(min-width, md) {
+						margin-left: $sui-gutter;
+					}
+				}
+			}
+
 			&:last-child {
 				margin-bottom: 0;
 				padding-bottom: 0;
 				border-bottom-width: 0;
 			}
 
-			// Disabled box settings
+			// STATUS: Disable
 			&.sui-disabled {
 				opacity: 0.5;
 				pointer-events: none;
 				background-color: rgba(242, 242, 242, 0.5);
 			}
 
-			// Flushed box settings
+			// VARIATION: Flushed
 			&.sui-flushed {
 				margin-right: -#{$sui-gutter-md};
 				margin-left: -#{sui-gutter-md};
@@ -42,6 +56,45 @@
 			}
 		}
 
+		// ELEMENT: Row (Slim)
+		.sui-box-settings-slim-row {
+			position: relative;
+			margin-bottom: $sui-gutter-md;
+
+			[class*="sui-box-settings-col-"] {
+
+				+ div {
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+	
+					@include media(min-width, md) {
+						margin-left: $sui-gutter;
+					}
+				}
+			}
+
+			.sui-settings-label {
+
+				&:only-child {
+
+					@include media(min-width, md) {
+						margin: 5px 0;
+						line-height: 30px;
+					}
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+			}
+		}
+
 		// ELEMENT: Fixed width content
 		.sui-box-settings-col-1 {
 
@@ -49,20 +102,9 @@
 				color: palette(gray, dark);
 			}
 
-			+ .sui-box-settings-col-2 {
-
-				@include media(max-width, md) {
-					padding-top: $sui-gutter-md;
-				}
-
-				@include media(min-width, md) {
-					padding-left: $sui-gutter;
-				}
-			}
-
 			@include media(min-width, md) {
-				max-width: 200px;
-				flex: 0 1 200px;
+				max-width: var(--column-width, 200px);
+				flex: 0 1 var(--column-width, 200px);
 			}
 		}
 

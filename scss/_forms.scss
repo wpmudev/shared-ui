@@ -108,9 +108,15 @@
 		}
 
 		// VARIATION: Inline label
-		&-label {
+		&-inline {
 			@extend %label;
 			margin: 0;
+		}
+
+		// VARIATION: Label note
+		&-note {
+			margin-right: 0;
+			margin-left: auto;
 		}
 	}
 
@@ -126,21 +132,12 @@
 		&.sui-input-md {
 			max-width: 240px;
 		}
-	}
 
-	// ELEMENT: Form control (inline)
-	.sui-form-control-inline {
-		@extend %form-control;
-		width: auto;
-		display: inline-flex;
-
-		&[type=number] {
-			width: 120px;
-
-			+ .select-container {
-				display: inline-flex;
-				margin-left: 7px;
-			}
+		// Form field prefix and suffix
+		&.sui-field-has-prefix,
+		&.sui-field-has-suffix {
+			width: auto;
+			display: inline-block;
 		}
 	}
 
@@ -224,7 +221,6 @@
 
 	// GROUP: Form field
 	.sui-form-field {
-		margin-bottom: $sui-gutter;
 
 		&.sui-input-sm {
 			max-width: 80px;
@@ -282,16 +278,42 @@
 			}
 		}
 
-		@include media( max-width, md ) {
+		@include media(max-width, md) {
 			margin-bottom: $sui-gutter-md;
 		}
+
+		@include media(min-width, md) {
+			margin-bottom: $sui-gutter;
+		}
+	}
+
+	.sui-field-suffix,
+	.sui-field-prefix {
+		display: inline-block;
+		color: #888888;
+		font-size: 13px;
+		line-height: 22px;
+	}
+
+	.sui-field-prefix {
+		margin-right: 10px;
+	}
+	.sui-field-suffix {
+		margin-left: 10px;
 	}
 
 	// GROUP: Form field (inline)
 	.sui-form-field-inline {
-		margin-bottom: $sui-gutter-md;
 		
-		.sui-form-field {
+		> .sui-form-field,
+		> .select-container {
+
+			&:first-child {
+
+				@include media(min-width, md) {
+					margin-left: 0;
+				}
+			}
 
 			&:last-child {
 
@@ -302,12 +324,36 @@
 
 			@include media(min-width, md) {
 				flex: 0 0 auto;
+				margin-top: 0;
 				margin-bottom: 0;
 				margin-right: 10px;
+				margin-left: 10px;
+			}
+		}
+
+		> .sui-form-field {
+
+			@include media(min-width, md) {
+				flex: 0 0 auto;
+				margin-bottom: 0;
+			}
+		}
+
+		> p,
+		> span,
+		> .sui-label {
+
+			@include media(min-width, md) {
+				flex: 0 0 auto;
+				margin: 0;
 			}
 		}
 
 		&:last-child {
+
+			@include media(max-width, md) {
+				margin-bottom: 0;
+			}
 
 			@include media(min-width, md) {
 				margin-bottom: 0;
@@ -316,7 +362,12 @@
 
 		@include media(min-width, md) {
 			display: flex;
+			align-items: center;
 			margin-bottom: $sui-gutter;
+		}
+
+		@include media(max-width, md) {
+			margin-bottom: $sui-gutter-md;
 		}
 	}
 
@@ -511,6 +562,32 @@
 			&:last-child {
 				right: 5px;
 			}
+		}
+	}
+
+	.sui-multi-date {
+		display: flex;
+		align-items: center;
+
+		.sui-form-field {
+			flex: 1;
+
+			+ button {
+				flex: 0 0 auto;
+				margin-left: 10px;
+			}
+
+			@include media(max-width, md) {
+				margin-bottom: 0;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
 		}
 	}
 
