@@ -10,39 +10,27 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-6 .sui-password-group' ).each( function() {
-			var $this = $( this ),
-				$input = $this.find( 'input[type="password"]' ),
-				$button = $this.find( '.sui-password-toggle' );
+		$( '.sui-2-3-7 .sui-form-field' ).each( function() {
 
-			$button.on( 'click', function() {
-				var $inputType = '',
-					$repInput = '';
+			var $this = $( this );
 
-				$( this ).toggleClass( 'is-visible' );
+			$this.find( '[class*="sui-button"], .sui-password-toggle' ).on( 'click', function() {
 
-				if ( $input.hasClass( 'is-visible' ) ) {
-					$input.removeClass( 'is-visible' ).addClass( 'is-hidden' );
-					$inputType = 'password';
-					$button.find( '> .sui-screen-reader-text' ).text( 'Show Password' );
-					$button.find( '> i' ).removeClass( 'sui-ico-eye-hide' ).addClass( 'sui-ico-eye' );
+				var $button = $( this ),
+					$input  = $button.parent().find( 'input' ),
+					$icon   = $button.find( 'i' )
+					;
+
+				$button.parent().toggleClass( 'sui-password-visible' );
+				$button.find( '.sui-password-text' ).toggleClass( 'sui-hidden' );
+
+				if ( $button.parent().hasClass( 'sui-password-visible' ) ) {
+					$input.prop( 'type', 'text' );
+					$icon.removeClass( 'sui-icon-eye' ).addClass( 'sui-icon-eye-hide' );
 				} else {
-					$input.removeClass( 'is-hidden' ).addClass( 'is-visible' );
-					$inputType = 'text';
-					$button.find( '> .sui-screen-reader-text' ).text( 'Hide Password' );
-					$button.find( '> i' ).removeClass( 'sui-ico-eye' ).addClass( 'sui-ico-eye-hide' );
+					$input.prop( 'type', 'password' );
+					$icon.removeClass( 'sui-icon-eye-hide' ).addClass( 'sui-icon-eye' );
 				}
-
-				$repInput = $( '<input type=' + $inputType + ' />' )
-					.attr( 'id', $input.attr( 'id' ) )
-					.attr( 'name', $input.attr( 'name' ) )
-					.attr( 'class', $input.attr( 'class' ) )
-					.val( $input.val() )
-					.insertBefore( $input );
-
-				$input.remove();
-				$input = $repInput;
-				$input.focus();
 
 			});
 

@@ -559,9 +559,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-6 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-7 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-6 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-7 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1634,7 +1634,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-6 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-3-7 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -1662,7 +1662,7 @@
 
 		function closeAllDropdowns( $except ) {
 
-			var $dropdowns = $( '.sui-2-3-6 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-3-7 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -1689,7 +1689,7 @@
 
 		$( 'body' ).mouseup( function( e ) {
 
-			var $anchor = $( '.sui-2-3-6 .sui-dropdown-anchor' );
+			var $anchor = $( '.sui-2-3-7 .sui-dropdown-anchor' );
 
 			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
@@ -1729,9 +1729,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-6 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-3-7 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-6 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-3-7 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -1753,39 +1753,27 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-6 .sui-password-group' ).each( function() {
-			var $this = $( this ),
-				$input = $this.find( 'input[type="password"]' ),
-				$button = $this.find( '.sui-password-toggle' );
+		$( '.sui-2-3-7 .sui-form-field' ).each( function() {
 
-			$button.on( 'click', function() {
-				var $inputType = '',
-					$repInput = '';
+			var $this = $( this );
 
-				$( this ).toggleClass( 'is-visible' );
+			$this.find( '[class*="sui-button"], .sui-password-toggle' ).on( 'click', function() {
 
-				if ( $input.hasClass( 'is-visible' ) ) {
-					$input.removeClass( 'is-visible' ).addClass( 'is-hidden' );
-					$inputType = 'password';
-					$button.find( '> .sui-screen-reader-text' ).text( 'Show Password' );
-					$button.find( '> i' ).removeClass( 'sui-ico-eye-hide' ).addClass( 'sui-ico-eye' );
+				var $button = $( this ),
+					$input  = $button.parent().find( 'input' ),
+					$icon   = $button.find( 'i' )
+					;
+
+				$button.parent().toggleClass( 'sui-password-visible' );
+				$button.find( '.sui-password-text' ).toggleClass( 'sui-hidden' );
+
+				if ( $button.parent().hasClass( 'sui-password-visible' ) ) {
+					$input.prop( 'type', 'text' );
+					$icon.removeClass( 'sui-icon-eye' ).addClass( 'sui-icon-eye-hide' );
 				} else {
-					$input.removeClass( 'is-hidden' ).addClass( 'is-visible' );
-					$inputType = 'text';
-					$button.find( '> .sui-screen-reader-text' ).text( 'Hide Password' );
-					$button.find( '> i' ).removeClass( 'sui-ico-eye' ).addClass( 'sui-ico-eye-hide' );
+					$input.prop( 'type', 'password' );
+					$icon.removeClass( 'sui-icon-eye-hide' ).addClass( 'sui-icon-eye' );
 				}
-
-				$repInput = $( '<input type=' + $inputType + ' />' )
-					.attr( 'id', $input.attr( 'id' ) )
-					.attr( 'name', $input.attr( 'name' ) )
-					.attr( 'class', $input.attr( 'class' ) )
-					.val( $input.val() )
-					.insertBefore( $input );
-
-				$input.remove();
-				$input = $repInput;
-				$input.focus();
 
 			});
 
@@ -1825,7 +1813,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-6 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-7 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2041,7 +2029,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-6 select' ).each( function() {
+	$( '.sui-2-3-7 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -8794,7 +8782,7 @@
         init( options );
     };
 
-    if ( 0 !== $( '.sui-2-3-6 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-7 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
@@ -8812,7 +8800,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-6 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-3-7 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
