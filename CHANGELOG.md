@@ -1,3 +1,9 @@
+v2.3.8
+
+ - [Improvement] Add target font.
+ - [Bug] Change unicode of check icon causing webpack to break.
+ - [Improvement] Add SUI WP Editor styles as a separate file.
+
 v2.3.7
 
 - [Fix] Side tabs shouldn't shrink.
