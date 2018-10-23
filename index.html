@@ -2082,88 +2082,204 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 					<p>Progress bars can be dynamically moved by changing the width of <code>.sui-progress-bar span</code> with js.</p>
 				</div>
 
-				<div class="sui-box">
-					<div class="sui-box-body">
+				<div class="sui-row-with-sidenav">
 
-						<div class="sui-progress-block">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-icon-loader sui-loading">
-									<span>0%</span>
-								</div>
-								<div aria-hidden="true" class="sui-progress-bar">
-									<span style="width: 0"></span>
-								</div>
-							</div>
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--progress-samples">Samples</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--progress-docs">Documentation</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--progress-samples">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Progress Bars</h2>
 						</div>
 
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can't close progress bar...</span>
+						<div class="sui-box-body">
+
+							<p>When we are able to indicate how long a process will take, and show the progress accurately we use progress bars to display this.</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">The standard state when a process is in progress. In general, it’s great to update both the progress and status as often as possible (every few seconds).</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-progress-block">
+
+										<div class="sui-progress">
+
+											<span class="sui-progress-icon" aria-hidden="true">
+												<i class="sui-icon-loader sui-loading"></i>
+											</span>
+
+											<span class="sui-progress-text">
+												<span>50%</span>
+											</span>
+
+											<div class="sui-progress-bar" aria-hidden="true">
+												<span style="width: 50%"></span>
+											</div>
+
+										</div>
+
+										<button class="sui-button-icon">
+											<i class="sui-icon-close" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Cancel</span>
+										</button>
+
+									</div>
+
+									<div class="sui-progress-state">
+										<span>Status...</span>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Hover</span>
+									<span class="sui-description">In most cases we allow the user to abort the process, and this can be done using the icon/button on the right of the progess bar.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-progress-block">
+
+										<div class="sui-progress">
+
+											<span class="sui-progress-icon" aria-hidden="true">
+												<i class="sui-icon-loader sui-loading"></i>
+											</span>
+
+											<span class="sui-progress-text">
+												<span>50%</span>
+											</span>
+
+											<div class="sui-progress-bar" aria-hidden="true">
+												<span style="width: 50%"></span>
+											</div>
+
+										</div>
+
+										<button class="sui-button-icon sui-tooltip"
+											data-tooltip="Cancel">
+											<i class="sui-icon-close" aria-hidden="true"></i>
+										</button>
+
+									</div>
+
+									<div class="sui-progress-state">
+										<span>Status...</span>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">No Cancel</span>
+									<span class="sui-description">When we can’t let the user cancel the process.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-progress-block">
+
+										<div class="sui-progress">
+
+											<span class="sui-progress-icon" aria-hidden="true">
+												<i class="sui-icon-loader sui-loading"></i>
+											</span>
+
+											<span class="sui-progress-text">
+												<span>50%</span>
+											</span>
+
+											<div class="sui-progress-bar" aria-hidden="true">
+												<span style="width: 50%"></span>
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="sui-progress-state">
+										<span>Status...</span>
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 					</div>
-				</div>
 
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class="sui-progress-block"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-icon-loader sui-loading"&gt;
-			&lt;span&gt;0%&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 0"&gt;&lt;/span&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can't close progress bar...&lt;/span&gt;
-&lt;/div&gt;</pre>
-				</div>
+					<div class="sui-box" data-tab="demo-element--progress-docs" style="display: none;">
 
-				<div class="sui-box">
-					<div class="sui-box-body">
-
-						<div class="sui-progress-block sui-progress-can-close">
-							<div class="sui-progress">
-								<div class="sui-progress-text sui-icon-loader sui-loading">
-									<span>20%</span>
-								</div>
-								<div aria-hidden="true" class="sui-progress-bar">
-									<span style="width: 20%"></span>
-								</div>
-							</div>
-							<button class="sui-progress-close sui-tooltip" type="button" data-tooltip="Cancel Test">
-								<i aria-hidden="true" class="sui-icon-close"></i>
-							</button>
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Progress Bars</h2>
 						</div>
 
-						<div class="sui-progress-state">
-							<span class="sui-progress-state-text">Can close progress bar...</span>
-						</div>
+						<div class="sui-box-body">
 
-					</div>
-				</div>
-
-				<div class="demo-code-block">
+							<div class="demo-code-block">
 <pre class="sui-code-snippet html">
-&lt;div class="sui-progress-block sui-progress-can-close"&gt;
-	&lt;div class="sui-progress"&gt;
-		&lt;div class="sui-progress-text sui-icon-loader sui-loading"&gt;
-			&lt;span&gt;20%&lt;/span&gt;
+&lt;div class=&quot;sui-progress-block&quot;&gt;
+
+	&lt;div class=&quot;sui-progress&quot;&gt;
+
+		&lt;span class=&quot;sui-progress-icon&quot; aria-hidden=&quot;true&quot;&gt;
+			&lt;i class=&quot;sui-icon-loader sui-loading&quot;&gt;&lt;/i&gt;
+		&lt;/span&gt;
+
+		&lt;span class=&quot;sui-progress-text&quot;&gt;
+			&lt;span&gt;50%&lt;/span&gt;
+		&lt;/span&gt;
+
+		&lt;div class=&quot;sui-progress-bar&quot; aria-hidden=&quot;true&quot;&gt;
+			&lt;span style=&quot;width: 50%&quot;&gt;&lt;/span&gt;
 		&lt;/div&gt;
-		&lt;div class="sui-progress-bar"&gt;
-			&lt;span style="width: 20%"&gt;&lt;/span&gt;
-		&lt;/div&gt;
+
 	&lt;/div&gt;
-	&lt;button class="sui-progress-close sui-tooltip" type="button" data-tooltip="Cancel Test"&gt;
-		&lt;i class="sui-icon-close"&gt;&lt;/i&gt;
+
+	&lt;button class=&quot;sui-button-icon sui-tooltip&quot;
+		data-tooltip=&quot;Cancel&quot;&gt;
+		&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
 	&lt;/button&gt;
+
 &lt;/div&gt;
 
-&lt;div class="sui-progress-state"&gt;
-	&lt;span class="sui-progress-state-text"&gt;Can close progress bar...&lt;/span&gt;
+&lt;div class=&quot;sui-progress-state&quot;&gt;
+	&lt;span&gt;Status...&lt;/span&gt;
 &lt;/div&gt;
 </pre>
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</section>
