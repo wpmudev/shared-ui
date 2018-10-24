@@ -1,0 +1,245 @@
+@include body-class(true) {
+
+	.sui-box-builder {
+		display: block;
+		margin: 0;
+		border: 1px solid $box-builder--border-color;
+		border-radius: $border-radius;
+		background-color: $box-builder--background;
+
+		.sui-builder-field {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			padding: 5px $box-builder--field-spacing 5px;
+
+			> .sui-icon-drag {
+				width: $box-builder--field-icon-size;
+				flex: 0 0 $box-builder--field-icon-size;
+				color: $box-builder--field-move-color;
+				font-size: 16px;
+				text-align: center;
+				transition: $transition;
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
+
+			> .sui-button,
+			> .sui-dropdown,
+			> .sui-button-icon {
+				flex: 0 0 auto;
+			}
+
+			.sui-builder-field-label {
+				min-width: 0;
+				display: flex;
+				flex: 1 1 auto;
+				align-items: center;
+				color: $box-builder--field-color;
+				font: $font--medium 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+
+				> [class*="sui-icon-"] {
+					flex: 0 0 $box-builder--field-icon-size;
+					font-size: 16px;
+					text-align: center;
+
+					&:before {
+						display: block;
+					}
+
+					+ span {
+						margin-left: 10px;
+					}
+				}
+
+				> span {
+					display: block;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+
+				+ .sui-button,
+				+ .sui-dropdown,
+				+ .sui-button-icon {
+					margin-left: #{$box-builder--field-spacing / 2};
+				}
+			}
+
+			.sui-builder-field-border {
+				width: 1px;
+				height: 20px;
+				background-color: $box-builder--field-border;
+
+				&:not(:last-child) {
+					margin-right: #{$box-builder--field-spacing / 2};
+				}
+
+				&:not(:first-child) {
+					margin-left: #{$box-builder--field-spacing / 2};
+				}
+
+				// FIX: Dropdown
+				+ .sui-dropdown {
+					margin-left: 0;
+				}
+			}
+
+			.sui-builder-field-notice {
+				width: $box-builder--field-icon-size;
+				height: $box-builder--field-icon-size;
+				cursor: help;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: $border-radius;
+				background-color: transparent;
+				color: $box-builder--notice-color;
+				transition: $transition;
+
+				[class*="sui-icon-"] {
+					font-size: 12px;
+
+					&:before {
+						display: block;
+						color: inherit;
+					}
+				}
+
+				&:hover {
+					background-color: $box-builder--notice-background;
+				}
+			}
+
+			@include media(max-width, md) {
+				height: $box-builder--field-height-md;
+			}
+
+			@include media(min-width, md) {
+				height: $box-builder--field-height;
+			}
+		}
+
+		.sui-box-builder-header {
+			display: block;
+
+			&:not(:only-child):not(:last-child) {
+				border-bottom: 1px solid $box-builder--border-color;
+			}
+
+			@include media(max-width, md) {
+				padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				padding: #{$sui-gutter / 2} $sui-gutter;
+			}
+		}
+
+		.sui-box-builder-body {
+			background-color: $box-builder--body-background;
+
+			.sui-builder-field {
+				margin: 0 0 $box-builder--field-spacing;
+				border-radius: $border-radius;
+				background-color: $box-builder--field-background;
+				box-shadow: $box-builder--field-shadow;
+				transition: $transition;
+
+				> .sui-icon-drag {
+					margin-left: -10px;
+				}
+
+				.sui-builder-field-label {
+
+					&:first-child {
+
+						> [class*="sui-icon-"] {
+							margin-left: -10px;
+						}
+					}
+				}
+
+				.sui-builder-field-border {
+					transition: $transition;
+				}
+
+				.sui-hover-show {
+					opacity: 0;
+				}
+
+				&:hover {
+
+					.sui-hover-show {
+						opacity: 1;
+					}
+				}
+
+				&:hover,
+				&:active {
+					box-shadow: $box-builder--field-shadow-hover;
+
+					> .sui-icon-drag {
+						color: $box-builder--field-move-color-hover;
+					}
+				}
+
+				&.sui-can-move {
+					cursor: move;
+				}
+			}
+
+			.sui-button-dashed {
+
+				+ .sui-box-builder-message {
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+
+					@include media(min-width, md) {
+						margin-top: $sui-gutter;
+					}
+				}
+			}
+
+			.sui-box-builder-message {
+				display: block;
+				color: $box-builder--body-message;
+				font: 400 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+			}
+
+			&:last-child {
+				border-bottom-right-radius: #{$border-radius - 1px};
+				border-bottom-left-radius: #{$border-radius - 1px};
+			}
+
+			@include media(max-width, md) {
+				padding: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				padding: $sui-gutter;
+			}
+		}
+
+		.sui-box-builder-footer {
+
+			.sui-builder-field {
+
+				&:not(:only-child):not(:last-child) {
+					border-bottom: 1px solid $box-builder--border-color;
+				}
+			}
+
+			&:not(:only-child):not(:first-child) {
+				border-top: 1px solid $box-builder--border-color;
+			}
+		}
+	}
+}
