@@ -1,18 +1,7 @@
-// the semi-colon before function invocation is a safety net against concatenated
-// scripts and/or other plugins which may not be closed properly.
-;
-( function( $, window, document, undefined ) {
+( function( $ ) {
 
+	// Enable strict mode.
 	'use strict';
-
-	// undefined is used here as the undefined global variable in ECMAScript 3 is
-	// mutable (ie. it can be changed by someone else). undefined isn't really being
-	// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-	// can no longer be modified.
-
-	// window and document are passed through as local variables rather than global
-	// as this (slightly) quickens the resolution process and can be more efficiently
-	// minified (especially when both are regularly referenced in your plugin).
 
 	// Create the defaults once
 	var pluginName = 'SUIAccordion',
@@ -23,11 +12,6 @@
 		this.element = element;
 		this.$element = $( this.element );
 
-
-		// jQuery has an extend method which merges the contents of two or
-		// more objects, storing the result in the first object. The first object
-		// is generally empty as we don't want to alter the default options for
-		// future instances of the plugin
 		this.settings = $.extend({}, defaults, options );
 		this._defaults = defaults;
 		this._name = pluginName;
@@ -36,57 +20,83 @@
 
 	// Avoid Plugin.prototype conflicts
 	$.extend( SUIAccordion.prototype, {
+
 		init: function() {
+
 			var self = this;
 
-			// namespaced event
-			this.$element.on( 'click.sui.accordion', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
+			this.$element.on( 'click', 'div.sui-accordion-item-header, tr.sui-accordion-item', function( event ) {
 
 				var getItem       = $( this ).closest( '.sui-accordion-item' ),
 					getContent    = getItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
 					getParent     = getItem.closest( '.sui-accordion' ),
-					clickedTarget = $( event.target ),
 					getChart      = getItem.find( '.sui-chartjs-animated' )
+					;
+
+				var clickedTarget = $( event.target );
+
+				var flexHeader = $( this ),
+					flexItem   = flexHeader.parent(),
+					flexChart  = flexItem.find( '.sui-chartjs-animated' ),
+					flexParent = flexItem.parent()
+					;
+
+				var tableItem    = $( this ),
+					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' )
 					;
 
 				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
 					return true;
 				}
 
-				if ( getParent.hasClass( 'sui-table' ) ) {
+				// CHECK: Flexbox
+				if ( flexHeader.hasClass( 'sui-accordion-item-header' ) ) {
 
-					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
-						getContent.toggleClass( 'sui-accordion-item--open' );
+					if ( flexItem.hasClass( 'sui-accordion-item--disabled' ) ) {
+						flexItem.removeClass( 'sui-accordion-item--open' );
+					} else {
 
-						if ( getContent.hasClass( 'sui-accordion-item--open' ) ) {
-							getItem.addClass( 'sui-accordion-item--open' );
+						if ( flexItem.hasClass( 'sui-accordion-item--open' ) ) {
+							flexItem.removeClass( 'sui-accordion-item--open' );
 						} else {
-							getItem.removeClass( 'sui-accordion-item--open' );
+							flexItem.addClass( 'sui-accordion-item--open' );
 						}
 					}
-				} else {
 
-					if ( ! getItem.hasClass( 'sui-accordion-item--disabled' ) ) {
-						getItem.toggleClass( 'sui-accordion-item--open' );
+					// CHECK: Accordion Blocks
+					if ( flexParent.hasClass( 'sui-accordion-block' ) && ( 0 !== flexChart.length ) ) {
+
+						flexItem.find( '.sui-accordion-item-data' ).addClass( 'sui-onload' );
+						flexChart.removeClass( 'sui-chartjs-loaded' );
+
+						if ( flexItem.hasClass( 'sui-accordion-item--open' ) ) {
+
+							setTimeout( function() {
+								flexItem.find( '.sui-accordion-item-data' ).removeClass( 'sui-onload' );
+								flexChart.addClass( 'sui-chartjs-loaded' );
+							}, 1200 );
+						}
 					}
 				}
 
-				if ( getParent.hasClass( 'sui-accordion-block' ) && ( 0 !== getChart.length ) ) {
+				// CHECK: Table
+				if ( tableItem.hasClass( 'sui-accordion-item' ) ) {
 
-					getItem.find( '.sui-accordion-item-data' ).addClass( 'sui-onload' );
-					getChart.removeClass( 'sui-chartjs-loaded' );
+					if ( tableItem.hasClass( 'sui-accordion-item--disabled' ) ) {
+						tableContent.removeClass( 'sui-accordion-item--open' );
+					} else {
 
-					if ( getItem.hasClass( 'sui-accordion-item--open' ) ) {
-
-						setTimeout( function() {
-
-							getItem.find( '.sui-accordion-item-data' ).removeClass( 'sui-onload' );
-							getChart.addClass( 'sui-chartjs-loaded' );
-
-						}, 1200 );
-
+						if ( tableItem.hasClass( 'sui-accordion-item--open' ) ) {
+							tableItem.removeClass( 'sui-accordion-item--open' );
+							tableContent.removeClass( 'sui-accordion-item--open' );
+						} else {
+							tableItem.addClass( 'sui-accordion-item--open' );
+							tableContent.addClass( 'sui-accordion-item--open' );
+						}
 					}
 				}
+
+				event.stopPropagation();
 
 			});
 		}

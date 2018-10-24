@@ -132,7 +132,7 @@
 				// When item is open
 				&.sui-accordion-item--open {
 
-					.sui-accordion-item-header {
+					> .sui-accordion-item-header {
 
 						.sui-accordion-open-indicator {
 
@@ -142,7 +142,7 @@
 						}
 					}
 
-					.sui-accordion-item-body {
+					> .sui-accordion-item-body {
 						display: block;
 					}
 				}
@@ -289,8 +289,8 @@
 				// STATUS: Error
 				&.sui-error {
 
-					.sui-accordion-item-header,
-					.sui-accordion-item-body {
+					> .sui-accordion-item-header,
+					> .sui-accordion-item-body {
 						box-shadow: inset 3px 0 $error;
 					}
 				}
@@ -298,8 +298,8 @@
 				// STATUS: Warning
 				&.sui-warning {
 
-					.sui-accordion-item-header,
-					.sui-accordion-item-body {
+					> .sui-accordion-item-header,
+					> .sui-accordion-item-body {
 						box-shadow: inset 3px 0 $warning;
 					}
 				}
@@ -307,8 +307,8 @@
 				// STATUS: Success
 				&.sui-success {
 
-					.sui-accordion-item-header,
-					.sui-accordion-item-body {
+					> .sui-accordion-item-header,
+					> .sui-accordion-item-body {
 						box-shadow: inset 3px 0 $success;
 					}
 				}
@@ -316,7 +316,7 @@
 				// When item is open
 				&.sui-accordion-item--open {
 
-					.sui-accordion-item-header {
+					> .sui-accordion-item-header {
 						border-bottom-right-radius: 0;
 						border-bottom-left-radius: 0;
 						background-color: $accordion--content-bg-color;
@@ -362,7 +362,7 @@
 
 					&.sui-accordion-item--open {
 
-						.sui-accordion-item-body {
+						> .sui-accordion-item-body {
 							display: none;
 						}
 					}
