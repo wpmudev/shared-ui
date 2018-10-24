@@ -1,3 +1,15 @@
+v2.3.9
+
+ - [New] Box builder element
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#builder-box
+			for details of new element.
+ - [Fix] Check if form field has password input.
+ - [Enhance] Select samples and documentation
+ - [Enhance] Progress bars new design.
+ - [Fix] Child accordions don't open.
+ - [Bug] Vertical spacing reduced on summary boxes after white-label changes.
+ - [Bug] Fix typo on sample code for dropdown element.
+
 v2.3.8
 
  - [Improvement] Add target font.
