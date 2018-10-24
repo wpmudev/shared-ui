@@ -569,9 +569,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-8 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-9 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-8 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-9 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1644,7 +1644,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-8 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-3-9 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -1672,7 +1672,7 @@
 
 		function closeAllDropdowns( $except ) {
 
-			var $dropdowns = $( '.sui-2-3-8 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-3-9 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -1699,7 +1699,7 @@
 
 		$( 'body' ).mouseup( function( e ) {
 
-			var $anchor = $( '.sui-2-3-8 .sui-dropdown-anchor' );
+			var $anchor = $( '.sui-2-3-9 .sui-dropdown-anchor' );
 
 			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
@@ -1739,9 +1739,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-8 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-3-9 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-8 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-3-9 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -1763,7 +1763,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-8 .sui-form-field' ).each( function() {
+		$( '.sui-2-3-9 .sui-form-field' ).each( function() {
 
 			var $this = $( this );
 
@@ -1827,7 +1827,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-8 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-9 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2043,7 +2043,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-8 select' ).each( function() {
+	$( '.sui-2-3-9 select' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -8796,7 +8796,7 @@
         init( options );
     };
 
-    if ( 0 !== $( '.sui-2-3-8 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-9 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
@@ -8814,7 +8814,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-8 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-3-9 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
