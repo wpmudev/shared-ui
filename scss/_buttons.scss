@@ -113,6 +113,45 @@
 			}
 		}
 
+		&.sui-button-purple {
+			background: $button-purple-bg-color;
+
+			&:hover,
+			&:focus {
+				opacity: 1;
+				background: $button-purple-action-bg-color;
+			}
+		}
+
+		&.sui-button-dashed {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px dashed $button-dashed-border-color;
+			background-color: $button-dashed-background;
+			color: $button-dashed-color;
+
+			[class*="sui-icon-"]:not(.sui-loading) {
+				width: 24px;
+				margin-right: -1px;
+				font-size: 12px;
+				text-align: center;
+
+				&:before {
+					display: block;
+				}
+			}
+
+			@include media(max-width, md) {
+				height: $button-dashed-height-md;
+			}
+
+			@include media(min-width, md) {
+				height: $button-dashed-height;
+			}
+		}
+
 		&.sui-button-upsell {
 			color: $green;
 			width: auto;
