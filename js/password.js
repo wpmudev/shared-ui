@@ -14,25 +14,29 @@
 
 			var $this = $( this );
 
-			$this.find( '[class*="sui-button"], .sui-password-toggle' ).on( 'click', function() {
+			if ( 0 !== $this.find( 'input[type="password"]' ).length ) {
 
-				var $button = $( this ),
-					$input  = $button.parent().find( 'input' ),
-					$icon   = $button.find( 'i' )
-					;
+				$this.find( '[class*="sui-button"], .sui-password-toggle' ).on( 'click', function() {
 
-				$button.parent().toggleClass( 'sui-password-visible' );
-				$button.find( '.sui-password-text' ).toggleClass( 'sui-hidden' );
+					var $button = $( this ),
+						$input  = $button.parent().find( 'input' ),
+						$icon   = $button.find( 'i' )
+						;
 
-				if ( $button.parent().hasClass( 'sui-password-visible' ) ) {
-					$input.prop( 'type', 'text' );
-					$icon.removeClass( 'sui-icon-eye' ).addClass( 'sui-icon-eye-hide' );
-				} else {
-					$input.prop( 'type', 'password' );
-					$icon.removeClass( 'sui-icon-eye-hide' ).addClass( 'sui-icon-eye' );
-				}
+					$button.parent().toggleClass( 'sui-password-visible' );
+					$button.find( '.sui-password-text' ).toggleClass( 'sui-hidden' );
 
-			});
+					if ( $button.parent().hasClass( 'sui-password-visible' ) ) {
+						$input.prop( 'type', 'text' );
+						$icon.removeClass( 'sui-icon-eye' ).addClass( 'sui-icon-eye-hide' );
+					} else {
+						$input.prop( 'type', 'password' );
+						$icon.removeClass( 'sui-icon-eye-hide' ).addClass( 'sui-icon-eye' );
+					}
+
+				});
+
+			}
 
 		});
 
