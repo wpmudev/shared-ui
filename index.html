@@ -4491,6 +4491,10 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 							</li>
 
 							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--select">Select</a>
+							</li>
+
+							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--file-uploads">File Uploads</a>
 							</li>
 
@@ -5377,6 +5381,152 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 					</div>
 
+					<!-- TAB: Select -->
+					<div class="sui-box" data-tab="demo-element--select" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Select</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Select</span>
+									<span class="sui-description">A simple selector with a dropdown list.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Default</label>
+
+										<select>
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+										</select>
+
+									</div>
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Small Select</label>
+
+										<select class="sui-select-sm">
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Select2</span>
+									<span class="sui-description">jQuery based selector powered with a search field. Commonly user with long list of options. E.g. Countries list.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Default</label>
+
+										<select class="sui-select">
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+										</select>
+
+									</div>
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Small Select</label>
+
+										<select class="sui-select sui-select-sm">
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Multi Select</span>
+									<span class="sui-description">Powered by Select2. This field is commonly used to allow user to select more than one option from a list, and to even include new options.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Default</label>
+
+										<select class="sui-select"
+											placeholder="Select an option"
+											multiple>
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+											<option>Hot Chocolate</option>
+											<option>Beer</option>
+											<option>Tequila</option>
+											<option>Vodka</option>
+											<option>Whiskey</option>
+											<option>Bourbon</option>
+										</select>
+
+									</div>
+
+									<div class="sui-form-field">
+										
+										<label class="sui-label">Large Select</label>
+
+										<select class="sui-select sui-select-lg"
+											placeholder="Select an option"
+											multiple>
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+											<option>Hot Chocolate</option>
+											<option>Beer</option>
+											<option>Tequila</option>
+											<option>Vodka</option>
+											<option>Whiskey</option>
+											<option>Bourbon</option>
+										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 					<!-- TAB: File Uploads -->
 					<div class="sui-box" data-tab="demo-element--file-uploads" style="display: none;">
 
@@ -6176,6 +6326,62 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 							</div>
 
+							<!-- ELEMENT: Select -->
+							<div class="sui-box-settings-row sui-flushed">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Select</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-info">
+										<p>Select and Select2 elements have an small variation that you can get by adding <code>sui-select-sm</code> class.</p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Select --&gt;
+&lt;select&gt;
+	&lt;option&gt;Option 1&lt;/option&gt;
+	&lt;option&gt;Option 2&lt;/option&gt;
+	&lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Select2 --&gt;
+&lt;select class=&quot;sui-select&quot;&gt;
+	&lt;option&gt;Option 1&lt;/option&gt;
+	&lt;option&gt;Option 2&lt;/option&gt;
+	&lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+									</div>
+
+									<div class="sui-notice sui-notice-info">
+										<p>Multi Select has a large variation that you can get by adding <code>sui-select-lg</code> class.</p>
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Select2: Multiple Select --&gt;
+&lt;select class=&quot;sui-select&quot;
+	placeholder=&quot;Select an option&quot;
+	multiple&gt;
+	&lt;option&gt;Option 1&lt;/option&gt;
+	&lt;option&gt;Option 2&lt;/option&gt;
+	&lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
 							<!-- ELEMENT: File Uploads -->
 							<div class="sui-box-settings-row sui-flushed">
 
@@ -6442,130 +6648,6 @@ $( '.sui-date .sui-form-control' ).datepicker({
 							<i class="sui-icon-calendar" aria-hidden="true"></i>
 						</div>
 					</div>
-				</div>
-
-				<hr>
-
-				<div class="demo-info-block">
-					<h3>Select List</h3>
-				</div>
-
-				<div class="sui-box">
-					<div class="sui-box-body">
-						<div class="sui-form-field">
-							<label for="list" class="sui-label">Select List</label>
-							<select id="list" name="select-list">
-								<option value="" selected="selected">Select Option</option>
-								<option value="apache">Apache</option>
-								<option value="LiteSpeed">LiteSpeed</option>
-								<option value="nginx">NGINX</option>
-								<option value="iis">IIS</option>
-								<option value="iis-7">IIS 7</option>
-								<option value="cloudflare">Cloudflare</option>
-							</select>
-							<span class="sui-description">This is a description about the field.</span>
-						</div>
-						<div class="sui-form-field">
-							<label for="optgroup-demo" class="sui-label">Select List With Optgroups</label>
-							<select id="optgroup-demo">
-								<option value="">Please select one</option>
-								<optgroup label="Group 1">
-									<option value="group1_item1">Item 1</option>
-									<option value="group1_item2">Item 2</option>
-								</optgroup>
-								<optgroup label="Group 2">
-									<option value="group2_item1">Item 1</option>
-									<option value="group2_item2">Item 2</option>
-								</optgroup>
-								<option value="all">All Above</option>
-							</select>
-							<span class="sui-description">This is a description about the field.</span>
-						</div>
-						<div class="sui-form-field">
-							<label for="select2-list" class="sui-label">Select List With "Select2" Support</label>
-							<select id="select2-list" class="sui-select">
-								<option value="" selected="selected">Choose A JS Framework</option>
-								<option value="angular">AngularJS</option>
-								<option value="backbone">Backbone.js</option>
-								<option value="ember">Ember.js</option>
-								<option value="node">Node.js</option>
-								<option value="react">React</option>
-								<option value="vue">Vue.js</option>
-							</select>
-							<span class="sui-description">To enable select2 support make sure <strong>select</strong> has <strong>sui-select</strong> class.</span>
-						</div>
-						<div class="sui-form-field">
-							<label for="select2-optgroup" class="sui-label">Select List With "Select2" Support</label>
-							<select id="select2-optgroup" class="sui-select">
-								<option value="" selected="selected">Choose an option</option>
-								<optgroup label="JS Framework">
-									<option value="angular">AngularJS</option>
-									<option value="backbone">Backbone.js</option>
-									<option value="ember">Ember.js</option>
-									<option value="node">Node.js</option>
-									<option value="react">React</option>
-									<option value="vue">Vue.js</option>
-								</optgroup>
-								<optgroup label="UI Design Tool">
-									<option value="sketch">Sketch</option>
-									<option value="sketch">Photoshop</option>
-								</optgroup>
-							</select>
-							<span class="sui-description">To enable select2 support make sure <strong>select</strong> has <strong>sui-select</strong> class.</span>
-						</div>
-						<div class="sui-form-field">
-							<label for="select2-multiple" class="sui-label">Multi Value Select With "Select2" Support</label>
-							<select id="select2-multiple" class="sui-select" multiple="multiple">
-								<option value="angular">AngularJS</option>
-								<option value="backbone">Backbone.js</option>
-								<option value="ember">Ember.js</option>
-								<option value="node">Node.js</option>
-								<option value="react">React</option>
-								<option value="vue">Vue.js</option>
-							</select>
-							<span class="sui-description">To enable select2 support make sure <strong>select</strong> has <strong>sui-select</strong> class.</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		&lt;label for=&quot;list&quot; class=&quot;sui-label&quot;&gt;Select List&lt;/label&gt;
-		&lt;select id=&quot;list&quot; name=&quot;select-list&quot;&gt;
-			&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;Select Option&lt;/option&gt;
-			&lt;option value=&quot;apache&quot;&gt;Apache&lt;/option&gt;
-			&lt;option value=&quot;LiteSpeed&quot;&gt;LiteSpeed&lt;/option&gt;
-			&lt;option value=&quot;nginx&quot;&gt;NGINX&lt;/option&gt;
-			&lt;option value=&quot;iis&quot;&gt;IIS&lt;/option&gt;
-			&lt;option value=&quot;iis-7&quot;&gt;IIS 7&lt;/option&gt;
-			&lt;option value=&quot;cloudflare&quot;&gt;Cloudflare&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;span class=&quot;sui-description&quot;&gt;This is a description about the field.&lt;/span&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-				</div>
-
-<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-box&quot;&gt;
-	&lt;div class=&quot;sui-box-body&quot;&gt;
-		&lt;label for=&quot;select2-list&quot; class=&quot;sui-label&quot;&gt;Select List With "Select2" Support&lt;/label&gt;
-		&lt;select id=&quot;select2-list&quot; name=&quot;select-list&quot; class=&quot;sui-select&quot;&gt;
-			&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;Choose A JS Framework&lt;/option&gt;
-			&lt;option value=&quot;angular&quot;&gt;AngularJS&lt;/option&gt;
-			&lt;option value=&quot;backbone&quot;&gt;Backbone.js&lt;/option&gt;
-			&lt;option value=&quot;ember&quot;&gt;Ember.js&lt;/option&gt;
-			&lt;option value=&quot;node&quot;&gt;Node.js&lt;/option&gt;
-			&lt;option value=&quot;react&quot;&gt;React&lt;/option&gt;
-			&lt;option value=&quot;vue&quot;&gt;Vue.js&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;span class=&quot;sui-description&quot;&gt;To enable select2 support make sure &lt;strong&gt;select&lt;/strong&gt; has &lt;strong&gt;sui-select&lt;/strong&gt; class.&lt;/span&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
 				</div>
 
 				<hr>
