@@ -1,122 +1,111 @@
 @include body-class(true) {
 
+	.sui-progress {
+		display: flex;
+		align-items: center;
+
+		.sui-progress-icon {
+			width: 26px;
+			text-align: center;
+
+			[class*="sui-icon-"] {
+				display: block;
+				font-size: 16px;
+
+				&:before {
+					display: block;
+				}
+			}
+
+			+ .sui-progress-text {
+				margin-left: 0;
+			}
+
+			+ .sui-progress-bar {
+				margin-left: 5px;
+			}
+		}
+
+		.sui-progress-text {
+			min-width: 40px;
+			flex: 0 0 auto;
+			color: $progress-text--color;
+			font: bold 12px/20px $font;
+			letter-spacing: $font--letter-spacing;
+			text-align: center;
+
+			span {
+				display: block;
+			}
+
+			+ .sui-progress-bar {
+				margin-left: 5px;
+			}
+		}
+
+		.sui-progress-bar {
+			height: $progress-bar--size;
+			overflow: hidden;
+			flex: 1;
+			border-radius: #{$progress-bar--size / 2};
+			background-color: $progress-bar--background;
+
+			span {
+				height: 100%;
+				display: block;
+				background-color: $progress-bar--loading-color;
+			}
+		}
+	}
+
 	.sui-progress-block {
-		background-color: $progress-block-bg-color;
-		border-radius: 5px;
 		width: 100%;
-		height: 60px;
-		padding: 15px 30px;
+		max-width: 100%;
+		min-height: $progress-block--size;
+		display: flex;
+		align-items: center;
+		padding: #{($progress-block--size - 32px) / 2} 14px;
+		border: 1px solid $progress-block--border-color;
+		border-radius: $border-radius;
+		background-color: $progress-block--background;
 
 		.sui-progress {
-			overflow: hidden;
-			width: 100%;
+			flex: 1;
 
-			.sui-progress-text {
-				&:before {
-					margin-right: 10px;
-					position: relative;
-					top: 3px;
-					font-size: 18px;
-				}
-
-				width: 65px;
-				float: left;
-				text-align: left;
-
-				img {
-					display: inline-block;
-					vertical-align: middle;
-					margin-right: 10px;
-				}
-
-				span {
-					font-weight: 700;
-					font-family: $font--alt, sans-serif;
-					font-size: 13px;
-					color: $progress-text-span-color;
-					vertical-align: middle;
-					line-height: 30px;
-				}
-			}
-
-			.sui-progress-bar {
-				background: $progress-bar-bg-color;
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				border-radius: 5px;
-				height: 10px;
-				overflow: hidden;
-				margin-top: 10px;
-				position: relative;
-
-				span {
-					background: $progress-bar-span-bg-color;
-					height: 10px;
-					display: inline-block;
-					position: absolute;
-					top: 0;
-					left: 0;
-					-webkit-transition: 1000ms width ease-in-out;
-					-moz-transition: 1000ms width ease-in-out;
-					transition: 1000ms width ease-in-out;
-				}
+			+ .sui-button,
+			+ .sui-button-icon {
+				margin-left: 10px;
 			}
 		}
 
-		.sui-progress-close {
-			display: none;
+		.sui-button,
+		.sui-button-icon {
+			flex: 0 0 auto;
 		}
 
-		&.sui-progress-can-close {
-			position: relative;
+		.sui-button-icon,
+		a.sui-button-icon,
+		button.sui-button-icon {
 
-			.sui-progress {
-				padding-right: 40px;
+			[class*="sui-icon-"] {
+				font-size: 16px;
 			}
+		}
 
-			.sui-progress-close {
-				display: block;
-				position: absolute;
-				right: 20px;
-				width: 30px;
-				height: 30px;
-				cursor: pointer;
-				background: transparent;
-				border: none;
-				color: $form--input-icon-color;
-				font-size: 15px;
-				line-height: 1em;
-				padding: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				outline: 0;
-				border-radius: 4px;
-				i:before {
-					color: $progress-close-color;
-					font-size: 16px;
-					position: relative;
-
-				}
-
-				&:hover {
-					background-color: rgba(0, 0, 0, .03);
-					i:before {
-						color: $gray;
-					}
-				}
-			}
+		+ .sui-progress-state {
+			margin-top: 10px;
 		}
 	}
 
 	.sui-progress-state {
-		margin-top: 10px;
+		display: block;
+		color: $progress-status--color;
+		font: 400 13px/22px $font;
+		letter-spacing: $font--letter-spacing;
 		text-align: center;
 
-		.sui-progress-state-text {
-			color: $progress-state-text-color;
-			font-size: 13px;
-			line-height: 22px;
+		span {
+			display: block;
 		}
 	}
-
 }
