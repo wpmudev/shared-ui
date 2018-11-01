@@ -154,6 +154,15 @@
 			}
 		}
 
+		.sui-sidenav-sticky {
+
+			@include media(min-width, lg) {
+				position: sticky !important;
+				top: #{32px + 15px};
+				z-index: 11;
+			}
+		}
+
 		> div:not(.sui-sidenav) {
 			display: block;
 			position: relative;
