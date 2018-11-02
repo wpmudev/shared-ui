@@ -11,7 +11,7 @@
 			vertical-align: top;
 
 			.sui-vertical-tabs {
-				margin: 15px 0;
+				margin: 15px 0 0;
 				padding: 0;
 				border: 0;
 				list-style: none;
@@ -30,7 +30,6 @@
 
 						a {
 							color: $sidenav-tab-active-color;
-							font-weight: 500;
 						}
 					}
 
@@ -54,7 +53,7 @@
 				a {
 					display: block;
 					color: $sidenav-tab-color;
-					font-weight: 400;
+					font-weight: 500;
 					transition: 0.3s ease;
 
 					&:hover,
@@ -79,10 +78,17 @@
 							&.current {
 								background-color: $sidenav-tab-active-bg-color;
 								color: $sidenav-tab-active-color;
-								font-weight: 500;
 							}
 						}
 					}
+				}
+
+				@include media(max-width, lg) {
+					margin-bottom: 15px;
+				}
+
+				@include media(min-width, lg) {
+					margin-bottom: 30px;
 				}
 			}
 
@@ -151,6 +157,15 @@
 				width: $sidenav-width;
 				display: table-cell;
 				padding-right: $sui-gutter;
+			}
+		}
+
+		.sui-sidenav-sticky {
+
+			@include media(min-width, lg) {
+				position: sticky !important;
+				top: #{32px + 15px};
+				z-index: 11;
 			}
 		}
 
