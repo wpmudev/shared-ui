@@ -51,64 +51,12 @@
 				// GRID
 				// To guarantee accordion columns agree on size we can apply
 				// below column classes based on a 12-columns grid.
-				.sui-accordion-col-1 {
-					min-width: #{(100%*1)/$accordion--grid};
-					flex-basis: #{(100%*1)/$accordion--grid};
-				}
+				@for $i from 1 through $accordion--grid {
 
-				.sui-accordion-col-2 {
-					min-width: #{(100%*2)/$accordion--grid};
-					flex-basis: #{(100%*2)/$accordion--grid};
-				}
-
-				.sui-accordion-col-3 {
-					min-width: #{(100%*3)/$accordion--grid};
-					flex-basis: #{(100%*3)/$accordion--grid};
-				}
-
-				.sui-accordion-col-4 {
-					min-width: #{(100%*4)/$accordion--grid};
-					flex-basis: #{(100%*4)/$accordion--grid};
-				}
-
-				.sui-accordion-col-5 {
-					min-width: #{(100%*5)/$accordion--grid};
-					flex-basis: #{(100%*5)/$accordion--grid};
-				}
-
-				.sui-accordion-col-6 {
-					min-width: #{(100%*6)/$accordion--grid};
-					flex-basis: #{(100%*6)/$accordion--grid};
-				}
-
-				.sui-accordion-col-7 {
-					min-width: #{(100%*7)/$accordion--grid};
-					flex-basis: #{(100%*7)/$accordion--grid};
-				}
-
-				.sui-accordion-col-8 {
-					min-width: #{(100%*8)/$accordion--grid};
-					flex-basis: #{(100%*8)/$accordion--grid};
-				}
-
-				.sui-accordion-col-9 {
-					min-width: #{(100%*9)/$accordion--grid};
-					flex-basis: #{(100%*9)/$accordion--grid};
-				}
-
-				.sui-accordion-col-10 {
-					min-width: #{(100%*10)/$accordion--grid};
-					flex-basis: #{(100%*10)/$accordion--grid};
-				}
-
-				.sui-accordion-col-11 {
-					min-width: #{(100%*11)/$accordion--grid};
-					flex-basis: #{(100%*11)/$accordion--grid};
-				}
-
-				.sui-accordion-col-12 {
-					min-width: #{(100%*12)/$accordion--grid};
-					flex-basis: #{(100%*12)/$accordion--grid};
+					.sui-accordion-col-#{$i} {
+						min-width: #{(100% * $i) / $accordion--grid};
+						flex-basis: #{(100% * $i) / $accordion--grid};
+					}
 				}
 			}
 
