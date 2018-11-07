@@ -51,64 +51,12 @@
 				// GRID
 				// To guarantee accordion columns agree on size we can apply
 				// below column classes based on a 12-columns grid.
-				.sui-accordion-col-1 {
-					min-width: #{(100%*1)/$accordion--grid};
-					flex-basis: #{(100%*1)/$accordion--grid};
-				}
+				@for $i from 1 through $accordion--grid {
 
-				.sui-accordion-col-2 {
-					min-width: #{(100%*2)/$accordion--grid};
-					flex-basis: #{(100%*2)/$accordion--grid};
-				}
-
-				.sui-accordion-col-3 {
-					min-width: #{(100%*3)/$accordion--grid};
-					flex-basis: #{(100%*3)/$accordion--grid};
-				}
-
-				.sui-accordion-col-4 {
-					min-width: #{(100%*4)/$accordion--grid};
-					flex-basis: #{(100%*4)/$accordion--grid};
-				}
-
-				.sui-accordion-col-5 {
-					min-width: #{(100%*5)/$accordion--grid};
-					flex-basis: #{(100%*5)/$accordion--grid};
-				}
-
-				.sui-accordion-col-6 {
-					min-width: #{(100%*6)/$accordion--grid};
-					flex-basis: #{(100%*6)/$accordion--grid};
-				}
-
-				.sui-accordion-col-7 {
-					min-width: #{(100%*7)/$accordion--grid};
-					flex-basis: #{(100%*7)/$accordion--grid};
-				}
-
-				.sui-accordion-col-8 {
-					min-width: #{(100%*8)/$accordion--grid};
-					flex-basis: #{(100%*8)/$accordion--grid};
-				}
-
-				.sui-accordion-col-9 {
-					min-width: #{(100%*9)/$accordion--grid};
-					flex-basis: #{(100%*9)/$accordion--grid};
-				}
-
-				.sui-accordion-col-10 {
-					min-width: #{(100%*10)/$accordion--grid};
-					flex-basis: #{(100%*10)/$accordion--grid};
-				}
-
-				.sui-accordion-col-11 {
-					min-width: #{(100%*11)/$accordion--grid};
-					flex-basis: #{(100%*11)/$accordion--grid};
-				}
-
-				.sui-accordion-col-12 {
-					min-width: #{(100%*12)/$accordion--grid};
-					flex-basis: #{(100%*12)/$accordion--grid};
+					.sui-accordion-col-#{$i} {
+						min-width: #{(100% * $i) / $accordion--grid};
+						flex-basis: #{(100% * $i) / $accordion--grid};
+					}
 				}
 			}
 
@@ -594,7 +542,7 @@
 
 				.sui-accordion-item-header {
 					min-height: 60px;
-					padding: 10px 0;
+					padding: 15px 0;
 					color: $accordion--block-color;
 					font-size: 13px;
 					line-height: 22px;
@@ -612,6 +560,16 @@
 						line-height: 30px;
 						font-family: $font--alt;
 						font-weight: bold;
+
+						.sui-tag {
+
+							@include media(max-width, md) {
+								display: block;
+								bottom: #{($sui-gutter-md / 2) + 7px};
+								left: #{($sui-gutter-md / 2) - 1px};
+								position: absolute;
+							}
+						}
 
 						&.sui-trim-title {
 							overflow: hidden;
@@ -635,6 +593,20 @@
 						}
 					}
 
+					.sui-mobile-visible {
+
+						@include media(min-width, md) {
+							display: none;
+						}
+					}
+
+					.sui-desktop-visible {
+
+						@include media(max-width, md) {
+							display: none;
+						}
+					}
+
 					.sui-accordion-item-date {
 
 						@include media(max-width, md) {
@@ -646,6 +618,10 @@
 					.sui-dropdown,
 					.sui-button-icon {
 						margin: 0 5px;
+
+						.sui-button-icon {
+							margin: 0;
+						}
 
 						&:first-child {
 							margin-left: 0;
@@ -665,6 +641,26 @@
 						}
 					}
 
+					.sui-accordion-col-auto {
+
+						&:not(:first-child) {
+
+							@include media(max-width, md) {
+								margin-top: 10px;
+							}
+						}
+
+						@include media(max-width, md) {
+							flex: 0 0 100%;
+							justify-content: flex-end;
+						}
+					}
+
+					@include media(max-width, md) {
+						flex-wrap: wrap;
+						position: relative;
+					}
+
 					@include media(min-width, md) {
 						min-height: 90px;
 					}
@@ -674,7 +670,9 @@
 					padding: 0 $sui-gutter-md $sui-gutter-md;
 
 					.sui-accordion-item-data {
-						display: block;
+						display: flex;
+						flex-wrap: wrap;
+						margin: 0 -5px;
 						padding: 0;
 
 						&, li {
@@ -683,8 +681,6 @@
 						}
 
 						li {
-							margin: 0 0 10px;
-							padding: 0;
 							font-size: 13px;
 							line-height: 22px;
 							font-family: $font;
@@ -716,6 +712,12 @@
 								margin: 0;
 							}
 
+							@include media(max-width, md) {
+								min-width: 50%;
+								flex: 0 0 50%;
+								padding: 10px 5px;
+							}
+
 							@include media(min-width, md) {
 								flex: 0 0 auto;
 								margin: 0;
@@ -741,11 +743,6 @@
 									border-radius: 0 0 $border-radius $border-radius;
 								}
 							}
-						}
-
-						@include media(min-width, md) {
-							display: flex;
-							margin: 0 -5px;
 						}
 					}
 
