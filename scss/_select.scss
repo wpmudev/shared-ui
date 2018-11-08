@@ -99,6 +99,15 @@
 					word-wrap: break-word;
 					transition: 0.3s ease;
 
+					[class*="sui-icon-"] {
+						margin-right: 7px;
+						text-align: center;
+
+						&:before {
+							color: inherit;
+						}
+					}
+
 					&.current {
 						background-color: $select-results--background-current;
 						color: $select-results--color-current;
@@ -205,7 +214,7 @@
 				}
 
 				.list-results {
-					top: $select-dropdown-handle-size-sm;
+					top: #{$select-dropdown-handle-size-sm - 2px};
 					padding: 7px 0;
 
 					li {
