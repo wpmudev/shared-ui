@@ -1,3 +1,15 @@
+v2.3.10
+
+ - [Enhance] Upsell notice style and color.
+ - [Enhance] Add purple and orange as option…
+ - [Enhance] Select dropdown options with icons.
+ - [Enhance] Sticky box shadow when box becomes sticky
+ - [Enhance] Accordion blocks responsive design.
+ - [Enhance] ACE add ability to load html editor
+ - [Enhance] Side navigation styles and sticky class.
+ - [Fix] Pagination result with filter button only not having enough separation.
+
+
 v2.3.9
 
  - [New] Box builder element
