@@ -367,34 +367,27 @@
 
 				p {
 					position: relative;
-					padding: 20px 30px;
+					padding: 15px 20px 15px 43px;
 					border-radius: $border-radius;
-					background-color: $box-upsell-p-bg-color;
 					color: $box-upsell-p-color;
 					font-size: 13px;
 					line-height: 22px;
-
-					&:after {
-						content: ' ';
-						width: 0;
-						height: 0;
-						position: absolute;
-						top: 43%;
-						left: 0;
-						margin-left: -7px;
-						border-top: 7px solid transparent;
-						border-bottom: 7px solid transparent;
-						border-right: 7px solid $box-upsell-p-bg-color;
-
-						@include media(max-width, md) {
-							display: none;
-						}
-					}
+					border-top: 1px solid #e6e6e6;
+					border-right: 1px solid #e6e6e6;
+					border-bottom: 1px solid #e6e6e6;
+					border-left: 2px solid $box-upsell-border-color;
 
 					a {
 						color: $box-upsell-p-color;
 						font-weight: 500;
-						text-decoration: underline;
+					}
+					&:first-of-type {
+						@include icon( before, info );
+						&:before {
+							color: $box-upsell-border-color;
+							margin-left: -23px;
+							margin-right: 10px;
+						}
 					}
 				}
 
