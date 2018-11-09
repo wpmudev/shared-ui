@@ -65,6 +65,8 @@
 					if ( opt.data( 'content' ) ) {
 						item.addClass( 'sui-element-flex' );
 						item.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
+					} else if ( opt.data( 'icon' ) ) {
+						item.html( '<i class="sui-icon-' + opt.data( 'icon' ) + '" aria-hidden="true"></i> ' + opt.text() );
 					} else {
 						item.text( opt.text() );
 					}
