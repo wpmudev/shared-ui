@@ -1,5 +1,5 @@
 v2.3.11
-- [Fix] Sidenav floating input overfloating default WordPress notifications.
+- [Fix] Sidenav floating input overlapping default WordPress notifications.
 
 v2.3.10
 
