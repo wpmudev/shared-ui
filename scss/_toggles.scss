@@ -32,7 +32,15 @@
 	// Checkbox powering the toggle.
 	.sui-toggle input[type="checkbox"] {
 		@extend %sui-screen-reader-text;
-
+		&:checked[disabled] + .sui-toggle-slider {
+			background-color: $toggle-active-disabled-bg-color;
+			&:before {
+				background-color: $toggle-active-before-disabled-color;
+			}
+			&:hover {
+				box-shadow: none;
+			}
+		}
 		&[disabled] + .sui-toggle-slider {
 			opacity: .5;
 			cursor: not-allowed;
@@ -81,10 +89,5 @@
 		&:hover {
 			box-shadow: 0 0 0 5px $toggle-slider-active-bg-hover-color;
 		}
-	}
-
-	// Toggle focus style.
-	input[type="checkbox"]:focus + .sui-toggle-slider {
-
 	}
 }
