@@ -75,18 +75,24 @@
         }
 
         function hasMemory() {
-            if ( 'undefined' === typeof memory ) {
+            try {
+                if ( 'undefined' === typeof memory ) {
+                    return;
+                }
+                if  ( 'undefined' === typeof memory[indexGroup]) {
+                    return;
+                }
+                if ( 'undefined' === typeof memory[indexGroup][indexItem]) {
+                    return;
+                }
+                if ( true !== memory[indexGroup][indexItem]) {
+                    return;
+                }
+            } catch ( e ) {
+                localStorage.removeItem( 'tabbis' );
                 return;
             }
-            if  ( 'undefined' === typeof memory[indexGroup]) {
-                return;
-            }
-            if ( 'undefined' === typeof memory[indexGroup][indexItem]) {
-                return;
-            }
-            if ( true !== memory[indexGroup][indexItem]) {
-                return;
-            }
+
             return true;
         }
 
