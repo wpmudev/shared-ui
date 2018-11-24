@@ -1,147 +1,195 @@
-// Buttons
 @include body-class(true) {
+
+	.sui-button,
+	a.sui-button,
+	button.sui-button {
+
+		&, &-icon {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			margin: 0;
+			border-width: 2px;
+			border-style: solid;
+			border-color: transparent;
+			border-radius: $border-radius;
+			text-decoration: none;
+			text-align: center;
+			transition: $transition;
+
+			.sui-loading {
+				width: 16px;
+				height: 16px;
+				display: none;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				margin: 0;
 	
+				&:before {
+					display: block;
+				}
+			}
+	
+			.sui-loading-text {
+				display: block;
+				pointer-events: none;
+			}
+
+			[class*="sui-icon-"] {
+				font-size: 12px;
+	
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
+
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				outline: none;
+				box-shadow: none;
+			}
+
+			&.disabled,
+			&:disabled,
+			&[disabled],
+			&.sui-button-onload {
+				cursor: default;
+				pointer-events: none;
+			}
+
+			&.sui-button-onload {
+				pointer-events: none;
+				display: inline-flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+	
+				.sui-loading {
+					display: flex;
+				}
+	
+				.sui-loading-text {
+					opacity: 0;
+				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+	}
+
+	// VARIATION: Buttons with text
 	.sui-button,
 	a.sui-button,
 	button.sui-button {
 		width: auto;
 		min-width: 80px;
 		height: 30px;
-		cursor: pointer;
-		display: inline-block;
-		position: relative;
-		padding: 7px 16px;
-		margin: 0 10px 0 0;
-		border: 0;
-		border-radius: $border-radius;
-		background-color: $button-bg-color;
-		color: $white;
+		padding: 5px 14px;
+		background-color: map-get($button-background, default);
+		color: map-get($button-text-color, default);
 		font: 500 12px/16px $font;
 		letter-spacing: $font--letter-spacing;
 		text-transform: uppercase;
-		text-decoration: none;
-		text-align: center;
 		white-space: nowrap;
-		transition: all .3s ease;
-
-		.sui-loading {
-			width: 16px;
-			height: 16px;
-			display: none;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			margin: 0;
-
-			&:before {
-				display: block;
-			}
-		}
-
-		.sui-loading-text {
-			display: block;
-			pointer-events: none;
-		}
 
 		[class*="sui-icon-"] {
 			vertical-align: middle;
-			font-size: 12px;
 
-			&:not(.sui-fw):not(.sui-loading) {
-				margin-right: 5px;
-			}
-
-			&:before {
-				color: inherit;
-			}
-		}
-
-		&.sui-button-icon-right {
-
-			[class*="sui-icon-"] {
-				
-				&:not(.sui-fw):not(.sui-loading) {
-					margin-right: 0;
-					margin-left: 5px;
-				}
+			&:not(.sui-loading) {
+				width: 22px;
+				position: relative;
+				top: -1px;
+				margin-left: -7px;
 			}
 		}
 
 		&:hover,
-		&:focus {
-			border-color: $button-action-bg-color;
-			outline: none;
-			background: $button-action-bg-color;
-		}
-
-		&:focus,
 		&:active {
-			border-color: $button-action-bg-color;
-			outline: none;
-			background: $button-action-bg-color;
-			box-shadow: none;
+			background-color: darken(map-get($button-background, default), 10%);
 		}
 
-		&.sui-button-primary,
-		&.sui-button-blue {
-			background: $button-blue-bg-color;
+		&.disabled,
+		&:disabled,
+		&[disabled],
+		&.sui-button-onload {
+			background-color: map-get($button-disabled-background, default);
+			color: map-get($button-disabled-color, default);
+		}
 
-			&:hover,
-			&:focus {
-				background: $button-blue-action-bg-color;
+		// VARIATION: Button with right icon
+		&.sui-button-icon-right {
+
+			[class*="sui-icon-"] {
+				
+				&:not(.sui-loading) {
+					margin-right: -7px;
+					margin-left: 0;
+				}
 			}
 		}
 
-		&.sui-button-red {
-			background: $button-red-bg-color;
+		// VARIATION: Colorize buttons
+		@each $color in $button-colors {
+
+			&.sui-button-#{$color} {
+				background-color: map-get($button-background, $color);
+				color: map-get($button-text-color, $color);
+
+				&:hover,
+				&:active {
+					background-color: darken(map-get($button-background, $color), 10%);
+				}
+
+				&.disabled,
+				&:disabled,
+				&[disabled],
+				&.sui-button-onload {
+					background-color: map-get($button-disabled-background, $color);
+					color: map-get($button-disabled-color, $color);
+				}
+			}
+		}
+
+		// VARIATION: Upsell button
+		&.sui-button-upsell {
+			width: auto;
+			height: 26px;
+			padding: 4px 14px;
+			border-color: $button-upsell--border-static;
+			border-radius: 14px;
+			background-color: transparent;
+			color: $button-upsell--color-static;
+			line-height: 14px;
+			text-transform: none;
 
 			&:hover,
-			&:focus {
+			&:active {
 				opacity: 1;
-				background: $button-red-action-bg-color;
+				border-color: $button-upsell--border-active;
+				background-color: $button-upsell--border-active;
+				color: $button-upsell--color-active;
 			}
 		}
 
-		&.sui-button-green {
-			background: $button-green-bg-color;
-
-			&:hover,
-			&:focus {
-				opacity: 1;
-				background: $button-green-action-bg-color;
-			}
-		}
-
-		&.sui-button-purple {
-			background: $button-purple-bg-color;
-
-			&:hover,
-			&:focus {
-				opacity: 1;
-				background: $button-purple-action-bg-color;
-			}
-		}
-
+		// VARIATION: Dashed button
 		&.sui-button-dashed {
 			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: 1px dashed $button-dashed-border-color;
-			background-color: $button-dashed-background;
-			color: $button-dashed-color;
-
-			[class*="sui-icon-"]:not(.sui-loading) {
-				width: 24px;
-				margin-right: -1px;
-				font-size: 12px;
-				text-align: center;
-
-				&:before {
-					display: block;
-				}
-			}
+			border-width: 1px;
+			border-style: dashed;
+			border-color: $button-dashed--border;
+			background-color: $button-dashed--background;
+			color: $button-dashed--color;
+			line-height: 18px;
 
 			@include media(max-width, md) {
 				height: $button-dashed-height-md;
@@ -152,78 +200,71 @@
 			}
 		}
 
-		&.sui-button-upsell {
-			color: $green;
-			width: auto;
-			height: 26px;
-			padding: 4px 16px;
-			border: 2px solid palette(green, light);
-			border-radius: 15px;
-			background: transparent;
-			color: $green;
-			line-height: 15px;
-			text-transform: none;
-
-			&:hover,
-			&:focus {
-				opacity: 1;
-				border-color: $button-green-action-bg-color;
-				background: $button-green-action-bg-color;
-				color: $white;
-			}
-		}
-
+		// VARIATION: Ghost buttons
 		&.sui-button-ghost {
-			padding: 5px 16px 7px;
-			border: 2px solid $button-ghost-border-color;
-			background: transparent;
-			color: $button-ghost-color;
+			border-color: map-get($button-border, default);
+			background-color: transparent;
+			color: map-get($button-background, default);
 
 			&:hover,
-			&:focus {
-				border-color: $button-ghost-action-border-color;
-				background: $button-ghost-action-bg-color;
-				color: $white;
+			&:active {
+				border-color: map-get($button-background, default);
+				background-color: map-get($button-background, default);
+				color: map-get($button-text-color, default);
 			}
 
-			&.sui-button-blue {
-				border-color: $blue;
-				color: $blue;
-
-				&:hover,
-				&:focus {
-					border-color: $blue;
-					background: $blue;
-					color: $white;
-				}
+			&.disabled,
+			&:disabled,
+			&[disabled],
+			&.sui-button-onload {
+				border-color: map-get($button-disabled-background, default);
+				background-color: map-get($button-disabled-background, default);
+				color: map-get($button-disabled-color, default);
 			}
 
-			&.sui-button-red {
-				border-color: $button-red-ghost-bdr-color;
-				color: $button-red-action-bg-color;
+			@each $color in $button-colors {
 
-				&:hover,
-				&:focus {
-					opacity: 1;
-					border-color: $red;
-					background: $red;
-					color: $white;
-				}
-			}
+				&.sui-button-#{$color} {
+					border-color: map-get($button-border, $color);
+					color: map-get($button-background, $color);
 
-			&.sui-button-green {
-				border-color: $green;
-				color: $green;
+					&:hover,
+					&:active {
+						border-color: map-get($button-background, $color);
+						background-color: map-get($button-background, $color);
+						color: map-get($button-text-color, $color);
+					}
 
-				&:hover,
-				&:focus {
-					opacity: 1;
-					border-color: $button-green-action-bg-color;
-					background: $button-green-action-bg-color;
-					color: $white;
+					&.disabled,
+					&:disabled,
+					&[disabled],
+					&.sui-button-onload {
+						border-color: map-get($button-disabled-background, $color);
+						background-color: map-get($button-disabled-background, $color);
+						color: map-get($button-disabled-color, $color);
+					}
 				}
 			}
 		}
+	}
+
+	// VARIATION: Buttons with icons (only)
+	// This variation it's not related and must not be used with .sui-button class
+	.sui-button-icon,
+	a.sui-button-icon,
+	button.sui-button-icon {
+		padding: 0 4px;
+		border: 1px solid transparent;
+		background-color: transparent;
+	}
+}
+
+/*
+@include body-class(true) {
+	
+	.sui-button,
+	a.sui-button,
+	button.sui-button {
 
 		&.sui-button-lg {
 			height: 40px;
@@ -253,75 +294,12 @@
 				}
 			}
 		}
-
-		&.sui-button-onload {
-			pointer-events: none;
-			display: inline-flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-
-			.sui-loading {
-				display: flex;
-			}
-
-			.sui-loading-text {
-				opacity: 0;
-			}
-
-			&,
-			&.sui-button-blue,
-			&.sui-button-green,
-			&.sui-button-red {
-				background: $button-onload-color;
-			}
-
-			&.sui-button-ghost {
-				border-color: $button-onload-color;
-				background: transparent;
-			}
-		}
-
-		&:disabled,
-		&[disabled],
-		&.disabled {
-			cursor: default;
-			pointer-events: none;
-			color: $button-disabled-color;
-			border-color: $button-disabled-border-color;
-			background: $button-disabled-bg-color;
-			box-shadow: none;
-			transform: none;
-
-			&:hover,
-			&:focus {
-				cursor: default;
-				color: $button-disabled-color;
-				border-color: $button-disabled-border-color;
-				background: $button-disabled-bg-color;
-				box-shadow: none;
-				transform: none;
-			}
-		}
-
-		&:last-child {
-			margin: 0;
-		}
-
-		&.sui-button-icon {
-			min-width: unset;
-		}
 	}
 
 	// To be used without .sui-button class
 	.sui-button-icon:not(.sui-button),
 	a.sui-button-icon:not(.sui-button),
 	button.sui-button-icon:not(.sui-button) {
-		cursor: pointer;
-		display: inline-block;
-		margin: 0;
-		padding: 0 4px;
-		border: 1px solid transparent;
 		border-radius: $border-radius;
 		background-color: transparent;
 		color: palette(gray, light);
@@ -383,3 +361,4 @@
 		}
 	}
 }
+*/
