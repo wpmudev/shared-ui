@@ -2157,6 +2157,10 @@ function admin_body_classes( $classes ) {
 								<a href="#" role="button" data-tab="demo-element--buttons-loading">Loading</a>
 							</li>
 
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-compound">Compound</a>
+							</li>
+
 						</ul>
 
 					</div>
@@ -3130,6 +3134,122 @@ function admin_body_classes( $classes ) {
 	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
 		Button text
 	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-compound" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>Only <strong>regular buttons</strong> have a compound variation because it needs a mix of text and icon. In desktop you should have text or a mix between text and icon, while on mobiles you should have an icon only.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Compound Buttons</span>
+									<span class="sui-description">In some parts of the design you gonna find buttons that transform into icon only buttons when they are visualized in small screens.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">This is the basic structure of a compound button, text on desktop and icon on mobile.</span>
+
+									<button class="sui-button sui-button-compound">
+										<span class="sui-compound-desktop" aria-hidden="true">
+											<i class="sui-icon-academy"></i> Compound Button
+										</span>
+										<span class="sui-compound-mobile" aria-hidden="true">
+											<i class="sui-icon-academy"></i>
+										</span>
+										<span class="sui-screen-reader-text">Compound Button</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-compound&quot;&gt;
+	&lt;span class=&quot;sui-compound-desktop&quot; aria-hidden=&quot;&quot;&gt;
+		&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+		Compound Button
+	&lt;/span&gt;
+	&lt;span class=&quot;sui-compound-mobile&quot; aria-hidden=&quot;&quot;&gt;
+		&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+	&lt;/span&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Regular Button – On Load</span>
+									<span class="sui-description" style="margin-bottom: 10px;">There are times where you gonna need to make use of a compound-loading button.</span>
+
+									<button class="sui-button sui-button-compound">
+										<span class="sui-loading-text" aria-hidden="true">
+											<span class="sui-compound-desktop">
+												<i class="sui-icon-academy"></i> Compound Button
+											</span>
+											<span class="sui-compound-mobile">
+												<i class="sui-icon-academy"></i>
+											</span>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Compound Button</span>
+									</button>
+
+									<button class="sui-button sui-button-compound sui-button-onload">
+										<span class="sui-loading-text" aria-hidden="true">
+											<span class="sui-compound-desktop">
+												<i class="sui-icon-academy"></i> Compound Button
+											</span>
+											<span class="sui-compound-mobile">
+												<i class="sui-icon-academy"></i>
+											</span>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Compound Button</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- STATE: Default --&gt;
+&lt;button class=&quot;sui-button sui-button-compound&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot; aria-hidden=&quot;true&quot;&gt;
+		&lt;span class=&quot;sui-compound-desktop&quot;&gt;
+			&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+			Compound Button
+		&lt;/span&gt;
+		&lt;span class=&quot;sui-compound-mobile&quot;&gt;
+			&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- STATE: On Load (Loading) --&gt;
+&lt;button class=&quot;sui-button sui-button-compound sui-button-onload&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot; aria-hidden=&quot;true&quot;&gt;
+		&lt;span class=&quot;sui-compound-desktop&quot;&gt;
+			&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+			Compound Button
+		&lt;/span&gt;
+		&lt;span class=&quot;sui-compound-mobile&quot;&gt;
+			&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
 &lt;/button&gt;
 </pre>
 									</div>
