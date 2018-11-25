@@ -275,7 +275,10 @@
 		white-space: nowrap;
 
 		[class*="sui-icon-"] {
-			display: block;
+
+			&:not(.sui-loading) {
+				display: block;
+			}
 		}
 
 		&:hover,
