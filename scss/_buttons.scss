@@ -370,6 +370,32 @@
 			}
 		}
 
+		// DESIGN: Filled
+		&.sui-button-filled {
+			background-color: map-get($button-icon--background-filled, default);
+			color: map-get($button-icon--color-filled, default);
+
+			&:hover,
+			&:active,
+			&.sui-active {
+				background-color: darken(map-get($button-icon--background-filled, default), 8%);
+			}
+
+			@each $color in $button-colors {
+
+				&.sui-button-#{$color} {
+					background-color: map-get($button-icon--background-filled, $color);
+					color: map-get($button-icon--color-filled, $color);
+
+					&:hover,
+					&:active,
+					&.sui-active {
+						background-color: darken(map-get($button-icon--background-filled, $color), 10%);
+					}
+				}
+			}
+		}
+
 		// SIZE: Large
 		&.sui-button-lg {
 			width: 50px;
