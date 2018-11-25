@@ -2130,18 +2130,6 @@ function admin_body_classes( $classes ) {
 						<ul class="sui-vertical-tabs">
 
 							<li class="sui-vertical-tab current">
-								<a href="#" role="button" data-tab="demo-element--buttons-default">Default Buttons</a>
-							</li>
-
-							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-ghost">Ghost Buttons</a>
-							</li>
-
-							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-icon">Icon Buttons</a>
-							</li>
-
-							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--buttons-basic">Basic Structure</a>
 							</li>
 
@@ -2150,530 +2138,26 @@ function admin_body_classes( $classes ) {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-outlined">Outlined Buttons</a>
+								<a href="#" role="button" data-tab="demo-element--buttons-outlined">Outlined</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-large">Large Buttons</a>
+								<a href="#" role="button" data-tab="demo-element--buttons-filled">Filled</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-loading">Loading Buttons</a>
+								<a href="#" role="button" data-tab="demo-element--buttons-large">Large</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-disabled">Disabled</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-loading">Loading</a>
 							</li>
 
 						</ul>
-
-					</div>
-
-					<div class="sui-box" data-tab="demo-element--buttons-default">
-
-						<div class="sui-box-body">
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Buttons with text only</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label">Status: Default</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button">Default</button>
-
-										<button type="button" class="sui-button sui-button-blue">Blue</button>
-
-										<button type="button" class="sui-button sui-button-green">Green</button>
-
-										<button type="button" class="sui-button sui-button-red">Red</button>
-
-										<button type="button" class="sui-button sui-button-orange">Orange</button>
-
-										<button type="button" class="sui-button sui-button-yellow">Yellow</button>
-
-										<button type="button" class="sui-button sui-button-purple">Purple</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: Disabled</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button" disabled>Default</button>
-
-										<button type="button" class="sui-button sui-button-blue" disabled>Blue</button>
-
-										<button type="button" class="sui-button sui-button-green" disabled>Green</button>
-
-										<button type="button" class="sui-button sui-button-red" disabled>Red</button>
-
-										<button type="button" class="sui-button sui-button-orange" disabled>Orange</button>
-
-										<button type="button" class="sui-button sui-button-yellow" disabled>Yellow</button>
-
-										<button type="button" class="sui-button sui-button-purple" disabled>Purple</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: On Load</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-onload">
-											<span class="sui-loading-text">Default</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-onload">
-											<span class="sui-loading-text">Blue</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-onload">
-											<span class="sui-loading-text">Green</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-onload">
-											<span class="sui-loading-text">Red</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-onload">
-											<span class="sui-loading-text">Orange</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-onload">
-											<span class="sui-loading-text">Yellow</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-onload">
-											<span class="sui-loading-text">Purple</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Buttons with text and icon</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label">Status: Default</label>
-									
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-										</button>
-
-										<button type="button" class="sui-button sui-button-green">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-										</button>
-
-										<button type="button" class="sui-button sui-button-red">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-										</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: Disabled</label>
-									
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-										</button>
-
-										<button type="button" class="sui-button sui-button-green" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-										</button>
-
-										<button type="button" class="sui-button sui-button-red" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-										</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: On Load</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Large Buttons</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<button class="sui-button sui-button-lg">
-										Large Button
-									</button>
-
-									<button class="sui-button sui-button-lg">
-										<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Large Button
-									</button>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="sui-box" data-tab="demo-element--buttons-ghost" style="display: none;">
-
-						<div class="sui-box-body">
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Buttons with text only</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label">Status: Default</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost">Default</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost">Blue</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost">Green</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost">Red</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost">Orange</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost">Yellow</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost">Purple</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: Disabled</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost" disabled>Default</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost" disabled>Blue</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost" disabled>Green</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost" disabled>Red</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost" disabled>Orange</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost" disabled>Yellow</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost" disabled>Purple</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: On Load</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Default</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Blue</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Green</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Red</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Orange</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Yellow</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">Purple</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Buttons with text and icon</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label">Status: Default</label>
-									
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost">
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-										</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: Disabled</label>
-									
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost" disabled>
-											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-										</button>
-
-									</div>
-
-									<label class="sui-settings-label">Status: On Load</label>
-
-									<div class="sui-form-field">
-
-										<button type="button" class="sui-button sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Default
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-blue sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Blue
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-green sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Green
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-red sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Red
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-orange sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Orange
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-yellow sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Yellow
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-										<button type="button" class="sui-button sui-button-purple sui-button-ghost sui-button-onload">
-											<span class="sui-loading-text">
-												<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Purple
-											</span>
-											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-										</button>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Large Buttons</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<button class="sui-button sui-button-ghost sui-button-lg">
-										Large Button
-									</button>
-
-									<button class="sui-button sui-button-ghost sui-button-lg">
-										<i class="sui-icon-widget-settings-config" aria-hidden="true"></i> Large Button
-									</button>
-
-								</div>
-
-							</div>
-
-						</div>
 
 					</div>
 
@@ -3156,7 +2640,7 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
-					<div class="sui-box" data-tab="demo-element--buttons-basic" style="display: none;">
+					<div class="sui-box" data-tab="demo-element--buttons-basic">
 
 						<div class="sui-box-body">
 
@@ -3164,9 +2648,9 @@ function admin_body_classes( $classes ) {
 
 								<div class="sui-box-settings-col-1">
 									<span class="sui-settings-label">Basic Structure</span>
-									<span class="sui-description">There are two buttons: regular and icon.</span>
-									<span class="sui-description">1. <strong>Regular</strong>, allows you to have text or combine text and icon.</span>
-									<span class="sui-description">2. <strong>Icon</strong>, allows you to have an icon only.</span>
+									<span class="sui-description">There are two types of buttons: regular and icon.</span>
+									<span class="sui-description">1. <strong>Regular</strong>, allows you to have text and combine it with an icon if necessary.</span>
+									<span class="sui-description">2. <strong>Icon</strong>, it's done to show an icon only without text.</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
@@ -3381,6 +2865,64 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
+					<div class="sui-box" data-tab="demo-element--buttons-filled" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>Only <strong>icon buttons</strong> have this variation and you need <code>sui-button-filled</code> class.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Filled Buttons</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">By default this buttons variation it is filled, reason why you won't need any special class for this.</span>
+
+									<button class="sui-button">
+										Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;
+	Button
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">By default icon buttons have a transparent background, but in case you need some color use <code>sui-button-filled</code> class.</span>
+
+									<button class="sui-button-icon sui-button-filled">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon button filled</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon sui-button-filled&quot;&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Icon button filled
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
 					<div class="sui-box" data-tab="demo-element--buttons-large" style="display: none;">
 
 						<div class="sui-box-body">
@@ -3426,6 +2968,69 @@ function admin_body_classes( $classes ) {
 	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
 	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
 		Icon button large
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-disabled" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Disabled Buttons</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">As simple as it sounds, only add <code>disabled</code> attribute to the element.</span>
+
+									<button class="sui-button" disabled>
+										Default Button
+									</button>
+
+									<button class="sui-button sui-button-ghost" disabled>
+										Ghost Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot; disabled&gt;
+	Button Text
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">As simple as it sounds, only add <code>disabled</code> attribute to the element.</span>
+
+									<button class="sui-button-icon" disabled>
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon button disabled</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-outlined" disabled>
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon outlined button disabled</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon&quot; disabled&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Icon button disabled
 	&lt;/span&gt;
 &lt;/button&gt;
 </pre>
