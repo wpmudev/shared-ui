@@ -2142,7 +2142,23 @@ function admin_body_classes( $classes ) {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--buttons-compound">Compound Buttons</a>
+								<a href="#" role="button" data-tab="demo-element--buttons-basic">Basic Structure</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-color">Color Buttons</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-outlined">Outlined Buttons</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-large">Large Buttons</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-loading">Loading Buttons</a>
 							</li>
 
 						</ul>
@@ -3140,7 +3156,386 @@ function admin_body_classes( $classes ) {
 
 					</div>
 
-					<div class="sui-box" data-tab="demo-element--buttons-compound" style="display: none;"></div>
+					<div class="sui-box" data-tab="demo-element--buttons-basic" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Basic Structure</span>
+									<span class="sui-description">There are two buttons: regular and icon.</span>
+									<span class="sui-description">1. <strong>Regular</strong>, allows you to have text or combine text and icon.</span>
+									<span class="sui-description">2. <strong>Icon</strong>, allows you to have an icon only.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">This is the base markup for any button that contains text.</span>
+
+									<button class="sui-button">
+										Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;
+	Default
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">This is the base markup for any button that has an icon only. Remember you can't use it with text, and even if you try it will be cut-off.</span>
+
+									<button class="sui-button-icon">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon button</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon&quot;&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Icon button
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-color" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>To colorize buttons you just need to add <code>sui-button-{color_name}</code> class, replacing <strong>{color_name}</strong> with the color you desire.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Color Buttons</span>
+									<span class="sui-description">Aside default, which is the main color for any button, six more exist:</span>
+									<span class="sui-description">1. Blue</span>
+									<span class="sui-description">2. Green</span>
+									<span class="sui-description">3. Red</span>
+									<span class="sui-description">4. Orange</span>
+									<span class="sui-description">5. Yellow</span>
+									<span class="sui-description">6. Purple</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need buttons with specific colors, to achieve this you can add <code>sui-button-{color_name}</code> class.</span>
+
+									<button class="sui-button sui-button-blue">
+										Blue
+									</button>
+
+									<button class="sui-button sui-button-green">
+										Green
+									</button>
+
+									<button class="sui-button sui-button-red">
+										Red
+									</button>
+
+									<button class="sui-button sui-button-orange">
+										Orange
+									</button>
+
+									<button class="sui-button sui-button-yellow">
+										Yellow
+									</button>
+
+									<button class="sui-button sui-button-purple">
+										Purple
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-blue&quot;&gt;
+	Blue Button
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need buttons with specific colors, to achieve this you can add <code>sui-button-{color_name}</code> class.</span>
+
+									<button class="sui-button-icon sui-button-blue">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Blue icon button</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-green">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Green icon button</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-red">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Red icon button</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-orange">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Orange icon button</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-yellow">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Yellow icon button</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-purple">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Purple icon button</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon sui-button-blue&quot;&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Blue icon button
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-outlined" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>Outlined are buttons with border and transparent background on its default state. For regular buttons just add <code>sui-button-ghost</code> class, while icon buttons gonna need <code>sui-button-outlined</code> class.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Outlined Buttons</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">This variation can come with border only and transparent background. For those cases you can make use of <code>sui-button-ghost</code> class.</span>
+
+									<button class="sui-button sui-button-ghost">
+										Ghost Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;
+	Ghost Button
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">This variation will add a border to the button and increase a bit its width. When you need it, just add <code>sui-button-outlined</code> class.</span>
+
+									<button class="sui-button-icon sui-button-outlined">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon button outlined</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon sui-button-outlined&quot;&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Icon button outlined
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-large" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>To make large (bigger) buttons, you just need to add <code>sui-button-lg</code> class.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Large Buttons</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need to make use of bigger buttons, to achieve this you can add <code>sui-button-lg</code> class.</span>
+
+									<button class="sui-button sui-button-lg">
+										Large Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-lg&quot;&gt;
+	Ghost Button
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need to make use of bigger buttons, to achieve this you can add <code>sui-button-lg</code> class.</span>
+
+									<button class="sui-button-icon sui-button-lg">
+										<i class="sui-icon-academy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Icon button large</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon sui-button-lg&quot;&gt;
+	&lt;i class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Icon button large
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-loading" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-notice sui-notice-warning">
+								<p>For loading (on load) state to work, you just need to add <code>sui-button-onload</code> class after click, if you need to return to default state, just remove the class.</p>
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Loading Buttons</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Regular Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">When you need to add a spinning wheel after clicking the button to make users feel like something is being saved or loaded.</span>
+
+									<button class="sui-button">
+										<span class="sui-loading-text">Button</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+									</button>
+
+									<button class="sui-button sui-button-onload">
+										<span class="sui-loading-text">Button</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- STATE: Default --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot;&gt;Button&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- STATE: On Load (Loading) --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-onload&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot;&gt;Button&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Icon Button</span>
+									<span class="sui-description" style="margin-bottom: 10px;">When you need to add a spinning wheel after click to the button making users feel like something is being saved or loaded.</span>
+
+									<button class="sui-button-icon">
+										<span class="sui-loading-text" aria-hidden="true">
+											<i class="sui-icon-academy"></i>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Button text</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-onload">
+										<span class="sui-loading-text" aria-hidden="true">
+											<i class="sui-icon-academy"></i>
+										</span>
+										<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Button text</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- STATE: Default --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot; aria-hidden=&quot;true&quot;&gt;
+		&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+	&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Button text
+	&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- STATE: On Load (Loading) --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button-icon sui-button-onload&quot;&gt;
+	&lt;span class=&quot;sui-loading-text&quot; aria-hidden=&quot;true&quot;&gt;
+		&lt;i class=&quot;sui-icon-academy&quot;&gt;&lt;/i&gt;
+	&lt;/span&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;
+		Button text
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 
