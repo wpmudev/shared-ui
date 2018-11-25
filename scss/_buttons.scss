@@ -199,7 +199,7 @@
 			}
 		}
 
-		// VARIATION: Ghost buttons
+		// VARIATION: Ghost button
 		&.sui-button-ghost {
 			border-color: map-get($button-border, default);
 			background-color: transparent;
@@ -243,6 +243,46 @@
 						color: map-get($button-disabled-color, $color);
 					}
 				}
+			}
+		}
+
+		// VARIATION: Compound button
+		&.sui-button-compound {
+
+			.sui-compound-desktop {
+
+				@include media(max-width, md) {
+					display: none;
+				}
+
+				@include media(min-width, md) {
+					display: block;
+				}
+			}
+
+			.sui-compound-mobile {
+
+				[class*="sui-icon-"] {
+
+					@include media(max-width, md) {
+						margin-right: 0;
+						margin-left: 0;
+					}
+				}
+
+				@include media(max-width, md) {
+					display: block;
+				}
+
+				@include media(min-width, md) {
+					display: none;
+				}
+			}
+
+			@include media(max-width, md) {
+				min-width: 44px;
+				padding-right: 5px;
+				padding-left: 5px;
 			}
 		}
 
