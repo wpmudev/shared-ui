@@ -2161,6 +2161,10 @@ function admin_body_classes( $classes ) {
 								<a href="#" role="button" data-tab="demo-element--buttons-compound">Compound</a>
 							</li>
 
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-input-button">Input + Button</a>
+							</li>
+
 						</ul>
 
 					</div>
@@ -3252,6 +3256,99 @@ function admin_body_classes( $classes ) {
 	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
 &lt;/button&gt;
 </pre>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-input-button" style="display: none;">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Input With Button</span>
+									<span class="sui-description">There are times when you need to mix input and buttons in a same row.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description" style="margin-bottom: 10px;">In this variation button is placed next to input and is commonly used with a large button.</span>
+
+									<div class="sui-with-button">
+
+										<input
+											type="text"
+											placeholder="Placeholder"
+											class="sui-form-control"
+										/>
+
+										<button class="sui-button sui-button-lg">Button</button>
+
+									</div>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-with-button&quot;&gt;
+	&lt;input
+		type=&quot;text&quot;
+		class=&quot;sui-form-control&quot;
+	/&gt;
+	&lt;button class=&quot;sui-button sui-button-lg&quot;&gt;Button&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+
+									<span class="sui-settings-label">Inside</span>
+									<span class="sui-description" style="margin-bottom: 10px;">Buttons can also be placed inside the input, to achieve that just need to add <code>sui-inside</code> class.</span>
+
+									<div class="sui-with-button sui-inside">
+
+										<input
+											type="text"
+											placeholder="Placeholder"
+											class="sui-form-control"
+										/>
+
+										<button class="sui-button">Button</button>
+
+									</div>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-with-button sui-inside&quot;&gt;
+	&lt;input
+		type=&quot;text&quot;
+		class=&quot;sui-form-control&quot;
+	/&gt;
+	&lt;button class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+									</div>
+
+									<div class="sui-notice sui-notice-warning">
+										<p>There are times when the button width exceeds 80px like the example below (or even if it's smaller than that), for those cases just add inline <code>padding-right: {size}px;</code> styles to make sure input text isn't hidden behind button.</p>
+										<p>To calculate <strong>{size}</strong> make sure you sum button size and spacing (5px). Regular buttons have left and right spacing, while large buttons have left spacing only.</p>
+									</div>
+
+									<div class="sui-with-button sui-inside">
+
+										<input
+											type="text"
+											placeholder="Placeholder"
+											class="sui-form-control"
+											style="padding-right: 155px;"
+										/>
+
+										<button class="sui-button sui-button-lg">Large Button</button>
+
 									</div>
 
 								</div>
