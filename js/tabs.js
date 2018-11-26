@@ -8,8 +8,7 @@
         window.SUI = {};
     }
 
-    SUI.suiTabs = ( function () {
-        var fn = {};
+    SUI.suiTabs = function( config ) {
 
         var data;
         var types = [ 'tab', 'pane' ];
@@ -22,104 +21,111 @@
         var indexItem;
         var memory = [];
 
-        fn.init = function(options) {
+        function init( options ) {
+            var groupIndex;
+            var tabItems;
+            var itemIndex;
+            var hashId;
             data = options;
-            fn.setDefaults();
+            setDefaults();
 
-            groups['tab'] = document.querySelectorAll( data.tabGroup );
-            groups['pane'] = document.querySelectorAll( data.paneGroup );
+            groups.tab = document.querySelectorAll( data.tabGroup );
+            groups.pane = document.querySelectorAll( data.paneGroup );
 
-            for( var groupIndex = 0; groupIndex < groups['tab'].length; groupIndex++ ) {
-                var tabItems = groups['tab'][groupIndex].children;
+            for ( groupIndex = 0; groupIndex < groups.tab.length; groupIndex++ ) {
+                tabItems = groups.tab[groupIndex].children;
 
-                for( var itemIndex = 0; itemIndex < tabItems.length; itemIndex++ ) {
-                    tabItems[itemIndex].addEventListener('click', fn.onClick.bind(this, groupIndex, itemIndex), false);
+                for ( itemIndex = 0; itemIndex < tabItems.length; itemIndex++ ) {
+                    tabItems[itemIndex].addEventListener( 'click', onClick.bind( this, groupIndex, itemIndex ), false );
 
                     indexGroup = groupIndex;
                     indexItem = itemIndex;
 
                     if ( window.location.hash ) {
-                        var hashId = window.location.hash.replace( /[^\w-_]/g, '' );
+                        hashId = window.location.hash.replace( /[^\w-_]/g, '' );
 
                         if ( hashId === tabItems[itemIndex].id ) {
-                            fn.setNodes(groupIndex, itemIndex);
+                            setNodes( groupIndex, itemIndex );
                         }
                     }
                 }
 
             }
-        };
+        }
 
-        fn.onClick = function(groupIndex, itemIndex) {
-            fn.setNodes(groupIndex, itemIndex);
+        function onClick( groupIndex, itemIndex ) {
+            setNodes( groupIndex, itemIndex );
 
-            fn.setCallback(indexGroup, indexItem);
-        };
+            setCallback( indexGroup, indexItem );
+        }
 
-        fn.setNodes = function(groupIndex, itemIndex) {
+        function setNodes( groupIndex, itemIndex ) {
+            var i;
             indexGroup = groupIndex;
             indexItem = itemIndex;
 
-            for( var i = 0; i < types.length; i++ ) {
+            for ( i = 0; i < types.length; i++ ) {
                 type = types[i];
 
-                fn.setActiveGroup();
-                fn.setActiveChildren();
-                fn.setActiveItems();
-                fn.putActiveClass();
+                setActiveGroup();
+                setActiveChildren();
+                setActiveItems();
+                putActiveClass();
             }
 
             memory[groupIndex] = [];
             memory[groupIndex][itemIndex] = true;
 
-        };
+        }
 
-        fn.putActiveClass = function() {
-            for( var i = 0; i < activeChildren[type].length; i++ ) {
-                activeChildren[type][i].classList.remove(data[type + 'Active']);
+        function putActiveClass() {
+            var i;
+            for ( i = 0; i < activeChildren[type].length; i++ ) {
+                activeChildren[type][i].classList.remove( data[type + 'Active']);
             }
 
-            activeItems[type].classList.add(data[type + 'Active']);
-        };
+            activeItems[type].classList.add( data[type + 'Active']);
+        }
 
-        fn.setDefaults = function() {
-            for( var i = 0; i < types.length; i++ ) {
+        function setDefaults() {
+            var i;
+            for ( i = 0; i < types.length; i++ ) {
                 type = types[i];
 
-                fn.setOption(type + 'Group', '[data-' + type + 's]');
-                fn.setOption(type + 'Active', 'active');
+                setOption( type + 'Group', '[data-' + type + 's]' );
+                setOption( type + 'Active', 'active' );
             }
-        };
+        }
 
-        fn.setOption = function(key, value) {
+        function setOption( key, value ) {
             data = data || [];
             data[key] = data[key] || value;
-        };
+        }
 
-        fn.setActiveGroup = function() {
+        function setActiveGroup() {
             activeGroups[type] = groups[type][indexGroup];
-        };
+        }
 
-        fn.setActiveChildren = function() {
+        function setActiveChildren() {
             activeChildren[type] = activeGroups[type].children;
-        };
+        }
 
-        fn.setActiveItems = function() {
+        function setActiveItems() {
             activeItems[type] = activeChildren[type][indexItem];
-        };
+        }
 
-        fn.setCallback = function() {
-            if (typeof data.callback === "function") {
-                data.callback(activeItems.tab, activeItems.pane);
+        function setCallback() {
+            if ( 'function' === typeof data.callback ) {
+                data.callback( activeItems.tab, activeItems.pane );
             }
-        };
+        }
 
-        return fn;
-    } )();
+        return init( config );
+    };
 
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
-        SUI.suiTabs.init();
+        SUI.suiTabs();
     }
 
 }( jQuery ) );
