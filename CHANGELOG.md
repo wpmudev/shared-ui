@@ -1,5 +1,6 @@
 v2.3.11
 - [Fix] Sidenav floating input overlapping default WordPress notifications.
+- [Enhance] Tabs - Remove JS state saving. Add ability to open a tab from url hash.
 
 v2.3.10
 
