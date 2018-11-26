@@ -68,48 +68,166 @@ $box-settings-label-color:              palette(gray, dark)           !default;
 $box-upsell-p-color:                    palette(gray, dark)           !default;
 $box-upsell-border-color:               palette(purple)                !default;
 
+// ============================================================
 // Buttons Colors (_buttons.scss)
-// Default Button
-$button-bg-color:                       palette(gray, light)          !default;
-$button-action-bg-color:                darken($button-bg-color, 4%)  !default;
 
-// Blue Button
-$button-blue-bg-color:                  palette(blue)                      !default;
-$button-blue-ghost-color:               palette(blue)                      !default;
-$button-blue-action-bg-color:           darken($button-blue-bg-color, 4%)  !default;
+$button-colors: blue green red orange yellow purple;
 
-// Red Button
-$button-red-bg-color:                   $red                          !default;
-$button-red-action-bg-color:            darken($button-red-bg-color, 4%)         !default;
-$button-red-ghost-bdr-color:            palette(red, light)         !default;
+$button-border: (
+	default: palette(gray, lighter),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
 
-// Green Button
-$button-green-bg-color:                 palette(green)                !default;
-$button-green-action-bg-color:          darken($button-green-bg-color, 4%)      !default;
+$button-background: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
 
-// Purple Button
-$button-purple-bg-color:                palette(purple, default)          !default;
-$button-purple-action-bg-color:         darken($button-purple-bg-color, 4%) !default;
+$button-text-color: (
+	default: palette(mono, white),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+$button-disabled-background: (
+	default: palette(silver, soft),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
+
+$button-disabled-color: (
+	default: palette(silver, medium),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+// Upsell Button
+$button-upsell--border-static: palette(green, light)   !default;
+$button-upsell--border-active: palette(green, default) !default;
+$button-upsell--color-static:  palette(green, default) !default;
+$button-upsell--color-active:  palette(mono, white)    !default;
 
 // Dashed Button
-$button-dashed-border-color:       palette(silver, medium) !default;
-$button-dashed-background:         transparent !default;
-$button-dashed-color:              palette(gray, light) !default;
+$button-dashed--border:        palette(silver, medium) !default;
+$button-dashed--background:    transparent               !default;
+$button-dashed--color:         palette(gray, light)    !default;
 
-// Ghost Button
-$button-ghost-border-color:             palette(gray, lighter)        !default;
-$button-ghost-color:                    palette(gray, light)          !default;
-$button-ghost-action-border-color:      palette(gray, light)          !default;
-$button-ghost-action-bg-color:          palette(gray, light)          !default;
+// ============================================================
+// Icon Buttons Colors (_buttons.scss)
 
-// Onload Button
-$button-onload-color:                   palette(silver, soft)         !default;
+$button-icon--border: (
+	default: palette(gray, lighter),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
 
-// Disabled Button
-$button-disabled-color:                 palette(silver, medium)       !default;
-$button-disabled-border-color:          palette(gray, lighter)        !default;
-$button-disabled-bg-color:              palette(silver, light)        !default;
+$button-icon--background: (
+	default: palette(silver, default),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
 
+$button-icon--background-hover: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--background-filled: (
+	default: palette(silver, soft),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--color: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--color-hover: (
+	default: palette(gray, dark),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--color-disabled: (
+	default: palette(gray, lighter),
+	blue:    rgba(23, 168, 227, 0.5),
+	green:   rgba(26, 188, 156, 0.5),
+	red:     rgba(255, 109, 109, 0.5),
+	orange:  rgba(255, 126, 65, 0.5),
+	yellow:  rgba(254, 207, 47, 0.5),
+	purple:  rgba(141, 0, 177, 0.5)
+) !default;
+
+$button-icon--alt: (
+	default: palette(mono, white),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+$button-icon--color-filled: (
+	default: palette(silver, medium),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+// ============================================================
 // Toggles Colors (_toggles.scss)
 $toggle-slider-bg-color:                palette(silver, medium)       !default;
 $toggle-slider-bg-hover-color:          palette(silver)               !default;

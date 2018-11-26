@@ -1,5 +1,17 @@
 v2.3.11
 - [Fix] Sidenav floating input overlapping default WordPress notifications.
+- [Enhance] Button styles are more organized now and color variations can
+   be easily handled through _colors.scss file.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#buttons for
+			more details on changes.
+- [Enhance] Input with button field now support regular and icon buttons.
+- [Enhance] Buttons now support orange and yellow colors.
+- [Enhance] Showcase for buttons, for a better understanding of the element.
+- [Enhance] Button color "primary" variation has been removed and replaced with
+   "blue" color, this to make sure we get color variations based on colors and not
+   just random names.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#buttons for
+			details of how we're handling color variations now.
 
 v2.3.10
 
