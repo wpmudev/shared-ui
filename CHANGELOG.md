@@ -1,5 +1,6 @@
 v2.3.11
 - [Fix] Sidenav floating input overlapping default WordPress notifications.
+- [Enhance] Tabs - Remove JS state saving. Add ability to open a tab from url hash.
 - [Enhance] Button styles are more organized now and color variations can
    be easily handled through _colors.scss file.
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#buttons for

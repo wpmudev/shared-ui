@@ -297,7 +297,7 @@ function admin_body_classes( $classes ) {
 									<div class="sui-tabs sui-side-tabs">
 
 										<div data-tabs>
-											<div class="active">Tab 1</div>
+											<div>Tab 1</div>
 											<div>Tab 2</div>
 											<div>Tab 3</div>
 											<div>Tab 4</div>
@@ -8960,6 +8960,9 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 							<li class="sui-vertical-tab">
 								<a href="#" data-tab="demo-side-tabs">Side Tabs</a>
 							</li>
+							<li class="sui-vertical-tab">
+								<a href="#" data-tab="demo-tabs-doc">Documentation</a>
+							</li>
 						</ul>
 
 					</div>
@@ -8986,10 +8989,10 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 									<div class="sui-tabs">
 
 										<div data-tabs>
-											<div class="active">Tab 1</div>
-											<div>Tab 2</div>
-											<div>Tab 3</div>
-											<div>Tab 4</div>
+											<div id="sui-tab-1" class="active">Tab 1</div>
+											<div id="sui-tab-2" >Tab 2</div>
+											<div id="sui-tab-3" >Tab 3</div>
+											<div id="sui-tab-4" >Tab 4</div>
 										</div>
 
 										<div data-panes>
@@ -9135,6 +9138,151 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 											<div class="sui-tab-boxed"><p>Content. Tab 4.</p></div>
 										</div>
 
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-tabs-doc" style="display: none;">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">Documentation</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+									<span class="sui-description">This is the markup required for standard tabs.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet html">&lt;div class="sui-tabs"&gt;
+
+	&lt;div data-tabs&gt;
+		&lt;div id="sui-tab-1" class="active"&gt;Tab 1&lt;/div&gt;
+		&lt;div id="sui-tab-2" &gt;Tab 2&lt;/div&gt;
+		&lt;div id="sui-tab-3" &gt;Tab 3&lt;/div&gt;
+		&lt;div id="sui-tab-4" &gt;Tab 4&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div data-panes&gt;
+
+		&lt;div class="active"&gt;&lt;p&gt;Content. Tab 1.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+									</div>
+
+									<p>You will note the ids for each of the data-tabs; this is not required but if you
+									want a specific tab to be opened on page load by a hash value you will need them.</p>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Flushed</span>
+									<span class="sui-description">For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet html">&lt;div class="sui-tabs sui-tabs-flushed"&gt;
+
+	...
+
+&lt;/div&gt;</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Side Tabs</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet html">&lt;div class="sui-side-tabs sui-tabs"&gt;
+
+	&lt;div data-tabs&gt;
+		&lt;div class="active"&gt;Tab 1&lt;/div&gt;
+		&lt;div&gt;Tab 2&lt;/div&gt;
+		&lt;div&gt;Tab 3&lt;/div&gt;
+		&lt;div&gt;Tab 4&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div data-panes&gt;
+		&lt;div class="sui-tab-boxed active"&gt;&lt;p&gt;Content. Tab 1.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Advanced Usage</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet js">SUI.suiTabs({
+    tabGroup: '[data-tabs]',
+    paneGroup: '[data-panes]',
+    tabActive: 'active',
+    paneActive: 'active',
+    callback: function(tab, pane) {
+      console.log(tab);
+      console.log(pane);
+    });</pre>
+									</div>
+									<p><code>tabGroup</code> and <code>paneGroup</code></p>
+									<ul>
+										<li><code>tabGroup</code> is the selector of the direct parent of the tabs.</li>
+										<li><code>paneGroup</code> is the selector of the direct parent of the panes.</li>
+									</ul>
+									<p><code>tabActive</code> and <code>paneActive</code></p>
+									<ul>
+										<li><code>tabActive</code> is the classname that will be set when the tab is active.</li>
+										<li><code>paneActive</code> is the classname that will be set when the pane is active.</li>
+									</ul>
+									<p><code>callback</code></p>
+									<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>pane</code>.</p>
+									<p>To get all tabs within the group you can do this inside the anonymous function:</p>
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet js">console.log(tab.parentNode.children);
+console.log(pane.parentNode.children);</pre>
 									</div>
 
 								</div>
