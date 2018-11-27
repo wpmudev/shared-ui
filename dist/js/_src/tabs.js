@@ -124,7 +124,7 @@
     };
 
 
-    if ( 0 !== $( '.sui-2-3-11 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-12 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
