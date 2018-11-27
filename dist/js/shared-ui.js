@@ -8675,7 +8675,8 @@
         window.SUI = {};
     }
 
-    SUI.suiTabs = function( options ) {
+    SUI.suiTabs = function( config ) {
+
         var data;
         var types = [ 'tab', 'pane' ];
         var type;
@@ -8688,12 +8689,12 @@
         var memory = [];
 
         function init( options ) {
-            var itemIndex;
             var groupIndex;
             var tabItems;
+            var itemIndex;
+            var hashId;
             data = options;
             setDefaults();
-            setMemory();
 
             groups.tab = document.querySelectorAll( data.tabGroup );
             groups.pane = document.querySelectorAll( data.paneGroup );
@@ -8707,11 +8708,15 @@
                     indexGroup = groupIndex;
                     indexItem = itemIndex;
 
-                    if ( ! hasMemory() ) {
-                        continue;
+                    if ( window.location.hash ) {
+                        hashId = window.location.hash.replace( /[^\w-_]/g, '' );
+
+                        if ( hashId === tabItems[itemIndex].id ) {
+                            setNodes( groupIndex, itemIndex );
+                        }
                     }
-                    setNodes( groupIndex, itemIndex );
                 }
+
             }
         }
 
@@ -8738,34 +8743,6 @@
             memory[groupIndex] = [];
             memory[groupIndex][itemIndex] = true;
 
-            localStorage.setItem( 'tabbis', JSON.stringify( memory ) );
-        }
-
-        function hasMemory() {
-            if ( 'undefined' === typeof memory ) {
-                return;
-            }
-            if  ( 'undefined' === typeof memory[indexGroup]) {
-                return;
-            }
-            if ( 'undefined' === typeof memory[indexGroup][indexItem]) {
-                return;
-            }
-            if ( true !== memory[indexGroup][indexItem]) {
-                return;
-            }
-            return true;
-        }
-
-        function setMemory() {
-            if ( null === localStorage.getItem( 'tabbis' ) ) {
-                return;
-            }
-            if ( 0 === localStorage.getItem( 'tabbis' ).length ) {
-                return;
-            }
-
-            memory = Object.values( JSON.parse( localStorage.getItem( 'tabbis' ) ) );
         }
 
         function putActiveClass() {
@@ -8810,23 +8787,9 @@
             }
         }
 
-        function reset() {
-            var groupIndex;
-            var itemIndex;
-            for ( groupIndex = 0;  groupIndex < groups.tab.length; groupIndex++ ) {
-                tabItems = groups.tab[groupIndex].children;
-                paneItems = groups.pane[groupIndex].children;
-
-                for ( itemIndex = 0; itemIndex < tabItems.length; itemIndex++ ) {
-                    tabItems[itemIndex].classList.remove( data['tab-active']);
-                    paneItems[itemIndex].classList.remove( data['pane-active']);
-                }
-            }
-            localStorage.removeItem( 'tabbis' );
-        }
-
-        init( options );
+        return init( config );
     };
+
 
     if ( 0 !== $( '.sui-2-3-11 .sui-tabs' ).length ) {
         SUI.suiTabs();
