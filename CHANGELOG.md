@@ -1,5 +1,4 @@
-v2.3.11
-- [Fix] Sidenav floating input overlapping default WordPress notifications.
+v2.3.12
 - [Fix] Small tag not correct styling.
 - [Enhance] Tabs - Remove JS state saving. Add ability to open a tab from url hash.
 			Dev Notes: Check that your sui-tabs are still working fine.
@@ -15,6 +14,11 @@ v2.3.11
    just random names.
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#buttons for
 			details of how we're handling color variations now.
+
+
+v2.3.11
+- [Fix] Sidenav floating input overlapping default WordPress notifications.
+
 
 v2.3.10
 
