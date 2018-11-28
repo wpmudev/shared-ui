@@ -1,13 +1,10 @@
 v2.3.13
 - [Fix] Select2 with icon using sui-control-with-icon positioning.
-<<<<<<< HEAD
-- [Enhance] Add Pagination Active Filters.
-=======
 - [Fix] Icon buttons alignment when using "a" tag.
 - [Fix] Correct margins for buttons inside dropdown element.
 - [Fix] Icon buttons hide tooltips.
 - [Enhance] All buttons variations should have the same disabled background and color.
->>>>>>> 5be75a9702a0c4cb914bf2764439f391c130016b
+- [Enhance] Add Pagination Active Filters.
 
 
 v2.3.12
