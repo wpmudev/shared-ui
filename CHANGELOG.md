@@ -1,5 +1,9 @@
 v2.3.13
 - [Fix] Select2 with icon using sui-control-with-icon positioning.
+- [Fix] Icon buttons alignment when using "a" tag.
+- [Fix] Correct margins for buttons inside dropdown element.
+- [Fix] Icon buttons hide tooltips.
+- [Enhance] All buttons variations should have the same disabled background and color.
 
 
 v2.3.12
