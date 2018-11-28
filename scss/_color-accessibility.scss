@@ -116,6 +116,16 @@
 			}
 
 		}
+		
+		// Toggle Tabs.
+		.sui-side-tabs {
+			.sui-tab-item {
+				&.active {
+					color: $accessible-light;
+					background-color: $accessible-dark;
+				}
+			}
+		}
 
 		// Tags.
 		.sui-tag {
@@ -240,6 +250,40 @@
 		.sui-toggle {
 			input[type=checkbox]:checked+.sui-toggle-slider {
 				background-color: $accessible-dark;
+			}
+		}
+		
+		// Checkbox and Radio.
+		.sui-checkbox,
+		.sui-radio {
+			input:checked+span {
+				border-color: $accessible-dark;
+				background-color: $accessible-dark;
+			}
+		}
+		
+		// WP Editor.
+		.wp-editor-wrap {
+			&.tmce-active {
+				.wp-editor-tabs {
+					.switch-tmce {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
+				}
+			}
+			&.html-active {
+				.wp-editor-tabs {
+					.switch-html {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
+				}
+			}
+			.wp-media-buttons {
+				.insert-media {
+					background-color: $accessible-dark !important;
+				}
 			}
 		}
 
