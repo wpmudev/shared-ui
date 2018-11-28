@@ -1,3 +1,7 @@
+v2.3.13
+- [Fix] Select2 with icon using sui-control-with-icon positioning.
+
+
 v2.3.12
 - [Fix] Small tag not correct styling.
 - [Enhance] Tabs - Remove JS state saving. Add ability to open a tab from url hash.
