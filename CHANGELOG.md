@@ -4,6 +4,7 @@ v2.3.13
 - [Fix] Correct margins for buttons inside dropdown element.
 - [Fix] Icon buttons hide tooltips.
 - [Enhance] All buttons variations should have the same disabled background and color.
+- [Enhance] Add color accessible styles for tabs, checkboxes, radio and wp editor.
 
 
 v2.3.12
