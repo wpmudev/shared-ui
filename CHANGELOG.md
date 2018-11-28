@@ -5,6 +5,7 @@ v2.3.13
 - [Fix] Icon buttons hide tooltips.
 - [Enhance] All buttons variations should have the same disabled background and color.
 - [Enhance] Add color accessible styles for tabs, checkboxes, radio and wp editor.
+- [Fix] Update footer link for The Hub in free footer.
 
 
 v2.3.12
