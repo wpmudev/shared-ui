@@ -6,6 +6,7 @@ v2.3.13
 - [Enhance] All buttons variations should have the same disabled background and color.
 - [Enhance] Add color accessible styles for tabs, checkboxes, radio and wp editor.
 - [Fix] Update footer link for The Hub in free footer.
+- [Fix] Remove transition from sortable items which were causing errors with js sortable.
 
 
 v2.3.12
