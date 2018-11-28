@@ -118,8 +118,8 @@
 		&:disabled,
 		&[disabled],
 		&.sui-button-onload {
-			background-color: map-get($button-disabled-background, default);
-			color: map-get($button-disabled-color, default);
+			background-color: $button-disabled--background;
+			color: $button-disabled--color;
 		}
 
 		// VARIATION: Button with right icon
@@ -150,8 +150,8 @@
 				&:disabled,
 				&[disabled],
 				&.sui-button-onload {
-					background-color: map-get($button-disabled-background, $color);
-					color: map-get($button-disabled-color, $color);
+					background-color: $button-disabled--background;
+					color: $button-disabled--color;
 				}
 			}
 		}
@@ -216,9 +216,9 @@
 			&:disabled,
 			&[disabled],
 			&.sui-button-onload {
-				border-color: map-get($button-disabled-background, default);
-				background-color: map-get($button-disabled-background, default);
-				color: map-get($button-disabled-color, default);
+				border-color: $button-disabled--background;
+				background-color: $button-disabled--background;
+				color: $button-disabled--color;
 			}
 
 			@each $color in $button-colors {
@@ -238,9 +238,9 @@
 					&:disabled,
 					&[disabled],
 					&.sui-button-onload {
-						border-color: map-get($button-disabled-background, $color);
-						background-color: map-get($button-disabled-background, $color);
-						color: map-get($button-disabled-color, $color);
+						border-color: $button-disabled--background;
+						background-color: $button-disabled--background;
+						color: $button-disabled--color;
 					}
 				}
 			}
@@ -306,7 +306,9 @@
 	button.sui-button-icon {
 		width: 30px;
 		height: 30px;
-		overflow: hidden;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		padding: 0 4px;
 		border-width: 1px;
 		background-color: transparent;
@@ -332,11 +334,8 @@
 		&:disabled,
 		&[disabled],
 		&.sui-button-onload {
-			color: map-get($button-icon--color-disabled, default);
-		}
-
-		&.sui-button-onload {
-			background-color: map-get($button-icon--background, default);
+			color: $button-disabled--color;
+			background-color: $button-disabled--background;
 		}
 
 		@each $color in $button-colors {
@@ -355,11 +354,8 @@
 				&:disabled,
 				&[disabled],
 				&.sui-button-onload {
-					color: map-get($button-icon--color-disabled, $color);
-				}
-
-				&.sui-button-onload {
-					background-color: map-get($button-icon--background, $color);
+					color: $button-disabled--color;
+					background-color: $button-disabled--background;
 				}
 			}
 		}
@@ -379,12 +375,9 @@
 
 			&.disabled,
 			&:disabled,
-			&[disabled] {
-				border-color: map-get($button-icon--color-disabled, default);
-			}
-
+			&[disabled],
 			&.sui-button-onload {
-				border-color: map-get($button-icon--background, default);
+				border-color: $button-disabled--background;
 			}
 
 			@each $color in $button-colors {
@@ -402,12 +395,9 @@
 
 					&.disabled,
 					&:disabled,
-					&[disabled] {
-						border-color: map-get($button-icon--color-disabled, $color);
-					}
-
+					&[disabled],
 					&.sui-button-onload {
-						border-color: map-get($button-icon--background, $color);
+						border-color: $button-disabled--background;
 					}
 				}
 			}
@@ -424,6 +414,14 @@
 				background-color: darken(map-get($button-icon--background-filled, default), 8%);
 			}
 
+			&.disabled,
+			&:disabled,
+			&[disabled],
+			&.sui-button-onload {
+				background-color: $button-disabled--background;
+				color: $button-disabled--color;
+			}
+
 			@each $color in $button-colors {
 
 				&.sui-button-#{$color} {
@@ -434,6 +432,14 @@
 					&:active,
 					&.sui-active {
 						background-color: darken(map-get($button-icon--background-filled, $color), 10%);
+					}
+
+					&.disabled,
+					&:disabled,
+					&[disabled],
+					&.sui-button-onload {
+						background-color: $button-disabled--background;
+						color: $button-disabled--color;
 					}
 				}
 			}
@@ -446,6 +452,23 @@
 
 			[class*="sui-icon-"] {
 				font-size: 13px;
+			}
+		}
+	}
+
+	// FIX: Dropdown button
+	// Remove margin when using sui-buttons inside dropdown element
+	.sui-dropdown {
+
+		.sui-button,
+		a.sui-button,
+		button.sui-button {
+
+			&, &-icon {
+
+				&:not(:last-child) {
+					margin-right: 0;
+				}
 			}
 		}
 	}

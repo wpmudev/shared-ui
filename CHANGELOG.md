@@ -1,3 +1,13 @@
+v2.3.13
+- [Fix] Select2 with icon using sui-control-with-icon positioning.
+- [Fix] Icon buttons alignment when using "a" tag.
+- [Fix] Correct margins for buttons inside dropdown element.
+- [Fix] Icon buttons hide tooltips.
+- [Enhance] All buttons variations should have the same disabled background and color.
+- [Enhance] Add color accessible styles for tabs, checkboxes, radio and wp editor.
+- [Fix] Update footer link for The Hub in free footer.
+
+
 v2.3.12
 - [Fix] Small tag not correct styling.
 - [Enhance] Tabs - Remove JS state saving. Add ability to open a tab from url hash.
