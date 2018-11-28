@@ -1,5 +1,6 @@
 v2.3.13
 - [Fix] Select2 with icon using sui-control-with-icon positioning.
+- [Enhance] Add Pagination Active Filters.
 
 
 v2.3.12
