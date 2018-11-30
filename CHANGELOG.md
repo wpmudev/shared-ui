@@ -1,5 +1,6 @@
 v2.3.14
 - [Enhance] Add Pagination Active Filters.
+- [Enhance] Accessibility improvements for links and ace selectors
 
 v2.3.13
 - [Fix] Select2 with icon using sui-control-with-icon positioning.
