@@ -1,4 +1,5 @@
 v2.3.14
+- [Enhance] Wysiwyg editor content links need to be the same blue from SUI.
 - [Enhance] Add Pagination Active Filters.
 - [Enhance] Accessibility improvements for links and ace selectors
 
