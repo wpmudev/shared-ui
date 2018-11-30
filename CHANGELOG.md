@@ -1,3 +1,6 @@
+v2.3.14
+- [Enhance] Add Pagination Active Filters.
+
 v2.3.13
 - [Fix] Select2 with icon using sui-control-with-icon positioning.
 - [Fix] Icon buttons alignment when using "a" tag.
@@ -7,7 +10,6 @@ v2.3.13
 - [Enhance] Add color accessible styles for tabs, checkboxes, radio and wp editor.
 - [Fix] Update footer link for The Hub in free footer.
 - [Fix] Remove transition from sortable items which were causing errors with js sortable.
-- [Enhance] Add Pagination Active Filters.
 
 
 v2.3.12
