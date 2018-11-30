@@ -197,4 +197,45 @@
 			padding: #{$sui-gutter - 1px};
 		}
 	}
+
+	.sui-pagination-active-filters {
+
+		.sui-active-filter {
+			color: $white;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 16px;
+			border-radius: 4px;
+			background-color: #666666;
+			padding: 5px 0 5px 10px;
+			white-space: nowrap;
+			max-width: 240px;
+			text-overflow: ellipsis;
+			margin-right: 10px;
+
+			.sui-active-filter-remove {
+				cursor: pointer;
+				padding: 5px 7px;
+				margin-right: -2px;
+                color: $white;
+                background-color: #5E5E5E;
+                transition: all .3s ease;
+                border-radius: 0 $border-radius $border-radius 0;
+				@include icon(before, close);
+				&:before {
+					color: $white;
+					font-size: 10px;
+				}
+
+                &:hover {
+                    color: $white;
+                    background-color: #565656;
+                }
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
 }
