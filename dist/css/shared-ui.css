@@ -466,7 +466,7 @@
 
 .sui-2-3-13 .sui-wrap [class*="sui-icon-"]:before, .sui-2-3-13 .sui-wrap [class*="sui-icon-"]:after, .sui-2-3-13 .sui-wrap .sui-box-body .sui-upsell-row .sui-upsell-notice p:first-of-type:before, .sui-2-3-13 .sui-wrap .sui-box-selector input:checked + span:before, .sui-2-3-13 .sui-wrap .sui-notice p:first-of-type:before,
 .sui-2-3-13 .sui-wrap .sui-notice-top p:first-of-type:before,
-.sui-2-3-13 .sui-wrap .sui-notice-floating p:first-of-type:before, .sui-2-3-13 .sui-wrap .sui-insert-variables .select-container .select-list-container .list-value:before, .sui-2-3-13 .sui-wrap .sui-insert-variables .sui-variables + .select2 .select2-selection--single .select2-selection__arrow:before, .sui-2-3-13 .sui-wrap .sui-checkbox input + span:before, .sui-2-3-13 .sui-wrap .sui-upload .sui-upload-image .sui-image-preview:before, .sui-2-3-13 .sui-wrap .sui-upload .sui-upload-file:before, .sui-2-3-13 .sui-dialog .sui-dialog-close:before, .sui-2-3-13 .sui-dialog .sui-dialog-back:before, .sui-2-3-13 .sui-wrap .sui-listing li:before, .sui-2-3-13 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-3-13 .sui-select-dropdown .select2-search--dropdown:after,
+.sui-2-3-13 .sui-wrap .sui-notice-floating p:first-of-type:before, .sui-2-3-13 .sui-wrap .sui-insert-variables .select-container .select-list-container .list-value:before, .sui-2-3-13 .sui-wrap .sui-insert-variables .sui-variables + .select2 .select2-selection--single .select2-selection__arrow:before, .sui-2-3-13 .sui-wrap .sui-checkbox input + span:before, .sui-2-3-13 .sui-wrap .sui-upload .sui-upload-image .sui-image-preview:before, .sui-2-3-13 .sui-wrap .sui-upload .sui-upload-file:before, .sui-2-3-13 .sui-dialog .sui-dialog-close:before, .sui-2-3-13 .sui-dialog .sui-dialog-back:before, .sui-2-3-13 .sui-wrap .sui-listing li:before, .sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove:before, .sui-2-3-13 select.sui-select + .select2-container .select2-selection--single .select2-selection__arrow:before, .sui-2-3-13 .sui-select-dropdown .select2-search--dropdown:after,
 .sui-2-3-13 .sui-variables-dropdown .select2-search--dropdown:after, .sui-2-3-13 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before, .sui-2-3-13 .sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before, .sui-2-3-13 .sui-wrap .sui-recipient .sui-recipient-name:before {
   font-family: 'wpmudev-plugin-icons' !important;
   speak: none;
@@ -12166,6 +12166,49 @@ html.sui-has-overlay {
   }
 }
 
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  border-radius: 4px;
+  background-color: #666666;
+  padding: 5px 0 5px 10px;
+  white-space: nowrap;
+  max-width: 240px;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+}
+
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove {
+  cursor: pointer;
+  padding: 5px 7px;
+  margin-right: -2px;
+  color: #FFFFFF;
+  background-color: #5E5E5E;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove:before {
+  content: ")";
+}
+
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove:before {
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove:hover {
+  color: #FFFFFF;
+  background-color: #565656;
+}
+
+.sui-2-3-13 .sui-wrap .sui-pagination-active-filters .sui-active-filter:last-of-type {
+  margin-right: 0;
+}
+
 .sui-2-3-13 select.sui-select + .select2-container {
   width: 100% !important;
   display: block;
@@ -13181,6 +13224,43 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   }
 }
 
+.sui-2-3-13 .sui-status-dot {
+  width: 30px;
+  height: 30px;
+  cursor: help;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sui-2-3-13 .sui-status-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 20px;
+}
+
+.sui-2-3-13 .sui-status-dot span, .sui-2-3-13 .sui-status-dot.sui-draft span {
+  background-color: #E6E6E6;
+}
+
+.sui-2-3-13 .sui-status-dot.sui-published:hover {
+  background-color: #F2F2F2;
+}
+
+.sui-2-3-13 .sui-status-dot.sui-published span {
+  background-color: #17A8E3;
+}
+
 /**
  *  Color accessibility
  *  NOTE: This needs to be loaded at the bottom so it can override styles.
@@ -13194,11 +13274,11 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 }
 
 .sui-2-3-13 .sui-wrap.sui-color-accessible a {
-  color: #1a1a1a;
+  color: #1a1a1a !important;
 }
 
 .sui-2-3-13 .sui-wrap.sui-color-accessible a:hover {
-  color: #000000;
+  color: #000000 !important;
 }
 
 .sui-2-3-13 .sui-wrap.sui-color-accessible pre,
@@ -13369,6 +13449,16 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   background-color: #000000;
 }
 
+.sui-2-3-13 .sui-wrap.sui-color-accessible .sui-status-dot span {
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+}
+
+.sui-2-3-13 .sui-wrap.sui-color-accessible .sui-status-dot.sui-published span {
+  background-color: #000000;
+  border: none;
+}
+
 .sui-2-3-13 .sui-wrap.sui-color-accessible .wp-editor-wrap.tmce-active .wp-editor-tabs .switch-tmce {
   color: #FFFFFF;
   background-color: #000000;
@@ -13381,6 +13471,10 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 
 .sui-2-3-13 .sui-wrap.sui-color-accessible .wp-editor-wrap .wp-media-buttons .insert-media {
   background-color: #000000 !important;
+}
+
+.sui-2-3-13 .sui-wrap.sui-color-accessible .sui-ace-selectors a.sui-selector {
+  background-color: #000000;
 }
 
 .sui-2-3-13 .sui-select-dropdown .select2-results .select2-results__group,
