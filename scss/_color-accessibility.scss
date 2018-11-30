@@ -8,9 +8,9 @@
 			color: $accessible-dark;
 		}
 		a {
-			color: lighten($accessible-dark, 10%);
+			color: lighten($accessible-dark, 10%) !important;
 			&:hover {
-				color: $accessible-dark;
+				color: $accessible-dark !important;
 			}
 		}
 
@@ -261,6 +261,20 @@
 				background-color: $accessible-dark;
 			}
 		}
+
+		// Status dot.
+		.sui-status-dot {
+			span {
+				background-color: $accessible-light;
+				border: 1px solid $accessible-dark;
+			}
+			&.sui-published {
+				span {
+					background-color: $accessible-dark;
+					border: none;
+				}
+			}
+		}
 		
 		// WP Editor.
 		.wp-editor-wrap {
@@ -284,6 +298,13 @@
 				.insert-media {
 					background-color: $accessible-dark !important;
 				}
+			}
+		}
+		
+		// Ace editor selectors.
+		.sui-ace-selectors {
+			a.sui-selector {
+				background-color: $accessible-dark;
 			}
 		}
 
