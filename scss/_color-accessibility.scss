@@ -305,6 +305,39 @@
 		.sui-ace-selectors {
 			a.sui-selector {
 				background-color: $accessible-dark;
+				color: $accessible-light !important;
+			}
+		}
+		
+		// Pagination filters.
+		.sui-pagination-wrap {
+			.sui-pagination-filter {
+				.sui-active-filter,
+				.sui-active-filter-remove,
+				.sui-active-filter-remove:hover {
+					background-color: $accessible-dark;
+				}
+			}
+		}
+		
+		// SUI box.
+		.sui-box {
+			.sui-box-title {
+				color: $accessible-dark !important;
+			}
+		}
+		
+		// SUI selector box.
+		.sui-box-selector {
+			input:checked+span {
+				background-color: $accessible-light !important;
+				color: $accessible-dark;
+				&:after {
+					border-top: 40px solid $accessible-dark;
+				}
+			}
+			input:checked+span [class*=sui-icon]:before {
+				color: $accessible-dark;
 			}
 		}
 
