@@ -353,36 +353,85 @@
 			}
 		}
 
+		// Select & Select2.
+		.select-container {
+			border-color: $accessible-dark;
+			background-color: $accessible-light;
+			.select-list-container {
+				.list-results {
+					border-color: $accessible-dark;
+					li {
+						color: $accessible-dark;
+						&.current {
+							background-color: $accessible-dark;
+							color: $accessible-light;
+						}
+					}
+				}
+			}
+		}
+
+		select.sui-select + .select2-container {
+			.select2-selection--single {
+				border-color: $accessible-dark;
+				background-color: $accessible-light;
+				.select2-selection__arrow::before {
+					color: $accessible-dark;
+				}
+				.select2-selection__rendered {
+					color: $accessible-dark;
+				}
+			}
+
+			.select2-selection--multiple {
+				border-color: $accessible-dark;
+				background-color: $accessible-light;
+				.select2-selection__rendered {
+					.select2-selection__choice {
+						background-color: $accessible-dark;
+					}
+				}
+			}
+		}
 	}
 }
 
 // Loaded outside of sui-wrap.
 @include body-class() {
-
 	// Select2.
 	.sui-select-dropdown {
-		.select2-results {
-			.select2-results__group,
-			.select2-results__option {
-				color: $accessible-dark;
+		border-color: $accessible-dark;
+		&.sui-color-accessible {
+			.select2-results {
+				.select2-results__group,
+				.select2-results__option {
+					color: $accessible-dark;
+				}
+				> .select2-results__options {
+					.select2-results__option {
+						color: $accessible-dark;
+						&[aria-selected=true] {
+							background-color: $accessible-dark;
+							color: $accessible-light;
+
+						}
+					}
+					.select2-results__option--highlighted:not([aria-selected=true]) {
+						color: $accessible-dark;
+					}
+				}
 			}
-		}
-	}
-	select.sui-select+.select2-container {
-		.select2-selection--single {
-			.select2-selection__rendered {
-				color: $accessible-dark;
+			.select2-search--dropdown {
+				.select2-search__field {
+					border-color: $accessible-dark;
+				}
 			}
-		}
-	}
-	.sui-variables-dropdown {
-		.select2-results {
 			.select2-results__message {
 				color: $accessible-dark;
 			}
-		}
-		.select2-search--dropdown:after {
-			color: $accessible-dark;
+			.select2-search--dropdown:after {
+				color: $accessible-dark;
+			}
 		}
 	}
 }
