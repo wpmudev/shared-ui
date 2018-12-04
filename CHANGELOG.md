@@ -1,5 +1,6 @@
 v2.3.16
 - [Enhance] Color Accessibility - Improve ACE editor.
+- [Enhance] Modals - Make Dialog able to scroll outside the modal itself.
 
 v2.3.15
 - [Enhance] Box builder fields need an accordion variation.
