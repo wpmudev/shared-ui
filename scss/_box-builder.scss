@@ -8,29 +8,10 @@
 		background-color: $box-builder--background;
 
 		.sui-builder-field {
-			cursor: pointer;
-			display: flex;
-			align-items: center;
-			padding: 5px $box-builder--field-spacing 5px;
 
-			> .sui-icon-drag {
-				width: $box-builder--field-icon-size;
-				flex: 0 0 $box-builder--field-icon-size;
-				color: $box-builder--field-move-color;
-				font-size: 16px;
-				text-align: center;
-				transition: $transition;
-
-				&:before {
-					display: block;
-					color: inherit;
-				}
-			}
-
-			> .sui-button,
-			> .sui-dropdown,
-			> .sui-button-icon {
-				flex: 0 0 auto;
+			.sui-button,
+			.sui-button-icon {
+				margin: 0;
 			}
 
 			.sui-builder-field-label {
@@ -115,12 +96,101 @@
 				}
 			}
 
-			@include media(max-width, md) {
-				height: $box-builder--field-height-md;
+			.sui-accordion-open-indicator {
+
+				[class*="sui-icon-"] {
+					transition: 0.2s linear;
+				}
 			}
 
-			@include media(min-width, md) {
-				height: $box-builder--field-height;
+			&,
+			.sui-accordion-item-header {
+
+				> .sui-icon-drag {
+					width: $box-builder--field-icon-size;
+					flex: 0 0 $box-builder--field-icon-size;
+					color: $box-builder--field-move-color;
+					font-size: 16px;
+					text-align: center;
+					transition: $transition;
+	
+					&:before {
+						display: block;
+						color: inherit;
+					}
+				}
+	
+				> .sui-button,
+				> .sui-dropdown,
+				> .sui-button-icon {
+					flex: 0 0 auto;
+				}
+			}
+
+			// VARIATION: Simple field
+			&:not(.sui-accordion-item) {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				padding: 5px $box-builder--field-spacing 5px;
+
+				@include media(max-width, md) {
+					height: $box-builder--field-height-md;
+				}
+	
+				@include media(min-width, md) {
+					height: $box-builder--field-height;
+				}
+			}
+
+			// VARIATION: Accordion field
+			&.sui-accordion-item {
+
+				.sui-accordion-item-header {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					padding: 5px $box-builder--field-spacing 5px;
+
+					@include media(max-width, md) {
+						height: $box-builder--field-height-md;
+					}
+		
+					@include media(min-width, md) {
+						height: $box-builder--field-height;
+					}
+				}
+
+				.sui-accordion-item-body {
+					display: none;
+					border-top: 1px solid palette(silver, soft);
+
+					@include media(max-width, md) {
+						padding: $sui-gutter-md;
+					}
+		
+					@include media(min-width, md) {
+						padding: $sui-gutter;
+					}
+				}
+
+				// VARIATION: Open accordion
+				&.sui-accordion-item--open {
+
+					.sui-accordion-item-header {
+
+						.sui-accordion-open-indicator {
+
+							[class*="sui-icon-"] {
+								transform: rotate(180deg);
+							}
+						}
+					}
+
+					.sui-accordion-item-body {
+						display: block;
+					}
+				}
 			}
 		}
 
@@ -150,8 +220,12 @@
 				box-shadow: $box-builder--field-shadow;
 				transition: $transition;
 
-				> .sui-icon-drag {
-					margin-left: -10px;
+				&,
+				.sui-accordion-item-header {
+
+					> .sui-icon-drag {
+						margin-left: -10px;
+					}
 				}
 
 				&.ui-sortable-handle {
@@ -187,13 +261,32 @@
 				&:active {
 					box-shadow: $box-builder--field-shadow-hover;
 
-					> .sui-icon-drag {
-						color: $box-builder--field-move-color-hover;
+					&,
+					.sui-accordion-item-header {
+
+						> .sui-icon-drag {
+							color: $box-builder--field-move-color-hover;
+						}
 					}
 				}
 
-				&.sui-can-move {
-					cursor: move;
+				// VARIATION: Simple field
+				&:not(.sui-accordion-item) {
+
+					&.sui-can-move {
+						cursor: move;
+					}
+				}
+
+				// VARIATION: Accordion field
+				&.sui-accordion-item {
+
+					&.sui-can-move {
+
+						.sui-accordion-item-header {
+							cursor: move;
+						}
+					}
 				}
 			}
 

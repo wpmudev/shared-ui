@@ -5,100 +5,103 @@
 		// Accordion Grid
 		&, &-block {
 
-			.sui-accordion-header,
-			.sui-accordion-item-header,
-			.sui-accordion-footer {
-				display: flex;
-				align-items: center;
-				font-size: $table--text-font-size;
-				line-height: $table--text-line-height;
-				font-family: $font;
-				font-weight: 400;
-				letter-spacing: $font--letter-spacing;
+			&:not(.sui-builder-fields) {
 
-				> div {
+				.sui-accordion-header,
+				.sui-accordion-item-header,
+				.sui-accordion-footer {
 					display: flex;
 					align-items: center;
-					flex: 1;
-					padding: 0 #{($sui-gutter-md / 2) - 1px};
+					font-size: $table--text-font-size;
+					line-height: $table--text-line-height;
+					font-family: $font;
+					font-weight: 400;
+					letter-spacing: $font--letter-spacing;
 
-					&:first-child {
-						padding-left: #{$sui-gutter-md - 1px};
+					> div {
+						display: flex;
+						align-items: center;
+						flex: 1;
+						padding: 0 #{($sui-gutter-md / 2) - 1px};
+
+						&:first-child {
+							padding-left: #{$sui-gutter-md - 1px};
+
+							@include media(min-width, md) {
+								padding-left: #{$sui-gutter - 1px};
+							}
+						}
+
+						&:last-child {
+							padding-right: #{$sui-gutter-md - 1px};
+
+							@include media(min-width, md) {
+								padding-right: #{$sui-gutter - 1px};
+							}
+						}
 
 						@include media(min-width, md) {
-							padding-left: #{$sui-gutter - 1px};
+							padding-right: #{($sui-gutter / 2) - 1px};
+							padding-left: #{($sui-gutter / 2) - 1px};
 						}
 					}
 
-					&:last-child {
-						padding-right: #{$sui-gutter-md - 1px};
-
-						@include media(min-width, md) {
-							padding-right: #{$sui-gutter - 1px};
-						}
+					> [class^="sui-accordion-col-"] {
+						flex: 0 0 auto;
 					}
 
-					@include media(min-width, md) {
-						padding-right: #{($sui-gutter / 2) - 1px};
-						padding-left: #{($sui-gutter / 2) - 1px};
-					}
-				}
+					// GRID
+					// To guarantee accordion columns agree on size we can apply
+					// below column classes based on a 12-columns grid.
+					@for $i from 1 through $accordion--grid {
 
-				> [class^="sui-accordion-col-"] {
-					flex: 0 0 auto;
-				}
-
-				// GRID
-				// To guarantee accordion columns agree on size we can apply
-				// below column classes based on a 12-columns grid.
-				@for $i from 1 through $accordion--grid {
-
-					.sui-accordion-col-#{$i} {
-						min-width: #{(100% * $i) / $accordion--grid};
-						flex-basis: #{(100% * $i) / $accordion--grid};
-					}
-				}
-			}
-
-			.sui-accordion-item {
-
-				.sui-accordion-item-header {
-					cursor: pointer;
-
-					.sui-accordion-open-indicator {
-
-						[class*="sui-icon-"] {
-							transition: 0.2s linear;
+						.sui-accordion-col-#{$i} {
+							min-width: #{(100% * $i) / $accordion--grid};
+							flex-basis: #{(100% * $i) / $accordion--grid};
 						}
 					}
 				}
 
-				.sui-accordion-item-body {
-					display: none;
-				}
+				.sui-accordion-item {
 
-				// When item is open
-				&.sui-accordion-item--open {
-
-					> .sui-accordion-item-header {
+					.sui-accordion-item-header {
+						cursor: pointer;
 
 						.sui-accordion-open-indicator {
 
 							[class*="sui-icon-"] {
-								transform: rotate(180deg);
+								transition: 0.2s linear;
 							}
 						}
 					}
 
-					> .sui-accordion-item-body {
-						display: block;
+					.sui-accordion-item-body {
+						display: none;
+					}
+
+					// When item is open
+					&.sui-accordion-item--open {
+
+						> .sui-accordion-item-header {
+
+							.sui-accordion-open-indicator {
+
+								[class*="sui-icon-"] {
+									transform: rotate(180deg);
+								}
+							}
+						}
+
+						> .sui-accordion-item-body {
+							display: block;
+						}
 					}
 				}
 			}
 		}
 
 		// DESIGN: Table (Flexbox)
-		&:not(.sui-table):not(.sui-accordion-block) {
+		&:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) {
 			margin: $sui-gutter-md 0;
 			border: 1px solid $table--border-color;
 			border-radius: $border-radius;
