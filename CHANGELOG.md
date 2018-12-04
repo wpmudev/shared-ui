@@ -1,5 +1,9 @@
 v2.3.15
 - [Enhance] Box builder fields need an accordion variation.
+- [Bug] Fix pagination active filters.
+- [Enhance] Color Accessibility - Improve components select, select2, active tab in subnav, sui box, selector box and ace selector.
+- [Enhance] Add styles for <hr>.
+- [Bug] Fix recipients line height.
 
 
 v2.3.14
