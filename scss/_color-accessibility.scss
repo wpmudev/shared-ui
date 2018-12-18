@@ -31,6 +31,20 @@
 		.sui-error-message {
 			border-color: $accessible-dark;
 			color: $accessible-dark;
+			background-color: $accessible-light;
+			&::placeholder {
+				color: $accessible-dark-alt;
+			}
+		}
+
+		.sui-checkbox,
+		.sui-radio {
+			input + span {
+				border-color: $accessible-dark;
+				& + span {
+					color: $accessible-dark;
+				}
+			}
 		}
 
 		.sui-upload-button {
@@ -111,18 +125,29 @@
 
 		// Tabs.
 		.sui-tabs {
-			[data-tabs] > * {
-				color: $accessible-dark;
+			> [data-tabs],
+			> .sui-tabs-menu {
+				> *,
+				.sui-tab-item {
+					color: $accessible-dark;
+					&:hover {
+						color: $accessible-dark-alt;
+					}
+				}
 			}
-
 		}
-		
+
 		// Toggle Tabs.
 		.sui-side-tabs {
-			.sui-tab-item {
-				&.active {
-					color: $accessible-light;
-					background-color: $accessible-dark;
+			> [data-tabs],
+			> .sui-tabs-menu {
+				> *,
+				.sui-tab-item {
+					color: $accessible-dark-alt;
+					&.active {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
 				}
 			}
 		}
@@ -345,6 +370,12 @@
 		
 		// SUI selector box.
 		.sui-box-selector {
+			input + span {
+				color: $accessible-dark-alt;
+				~span {
+					color: $accessible-dark-alt;
+				}
+			}
 			input:checked+span {
 				background-color: $accessible-light !important;
 				color: $accessible-dark;
@@ -354,6 +385,16 @@
 			}
 			input:checked+span [class*=sui-icon]:before {
 				color: $accessible-dark;
+			}
+		}
+
+		// SUI status box.
+		.sui-box-status {
+			.sui-status {
+				.sui-status-changes,
+				.sui-status-module {
+					color: $accessible-dark-alt;
+				}
 			}
 		}
 
@@ -408,6 +449,11 @@
 					}
 				}
 			}
+		}
+
+		// Footer.
+		.sui-footer {
+			color: $accessible-dark;
 		}
 	}
 }
