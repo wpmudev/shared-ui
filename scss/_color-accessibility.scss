@@ -176,11 +176,6 @@
 		}
 
 		// Progress bars.
-		.sui-progress-state {
-			.sui-progress-state-text {
-				color: $accessible-dark;
-			}
-		}
 		.sui-progress-block {
 			.sui-progress {
 				.sui-progress-bar {
@@ -188,8 +183,17 @@
 						background: $accessible-dark;
 					}
 				}
+				.sui-progress-text {
+					span {
+						color: $accessible-dark;
+					}
+				}
 			}
-
+		}
+		.sui-progress-state {
+			span {
+				color: $accessible-dark;
+			}
 		}
 
 		// Tables.
@@ -204,12 +208,16 @@
 
 		// Accordions.
 		.sui-accordion {
+			.sui-accordion-item-header {
+				box-shadow: none !important;
+			}
 			.sui-accordion-open-indicator {
 				i {
 					color: $accessible-dark;
 				}
 			}
 			.sui-accordion-item {
+				box-shadow: none !important;
 				&:hover {
 					background: transparent;
 				}
@@ -218,6 +226,9 @@
 				i {
 					color: $accessible-dark;
 				}
+			}
+			.sui-accordion-item-date {
+				color: $accessible-dark;
 			}
 		}
 
