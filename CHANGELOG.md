@@ -1,6 +1,8 @@
 v2.3.16
 - [Enhance] Color Accessibility - Improve ACE editor.
 
+- [Enhance] Color Accessibility - Improve components.
+
 v2.3.15
 - [Enhance] Box builder fields need an accordion variation.
 - [Bug] Fix pagination active filters.
