@@ -1,6 +1,25 @@
 @include body-class(true) {
 
 	.sui-accordion {
+		.sui-accordion-item-body,
+		.sui-accordion-item-content {
+			font-size: 13px;
+			line-height: 22px;
+
+			p {
+				font-size: 13px;
+				line-height: 22px;
+				margin: 5px 0 10px;
+			}
+
+			.sui-accordion-body-header {
+				display: block;
+				font-size: 13px;
+				line-height: 22px;
+				font-weight: 700;
+				margin: 5px 0;
+			}
+		}
 
 		// Accordion Grid
 		&, &-block {
@@ -168,7 +187,7 @@
 						}
 
 						[class*="sui-icon-"] {
-							font-size: 20px;
+							font-size: 16px;
 						}
 
 						.sui-accordion-open-indicator {
