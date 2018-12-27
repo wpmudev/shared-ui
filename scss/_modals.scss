@@ -10,6 +10,7 @@
 		display: flex;
 		align-items: center;
 		overflow: auto;
+		background-color: $modal-overlay-bg-color;
 
 		&, * {
 			box-sizing: border-box;
@@ -17,13 +18,12 @@
 
 		// ELEMENT: Overlay mask
 		.sui-dialog-overlay {
-			position: fixed;
+			position: absolute;
 			z-index: 13;
-			background-color: $modal-overlay-bg-color;
 			top: 0;
 			right: 0;
 			bottom: 0;
-			left: 160px;
+			left: 0;
 	
 			@media (max-width: 960px) {
 				left: 36px;
