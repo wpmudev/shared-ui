@@ -11040,6 +11040,25 @@ dialog.hide();
 </pre>
 				</div>
 
+				<h4>Changing Show/Hide Animation</h4>
+				<p>See example below changing the animation to fade instead of bounce for the modal with id <code>my-accessible-dialog</code>.
+					Note: You will have run this code after the dialog has been instantiated.</p>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// Show the dialog
+SUI.dialogs['my-accessible-dialog'].on( 'show', function( dialogEl, event ) {
+	var content = dialogEl.getElementsByClassName( 'sui-dialog-content' );
+	content[0].className = 'sui-dialog-content sui-fade-in';
+});
+
+// Hide the dialog
+SUI.dialogs['my-accessible-dialog'].on( 'hide', function( dialogEl, event ) {
+	var content = dialogEl.getElementsByClassName( 'sui-dialog-content' );
+	content[0].className = 'sui-dialog-content sui-fade-out';
+});
+</pre>
+				</div>
+
 				<div class="sui-box">
 					<div class="sui-box-body">
 						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Default</button>
