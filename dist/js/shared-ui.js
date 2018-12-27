@@ -88,10 +88,10 @@
       return this;
     }
 
-    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
+    this.node.classList.add('sui-fade-in');
+    this.node.classList.remove('sui-fade-out');
     var content = this.node.getElementsByClassName('sui-dialog-content');
     content[0].className = 'sui-dialog-content sui-bounce-in';
-    overlay[0].className = 'sui-dialog-overlay sui-fade-in';
 
     this.shown = true;
     this.node.removeAttribute('aria-hidden');
@@ -145,13 +145,12 @@
     }
 
 
-    var overlay = this.node.getElementsByClassName('sui-dialog-overlay');
 
     var content = this.node.getElementsByClassName('sui-dialog-content');
 
     content[0].className = 'sui-dialog-content sui-bounce-out';
-
-    overlay[0].className = 'sui-dialog-overlay sui-fade-out';
+    this.node.classList.add('sui-fade-out');
+    this.node.classList.remove('sui-fade-in');
 
     this.shown = false;
     // This has been set so there is enough time for the animation to show

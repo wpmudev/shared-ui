@@ -3302,6 +3302,13 @@
   }
 }
 
+.sui-2-3-15 .sui-wrap .sui-box-body .sui-box-settings-col-1 {
+  max-width: 200px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
+}
+
 .sui-2-3-15 .sui-wrap .sui-box-body .sui-box-settings-col-1 .sui-settings-label, .sui-2-3-15 .sui-wrap .sui-box-body .sui-box-settings-col-1 .sui-settings-label-with-tag {
   color: #333333;
 }
@@ -10448,13 +10455,14 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
 .sui-2-3-15 .sui-wrap .sui-table tbody tr .sui-table-item-title > [class*="sui-icon-"],
 .sui-2-3-15 .sui-wrap .sui-table tbody tr .sui-accordion-item-title > [class*="sui-icon-"] {
   margin-right: 10px;
-  font-size: 20px;
-  vertical-align: top;
+  font-size: 16px;
+  vertical-align: middle;
 }
 
 .sui-2-3-15 .sui-wrap .sui-table tbody tr .sui-table-item-title > [class*="sui-icon-"]:before,
 .sui-2-3-15 .sui-wrap .sui-table tbody tr .sui-accordion-item-title > [class*="sui-icon-"]:before {
-  display: block;
+  display: inline-block;
+  line-height: 22px;
 }
 
 .sui-2-3-15 .sui-wrap .sui-table tbody tr .sui-table-item-title > [class*="sui-icon-"].sui-icon-right,
@@ -10578,6 +10586,28 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   text-transform: capitalize;
+}
+
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-body,
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-content {
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-body p,
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-content p {
+  font-size: 13px;
+  line-height: 22px;
+  margin: 5px 0 10px;
+}
+
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-body .sui-accordion-body-header,
+.sui-2-3-15 .sui-wrap .sui-accordion .sui-accordion-item-content .sui-accordion-body-header {
+  display: block;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 700;
+  margin: 5px 0;
 }
 
 .sui-2-3-15 .sui-wrap .sui-accordion:not(.sui-builder-fields) .sui-accordion-header,
@@ -10896,7 +10926,7 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-15 .sui-wrap .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) .sui-accordion-item .sui-accordion-item-header .sui-accordion-item-title [class*="sui-icon-"] {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .sui-2-3-15 .sui-wrap .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) .sui-accordion-item .sui-accordion-item-header .sui-accordion-item-title .sui-accordion-open-indicator [class*="sui-icon-"] {
@@ -11548,6 +11578,7 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
       -ms-flex-align: center;
           align-items: center;
   overflow: auto;
+  background-color: rgba(51, 51, 51, 0.95);
 }
 
 .sui-2-3-15 .sui-dialog, .sui-2-3-15 .sui-dialog * {
@@ -11556,13 +11587,12 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-15 .sui-dialog .sui-dialog-overlay {
-  position: fixed;
+  position: absolute;
   z-index: 13;
-  background-color: rgba(51, 51, 51, 0.95);
   top: 0;
   right: 0;
   bottom: 0;
-  left: 160px;
+  left: 0;
 }
 
 @media (max-width: 960px) {
@@ -11924,6 +11954,12 @@ fieldset[disabled] .sui-2-3-15 .sui-wrap .sui-multi-checkbox:hover {
   -webkit-box-pack: unset;
       -ms-flex-pack: unset;
           justify-content: unset;
+}
+
+.sui-2-3-15 .sui-dialog.sui-dialog-sm:not(.sui-dialog-alt) .sui-dialog-content > .sui-box .sui-box-footer.sui-space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media (max-width: 782px) {
@@ -13378,6 +13414,41 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-error-message {
   border-color: #000000;
   color: #000000;
+  background-color: #FFFFFF;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-form-control::-webkit-input-placeholder, .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-webkit-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-label::-webkit-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-error-message::-webkit-input-placeholder {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-form-control:-ms-input-placeholder, .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-multi-checkbox:-ms-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-label:-ms-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-error-message:-ms-input-placeholder {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-form-control::-ms-input-placeholder, .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-ms-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-label::-ms-input-placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-error-message::-ms-input-placeholder {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-form-control::placeholder, .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-multi-checkbox::placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-label::placeholder,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-error-message::placeholder {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-checkbox input + span,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-radio input + span {
+  border-color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-checkbox input + span + span,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-radio input + span + span {
+  color: #000000;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-upload-button {
@@ -13419,11 +13490,31 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   color: #000000;
 }
 
-.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs [data-tabs] > * {
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > [data-tabs] > *,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > [data-tabs] .sui-tab-item,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > .sui-tabs-menu > *,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > .sui-tabs-menu .sui-tab-item {
   color: #000000;
 }
 
-.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs .sui-tab-item.active {
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > [data-tabs] > *:hover,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > [data-tabs] .sui-tab-item:hover,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > .sui-tabs-menu > *:hover,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tabs > .sui-tabs-menu .sui-tab-item:hover {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > [data-tabs] > *,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > [data-tabs] .sui-tab-item,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > .sui-tabs-menu > *,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > .sui-tabs-menu .sui-tab-item {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > [data-tabs] > *.active,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > [data-tabs] .sui-tab-item.active,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > .sui-tabs-menu > *.active,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-side-tabs > .sui-tabs-menu .sui-tab-item.active {
   color: #FFFFFF;
   background-color: #000000;
 }
@@ -13431,6 +13522,12 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tag {
   background: #000000;
   color: #FFFFFF;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tag.sui-tag-ghost {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #000000;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-notice,
@@ -13448,16 +13545,33 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   color: #000000;
 }
 
-.sui-2-3-15 .sui-wrap.sui-color-accessible [class*="sui-icon-"]:before {
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-upsell-row .sui-upsell-notice p {
+  border-left: 2px solid #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-upsell-row .sui-upsell-notice p:first-of-type:before {
+  color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible [class*="sui-icon-"]:before,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-dialog-close:before {
   color: #000000 !important;
 }
 
-.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-progress-state .sui-progress-state-text {
-  color: #000000;
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-tab-item.active [class*="sui-icon-"]:before {
+  color: #FFFFFF !important;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-progress-block .sui-progress .sui-progress-bar span {
   background: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-progress-block .sui-progress .sui-progress-text span {
+  color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-progress-state span {
+  color: #000000;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-table {
@@ -13470,8 +13584,18 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   color: #000000;
 }
 
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item-header {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-open-indicator i {
   color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item:hover {
@@ -13480,6 +13604,14 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item-title i {
   color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item-date {
+  color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-accordion.sui-accordion-block .sui-accordion-item:hover {
+  background: #FFFFFF;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-grade-a svg circle:last-child,
@@ -13516,13 +13648,35 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   border: 0;
 }
 
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-button-icon:not(.sui-button).sui-button-upsell,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-button.sui-button-upsell {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border-color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-button-icon:not(.sui-button).sui-button-upsell:hover,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-button.sui-button-upsell:hover {
+  border-color: #000000;
+}
+
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-list .sui-list-label,
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-list .sui-list-detail {
   color: #000000;
 }
 
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-toggle input[type=checkbox] + .sui-toggle-slider:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-toggle input[type=checkbox]:checked + .sui-toggle-slider {
   background-color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-toggle input[type=checkbox]:checked + .sui-toggle-slider:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-checkbox input:checked + span,
@@ -13560,6 +13714,23 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   color: #FFFFFF !important;
 }
 
+.sui-2-3-15 .sui-wrap.sui-color-accessible .ace-sui .ace_gutter {
+  background: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .ace-sui .ace_text-layer {
+  color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .ace-sui .ace_content {
+  background-color: #FFFFFF;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .ace-sui .ace_line {
+  -webkit-filter: brightness(0%);
+          filter: brightness(0%);
+}
+
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-pagination-wrap .sui-pagination-filter .sui-active-filter,
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-pagination-wrap .sui-pagination-filter .sui-active-filter-remove,
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-pagination-wrap .sui-pagination-filter .sui-active-filter-remove:hover {
@@ -13568,6 +13739,14 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box .sui-box-title {
   color: #000000 !important;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-selector input + span {
+  color: #555555;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-selector input + span ~ span {
+  color: #555555;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-selector input:checked + span {
@@ -13579,8 +13758,17 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   border-top: 40px solid #000000;
 }
 
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-selector input:checked + span ~ span {
+  border-top-color: #555555;
+}
+
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-selector input:checked + span [class*=sui-icon]:before {
   color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-status .sui-status .sui-status-changes,
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-box-status .sui-status .sui-status-module {
+  color: #555555;
 }
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible .sui-row-with-sidenav .sui-sidenav .sui-vertical-tabs .sui-vertical-tab.current {
@@ -13627,6 +13815,10 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 
 .sui-2-3-15 .sui-wrap.sui-color-accessible select.sui-select + .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
   background-color: #000000;
+}
+
+.sui-2-3-15 .sui-wrap.sui-color-accessible .sui-footer {
+  color: #000000;
 }
 
 .sui-2-3-15 .sui-select-dropdown {
