@@ -144,9 +144,19 @@
 		}
 
 		// Icons.
-		[class*="sui-icon-"] {
+		[class*="sui-icon-"],
+		.sui-dialog-close {
 			&:before {
 				color: $accessible-dark !important;
+			}
+		}
+		.sui-tab-item {
+			&.active {
+				[class*="sui-icon-"] {
+					&:before {
+						color: $accessible-light !important;
+					}
+				}
 			}
 		}
 
