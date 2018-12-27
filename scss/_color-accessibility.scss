@@ -304,6 +304,15 @@
 				padding: 7px 16px;
 				border: 0;
 			}
+			&.sui-button-upsell {
+				background: $accessible-light !important;
+				color: $accessible-dark !important;
+				border-color: $accessible-dark;
+				&:hover {
+					border-color: $accessible-dark;
+				}
+
+			}
 
 		}
 
@@ -317,8 +326,16 @@
 
 		// Toggles.
 		.sui-toggle {
-			input[type=checkbox]:checked+.sui-toggle-slider {
+			input[type=checkbox] + .sui-toggle-slider {
+				&:hover {
+					box-shadow: none;
+				}
+			}
+			input[type=checkbox]:checked + .sui-toggle-slider {
 				background-color: $accessible-dark;
+				&:hover {
+					box-shadow: none;
+				}
 			}
 		}
 		
