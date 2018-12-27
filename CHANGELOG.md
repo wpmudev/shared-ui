@@ -3,7 +3,7 @@ v2.3.16
 - [Enhance] Accordions - Change icon size to 16px and make sure it's aligned middle.
 - [Enhance] Accordions - update default styles for text in sui-accordion-item-body. Add content header class.
 - [Enhance] Modals - Make Dialog able to scroll outside the modal itself.
-
+- [Fix] IE11 - Flex for modal buttons and settings rows. (Fuck Internet Explorer)
 - [Enhance] Color Accessibility - Improve components.
 
 v2.3.15
