@@ -1,3 +1,7 @@
+v2.3.17
+- [Fix] Box Selectors – Set list top and bottom spacing to 30px.
+
+
 v2.3.16
 - [Enhance] Color Accessibility - Improve ACE editor.
 - [Enhance] Accordions - Change icon size to 16px and make sure it's aligned middle.
