@@ -1,6 +1,7 @@
 @include body-class(true) {
 
 	.sui-accordion {
+
 		.sui-accordion-item-body,
 		.sui-accordion-item-content {
 			font-size: 13px;
@@ -338,8 +339,6 @@
 					}
 				}
 			}
-
-			.sui-accordion-footer {}
 
 			// Flushed accordion
 			&.sui-accordion-flushed {
@@ -851,13 +850,19 @@
 			> *,
 			> .sui-tab-content {
 
-				> .sui-accordion-flushed {
+				.sui-accordion {
 
-					&:not(.sui-accordion-block) {
-						margin: -#{$sui-gutter-md};
-	
-						@include media(min-width, md) {
-							margin: -#{$sui-gutter};
+					&.sui-table,
+					&:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) {
+
+						&.sui-accordion-flushed {
+							margin-right: -#{$sui-gutter-md};
+							margin-left: -#{$sui-gutter-md};
+
+							@include media(min-width, md) {
+								margin-right: -#{$sui-gutter};
+								margin-left: -#{$sui-gutter};
+							}
 						}
 					}
 				}
@@ -869,17 +874,24 @@
 	// Improve flushed accordions inside .sui-side-tabs
 	.sui-side-tabs {
 
-		.sui-tab-content {
+		> .sui-tabs-content {
 
-			> .sui-accordion-flushed {
+			> .sui-tab-content {
 
-				&:not(.sui-accordion-block) {
-					margin-right: -#{$sui-gutter-md};
-					margin-left: -#{$sui-gutter-md};
+				.sui-accordion {
 
-					@include media(min-width, md) {
-						margin-right: -#{$sui-gutter};
-						margin-left: -#{$sui-gutter};
+					&.sui-table,
+					&:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) {
+
+						&.sui-accordion-flushed {
+							margin-right: -#{$sui-gutter-md};
+							margin-left: -#{$sui-gutter-md};
+
+							@include media(min-width, md) {
+								margin-right: -#{$sui-gutter};
+								margin-left: -#{$sui-gutter};
+							}
+						}
 					}
 				}
 			}
