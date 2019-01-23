@@ -1,3 +1,7 @@
+v2.3.17
+- [Enhance] Dropdown options with red color variation.
+
+
 v2.3.16
 - [Enhance] Color Accessibility - Improve ACE editor.
 - [Enhance] Accordions - Change icon size to 16px and make sure it's aligned middle.
