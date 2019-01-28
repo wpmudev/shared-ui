@@ -1,4 +1,4 @@
-v2.3.1
+v2.3.17
 - [Fix] Box Selectors – Set list top and bottom spacing to 30px.
 - [Fix] Flushed accordions inside tabs content not aligning to left and right edges.
 - [Fix] Box settings have issues displaying properly in IE.
