@@ -5,6 +5,7 @@ v2.3.17
 - [Enhance] Dashed Button - Add sui-lg variant.
 - [Enhance] Dropdown options with red color variation.
 - [Enhance] Modal - Allow user to change animation when showing and hiding
+- [Enhance] Pagination Filter - Add example tooltip on the filter for devs to follow.
 
 
 v2.3.16

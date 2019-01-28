@@ -1666,6 +1666,20 @@
   line-height: 18px;
 }
 
+.sui-2-3-16 .sui-wrap .sui-button.sui-button-dashed.sui-lg,
+.sui-2-3-16 .sui-wrap a.sui-button.sui-button-dashed.sui-lg,
+.sui-2-3-16 .sui-wrap button.sui-button.sui-button-dashed.sui-lg {
+  height: 70px;
+}
+
+@media (max-width: 782px) {
+  .sui-2-3-16 .sui-wrap .sui-button.sui-button-dashed.sui-lg,
+  .sui-2-3-16 .sui-wrap a.sui-button.sui-button-dashed.sui-lg,
+  .sui-2-3-16 .sui-wrap button.sui-button.sui-button-dashed.sui-lg {
+    height: 50px;
+  }
+}
+
 @media (max-width: 782px) {
   .sui-2-3-16 .sui-wrap .sui-button.sui-button-dashed,
   .sui-2-3-16 .sui-wrap a.sui-button.sui-button-dashed,
@@ -3314,15 +3328,6 @@
 }
 
 @media (min-width: 783px) {
-  .sui-2-3-16 .sui-wrap .sui-box-body .sui-box-settings-col-1 {
-    max-width: var(--column-width, 200px);
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 var(--column-width, 200px);
-            flex: 0 1 var(--column-width, 200px);
-  }
-}
-
-@media (min-width: 783px) {
   .sui-2-3-16 .sui-wrap .sui-box-body .sui-box-settings-col-2 {
     min-width: 0;
     -webkit-box-flex: 1;
@@ -3434,7 +3439,9 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 0;
   margin-right: -10px;
+  margin-bottom: 0;
   margin-left: -10px;
   padding: 0;
   border: 0;
@@ -8559,6 +8566,19 @@ fieldset[disabled] .sui-2-3-16 .sui-wrap .sui-multi-checkbox:hover {
   color: #333333;
 }
 
+.sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red, .sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red:focus, .sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red:visited, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red:focus, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red:visited {
+  background-color: transparent;
+  color: #FF6D6D;
+}
+
+.sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red:hover, .sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red:active, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red:hover, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red:active {
+  background-color: #FFE5E9;
+}
+
+.sui-2-3-16 .sui-wrap .sui-dropdown ul li a.sui-option-red [class*="sui-icon-"]:before, .sui-2-3-16 .sui-wrap .sui-dropdown ul li button.sui-option-red [class*="sui-icon-"]:before {
+  color: inherit;
+}
+
 .sui-2-3-16 .sui-wrap .sui-dropdown ul li [class*="sui-icon-"] {
   width: 24px;
   margin-right: 4px;
@@ -11524,29 +11544,37 @@ fieldset[disabled] .sui-2-3-16 .sui-wrap .sui-multi-checkbox:hover {
   }
 }
 
-.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * > .sui-accordion-flushed:not(.sui-accordion-block),
-.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block),
-.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * > .sui-accordion-flushed:not(.sui-accordion-block),
-.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block) {
-  margin: -20px;
-}
-
-@media (min-width: 783px) {
-  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * > .sui-accordion-flushed:not(.sui-accordion-block),
-  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block),
-  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * > .sui-accordion-flushed:not(.sui-accordion-block),
-  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block) {
-    margin: -30px;
-  }
-}
-
-.sui-2-3-16 .sui-wrap .sui-side-tabs .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block) {
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * .sui-accordion.sui-table.sui-accordion-flushed, .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * .sui-accordion.sui-table.sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed,
+.sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed {
   margin-right: -20px;
   margin-left: -20px;
 }
 
 @media (min-width: 783px) {
-  .sui-2-3-16 .sui-wrap .sui-side-tabs .sui-tab-content > .sui-accordion-flushed:not(.sui-accordion-block) {
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * .sui-accordion.sui-table.sui-accordion-flushed, .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > * .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-panes] > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * .sui-accordion.sui-table.sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > * .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed,
+  .sui-2-3-16 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-content > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed {
+    margin-right: -30px;
+    margin-left: -30px;
+  }
+}
+
+.sui-2-3-16 .sui-wrap .sui-side-tabs > .sui-tabs-content > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed, .sui-2-3-16 .sui-wrap .sui-side-tabs > .sui-tabs-content > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-16 .sui-wrap .sui-side-tabs > .sui-tabs-content > .sui-tab-content .sui-accordion.sui-table.sui-accordion-flushed, .sui-2-3-16 .sui-wrap .sui-side-tabs > .sui-tabs-content > .sui-tab-content .sui-accordion:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields).sui-accordion-flushed {
     margin-right: -30px;
     margin-left: -30px;
   }
