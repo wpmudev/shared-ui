@@ -1,5 +1,10 @@
-v2.3.17
+v2.3.1
 - [Fix] Box Selectors – Set list top and bottom spacing to 30px.
+- [Fix] Flushed accordions inside tabs content not aligning to left and right edges.
+- [Fix] Box settings have issues displaying properly in IE.
+- [Enhance] Dashed Button - Add sui-lg variant.
+- [Enhance] Dropdown options with red color variation.
+- [Enhance] Modal - Allow user to change animation when showing and hiding
 
 
 v2.3.16

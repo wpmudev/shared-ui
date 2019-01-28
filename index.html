@@ -2244,6 +2244,10 @@ function admin_body_classes( $classes ) {
 								<a href="#" role="button" data-tab="demo-element--buttons-input-button">Input + Button</a>
 							</li>
 
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--buttons-dashed">Dashed</a>
+							</li>
+
 						</ul>
 
 					</div>
@@ -3015,6 +3019,44 @@ function admin_body_classes( $classes ) {
 
 										<button class="sui-button sui-button-lg">Large Button</button>
 
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--buttons-dashed" style="display: none">
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Dashed Button</span>
+									<span class="sui-description">Used with selectors box this button has a width of 100% and default height of 60px.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+
+									<button class="sui-button sui-button-dashed">
+										<i class="sui-icon-plus" aria-hidden="true"></i>
+										Dashed Button
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-dashed&quot;&gt;
+	&lt;i class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	Dashed Button
+&lt;/button&gt;
+</pre>
+
+										<span class="sui-description">You can add the class <code>sui-lg</code> to give the button a height of 70px.</span>
 									</div>
 
 								</div>
@@ -11037,6 +11079,25 @@ dialog.show();
 
 // Hide the dialog
 dialog.hide();
+</pre>
+				</div>
+
+				<h4>Changing Show/Hide Animation</h4>
+				<p>See example below changing the animation to fade instead of bounce for the modal with id <code>my-accessible-dialog</code>.
+					Note: You will have run this code after the dialog has been instantiated.</p>
+				<div class="demo-code-block">
+<pre class="sui-code-snippet js">
+// Change animation on the show event
+SUI.dialogs['my-accessible-dialog'].on( 'show', function( dialogEl, event ) {
+	var content = dialogEl.getElementsByClassName( 'sui-dialog-content' );
+	content[0].className = 'sui-dialog-content sui-fade-in';
+});
+
+// Change animation on the hide event
+SUI.dialogs['my-accessible-dialog'].on( 'hide', function( dialogEl, event ) {
+	var content = dialogEl.getElementsByClassName( 'sui-dialog-content' );
+	content[0].className = 'sui-dialog-content sui-fade-out';
+});
 </pre>
 				</div>
 
