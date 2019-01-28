@@ -1,4 +1,5 @@
 v2.3.17
+- [Fix] Flushed accordions inside tabs content not aligning to left and right edges.
 - [Fix] Box settings have issues displaying properly in IE.
 - [Enhance] Dashed Button - Add sui-lg variant.
 - [Enhance] Dropdown options with red color variation.
