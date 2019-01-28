@@ -1,5 +1,8 @@
 v2.3.17
 - [Enhance] Dashed Button - Add sui-lg variant.
+- [Enhance] Dropdown options with red color variation.
+- [Enhance] Modal - Allow user to change animation when showing and hiding
+
 
 v2.3.16
 - [Enhance] Color Accessibility - Improve ACE editor.

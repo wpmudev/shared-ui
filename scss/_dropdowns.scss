@@ -91,6 +91,25 @@
 							color: palette(gray, dark);
 						}
 					}
+
+					&.sui-option-red {
+
+						&,
+						&:focus,
+						&:visited {
+							background-color: transparent;
+							color: palette(red, default);
+						}
+
+						&:hover,
+						&:active {
+							background-color: palette(red, light);
+						}
+
+						[class*="sui-icon-"]:before {
+							color: inherit;
+						}
+					}
 				}
 
 				[class*="sui-icon-"] {
