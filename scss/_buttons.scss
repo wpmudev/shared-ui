@@ -190,6 +190,14 @@
 			color: $button-dashed--color;
 			line-height: 18px;
 
+			&.sui-lg {
+				height: $button-dashed-height-lg;
+
+				@include media(max-width, md) {
+					height: $button-dashed-height-md;
+				}
+			}
+
 			@include media(max-width, md) {
 				height: $button-dashed-height-md;
 			}
