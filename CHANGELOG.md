@@ -2,6 +2,8 @@ v2.3.18
 - [Enhance] Box builder fields now support images.
 - [Enhance] Box builder styles variation to match react component.
 - [Enhance] Box builder variation to get a flushed element.
+- [Enhance] Add default class (gray) to accordions.
+			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#accordions for classes.
 - [Fix] Remove maintain focus from dialogs to fix issue with wp editors in modals.
 
 v2.3.17
