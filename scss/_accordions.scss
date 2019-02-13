@@ -257,6 +257,15 @@
 					}
 				}
 
+				// STATUS: Default
+				&.sui-default {
+
+					> .sui-accordion-item-header,
+					> .sui-accordion-item-body {
+						box-shadow: inset 3px 0 $gray;
+					}
+				}
+
 				// STATUS: Error
 				&.sui-error {
 
@@ -445,6 +454,11 @@
 					&:hover,
 					&:focus {
 						background-color: $accordion--content-bg-color;
+					}
+
+					// Default
+					&.sui-default + .sui-accordion-item-content {
+						box-shadow: inset 3px 0 0 $gray;
 					}
 
 					// Error
