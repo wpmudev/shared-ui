@@ -25,7 +25,7 @@
         // removeEventListener to avoid losing references
         this._show = this.show.bind(this);
         this._hide = this.hide.bind(this);
-        this._maintainFocus = this._maintainFocus.bind(this);
+        // this._maintainFocus = this._maintainFocus.bind(this);
         this._bindKeypress = this._bindKeypress.bind(this);
 
         // Keep a reference of the node on the instance
@@ -121,7 +121,7 @@
         // Bind a focus event listener to the body element to make sure the focus
         // stays trapped inside the dialog while open, and start listening for some
         // specific key presses (TAB and ESC)
-        document.body.addEventListener('focus', this._maintainFocus, true);
+        // document.body.addEventListener('focus', this._maintainFocus, true);
         document.addEventListener('keydown', this._bindKeypress);
 
         // Add overlay class to document body.
@@ -184,7 +184,7 @@
 
         // Remove the focus event listener to the body element and stop listening
         // for specific key presses
-        document.body.removeEventListener('focus', this._maintainFocus, true);
+        // document.body.removeEventListener('focus', this._maintainFocus, true);
         document.removeEventListener('keydown', this._bindKeypress);
 
         // Remove overlay class to document body.
