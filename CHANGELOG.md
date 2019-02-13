@@ -1,3 +1,9 @@
+v2.3.18
+- [Enhance] Box builder fields now support images.
+- [Enhance] Box builder styles variation to match react component.
+- [Enhance] Box builder variation to get a flushed element.
+- [Fix] Remove maintain focus from dialogs to fix issue with wp editors in modals.
+
 v2.3.17
 - [Fix] Box Selectors – Set list top and bottom spacing to 30px.
 - [Fix] Flushed accordions inside tabs content not aligning to left and right edges.
