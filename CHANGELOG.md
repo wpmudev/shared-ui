@@ -1,3 +1,6 @@
+v2.3.19
+- [Fix] Select2 border color.
+
 v2.3.18
 - [Enhance] Box builder fields now support images.
 - [Enhance] Box builder styles variation to match react component.
