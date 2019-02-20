@@ -1,5 +1,7 @@
 v2.3.19
 - [Fix] Select2 border color.
+- [Fix] WP Editor styles to match markup when loaded via JS.
+
 
 v2.3.18
 - [Enhance] Box builder fields now support images.
@@ -8,6 +10,7 @@ v2.3.18
 - [Enhance] Add default class (gray) to accordions.
 			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#accordions for classes.
 - [Fix] Remove maintain focus from dialogs to fix issue with wp editors in modals.
+
 
 v2.3.17
 - [Fix] Box Selectors – Set list top and bottom spacing to 30px.
