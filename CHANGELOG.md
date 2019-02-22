@@ -3,6 +3,7 @@ v2.3.19
 - [Fix] WP Editor styles to match markup when loaded via JS.
 - [Enhance] Buttons - Removed fixed height.
 - [Fix] Pagination Filters - Corrected the close button on the filter on Firefox.
+- [Fix] Typography - Fix lineheight of `<small>` tag.
 
 
 v2.3.18
