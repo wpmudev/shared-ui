@@ -1,6 +1,8 @@
 v2.3.19
 - [Fix] Select2 border color.
 - [Fix] WP Editor styles to match markup when loaded via JS.
+- [Enhance] Buttons - Removed fixed height.
+- [Fix] Pagination Filters - Corrected the close button on the filter on Firefox.
 
 
 v2.3.18
