@@ -4,6 +4,7 @@ v2.3.19
 - [Enhance] Buttons - Removed fixed height.
 - [Fix] Pagination Filters - Corrected the close button on the filter on Firefox.
 - [Fix] Typography - Fix lineheight of `<small>` tag.
+- [Enhance] Icons - Add Automate icon."
 
 
 v2.3.18
