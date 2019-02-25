@@ -1,3 +1,7 @@
+v2.3.20
+- [Enhance] Box builder header with multiple options.
+
+
 v2.3.19
 - [Fix] Select2 border color.
 - [Fix] WP Editor styles to match markup when loaded via JS.
