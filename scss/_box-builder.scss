@@ -620,5 +620,16 @@
 				margin: -#{$sui-gutter};
 			}
 		}
+
+		&:not(:last-child) {
+
+			@include media(max-width, md) {
+				margin-bottom: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: $sui-gutter;
+			}
+		}
 	}
 }
