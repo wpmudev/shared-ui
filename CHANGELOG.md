@@ -1,3 +1,7 @@
+v2.3.20
+- [Enhance] Box builder footer can hide elements using sui-hidden class.
+
+
 v2.3.19
 - [Fix] Select2 border color.
 - [Fix] WP Editor styles to match markup when loaded via JS.
