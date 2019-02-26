@@ -4,6 +4,7 @@ v2.3.20
 - [Enhance] Box builder empty message with image.
 - [Enhance] Add `sui-hidden-important` class for instances where blocks aren't hidden because of higher CSS weight.
 - [Fix] Dynamic fields dropdown overlaps sticky box.
+- [Fix] Fancy Select - Stop converting multiple as it's not supported.
 
 
 v2.3.19
