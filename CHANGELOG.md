@@ -1,3 +1,7 @@
+v2.3.20
+- [Enhance] Box builder empty message with image.
+
+
 v2.3.19
 - [Fix] Select2 border color.
 - [Fix] WP Editor styles to match markup when loaded via JS.
