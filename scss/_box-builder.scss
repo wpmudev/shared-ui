@@ -392,6 +392,146 @@
 		.sui-box-builder-header {
 			display: block;
 
+			.sui-builder-text {
+				display: block;
+				color: palette(gray, light);
+				font: 400 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+			}
+
+			.sui-builder-options,
+			.sui-builder-conditions {
+
+				&:not(:first-child) {
+					border-top: 1px solid palette(silver, soft);
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter-md / 2};
+						margin-right: -#{$sui-gutter-md};
+						margin-left: -#{$sui-gutter-md};
+						padding: #{$sui-gutter-md / 2} $sui-gutter-md 0;
+					}
+
+					@include media(min-width, md) {
+						margin-top: #{$sui-gutter / 2};
+						margin-right: -#{$sui-gutter};
+						margin-left: -#{$sui-gutter};
+						padding: #{$sui-gutter / 2} $sui-gutter 0;
+					}
+				}
+			}
+
+			.sui-builder-options {
+
+				&.sui-options-inline {
+
+					.sui-radio,
+					.sui-checkbox,
+					.sui-builder-text {
+
+						&:not(:last-child) {
+
+							@include media(max-width, md) {
+								margin-bottom: 10px;
+							}
+
+							@include media(min-width, md) {
+								margin-right: 10px;
+							}
+						}
+					}
+
+					@include media(min-width, md) {
+						display: flex;
+					}
+				}
+
+				&:not(.sui-options-inline) {
+
+					.sui-builder-text {
+
+						&:not(:last-child) {
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+
+			.sui-builder-conditions {
+				display: flex;
+
+				.sui-builder-conditions-rule {
+					flex: 1;
+
+					span {
+
+						&:first-child {
+
+							@include media(min-width, md) {
+								margin-left: 0;
+							}
+						}
+
+						&:last-child {
+
+							@include media(min-width, md) {
+								margin-right: 0;
+							}
+						}
+
+						@include media(min-width, md) {
+							flex: 0 1 auto;
+							margin: 0 5px;
+						}
+					}
+
+					.select-container {
+
+						&:first-child {
+
+							@include media(min-width, md) {
+								margin-left: 0;
+							}
+						}
+
+						&:last-child {
+
+							@include media(min-width, md) {
+								margin-right: 0;
+							}
+						}
+
+						@include media(min-width, md) {
+							width: auto;
+							min-width: 75px;
+							max-width: unset;
+							flex: 0 0 auto;
+							margin: 0 5px;
+						}
+					}
+
+					+ * {
+
+						@include media(max-width, md) {
+							margin-left: #{$sui-gutter-md / 2};
+						}
+
+						@include media(min-width, md) {
+							margin-left: #{$sui-gutter / 2};
+						}
+					}
+
+					@include media(min-width, md) {
+						display: flex;
+						align-items: center;
+					}
+				}
+
+				.sui-builder-conditions-actions {
+					flex: 0 0 auto;
+				}
+			}
+
 			&:not(:only-child):not(:last-child) {
 				border-bottom: 1px solid $box-builder--border-color;
 			}
