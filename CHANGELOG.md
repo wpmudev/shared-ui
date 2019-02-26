@@ -1,5 +1,7 @@
 v2.3.20
 - [Enhance] Box builder header with multiple options.
+- [Enhance] Box builder footer can hide elements using sui-hidden class.
+- [Enhance] Box builder empty message with image.
 
 
 v2.3.19
