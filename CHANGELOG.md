@@ -1,4 +1,5 @@
 v2.3.20
+- [Enhance] Box builder footer can hide elements using sui-hidden class.
 - [Enhance] Box builder empty message with image.
 
 
