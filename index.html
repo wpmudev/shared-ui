@@ -11380,18 +11380,234 @@ p:first-of-type {
 			<section id="modals">
 
 				<div class="demo-info-block">
+
 					<h2>Dialogs</h2>
-					<div class="sui-notice sui-notice-warning">
-						<p>If you are using individual js components, <code>dialog.js</code> and <code>a11y-dialog.js</code> are both required.</p>
-					</div>
+
 					<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
-					<p>We use the library <a target="_blank" href="https://github.com/edenspiekermann/a11y-dialog">A11y-Dialog</a> to make sure they're accessible as possible.</p>
-					<p>Any dialogs with the class <code>sui-dialog</code> will be instantiated and stored in <code>SUI.dialogs</code> with their id. You will be able to call methods on these instances
-						eg <code>SUI.dialogs['my-accessible-dialog'].hide()</code> will hide the corresponding dialog with the id my-accessible-dialog. </p>
+
 				</div>
 
-				<h4>Javascript Instantiation</h4>
-				<div class="demo-code-block">
+				<div class="sui-row-with-sidenav">
+
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-default">Default</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-alternative">Alternative</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-onboarding">On Boarding</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--dialogs-docs">Documentation</a>
+							</li>
+
+						</ul>
+
+					</div><!-- END: Dialogs Sidenav -->
+
+					<div class="sui-box" data-tab="demo-element--dialogs-sample-default">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Default Dialog</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>This dialog can come in two different sizes: default and large.</p>
+
+							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--default-default">Default Size</button>
+
+							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--default-large">Large Dialog</button>
+
+							<div class="sui-notice sui-notice-warning">
+								<p>Currently is not possible to have a <strong>small</strong> version of this dialog.</p>
+							</div>
+
+						</div>
+
+					</div><!-- END: Dialogs Sample Default -->
+
+					<div class="sui-box" data-tab="demo-element--dialogs-sample-alternative" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Alternative Dialog</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Alternative dialogs differ from default ones in two main things: it's content is center aligned, header and footer doesn't have any border to visually split them from body content.</p>
+
+							<p>It can be used in three different modes (or cases):</p>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Basic Content</label>
+
+									<p class="sui-description">Commonly used on dialogs to delete an element or confirm an action. There are some cases when are accompanied by a footer image.</p>
+
+									<div class="sui-row">
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 600px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic">Default Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 500px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-rd">Reduced Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 400px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-sm">Small Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 980px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-lg">Large Size</button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<label class="sui-settings-label sui-dark">Product Image</label>
+
+									<p class="sui-description">This kind of dialog is commonly used for <strong>integrations</strong> settings or in cases where we need to highlight the image of the product we're editing.</p>
+
+									<div class="sui-row">
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 600px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image">Default Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 500px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-rd">Reduced Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 400px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-sm">Small Size</button>
+
+										</div>
+
+										<div class="sui-col-md-3">
+
+											<label class="sui-label">Maximum width: 980px</label>
+
+											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-lg">Large Size</button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div><!-- END: Dialogs Sample Alternative -->
+
+					<div class="sui-box" data-tab="demo-element--dialogs-sample-onboarding" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">On Boarding</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<p>This dialog comes in one size (500px maximum width).</p>
+
+									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--onboard">Sample Dialog</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div><!-- END: Dialogs Sample On Boarding -->
+
+					<div class="sui-box" data-tab="demo-element--dialogs-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Documentation</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-notice sui-notice-warning">
+										<p>If you are using individual js components, <code>dialog.js</code> and <code>a11y-dialog.js</code> are both required.</p>
+									</div>
+
+									<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
+
+									<p>We use the library <a target="_blank" href="https://github.com/edenspiekermann/a11y-dialog">A11y-Dialog</a> to make sure they're accessible as possible.</p>
+
+									<p>Any dialogs with the class <code>sui-dialog</code> will be instantiated and stored in <code>SUI.dialogs</code> with their id. You will be able to call methods on these instances e.g. <code>SUI.dialogs['my-accessible-dialog'].hide()</code> will hide the corresponding dialog with the id my-accessible-dialog.</p>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Javascript Instantiation</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
 <pre class="sui-code-snippet js">
 // Get the dialog element (with the accessor method you want)
 const el = document.getElementById('my-accessible-dialog');
@@ -11399,26 +11615,55 @@ const el = document.getElementById('my-accessible-dialog');
 // Instantiate a new A11yDialog module
 const dialog = new A11yDialog(el);
 </pre>
-				</div>
+									</div>
 
+								</div>
 
-				<h4>DOM API</h4>
-				<p>The following button will open the dialog with the <code>my-accessible-dialog</code> id when interacted with. </p>
-				<div class="demo-code-block">
+							</div><!-- END: Javascript Instantiation -->
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">DOM API</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-description">The following button will open the dialog with the <code>my-accessible-dialog</code> id when interacted with.</p>
+
+									<div class="demo-code-block">
 <pre class="sui-code-snippet html sui-no-copy">
 &lt;button type="button" data-a11y-dialog-show="my-accessible-dialog"&gt;Open the dialog&lt;/button&gt;
 </pre>
-				</div>
-				<p>The following button will hide the dialog with the <code>my-accessible-dialog</code> id when interacted with. </p>
-				<div class="demo-code-block">
+									</div>
+
+									<p class="sui-description">The following button will hide the dialog with the <code>my-accessible-dialog</code> id when interacted with.</p>
+
+									<div class="demo-code-block">
 <pre class="sui-code-snippet html sui-no-copy">
 &lt;button type="button" data-a11y-dialog-hide&gt;Close the dialog&lt;/button&gt;
 </pre>
-				</div>
+									</div>
 
-				<h4>JS API</h4>
-				<p>Regarding the JS API, it simply consists on <code>show()</code> and <code>hide()</code> methods on the dialog instance.</p>
-				<div class="demo-code-block">
+								</div>
+
+							</div><!-- END: DOM API -->
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">JS API</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-description">Regarding the JS API, it simply consists on <code>show()</code> and <code>hide()</code> methods on the dialog instance.</p>
+
+									<div class="demo-code-block">
 <pre class="sui-code-snippet js">
 // Show the dialog
 dialog.show();
@@ -11426,12 +11671,27 @@ dialog.show();
 // Hide the dialog
 dialog.hide();
 </pre>
-				</div>
+									</div>
 
-				<h4>Changing Show/Hide Animation</h4>
-				<p>See example below changing the animation to fade instead of bounce for the modal with id <code>my-accessible-dialog</code>.
-					Note: You will have run this code after the dialog has been instantiated.</p>
-				<div class="demo-code-block">
+								</div>
+
+							</div><!-- END: JS API -->
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Changing Animations</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-description">See example below changing the animation to fade instead of bounce for the modal with id <code>my-accessible-dialog</code>.</p>
+
+									<p class="sui-description"><strong>Note: You will have run this code after the dialog has been instantiated.</strong></p>
+
+									<div class="demo-code-block">
 <pre class="sui-code-snippet js">
 // Change animation on the show event
 SUI.dialogs['my-accessible-dialog'].on( 'show', function( dialogEl, event ) {
@@ -11445,6 +11705,16 @@ SUI.dialogs['my-accessible-dialog'].on( 'hide', function( dialogEl, event ) {
 	content[0].className = 'sui-dialog-content sui-fade-out';
 });
 </pre>
+									</div>
+
+								</div>
+
+							</div><!-- END: Changing Animations -->
+
+						</div>
+
+					</div><!-- END: Dialogs Documentation -->
+
 				</div>
 
 				<div class="sui-box">
@@ -12157,42 +12427,58 @@ $cross-sell-3: 'smartcrawl';
 		<!-- Begin Modals -->
 		<div class="sui-wrap">
 
-			<div class="sui-dialog" aria-hidden="true" tabindex="-1" id="my-accessible-dialog">
+			<!-- DIALOG: Default (Default) -->
+			<div class="sui-dialog" aria-hidden="true" tabindex="-1" id="sample-dialog--default-default">
 
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--default-default"></div>
 
 				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
 
 					<div class="sui-box" role="document">
 
 						<div class="sui-box-header">
+
 							<h3 class="sui-box-title" id="dialogTitle">Dialog Title</h3>
+
 							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+								<button data-a11y-dialog-hide="sample-dialog--default-default" class="sui-dialog-close" aria-label="Close this dialog window"></button>
 							</div>
+
 						</div>
 
 						<div class="sui-box-body">
+
 							<p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
+
 							<div class="sui-row">
+
 								<div class="sui-col">
 									<div class="sui-form-field">
 										<label for="dialog-text-5" class="sui-label">Text</label>
 										<input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text">
 									</div>
 								</div>
+
 								<div class="sui-col">
 									<div class="sui-form-field">
 										<label for="dialog-text-6" class="sui-label">Text</label>
 										<input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text">
 									</div>
 								</div>
+
 							</div>
+
 						</div>
 
 						<div class="sui-box-footer sui-space-between">
-							<button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog">Cancel</button>
-							<button class="sui-modal-close sui-button sui-button-blue">Add</button>
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--default-default">
+								<i class="sui-icon-undo" aria-hidden="true"></i>
+								Cancel
+							</button>
+
+							<button class="sui-modal-close sui-button sui-button-blue">Save Changes</button>
+
 						</div>
 
 					</div>
@@ -12201,109 +12487,666 @@ $cross-sell-3: 'smartcrawl';
 
 			</div>
 
-			<div class="sui-dialog sui-dialog-sm" tabindex="-1" aria-hidden="true" id="my-accessible-dialog-small">
+			<!-- DIALOG: Default (Large) -->
+			<div class="sui-dialog sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--default-large">
 
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--default-large"></div>
 
 				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
 
 					<div class="sui-box" role="document">
 
 						<div class="sui-box-header">
-							<h3 class="sui-box-title" id="dialogTitle2">Are you sure?</h3>
-							<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
-						</div>
 
-						<div class="sui-box-body">
-							<p>Are you sure you wish to ignore the current performance test results? You can re-run the test anytime to check your performance score again.</p>
-						</div>
+							<h3 class="sui-box-title" id="dialogTitle">Dialog Title</h3>
 
-						<div class="sui-box-footer">
-							<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small">Cancel</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-dialog sui-dialog-sm" tabindex="-1" aria-hidden="true" id="my-accessible-dialog-small-complex">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-dialog-with-image">
-							<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							<div class="sui-dialog-image" aria-hidden="true">
-								<img src="dist/images/activecampaign.png"
-									srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Active Campaign"
-									class="sui-image sui-image-center" />
-							</div>
-							<h3 class="sui-box-title" id="dialogTitle2">Connect ActiveCampaign</h3>
-						</div>
-
-						<div class="sui-box-body">
-							<p>Enter your ActiveCampaign API credentials below to connect your account. You can find your credentials <a href="">here</a>.</p>
-							<div class="sui-form-field">
-								<label class="sui-label">API URL</label>
-								<input class="sui-form-control" placeholder="Enter URL">
-							</div>
-							<div class="sui-form-field">
-								<label class="sui-label">API Key</label>
-								<input class="sui-form-control" placeholder="Enter Key">
-							</div>
-						</div>
-
-						<div class="sui-box-footer sui-space-between">
-							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-hide="my-accessible-dialog-small-complex">Disconnect</button>
-							<button type="button" class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-small-complex">Cancel</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-dialog sui-dialog-lg" aria-hidden="true" id="my-accessible-dialog-large">
-
-				<div class="sui-dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header">
-							<h3 class="sui-box-title" id="dialogTitle1">Dialog Title</h3>
 							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"></button>
+								<button data-a11y-dialog-hide="sample-dialog--default-large" class="sui-dialog-close" aria-label="Close this dialog window"></button>
 							</div>
+
 						</div>
 
 						<div class="sui-box-body">
+
+							<p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
+
 							<div class="sui-row">
+
 								<div class="sui-col">
 									<div class="sui-form-field">
-										<label for="dialog-text-56" class="sui-label">Text</label>
-										<input type="text" id="dialog-text-56" class="sui-form-control" placeholder="input type text">
+										<label for="dialog-text-5" class="sui-label">Text</label>
+										<input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text">
 									</div>
 								</div>
+
 								<div class="sui-col">
 									<div class="sui-form-field">
 										<label for="dialog-text-6" class="sui-label">Text</label>
-										<input type="text" id="dialog-text-66" class="sui-form-control" placeholder="input type text">
+										<input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text">
 									</div>
 								</div>
+
 							</div>
+
 						</div>
 
 						<div class="sui-box-footer sui-space-between">
-							<button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog-large">Cancel</button>
-							<button class="sui-modal-close sui-button sui-button-blue">Add</button>
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--default-large">
+								<i class="sui-icon-undo" aria-hidden="true"></i>
+								Cancel
+							</button>
+
+							<button class="sui-modal-close sui-button sui-button-blue">Save Changes</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative (Default) -->
+			<div class="sui-dialog sui-dialog-alt" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-basic" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
+
+							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-center">
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic">Cancel</button>
+
+							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
+								<i class="sui-icon-trash" aria-hidden="true"></i>
+								Delete
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative (Reduced) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-reduced" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-rd">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-rd"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-basic-rd" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
+
+							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-center">
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-rd">Cancel</button>
+
+							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
+								<i class="sui-icon-trash" aria-hidden="true"></i>
+								Delete
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative (Small) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-sm" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-sm">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-sm"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-basic-sm" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
+
+							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-center">
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-sm">Cancel</button>
+
+							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
+								<i class="sui-icon-trash" aria-hidden="true"></i>
+								Delete
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative (Large) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-lg">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-lg"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-basic-lg" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
+
+							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-center">
+
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-lg">Cancel</button>
+
+							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
+								<i class="sui-icon-trash" aria-hidden="true"></i>
+								Delete
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative with image -->
+			<div class="sui-dialog sui-dialog-alt" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<div class="sui-dialog-image" aria-hidden="true">
+								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
+							</div>
+
+							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
+
+							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-image" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API URL</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
+
+									<i class="sui-icon-link" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API Key</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
+
+									<i class="sui-icon-key" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-right">
+
+							<button class="sui-modal-close sui-button">Connect</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative with image (Reduced) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-reduced" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-rd">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-rd"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<div class="sui-dialog-image" aria-hidden="true">
+								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
+							</div>
+
+							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
+
+							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-image-rd" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API URL</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
+
+									<i class="sui-icon-link" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API Key</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
+
+									<i class="sui-icon-key" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-right">
+
+							<button class="sui-modal-close sui-button">Connect</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative with image (Small) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-sm" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-sm">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-sm"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<div class="sui-dialog-image" aria-hidden="true">
+								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
+							</div>
+
+							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
+
+							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-image-sm" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API URL</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
+
+									<i class="sui-icon-link" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API Key</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
+
+									<i class="sui-icon-key" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-right">
+
+							<button class="sui-modal-close sui-button">Connect</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative with image (Large) -->
+			<div class="sui-dialog sui-dialog-alt sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-lg">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-lg"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-box" role="document">
+
+						<div class="sui-box-header sui-block-content-center">
+
+							<div class="sui-dialog-image" aria-hidden="true">
+								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
+							</div>
+
+							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
+
+							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
+
+							<div class="sui-actions-right">
+								<button data-a11y-dialog-hide="sample-dialog--alt-image-lg" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API URL</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
+
+									<i class="sui-icon-link" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+							<div class="sui-form-field">
+
+								<label class="sui-label">API Key</label>
+
+								<div class="sui-control-with-icon">
+
+									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
+
+									<i class="sui-icon-key" aria-hidden="true"></i>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer sui-box-footer-right">
+
+							<button class="sui-modal-close sui-button">Connect</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Alternative with banner -->
+			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--onboard">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-default"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-slider">
+
+						<ul class="sui-slider-content" role="document">
+
+							<li class="sui-current sui-loaded" data-slide="1">
+
+								<div class="sui-box">
+
+									<div class="sui-box-banner" role="banner">
+										<img src="dist/images/plugins-hustle.jpg" />
+									</div>
+
+									<div class="sui-box-header sui-lg sui-block-content-center">
+
+										<h2 id="dialogTitle" class="sui-box-title">Hey, Andy</h2>
+
+										<span id="dialogDescription" class="sui-description">Welcome to Hustle, the only plugin you'll ever need to turn your visitors into loyal subscribers, leads and customers.</span>
+
+									</div>
+
+									<div class="sui-box-body sui-lg sui-block-content-center">
+
+										<button class="sui-button sui-button-blue sui-button-icon-right">
+											Get Started
+											<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+										</button>
+
+									</div>
+
+									<div class="sui-box-footer">
+
+										<ul class="sui-slider-steps sui-clickable">
+
+											<li class="current"><span>
+												<span class="sui-screen-reader-text">Step 1</span>
+											</span></li>
+
+											<li><button data-slide="2">
+												<span class="sui-screen-reader-text">Step 2</span>
+											</button></li>
+
+										</ul>
+
+									</div>
+
+								</div>
+
+								<p class="sui-onboard-skip"><a href="/">Skip this, I know my way around</a></p>
+
+							</li>
+
+							<li data-slide="2">
+
+								<div class="sui-box">
+
+									<div class="sui-box-banner" role="banner">
+										<img src="dist/images/plugins-hustle.jpg" />
+									</div>
+
+									<div class="sui-box-header sui-lg sui-block-content-center">
+
+										<h2 id="dialogTitle" class="sui-box-title">Create Module</h2>
+
+										<span id="dialogDescription" class="sui-description">Choose a module to get started on converting your visitors into subscribers, generate more leads and grow your social following.</span>
+
+									</div>
+
+									<div class="sui-box-selectors sui-box-selectors-col-2">
+
+										<ul>
+
+											<li><label for="demo-element--slider-option-1" class="sui-box-selector">
+												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-1" />
+												<span>
+													<i class="sui-icon-popup" aria-hidden="true"></i>
+													Pop-up
+												</span>
+											</label></li>
+
+											<li><label for="demo-element--slider-option-2" class="sui-box-selector">
+												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-2" />
+												<span>
+													<i class="sui-icon-slide-in" aria-hidden="true"></i>
+													Slide-in
+												</span>
+											</label></li>
+
+											<li><label for="demo-element--slider-option-3" class="sui-box-selector">
+												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-3" />
+												<span>
+													<i class="sui-icon-embed" aria-hidden="true"></i>
+													Embed
+												</span>
+											</label></li>
+
+											<li><label for="demo-element--slider-option-4" class="sui-box-selector">
+												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-4" />
+												<span>
+													<i class="sui-icon-share" aria-hidden="true"></i>
+													Social Share
+												</span>
+											</label></li>
+
+										</ul>
+
+									</div>
+
+									<div class="sui-box-body sui-lg sui-block-content-center">
+
+										<button class="sui-button sui-button-blue sui-button-icon-right">Create</button>
+
+									</div>
+
+									<div class="sui-box-footer">
+
+										<ul class="sui-slider-steps sui-clickable">
+
+											<li><button data-slide="1">
+												<span class="sui-screen-reader-text">Step 1</span>
+											</button></li>
+
+											<li class="current"><span>
+												<span class="sui-screen-reader-text">Step 2</span>
+											</span></li>
+
+										</ul>
+
+									</div>
+
+								</div>
+
+								<p class="sui-onboard-skip"><a href="/">Skip this, I'll create a module later</a></p>
+
+							</li>
+
+						</ul>
+
+						<div class="sui-slider-navigation">
+
+							<button class="sui-prev sui-hidden">
+								<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+								<span class="sui-screen-reader-text">Previous step</span>
+							</button>
+
+							<button class="sui-next">
+								<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+								<span class="sui-screen-reader-text">Next step</span>
+							</button>
+
 						</div>
 
 					</div>
