@@ -287,7 +287,7 @@
 			steps   = slider.find( '.sui-slider-steps' )
 			;
 
-		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) ) {
+		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) || slider.hasClass( 'sui-slider-off' ) ) {
 			return;
 		}
 
