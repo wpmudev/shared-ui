@@ -1,3 +1,8 @@
+v2.3.21
+- [New] On boarding dialog styles.
+- [New] Slider - To be used with on boarding dialogs (only).
+
+
 v2.3.20
 - [Enhance] Box builder header with multiple options.
 - [Enhance] Box builder footer can hide elements using sui-hidden class.
