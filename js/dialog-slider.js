@@ -11,7 +11,8 @@
 	SUI.sliderBack = function( el ) {
 
 		var slider = $( el ),
-			dialog = slider.closest( '.sui-dialog' )
+			dialog = slider.closest( '.sui-dialog' ),
+			slides = slider.find( '.sui-slider-content > li' )
 			;
 
 		var navigation = slider.find( '.sui-slider-navigation' ),
@@ -68,7 +69,7 @@
 
 					btnNext.removeClass( 'sui-hidden' );
 
-					if ( prevSlide.last() ) {
+					if ( slides.first().data( 'slide' ) === prevSlide.data( 'slide' ) ) {
 						btnBack.addClass( 'sui-hidden' );
 					}
 				}
@@ -92,7 +93,8 @@
 	SUI.sliderNext = function( el ) {
 
 		var slider = $( el ),
-			dialog = slider.closest( '.sui-dialog' )
+			dialog = slider.closest( '.sui-dialog' ),
+			slides = slider.find( '.sui-slider-content > li' )
 			;
 
 		var navigation = slider.find( '.sui-slider-navigation' ),
@@ -150,7 +152,7 @@
 
 					btnBack.removeClass( 'sui-hidden' );
 
-					if ( nextSlide.last() ) {
+					if ( slides.length === nextSlide.data( 'slide' ) ) {
 						btnNext.addClass( 'sui-hidden' );
 					}
 				}
