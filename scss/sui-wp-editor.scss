@@ -93,8 +93,41 @@ $sui--media-button-font-weight: 500;
 		// ELEMENT: Media Buttons
 		.wp-media-buttons {
 
+			.button {
+				height: 30px;
+				margin: 0 10px 0 0;
+				padding: 7px 16px;
+				border-width: 0;
+				background-color: palette(gray, light);
+				color: $white;
+				font: 500 12px/16px $font;
+				letter-spacing: $font--letter-spacing;
+
+				span.wp-media-buttons-icon {
+					vertical-align: middle;
+					margin-top: -1px;
+
+					&:before {
+						color: inherit;
+					}
+				}
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+
 			@media (max-width: 465px) {
 				float: none;
+				margin-bottom: 5px;
 			}
 		}
 
