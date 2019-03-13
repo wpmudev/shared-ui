@@ -1,6 +1,7 @@
 v2.3.21
 - [New] On boarding dialog styles.
 - [New] Slider - To be used with on boarding dialogs (only).
+- [Fix] WordPress editor media buttons alignment on small screens.
 
 
 v2.3.20
