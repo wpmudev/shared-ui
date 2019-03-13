@@ -246,21 +246,19 @@
 		&.sui-dialog-onboard {
 
 			.sui-dialog-content {
-				max-width: #{(500px + (map-get($onboard, button-size) * 2) + $sui-gutter-md) + ($sui-gutter-md * 2)};
 				pointer-events: none;
 
 				.sui-slider {
 					display: block;
 					position: relative;
-					padding: 0 #{map-get($onboard, button-size) + ($sui-gutter-md / 2)};
 
 					.sui-slider-content {
 						pointer-events: all;
+						padding: 0;
 
 						&, > li {
 							display: block;
 							margin: 0;
-							padding: 0;
 							border: 0;
 							list-style: none;
 						}
@@ -290,22 +288,26 @@
 									animation-name: fadeInRight;
 								}
 							}
+
+							@include media(max-width, md) {
+								padding: $sui-gutter-md 0;
+							}
+
+							@include media(min-width, md) {
+								padding: $sui-gutter 0;
+							}
 						}
 					}
 
 					.sui-slider-navigation {
 
 						button {
-							width: map-get($onboard, button-size);
-							height: map-get($onboard, button-size);
 							cursor: pointer;
 							pointer-events: all;
 							position: absolute;
 							top: 50%;
-							border-radius: #{map-get($onboard, button-size) * 2};
-							background-color: transparent;
+							border-radius: 50%;
 							transform: translateY(-50%);
-							color: $white;
 							font-size: 16px;
 							transition: $transition;
 
@@ -346,6 +348,20 @@
 
 							&.sui-next {
 								right: 0;
+							}
+
+							@include media(max-width, md) {
+								width: map-get($onboard, button-md);
+								height: map-get($onboard, button-md);
+								background-color: $white;
+								color: palette(gray, default);
+							}
+
+							@include media(min-width, md) {
+								width: map-get($onboard, button);
+								height: map-get($onboard, button);
+								background-color: transparent;
+								color: $white;
 							}
 						}
 					}
@@ -435,8 +451,12 @@
 						}
 					}
 
+					@include media(max-width, md) {
+						padding: 0 #{map-get($onboard, button-md) / 2};
+					}
+
 					@include media(min-width, md) {
-						padding: 0 #{map-get($onboard, button-size) + ($sui-gutter / 2)};
+						padding: 0 #{map-get($onboard, button) + ($sui-gutter / 2)};
 					}
 				}
 
@@ -489,8 +509,8 @@
 						}
 
 						&.sui-lg {
-							padding-right: #{$sui-gutter-md * 2};
-							padding-left: #{$sui-gutter-md * 2};
+							padding-right: $sui-gutter-md;
+							padding-left: $sui-gutter-md;
 
 							@include media(min-width, md) {
 								padding-right: #{$sui-gutter * 2};
@@ -562,8 +582,13 @@
 					}
 				}
 
-				@media (min-width: 501px) {
-					max-width: #{(500px + (map-get($onboard, button-size) * 2) + $sui-gutter) + ($sui-gutter * 2)};
+				@include media(max-width, md) {
+					max-width: #{(500px + (map-get($onboard, button) * 2) + $sui-gutter-md) + ($sui-gutter-md * 2)};
+					padding: 0 #{$sui-gutter-md / 2};
+				}
+
+				@include media(min-width, md) {
+					max-width: #{(500px + (map-get($onboard, button) * 2) + $sui-gutter) + ($sui-gutter * 2)};
 				}
 			}
 		}
