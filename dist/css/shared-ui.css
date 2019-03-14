@@ -279,6 +279,58 @@
   }
 }
 
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50px, 0, 0);
+            transform: translate3d(-50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50px, 0, 0);
+            transform: translate3d(-50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(50px, 0, 0);
+            transform: translate3d(50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(50px, 0, 0);
+            transform: translate3d(50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -12143,6 +12195,12 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
           box-sizing: border-box;
 }
 
+.sui-2-3-20 .sui-dialog, .sui-2-3-20 .sui-dialog:hover, .sui-2-3-20 .sui-dialog:focus, .sui-2-3-20 .sui-dialog:active {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .sui-2-3-20 .sui-dialog .sui-dialog-overlay {
   position: absolute;
   z-index: 13;
@@ -12292,6 +12350,10 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   font-family: "Roboto Condensed", "Roboto", Arial, sans-serif;
 }
 
+.sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-header .sui-box-title + .sui-description {
+  margin-top: 20px;
+}
+
 .sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-header .sui-dialog-image {
   width: 70px;
   height: 70px;
@@ -12306,7 +12368,10 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-header .sui-dialog-image img {
+  max-width: 100%;
+  max-height: 100%;
   display: block;
+  margin: 0 auto;
   border-radius: 3px;
 }
 
@@ -12326,14 +12391,18 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   }
 }
 
-.sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-header + .sui-box-body-slim {
-  padding-top: 10px;
-}
-
 @media (min-width: 783px) {
   .sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-header {
     padding-top: 60px;
   }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-body.sui-box-body-slim {
+  padding-top: 10px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-body + .sui-box-footer {
+  padding-top: 0;
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-alt .sui-dialog-content > .sui-box .sui-box-footer {
@@ -12353,6 +12422,327 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content {
+  max-width: 640px;
+  pointer-events: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider {
+  display: block;
+  position: relative;
+  padding: 0 50px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content {
+  pointer-events: all;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li {
+  display: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li.sui-current {
+  opacity: 0;
+  display: block;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li.sui-current.sui-loaded {
+  opacity: 1;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li.sui-current.fadeInLeft {
+  opacity: 1;
+  -webkit-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li.sui-current.fadeInRight {
+  opacity: 1;
+  -webkit-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  pointer-events: all;
+  position: absolute;
+  top: 50%;
+  border-radius: 80px;
+  background-color: transparent;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:focus, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:active {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:active {
+  background-color: #FFFFFF;
+  color: #666666;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button [class*="sui-icon-"] {
+  display: block;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button [class*="sui-icon-"]:before {
+  display: block;
+  color: inherit;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button.sui-prev {
+  left: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button.sui-next {
+  right: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 -5px;
+  padding: 20px 0;
+  border: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li {
+  list-style: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:before, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:after, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li:before, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li:after {
+  content: unset;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li {
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 0;
+  padding: 0 5px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span {
+  width: 7px;
+  height: 7px;
+  display: block;
+  border-radius: 14px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a:focus, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a:active, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li a:visited, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button:focus, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button:active, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li button:visited, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span:focus, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span:active, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps li > span:visited {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li > span {
+  background-color: #E6E6E6;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li button {
+  cursor: pointer;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li.current a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li.current button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li.current > span {
+  background-color: #666666;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li.current a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps.sui-clickable li.current button {
+  pointer-events: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li > span {
+  background-color: #666666;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li button {
+  pointer-events: none;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li.current ~ li a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li.current ~ li button, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps:not(.sui-clickable) li.current ~ li > span {
+  background-color: #E6E6E6;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider {
+    padding: 0 55px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box .sui-box-banner {
+  display: block;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box .sui-box-banner img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box .sui-box-banner:first-child {
+  overflow: hidden;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box .sui-box-banner:last-child {
+  overflow: hidden;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box .sui-box-banner + [class*="sui-box-"] {
+  padding-top: 40px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors) + .sui-box-selectors {
+  margin-top: 20px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors) + .sui-box-selectors {
+    margin-top: 30px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors) + [class*="sui-box-"]:not(.sui-box-selectors) {
+  padding-top: 20px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors) + [class*="sui-box-"]:not(.sui-box-selectors) {
+    padding-top: 30px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors).sui-lg {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors).sui-lg {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors):last-child {
+  padding-bottom: 20px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors):last-child {
+    padding-bottom: 30px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors):not(:last-child) {
+  padding-bottom: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header {
+  display: block;
+  border-bottom-width: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-box-title {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-box-title + .sui-description {
+  margin-top: 10px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-box-title + .sui-description {
+    margin-top: 15px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-description {
+  line-height: 22px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-footer {
+  display: block;
+  border-top-width: 0;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip {
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: -0.25px;
+  text-align: center;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a {
+  opacity: 0.7;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a:active, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a:visited {
+  color: #FFFFFF;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a:hover, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-onboard-skip a:active {
+  opacity: 1;
+}
+
+@media (min-width: 501px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content {
+    max-width: 670px;
+  }
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-sm:not(.sui-dialog-alt) .sui-dialog-content > .sui-box .sui-box-header {
@@ -12522,6 +12912,16 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 @media (max-width: 782px) {
   .sui-2-3-20 .sui-dialog.sui-dialog-sm:not(.sui-dialog-alt) .sui-dialog-content > .sui-box .sui-box-footer {
     padding-top: 10px;
+  }
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-reduced .sui-dialog-content {
+  max-width: 560px;
+}
+
+@media (max-width: 500px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-reduced .sui-dialog-content {
+    max-width: calc(500px + (20px*2));
   }
 }
 
