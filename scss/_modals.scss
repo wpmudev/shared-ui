@@ -512,6 +512,14 @@
 							padding-right: $sui-gutter-md;
 							padding-left: $sui-gutter-md;
 
+							&:last-child {
+								padding-bottom: #{$sui-gutter-md * 2};
+
+								@include media(min-width, md) {
+									padding-bottom: #{$sui-gutter * 2};
+								}
+							}
+
 							@include media(min-width, md) {
 								padding-right: #{$sui-gutter * 2};
 								padding-left: #{$sui-gutter * 2};
@@ -550,6 +558,18 @@
 
 						.sui-description {
 							line-height: 22px;
+						}
+
+						.sui-dialog-close {
+							position: absolute;
+							top: $sui-gutter-md;
+							right: $sui-gutter-md;
+						}
+
+						.sui-dialog-back {
+							position: absolute;
+							top: $sui-gutter-md;
+							left: $sui-gutter-md;
 						}
 					}
 

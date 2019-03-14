@@ -11561,7 +11561,9 @@ p:first-of-type {
 
 									<p>This dialog comes in one size (500px maximum width).</p>
 
-									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--onboard">Sample Dialog</button>
+									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--tour-basic">Basic Tour</button>
+
+									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--tour-forward">Forward Only Tour</button>
 
 								</div>
 
@@ -12994,8 +12996,8 @@ $cross-sell-3: 'smartcrawl';
 
 			</div>
 
-			<!-- DIALOG: On boarding -->
-			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--onboard">
+			<!-- DIALOG: Basic Tour -->
+			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--tour-basic">
 
 				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-default"></div>
 
@@ -13009,46 +13011,32 @@ $cross-sell-3: 'smartcrawl';
 
 								<div class="sui-box">
 
-									<div class="sui-box-banner" role="banner">
+									<div class="sui-box-banner" role="banner" aria-hidden="true">
 										<img src="dist/images/plugins-hustle.jpg" />
 									</div>
 
 									<div class="sui-box-header sui-lg sui-block-content-center">
 
-										<h2 id="dialogTitle" class="sui-box-title">Hey, Andy</h2>
+										<h2 id="dialogTitle" class="sui-box-title">Basic Tour</h2>
 
-										<span id="dialogDescription" class="sui-description">Welcome to Hustle, the only plugin you'll ever need to turn your visitors into loyal subscribers, leads and customers.</span>
+										<span id="dialogDescription" class="sui-description">In this example, we allow the user to go back and forth between screens and provide basic controls. This is most likely how onboarding tutorials will be.</span>
+
+										<button data-a11y-dialog-hide="sample-dialog--tour-basic" class="sui-dialog-close" aria-label="Close this dialog window"></button>
 
 									</div>
 
 									<div class="sui-box-body sui-lg sui-block-content-center">
 
-										<button class="sui-button sui-button-blue sui-button-icon-right">
+										<button class="sui-button sui-button-icon-right" data-a11y-dialog-tour-next>
 											Get Started
 											<i class="sui-icon-chevron-right" aria-hidden="true"></i>
 										</button>
 
 									</div>
 
-									<div class="sui-box-footer">
-
-										<ul class="sui-slider-steps sui-clickable">
-
-											<li class="current"><span>
-												<span class="sui-screen-reader-text">Step 1</span>
-											</span></li>
-
-											<li><button data-slide="2">
-												<span class="sui-screen-reader-text">Step 2</span>
-											</button></li>
-
-										</ul>
-
-									</div>
-
 								</div>
 
-								<p class="sui-onboard-skip"><a href="/">Skip this, I know my way around</a></p>
+								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-basic">Skip this, I know my way around</a></p>
 
 							</li>
 
@@ -13056,15 +13044,100 @@ $cross-sell-3: 'smartcrawl';
 
 								<div class="sui-box">
 
-									<div class="sui-box-banner" role="banner">
+									<div class="sui-box-banner" role="banner" aria-hidden="true">
 										<img src="dist/images/plugins-hustle.jpg" />
 									</div>
 
 									<div class="sui-box-header sui-lg sui-block-content-center">
 
-										<h2 id="dialogTitle" class="sui-box-title">Create Module</h2>
+										<h2 id="dialogTitle" class="sui-box-title">Example Step</h2>
 
-										<span id="dialogDescription" class="sui-description">Choose a module to get started on converting your visitors into subscribers, generate more leads and grow your social following.</span>
+										<span id="dialogDescription" class="sui-description">Ok so this is the first step in the experience. The user can close the modal, or go to the previous screen via the buttons up top. The primary action is to proceed using the button. All of this works well on mobile too.</span>
+
+										<button class="sui-dialog-back" aria-label="Go to previous slide" data-a11y-dialog-tour-back></button>
+
+										<button data-a11y-dialog-hide="sample-dialog--tour-basic" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+
+									</div>
+
+									<div class="sui-box-body sui-lg sui-block-content-center">
+
+										<button class="sui-button" data-a11y-dialog-tour-next>Continue</button>
+
+									</div>
+
+								</div>
+
+								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-basic">Skip this, I'll create a module later</a></p>
+
+							</li>
+
+							<li data-slide="3">
+
+								<div class="sui-box">
+
+									<div class="sui-box-banner" role="banner" aria-hidden="true">
+										<img src="dist/images/plugins-hustle.jpg" />
+									</div>
+
+									<div class="sui-box-header sui-lg sui-block-content-center">
+
+										<h2 id="dialogTitle" class="sui-box-title">Last Step</h2>
+
+										<span id="dialogDescription" class="sui-description">In the final step, we change the button back to blue to subconsciously highlight that it’s a final step. In this example, the user can still go back if they want to.</span>
+
+										<button class="sui-dialog-back" aria-label="Go to previous slide" data-a11y-dialog-tour-back></button>
+
+										<button data-a11y-dialog-hide="sample-dialog--tour-basic" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+
+									</div>
+
+									<div class="sui-box-body sui-lg sui-block-content-center">
+
+										<button class="sui-button sui-button-blue" data-a11y-dialog-hide="sample-dialog--tour-basic">Finish</button>
+
+									</div>
+
+								</div>
+
+								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-basic">Skip this, I'll create a module later</a></p>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- DIALOG: Forward Only Tour -->
+			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--tour-forward">
+
+				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-default"></div>
+
+				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+
+					<div class="sui-slider">
+
+						<ul class="sui-slider-content" role="document">
+
+							<li class="sui-current sui-loaded" data-slide="1">
+
+								<div class="sui-box">
+
+									<div class="sui-box-banner" role="banner" aria-hidden="true">
+										<img src="dist/images/plugins-hustle.jpg" />
+									</div>
+
+									<div class="sui-box-header sui-lg sui-block-content-center">
+
+										<h2 id="dialogTitle" class="sui-box-title">First Step</h2>
+
+										<span id="dialogDescription" class="sui-description">Ok so this is the first step in the experience. The user can close the modal to cancel the flow but the primary action is to proceed using the button. These will usually be user triggered actions like adding a new module.</span>
+
+										<button data-a11y-dialog-hide="sample-dialog--tour-forward" class="sui-dialog-close" aria-label="Close this dialog window"></button>
 
 									</div>
 
@@ -13072,32 +13145,32 @@ $cross-sell-3: 'smartcrawl';
 
 										<ul>
 
-											<li><label for="demo-element--slider-option-1" class="sui-box-selector">
-												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-1" />
+											<li><label for="demo-element--forward-option-1" class="sui-box-selector">
+												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-1" />
 												<span>
 													<i class="sui-icon-popup" aria-hidden="true"></i>
 													Pop-up
 												</span>
 											</label></li>
 
-											<li><label for="demo-element--slider-option-2" class="sui-box-selector">
-												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-2" />
+											<li><label for="demo-element--forward-option-2" class="sui-box-selector">
+												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-2" />
 												<span>
 													<i class="sui-icon-slide-in" aria-hidden="true"></i>
 													Slide-in
 												</span>
 											</label></li>
 
-											<li><label for="demo-element--slider-option-3" class="sui-box-selector">
-												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-3" />
+											<li><label for="demo-element--forward-option-3" class="sui-box-selector">
+												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-3" />
 												<span>
 													<i class="sui-icon-embed" aria-hidden="true"></i>
 													Embed
 												</span>
 											</label></li>
 
-											<li><label for="demo-element--slider-option-4" class="sui-box-selector">
-												<input type="radio" name="demo-element--slider-options" id="demo-element--slider-option-4" />
+											<li><label for="demo-element--forward-option-4" class="sui-box-selector">
+												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-4" />
 												<span>
 													<i class="sui-icon-share" aria-hidden="true"></i>
 													Social Share
@@ -13110,47 +13183,55 @@ $cross-sell-3: 'smartcrawl';
 
 									<div class="sui-box-body sui-lg sui-block-content-center">
 
-										<button class="sui-button sui-button-blue sui-button-icon-right">Create</button>
-
-									</div>
-
-									<div class="sui-box-footer">
-
-										<ul class="sui-slider-steps sui-clickable">
-
-											<li><button data-slide="1">
-												<span class="sui-screen-reader-text">Step 1</span>
-											</button></li>
-
-											<li class="current"><span>
-												<span class="sui-screen-reader-text">Step 2</span>
-											</span></li>
-
-										</ul>
+										<button class="sui-button" data-a11y-dialog-tour-next>Continue</button>
 
 									</div>
 
 								</div>
 
-								<p class="sui-onboard-skip"><a href="/">Skip this, I'll create a module later</a></p>
+								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-forward">Skip this, I know my way around</a></p>
+
+							</li>
+
+							<li data-slide="2">
+
+								<div class="sui-box">
+
+									<div class="sui-box-banner" role="banner" aria-hidden="true">
+										<img src="dist/images/plugins-hustle.jpg" />
+									</div>
+
+									<div class="sui-box-header sui-lg sui-block-content-center">
+
+										<h2 id="dialogTitle" class="sui-box-title">Last Step</h2>
+
+										<span id="dialogDescription" class="sui-description">In the final step, we change the button back to blue to subconsciously highlight that it’s a final step. In this example the user is unable to go back and must proceed.</span>
+
+										<button data-a11y-dialog-hide="sample-dialog--tour-forward" class="sui-dialog-close" aria-label="Close this dialog window"></button>
+
+									</div>
+
+									<div class="sui-box-body sui-lg">
+
+										<div class="sui-form-field">
+											<input type="text" class="sui-form-control" placeholder="E.g. Blank Form" />
+										</div>
+
+									</div>
+
+									<div class="sui-box-body sui-lg sui-block-content-center">
+
+										<button class="sui-button sui-button-blue" data-a11y-dialog-hide="sample-dialog--tour-forward">Finish</button>
+
+									</div>
+
+								</div>
+
+								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-forward">Skip this, I'll create a module later</a></p>
 
 							</li>
 
 						</ul>
-
-						<div class="sui-slider-navigation">
-
-							<button class="sui-prev sui-hidden">
-								<i class="sui-icon-chevron-left" aria-hidden="true"></i>
-								<span class="sui-screen-reader-text">Previous step</span>
-							</button>
-
-							<button class="sui-next">
-								<i class="sui-icon-chevron-right" aria-hidden="true"></i>
-								<span class="sui-screen-reader-text">Next step</span>
-							</button>
-
-						</div>
 
 					</div>
 
