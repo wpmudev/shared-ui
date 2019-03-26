@@ -138,9 +138,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-20 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-21 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-20 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-21 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
