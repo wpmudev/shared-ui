@@ -2,6 +2,7 @@ v2.3.21
 - [New] On boarding dialog styles.
 - [New] Slider - To be used with on boarding dialogs (only).
 - [Fix] WordPress editor media buttons alignment on small screens.
+- [Fix] Fix toggles when high contrast mode is on for windows 10.
 - [Enhance] New Icon font.
 			Dev Notes: If you're using the check icon by it's unicode character (which you shouldn't be) you will need to change it from "\3a9" to "\28".
 
