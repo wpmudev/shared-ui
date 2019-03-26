@@ -282,11 +282,13 @@
 
 	SUI.dialogSlider = function( el ) {
 
-		var slider  = $( el ),
-			dialog  = slider.closest( '.sui-dialog' ),
-			btnBack = slider.find( '.sui-slider-navigation .sui-prev' ),
-			btnNext = slider.find( '.sui-slider-navigation .sui-next' ),
-			steps   = slider.find( '.sui-slider-steps' )
+		var slider   = $( el ),
+			dialog   = slider.closest( '.sui-dialog' ),
+			btnBack  = slider.find( '.sui-slider-navigation .sui-prev' ),
+			btnNext  = slider.find( '.sui-slider-navigation .sui-next' ),
+			tourBack = slider.find( '*[data-a11y-dialog-tour-back]' ),
+			tourNext = slider.find( '*[data-a11y-dialog-tour-next]' ),
+			steps    = slider.find( '.sui-slider-steps' )
 			;
 
 		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) || slider.hasClass( 'sui-slider-off' ) ) {
@@ -306,9 +308,31 @@
 				});
 			}
 
+			if ( tourBack.length ) {
+
+				tourBack.on( 'click', function( e ) {
+
+					SUI.sliderBack( slider );
+
+					e.preventDefault();
+
+				});
+			}
+
 			if ( btnNext.length ) {
 
 				btnNext.on( 'click', function( e ) {
+
+					SUI.sliderNext( slider );
+
+					e.preventDefault();
+
+				});
+			}
+
+			if ( tourNext.length ) {
+
+				tourNext.on( 'click', function( e ) {
 
 					SUI.sliderNext( slider );
 
