@@ -602,7 +602,7 @@
 }
 
 .sui-2-3-20 .sui-wrap .sui-icon-check:before {
-  content: "Ω";
+  content: "(";
 }
 
 .sui-2-3-20 .sui-wrap .sui-icon-close:before {
@@ -2770,6 +2770,12 @@
 .sui-2-3-20 .sui-wrap .sui-toggle-slider:hover {
   -webkit-box-shadow: 0 0 0 5px #F2F2F2;
           box-shadow: 0 0 0 5px #F2F2F2;
+}
+
+@media (-ms-high-contrast: active) {
+  .sui-2-3-20 .sui-wrap .sui-toggle-slider {
+    -ms-high-contrast-adjust: none;
+  }
 }
 
 .sui-2-3-20 .sui-wrap .sui-toggle-slider:before {
@@ -7896,7 +7902,7 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-20 .sui-wrap .sui-checkbox input + span:before {
-  content: "Ω";
+  content: "(";
   width: 14px;
   height: 14px;
   display: -webkit-box;
@@ -12425,24 +12431,22 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content {
-  max-width: 640px;
   pointer-events: none;
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider {
   display: block;
   position: relative;
-  padding: 0 50px;
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content {
   pointer-events: all;
+  padding: 0;
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content, .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li {
   display: block;
   margin: 0;
-  padding: 0;
   border: 0;
   list-style: none;
 }
@@ -12480,18 +12484,26 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
           animation-name: fadeInRight;
 }
 
+@media (max-width: 782px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li {
+    padding: 20px 0;
+  }
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content > li {
+    padding: 30px 0;
+  }
+}
+
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button {
-  width: 40px;
-  height: 40px;
   cursor: pointer;
   pointer-events: all;
   position: absolute;
   top: 50%;
-  border-radius: 80px;
-  background-color: transparent;
+  border-radius: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  color: #FFFFFF;
   font-size: 16px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -12531,6 +12543,24 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button.sui-next {
   right: 0;
+}
+
+@media (max-width: 782px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button {
+    width: 30px;
+    height: 30px;
+    background-color: #FFFFFF;
+    color: #666666;
+  }
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-navigation button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #FFFFFF;
+  }
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-steps {
@@ -12611,6 +12641,12 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   background-color: #E6E6E6;
 }
 
+@media (max-width: 782px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider {
+    padding: 0 15px;
+  }
+}
+
 @media (min-width: 783px) {
   .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider {
     padding: 0 55px;
@@ -12666,8 +12702,18 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
 }
 
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors).sui-lg {
-  padding-right: 40px;
-  padding-left: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors).sui-lg:last-child {
+  padding-bottom: 40px;
+}
+
+@media (min-width: 783px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > [class*="sui-box-"]:not(.sui-box-selectors).sui-lg:last-child {
+    padding-bottom: 60px;
+  }
 }
 
 @media (min-width: 783px) {
@@ -12715,6 +12761,18 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   line-height: 22px;
 }
 
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-dialog-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-header .sui-dialog-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content .sui-slider .sui-slider-content li > .sui-box > .sui-box-footer {
   display: block;
   border-top-width: 0;
@@ -12739,7 +12797,14 @@ fieldset[disabled] .sui-2-3-20 .sui-wrap .sui-multi-checkbox:hover {
   opacity: 1;
 }
 
-@media (min-width: 501px) {
+@media (max-width: 782px) {
+  .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content {
+    max-width: 640px;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 783px) {
   .sui-2-3-20 .sui-dialog.sui-dialog-onboard .sui-dialog-content {
     max-width: 670px;
   }
