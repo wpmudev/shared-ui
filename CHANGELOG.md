@@ -1,6 +1,7 @@
 v2.3.22
 - [Fix] Color accessibility - button hover color.
 - [Fix] Color accessibility - Accordion item left border.
+- [Fix] Buttons - On mobile buttons with long texts not wrapping.
 
 v2.3.21
 - [New] On boarding dialog styles.
