@@ -1347,6 +1347,17 @@
   pointer-events: none;
 }
 
+@media (max-width: 782px) {
+  .sui-2-3-21 .sui-wrap .sui-button .sui-loading-text .sui-loading-text, .sui-2-3-21 .sui-wrap .sui-button-icon .sui-loading-text .sui-loading-text,
+  .sui-2-3-21 .sui-wrap a.sui-button .sui-loading-text .sui-loading-text,
+  .sui-2-3-21 .sui-wrap a.sui-button-icon .sui-loading-text .sui-loading-text,
+  .sui-2-3-21 .sui-wrap button.sui-button .sui-loading-text .sui-loading-text,
+  .sui-2-3-21 .sui-wrap button.sui-button-icon .sui-loading-text .sui-loading-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .sui-2-3-21 .sui-wrap .sui-button [class*="sui-icon-"], .sui-2-3-21 .sui-wrap .sui-button-icon [class*="sui-icon-"],
 .sui-2-3-21 .sui-wrap a.sui-button [class*="sui-icon-"],
 .sui-2-3-21 .sui-wrap a.sui-button-icon [class*="sui-icon-"],
@@ -14628,6 +14639,11 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   background: transparent;
 }
 
+.sui-2-3-21 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item .sui-accordion-item-body {
+  -webkit-box-shadow: inset 3px 0 #000000 !important;
+          box-shadow: inset 3px 0 #000000 !important;
+}
+
 .sui-2-3-21 .sui-wrap.sui-color-accessible .sui-accordion .sui-accordion-item-title i {
   color: #000000;
 }
@@ -14661,6 +14677,11 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 .sui-2-3-21 .sui-wrap.sui-color-accessible .sui-button {
   color: #FFFFFF !important;
   background: #000000 !important;
+}
+
+.sui-2-3-21 .sui-wrap.sui-color-accessible .sui-button-icon:not(.sui-button):hover,
+.sui-2-3-21 .sui-wrap.sui-color-accessible .sui-button:hover {
+  color: #FFFFFF !important;
 }
 
 .sui-2-3-21 .sui-wrap.sui-color-accessible .sui-button-icon:not(.sui-button) i:before,
