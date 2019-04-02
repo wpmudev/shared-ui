@@ -35,6 +35,12 @@
 			.sui-loading-text {
 				display: block;
 				pointer-events: none;
+				@include media(max-width, md) {
+					.sui-loading-text {
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
 			}
 
 			[class*="sui-icon-"] {
