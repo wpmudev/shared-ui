@@ -1,3 +1,6 @@
+v2.3.22
+- [Fix] Color accessibility - button hover color.
+
 v2.3.21
 - [New] On boarding dialog styles.
 - [New] Slider - To be used with on boarding dialogs (only).
