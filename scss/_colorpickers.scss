@@ -164,6 +164,11 @@
 					.iris-picker-inner {
 						display: flex;
 						position: unset;
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							position: relative;
+							display: block;
+						}
 					}
 
 					.iris-palette-container {
@@ -179,6 +184,10 @@
 
 						@include media(min-width, md) {
 							width: $colorpicker--iris-square-size;
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							margin-left: 10px;
 						}
 					}
 
@@ -217,7 +226,15 @@
 									width: $colorpicker--iris-square-size;
 									height: $colorpicker--iris-square-size;
 								}
+
+								@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+									position: relative;
+								}
 							}
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							display: inline-block;
 						}
 					}
 
@@ -235,6 +252,10 @@
 
 						@include media(min-width, md) {
 							height: $colorpicker--iris-slider-size !important;
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							display: inline-block;
 						}
 					}
 
@@ -324,6 +345,12 @@
 			&.wp-picker-active {
 				display: inline-flex;
 				flex-direction: column;
+
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					width: 262px;
+					position: relative;
+					display: block;
+				}
 			}
 		}
 	}
