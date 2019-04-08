@@ -1,3 +1,6 @@
+v2.3.23
+- [Fix] Broken color pickers for IE browser.
+
 v2.3.22
 - [Fix] Color accessibility - button hover color.
 - [Fix] Color accessibility - Accordion item left border.
