@@ -1,3 +1,7 @@
+v2.3.23
+- [Fix] Broken color pickers for IE browser.
+- [Enhance] Update icon font file to latest which contains x and y glyphs.
+
 v2.3.22
 - [Fix] Color accessibility - button hover color.
 - [Fix] Color accessibility - Accordion item left border.
