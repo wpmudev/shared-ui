@@ -1,5 +1,6 @@
 v2.3.23
 - [Fix] Broken color pickers for IE browser.
+- [Enhance] Add namespace to toggle show password click event so event is only applied once to the button.
 
 v2.3.22
 - [Fix] Color accessibility - button hover color.
