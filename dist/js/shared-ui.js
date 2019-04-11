@@ -2142,7 +2142,7 @@
 
 			if ( 0 !== $this.find( 'input[type="password"]' ).length ) {
 
-				$this.find( '[class*="sui-button"], .sui-password-toggle' ).on( 'click', function() {
+				$this.find( '[class*="sui-button"], .sui-password-toggle' ).off( 'click.toggle-password' ).on( 'click.toggle-password', function() {
 
 					var $button = $( this ),
 						$input  = $button.parent().find( 'input' ),
