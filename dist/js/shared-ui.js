@@ -91,7 +91,7 @@
         this.node.classList.add('sui-fade-in');
         this.node.classList.remove('sui-fade-out');
         var content = this.node.getElementsByClassName('sui-dialog-content');
-        content[0].className = 'sui-dialog-content sui-bounce-in';
+        content[0].className = 'sui-dialog-content sui-content-fade-in';
 
         // Execute all callbacks registered for the `show` event
         this._fire('show', event);
@@ -148,7 +148,7 @@
 
         var content = this.node.getElementsByClassName('sui-dialog-content');
 
-        content[0].className = 'sui-dialog-content sui-bounce-out';
+        content[0].className = 'sui-dialog-content sui-content-fade-out';
         this.node.classList.add('sui-fade-out');
         this.node.classList.remove('sui-fade-in');
 
@@ -569,9 +569,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-22 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-23 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-22 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-23 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1644,7 +1644,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-22 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-3-23 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -2011,7 +2011,7 @@
 		return this;
 	};
 
-	$( '.sui-2-3-22 .sui-slider' ).each( function() {
+	$( '.sui-2-3-23 .sui-slider' ).each( function() {
 		SUI.dialogSlider( this );
 	});
 
@@ -2031,7 +2031,7 @@
 
 		function closeAllDropdowns( $except ) {
 
-			var $dropdowns = $( '.sui-2-3-22 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-3-23 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -2058,7 +2058,7 @@
 
 		$( 'body' ).mouseup( function( e ) {
 
-			var $anchor = $( '.sui-2-3-22 .sui-dropdown-anchor' );
+			var $anchor = $( '.sui-2-3-23 .sui-dropdown-anchor' );
 
 			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
@@ -2112,9 +2112,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-22 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-3-23 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-22 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-3-23 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -2136,7 +2136,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-22 .sui-form-field' ).each( function() {
+		$( '.sui-2-3-23 .sui-form-field' ).each( function() {
 
 			var $this = $( this );
 
@@ -2200,7 +2200,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-22 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-23 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2418,7 +2418,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-22 select:not([multiple])' ).each( function() {
+	$( '.sui-2-3-23 select:not([multiple])' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -8978,6 +8978,51 @@
 
 ( function( $ ) {
 
+	// Enable strict mode
+	'use strict';
+
+	// Define global SUI object if it doesn't exist
+	if ( 'object' !== typeof window.SUI ) {
+		window.SUI = {};
+	}
+
+	SUI.sideTabs = function( element ) {
+
+		var $this 	   = $( element ),
+			$label     = $this.parent( 'label' ),
+			$data      = $this.data( 'tab-menu' ),
+			$wrapper   = $this.closest( '.sui-side-tabs' ),
+			$alllabels = $wrapper.find( '>.sui-tabs-menu .sui-tab-item' ),
+			$allinputs = $alllabels.find( 'input' ),
+			newContent
+			;
+
+		$this.on( 'click', function( e ) {
+
+			$alllabels.removeClass( 'active' );
+			$allinputs.removeAttr( 'checked' );
+			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).removeClass( 'active' );
+
+			$label.addClass( 'active' );
+			$this.attr( 'checked', 'checked' );
+
+			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
+
+			if ( newContent.length ) {
+				newContent.addClass( 'active' );
+			}
+		});
+
+	};
+
+	$( '.sui-2-3-23 .sui-side-tabs label.sui-tab-item input' ).each( function() {
+		SUI.sideTabs( this );
+	});
+
+}( jQuery ) );
+
+( function( $ ) {
+
 	// Enable strict mode.
 	'use strict';
 
@@ -9172,7 +9217,7 @@
     };
 
 
-    if ( 0 !== $( '.sui-2-3-22 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-23 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
@@ -9190,7 +9235,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-22 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-3-23 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 

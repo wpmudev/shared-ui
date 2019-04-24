@@ -26,7 +26,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-22 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-23 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 

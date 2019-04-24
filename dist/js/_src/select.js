@@ -210,7 +210,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-22 select:not([multiple])' ).each( function() {
+	$( '.sui-2-3-23 select:not([multiple])' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
