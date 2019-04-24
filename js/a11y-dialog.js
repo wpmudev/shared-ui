@@ -86,7 +86,7 @@
         this.node.classList.add('sui-fade-in');
         this.node.classList.remove('sui-fade-out');
         var content = this.node.getElementsByClassName('sui-dialog-content');
-        content[0].className = 'sui-dialog-content sui-bounce-in';
+        content[0].className = 'sui-dialog-content sui-content-fade-in';
 
         // Execute all callbacks registered for the `show` event
         this._fire('show', event);
@@ -143,7 +143,7 @@
 
         var content = this.node.getElementsByClassName('sui-dialog-content');
 
-        content[0].className = 'sui-dialog-content sui-bounce-out';
+        content[0].className = 'sui-dialog-content sui-content-fade-out';
         this.node.classList.add('sui-fade-out');
         this.node.classList.remove('sui-fade-in');
 

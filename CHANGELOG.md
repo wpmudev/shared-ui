@@ -4,6 +4,7 @@ v2.3.23
 - [Enhance] Update icon font file to latest which contains x and y glyphs.
 - [New] Side tabs function. Works with radio inputs only.
 			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#tabs for sample markup.
+- [Enhance] Dialogs improved content fade in and out animation.
 
 v2.3.22
 - [Fix] Color accessibility - button hover color.
