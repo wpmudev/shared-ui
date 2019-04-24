@@ -15,6 +15,14 @@
 	.sui-bounce-out {
 		animation: bounceOutJiggle 0.6s ease-out forwards;
 	}
+
+	.sui-content-fade-in {
+		animation: fadeScaleIn 0.8s ease-in forwards;
+	}
+
+	.sui-content-fade-out {
+		animation: fadeScaleOut 0.9s ease-in forwards;
+	}
 }
 
 @keyframes bounceInDown {
@@ -73,19 +81,49 @@
 }
 
 @keyframes fadeIn {
-	from {
+	0% {
 		opacity: 0;
 	}
-	to {
+	25% {
 		opacity: 1;
 	}
 }
 
+@keyframes fadeScaleIn {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+		transform: translate3d(0,10px,0) scale(0.9);
+	}
+	100% {
+		transform: translate3d(0,0,0) scale(1);
+	}
+}
+
 @keyframes fadeOut {
-	from {
+	0% {
 		opacity: 1;
 	}
-	to {
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeScaleOut {
+	0% {
+		opacity: 1;
+		transform: translate3d(0,0,0) scale(1);
+	}
+	25% {
+		opacity: 0;
+		transform: translate3d(0,10px,0) scale(0.9);
+	}
+	100% {
 		opacity: 0;
 	}
 }
