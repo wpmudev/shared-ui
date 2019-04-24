@@ -138,21 +138,6 @@
 		pagFilter.toggleClass( 'sui-open' );
 	}
 
-	// Side tabs
-	// Demo "side tabs" using label
-	sideTabItem.on( 'click', function( e ) {
-		currentTab( e.target );
-	});
-
-	function currentTab( e ) {
-		var tabItem   = $( e ),
-			tabParent = tabItem.parent()
-			;
-
-		tabParent.find( '.sui-tab-item' ).removeClass( 'active' );
-		tabItem.addClass( 'active' );
-	}
-
 }( jQuery ) );
 
 

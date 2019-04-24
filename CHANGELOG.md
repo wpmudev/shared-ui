@@ -2,6 +2,8 @@ v2.3.23
 - [Fix] Broken color pickers for IE browser.
 - [Enhance] Add namespace to toggle show password click event so event is only applied once to the button.
 - [Enhance] Update icon font file to latest which contains x and y glyphs.
+- [New] Side tabs function. Works with radio inputs only.
+			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#tabs for sample markup.
 
 v2.3.22
 - [Fix] Color accessibility - button hover color.
