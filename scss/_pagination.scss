@@ -1,196 +1,161 @@
 @include body-class(true) {
 
+	// ELEMENT: List of pages
 	.sui-pagination {
+		overflow: hidden;
 		display: flex;
-		margin: 10px 0;
-		padding: 0 1px;
+		align-items: center;
+		margin: 0;
+		padding: 0;
 		border: 0;
-		list-style: none;
+		border: 1px solid palette(silver, soft);
+		border-radius: $border-radius;
+		background-color: $white;
+
+		&, li {
+			list-style: none;
+		}
 
 		li {
 			display: block;
-			flex: 0 0 auto;
-			margin: 0 -1px;
+			flex: 0 0 40px;
+			margin: 0;
 			padding: 0;
-			border: 1px solid $pagination-border;
-			background: $pagination-background;
-			list-style: none;
+			border: 0;
+			color: palette(gray, light);
 			font: 500 12px/16px $font;
+			letter-spacing: $font--letter-spacing;
+			text-align: center;
 
 			a {
-				min-width: 38px;
-				height: 28px;
+				min-width: 40px;
 				display: block;
 				margin: 0;
-				padding: 0 5px;
+				padding: 6px 5px;
 				border: 0;
-				line-height: 28px;
-				text-align: center;
+				transition: $transition;
 
-				i {
-					font-size: 10px;
-				}
+				[class*="sui-icon-"] {
+					height: 16px;
+					display: block;
 
-				&, &:visited {
-					color: $pagination-item-color-static;
-
-					i:before {
-						color: $pagination-item-color-static;
+					&:before {
+						display: block;
+						color: inherit;
+						line-height: 16px;
 					}
 				}
 
-				&:hover, &:hover i:before {
-					color: $pagination-item-color-hover;
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+					border: 0;
+					text-decoration: none;
 				}
 
-				&:disabled, &[disabled] {
+				&,
+				&:visited {
+					color: palette(gray, light);
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: palette(blue, light);
+					color: palette(blue, default);
+				}
+
+				&:disabled,
+				&[disabled] {
 					pointer-events: none;
-					color: $pagination-item-color-disabled;
+					color: palette(gray, lighter);
 
-					i:before {
-						color: $pagination-item-color-disabled;
+					&.sui-active {
+						color: palette(gray, dark);
 					}
 				}
 
-				@include media( max-width, md ) {
-					min-width: unset;
-				}
-			}
-
-			&.sui-active {
-
-				a {
-					pointer-events: none;
-					
-					&, &:visited {
-						background: $pagination-item-bg-active;
-						color: $pagination-item-color-active;
-					}
+				&.sui-active {
+					background-color: palette(silver, light);
+					color: palette(gray, dark);
 				}
 			}
 
 			&:first-child {
-				border-radius: $border-radius 0 0 $border-radius;
+
+				a {
+					border-top-left-radius: $border-radius;
+					border-bottom-left-radius: $border-radius;
+				}
+			}
+
+			&:not(:last-child) {
+				border-right: 1px solid palette(silver, soft);
 			}
 
 			&:last-child {
-				border-radius: 0 $border-radius $border-radius 0;
+
+				a {
+					border-top-right-radius: $border-radius;
+					border-bottom-right-radius: $border-radius;
+				}
 			}
-
-			@include media( max-width, md ) {
-				flex: 1;
-			}
-		}
-
-		.sui-pagination-dots {
-			
-			span {
-				min-width: 38px;
-				height: 28px;
-				display: block;
-				margin: 0;
-				padding: 0 5px;
-				border: 0;
-				line-height: 28px;
-				text-align: center;
-			}
-		}
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
 		}
 	}
 
+	// ELEMENT: Results
 	.sui-pagination-results {
 		display: inline-block;
 		color: $pagination-results;
 		font: 400 13px/22px $font;
+		letter-spacing: $font--letter-spacing;
 	}
 
-	.sui-pagination-wrap {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-
-		.sui-pagination-results {
-
-			+ .sui-pagination,
-			+ .sui-button-icon {
-				margin-left: $sui-gutter/2;
-	
-				@include media( max-width, md ) {
-					margin-left: 0;
-				}
-			}
-
-			@include media( max-width, md ) {
-				display: none;
-			}
-		}
-
-		.sui-pagination {
-			margin-top: 0;
-			margin-bottom: 0;
-
-			+ .sui-button-icon {
-				margin-left: 10px;
-			}
-
-			@include media( max-width, md ) {
-				flex: 1;
-			}
-		}
-
-		+ .sui-table,
-		+ .sui-accordion {
-			margin-top: 10px;
-		}
-	}
-
+	// ELEMENT: Filtering form
 	.sui-pagination-filter {
 		display: none;
-		margin: 10px 0;
-		padding: #{$sui-gutter-md - 1px};
-		border: 1px solid $pagination-filter-border;
+		margin: #{$sui-gutter-md / 2} 0;
+		border: 1px solid palette(silver, soft);
 		border-radius: $border-radius;
 
 		.sui-filter-footer {
 			display: flex;
 			align-items: center;
-			border-top: 1px solid $pagination-filter-border;
+			justify-content: space-between;
+			border-top: 1px solid palette(silver, soft);
 
 			@include media(max-width, md) {
 				margin-right: -#{$sui-gutter-md - 1px};
+				margin-bottom: -#{$sui-gutter-md - 1px};
 				margin-left: -#{$sui-gutter-md - 1px};
-				padding: #{$sui-gutter-md - 1px} #{$sui-gutter-md - 1px} 0;
+				padding: $sui-gutter-md #{$sui-gutter-md - 1px};
 			}
 
 			@include media(min-width, md) {
 				margin-right: -#{$sui-gutter - 1px};
+				margin-bottom: -#{$sui-gutter - 1px};
 				margin-left: -#{$sui-gutter - 1px};
-				padding: #{$sui-gutter - 1px} #{$sui-gutter - 1px} 0;
+				padding: $sui-gutter #{$sui-gutter - 1px};
 			}
-		}
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&:last-child {
-			margin-bottom: 0;
 		}
 
 		&.sui-open {
 			display: block;
 		}
 
-		+ .sui-table,
-		+ .sui-accordion {
-			margin-top: 10px;
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include media(max-width, md) {
+			padding: #{$sui-gutter-md - 1px};
 		}
 
 		@include media(min-width, md) {
@@ -198,44 +163,118 @@
 		}
 	}
 
+	// ELEMENT: Filtering tags
 	.sui-pagination-active-filters {
 		display: flex;
-		flex-flow: row wrap;
+		flex-wrap: wrap;
+		margin: -5px;
 
 		.sui-active-filter {
+			display: inline-flex;
+			margin: 5px;
+			padding: 5px 10px;
+			border-radius: $border-radius;
+			background-color: palette(gray, default);
 			color: $white;
-			font-size: 12px;
-			font-weight: 500;
-			line-height: 16px;
-			border-radius: 4px;
-			background-color: #666666;
-			padding: 4px 0 4px 10px;
-			margin: 4px 4px 0 0;
+			font: 500 12px/16px $font;
+			letter-spacing: $font--letter-spacing;
 
 			.sui-active-filter-remove {
+				width: 26px;
 				cursor: pointer;
-				padding: 4px 7px;
-				margin-left: 8px;
-                color: $white;
-                background-color: #5E5E5E;
-                transition: all .3s ease;
-                border-radius: 0 $border-radius $border-radius 0;
-				@include icon(before, close);
-				&:before {
-					color: $white;
-					font-size: 10px;
-					display: unset;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: -5px;
+				margin-right: -10px;
+				margin-bottom: -5px;
+				margin-left: 10px;
+				border-width: 0;
+				border-style: none;
+				border-color: transparent;
+				border-radius: 0 $border-radius $border-radius 0;
+				background-color: #5E5E5E;
+				color: $white;
+
+				@include icon(before, close) {
+					color: inherit;
 				}
+			}
+		}
+	}
 
-                &:hover {
-                    color: $white;
-                    background-color: #565656;
-                }
+	// BLOCK: Pagination
+	.sui-pagination-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-end;
+		margin-top: -1px;
+		margin-bottom: -1px;
+
+		// ELEMENT: List of pages
+		.sui-pagination {
+			flex: 0 0 auto;
+			margin-top: 1px;
+			margin-bottom: 1px;
+
+			+ button,
+			+ .sui-pagination-results {
+				margin-left: #{$sui-gutter / 2};
+			}
+		}
+
+		// ELEMENT: Results
+		.sui-pagination-results {
+			flex: 0 0 auto;
+			margin-top: 1px;
+			margin-bottom: 1px;
+
+			+ button,
+			+ .sui-pagination {
+				margin-left: #{$sui-gutter / 2};
+			}
+		}
+
+		button {
+			flex: 0 0 auto;
+			margin-top: 1px;
+			margin-bottom: 1px;
+		}
+	}
+
+	// BLOCK: Filters
+	.sui-pagination-filters-list {
+		display: block;
+
+		&:first-child {
+
+			@include media(max-width, md) {
+				margin-top: 0;
 			}
 
-			&:last-of-type {
-				margin-right: 0;
+			@include media(min-width, md) {
+				margin-top: 0;
 			}
+		}
+
+		&:last-child {
+
+			@include media(max-width, md) {
+				margin-bottom: 0;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		@include media(max-width, md) {
+			margin: $sui-gutter-md 0;
+		}
+
+		@include media(min-width, md) {
+			margin: $sui-gutter 0;
 		}
 	}
 }
