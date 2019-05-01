@@ -1,3 +1,8 @@
+v2.3.24
+- [Enhance] Pagination styles on small screens.
+- [Enhance] Pagination tags styles.
+
+
 v2.3.23
 - [Fix] Broken color pickers for IE browser.
 - [Enhance] Add namespace to toggle show password click event so event is only applied once to the button.
@@ -6,10 +11,12 @@ v2.3.23
 			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#tabs for sample markup.
 - [Enhance] Dialogs improved content fade in and out animation.
 
+
 v2.3.22
 - [Fix] Color accessibility - button hover color.
 - [Fix] Color accessibility - Accordion item left border.
 - [Fix] Buttons - On mobile buttons with long texts not wrapping.
+
 
 v2.3.21
 - [New] On boarding dialog styles.
