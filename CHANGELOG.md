@@ -1,6 +1,7 @@
 v2.3.24
 - [Enhance] Pagination styles on small screens.
 - [Enhance] Pagination tags styles.
+- [Fix] Accordions color accessibility.
 
 
 v2.3.23
