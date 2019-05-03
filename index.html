@@ -31,6 +31,7 @@
 		<li><a href="#upsells">Upsells</a></li>
 		<li><a href="#tables">Tables</a></li>
 		<li><a href="#accordions">Accordions</a></li>
+		<li><a href="#trees">Tree Selectors</a></li>
 		<li><a href="#scores">Scores</a></li>
 		<li><a href="#dropdowns">Dropdowns</a></li>
 		<li><a href="#forms">Forms</a></li>
@@ -5640,6 +5641,696 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 			</section>
 
+			<section id="trees">
+
+				<div class="demo-info-block">
+					<h2>Tree Selectors</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+
+				<div role="navigation" aria-label="Filters" class="sui-row-with-sidenav">
+
+					<!-- TREE: Side navigation -->
+					<div class="sui-sidenav">
+
+						<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+
+							<li class="sui-vertical-tab current">
+								<a href="#" role="button" data-tab="tree-sui">SUI Tree</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="tree-fancy">Fancy Tree</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="tree-docs">Documentation</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<!-- TREE: Simple tree -->
+					<div class="sui-box" data-tab="tree-sui">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Tree Selectors</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Most common uses are bulk selections of sub-options, and a file/directory browser.</p>
+
+							<!-- Selector -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Selector</span>
+									<span class="sui-description">Mostly used as a tree structure for selection which options a user wants when there are nested options.<br />A good example is excluding tables from databases.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<ul class="sui-tree" data-tree="selector">
+
+										<li role="treeitem" aria-expanded="true" aria-selected="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox"></span>
+												<span role="text">Parent / Group</span>
+												<span role="button"></span>
+											</span>
+
+											<!-- LEVEL: 1 -->
+											<ul role="group">
+
+												<li role="treeitem">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span role="text">Child / Group</span>
+														<span role="button"></span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+											<span class="sui-tree-node">
+												<span role="checkbox"></span>
+												<span role="text">Parent / Group</span>
+												<span role="button"></span>
+											</span>
+
+											<!-- LEVEL: 1 -->
+											<ul role="group">
+
+												<li role="treeitem">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span role="text">Child / Group</span>
+														<span role="button"></span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox"></span>
+																<span role="text">Sub Child Item</span>
+																<span role="button"></span>
+															</span>
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-selected="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox"></span>
+												<span role="text">Parent / Single</span>
+											</span>
+
+										</li>
+
+										<li role="treeitem" aria-selected="true" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox"></span>
+												<span role="text">Parent / Single (Disabled)</span>
+											</span>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+							<!-- Directory Browser -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Directory Browser</span>
+									<span class="sui-description">Used for browsing and selecting files and folders. Most common use case can be found in Smush’s Directory Browsing feature.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<ul class="sui-tree" data-tree="directory">
+
+										<li role="treeitem" aria-expanded="false" aria-selected="false" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="button"></span>
+												<span role="checkbox"></span>
+												<span aria-hidden="true"></span>
+												<span role="text">wp-admin</span>
+											</span>
+
+											<ul role="group">
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+											<span class="sui-tree-node">
+												<span role="button"></span>
+												<span role="checkbox"></span>
+												<span aria-hidden="true"></span>
+												<span role="text">wp-content</span>
+											</span>
+
+											<!-- LEVEL: 1 -->
+											<ul role="group">
+
+												<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="button"></span>
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">plugins</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="button"></span>
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">themes</span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button"></span>
+																<span role="checkbox"></span>
+																<span aria-hidden="true"></span>
+																<span role="text">divi</span>
+															</span>
+
+															<!-- LEVEL: 3 -->
+															<ul role="group">
+
+																<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="button"></span>
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">assets</span>
+																	</span>
+
+																	<ul role="group">
+
+																		<li role="treeitem" aria-expanded="true" aria-selected="true">
+
+																			<span class="sui-tree-node">
+																				<span role="button"></span>
+																				<span role="checkbox"></span>
+																				<span aria-hidden="true"></span>
+																				<span role="text">images</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span role="text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span role="text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span role="text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span role="text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button"></span>
+																				<span role="checkbox"></span>
+																				<span aria-hidden="true"></span>
+																				<span role="text">css</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button"></span>
+																				<span role="checkbox"></span>
+																				<span aria-hidden="true"></span>
+																				<span role="text">js</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button"></span>
+																				<span role="checkbox"></span>
+																				<span aria-hidden="true"></span>
+																				<span role="text">fonts</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">custom-font.eot</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">custom-font.svg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">custom-font.ttf</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">custom-font.woff</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox"></span>
+																						<span aria-hidden="true"></span>
+																						<span role="text">custom-font.woff2</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																	</ul>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button"></span>
+																<span role="checkbox"></span>
+																<span aria-hidden="true"></span>
+																<span role="text">twentyseventeen</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox"></span>
+																		<span aria-hidden="true"></span>
+																		<span role="text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-expanded="false" aria-selected="false" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="button"></span>
+												<span role="checkbox"></span>
+												<span aria-hidden="true"></span>
+												<span role="text">wp-includes</span>
+											</span>
+
+											<ul role="group">
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox"></span>
+														<span aria-hidden="true"></span>
+														<span role="text">file.php</span>
+													</span>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- TREE: Fancy tree -->
+					<div class="sui-box" data-tab="tree-fancy" style="display: none;"></div>
+
+					<!-- TREE: Documentation -->
+					<div class="sui-box" data-tab="tree-docs" style="display: none;"></div>
+
+				</div>
+
+			</section>
+
 			<section id="scores">
 
 				<div class="demo-info-block">
@@ -8800,7 +9491,8 @@ $( '.sui-date .sui-form-control' ).datepicker({
 
 
 			</section>
-<section id="recipient">
+
+			<section id="recipient">
 
 				<div class="demo-info-block">
 					<h2>Recipient</h2>
@@ -8899,7 +9591,6 @@ $( '.sui-date .sui-form-control' ).datepicker({
 				</div>
 
 			</section>
-
 
 			<section id="summary">
 
