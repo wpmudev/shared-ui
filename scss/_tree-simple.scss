@@ -274,6 +274,13 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 						background-color: palette(silver, light);
+
+						> span[role="button"] {
+
+							&:before {
+								transform: rotate(90deg);
+							}
+						}
 					}
 				}
 
@@ -296,6 +303,27 @@ $tree--file-type: (
 
 						> span[role="text"] {
 							color: $blue;
+						}
+					}
+				}
+
+				// STATUS: Disabled
+				&[aria-disabled="true"] {
+
+					> .sui-tree-node {
+
+						> span[role="button"] {
+
+							@include icon(before, lock, false) {
+								color: palette(gray, lighter);
+							}
+						}
+
+						> span[aria-hidden] {
+
+							&:before {
+								color: palette(gray, lighter);
+							}
 						}
 					}
 				}
