@@ -183,7 +183,7 @@
 					;
 
 				// FIX: Remove unnecessary elements for leafs
-				if ( 0 !== icon.length && 'selector' === tree.data( 'tree' ) ) {
+				if ( ( 'selector' === tree.data( 'tree' ) || 'selector' === tree.attr( 'data-tree' ) ) && 0 !== icon.length ) {
 					button.remove();
 				}
 
@@ -200,7 +200,7 @@
 					} else {
 
 						// FIX: Remove unnecessary elements for leafs
-						if ( 0 !== icon.length && 'selector' === tree.data( 'tree' ) ) {
+						if ( ( 'selector' === tree.data( 'tree' ) || 'selector' === tree.attr( 'data-tree' ) ) && 0 !== button.length ) {
 							button.remove();
 						}
 					}
@@ -283,7 +283,12 @@
 
 		function init() {
 
-			if ( 'selector' === tree.data( 'tree' ) || 'directory' === tree.data( 'tree' ) ) {
+			if (
+				'selector' === tree.data( 'tree' ) ||
+				'directory' === tree.data( 'tree' ) ||
+				'selector' === tree.attr( 'data-tree' ) ||
+				'directory' === tree.atrr( 'data-tree' )
+			) {
 
 				// Initial setup
 				reset();
