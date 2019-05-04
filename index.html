@@ -6764,6 +6764,554 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 							<h2 class="sui-box-title">Documentation</h2>
 						</div>
 
+						<!-- DOCS: Simple Tree -->
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+									<span class="sui-settings-label sui-dark">Simple Tree</span>
+									<span class="sui-description">Find here the basics to make SUI Tree work correctly on your installation.</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-accordion sui-accordion-flushed">
+
+							<!-- 1. Initialize JS -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										1. Initialize JS
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-2">
+
+													<span class="sui-settings-label sui-dark">Initialize JS</span>
+
+													<span class="sui-description">1. Get latest stable Shared UI release.</span>
+
+													<span class="sui-description">2. Load <code>shared-ui.js</code> on your plugin or <code>trees.js</code> file if you are using individual components.</span>
+
+													<span class="sui-description">3. <code>SUI.suiTree()</code> will initialize auto-magically on load, but if this doesn't happen you can initialize it on your installation by running the following script:</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	// Init SUI Tree
+	if ( 0 !== $( &apos;SUI_BODY_CLASS .sui-tree&apos; ).length ) {
+
+		$( &apos;SUI_BODY_CLASS .sui-tree&apos; ).each( function() {
+
+			SUI.suiTree( $( this ), false );
+		});
+	}
+
+}( jQuery ) );
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- 2. Markup (Selectors Tree) -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										2. Markup <span class="sui-tag sui-tag-yellow" style="pointer-events: none; margin-left: 10px;">Selectors Tree</span>
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-2">
+
+													<span class="sui-settings-label sui-dark">Starter Markup</span>
+
+													<span class="sui-description">This is the basic markup for selectors tree and contains parent and child items. <strong style="color: #333333;">NOTE:</strong> Please pay attention to the notes I left in the sample code.</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet html hljs">
+&lt;ul class=&quot;sui-tree&quot; data-tree=&quot;selector&quot; role=&quot;group&quot;&gt;
+
+	&lt;li role=&quot;treeitem&quot;&gt;
+
+		&lt;span class=&quot;sui-tree-node&quot;&gt;
+
+			&lt;!-- Checkbox --&gt;
+			&lt;span role=&quot;checkbox&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+			&lt;/span&gt;
+
+			&lt;!-- Text --&gt;
+			&lt;span class=&quot;sui-node-text&quot;&gt;Parent / Group&lt;/span&gt;
+
+			&lt;!-- Button expander (for open/close) --&gt;
+			&lt;span role=&quot;button&quot; data-button=&quot;expander&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open or close this item&lt;/span&gt;
+			&lt;/span&gt;
+
+		&lt;/span&gt;
+
+		&lt;!-- NOTE:
+			Wrap more items inside UL to create a new group inside parent item
+		--&gt;
+		&lt;ul role=&quot;group&quot;&gt;
+
+			&lt;li role=&quot;treeitem&quot;&gt;
+
+				&lt;span class=&quot;sui-tree-node&quot;&gt;
+
+					&lt;!-- Checkbox --&gt;
+					&lt;span role=&quot;checkbox&quot;&gt;
+						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+					&lt;/span&gt;
+
+					&lt;!-- Text --&gt;
+					&lt;span class=&quot;sui-node-text&quot;&gt;Child Item&lt;/span&gt;
+
+					&lt;!-- IMPORTANT:
+						Notice expander button isn't here, this because it's not necessary.
+						If for any case you can't remove the expander button from the markup
+						don't worry because the JS function will check if item doesn't have
+						child elements and will remove the expander button.
+					--&gt;
+
+				&lt;/span&gt;
+
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+	&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- 3. Markup (Directory Browser Tree) -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										3. Markup <span class="sui-tag sui-tag-yellow" style="pointer-events: none; margin-left: 10px;">Directory Browser Tree</span>
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<span class="sui-settings-label sui-dark">Starter Markup</span>
+
+											<span class="sui-description">This is the basic markup for directory browser tree and contains parent and child items. <strong style="color: #333333;">NOTE:</strong> Please pay attention to the notes I left in the sample code.</span>
+
+											<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet html hljs">
+&lt;ul class=&quot;sui-tree&quot; data-tree=&quot;directory&quot; role=&quot;group&quot;&gt;
+
+	&lt;li role=&quot;treeitem&quot;&gt;
+
+		&lt;span class=&quot;sui-tree-node&quot;&gt;
+
+			&lt;!-- Button expander (for open/close) --&gt;
+			&lt;span role=&quot;button&quot; data-button=&quot;expander&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open or close this item&lt;/span&gt;
+			&lt;/span&gt;
+
+			&lt;!-- Checkbox --&gt;
+			&lt;span role=&quot;checkbox&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+			&lt;/span&gt;
+
+			&lt;!-- Icon --&gt;
+			&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+			&lt;!-- Text --&gt;
+			&lt;span class=&quot;sui-node-text&quot;&gt;Parent / Group&lt;/span&gt;
+
+		&lt;/span&gt;
+
+		&lt;!-- NOTE:
+			Wrap more items inside UL to create a new group inside parent item
+		--&gt;
+		&lt;ul role=&quot;group&quot;&gt;
+
+			&lt;li role=&quot;treeitem&quot;&gt;
+
+				&lt;span class=&quot;sui-tree-node&quot;&gt;
+
+					&lt;!-- IMPORTANT:
+						Notice expander button isn't here, this because it's not necessary.
+						If for any case you can't remove the expander button from the markup
+						don't worry because the JS function will check if item doesn't have
+						child elements and will remove the expander button.
+					--&gt;
+
+					&lt;!-- Checkbox --&gt;
+					&lt;span role=&quot;checkbox&quot;&gt;
+						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+					&lt;/span&gt;
+
+					&lt;!-- Icon --&gt;
+					&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+					&lt;!-- Text --&gt;
+					&lt;span class=&quot;sui-node-text&quot;&gt;Child Item&lt;/span&gt;
+
+				&lt;/span&gt;
+
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+	&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- 4. Tricks -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										4. Tricks
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<!-- 1. Expand Item -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">1. Expand Item</span>
+													<span class="sui-description">Add <code>aria-expanded=&quot;true&quot;</code> to show parent item child elements on load.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;li role=&quot;treeitem&quot; aria-expanded=&quot;true&quot;&gt; ... &lt;/li&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 2. Select Item -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">2. Select Item</span>
+													<span class="sui-description">Add <code>aria-selected=&quot;true&quot;</code> to check an item on load.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;li role=&quot;treeitem&quot; aria-selected=&quot;true&quot;&gt; ... &lt;/li&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 3. Disable Item -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">3. Disable Item</span>
+													<span class="sui-description">Add <code>aria-disabled=&quot;true&quot;</code> to disable an item and its childs.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;li role=&quot;treeitem&quot; aria-disabled=&quot;true&quot;&gt; ... &lt;/li&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 4. Change Item Icon -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">4. Change Item Icon</span>
+													<span class="sui-description">Add <code>data-type=&quot; ... &quot;</code> to change an item icon. Don't forget to replace <code>...</code> with the type of icon you want to use.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-row">
+
+														<div class="sui-col-md-6">
+
+															<span class="sui-settings-label">Basic Icons</span>
+
+															<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- TYPE: Page (Default icon for simple items) --&gt;
+&lt;span data-type=&quot;page&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Folder (Default icon for parent items) --&gt;
+&lt;span data-type=&quot;folder&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: PDF --&gt;
+&lt;span data-type=&quot;pdf&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: ZIP --&gt;
+&lt;span data-type=&quot;zip&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Image --&gt;
+&lt;span data-type=&quot;image&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Padlock (locked) --&gt;
+&lt;span data-type=&quot;lock&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<div class="sui-col-md-6">
+
+															<span class="sui-settings-label">Logo Icons</span>
+
+															<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- TYPE: WPMU DEV Logo --&gt;
+&lt;span data-type=&quot;wpmudev&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Defender Logo --&gt;
+&lt;span data-type=&quot;defender&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Smush Logo --&gt;
+&lt;span data-type=&quot;smush&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Hummingbird Logo --&gt;
+&lt;span data-type=&quot;hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Uptime Logo --&gt;
+&lt;span data-type=&quot;uptime&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Smartcrawl Logo --&gt;
+&lt;span data-type=&quot;smartcrawl&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Forminator Logo --&gt;
+&lt;span data-type=&quot;forminator&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Shipper Logo --&gt;
+&lt;span data-type=&quot;shipper&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Snapshot Logo --&gt;
+&lt;span data-type=&quot;snapshot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Hustle Logo --&gt;
+&lt;span data-type=&quot;hustle&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+&lt;!-- TYPE: Performance Logo --&gt;
+&lt;span data-type=&quot;performance&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 5. Simple Form -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">5. Simple Form</span>
+													<span class="sui-description">On <strong style="color: #FF6D6D;">Directory Browser Tree</strong> you can allow a parent item to add a new child item through a simple form.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-notice sui-notice-warning">
+														<p style="margin: 0 0 5px;">Enable show/hide animation for the simple form by editing the tree function like this: <code>SUI.suiTree( $( this ), true );</code></p>
+														<p style="margin: 0;"><strong>NOTE:</strong> This comes enabled by default from SUI but in case is not change above on the function might help you.</p>
+													</div>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;ul class=&quot;sui-tree&quot; data-tree=&quot;directory&quot; role=&quot;group&quot;&gt;
+
+	&lt;li role=&quot;treeitem&quot;&gt;
+
+		&lt;span class=&quot;sui-tree-node&quot;&gt;
+			&lt;span role=&quot;button&quot; data-button=&quot;expander&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open or close this item&lt;/span&gt;
+			&lt;/span&gt;
+			&lt;span role=&quot;checkbox&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+			&lt;/span&gt;
+			&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+			&lt;span class=&quot;sui-node-text&quot;&gt;Parent / Group&lt;/span&gt;
+			&lt;span role=&quot;button&quot; data-button=&quot;add&quot;&gt;
+				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Add new folder&lt;/span&gt;
+			&lt;/span&gt;
+		&lt;/span&gt;
+
+		&lt;ul role=&quot;group&quot;&gt;
+
+			&lt;span role=&quot;contentinfo&quot;&gt;
+
+				&lt;span id=&quot;label-unique-id&quot; class=&quot;sui-screen-reader-text&quot;&gt;Folder name&lt;/span&gt;
+
+				&lt;span role=&quot;form&quot;&gt;
+
+					&lt;input
+						type=&quot;text&quot;
+						value=&quot;&quot;
+						placeholder=&quotNew folder name;&quot;
+						id=&quot;unique-id&quot;
+						aria-labelledby=&quot;label-unique-id&quot;
+					/&gt;
+
+					&lt;span role=&quot;button&quot;&gt;
+						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Add Folder&lt;/span&gt;
+					&lt;/span&gt;
+
+				&lt;/span&gt;
+
+				&lt;span role=&quot;button&quot; data-button=&quot;remove&quot;&gt;
+					&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Remove Folder&lt;/span&gt;
+				&lt;/span&gt;
+
+			&lt;/span&gt;
+
+			&lt;!-- Already existing item --&gt;
+			&lt;li role=&quot;treeitem&quot;&gt;
+
+				&lt;span class=&quot;sui-tree-node&quot;&gt;
+					&lt;span role=&quot;checkbox&quot;&gt;
+						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
+					&lt;/span&gt;
+					&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;sui-node-text&quot;&gt;Child Item&lt;/span&gt;
+				&lt;/span&gt;
+
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+	&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
 						<!-- DOCS: Fancy Tree -->
 						<div class="sui-box-body">
 
