@@ -5672,7 +5672,1024 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 					</div>
 
 					<!-- TREE: Simple tree -->
-					<div class="sui-box" data-tab="tree-sui"></div>
+					<div class="sui-box" data-tab="tree-sui">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Tree Selectors</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Most common uses are bulk selections of sub-options, and a file/directory browser.</p>
+
+							<!-- Selector -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Selector</span>
+									<span class="sui-description">Mostly used as a tree structure for selection which options a user wants when there are nested options.<br />A good example is excluding tables from databases.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<ul class="sui-tree" data-tree="selector" role="group">
+
+										<li role="treeitem" aria-expanded="true" aria-selected="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-text">Parent / Group</span>
+												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+											</span>
+
+											<!-- LEVEL: 1 -->
+											<ul role="group">
+
+												<li role="treeitem">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-text">Child / Group</span>
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+													</ul>
+
+												</li>
+
+												<li role="treeitem" aria-expanded="true">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-text">Child / Group</span>
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem">
+
+											<span class="sui-tree-node">
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-text">Parent / Group</span>
+												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+											</span>
+
+											<!-- LEVEL: 1 -->
+											<ul role="group">
+
+												<li role="treeitem">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-text">Child / Group</span>
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+													</span>
+
+													<!-- LEVEL: 2 -->
+													<ul role="group">
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+														<li role="treeitem">
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-text">Sub Child Item</span>
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+															</span>
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-selected="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-text">Parent / Single</span>
+											</span>
+
+										</li>
+
+										<li role="treeitem" aria-selected="true" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-text">Parent / Single (Disabled)</span>
+											</span>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+							<!-- Directory Browser -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+
+									<span class="sui-settings-label">Directory Browser</span>
+									<span class="sui-description">Used for browsing and selecting files and folders. Most common use case can be found in Smush’s Directory Browsing feature.</span>
+
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<ul class="sui-tree" data-tree="directory" role="group">
+
+										<li role="treeitem" aria-expanded="false" aria-selected="false" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span aria-hidden="true"></span>
+												<span class="sui-node-text">wp-admin</span>
+												<span role="button" data-button="add" aria-label="Add folder"></span>
+											</span>
+
+											<ul role="group">
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+											<span class="sui-tree-node">
+												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span aria-hidden="true"></span>
+												<span class="sui-node-text">wp-content</span>
+												<span role="button" data-button="add" aria-label="Add folder"></span>
+											</span>
+
+											<ul role="group">
+
+												<span role="contentinfo" aria-hidden="true">
+
+													<span id="suitree-input-label" class="sui-screen-reader-text">Folder name</span>
+
+													<span role="form">
+														<input
+															type="text"
+															value="New folder name"
+															placeholder="New folder name"
+															id="suitree-input"
+															aria-labelledby="suitree-input-label"
+														/>
+														<span role="button">
+															<span class="sui-screen-reader-text">Save</span>
+														</span>
+													</span>
+
+													<span role="button" data-button="remove">
+														<span class="sui-screen-reader-text">Remove folder</span>
+													</span>
+
+												</span>
+
+												<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">plugins</span>
+													</span>
+
+													<ul role="group">
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span data-type="forminator" aria-hidden="true"></span>
+																<span class="sui-node-text">Forminator</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span data-type="hummingbird" aria-hidden="true"></span>
+																<span class="sui-node-text">Hummingbird</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span data-type="hustle" aria-hidden="true"></span>
+																<span class="sui-node-text">Hustle</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">hello.php</span>
+															</span>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">index.php</span>
+															</span>
+
+														</li>
+
+													</ul>
+
+												</li>
+
+												<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">themes</span>
+													</span>
+
+													<ul role="group">
+
+														<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">divi</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-expanded="true" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">assets</span>
+																	</span>
+
+																	<ul role="group">
+
+																		<li role="treeitem" aria-expanded="true" aria-selected="true">
+
+																			<span class="sui-tree-node">
+																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span aria-hidden="true"></span>
+																				<span class="sui-node-text">images</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span class="sui-node-text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span class="sui-node-text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span class="sui-node-text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="true">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span data-type="jpg" aria-hidden="true"></span>
+																						<span class="sui-node-text">image.jpg</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span aria-hidden="true"></span>
+																				<span class="sui-node-text">css</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">styles.min.css</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span aria-hidden="true"></span>
+																				<span class="sui-node-text">js</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">scripts.min.js</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																		<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+																			<span class="sui-tree-node">
+																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span aria-hidden="true"></span>
+																				<span class="sui-node-text">fonts</span>
+																			</span>
+
+																			<ul role="group">
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">custom-font.eot</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">custom-font.svg</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">custom-font.ttf</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">custom-font.woff</span>
+																					</span>
+
+																				</li>
+
+																				<li role="treeitem" aria-selected="false">
+
+																					<span class="sui-tree-node">
+																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span aria-hidden="true"></span>
+																						<span class="sui-node-text">custom-font.woff2</span>
+																					</span>
+
+																				</li>
+
+																			</ul>
+
+																		</li>
+
+																	</ul>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">twentyseventeen</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span aria-hidden="true"></span>
+																		<span class="sui-node-text">file.php</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</li>
+
+												<li role="treeitem" aria-expanded="false" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">uploads</span>
+													</span>
+
+													<ul role="group">
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">2017</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">2018</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+														<li role="treeitem" aria-selected="false">
+
+															<span class="sui-tree-node">
+																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+																<span role="checkbox" aria-label="Select this item"></span>
+																<span aria-hidden="true"></span>
+																<span class="sui-node-text">2019</span>
+															</span>
+
+															<ul role="group">
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+																<li role="treeitem" aria-selected="false">
+
+																	<span class="sui-tree-node">
+																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span type="image" aria-hidden="true"></span>
+																		<span class="sui-node-text">image.jpg</span>
+																	</span>
+
+																</li>
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+										<li role="treeitem" aria-expanded="false" aria-selected="false" aria-disabled="true">
+
+											<span class="sui-tree-node">
+												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
+												<span role="checkbox" aria-label="Select this item"></span>
+												<span aria-hidden="true"></span>
+												<span class="sui-node-text">wp-includes</span>
+											</span>
+
+											<ul role="group">
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+												<li role="treeitem" aria-selected="false">
+
+													<span class="sui-tree-node">
+														<span role="checkbox" aria-label="Select this item"></span>
+														<span aria-hidden="true"></span>
+														<span class="sui-node-text">file.php</span>
+													</span>
+
+												</li>
+
+											</ul>
+
+										</li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
 
 					<!-- TREE: Fancy tree -->
 					<div class="sui-box" data-tab="tree-fancy" style="display: none;">
