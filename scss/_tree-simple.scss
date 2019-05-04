@@ -43,7 +43,7 @@ $tree--file-type: (
 					flex: 0 1 auto;
 				}
 
-				> span[data-button="expander"] {
+				> span[role="button"] {
 					width: 30px;
 					height: 12px;
 					cursor: pointer;
@@ -60,6 +60,21 @@ $tree--file-type: (
 						font-size: 12px;
 						line-height: 12px;
 						transition: 250ms linear; // Match with slideToggle() timing
+					}
+
+					// TYPE: Add
+					&[data-button="add"] {
+						@include icon(before, plus, false);
+					}
+
+					// TYPE: Remove
+					&[data-button="remove"] {
+						@include icon(before, close, false);
+					}
+
+					// TYPE: Trash
+					&[data-button="trash"] {
+						@include icon(before, trash, false);
 					}
 				}
 
@@ -99,7 +114,7 @@ $tree--file-type: (
 					}
 				}
 
-				> span[role="text"] {
+				> span.sui-node-text {
 					display: block;
 					color: palette(gray, default);
 					font-size: 13px;
@@ -158,7 +173,7 @@ $tree--file-type: (
 						background-color: palette(silver, default);
 					}
 
-					> span[role="text"] {
+					> span.sui-node-text {
 						color: palette(silver, medium);
 					}
 				}
@@ -258,7 +273,7 @@ $tree--file-type: (
 						}
 					}
 
-					> span[role="text"] {
+					> span.sui-node-text {
 						line-height: 22px;
 					}
 
@@ -303,19 +318,22 @@ $tree--file-type: (
 					padding: 10px 20px;
 					border-radius: $border-radius;
 
-					> span[data-button="expander"] {
+					> span[role="button"] {
 						margin-top: 4px;
 						margin-left: -10px;
 						margin-bottom: 4px;
 
-						@include icon(before, chevron-right, false);
+						// TYPE: Expander
+						&[data-button="expander"] {
+							@include icon(before, chevron-right, false);
+						}
 					}
 
 					> span[role="checkbox"] {
 						margin: 2px 0;
 					}
 
-					> span[role="text"] {
+					> span.sui-node-text {
 						flex: 1;
 						line-height: 20px;
 					}
@@ -358,7 +376,7 @@ $tree--file-type: (
 							color: $blue;
 						}
 
-						> span[role="text"] {
+						> span.sui-node-text {
 							color: $blue;
 						}
 					}
@@ -369,10 +387,15 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[data-button="expander"] {
+						> span[role="button"] {
 
-							@include icon(before, lock, false) {
+							&:before {
 								color: palette(gray, lighter);
+							}
+
+							// TYPE: Expander
+							&[data-button="expander"] {
+								@include icon(before, lock, false);
 							}
 						}
 
