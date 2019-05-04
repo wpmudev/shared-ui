@@ -195,12 +195,12 @@
 					}
 				} else {
 
-					if ( branch.length ) {
+					if ( 0 !== branch.length ) {
 						leaf.attr( 'aria-expanded', 'false' );
 					} else {
 
 						// FIX: Remove unnecessary elements for leafs
-						if ( ( 'selector' === tree.data( 'tree' ) || 'selector' === tree.attr( 'data-tree' ) ) && 0 !== button.length ) {
+						if ( 0 !== button.length ) {
 							button.remove();
 						}
 					}
