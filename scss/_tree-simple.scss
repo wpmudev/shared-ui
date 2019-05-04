@@ -29,10 +29,10 @@ $tree--file-type: (
 
 				> span {
 					display: block;
-					flex: 0 0 auto;
+					flex: 0 1 auto;
 				}
 
-				> span[role="button"] {
+				> span[data-button="expander"] {
 					width: 30px;
 					height: 12px;
 					cursor: pointer;
@@ -225,7 +225,7 @@ $tree--file-type: (
 						line-height: 22px;
 					}
 
-					> span[role="button"] {
+					> span[data-button="expander"] {
 						margin: 5px 0;
 						@include icon(before, chevron-down, false);
 					}
@@ -241,7 +241,7 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[role="button"] {
+						> span[data-button="expander"] {
 
 							&:before {
 								transform: rotate(180deg);
@@ -266,7 +266,7 @@ $tree--file-type: (
 					padding: 10px 20px;
 					border-radius: $border-radius;
 
-					> span[role="button"] {
+					> span[data-button="expander"] {
 						margin-top: 4px;
 						margin-left: -10px;
 						margin-bottom: 4px;
@@ -279,6 +279,7 @@ $tree--file-type: (
 					}
 
 					> span[role="text"] {
+						flex: 1;
 						line-height: 20px;
 					}
 				}
@@ -294,7 +295,7 @@ $tree--file-type: (
 					> .sui-tree-node {
 						background-color: palette(silver, light);
 
-						> span[role="button"] {
+						> span[data-button="expander"] {
 
 							&:before {
 								transform: rotate(90deg);
@@ -309,7 +310,7 @@ $tree--file-type: (
 					> .sui-tree-node {
 						background-color: palette(blue, light);
 
-						> span[role="button"] {
+						> span[data-button="expander"] {
 
 							&:before {
 								color: $blue;
@@ -331,7 +332,7 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[role="button"] {
+						> span[data-button="expander"] {
 
 							@include icon(before, lock, false) {
 								color: palette(gray, lighter);

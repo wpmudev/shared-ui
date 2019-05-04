@@ -175,7 +175,7 @@
 
 			var leaf   = tree.find( 'li[role="treeitem"]' ),
 				node   = leaf.find( '> span.sui-tree-node' ),
-				button = node.find( '> span[role="button"]' )
+				button = node.find( '> span[data-button="expander"]' )
 				;
 
 			button.each( function() {
