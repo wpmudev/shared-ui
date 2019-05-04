@@ -312,7 +312,7 @@
 		return this;
 	};
 
-	if ( 0 !== $( 'SUI_BODY_CLASS .sui-tree' ) ) {
+	if ( 0 !== $( 'SUI_BODY_CLASS .sui-tree' ).length ) {
 
 		$( 'SUI_BODY_CLASS .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
