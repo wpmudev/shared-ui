@@ -6754,7 +6754,347 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 					</div>
 
 					<!-- TREE: Documentation -->
-					<div class="sui-box" data-tab="tree-docs" style="display: none;"></div>
+					<div class="sui-box" data-tab="tree-docs" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Documentation</h2>
+						</div>
+
+						<!-- DOCS: Fancy Tree -->
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+									<span class="sui-settings-label sui-dark">Fancy Tree</span>
+									<span class="sui-description">Find here the basics to make Fancy Tree JS with SUI styles work in your plugin.</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="sui-accordion sui-accordion-flushed">
+
+							<!-- 1. Installation -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										1. Installation
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-2">
+
+													<span class="sui-settings-label sui-dark">Installation</span>
+
+													<span class="sui-description"><strong>1.</strong> Get latest Fancytree JS. Read their <a href="https://github.com/mar10/fancytree/wiki#getting-started" target="_blank">Wiki</a> for correct steps.</span>
+
+													<span class="sui-description"><strong>2.</strong> Init Fancytree JS on your plugin:</span>
+
+													<div class="demo-code-block" style="margin: 10px 0;">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	// Init fancy tree
+	$( &apos;#tree-id&apos; ).fancytree({
+		// Put here all your settings
+	});
+
+}( jQuery ) );
+</pre>
+
+													</div>
+
+													<div class="sui-notice sui-notice-warning" style="margin-top: 10px;">
+														<p style="margin: 0;">In the showcase we use <a href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js" target="_blank">Fancytree JS 2.27.0</a> because latest available version <strong style="color: #FF7E41;">2.30.2</strong> has an annoying bug that makes page scroll up or down when you click on an item.</p>
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- 2. Markup -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										2. Markup
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-2">
+
+													<span class="sui-settings-label sui-dark">Markup <span class="sui-tag sui-tag-yellow">Selector</span></span>
+													<span class="sui-description">Notice the <strong>class</strong> and <strong>attribute</strong> to load the correct styles for your tree.</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+	<pre class="sui-code-snippet sui-no-copy html">
+	&lt;div
+		id=&quot;tree-id&quot;
+		class=&quot;sui-tree-fancy&quot;
+		data-tree=&quot;selector&quot;
+	&gt;&lt;/div&gt;
+	</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-2">
+
+													<span class="sui-settings-label sui-dark">Markup <span class="sui-tag sui-tag-yellow">Directory Browser</span></span>
+													<span class="sui-description">Notice the <strong>class</strong> and <strong>attribute</strong> to load the correct styles for your tree.</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+	<pre class="sui-code-snippet sui-no-copy html">
+	&lt;div
+		id=&quot;tree-id&quot;
+		class=&quot;sui-tree-fancy&quot;
+		data-tree=&quot;directory&quot;
+	&gt;&lt;/div&gt;
+	</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- 3. Tricks -->
+							<div class="sui-accordion-item">
+
+								<div class="sui-accordion-item-header">
+									<div class="sui-accordion-item-title">
+										3. Tricks <span class="sui-tag sui-tag-yellow" style="pointer-events: none; margin-left: 10px;">Fancytree JS</span>
+									</div>
+								</div>
+
+								<div class="sui-accordion-item-body">
+
+									<div class="sui-box">
+
+										<div class="sui-box-body">
+
+											<!-- 1. Enable / Disable Checkbox -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">1. Enable / Disable Checkbox</span>
+													<span class="sui-description">You can do this globally (for all checkboxes on tree) or per item.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-form-field">
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	$( &apos;#tree-id&apos; ).fancytree({
+
+		// (Bool) global checkbox
+		checkbox: false,
+
+		// (Bool) Checkbox per item
+		source: [
+			{ title: 'Item', checkbox: true }
+		],
+	});
+
+}( jQuery ) );
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 2. Expand Item -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">2. Expand Item</span>
+													<span class="sui-description">Some times you need an item expanded and show its child items as soon as tree loads.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-form-field">
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	$( &apos;#tree-id&apos; ).fancytree({
+
+		source: [
+			{
+				title: 'Item',
+				expanded: true, // Expand item on load
+				child: [ { title: 'Child Item' } ] // IMPORTANT: For expand to work correctly make sure you have child items
+			}
+		],
+	});
+
+}( jQuery ) );
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 3. Custom Icon -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">3. Custom Icon</span>
+													<span class="sui-description">When you use <strong style="color: #FF7E41;">Directory Browser</strong> tree mode, notice each item have an icon (can be a folder or a page). To change the item icon follow this code example.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-form-field">
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	$( &apos;#tree-id&apos; ).fancytree({
+
+		// Replace icon per item
+		source: [
+			{
+				title: 'Item',
+				icon: 'sui-icon-photo-picture' // Replace this with any SUI icon class
+			}
+		],
+
+		// Replace folder icon (globally)
+		icon: function( event, data ) {
+
+			if ( data.node.isFolder() ) {
+				return 'sui-icon-folder'; // Replace this with any SUI icon class.
+			}
+		},
+	});
+
+}( jQuery ) );
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- 4. Remove Icons -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+
+													<span class="sui-settings-label">4. Remove Icons</span>
+													<span class="sui-description">When you use <strong style="color: #FF7E41;">Selectors</strong> tree mode, notice items don't have an icon. By default Fancytree JS enables these icons, you need to remove them to make it match the design.</span>
+
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-form-field">
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet js hljs">
+$( function() {
+
+	$( &apos;#tree-id&apos; ).fancytree({
+
+		// Remove icons (globally)
+		icon: false,
+
+	});
+
+}( jQuery ) );
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 
