@@ -1,6 +1,8 @@
 v2.3.24
 - [Enhance] Pagination styles on small screens.
 - [Enhance] Pagination tags styles.
+- [New] Fancy tree with SUI styles.
+			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#trees for sample markup.
 - [New] Simple tree element.
 			Dev Notes: Inspect https://wpmudev.github.io/shared-ui/#trees for sample markup.
 
