@@ -307,9 +307,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( 'SUI_BODY_CLASS .sui-tree' ) ) {
+	if ( 0 !== $( '.sui-2-3-23 .sui-tree' ) ) {
 
-		$( 'SUI_BODY_CLASS .sui-tree' ).each( function() {
+		$( '.sui-2-3-23 .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
 		});
 	}

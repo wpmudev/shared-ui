@@ -32,6 +32,45 @@ $tree--file-type: (
 			list-style: none;
 		}
 
+		li[role="treeitem"],
+		span[role="contentinfo"] {
+
+			span[role="button"] {
+				width: 30px;
+				height: 12px;
+				cursor: pointer;
+				display: block;
+				color: palette(gray, light);
+				text-align: center;
+
+				@include icon(before, false, true) {
+					width: 12px;
+					height: 12px;
+					display: block;
+					margin: 0 auto;
+					color: inherit;
+					font-size: 12px;
+					line-height: 12px;
+					transition: 250ms linear; // Match with slideToggle() timing
+				}
+
+				// TYPE: Add
+				&[data-button="add"] {
+					@include icon(before, plus, false);
+				}
+
+				// TYPE: Remove
+				&[data-button="remove"] {
+					@include icon(before, close, false);
+				}
+
+				// TYPE: Trash
+				&[data-button="trash"] {
+					@include icon(before, trash, false);
+				}
+			}
+		}
+
 		li[role="treeitem"] {
 			display: block;
 
@@ -41,41 +80,6 @@ $tree--file-type: (
 				> span {
 					display: block;
 					flex: 0 1 auto;
-				}
-
-				> span[role="button"] {
-					width: 30px;
-					height: 12px;
-					cursor: pointer;
-					display: block;
-					color: palette(gray, light);
-					text-align: center;
-
-					@include icon(before, false, true) {
-						width: 12px;
-						height: 12px;
-						display: block;
-						margin: 0 auto;
-						color: inherit;
-						font-size: 12px;
-						line-height: 12px;
-						transition: 250ms linear; // Match with slideToggle() timing
-					}
-
-					// TYPE: Add
-					&[data-button="add"] {
-						@include icon(before, plus, false);
-					}
-
-					// TYPE: Remove
-					&[data-button="remove"] {
-						@include icon(before, close, false);
-					}
-
-					// TYPE: Trash
-					&[data-button="trash"] {
-						@include icon(before, trash, false);
-					}
 				}
 
 				> span[role="checkbox"] {
@@ -177,6 +181,88 @@ $tree--file-type: (
 						color: palette(silver, medium);
 					}
 				}
+			}
+		}
+
+		span[role="contentinfo"] {
+			display: none;
+			align-items: center;
+			margin: 0 0 5px;
+			padding: 5px 10px;
+			border-radius: $border-radius;
+			background-color: palette(silver, light);
+
+			span[role="form"] {
+				display: flex;
+				flex: 1;
+				align-items: center;
+
+				input:not([type="radio"]):not([type="checkbox"]) {
+					width: auto;
+					min-width: 180px;
+					max-width: 100%;
+					height: 30px;
+					flex: 0 0 auto;
+					margin: 0;
+					padding: 6px 11px;
+					border: 1px solid palette(gray, lighter);
+					border-radius: $border-radius;
+					background-color: $white;
+					color: palette(gray, dark);
+					font: 500 12px/16px $font;
+					letter-spacing: $font--letter-spacing;
+
+					&,
+					&:focus,
+					&:hover {
+						outline: none;
+					}
+				}
+
+				span[role="button"] {
+					width: 24px;
+					height: 22px;
+					cursor: pointer;
+					display: flex;
+					flex: 0 0 24px;
+					align-items: center;
+					justify-content: center;
+					border-radius: $border-radius;
+					background-color: $blue;
+					color: $white;
+
+					@include icon(before, check, true) {
+						display: block;
+						color: inherit;
+						font-size: 12px;
+						line-height: 12px;
+					}
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						outline: none;
+						box-shadow: none;
+					}
+
+					&:hover,
+					&:active {
+						background-color: darken($blue, 10%);
+					}
+
+					&:not(:first-child) {
+						margin-left: 5px;
+					}
+				}
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&.sui-show {
+				display: flex;
 			}
 		}
 
@@ -320,8 +406,11 @@ $tree--file-type: (
 
 					> span[role="button"] {
 						margin-top: 4px;
-						margin-left: -10px;
 						margin-bottom: 4px;
+
+						&:first-child {
+							margin-left: -10px;
+						}
 
 						// TYPE: Expander
 						&[data-button="expander"] {
@@ -348,7 +437,7 @@ $tree--file-type: (
 				&[aria-expanded="true"] {
 
 					> .sui-tree-node {
-						background-color: palette(silver, light);
+						background-color: palette(silver, default);
 
 						> span[data-button="expander"] {
 
