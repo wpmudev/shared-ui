@@ -162,7 +162,20 @@ $tree--file-type: (
 				> .sui-tree-node {
 
 					> span[aria-hidden] {
-						@include icon(before, folder-open, false);
+
+						@each $type, $icon in $tree--file-type {
+
+							@if 'default' != $type {
+
+								&[data-type="#{$type}"] {
+									@include icon(before, $icon, false);
+								}
+							}
+
+							@else {
+								@include icon(before, folder-open, false);
+							}
+						}
 					}
 				}
 			}
@@ -172,7 +185,20 @@ $tree--file-type: (
 				> .sui-tree-node {
 
 					> span[aria-hidden] {
-						@include icon(before, folder, false);
+
+						@each $type, $icon in $tree--file-type {
+
+							@if 'default' != $type {
+
+								&[data-type="#{$type}"] {
+									@include icon(before, $icon, false);
+								}
+							}
+
+							@else {
+								@include icon(before, folder, false);
+							}
+						}
 					}
 				}
 			}
