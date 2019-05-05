@@ -222,47 +222,182 @@
 			}
 		}
 
-		// Tables.
+		// ELEMENT: Tables
 		.sui-table {
 			border-color: $accessible-dark;
-			th,
-			td {
-				border-color: $accessible-dark;
+
+			th, td {
+				color: $accessible-dark;
+			}
+
+			thead, tbody, tfoot {
+
+				> tr > {
+
+					th,
+					.sui-table-item-title,
+					.sui-accordion-item-title {
+						color: $accessible-dark;
+					}
+
+					th, td {
+						border-bottom-color: $accessible-dark;
+					}
+				}
+			}
+
+			tbody {
+
+				tr.sui-error,
+				tr.sui-warning,
+				tr.sui-success {
+
+					th,
+					.sui-table-item-title,
+					.sui-accordion-item-title {
+						color: $accessible-dark;
+					}
+
+					td {
+						color: $accessible-dark;
+					}
+				}
+
+				// STATUS: All
+				tr.sui-default,
+				tr.sui-error,
+				tr.sui-warning,
+				tr.sui-success {
+					box-shadow: none;
+				}
+			}
+
+			&-title {
 				color: $accessible-dark;
 			}
 		}
 
-		// Accordions.
+		// ELEMENT: Accordions
 		.sui-accordion {
-			.sui-accordion-item-header {
-				box-shadow: none !important;
-			}
-			.sui-accordion-open-indicator {
-				i {
-					color: $accessible-dark;
+
+			// DESIGN: Table (Flexbox)
+			&:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) {
+				border-color: $accessible-dark;
+
+				.sui-accordion-header {
+					border-bottom-color: $accessible-dark;
+
+					> div {
+						color: $accessible-dark;
+					}
 				}
-			}
-			.sui-accordion-item {
-				box-shadow: none !important;
-				&:hover {
-					background: transparent;
-				}
-				.sui-accordion-item-body {
-					box-shadow: inset 3px 0 $accessible-dark !important;
-				}
-			}
-			.sui-accordion-item-title {
-				i {
-					color: $accessible-dark;
-				}
-			}
-			.sui-accordion-item-date {
-				color: $accessible-dark;
-			}
-			&.sui-accordion-block {
+
 				.sui-accordion-item {
-					&:hover {
-						background: $accessible-light;
+					border-bottom-color: $accessible-dark;
+
+					.sui-accordion-item-header {
+						color: $accessible-dark;
+
+						.sui-accordion-item-title {
+							color: $accessible-dark;
+						}
+					}
+
+					// STATUS: All
+					&.sui-default,
+					&.sui-error,
+					&.sui-warning,
+					&.sui-success {
+
+						> .sui-accordion-item-header,
+						> .sui-accordion-item-body {
+							box-shadow: none;
+						}
+					}
+
+					// When item is disabled
+					&.sui-accordion-item--disabled {
+
+						.sui-accordion-item-header {
+
+							&, .sui-accordion-item-title {
+								color: $accessible-dark-alt;
+							}
+						}
+					}
+				}
+			}
+
+			// DESIGN: Table
+			// Must use in conjunction with .sui-table on the <table> element.
+			&.sui-table {
+
+				> tbody {
+
+					> .sui-accordion-item {
+
+						// STATUS: All
+						&.sui-default,
+						&.sui-error,
+						&.sui-warning,
+						&.sui-success {
+
+							+ .sui-accordion-item-content {
+								box-shadow: none;
+							}
+						}
+
+						// When item is disabled
+						&.sui-accordion-item--disabled {
+
+							th, td {
+								color: $accessible-dark-alt;
+							}
+
+							&.sui-error,
+							&.sui-warning,
+							&.sui-success {
+								box-shadow: none;
+							}
+						}
+					}
+				}
+			}
+
+			// DESIGN: Blocks (Flexbox)
+			&-block {
+
+				.sui-accordion-item {
+					background-color: $accessible-light;
+
+					.sui-accordion-item-header {
+						color: $accessible-dark;
+
+						strong {
+							color: inherit;
+						}
+
+						.sui-accordion-item-title {
+							color: $accessible-dark;
+						}
+					}
+
+					.sui-accordion-item-body {
+
+						.sui-accordion-item-data {
+
+							li strong {
+								color: inherit;
+							}
+
+							// Loading data animation when accordion opens
+							&.sui-onload {
+
+								li > * {
+									color: transparent !important;
+								}
+							}
+						}
 					}
 				}
 			}
