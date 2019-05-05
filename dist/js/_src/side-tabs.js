@@ -37,7 +37,7 @@
 
 	};
 
-	$( '.sui-2-3-23 .sui-side-tabs label.sui-tab-item input' ).each( function() {
+	$( '.sui-2-3-24 .sui-side-tabs label.sui-tab-item input' ).each( function() {
 		SUI.sideTabs( this );
 	});
 
