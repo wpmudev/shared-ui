@@ -114,6 +114,8 @@
 
 				var button  = $( this ),
 					leaf    = button.closest( 'li[role="treeitem"]' ),
+					node    = leaf.find( '> .sui-tree-node' ),
+					expand  = node.find( 'span[data-button="expander"]' ),
 					branch  = leaf.find( '> ul[role="group"]' ),
 					content = branch.find( '> span[role="contentinfo"]' )
 					;
@@ -122,11 +124,22 @@
 
 					// Hide button
 					button.hide();
+					button.removeAttr( 'tabindex' );
 					button.attr( 'aria-hidden', 'true' );
 
 					// Show content
 					content.addClass( 'sui-show' );
 					content.removeAttr( 'aria-hidden' );
+
+					// FIX: Open tree if it's closed
+					if ( 'true' !== leaf.attr( 'aria-expanded' ) ) {
+						expand.click();
+					}
+
+					// Focus content
+					content.focus();
+					content.attr( 'tabindex', '-1' );
+
 				}
 			});
 		}
@@ -144,11 +157,15 @@
 
 				// Hide content
 				content.removeClass( 'sui-show' );
+				content.removeAttr( 'tabindex' );
 				content.attr( 'aria-hidden', 'true' );
 
 				// Show button
 				btnAdd.show();
 				btnAdd.removeAttr( 'aria-hidden' );
+				btnAdd.focus();
+				btnAdd.attr( 'tabindex', '-1' );
+
 			});
 		}
 	};
@@ -183,7 +200,7 @@
 					;
 
 				// FIX: Remove unnecessary elements for leafs
-				if ( 0 !== icon.length && 'selector' === tree.data( 'tree' ) ) {
+				if ( ( 'selector' === tree.data( 'tree' ) || 'selector' === tree.attr( 'data-tree' ) ) && 0 !== icon.length ) {
 					button.remove();
 				}
 
@@ -195,12 +212,12 @@
 					}
 				} else {
 
-					if ( branch.length ) {
+					if ( 0 !== branch.length ) {
 						leaf.attr( 'aria-expanded', 'false' );
 					} else {
 
 						// FIX: Remove unnecessary elements for leafs
-						if ( 0 !== icon.length && 'selector' === tree.data( 'tree' ) ) {
+						if ( 0 !== button.length ) {
 							button.remove();
 						}
 					}
@@ -283,7 +300,12 @@
 
 		function init() {
 
-			if ( 'selector' === tree.data( 'tree' ) || 'directory' === tree.data( 'tree' ) ) {
+			if (
+				'selector' === tree.data( 'tree' ) ||
+				'directory' === tree.data( 'tree' ) ||
+				'selector' === tree.attr( 'data-tree' ) ||
+				'directory' === tree.atrr( 'data-tree' )
+			) {
 
 				// Initial setup
 				reset();
@@ -307,7 +329,7 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-23 .sui-tree' ) ) {
+	if ( 0 !== $( '.sui-2-3-23 .sui-tree' ).length ) {
 
 		$( '.sui-2-3-23 .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
