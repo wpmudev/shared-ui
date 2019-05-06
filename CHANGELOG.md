@@ -1,3 +1,6 @@
+v2.3.25
+- [New] Upgrade page.
+
 v2.3.24
 - [Enhance] Pagination styles on small screens.
 - [Enhance] Pagination tags styles.
