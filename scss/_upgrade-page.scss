@@ -2,15 +2,27 @@
 	.sui-upgrade-page {
 		max-width: 1040px;
 		margin: -30px -30px 60px;
+		@media (max-width: 783px) {
+			margin: -21px -10px 0;
+		}
 
 		/** Header and Image **/
 		&-header {
 			background: $white;
 			display: flex;
 			margin-bottom: 60px;
+			@media (max-width: 600px) {
+				flex-wrap: wrap;
+				margin-bottom: 40px;
+			}
 			&__content {
 				padding: 60px 30px 50px 60px;
 				width: 50%;
+				@media (max-width: 600px) {
+					order: 1;
+					width: 100%;
+					padding: 40px 20px;
+				}
 				h1 {
 					font-size: 28px;
 					font-family: $font;
@@ -22,10 +34,18 @@
 			&__image {
 				@if variable-exists(upgrade-image) {
 					background-image: url($upgrade-image);
-					background-size: cover;
-					background-position: center;
-					background-repeat: no-repeat;
-					width: 50%;
+				}
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				width: 50%;
+				@media (max-width: 600px) {
+					@if variable-exists(upgrade-image-mobile) {
+						background-image: url($upgrade-image-mobile);
+						width: 100%;
+						order: 0;
+						height: 250px;
+					}
 				}
 			}
 		}
@@ -50,11 +70,23 @@
 				display: flex;
 				flex-wrap: wrap;
 				padding: 30px;
+
+				@media (max-width: 600px) {
+					padding: 0;
+					margin: 40px 0;
+				}
 			}
 			&__item {
 				flex: 0 0 50%;
 				max-width: 50%;
 				padding: 30px;
+
+				@media (max-width: 600px) {
+					flex: 0 0 100%;
+					max-width: 100%;
+					padding: 20px;
+					text-align: center;
+				}
 
 				i {
 					height: 44px;
@@ -84,6 +116,12 @@
 		&-cta {
 			background: $white;
 			padding: 60px;
+			margin-bottom: 60px;
+
+			@media (max-width: 600px) {
+				padding: 40px 20px;
+				margin-bottom: 40px;
+			}
 			&__inner {
 				max-width: 600px;
 				margin: auto;
