@@ -48,6 +48,9 @@
 					}
 				}
 			}
+			.sui-reviews {
+				margin-top: 60px;
+			}
 		}
 
 		/** Pro Features **/
@@ -142,6 +145,17 @@
 					&:focus,
 					&:hover {
 						color: palette(gray);
+					}
+				}
+				.sui-hidden-desktop {
+					display: none;
+				}
+				@media (max-width: 600px) {
+					.sui-hidden-desktop {
+						display: inline-block;
+					}
+					.sui-button:not(.sui-hidden-desktop) {
+						display: none;
 					}
 				}
 			}
