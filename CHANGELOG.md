@@ -2,6 +2,7 @@ v2.3.25
 - [Enhance] Tree selectors: Item text is now clickable and can open/close the sub-menu.
 - [Enhance] Tree selectors: Cursor not allowed for disabled items.
 - [Enhance] Tree selectors: Make clickable arrows area bigger.
+- [Enhance] Tree selectors: Improve text + icon vertical alignment.
 
 
 v2.3.24

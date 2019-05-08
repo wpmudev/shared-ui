@@ -47,7 +47,7 @@ $tree--file-type: (
 				text-align: center;
 
 				@include icon(before, false, true) {
-					width: 12px;
+					width: 22px;
 					height: 22px;
 					display: block;
 					margin: 0 auto;
@@ -121,11 +121,10 @@ $tree--file-type: (
 				}
 
 				> span[aria-hidden] {
-					width: 30px;
+					width: 16px;
 					height: 16px;
 					pointer-events: none;
 					display: block;
-					margin: 1px 0;
 					color: palette(silver, medium);
 					text-align: center;
 
@@ -430,7 +429,7 @@ $tree--file-type: (
 				}
 
 				> .sui-tree-node {
-					padding: 10px 20px;
+					padding: 5px 20px;
 					border-radius: $border-radius;
 
 					> span[role="button"] {
@@ -441,16 +440,27 @@ $tree--file-type: (
 
 						// TYPE: Expander
 						&[data-button="expander"] {
-							@include icon(before, chevron-right, false);
+							width: 30px;
+							height: 30px;
+
+							@include icon(before, chevron-right, false) {
+								height: 30px;
+								line-height: 30px;
+							}
 						}
 					}
 
 					> span[role="checkbox"] {
-						margin: 2px 0;
+						margin: 7px 0;
+					}
+
+					> span[aria-hidden] {
+						margin: 7px 5px 7px 10px;
 					}
 
 					> span.sui-node-text {
 						flex: 1;
+						margin: 6px 0 4px;
 						line-height: 20px;
 					}
 				}
