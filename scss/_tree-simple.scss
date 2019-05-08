@@ -433,20 +433,25 @@ $tree--file-type: (
 					border-radius: $border-radius;
 
 					> span[role="button"] {
+						width: 30px;
+						height: 30px;
 
 						&:first-child {
 							margin-left: -10px;
 						}
 
+						&:last-child {
+							margin-right: -9px;
+						}
+
+						&:before {
+							height: 30px;
+							line-height: 30px;
+						}
+
 						// TYPE: Expander
 						&[data-button="expander"] {
-							width: 30px;
-							height: 30px;
-
-							@include icon(before, chevron-right, false) {
-								height: 30px;
-								line-height: 30px;
-							}
+							@include icon(before, chevron-right, false);
 						}
 					}
 
