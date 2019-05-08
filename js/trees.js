@@ -19,12 +19,15 @@
 				branch = leaf.find( '> ul[role="group"]' )
 				;
 
-			branch.slideToggle( 250 );
+			if ( 0 !== branch.length ) {
 
-			if ( 'true' === leaf.attr( 'aria-expanded' ) ) {
-				leaf.attr( 'aria-expanded', 'false' );
-			} else {
-				leaf.attr( 'aria-expanded', 'true' );
+				branch.slideToggle( 250 );
+
+				if ( 'true' === leaf.attr( 'aria-expanded' ) ) {
+					leaf.attr( 'aria-expanded', 'false' );
+				} else {
+					leaf.attr( 'aria-expanded', 'true' );
+				}
 			}
 		});
 	};
@@ -241,15 +244,18 @@
 
 			var leaf   = tree.find( 'li[role="treeitem"]' ),
 				node   = leaf.find( '> span.sui-tree-node' ),
-				button = node.find( '> span[data-button="expander"]' )
+				button = node.find( '> span[data-button="expander"]' ),
+				label  = node.find( '> span.sui-node-text' )
 				;
 
 			button.each( function() {
-
 				var button = $( this );
-
 				SUI.treeButton( button );
+			});
 
+			label.each( function() {
+				var label = $( this );
+				SUI.treeButton( label );
 			});
 		}
 

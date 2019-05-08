@@ -151,6 +151,16 @@ $tree--file-type: (
 				display: none;
 			}
 
+			&[aria-expanded] {
+
+				> .sui-tree-node {
+
+					> span.sui-node-text {
+						cursor: pointer;
+					}
+				}
+			}
+
 			// STATUS: Selected
 			&[aria-selected="true"] {
 

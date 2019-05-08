@@ -1,3 +1,7 @@
+v2.3.25
+- [Enhance] Tree selectors: Item text is now clickable and can open/close the sub-menu.
+
+
 v2.3.24
 - [Enhance] Pagination styles on small screens.
 - [Enhance] Pagination tags styles.
