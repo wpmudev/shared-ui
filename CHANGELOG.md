@@ -1,5 +1,7 @@
 v2.3.25
 - [New] Upgrade page.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#upgrade-page for sample markup.
+- [New] Reviews.io widget used on Upgrade Page.
 
 v2.3.24
 - [Enhance] Pagination styles on small screens.
