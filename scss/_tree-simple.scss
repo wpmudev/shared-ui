@@ -40,20 +40,20 @@ $tree--file-type: (
 
 			span[role="button"] {
 				width: 30px;
-				height: 12px;
+				height: 20px;
 				cursor: pointer;
 				display: block;
 				color: palette(gray, light);
 				text-align: center;
 
 				@include icon(before, false, true) {
-					width: 12px;
-					height: 12px;
+					width: 20px;
+					height: 20px;
 					display: block;
 					margin: 0 auto;
 					color: inherit;
 					font-size: 12px;
-					line-height: 12px;
+					line-height: 20px;
 					transition: 250ms linear; // Match with slideToggle() timing
 				}
 
@@ -394,7 +394,6 @@ $tree--file-type: (
 					}
 
 					> span[data-button="expander"] {
-						margin: 5px 0;
 						@include icon(before, chevron-down, false);
 					}
 				}
@@ -435,8 +434,6 @@ $tree--file-type: (
 					border-radius: $border-radius;
 
 					> span[role="button"] {
-						margin-top: 4px;
-						margin-bottom: 4px;
 
 						&:first-child {
 							margin-left: -10px;
