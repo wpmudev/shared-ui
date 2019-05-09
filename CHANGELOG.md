@@ -1,4 +1,4 @@
-v2.3.25
+v2.3.26
 - [Fix] Tree selectors: Prevent WordPress default styles to overwrite and break button styles.
 
 
