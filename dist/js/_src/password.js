@@ -10,7 +10,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-25 .sui-form-field' ).each( function() {
+		$( '.sui-2-3-26 .sui-form-field' ).each( function() {
 
 			var $this = $( this );
 

@@ -569,9 +569,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-25 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-3-26 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-25 .sui-accordion' ).each( function() {
+		$( '.sui-2-3-26 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1644,7 +1644,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-25 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-3-26 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -2011,7 +2011,7 @@
 		return this;
 	};
 
-	$( '.sui-2-3-25 .sui-slider' ).each( function() {
+	$( '.sui-2-3-26 .sui-slider' ).each( function() {
 		SUI.dialogSlider( this );
 	});
 
@@ -2031,7 +2031,7 @@
 
 		function closeAllDropdowns( $except ) {
 
-			var $dropdowns = $( '.sui-2-3-25 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-3-26 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -2058,7 +2058,7 @@
 
 		$( 'body' ).mouseup( function( e ) {
 
-			var $anchor = $( '.sui-2-3-25 .sui-dropdown-anchor' );
+			var $anchor = $( '.sui-2-3-26 .sui-dropdown-anchor' );
 
 			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
@@ -2112,9 +2112,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-25 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-3-26 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-25 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-3-26 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -2136,7 +2136,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-25 .sui-form-field' ).each( function() {
+		$( '.sui-2-3-26 .sui-form-field' ).each( function() {
 
 			var $this = $( this );
 
@@ -2177,7 +2177,7 @@
     var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org';
 
     // Update the reviews with the live stats.
-    $( '.sui-2-3-25 .sui-reviews' ).each( function() {
+    $( '.sui-2-3-26 .sui-reviews' ).each( function() {
         var review = $( this );
         $.get( endpoint, function( data ) {
             var stars = Math.round( data.stats.average_rating );
@@ -2221,7 +2221,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-25 .sui-circle-score' ).each( function() {
+	$( '.sui-2-3-26 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2439,7 +2439,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-25 select:not([multiple])' ).each( function() {
+	$( '.sui-2-3-26 select:not([multiple])' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -9036,7 +9036,7 @@
 
 	};
 
-	$( '.sui-2-3-25 .sui-side-tabs label.sui-tab-item input' ).each( function() {
+	$( '.sui-2-3-26 .sui-side-tabs label.sui-tab-item input' ).each( function() {
 		SUI.sideTabs( this );
 	});
 
@@ -9238,7 +9238,7 @@
     };
 
 
-    if ( 0 !== $( '.sui-2-3-25 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-26 .sui-tabs' ).length ) {
         SUI.suiTabs();
     }
 
@@ -9635,9 +9635,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-25 .sui-tree' ).length ) {
+	if ( 0 !== $( '.sui-2-3-26 .sui-tree' ).length ) {
 
-		$( '.sui-2-3-25 .sui-tree' ).each( function() {
+		$( '.sui-2-3-26 .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
 		});
 	}
@@ -9656,7 +9656,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-25 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-3-26 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
