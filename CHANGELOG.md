@@ -1,4 +1,8 @@
 v2.3.25
+- [Fix] Tree selectors: Prevent WordPress default styles to overwrite and break button styles.
+
+
+v2.3.25
 - [New] Upgrade page.
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#upgrade-page for sample markup.
 - [New] Reviews.io widget used on Upgrade Page.
