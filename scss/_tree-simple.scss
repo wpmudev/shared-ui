@@ -38,22 +38,42 @@ $tree--file-type: (
 		li[role="treeitem"],
 		span[role="contentinfo"] {
 
+			button[data-button],
 			span[role="button"] {
-				width: 30px;
-				height: 12px;
 				cursor: pointer;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+				background-color: transparent;
+				background-image: none;
+
+				&,
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			span[role="button"],
+			button[data-button] span[aria-hidden] {
+				width: 22px;
+				height: 22px;
 				display: block;
 				color: palette(gray, light);
 				text-align: center;
 
 				@include icon(before, false, true) {
-					width: 12px;
-					height: 12px;
+					width: 22px;
+					height: 22px;
 					display: block;
 					margin: 0 auto;
 					color: inherit;
 					font-size: 12px;
-					line-height: 12px;
+					line-height: 22px;
 					transition: 250ms linear; // Match with slideToggle() timing
 				}
 
@@ -70,14 +90,6 @@ $tree--file-type: (
 				// TYPE: Trash
 				&[data-button="trash"] {
 					@include icon(before, trash, false);
-				}
-
-				&,
-				&:focus,
-				&:hover,
-				&:active {
-					outline: none;
-					box-shadow: none;
 				}
 			}
 
@@ -101,9 +113,13 @@ $tree--file-type: (
 					flex: 0 1 auto;
 				}
 
-				> span[role="checkbox"] {
+				> .sui-node-checkbox[role="checkbox"],
+				> label.sui-node-checkbox {
 					width: 16px;
 					height: 16px;
+				}
+
+				> .sui-node-checkbox[role="checkbox"] {
 					cursor: pointer;
 					display: flex;
 					align-items: center;
@@ -120,12 +136,50 @@ $tree--file-type: (
 					}
 				}
 
+				> label.sui-node-checkbox {
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+
+					input,
+					span:not([aria-hidden]) {
+						@extend %sui-screen-reader-text;
+					}
+
+					span[aria-hidden] {
+						width: 16px;
+						height: 16px;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border: 1px solid palette(gray, lighter);
+						border-radius: $border-radius;
+						background-color: #FAFAFA;
+
+						@include icon(before, element-checkbox, true) {
+							opacity: 0;
+							display: block;
+							color: $blue;
+							font-size: 16px;
+						}
+					}
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						outline: none;
+						box-shadow: none;
+					}
+				}
+
 				> span[aria-hidden] {
-					width: 30px;
+					width: 16px;
 					height: 16px;
 					pointer-events: none;
 					display: block;
-					margin: 1px 0;
 					color: palette(silver, medium);
 					text-align: center;
 
@@ -151,12 +205,23 @@ $tree--file-type: (
 				display: none;
 			}
 
+			&[aria-expanded] {
+
+				> .sui-tree-node {
+
+					> span.sui-node-text {
+						cursor: pointer;
+					}
+				}
+			}
+
 			// STATUS: Selected
 			&[aria-selected="true"] {
 
 				> .sui-tree-node {
 
-					> span[role="checkbox"] {
+					> .sui-node-checkbox[role="checkbox"],
+					> label.sui-node-checkbox span {
 						border-color: $blue;
 
 						&:before {
@@ -170,7 +235,8 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[role="checkbox"] {
+						> .sui-node-checkbox[role="checkbox"],
+						> label.sui-node-checkbox span {
 							border-color: palette(silver, default);
 							background-color: palette(silver, medium);
 
@@ -186,12 +252,14 @@ $tree--file-type: (
 			&[aria-disabled="true"] {
 
 				> .sui-tree-node {
+					cursor: not-allowed;
 
-					&, * {
+					* {
 						pointer-events: none;
 					}
 
-					> span[role="checkbox"] {
+					> .sui-node-checkbox[role="checkbox"],
+					> label.sui-node-checkbox span {
 						border-color: palette(silver, default);
 						background-color: palette(silver, default);
 					}
@@ -203,6 +271,7 @@ $tree--file-type: (
 			}
 		}
 
+		div[role="contentinfo"],
 		span[role="contentinfo"] {
 			display: none;
 			align-items: center;
@@ -215,6 +284,9 @@ $tree--file-type: (
 				display: flex;
 				flex: 1;
 				align-items: center;
+				margin: 0;
+				padding: 0;
+				border: 0;
 
 				input:not([type="radio"]):not([type="checkbox"]) {
 					width: auto;
@@ -238,6 +310,7 @@ $tree--file-type: (
 					}
 				}
 
+				button,
 				span[role="button"] {
 					width: 24px;
 					height: 22px;
@@ -246,11 +319,17 @@ $tree--file-type: (
 					flex: 0 0 24px;
 					align-items: center;
 					justify-content: center;
+					margin: 0;
+					padding: 0;
+					border: 0;
 					border-radius: $border-radius;
 					background-color: $blue;
+					background-image: none;
 					color: $white;
+					transition: $transition;
 
 					@include icon(before, check, true) {
+						height: 12px;
 						display: block;
 						color: inherit;
 						font-size: 12px;
@@ -370,7 +449,7 @@ $tree--file-type: (
 
 				> .sui-tree-node {
 
-					> span[role="checkbox"] {
+					> .sui-node-checkbox {
 						margin: 3px 0;
 
 						+ span {
@@ -382,8 +461,8 @@ $tree--file-type: (
 						line-height: 22px;
 					}
 
-					> span[data-button="expander"] {
-						margin: 5px 0;
+					> span[data-button="expander"],
+					> button[data-button="expander"] span[aria-hidden] {
 						@include icon(before, chevron-down, false);
 					}
 				}
@@ -398,7 +477,8 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[data-button="expander"] {
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
 
 							&:before {
 								transform: rotate(180deg);
@@ -420,29 +500,45 @@ $tree--file-type: (
 				}
 
 				> .sui-tree-node {
-					padding: 10px 20px;
+					padding: 5px 20px;
 					border-radius: $border-radius;
 
-					> span[role="button"] {
-						margin-top: 4px;
-						margin-bottom: 4px;
+					> span[role="button"],
+					> button[data-button] span[aria-hidden] {
+						width: 30px;
+						height: 30px;
 
 						&:first-child {
 							margin-left: -10px;
 						}
 
-						// TYPE: Expander
-						&[data-button="expander"] {
-							@include icon(before, chevron-right, false);
+						&:last-child {
+							margin-right: -9px;
+						}
+
+						&:before {
+							height: 30px;
+							line-height: 30px;
 						}
 					}
 
-					> span[role="checkbox"] {
-						margin: 2px 0;
+					// TYPE: Expander
+					> span[role="button"][data-button="expander"],
+					> button[data-button="expander"] span[aria-hidden] {
+						@include icon(before, chevron-right, false);
+					}
+
+					> .sui-node-checkbox {
+						margin: 7px 0;
+					}
+
+					> span[aria-hidden] {
+						margin: 7px 5px 7px 10px;
 					}
 
 					> span.sui-node-text {
 						flex: 1;
+						margin: 6px 0 4px;
 						line-height: 20px;
 					}
 				}
@@ -458,7 +554,8 @@ $tree--file-type: (
 					> .sui-tree-node {
 						background-color: palette(silver, default);
 
-						> span[data-button="expander"] {
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
 
 							&:before {
 								transform: rotate(90deg);
@@ -473,7 +570,8 @@ $tree--file-type: (
 					> .sui-tree-node {
 						background-color: palette(blue, light);
 
-						> span[data-button="expander"] {
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
 
 							&:before {
 								color: $blue;
@@ -495,16 +593,18 @@ $tree--file-type: (
 
 					> .sui-tree-node {
 
-						> span[role="button"] {
+						> span[role="button"],
+						> button[data-button] span[aria-hidden] {
 
 							&:before {
 								color: palette(gray, lighter);
 							}
+						}
 
-							// TYPE: Expander
-							&[data-button="expander"] {
-								@include icon(before, lock, false);
-							}
+						// TYPE: Expander
+						> span[role="button"][data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
+							@include icon(before, lock, false);
 						}
 
 						> span[aria-hidden] {
