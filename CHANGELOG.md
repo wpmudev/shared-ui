@@ -2,6 +2,14 @@ v2.3.25
 - [New] Upgrade page.
 			Dev Notes: See https://wpmudev.github.io/shared-ui/#upgrade-page for sample markup.
 - [New] Reviews.io widget used on Upgrade Page.
+- [Enhance] Update icon font file to latest.
+- [Enhance] Tree selectors: Item text is now clickable and can open/close the sub-menu.
+- [Enhance] Tree selectors: Cursor not allowed for disabled items.
+- [Enhance] Tree selectors: Make clickable arrows area bigger.
+- [Enhance] Tree selectors: Improve text + icon vertical alignment.
+- [Enhance] Tree selectors: Support checkbox input and divs as part of the markup.
+			Dev Notes: For more info go to https://wpmudev.github.io/shared-ui/#trees and read "Documentation" tab. If something is not clear ping @Leigh on #sui-plugins channel.
+
 
 v2.3.24
 - [Enhance] Pagination styles on small screens.
