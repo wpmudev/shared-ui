@@ -5698,11 +5698,18 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 										<li role="treeitem" aria-expanded="true" aria-selected="true">
 
-											<span class="sui-tree-node">
-												<span role="checkbox" aria-label="Select this item"></span>
+											<div class="sui-tree-node">
+												<label for="treeselector-level-1" class="sui-node-checkbox">
+													<input type="checkbox" id="treeselector-level-1" />
+													<span aria-hidden="true"></span>
+													<span>Select this item (Checkbox)</span>
+												</label>
 												<span class="sui-node-text">Parent / Group</span>
-												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-											</span>
+												<button data-button="expander">
+													<span aria-hidden="true"></span>
+													<span class="sui-screen-reader-text">Expand or compress item</span>
+												</button>
+											</div>
 
 											<!-- LEVEL: 1 -->
 											<ul role="group">
@@ -5710,7 +5717,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span class="sui-node-text">Child / Group</span>
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 													</span>
@@ -5719,8 +5726,23 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 													<ul role="group">
 
 														<li role="treeitem">
+															<div class="sui-tree-node">
+																<label for="treeselector-level-2" class="sui-node-checkbox">
+																	<input type="checkbox" id="treeselector-level-2" />
+																	<span aria-hidden="true"></span>
+																	<span>Select this item</span>
+																</label>
+																<span class="sui-node-text">Sub Child Item</span>
+																<button data-button="expander">
+																	<span aria-hidden="true"></span>
+																	<span class="sui-screen-reader-text">Expand or compress item</span>
+																</button>
+															</div>
+														</li>
+
+														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5728,15 +5750,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5749,7 +5763,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-expanded="true">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span class="sui-node-text">Child / Group</span>
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 													</span>
@@ -5759,7 +5773,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5767,7 +5781,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5775,7 +5789,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5792,7 +5806,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 										<li role="treeitem">
 
 											<span class="sui-tree-node">
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span class="sui-node-text">Parent / Group</span>
 												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 											</span>
@@ -5803,7 +5817,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span class="sui-node-text">Child / Group</span>
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 													</span>
@@ -5813,7 +5827,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5821,7 +5835,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5829,7 +5843,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 														<li role="treeitem">
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span class="sui-node-text">Sub Child Item</span>
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
 															</span>
@@ -5846,7 +5860,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 										<li role="treeitem" aria-selected="true">
 
 											<span class="sui-tree-node">
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span class="sui-node-text">Parent / Single</span>
 											</span>
 
@@ -5855,7 +5869,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 										<li role="treeitem" aria-selected="true" aria-disabled="true">
 
 											<span class="sui-tree-node">
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span class="sui-node-text">Parent / Single (Disabled)</span>
 											</span>
 
@@ -5889,7 +5903,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 											<span class="sui-tree-node">
 												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span aria-hidden="true"></span>
 												<span class="sui-node-text">wp-admin</span>
 												<span role="button" data-button="add" aria-label="Add folder"></span>
@@ -5900,7 +5914,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -5910,7 +5924,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -5920,7 +5934,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -5935,7 +5949,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 											<span class="sui-tree-node">
 												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span aria-hidden="true"></span>
 												<span class="sui-node-text">wp-content</span>
 												<span role="button" data-button="add" aria-label="Add folder"></span>
@@ -5943,7 +5957,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 											<ul role="group">
 
-												<span role="contentinfo" aria-hidden="true">
+												<div role="contentinfo" aria-hidden="true">
 
 													<span id="suitree-input-label" class="sui-screen-reader-text">Folder name</span>
 
@@ -5964,13 +5978,13 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 														<span class="sui-screen-reader-text">Remove folder</span>
 													</span>
 
-												</span>
+												</div>
 
 												<li role="treeitem" aria-expanded="false" aria-selected="false">
 
 													<span class="sui-tree-node">
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">plugins</span>
 													</span>
@@ -5981,7 +5995,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span data-type="forminator" aria-hidden="true"></span>
 																<span class="sui-node-text">Forminator</span>
 															</span>
@@ -5991,7 +6005,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6001,7 +6015,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6011,7 +6025,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6026,7 +6040,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span data-type="hummingbird" aria-hidden="true"></span>
 																<span class="sui-node-text">Hummingbird</span>
 															</span>
@@ -6036,7 +6050,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6046,7 +6060,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6056,7 +6070,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6071,7 +6085,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span data-type="hustle" aria-hidden="true"></span>
 																<span class="sui-node-text">Hustle</span>
 															</span>
@@ -6081,7 +6095,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6091,7 +6105,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6101,7 +6115,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6115,7 +6129,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 														<li role="treeitem" aria-selected="false">
 
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">hello.php</span>
 															</span>
@@ -6125,7 +6139,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 														<li role="treeitem" aria-selected="false">
 
 															<span class="sui-tree-node">
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">index.php</span>
 															</span>
@@ -6140,7 +6154,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 													<span class="sui-tree-node">
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">themes</span>
 													</span>
@@ -6151,7 +6165,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">divi</span>
 															</span>
@@ -6162,7 +6176,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 																	<span class="sui-tree-node">
 																		<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">assets</span>
 																	</span>
@@ -6173,7 +6187,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 																			<span class="sui-tree-node">
 																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																				<span aria-hidden="true"></span>
 																				<span class="sui-node-text">images</span>
 																			</span>
@@ -6183,7 +6197,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="true">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span data-type="jpg" aria-hidden="true"></span>
 																						<span class="sui-node-text">image.jpg</span>
 																					</span>
@@ -6193,7 +6207,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="true">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span data-type="jpg" aria-hidden="true"></span>
 																						<span class="sui-node-text">image.jpg</span>
 																					</span>
@@ -6203,7 +6217,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="true">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span data-type="jpg" aria-hidden="true"></span>
 																						<span class="sui-node-text">image.jpg</span>
 																					</span>
@@ -6213,7 +6227,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="true">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span data-type="jpg" aria-hidden="true"></span>
 																						<span class="sui-node-text">image.jpg</span>
 																					</span>
@@ -6228,7 +6242,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 																			<span class="sui-tree-node">
 																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																				<span aria-hidden="true"></span>
 																				<span class="sui-node-text">css</span>
 																			</span>
@@ -6238,7 +6252,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">styles.min.css</span>
 																					</span>
@@ -6248,7 +6262,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">styles.min.css</span>
 																					</span>
@@ -6258,7 +6272,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">styles.min.css</span>
 																					</span>
@@ -6268,7 +6282,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">styles.min.css</span>
 																					</span>
@@ -6283,7 +6297,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 																			<span class="sui-tree-node">
 																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																				<span aria-hidden="true"></span>
 																				<span class="sui-node-text">js</span>
 																			</span>
@@ -6293,7 +6307,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">scripts.min.js</span>
 																					</span>
@@ -6303,7 +6317,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">scripts.min.js</span>
 																					</span>
@@ -6313,7 +6327,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">scripts.min.js</span>
 																					</span>
@@ -6323,7 +6337,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">scripts.min.js</span>
 																					</span>
@@ -6338,7 +6352,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 																			<span class="sui-tree-node">
 																				<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																				<span role="checkbox" aria-label="Select this item"></span>
+																				<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																				<span aria-hidden="true"></span>
 																				<span class="sui-node-text">fonts</span>
 																			</span>
@@ -6348,7 +6362,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">custom-font.eot</span>
 																					</span>
@@ -6358,7 +6372,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">custom-font.svg</span>
 																					</span>
@@ -6368,7 +6382,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">custom-font.ttf</span>
 																					</span>
@@ -6378,7 +6392,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">custom-font.woff</span>
 																					</span>
@@ -6388,7 +6402,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																				<li role="treeitem" aria-selected="false">
 
 																					<span class="sui-tree-node">
-																						<span role="checkbox" aria-label="Select this item"></span>
+																						<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																						<span aria-hidden="true"></span>
 																						<span class="sui-node-text">custom-font.woff2</span>
 																					</span>
@@ -6406,7 +6420,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6416,7 +6430,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6431,7 +6445,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">twentyseventeen</span>
 															</span>
@@ -6441,7 +6455,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6451,7 +6465,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6461,7 +6475,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6471,7 +6485,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span aria-hidden="true"></span>
 																		<span class="sui-node-text">file.php</span>
 																	</span>
@@ -6490,7 +6504,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 													<span class="sui-tree-node">
 														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">uploads</span>
 													</span>
@@ -6501,7 +6515,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">2017</span>
 															</span>
@@ -6511,7 +6525,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6521,7 +6535,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6531,7 +6545,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6546,7 +6560,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">2018</span>
 															</span>
@@ -6556,7 +6570,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6566,7 +6580,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6576,7 +6590,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6591,7 +6605,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 															<span class="sui-tree-node">
 																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-																<span role="checkbox" aria-label="Select this item"></span>
+																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																<span aria-hidden="true"></span>
 																<span class="sui-node-text">2019</span>
 															</span>
@@ -6601,7 +6615,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6611,7 +6625,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6621,7 +6635,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 																<li role="treeitem" aria-selected="false">
 
 																	<span class="sui-tree-node">
-																		<span role="checkbox" aria-label="Select this item"></span>
+																		<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 																		<span type="image" aria-hidden="true"></span>
 																		<span class="sui-node-text">image.jpg</span>
 																	</span>
@@ -6644,7 +6658,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 											<span class="sui-tree-node">
 												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-												<span role="checkbox" aria-label="Select this item"></span>
+												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 												<span aria-hidden="true"></span>
 												<span class="sui-node-text">wp-includes</span>
 											</span>
@@ -6654,7 +6668,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -6664,7 +6678,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -6674,7 +6688,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 												<li role="treeitem" aria-selected="false">
 
 													<span class="sui-tree-node">
-														<span role="checkbox" aria-label="Select this item"></span>
+														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
 														<span aria-hidden="true"></span>
 														<span class="sui-node-text">file.php</span>
 													</span>
@@ -6859,9 +6873,49 @@ $( function() {
 
 													<span class="sui-settings-label sui-dark">Starter Markup</span>
 
-													<span class="sui-description">This is the basic markup for selectors tree and contains parent and child items. <strong style="color: #333333;">NOTE:</strong> Please pay attention to the notes I left in the sample code.</span>
+													<span class="sui-description">Here you will find two different base markups that will work with Simple Tree. Click on each tab to see more details. <strong style="color: #333333;">NOTE:</strong> Please pay attention to the notes I left in the sample code.</span>
 
-													<div class="demo-code-block" style="margin-top: 10px;">
+													<div class="sui-side-tabs" style="margin-top: 10px;">
+
+														<div class="sui-tabs-menu">
+
+															<label for="simpletree-markup-selectors--spans" class="sui-tab-item active">
+																<input
+																	type="checkbox"
+																	name="simpletree-markup-selectors"
+																	value="spans"
+																	id="simpletree-markup-selectors--spans"
+																	data-tab-menu="simpletree-markup-selectors-tab--spans"
+																	checked="checked"
+																/>
+																Basic Mode
+															</label>
+
+															<label for="simpletree-markup-selectors--divs" class="sui-tab-item">
+																<input
+																	type="checkbox"
+																	name="simpletree-markup-selectors"
+																	value="divs"
+																	id="simpletree-markup-selectors--divs"
+																	data-tab-menu="simpletree-markup-selectors-tab--divs"
+																/>
+																Complex Mode
+															</label>
+
+														</div>
+
+														<div class="sui-tabs-content">
+
+															<div
+																class="sui-tab-content sui-tab-boxed active"
+																data-tab-content="simpletree-markup-selectors-tab--spans"
+															>
+
+																<span class="sui-settings-label">Basic Mode</span>
+
+																<span class="sui-description">This markup uses only <code>&lt;span /&gt;</code>'s inside <code>&lt;li /&gt;</code> reason why elements like checkboxes or buttons are handled with roles to make them correctly accessible for screen readers.</span>
+
+																<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet html hljs">
 &lt;ul class=&quot;sui-tree&quot; data-tree=&quot;selector&quot; role=&quot;group&quot;&gt;
@@ -6871,7 +6925,7 @@ $( function() {
 		&lt;span class=&quot;sui-tree-node&quot;&gt;
 
 			&lt;!-- Checkbox --&gt;
-			&lt;span role=&quot;checkbox&quot;&gt;
+			&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 			&lt;/span&gt;
 
@@ -6895,7 +6949,7 @@ $( function() {
 				&lt;span class=&quot;sui-tree-node&quot;&gt;
 
 					&lt;!-- Checkbox --&gt;
-					&lt;span role=&quot;checkbox&quot;&gt;
+					&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 					&lt;/span&gt;
 
@@ -6919,6 +6973,116 @@ $( function() {
 
 &lt;/ul&gt;
 </pre>
+
+																</div>
+
+																<div class="sui-notice sui-notice-warning">
+
+																	<p style="margin: 0;">If you need to get the value assigned to checkbox, that must be retrieved using JS. For example, assign <code>data-attribute=&quot;...&quot;</code> and check on change if <code>li</code> has <code>aria-selected=&quot;true&quot;</code> attribute.</p>
+
+																</div>
+
+															</div>
+
+															<div
+																class="sui-tab-content sui-tab-boxed active"
+																data-tab-content="simpletree-markup-selectors-tab--spans"
+															>
+
+																<span class="sui-settings-label">Basic Mode</span>
+
+																<span class="sui-description">This markup uses <code>&lt;div /&gt;</code>'s and other regular markup inside <code>&lt;li /&gt;</code>.</span>
+
+																<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet html hljs">
+&lt;ul class=&quot;sui-tree&quot; data-tree=&quot;selector&quot; role=&quot;group&quot;&gt;
+
+	&lt;li role=&quot;treeitem&quot;&gt;
+
+		&lt;div class=&quot;sui-tree-node&quot;&gt;
+
+			&lt;!-- Checkbox --&gt;
+			&lt;label for=&quot;unique-checkbox-id&quot; class=&quot;sui-node-checkbox&quot;&gt;
+				&lt;input
+					type=&quot;checkbox&quot;
+					id=&quot;unique-checkbox-id&quot;
+				/&gt;
+				&lt;span aria-hidden=&quot;true&quot;&gt;</span>
+				&lt;span&gt;Select this item&lt;/span&gt;
+			&lt;/label&gt;
+
+			&lt;!-- Text --&gt;
+			&lt;span class=&quot;sui-node-text&quot;&gt;Parent / Group&lt;/span&gt;
+
+			&lt;!-- Button expander (for open/close) --&gt;
+			&lt;button data-button=&quot;expander&quot;&gt;
+				&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+				&lt;span&gt;Open or close this item&lt;/span&gt;
+			&lt;/button&gt;
+
+		&lt;/div&gt;
+
+		&lt;!-- NOTE:
+			Wrap more items inside UL to create a new group inside parent item
+		--&gt;
+		&lt;ul role=&quot;group&quot;&gt;
+
+			&lt;li role=&quot;treeitem&quot;&gt;
+
+				&lt;div class=&quot;sui-tree-node&quot;&gt;
+
+					&lt;!-- Checkbox --&gt;
+					&lt;label for=&quot;unique-checkbox-id&quot; class=&quot;sui-node-checkbox&quot;&gt;
+						&lt;input
+							type=&quot;checkbox&quot;
+							id=&quot;unique-checkbox-id&quot;
+						/&gt;
+						&lt;span aria-hidden=&quot;true&quot;&gt;</span>
+						&lt;span&gt;Select this item&lt;/span&gt;
+					&lt;/label&gt;
+
+					&lt;!-- Text --&gt;
+					&lt;span class=&quot;sui-node-text&quot;&gt;Child Item&lt;/span&gt;
+
+					&lt;!-- IMPORTANT:
+						Notice expander button isn't here, this because it's not necessary.
+						If for any case you can't remove the expander button from the markup
+						don't worry because the JS function will check if item doesn't have
+						child elements and will remove the expander button.
+					--&gt;
+
+				&lt;/div&gt;
+
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+	&lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+
+																</div>
+
+																<div class="sui-notice sui-notice-warning">
+
+																	<p style="margin: 0;">If you need to get the value assigned to checkbox, that must be retrieved using JS. For example, assign <code>data-attribute=&quot;...&quot;</code> and check on change if <code>li</code> has <code>aria-selected=&quot;true&quot;</code> attribute.</p>
+
+																</div>
+
+															</div>
+
+															<div
+																class="sui-tab-content sui-tab-boxed"
+																data-tab-content="simpletree-markup-selectors-tab--divs"
+															>
+
+																<span class="sui-settings-label">Complex Mode</span>
+
+															</div>
+
+														</div>
 
 													</div>
 
@@ -6949,6 +7113,10 @@ $( function() {
 
 										<div class="sui-box-body">
 
+											<div class="sui-notice sui-notice-warning">
+												<p style="margin: 0;">This markup supports <strong>complex mode</strong> markup variations mentioned on <strong>Selectors Tree</strong> markup.</p>
+											</div>
+
 											<span class="sui-settings-label sui-dark">Starter Markup</span>
 
 											<span class="sui-description">This is the basic markup for directory browser tree and contains parent and child items. <strong style="color: #333333;">NOTE:</strong> Please pay attention to the notes I left in the sample code.</span>
@@ -6968,7 +7136,7 @@ $( function() {
 			&lt;/span&gt;
 
 			&lt;!-- Checkbox --&gt;
-			&lt;span role=&quot;checkbox&quot;&gt;
+			&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 			&lt;/span&gt;
 
@@ -6997,7 +7165,7 @@ $( function() {
 					--&gt;
 
 					&lt;!-- Checkbox --&gt;
-					&lt;span role=&quot;checkbox&quot;&gt;
+					&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 					&lt;/span&gt;
 
@@ -7238,7 +7406,7 @@ $( function() {
 			&lt;span role=&quot;button&quot; data-button=&quot;expander&quot;&gt;
 				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open or close this item&lt;/span&gt;
 			&lt;/span&gt;
-			&lt;span role=&quot;checkbox&quot;&gt;
+			&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 				&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 			&lt;/span&gt;
 			&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
@@ -7280,7 +7448,7 @@ $( function() {
 			&lt;li role=&quot;treeitem&quot;&gt;
 
 				&lt;span class=&quot;sui-tree-node&quot;&gt;
-					&lt;span role=&quot;checkbox&quot;&gt;
+					&lt;span class=&quot;sui-node-checkbox&quot; role=&quot;checkbox&quot;&gt;
 						&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Select this item&lt;/span&gt;
 					&lt;/span&gt;
 					&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;

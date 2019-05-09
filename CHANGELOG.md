@@ -3,6 +3,8 @@ v2.3.25
 - [Enhance] Tree selectors: Cursor not allowed for disabled items.
 - [Enhance] Tree selectors: Make clickable arrows area bigger.
 - [Enhance] Tree selectors: Improve text + icon vertical alignment.
+- [Enhance] Tree selectors: Support checkbox input and divs as part of the markup.
+			Dev Notes: For more info go to https://wpmudev.github.io/shared-ui/#trees and read "Documentation" tab. If something is not clear ping @Leigh on #sui-plugins channel.
 
 
 v2.3.24
