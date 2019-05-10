@@ -192,16 +192,18 @@ gulp.task( 'update-versions', function( cb ) {
 			return `${p1}${version}${p2}`;
 		}))
 
-		// Update asset query string versions.
-		.pipe( replace(/(<p class="demo-sui-version">Version ).*(<\/p>)/gm, function( match, p1, p2 ) {
+		.pipe( gulp.dest( './' ) );
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+	gulp.src( './templates/wpadmin-bar.html' )
+
+		// Update asset query string versions.
+		.pipe( replace(/(<span class="demo-sui-version">Version ).*(<\/span>)/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './wpadmin-bar.html:' ) );
 			console.log( `Adminbar version has been updated to ${chalk.green( `?ver=${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}))
-
-		.pipe( gulp.dest( './' ) );
 
 });
 
