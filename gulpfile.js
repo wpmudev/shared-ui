@@ -97,10 +97,11 @@ gulp.task( 'styles:showcase', function() {
 // Build the showcase scripts.
 gulp.task( 'scripts:showcase', function( cb ) {
 	pump([
-			gulp.src( ['./showcase-assets/*.js'] ),
+			gulp.src( ['./showcase-assets/js/*.js'] ),
 			eslint(),
 			eslint.format(),
 			eslint.failAfterError(),
+			concat( 'showcase.js'),
 			uglify(),
 			rename({ suffix: '.min' }),
 			gulp.dest( './showcase-assets/build/' ),
@@ -132,7 +133,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( 'js/**/*.js', ['scripts:sui'] );
 
 	// Watch for showcase js changes.
-	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
+	gulp.watch( 'showcase-assets/js/*.js', ['scripts:showcase'] );
 
 	// Watch for package.json changes.
 	gulp.watch( 'package.json', ['build'] );
