@@ -1,3 +1,7 @@
+v2.3.27
+- [Enhance] Showcase organization.
+
+
 v2.3.26
 - [Fix] Tree selectors: Prevent WordPress default styles to overwrite and break button styles.
 
