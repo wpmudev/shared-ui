@@ -43,8 +43,8 @@
 				header.find( '.sui-actions-left' ).focus();
 
 				// Show reset button
-				if ( btnReset.is( ':hidden' ) ) {
-					btnReset.show();
+				if ( $( '#sample-base' ).is( ':hidden' ) ) {
+					$( '#sample-base' ).show();
 				}
 
 				// Hide this button
@@ -53,9 +53,69 @@
 			});
 		}
 
-		function sampleRight( element ) {}
+		function sampleRight( element ) {
 
-		function button_reset() {}
+			var button = $( element ),
+				header = $( '.sui-header' )
+				;
+
+			var markup = '<div class="sui-actions-right">' +
+				'<button id="no-action" class="sui-button sui-button-blue">' +
+					'Sample Button' +
+				'</button>' +
+			'</div>';
+
+			button.on( 'click', function() {
+
+				// Insert this markup
+				if ( 0 === header.find( '.sui-actions-right' ).length ) {
+					header.append( markup );
+				}
+
+				// Unfocus other elements
+				header.removeAttr( 'tabindex' );
+				header.find( '.sui-actions-left' ).removeAttr( 'tabindex' );
+
+				// Focus this element
+				header.find( '.sui-actions-right' ).attr( 'tabindex', '-1' );
+				header.find( '.sui-actions-right' ).focus();
+
+				// Show reset button
+				if ( $( '#sample-base' ).is( ':hidden' ) ) {
+					$( '#sample-base' ).show();
+				}
+
+				// Hide this button
+				$( this ).hide();
+
+			});
+		}
+
+		function sampleReset( element ) {
+
+			var button   = $( element ),
+				header   = $( '.sui-header' )
+				;
+
+			button.on( 'click', function() {
+
+				// Remove sample elements
+				header.find( '.sui-actions-left' ).remove();
+				header.find( '.sui-actions-right' ).remove();
+
+				// Focus header
+				header.attr( 'tabindex', '-1' );
+				header.focus();
+
+				// Show preview buttons
+				$( '#sample-left' ).show();
+				$( '#sample-right' ).show();
+
+				// Hide reset button
+				$( this ).hide();
+
+			});
+		}
 
 		function init() {
 
@@ -65,6 +125,9 @@
 				;
 
 			sampleLeft( btnLeft );
+			sampleRight( btnRight );
+			sampleReset( btnReset );
+
 		}
 
 		init();
@@ -75,93 +138,8 @@
 
 	$( 'body' ).ready( function() {
 
-		var header   = $( '.sui-header' ),
-			title    = header.find( '.sui-header-title' ),
-			btnReset = $( '#sample-base' ),
-			btnLeft  = $( '#sample-left' ),
-			btnRight = $( '#sample-right' )
-			;
+		DEMO.pageHeading( 'heading' );
 
-		var markupLeft = '<div class="sui-actions-left">' +
-			'<label class="sui-tag sui-tag-purple">Sample Tag</label>' +
-		'</div>';
-
-		var markupRight = '<div class="sui-actions-right">' +
-			'<button id="no-action" class="sui-button sui-button-blue">' +
-				'Sample Button' +
-			'</button>' +
-		'</div>';
-
-		// BUTTON: Left
-		btnLeft.on( 'click', function() {
-
-			// Insert this markup
-			if ( 0 === header.find( '.sui-actions-left' ).length ) {
-				$( markupLeft ).insertAfter( title );
-			}
-
-			// Unfocus other elements
-			header.removeAttr( 'tabindex' );
-			header.find( '.sui-actions-right' ).removeAttr( 'tabindex' );
-
-			// Focus this element
-			header.find( '.sui-actions-left' ).attr( 'tabindex', '-1' );
-			header.find( '.sui-actions-left' ).focus();
-
-			// Show reset button
-			if ( btnReset.is( ':hidden' ) ) {
-				btnReset.show();
-			}
-
-			// Hide this button
-			$( this ).hide();
-
-		});
-
-		// BUTTON: Right
-		btnRight.on( 'click', function() {
-
-			// Insert this markup
-			if ( 0 === header.find( '.sui-actions-right' ).length ) {
-				header.append( markupRight );
-			}
-
-			// Unfocus other elements
-			header.removeAttr( 'tabindex' );
-			header.find( '.sui-actions-left' ).removeAttr( 'tabindex' );
-
-			// Focus this element
-			header.find( '.sui-actions-right' ).attr( 'tabindex', '-1' );
-			header.find( '.sui-actions-right' ).focus();
-
-			// Show reset button
-			if ( btnReset.is( ':hidden' ) ) {
-				btnReset.show();
-			}
-
-			// Hide this button
-			$( this ).hide();
-
-		});
-
-		// BUTTON: Reset
-		btnReset.on( 'click', function() {
-
-			// Remove sample elements
-			header.find( '.sui-actions-left' ).remove();
-			header.find( '.sui-actions-right' ).remove();
-
-			header.attr( 'tabindex', '-1' );
-			header.focus();
-
-			// Show preview buttons
-			btnLeft.show();
-			btnRight.show();
-
-			// Hide reset button
-			$( this ).hide();
-
-		});
 	});
 
 }( jQuery ) );
