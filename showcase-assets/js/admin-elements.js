@@ -11,17 +11,17 @@
 				body = $( 'body' ).data( 'page' )
 				;
 
-			item.find( 'a' ).removeClass( 'current' );
+			item.removeClass( 'current' );
 
 			if (  -1 < window.location.href.indexOf( body ) ) {
 
 				if ( 'index' === body ) {
-					item.find( 'a[href="/' + body + '.html"]' ).addClass( 'current' );
+					item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
 				} else {
-					item.find( 'a[href="/page-' + body + '.html"]' ).addClass( 'current' );
+					item.find( 'a[href="/page-' + body + '.html"]' ).parents().addClass( 'current' );
 				}
 			} else {
-				item.find( 'a[href="/' + body + '.html"]' ).addClass( 'current' );
+				item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
 			}
 		});
 
