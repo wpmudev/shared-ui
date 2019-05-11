@@ -314,6 +314,107 @@ body {
 		}
 	}
 
+	// ELEMENT: Code Block
+	.demo-code-block {
+		margin: 0 0 30px;
+
+		pre {
+			border: 0;
+			border-radius: 4px;
+			background: #002F3E;
+			color: #FFF;
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		}
+
+		[data-clipboard-target] {
+			background-color: rgba(255, 255, 255, 0.1);
+
+			&:hover,
+			&:focus {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+
+		.hljs {
+			background: #002F3E;
+			color: #FFF;
+		}
+
+		.hljs-built_in,
+		.hljs-selector-tag,
+		.hljs-section,
+		.hljs-link {
+			color: #8BE9FD;
+		}
+
+		.hljs-subst,
+		.hljs-tag {
+			color: #DDD;
+		}
+
+		.hljs-title {
+			color: #17A8E3;
+		}
+
+		.hljs-meta,
+		.hljs-name,
+		.hljs-type,
+		.hljs-attr,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-keyword,
+		.hljs-addition,
+		.hljs-variable,
+		.hljs-template-tag,
+		.hljs-template-variable {
+			color: #FECF2F;
+		}
+
+		.php .hljs-string {
+			color: #00B297;
+		}
+
+		.hljs-string {
+			color: #D1F1EA;
+		}
+
+		.hljs-name {
+			color: #17A8E3;
+		}
+
+		.hljs-comment,
+		.hljs-quote,
+		.hljs-deletion {
+			color: #888888;
+		}
+
+		.hljs-keyword,
+		.hljs-selector-tag,
+		.hljs-literal,
+		.hljs-title,
+		.hljs-section,
+		.hljs-doctag,
+		.hljs-type,
+		.hljs-name,
+		.hljs-strong {
+			font-weight: bold;
+		}
+
+		.hljs-literal,
+		.hljs-number {
+			color: #BD93F9;
+		}
+
+		.hljs-emphasis,
+		.hljs-attr {
+			font-style: italic;
+		}
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
 	@media screen and (max-width: 782px) {
 		min-width: 240px;
 		overflow-x: hidden;
