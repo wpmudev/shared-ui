@@ -16,7 +16,7 @@
 	</head>
 
 	<!-- Do not edit body tag - updated via release scripts -->
-	<body class="sui-2-3-25" data-page="footer-free">
+	<body class="sui-2-3-25" data-page="footer">
 
 		<div id="wpwrap">
 
@@ -34,93 +34,73 @@
 						<main class="sui-wrap">
 
 							<header class="sui-header">
-
 								<h1 class="sui-header-title">Footer</h1>
-
-								<div class="sui-actions-left">
-									<span class="sui-tag sui-tag-yellow">Free Plugins</span>
-								</div>
-
 							</header>
 
-							<article class="sui-box">
+							<section class="sui-row-with-sidenav">
 
-								<div class="sui-box-body">
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
 
-									<p>Free plugins are composed of two different parts: simple and cross-sell footer. The simple footer will present in all pages, while the cross-sell footer will be displayed on plugin's <strong>Dashboard</strong> page only.</p>
+									<ul class="sui-vertical-tabs">
 
-									<!-- Brand -->
-									<div class="sui-box-settings-row">
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="setup-pro">Pro Plugins</a>
+										</li>
 
-										<div class="sui-box-settings-col-1">
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="setup-free">Free Plugins</a>
+										</li>
 
-											<span class="sui-settings-label">Brand</span>
-											<span class="sui-description">The branded footer will appear on both type of plugins: pro and free.</span>
+									</ul>
 
-										</div>
+								</div>
 
-										<div class="sui-box-settings-col-2">
+								<!-- TAB: Pro Plugins -->
+								<div class="sui-box" data-tab="setup-pro">
 
-											<div class="demo-code-block">
+									<div class="sui-box-header">
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;div class="sui-footer"&gt;Made with &lt;i class="sui-icon-heart"&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
-</pre>
+										<h2 class="sui-box-title">Pro Plugins</h2>
 
-											</div>
+										<div class="sui-actions-right">
+
+											<button id="preview-footer--pro" class="sui-button sui-button-blue">
+												<i class="sui-icon-eye" aria-hidden="true"></i> Preview
+											</button>
 
 										</div>
 
 									</div>
 
-									<!-- Navigation -->
-									<div class="sui-box-settings-row">
+									<div class="sui-box-body">
 
-										<div class="sui-box-settings-col-1">
+										<p>The main characteristic of pro plugins is its simple branded footer, it consists of three main elements: the brand, WPMU DEV site important links, and WPMU DEV links to social media accounts. Preview this footer at bottom of this page by clicking on blue button above.</p>
 
-											<span class="sui-settings-label">Navigation</span>
-											<span class="sui-description">Provide users with links to most important pages on WPMU DEV site and WordPress ORG for plugin's support.</span>
+										<div class="sui-form-field">
 
-										</div>
-
-										<div class="sui-box-settings-col-2">
+											<label class="sui-label" style="color: #333;">Element Markup</label>
 
 											<div class="demo-code-block">
 
-<pre class="sui-code-snippet html">
+<pre class="sui-code-snippet html" style="max-height: 400px;">
+&lt;!-- ELEMENT: The Brand --&gt;
+&lt;div class=&quot;sui-footer&quot;&gt;Made with &lt;i class=&quot;sui-icon-heart&quot;&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
+
+&lt;!-- ELEMENT: Navigation --&gt;
 &lt;ul class=&quot;sui-footer-nav&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;https://profiles.wordpress.org/wpmudev#content-plugins&quot; target=&quot;_blank&quot;&gt;Free Plugins&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/features/&quot; target=&quot;_blank&quot;&gt;Membership&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/hub/&quot; target=&quot;_blank&quot;&gt;The Hub&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/projects/category/plugins/&quot; target=&quot;_blank&quot;&gt;Plugins&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/roadmap/&quot; target=&quot;_blank&quot;&gt;Roadmap&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://wordpress.org/support/plugin/plugin-name&quot; target=&quot;_blank&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/hub/support/&quot; target=&quot;_blank&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/docs/&quot; target=&quot;_blank&quot;&gt;Docs&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/hub-welcome/&quot; target=&quot;_blank&quot;&gt;The Hub&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/hub/community/&quot; target=&quot;_blank&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/academy/&quot; target=&quot;_blank&quot;&gt;Academy&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/terms-of-service/&quot; target=&quot;_blank&quot;&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://incsub.com/privacy-policy/&quot; target=&quot;_blank&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</pre>
 
-											</div>
-
-										</div>
-
-									</div>
-
-									<!-- Social Media -->
-									<div class="sui-box-settings-row">
-
-										<div class="sui-box-settings-col-1">
-
-											<span class="sui-settings-label">Social Media</span>
-											<span class="sui-description">Point out users to our social media accounts. <strong>This element always comes after Footer Navigation element.</strong></span>
-
-										</div>
-
-										<div class="sui-box-settings-col-2">
-
-											<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
+&lt;!-- ELEMENT: Social Media --&gt;
 &lt;ul class=&quot;sui-footer-social&quot;&gt;
 	&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/wpmudev&quot; target=&quot;_blank&quot;&gt;
 		&lt;i class=&quot;sui-icon-social-facebook&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
@@ -143,30 +123,109 @@
 
 									</div>
 
-									<!-- Cross Sell -->
-									<div class="sui-box-settings-row">
+								</div>
 
-										<div class="sui-box-settings-col-1">
+								<!-- TAB: Free Plugins -->
+								<div class="sui-box" data-tab="setup-free" style="display: none;">
 
-											<span class="sui-settings-label">Cross-Sell Footer</span>
+									<div class="sui-box-header">
 
-											<span class="sui-description">This must be added at the bottom of free plugin's Dashboard page to promote our top products.</span>
+										<h1 class="sui-box-title">Free Plugins</h1>
 
-											<button id="preview" class="sui-button sui-button-ghost" style="margin-top: 20px;">
-												<i class="sui-icon-eye" aria-hidden="true"></i> Preview
-											</button>
+									</div>
 
-											<button id="un-preview" class="sui-button sui-button-ghost" style="display: none; margin-top: 20px;" aria-hidden="true">
-												<i class="sui-icon-eye-hide" aria-hidden="true"></i> Reset
-											</button>
+									<div class="sui-box-body">
+
+										<p>There are two different footers for free plugins: basic, which is similar to pro plugins footer; and cross-sell, which contains some banners promoting our top plugins.</p>
+
+										<!-- Basic Footer -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+
+												<span class="sui-settings-label">Basic Footer</span>
+
+												<span class="sui-description">This footer goes at the end of all pages except Dashboard page. You can preview a sample of it by clicking the button below.</span>
+
+												<button id="preview-footer--free" class="sui-button" style="margin-top: 20px;">
+													<i class="sui-icon-eye" aria-hidden="true"></i> Preview
+												</button>
+
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label" style="color: #333;">Element Markup</label>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html" style="max-height: 400px;">
+&lt;!-- ELEMENT: The Brand --&gt;
+&lt;div class=&quot;sui-footer&quot;&gt;Made with &lt;i class=&quot;sui-icon-heart&quot;&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
+
+&lt;!-- ELEMENT: Navigation --&gt;
+&lt;ul class=&quot;sui-footer-nav&quot;&gt;
+	&lt;li&gt;&lt;a href=&quot;https://profiles.wordpress.org/wpmudev#content-plugins&quot; target=&quot;_blank&quot;&gt;Free Plugins&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/features/&quot; target=&quot;_blank&quot;&gt;Membership&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/roadmap/&quot; target=&quot;_blank&quot;&gt;Roadmap&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://wordpress.org/support/plugin/plugin-name&quot; target=&quot;_blank&quot;&gt;Support&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/docs/&quot; target=&quot;_blank&quot;&gt;Docs&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/hub-welcome/&quot; target=&quot;_blank&quot;&gt;The Hub&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/terms-of-service/&quot; target=&quot;_blank&quot;&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://incsub.com/privacy-policy/&quot; target=&quot;_blank&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- ELEMENT: Social Media --&gt;
+&lt;ul class=&quot;sui-footer-social&quot;&gt;
+	&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/wpmudev&quot; target=&quot;_blank&quot;&gt;
+		&lt;i class=&quot;sui-icon-social-facebook&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Facebook&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://twitter.com/wpmudev&quot; target=&quot;_blank&quot;&gt;
+		&lt;i class=&quot;sui-icon-social-twitter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+		&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Twitter&lt;/span&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://www.instagram.com/wpmu_dev/&quot; target=&quot;_blank&quot;&gt;
+		&lt;i class=&quot;sui-icon-instagram&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Instagram&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
 
 										</div>
 
-										<div class="sui-box-settings-col-2">
+										<!-- Cross Sell Footer -->
+										<div class="sui-box-settings-row">
 
-											<div class="demo-code-block">
+											<div class="sui-box-settings-col-1">
 
-<pre class="sui-code-snippet html" style="max-height: 300px;">
+												<span class="sui-settings-label">Cross Sell Footer</span>
+
+												<span class="sui-description">This footer goes at the end of Dashboard page only. It will allow us to promote our top products. You can preview a sample of it by clicking on the button below.</span>
+
+												<button id="preview-footer--cross" class="sui-button" style="margin-top: 20px;">
+													<i class="sui-icon-eye" aria-hidden="true"></i> Preview
+												</button>
+
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label" style="color: #333;">Element Markup</label>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html" style="max-height: 400px;">
 &lt;div id=&quot;sui-cross-sell-footer&quot; class=&quot;sui-row&quot;&gt;
 
 	&lt;div&gt;&lt;span class=&quot;sui-icon-plugin-2&quot;&gt;&lt;/span&gt;&lt;/div&gt;
@@ -257,10 +316,10 @@
 
 &lt;/div&gt;
 
-&lt;!-- Branded Footer --&gt;
+&lt;!-- ELEMENT: The Brand --&gt;
 &lt;div class=&quot;sui-footer&quot;&gt;Made with &lt;i class=&quot;sui-icon-heart&quot;&gt;&lt;/i&gt; by WPMU DEV&lt;/div&gt;
 
-&lt;!-- Footer Navigation --&gt;
+&lt;!-- ELEMENT: Navigation --&gt;
 &lt;ul class=&quot;sui-footer-nav&quot;&gt;
 	&lt;li&gt;&lt;a href=&quot;https://profiles.wordpress.org/wpmudev#content-plugins&quot; target=&quot;_blank&quot;&gt;Free Plugins&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://premium.wpmudev.org/features/&quot; target=&quot;_blank&quot;&gt;Membership&lt;/a&gt;&lt;/li&gt;
@@ -272,7 +331,7 @@
 	&lt;li&gt;&lt;a href=&quot;https://incsub.com/privacy-policy/&quot; target=&quot;_blank&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!-- Social Footer --&gt;
+&lt;!-- ELEMENT: Social Media --&gt;
 &lt;ul class=&quot;sui-footer-social&quot;&gt;
 	&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/wpmudev&quot; target=&quot;_blank&quot;&gt;
 		&lt;i class=&quot;sui-icon-social-facebook&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
@@ -289,6 +348,10 @@
 &lt;/ul&gt;
 </pre>
 
+													</div>
+
+												</div>
+
 											</div>
 
 										</div>
@@ -297,9 +360,74 @@
 
 								</div>
 
-							</article>
+							</section>
 
-							<footer>
+							<footer id="sample-footer--pro" style="display: none;" aria-hidden="true">
+
+								<div class="sui-footer">Made with <i class="sui-icon-heart"></i> by WPMU DEV</div>
+
+								<ul class="sui-footer-nav">
+									<li><a href="https://premium.wpmudev.org/hub/" target="_blank">The Hub</a></li>
+									<li><a href="https://premium.wpmudev.org/projects/category/plugins/" target="_blank">Plugins</a></li>
+									<li><a href="https://premium.wpmudev.org/roadmap/" target="_blank">Roadmap</a></li>
+									<li><a href="https://premium.wpmudev.org/hub/support/" target="_blank">Support</a></li>
+									<li><a href="https://premium.wpmudev.org/docs/" target="_blank">Docs</a></li>
+									<li><a href="https://premium.wpmudev.org/hub/community/" target="_blank">Community</a></li>
+									<li><a href="https://premium.wpmudev.org/academy/" target="_blank">Academy</a></li>
+									<li><a href="https://premium.wpmudev.org/terms-of-service/" target="_blank">Terms of Service</a></li>
+									<li><a href="https://incsub.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+								</ul>
+
+								<ul class="sui-footer-social">
+									<li><a href="https://www.facebook.com/wpmudev" target="_blank">
+										<i class="sui-icon-social-facebook" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Facebook</span>
+									</a></li>
+									<li><a href="https://twitter.com/wpmudev" target="_blank">
+										<i class="sui-icon-social-twitter" aria-hidden="true"></i></a>
+										<span class="sui-screen-reader-text">Twitter</span>
+									</li>
+									<li><a href="https://www.instagram.com/wpmu_dev/" target="_blank">
+										<i class="sui-icon-instagram" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Instagram</span>
+									</a></li>
+								</ul>
+
+							</footer>
+
+							<footer id="sample-footer--free" style="display: none;" aria-hidden="true">
+
+								<div class="sui-footer">Made with <i class="sui-icon-heart"></i> by WPMU DEV</div>
+
+								<ul class="sui-footer-nav">
+									<li><a href="https://profiles.wordpress.org/wpmudev#content-plugins" target="_blank">Free Plugins</a></li>
+									<li><a href="https://premium.wpmudev.org/features/" target="_blank">Membership</a></li>
+									<li><a href="https://premium.wpmudev.org/roadmap/" target="_blank">Roadmap</a></li>
+									<li><a href="https://wordpress.org/support/plugin/plugin-name" target="_blank">Support</a></li>
+									<li><a href="https://premium.wpmudev.org/docs/" target="_blank">Docs</a></li>
+									<li><a href="https://premium.wpmudev.org/hub-welcome/" target="_blank">The Hub</a></li>
+									<li><a href="https://premium.wpmudev.org/terms-of-service/" target="_blank">Terms of Service</a></li>
+									<li><a href="https://incsub.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+								</ul>
+
+								<ul class="sui-footer-social">
+									<li><a href="https://www.facebook.com/wpmudev" target="_blank">
+										<i class="sui-icon-social-facebook" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Facebook</span>
+									</a></li>
+									<li><a href="https://twitter.com/wpmudev" target="_blank">
+										<i class="sui-icon-social-twitter" aria-hidden="true"></i></a>
+										<span class="sui-screen-reader-text">Twitter</span>
+									</li>
+									<li><a href="https://www.instagram.com/wpmu_dev/" target="_blank">
+										<i class="sui-icon-instagram" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Instagram</span>
+									</a></li>
+								</ul>
+
+							</footer>
+
+							<footer id="sample-footer--cross" style="display: none;" aria-hidden="true">
 
 								<div id="sui-cross-sell-footer" class="sui-row">
 
@@ -391,23 +519,19 @@
 
 								</div>
 
-								<!-- Branded Footer -->
 								<div class="sui-footer">Made with <i class="sui-icon-heart"></i> by WPMU DEV</div>
 
-								<!-- Footer Navigation -->
 								<ul class="sui-footer-nav">
-									<li><a href="https://premium.wpmudev.org/hub/" target="_blank">The Hub</a></li>
-									<li><a href="https://premium.wpmudev.org/projects/category/plugins/" target="_blank">Plugins</a></li>
+									<li><a href="https://profiles.wordpress.org/wpmudev#content-plugins" target="_blank">Free Plugins</a></li>
+									<li><a href="https://premium.wpmudev.org/features/" target="_blank">Membership</a></li>
 									<li><a href="https://premium.wpmudev.org/roadmap/" target="_blank">Roadmap</a></li>
-									<li><a href="https://premium.wpmudev.org/hub/support/" target="_blank">Support</a></li>
+									<li><a href="https://wordpress.org/support/plugin/plugin-name" target="_blank">Support</a></li>
 									<li><a href="https://premium.wpmudev.org/docs/" target="_blank">Docs</a></li>
-									<li><a href="https://premium.wpmudev.org/hub/community/" target="_blank">Community</a></li>
-									<li><a href="https://premium.wpmudev.org/academy/" target="_blank">Academy</a></li>
+									<li><a href="https://premium.wpmudev.org/hub-welcome/" target="_blank">The Hub</a></li>
 									<li><a href="https://premium.wpmudev.org/terms-of-service/" target="_blank">Terms of Service</a></li>
 									<li><a href="https://incsub.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
 								</ul>
 
-								<!-- Social Footer -->
 								<ul class="sui-footer-social">
 									<li><a href="https://www.facebook.com/wpmudev" target="_blank">
 										<i class="sui-icon-social-facebook" aria-hidden="true"></i>
