@@ -163,12 +163,12 @@ gulp.task( 'update-versions', function( cb ) {
 		.pipe( gulp.dest( './scss/' ) );
 
 	// Update showcase HTML versions.
-	gulp.src( './index.html' )
+	gulp.src( './*.html' )
 
 		// Update body class version.
 		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Demo body class has been updated to ${chalk.green( bodyClass )}\n` );
 
 			return `${p1}${bodyClass}${p2}`;
@@ -177,7 +177,7 @@ gulp.task( 'update-versions', function( cb ) {
 		// Update php code example body class.
 		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Demo php body class code example has been updated to ${chalk.green( bodyClass )}\n` );
 
 			return `${p1}${bodyClass}${p2}`;
@@ -186,7 +186,7 @@ gulp.task( 'update-versions', function( cb ) {
 		// Update asset query string versions.
 		.pipe( replace(/(\?ver=).*(">)/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Asset query string has been updated to ${chalk.green( `?ver=${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
