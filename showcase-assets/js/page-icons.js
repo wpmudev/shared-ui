@@ -42,7 +42,7 @@
 
 	$( 'body' ).ready( function() {
 
-		DEMO.pageFooter( 'icons' );
+		DEMO.pageIcons( 'icons' );
 
 	});
 
