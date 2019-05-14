@@ -1,6 +1,8 @@
+v2.3.27
+- [Fix] Upgrade Page: Update responsive breakpoints of header content and image.
+
 v2.3.26
 - [Fix] Tree selectors: Prevent WordPress default styles to overwrite and break button styles.
-
 
 v2.3.25
 - [New] Upgrade page.
