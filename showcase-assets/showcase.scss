@@ -512,6 +512,81 @@ body {
 		}
 	}
 
+	// ELEMENT: Icons Table
+	.sui-table.table-icons {
+
+		thead,
+		tbody {
+
+			tr {
+
+				th, td {
+
+					&:nth-child(2),
+					&:nth-child(3) {
+
+						@media screen and (max-width: 782px) {
+							display: none !important;
+						}
+					}
+				}
+			}
+		}
+
+		tbody {
+
+			tr {
+
+				th {
+					position: relative;
+					padding-left: 65px !important;
+
+					[class*="sui-icon-"] {
+						width: 50px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						border-right: 1px solid #E6E6E6;
+
+						&:before {
+							display: block;
+							font-size: 20px;
+						}
+					}
+				}
+
+				.demo-icon-code {
+					max-width: 100%;
+					cursor: pointer;
+					display: inline-flex;
+					align-items: center;
+					position: relative;
+					margin: 5px 0;
+					padding: 5px 15px;
+					border: 1px solid #E6E6E6;
+					border-radius: 4px;
+					outline: 0;
+					background-color: #F8F8F8;
+					color: #333333;
+					font-size: 12px;
+					font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+					line-height: 20px;
+					text-align: left;
+					transition: 0.2s ease;
+
+					&:hover,
+					&:focus {
+						background-color: #E6E6E6;
+					}
+				}
+			}
+		}
+	}
+
 	@media screen and (max-width: 782px) {
 		min-width: 240px;
 		overflow-x: hidden;
