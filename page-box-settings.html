@@ -37,12 +37,243 @@
 								<h1 class="sui-header-title">Settings Box</h1>
 							</header>
 
-							<article>
+							<section class="sui-row-with-sidenav">
 
-								... content goes here ...
-								... you can also add sui-box class to article if needed ...
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
 
-							</article>
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="default">Default</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="flushed">Flushed</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="slim">Slim</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- TAB: Default -->
+								<div class="sui-box" data-tab="default">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag">Default</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a default settings box with informative sidebar and text/content.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<p>Settings box without informative sidebar.</p>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a default settings box with informative sidebar and text/content.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Flushed -->
+								<div class="sui-box" data-tab="flushed" style="display: none;">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag sui-tag-yellow">Flushed</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a flushed settings box with informative sidebar and text/content. <strong>NOTE: Notice how borders / separators reach box edge.</strong></span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-2">
+
+												<p>Flushed settings box without informative sidebar.</p>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a flushed settings box with informative sidebar and text/content. <strong>NOTE: Notice how borders / separators reach box edge.</strong></span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Slim -->
+								<div class="sui-box" data-tab="slim" style="display: none;">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag sui-tag-green">Slim</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>Slim boxes allows you to split content without separators in two columns: left sidebar with title and basic description, and main content displayed at right.</p>
+
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Website Name</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+												<input type="text" placeholder="My Awesome Site" class="sui-form-control">
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Type</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+												<select>
+													<option>Person</option>
+													<option>Robot</option>
+												</select>
+												<div class="sui-border-frame">
+													<label class="sui-label">Your name</label>
+													<input type="text" placeholder="E.g. John Doe" class="sui-form-control">
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Documentation -->
+								<div class="sui-box" data-tab="documentation" style="display: none;"></div>
+
+							</section>
 
 						</main>
 						<!-- END: SUI Wrapper -->
