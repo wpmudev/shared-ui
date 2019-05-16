@@ -34,7 +34,7 @@
 						<main class="sui-wrap">
 
 							<header class="sui-header">
-								<h1 class="sui-header-title">Basics</h1>
+								<h1 class="sui-header-title">Basic Box</h1>
 							</header>
 
 							<section class="sui-row-with-sidenav">
@@ -59,7 +59,7 @@
 								<!-- TAB: Example -->
 								<div data-tab="example">
 
-									<div class="sui-box">
+									<div id="sample-box-one" class="sui-box">
 
 										<div class="sui-box-header">
 											<h2 class="sui-box-title">Default</h2>
@@ -71,7 +71,25 @@
 
 									</div>
 
-									<div class="sui-row">
+									<div class="sui-box sui-box-sticky">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Sticky box</h2>
+										</div>
+
+										<div class="sui-box-body">
+
+											<p>Stick the box to the top of the page when scrolling on large screens. For small screens it will just highlight adding a shadow to the box but won't stick.</p>
+
+											<p>Click on the button below to add more sample boxes at the end to increase the amount of content on the page, then scroll and try the sticky sidebar.</p>
+
+											<button id="add-sample-box" class="sui-button">Add More Boxes</button>
+
+										</div>
+
+									</div>
+
+									<div id="sample-box-two" class="sui-row">
 
 										<div class="sui-col-md-6">
 
@@ -107,7 +125,7 @@
 
 									</div>
 
-									<div class="sui-box">
+									<div id="sample-box-three" class="sui-box">
 
 										<div class="sui-box-header">
 
@@ -135,7 +153,7 @@
 
 									</div>
 
-									<div class="sui-box">
+									<div id="sample-box-four" class="sui-box">
 
 										<div class="sui-box-header">
 
@@ -177,10 +195,14 @@
 												<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Static Box --&gt;
 &lt;div class=&quot;sui-box&quot;&gt;
-
 	...
+&lt;/div&gt;
 
+&lt;!-- Sticky Box --&gt;
+&lt;div class=&quot;sui-box sui-box-sticky&quot;&gt;
+	...
 &lt;/div&gt;
 </pre>
 
