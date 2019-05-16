@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.25" />
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.25" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-25" data-page="buttons">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Buttons</h1>
+							</header>
+
+							<section class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="regular">Regular</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="colors">Colorizing</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="with-icon">Text + Icon</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="compound">Compound</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="colors">Dashed</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- TAB: Default -->
+								<div class="sui-box" data-tab="regular">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Regular Button</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<!-- SECTION: Default -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<span class="sui-settings-label sui-dark">Default</span>
+												<span class="sui-description" style="margin-bottom: 10px;">The class <code>sui-button</code> determines the base markup for any button that contains text.</span>
+
+												<button role="button" class="sui-button">Button</button>
+
+												<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- SECTION: Outlined -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<span class="sui-settings-label sui-dark">Outlined</span>
+												<span class="sui-description" style="margin-bottom: 10px;">This variation can come with border only and transparent background. For those cases you can make use of <code>sui-button-ghost</code> class.</span>
+
+												<button role="button" class="sui-button sui-button-ghost">Button</button>
+
+												<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- SECTION: Disabled -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<span class="sui-settings-label sui-dark">Disabled</span>
+												<span class="sui-description" style="margin-bottom: 10px;">As simple as it sounds, you can add <code>disabled</code> attribute to button element or <code>disabled</code> class if you are using link element.</span>
+
+												<button role="button" class="sui-button" disabled>Regular Button</button>
+												<button role="button" class="sui-button sui-button-ghost" disabled>Outlined Button</button>
+
+												<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button&quot; disabled&gt;Button&lt;/button&gt;
+&lt;a role=&quot;button&quot; class=&quot;sui-button disabled&quot;&gt;Button&lt;/a&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- SECTION: Large -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<span class="sui-settings-label sui-dark">Large</span>
+												<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need to make use of bigger buttons, to achieve this you can add <code>sui-button-lg</code> class.</span>
+
+												<button role="button" class="sui-button sui-button-lg">Button</button>
+
+												<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Colorizing -->
+								<div class="sui-box" data-tab="colors" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Colorize Buttons</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>There are some cases when you gonna need buttons with specific colors, to achieve this you can add <code>sui-button-{color_name}</code> extra class.</p>
+
+										<p>To try each button color variation click on the options below:</p>
+
+										<div class="sui-tabs sui-side-tabs">
+
+											<div data-tabs>
+												<div class="active">Blue</div>
+												<div>Green</div>
+												<div>Red</div>
+												<div>Orange</div>
+												<div>Yellow</div>
+												<div>Purple</div>
+											</div>
+
+											<div class="sui-tabs-content-lg" data-panes>
+
+												<!-- COLOR: Blue -->
+												<div class="active">
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-blue">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-blue&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-blue">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-blue&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-blue" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-blue" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-blue&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-blue&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-blue sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-blue sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!-- COLOR: Green -->
+												<div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-green">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-green&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-green">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-green&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-green" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-green" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-green&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-green&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-green sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-green sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!-- COLOR: Red -->
+												<div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-red">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-red&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-red">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-red&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-red" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-red" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-red&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-red&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-red sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-red sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!-- COLOR: Orange -->
+												<div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-orange">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-orange&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-orange">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-orange&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-orange" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-orange" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-orange&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-orange&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-orange sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-orange sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!-- COLOR: Yellow -->
+												<div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-yellow">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-yellow&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-yellow">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-yellow&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-yellow" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-yellow" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-yellow sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-yellow sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!-- COLOR: Purple -->
+												<div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+														<button class="sui-button sui-button-purple">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-purple&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Outlined -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+
+														<button class="sui-button sui-button-ghost sui-button-purple">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-purple&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Default -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+
+														<button class="sui-button sui-button-purple" disabled>Button</button>
+														<button class="sui-button sui-button-ghost sui-button-purple" disabled>Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-purple&quot; disabled&gt;Button&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-ghost sui-button-purple&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+													<!-- SECTION: Large -->
+													<div class="sui-form-field">
+
+														<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+
+														<button class="sui-button sui-button-purple sui-button-lg">Button</button>
+
+														<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button role=&quot;button&quot; class=&quot;sui-button sui-button-purple sui-button-lg&quot;&gt;Button&lt;/button&gt;
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="showcase-assets/build/jquery-3.4.1.min.js"></script>
+	<script src="showcase-assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="dist/js/shared-ui.min.js?ver=2.3.25"></script>
+	<script src="showcase-assets/build/showcase.min.js?ver=2.3.25"></script>
+
+</html>
