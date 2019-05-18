@@ -37,50 +37,22 @@
 								<h1 class="sui-header-title">Code Snippets</h1>
 							</header>
 
-							<section class="sui-row-with-sidenav">
+							<article class="sui-box">
 
-								<!-- Navigation -->
-								<div class="sui-sidenav" role="navigation">
+								<div class="sui-box-body">
 
-									<ul class="sui-vertical-tabs">
+									<p>This element is meant to be used to display code. When copy button is enabled users can easily copy snippet content to clipboard.</p>
 
-										<li class="sui-vertical-tab current">
-											<a href="#" role="button" data-tab="samples">Samples</a>
-										</li>
+									<!-- SECTION: Default -->
+									<div class="sui-box-settings-row">
 
-										<li class="sui-vertical-tab">
-											<a href="#" role="button" data-tab="documentation">Documentation</a>
-										</li>
+										<div class="sui-box-settings-col-2">
 
-									</ul>
+											<span class="sui-settings-label sui-dark">Default</span>
 
-								</div>
+											<span class="sui-description" style="margin-bottom: 10px;">Code snippets load a copy button by default. It's useful for users to easily copy the entire code.</span>
 
-								<!-- TAB: Samples -->
-								<div class="sui-box" data-tab="samples">
-
-									<div class="sui-box-header">
-										<h2 class="sui-box-title">Samples</h2>
-									</div>
-
-									<div class="sui-box-body">
-
-										<p>This element is meant to be used to display code to users and allow them to copy to clipboard.</p>
-
-										<!-- SECTION: Default -->
-										<div class="sui-box-settings-row">
-
-											<div class="sui-box-settings-col-1">
-
-												<span class="sui-settings-label">Default</span>
-
-												<span class="sui-description">Code snippets load a copy button by default. It's useful for users to easily copy the entire code.</span>
-
-											</div>
-
-											<div class="sui-box-settings-col-2">
-
-												<pre class="sui-code-snippet">
+											<pre class="sui-code-snippet">
 &lt;IfModule mod_rewrite.c&gt;
 RewriteEngine On
 RewriteBase /
@@ -89,26 +61,32 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 &lt;/IfModule&gt;
-												</pre>
+											</pre>
+
+											<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet&quot;&gt;
+	... content goes here ...
+&lt;/pre&gt;
+</pre>
 
 											</div>
 
 										</div>
 
-										<!-- SECTION: No Copy Button -->
-										<div class="sui-box-settings-row">
+									</div>
 
-											<div class="sui-box-settings-col-1">
+									<!-- SECTION: No-Copy Button -->
+									<div class="sui-box-settings-row">
 
-												<span class="sui-settings-label">No Copy Button</span>
+										<div class="sui-box-settings-col-2">
 
-												<span class="sui-description">There are cases when you gonna need to get rid off the copy button.</span>
+											<span class="sui-settings-label sui-dark">No-Copy Button</span>
 
-											</div>
+											<span class="sui-description" style="margin-bottom: 10px;">There are cases when you gonna need to get rid off the copy button.</span>
 
-											<div class="sui-box-settings-col-2">
-
-												<pre class="sui-code-snippet sui-no-copy">
+											<pre class="sui-code-snippet sui-no-copy">
 &lt;IfModule mod_rewrite.c&gt;
 RewriteEngine On
 RewriteBase /
@@ -117,7 +95,15 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 &lt;/IfModule&gt;
-												</pre>
+											</pre>
+
+											<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet sui-no-copy&quot;&gt;
+	... content goes here ...
+&lt;/pre&gt;
+</pre>
 
 											</div>
 
@@ -127,10 +113,7 @@ RewriteRule . /index.php [L]
 
 								</div>
 
-								<!-- TAB: Documentation -->
-								<div class="sui-box" data-tab="documentation" style="display: none;"></div>
-
-							</section>
+							</article>
 
 						</main>
 						<!-- END: SUI Wrapper -->
