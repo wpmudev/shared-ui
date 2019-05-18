@@ -97,10 +97,11 @@ gulp.task( 'styles:showcase', function() {
 // Build the showcase scripts.
 gulp.task( 'scripts:showcase', function( cb ) {
 	pump([
-			gulp.src( ['./showcase-assets/*.js'] ),
+			gulp.src( ['./showcase-assets/js/*.js'] ),
 			eslint(),
 			eslint.format(),
 			eslint.failAfterError(),
+			concat( 'showcase.js'),
 			uglify(),
 			rename({ suffix: '.min' }),
 			gulp.dest( './showcase-assets/build/' ),
@@ -132,7 +133,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( 'js/**/*.js', ['scripts:sui'] );
 
 	// Watch for showcase js changes.
-	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
+	gulp.watch( 'showcase-assets/js/*.js', ['scripts:showcase'] );
 
 	// Watch for package.json changes.
 	gulp.watch( 'package.json', ['build'] );
@@ -162,12 +163,12 @@ gulp.task( 'update-versions', function( cb ) {
 		.pipe( gulp.dest( './scss/' ) );
 
 	// Update showcase HTML versions.
-	gulp.src( './index.html' )
+	gulp.src( './*.html' )
 
 		// Update body class version.
 		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Demo body class has been updated to ${chalk.green( bodyClass )}\n` );
 
 			return `${p1}${bodyClass}${p2}`;
@@ -176,7 +177,7 @@ gulp.task( 'update-versions', function( cb ) {
 		// Update php code example body class.
 		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Demo php body class code example has been updated to ${chalk.green( bodyClass )}\n` );
 
 			return `${p1}${bodyClass}${p2}`;
@@ -185,22 +186,24 @@ gulp.task( 'update-versions', function( cb ) {
 		// Update asset query string versions.
 		.pipe( replace(/(\?ver=).*(">)/gm, function( match, p1, p2 ) {
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+			//console.log( chalk.magentaBright( './index.html:' ) );
 			console.log( `Asset query string has been updated to ${chalk.green( `?ver=${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}))
 
-		// Update asset query string versions.
-		.pipe( replace(/(<p class="demo-sui-version">Version ).*(<\/p>)/gm, function( match, p1, p2 ) {
+		.pipe( gulp.dest( './' ) );
 
-			console.log( chalk.magentaBright( './index.html:' ) );
+	gulp.src( './templates/wpadmin-bar.html' )
+
+		// Update asset query string versions.
+		.pipe( replace(/(<span class="demo-sui-version">Version ).*(<\/span>)/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './wpadmin-bar.html:' ) );
 			console.log( `Adminbar version has been updated to ${chalk.green( `?ver=${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}))
-
-		.pipe( gulp.dest( './' ) );
 
 });
 

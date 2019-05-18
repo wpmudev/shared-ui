@@ -1,5 +1,40 @@
 ( function( $ ) {
 
+	$( 'body' ).ready( function() {
+
+		// Load admin menu
+		$( '#adminmenumain' ).load( 'templates/wpadmin-menu.html', function() {
+
+			var main = $( this ),
+				menu = main.find( '#adminmenu' ),
+				item = menu.find( 'li' ),
+				body = $( 'body' ).data( 'page' )
+				;
+
+			item.removeClass( 'current' );
+
+			if (  -1 < window.location.href.indexOf( body ) ) {
+
+				if ( 'index' === body ) {
+					item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
+				} else {
+					item.find( 'a[href="/page-' + body + '.html"]' ).parents().addClass( 'current' );
+				}
+			} else {
+				item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
+			}
+		});
+
+		// Load admin bar
+		$( '#wpadminbar' ).load( 'templates/wpadmin-bar.html' );
+
+	});
+
+}( jQuery ) );
+
+/*
+( function( $ ) {
+
 	var btns            = $( '.demo-icon' ),
 		clipboard       = new ClipboardJS( '.demo-icon' ),
 		navbutton       = $( '.sui-vertical-tab a' ),
@@ -328,3 +363,4 @@
 	});
 
 }( jQuery ) );
+*/
