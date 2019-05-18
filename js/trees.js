@@ -382,6 +382,22 @@
 					remove();
 				}
 			}
+
+			// TEST: Verify if input is checked on load
+			if ( 'selector' === tree.data( 'tree' ) ) {
+
+				if ( 0 !== tree.find( 'input' ).length ) {
+
+					tree.find( 'input' ).each( function() {
+
+						console.log( '#' + $( this ).attr( 'id' ) + ': ' + $( this ).prop( 'checked' ) );
+
+						// Output:
+						// #input-id: value
+
+					});
+				}
+			}
 		}
 
 		init();
