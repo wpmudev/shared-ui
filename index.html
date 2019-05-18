@@ -5869,187 +5869,43 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 								<div class="sui-box-settings-col-2">
 
-									<ul class="sui-tree" data-tree="selector" role="group">
-
-										<li role="treeitem" aria-expanded="true" aria-selected="true">
-
+									<ul class="sui-tree" data-tree="selector" role="group" id="sui-tree-author">
+										<li role="treeitem" aria-selected="true">
 											<div class="sui-tree-node">
-												<label for="treeselector-level-1" class="sui-node-checkbox">
-													<input type="checkbox" id="treeselector-level-1" />
+												<label for="report-author-parent-general" class="sui-node-checkbox">
+													<input type="checkbox" id="report-author-parent-general" value="1" checked="checked"/>
 													<span aria-hidden="true"></span>
-													<span>Select this item (Checkbox)</span>
+													<span>Select this item</span>
 												</label>
-												<span class="sui-node-text">Parent / Group</span>
+												<span class="sui-node-text">General</span>
 												<button data-button="expander">
 													<span aria-hidden="true"></span>
-													<span class="sui-screen-reader-text">Expand or compress item</span>
+													<span class="sui-screen-reader-text">Open or close this item</span>
 												</button>
 											</div>
-
-											<!-- LEVEL: 1 -->
 											<ul role="group">
-
-												<li role="treeitem">
-
-													<span class="sui-tree-node">
-														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-														<span class="sui-node-text">Child / Group</span>
-														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-													</span>
-
-													<!-- LEVEL: 2 -->
-													<ul role="group">
-
-														<li role="treeitem">
-															<div class="sui-tree-node">
-																<label for="treeselector-level-2" class="sui-node-checkbox">
-																	<input type="checkbox" id="treeselector-level-2" />
-																	<span aria-hidden="true"></span>
-																	<span>Select this item</span>
-																</label>
-																<span class="sui-node-text">Sub Child Item</span>
-																<button data-button="expander">
-																	<span aria-hidden="true"></span>
-																	<span class="sui-screen-reader-text">Expand or compress item</span>
-																</button>
-															</div>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-													</ul>
-
+												<li role="treeitem" aria-selected="true">
+													<div class="sui-tree-node">
+														<label for="report-auhtor-child-top" class="sui-node-checkbox">
+															<input type="checkbox" name="reports[author][general][top]" id="report-author-child-top" value="1" checked="checked"/>
+															<span aria-hidden="true"></span>
+															<span>Select this item</span>
+														</label>
+														<span class="sui-node-text">Visits</span>
+													</div>
 												</li>
-
-												<li role="treeitem" aria-expanded="true">
-
-													<span class="sui-tree-node">
-														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-														<span class="sui-node-text">Child / Group</span>
-														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-													</span>
-
-													<!-- LEVEL: 2 -->
-													<ul role="group">
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-													</ul>
-
+												<li role="treeitem" aria-selected="false">
+													<div class="sui-tree-node">
+														<label for="report-auhtor-child-visitors" class="sui-node-checkbox">
+															<input type="checkbox" name="reports[author][general][visitors]" id="report-author-child-visitors" value="1"/>
+															<span aria-hidden="true"></span>
+															<span>Select this item</span>
+														</label>
+														<span class="sui-node-text">Visits</span>
+													</div>
 												</li>
-
 											</ul>
-
 										</li>
-
-										<li role="treeitem">
-
-											<span class="sui-tree-node">
-												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-												<span class="sui-node-text">Parent / Group</span>
-												<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-											</span>
-
-											<!-- LEVEL: 1 -->
-											<ul role="group">
-
-												<li role="treeitem">
-
-													<span class="sui-tree-node">
-														<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-														<span class="sui-node-text">Child / Group</span>
-														<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-													</span>
-
-													<!-- LEVEL: 2 -->
-													<ul role="group">
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-														<li role="treeitem">
-															<span class="sui-tree-node">
-																<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-																<span class="sui-node-text">Sub Child Item</span>
-																<span role="button" data-button="expander" aria-label="Expand or compress item"></span>
-															</span>
-														</li>
-
-													</ul>
-
-												</li>
-
-											</ul>
-
-										</li>
-
-										<li role="treeitem" aria-selected="true">
-
-											<span class="sui-tree-node">
-												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-												<span class="sui-node-text">Parent / Single</span>
-											</span>
-
-										</li>
-
-										<li role="treeitem" aria-selected="true" aria-disabled="true">
-
-											<span class="sui-tree-node">
-												<span class="sui-node-checkbox" role="checkbox" aria-label="Select this item"></span>
-												<span class="sui-node-text">Parent / Single (Disabled)</span>
-											</span>
-
-										</li>
-
 									</ul>
 
 								</div>
