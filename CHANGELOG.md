@@ -1,5 +1,6 @@
 v2.3.28
 - [Enhance] Tags: Update pro and beta tags to be uppercase. Add modifier class to transform any tag to uppercase.
+- [Fix] Box Settings: Flushed box settings doesn't properly align to left on small screens.
 
 v2.3.27
 - [Fix] Upgrade Page: Update responsive breakpoints of header content and image.
