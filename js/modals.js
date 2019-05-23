@@ -13,8 +13,10 @@
 		SUI.dialogs = {};
 
 		// Init the dialog elements.
-		$( '.sui-dialog' ).each( function() {
-			SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
+		$( 'SUI_BODY_CLASS .sui-dialog' ).each( function() {
+			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
+				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
+			}
 		});
 
 	});
