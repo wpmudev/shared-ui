@@ -1,9 +1,10 @@
 v2.3.28
 - [Enhance] Tags: Update pro and beta tags to be uppercase. Add modifier class to transform any tag to uppercase.
-- [Fix] Box Settings: Flushed box settings doesn't properly align to left on small screens.
+- [Fix]     Box Settings: Flushed box settings doesn't properly align to left on small screens.
 - [Enhance] Box: Remove bottom margin when is last child element.
 - [Enhance] Side Navigation: Remove bottom margin for non-sidenav elements.
 			Dev Notes: This fix is applied to prevent double margins at bottom from element and its parent container.
+- [Fix]     Modals - Fix conflict when modals.js is loading twice between plugins.
 
 v2.3.27
 - [Fix] Upgrade Page: Update responsive breakpoints of header content and image.
