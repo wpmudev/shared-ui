@@ -5,6 +5,7 @@ v2.3.28
 - [Enhance] Side Navigation: Remove bottom margin for non-sidenav elements.
 			Dev Notes: This fix is applied to prevent double margins at bottom from element and its parent container.
 - [Fix]     Tree checkboxes being unselected on page load if parent is unchecked.
+- [Fix]     Modals - Fix conflict when modals.js is loading twice between plugins.
 
 v2.3.27
 - [Fix] Upgrade Page: Update responsive breakpoints of header content and image.
