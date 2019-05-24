@@ -4,6 +4,7 @@ v2.3.28
 - [Enhance] Box: Remove bottom margin when is last child element.
 - [Enhance] Side Navigation: Remove bottom margin for non-sidenav elements.
 			Dev Notes: This fix is applied to prevent double margins at bottom from element and its parent container.
+- [Fix]     Tree checkboxes being unselected on page load if parent is unchecked.
 - [Fix]     Modals - Fix conflict when modals.js is loading twice between plugins.
 
 v2.3.27
