@@ -2101,8 +2101,10 @@
 		SUI.dialogs = {};
 
 		// Init the dialog elements.
-		$( '.sui-dialog' ).each( function() {
-			SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
+		$( '.sui-2-3-27 .sui-dialog' ).each( function() {
+			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
+				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
+			}
 		});
 
 	});
@@ -9258,18 +9260,12 @@
 
 		var tree     = $( element ),
 			leaf     = tree.find( 'li[role="treeitem"]' ),
-			node     = leaf.find( '> .sui-tree-node' ),
-			checkbox = node. find( '> .sui-node-checkbox input' ),
 			branch   = leaf.find( '> ul[role="group"]' )
 			;
 
 		// Hide sub-groups
 		branch.slideUp();
 
-		// Uncheck item
-		if ( 0 !== checkbox.length ) {
-			checkbox.prop( 'checked', false );
-		}
 
 		leaf.each( function() {
 
@@ -9628,6 +9624,22 @@
 					remove();
 				}
 			}
+
+			// TEST: Verify if input is checked on load
+			// if ( 'selector' === tree.data( 'tree' ) ) {
+			//
+			// 	if ( 0 !== tree.find( 'input' ).length ) {
+			//
+			// 		tree.find( 'input' ).each( function() {
+			//
+			// 			console.log( '#' + $( this ).attr( 'id' ) + ': ' + $( this ).prop( 'checked' ) );
+			//
+			// 			// Output:
+			// 			// #input-id: value
+			//
+			// 		});
+			// 	}
+			// }
 		}
 
 		init();
