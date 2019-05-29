@@ -351,7 +351,7 @@
 		return this;
 	};
 
-	$( '.sui-2-3-28 .sui-slider' ).each( function() {
+	$( '.sui-2-3-29 .sui-slider' ).each( function() {
 		SUI.dialogSlider( this );
 	});
 
