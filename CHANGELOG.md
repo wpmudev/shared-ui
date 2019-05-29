@@ -1,3 +1,7 @@
+v2.3.29
+- [Fix] Modals - Fix conflict when modals.js is loading twice between plugins - This issue was still happening even with the fix from 2.3.28.
+
+
 v2.3.28
 - [Enhance] Tags: Update pro and beta tags to be uppercase. Add modifier class to transform any tag to uppercase.
 - [Fix]     Box Settings: Flushed box settings doesn't properly align to left on small screens.
