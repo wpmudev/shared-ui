@@ -74,6 +74,10 @@
 						item.text( opt.text() );
 					}
 
+					if ( opt.is( ':disabled' ) ) {
+						item.addClass( 'sui-disabled' );
+					}
+
 					item.data( 'value', opt.val() );
 					item.data( 'color', opt.data( 'color' ) );
 

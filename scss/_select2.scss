@@ -7,40 +7,40 @@
 		+ .select2-container {
 			width: 100% !important;
 			display: block;
-	
+
 			.selection {
 				display: block;
-	
+
 				&:focus, *:focus {
 					outline: none;
 				}
 			}
-	
+
 			.select2-selection--single,
 			.select2-selection--multiple {
 				border-radius: $border-radius;
 				border: 1px solid $select-container--border-color;
 				background-color: $select-container--background;
 				transition: 0.3s ease;
-	
+
 				&:hover {
 					background-color: $select-container--background-active;
 				}
 			}
-	
+
 			// Single value
 			.select2-selection--single {
 				height: auto;
 				display: block;
 				position: relative;
-	
+
 				.select2-selection__rendered {
 					padding: 7px 28px 6px #{$sui-gutter/2};
 					color: $select-value--color;
 					font: 500 15px/25px $font;
 					transition: 0.3s ease;
 				}
-	
+
 				.select2-selection__arrow {
 					width: 20px;
 					height: 20px;
@@ -51,42 +51,43 @@
 					position: absolute;
 					top: 9px;
 					right: 9px;
-	
+
 					@include icon(before, chevron-down) {
 						font-size: 12px;
 						transition: transform 0.2s linear;
 					};
-	
+
 					b {
 						display: none;
 					}
 				}
 			}
-	
+
 			// Multiple values
 			.select2-selection--multiple {
 				padding: 7px 12px 7px;
-	
+
 				.select2-selection__rendered {
 					display: block;
 					margin: -5px;
 					padding: 0;
-	
+
 					.select2-selection__clear {
 						display: none;
 					}
-	
+
 					li {
 						display: inline-flex;
 						margin-right: 5px;
 						margin-bottom: 5px;
 						font: 500 15px/24px $font;
-	
-						&:before, &:after {
+
+						&:before,
+						&:after {
 							content: none;
 						}
 					}
-	
+
 					.select2-selection__choice {
 						padding-left: 10px;
 						padding-right: 0;
@@ -95,7 +96,7 @@
 						background: $gray;
 						color: $white;
 						font-size: 12px;
-	
+
 						.select2-selection__choice__remove {
 							margin-left: 10px;
 							margin-right: 0;
@@ -108,17 +109,17 @@
 							line-height: 24px;
 							transition: all .3s ease;
 							border-radius: 0 $border-radius $border-radius 0;
-	
+
 							&:hover {
 								color: $white;
 								background-color: #565656;
 							}
 						}
 					}
-	
+
 					.select2-search--inline {
 						margin: 0 0 0 8px;
-	
+
 						.select2-search__field {
 							width: 100% !important;
 							height: 34px;
@@ -128,7 +129,7 @@
 							color: palette(gray, dark);
 							font: 500 15px/24px $font;
 							transition: 0.2s ease;
-	
+
 							&::placeholder {
 								color: #AAA;
 							}
@@ -136,19 +137,19 @@
 					}
 				}
 			}
-	
+
 			&.select2-container--open {
-	
+
 				.select2-selection--single,
 				.select2-selection--multiple {
 					background-color: $select-container--background-active;
 				}
-	
+
 				// Single value
 				.select2-selection--single {
-	
+
 					.select2-selection__arrow {
-							
+
 						&:before {
 							transform: rotate(180deg);
 						}
@@ -177,7 +178,7 @@
 
 		// SIZE: Small
 		&.sui-select-sm + .select2-container {
-			
+
 			// Single value
 			.select2-selection--single {
 
@@ -300,6 +301,12 @@
 					&[aria-selected="true"] {
 						color: $select-results--color-current;
 						background-color: $select-results--background-current;
+					}
+
+					&[aria-disabled="true"] {
+						opacity: 0.5;
+						cursor: not-allowed;
+						pointer-events: none;
 					}
 
 					&--highlighted:not([aria-selected="true"]) {
