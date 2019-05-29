@@ -241,6 +241,61 @@
 				margin-right: 0;
 			}
 		}
+
+		// VARIATION: Colors
+		&.sui-select-colors {
+
+			.select-list-container {
+
+				.list-value {
+					display: flex;
+					align-items: center;
+					padding-top: 5px;
+					padding-left: 5px;
+					padding-bottom: 5px;
+
+					span {
+						width: 30px;
+						height: 30px;
+						display: block;
+						margin-right: 10px;
+						border: 1px solid transparent;
+						border-radius: #{$border-radius / 2};
+
+						&[data-color="#FFF"],
+						&[data-color="#FFFFFF"] {
+							border-color: #2C2E2F;
+						}
+					}
+				}
+
+				.list-results {
+
+					li {
+						display: flex;
+						align-items: center;
+						padding-left: 9px;
+						padding-right: 9px;
+						font-size: 13px;
+						line-height: 20px;
+
+						span {
+							width: 20px;
+							height: 20px;
+							display: block;
+							margin-right: 10px;
+							border: 1px solid transparent;
+							border-radius: #{$border-radius / 2};
+
+							&[data-color="#FFF"],
+							&[data-color="#FFFFFF"] {
+								border-color: #2C2E2F;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	// Fix

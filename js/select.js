@@ -43,7 +43,7 @@
 				populateList();
 				items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 					var opt = $( ev.target );
-					selectItem( opt, false );
+					selectItem( opt, false, opt.data( 'color' ) );
 					handleValue();
 				});
 			});
@@ -60,6 +60,7 @@
                     optGroupItem,
                     $label;
                 if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
+
                     item = $( '<li></li>' ).appendTo( items );
 
 					if ( opt.data( 'content' ) ) {
@@ -67,14 +68,17 @@
 						item.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
 					} else if ( opt.data( 'icon' ) ) {
 						item.html( '<i class="sui-icon-' + opt.data( 'icon' ) + '" aria-hidden="true"></i> ' + opt.text() );
+					} else if ( opt.data( 'color' ) ) {
+						item.html( '<span style="background-color: ' + opt.data( 'color' ) + '" data-color="' + opt.data( 'color' ) + '" aria-hidden="true"></span>' + opt.text() );
 					} else {
 						item.text( opt.text() );
 					}
 
 					item.data( 'value', opt.val() );
+					item.data( 'color', opt.data( 'color' ) );
 
                     if ( opt.val() == jq.val() ) {
-                        selectItem( item, true );
+                        selectItem( item, true, opt.data( 'color' ) );
                     }
                 } else {
                     optGroupItem = $( '<ul></ul>' ).appendTo( items );
@@ -142,9 +146,16 @@
 		}
 
 		// Visually mark the specified option as "selected".
-		function selectItem( opt, isInit ) {
+		function selectItem( opt, isInit, optColor ) {
+
 			isInit = 'undefined' === typeof isInit ? false : isInit;
-			value.text( opt.text() );
+
+			if ( undefined !== optColor && '' !== optColor ) {
+				value.html( '<span style="background-color: ' + optColor + '" data-color="' + optColor + '"></span>' + opt.text() );
+			} else {
+				value.text( opt.text() );
+			}
+
 			$( '.current', items ).removeClass( 'current' );
 			opt.addClass( 'current' );
 			stateClose();
@@ -168,7 +179,7 @@
 
 			items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 				var opt = $( ev.target );
-				selectItem( opt, false );
+				selectItem( opt, false, opt.data( 'color' ) );
 				handleValue();
 			});
 
