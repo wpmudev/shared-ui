@@ -10,7 +10,9 @@
 
 	document.addEventListener( 'DOMContentLoaded', function() {
 		var mainEl = $( '.sui-wrap' );
-		SUI.dialogs = {};
+		if ( undefined === SUI.dialogs ) {
+			SUI.dialogs = {};
+		}
 
 		// Init the dialog elements.
 		$( '.sui-2-3-28 .sui-dialog' ).each( function() {
