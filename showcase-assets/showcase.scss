@@ -1,3 +1,618 @@
+html,
+body {
+	height: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	padding-top: 32px;
+
+	@media screen and (max-width: 782px) {
+		padding-top: 0;
+	}
+}
+
+body {
+	min-width: 600px;
+	background-color: #F1F1F1;
+	color: #444;
+	font-size: 13px;
+	line-height: 1.4em;
+
+	* {
+		outline: none;
+	}
+
+	div {
+		display: block;
+	}
+
+	dd, li {
+		margin-bottom: 6px;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	#wpwrap {
+		width: 100%;
+		height: auto;
+		min-height: 100%;
+		position: relative;
+		-webkit-font-smoothing: subpixel-antialiased;
+
+		@media screen and (max-width: 782px) {
+			-webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+		}
+	}
+
+	#adminmenu,
+	#adminmenuback,
+	#adminmenuwrap {
+		width: 160px;
+		background-color: #23282D;
+
+		@media screen and (max-width: 782px) {
+			width: 190px;
+			position: absolute;
+			z-index: 100;
+		}
+	}
+
+	#adminmenuback {
+		position: fixed;
+		z-index: -1;
+		top: 0;
+		bottom: -120px;
+
+		@media screen and (max-width: 782px) {
+			display: none;
+		}
+	}
+
+	#adminmenuwrap {
+		float: left;
+		position: fixed;
+		z-index: 9990;
+
+		@media screen and (max-width: 782px) {
+			display: none;
+		}
+	}
+
+	#adminmenu {
+		clear: left;
+		margin: 12px 0;
+		padding: 0;
+		list-style: none;
+
+		* {
+			user-select: none;
+		}
+
+		> li {
+			min-height: 34px;
+			cursor: pointer;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			border: none;
+
+			&:after {
+				content: " ";
+				width: 0;
+				height: 0;
+				pointer-events: none;
+				position: absolute;
+				z-index: 1000;
+				top: 10px;
+				right: 0;
+				border: solid transparent;
+				border-width: 8px;
+			}
+
+			a, .simulate-menu {
+				display: block;
+				padding: 2px 5px;
+				color: #EEE;
+				font-family: Arial, Helvetica, sans-serif;
+				line-height: 18px;
+				text-decoration: none;
+
+				.wp-menu-name {
+					padding: 8px;
+				}
+
+				&:hover,
+				&:focus {
+					color: #00B9EB;
+				}
+
+				&.menu-top {
+					padding: 0;
+					font-size: 14px;
+					line-height: 18px;
+					font-weight: 400;
+
+					@media screen and (max-width: 782px) {
+						font-size: 16px;
+						padding: 5px;
+					}
+				}
+			}
+
+			&:focus,
+			&:hover,
+			&:active {
+				background-color: #191E23;
+			}
+
+			&.wp-menu-separator {
+				height: 5px;
+				cursor: inherit;
+				margin: 0 0 6px 0;
+				padding: 0;
+
+				div.separator {
+					height: 2px;
+					padding: 0;
+				}
+			}
+
+			&.has-submenu:not(.current) {
+
+				&:hover {
+
+					&:after {
+						border-right-color: #32373C;
+					}
+
+					// Sub-menu
+					.wp-submenu {
+						top: 0;
+					}
+				}
+			}
+
+			&.current {
+
+				> a, > .simulate-menu {
+					background: #0073AA;
+					color: #FFFFFF;
+				}
+
+				// Sub-menu
+				.wp-submenu {
+					position: relative;
+					z-index: 3;
+					top: auto;
+					right: auto;
+					bottom: auto;
+					left: auto;
+					border: 0 none;
+					margin-top: 0;
+					box-shadow: none;
+					background-color: #32373C;
+				}
+			}
+
+			@media screen and (max-width: 782px) {
+				width: 100%;
+			}
+		}
+
+		// Sub-menu
+		.wp-submenu {
+			width: auto;
+			min-width: 160px;
+			overflow: visible;
+			position: absolute;
+			z-index: 9999;
+			top: -1000em;
+			left: 160px;
+			padding: 7px 0 8px;
+			background-color: #32373C;
+			box-shadow: 0 3px 5px rgba(0,0,0,.2);
+			list-style: none;
+			word-wrap: break-word;
+
+			li {
+				margin: 0;
+				padding: 0;
+
+				a {
+					margin: 0;
+					padding: 5px 14px;
+					color: #B4B9BE;
+					color: rgba(240,245,250,.7);
+					font-size: 13px;
+					line-height: 18px;
+					transition: all .1s ease-in-out, outline 0s;
+
+					&:hover,
+					&:focus {
+						color: #00B9EB;
+					}
+				}
+
+				&.current {
+
+					a,
+					a:hover,
+					a:focus {
+						color: #FFF;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
+
+	#wpadminbar {
+		width: 100%;
+		height: 32px;
+		min-width: 600px;
+		direction: ltr;
+		position: fixed;
+		z-index: 99999;
+		top: 0;
+		left: 0;
+		background: #23282D;
+		color: #CCC;
+		font-size: 13px;
+		line-height: 32px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: 400;
+
+		* {
+			width: auto;
+			height: auto;
+			position: static;
+			margin: 0;
+			padding: 0;
+			border-radius: 0;
+			box-sizing: content-box;
+			text-shadow: none;
+			text-transform: none;
+			letter-spacing: normal;
+			font-size: 13px;
+			line-height: 32px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: 400;
+			-webkit-font-smoothing: subpixel-antialiased;
+			transition: none;
+
+			@media screen and (max-width: 782px) {
+				font-size: 14px;
+				font-weight: 400;
+				font-family: Arial, Helvetica, sans-serif;
+				line-height: 46px;
+			}
+		}
+
+		div {
+			box-shadow: none;
+		}
+
+		ul,
+		ul li,
+		.ab-sub-wrapper {
+			clear: none;
+			position: relative;
+			z-index: 99999;
+			margin: 0;
+			padding: 0;
+			background: 0 0;
+			list-style: none;
+			text-indent: 0;
+		}
+
+		ul {
+
+			li {
+
+				&:last-child,
+				&:last-child .ab-item {
+					box-shadow: none;
+				}
+			}
+		}
+
+		.quicklinks {
+
+			ul {
+				float: right;
+				text-align: left;
+
+				li {
+					float: right;
+
+					span {
+						height: 32px;
+						display: block;
+						margin: 0;
+						padding: 0 8px 0 7px;
+						color: #EEE;
+
+						@media screen and (max-width: 782px) {
+							height: 46px;
+							position: relative;
+							color: #A0A5AA;
+							white-space: nowrap;
+						}
+					}
+
+					@media screen and (max-width: 782px) {
+						float: right;
+						display: block;
+						position: static;
+					}
+				}
+
+				@media screen and (max-width: 782px) {
+					position: static;
+				}
+			}
+		}
+
+		@media screen and (max-width: 782px) {
+			min-width: 300px;
+			height: 46px;
+			position: absolute;
+			line-height: 46px;
+		}
+	}
+
+	#wpcontent {
+		height: 100%;
+		margin-left: 160px;
+		padding-left: 20px;
+
+		#wpbody {
+			position: relative;
+
+			@media screen and (max-width: 782px) {
+				padding-top: 46px;
+			}
+		}
+
+		#wpbody-content {
+			width: 100%;
+			overflow: visible;
+			float: left;
+			padding-bottom: 65px;
+
+			.wrap {
+				margin: 10px 20px 0 2px;
+
+				@media screen and (max-width: 782px) {
+					margin-right: 12px;
+					margin-left: 0;
+				}
+			}
+
+			@media screen and (max-width: 782px) {
+				padding-bottom: 100px;
+			}
+		}
+
+		@media screen and (max-width: 782px) {
+			position: relative;
+			margin-left: 0;
+			padding-left: 10px;
+		}
+	}
+
+	// ELEMENT: Code Block
+	.demo-code-block {
+		margin: 0 0 30px;
+
+		pre {
+			border: 0;
+			border-radius: 4px;
+			background: #002F3E;
+			color: #FFF;
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		}
+
+		[data-clipboard-target] {
+			background-color: rgba(255, 255, 255, 0.1);
+
+			&:hover,
+			&:focus {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+
+		.hljs {
+			background: #002F3E;
+			color: #FFF;
+		}
+
+		.hljs-built_in,
+		.hljs-selector-tag,
+		.hljs-section,
+		.hljs-link {
+			color: #8BE9FD;
+		}
+
+		.hljs-subst,
+		.hljs-tag {
+			color: #DDD;
+		}
+
+		.hljs-title {
+			color: #17A8E3;
+		}
+
+		.hljs-meta,
+		.hljs-name,
+		.hljs-type,
+		.hljs-attr,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-keyword,
+		.hljs-addition,
+		.hljs-variable,
+		.hljs-template-tag,
+		.hljs-template-variable {
+			color: #FECF2F;
+		}
+
+		.php .hljs-string {
+			color: #00B297;
+		}
+
+		.hljs-string {
+			color: #D1F1EA;
+		}
+
+		.hljs-name {
+			color: #17A8E3;
+		}
+
+		.hljs-comment,
+		.hljs-quote,
+		.hljs-deletion {
+			color: #888888;
+		}
+
+		.hljs-keyword,
+		.hljs-selector-tag,
+		.hljs-literal,
+		.hljs-title,
+		.hljs-section,
+		.hljs-doctag,
+		.hljs-type,
+		.hljs-name,
+		.hljs-strong {
+			font-weight: bold;
+		}
+
+		.hljs-literal,
+		.hljs-number {
+			color: #BD93F9;
+		}
+
+		.hljs-emphasis,
+		.hljs-attr {
+			font-style: italic;
+		}
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	// ELEMENT: Icons Table
+	.sui-table.table-icons {
+
+		thead,
+		tbody {
+
+			tr {
+
+				th, td {
+
+					&:nth-child(2),
+					&:nth-child(3) {
+
+						@media screen and (max-width: 782px) {
+							display: none !important;
+						}
+					}
+				}
+			}
+		}
+
+		tbody {
+
+			tr {
+
+				th {
+					position: relative;
+					padding-left: 65px !important;
+
+					[class*="sui-icon-"] {
+						width: 50px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						border-right: 1px solid #E6E6E6;
+
+						&:before {
+							display: block;
+							font-size: 20px;
+						}
+					}
+				}
+
+				.demo-icon-code {
+					max-width: 100%;
+					cursor: pointer;
+					display: inline-flex;
+					align-items: center;
+					position: relative;
+					margin: 5px 0;
+					padding: 5px 15px;
+					border: 1px solid #E6E6E6;
+					border-radius: 4px;
+					outline: 0;
+					background-color: #F8F8F8;
+					color: #333333;
+					font-size: 12px;
+					font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+					line-height: 20px;
+					text-align: left;
+					transition: 0.2s ease;
+
+					&:hover,
+					&:focus {
+						background-color: #E6E6E6;
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Demo Code
+	.demo-col {
+		height: 60px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5px;
+		border-radius: 4px;
+		background-color: #F9E1FF;
+		color: #8D00B1;
+		font: bold 10px/16px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		text-align: center;
+
+		@media screen and (max-width: 782px) {
+			height: 50px;
+		}
+	}
+
+	@media screen and (max-width: 782px) {
+		min-width: 240px;
+		overflow-x: hidden;
+	}
+}
+
+/*
 body,
 html {
 	height: 100%;
@@ -28,7 +643,6 @@ hr {
 	margin: 30px 0;
 }
 
-/* Imitate wp-admin sidebar for layout purposes */
 #adminmenu {
 	height: 100%;
 	width: 160px;
@@ -305,8 +919,6 @@ hr {
 		background-color: rgba(255, 255, 255, .2);
 	}
 
-	/* Highlightjs styles */
-
 	.demo-code-block .hljs {
 		background: #002F3E;
 		color: #ffffff;
@@ -383,10 +995,6 @@ hr {
 	}
 }
 
-/**
-Section specific
- */
-
 // Responsive issues
 @media ( max-width: 500px ) {
 	section#grid,
@@ -399,5 +1007,4 @@ Section specific
 		margin-bottom: 60px;
 	}
 }
-
-
+*/

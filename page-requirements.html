@@ -16,7 +16,7 @@
 	</head>
 
 	<!-- Do not edit body tag - updated via release scripts -->
-	<body class="sui-2-3-27" data-page="index">
+	<body class="sui-2-3-27" data-page="requirements">
 
 		<div id="wpwrap">
 
@@ -34,12 +34,32 @@
 						<main class="sui-wrap">
 
 							<header class="sui-header">
-								<h1 class="sui-header-title">Shared UI</h1>
+								<h1 class="sui-header-title">Requirements</h1>
 							</header>
 
-							<article>
+							<article class="sui-box">
 
-								<p>... welcome content ...</p>
+								<div class="sui-box-body">
+
+									<p>In order to avoid conflicts with other versions of this library, we are using a versioned body class in the format <code>.sui-x-x-x</code> where hyphens are replacing the periods of the <a href="https://github.com/wpmudev/shared-ui/blob/master/package.json#L3" target="_blank">current shared-ui package version</a>. When using the shared-ui library in your plugin, make sure you are adding a body class with the same shared-ui version you are using.</p>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy bash">
+add_filter( 'admin_body_class', 'admin_body_classes' );
+
+function admin_body_classes( $classes ) {
+
+	$classes .= 'sui-2-3-27';
+
+	return $classes;
+
+}
+</pre>
+
+									</div>
+
+								</div>
 
 							</article>
 

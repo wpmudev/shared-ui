@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.25" />
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.25" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-27" data-page="box-settings">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Settings Box</h1>
+							</header>
+
+							<div class="sui-notice sui-notice-warning">
+								<p>Have in mind this is an element variation for basic <strong>sui-box</strong> container and it should be used inside <code>sui-box-body</code> element to work.</p>
+							</div>
+
+							<section class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="default">Default</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="flushed">Flushed</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="slim">Slim</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- TAB: Default -->
+								<div class="sui-box" data-tab="default">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag sui-tag-yellow">Default</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a default settings box with informative sidebar and text/content.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<p>Settings box without informative sidebar.</p>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a default settings box with informative sidebar and text/content.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Flushed -->
+								<div class="sui-box" data-tab="flushed" style="display: none;">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag sui-tag-yellow">Flushed</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a flushed settings box with informative sidebar and text/content. <strong>NOTE: Notice how borders / separators reach box edge.</strong></span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-2">
+
+												<p>Flushed settings box without informative sidebar.</p>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+												<span class="sui-description">This is a flushed settings box with informative sidebar and text/content. <strong>NOTE: Notice how borders / separators reach box edge.</strong></span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<label class="sui-label">Fermentum</label>
+													<select>
+														<option>Ipsum Ornare</option>
+														<option>Quam Fringilla</option>
+														<option>Parturient Tortor</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Slim -->
+								<div class="sui-box" data-tab="slim" style="display: none;">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Box Settings</h2>
+
+										<div class="sui-actions-left">
+											<span class="sui-tag sui-tag-yellow">Slim</span>
+										</div>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>Slim boxes allows you to split content without separators in two columns: left sidebar with title and basic description, and main content displayed at right.</p>
+
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Website Name</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+												<input type="text" placeholder="My Awesome Site" class="sui-form-control">
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Type</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+												<select>
+													<option>Person</option>
+													<option>Robot</option>
+												</select>
+												<div class="sui-border-frame">
+													<label class="sui-label">Your name</label>
+													<input type="text" placeholder="E.g. John Doe" class="sui-form-control">
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Documentation -->
+								<div class="sui-box" data-tab="documentation" style="display: none;">
+
+									<div class="sui-box-header">
+
+										<h2 class="sui-box-title">Documentation</h2>
+
+									</div>
+
+									<div class="sui-box-body">
+
+										<h3>Main Wrappers</h3>
+
+										<!-- Default Markup -->
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Default</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-settings-row&quot;&gt;
+	&lt;!-- NOTE: Informative sidebar or content wrapper go here. --&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Flushed Markup -->
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Flushed</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-settings-row sui-flushed&quot;&gt;
+	&lt;!-- NOTE: Informative sidebar or content wrapper go here. --&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Slim Markup -->
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Slim</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-settings-slim-row&quot;&gt;
+	&lt;!-- NOTE: Informative sidebar or content wrapper go here. --&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<h3>Inner Wrappers</h3>
+
+										<!-- Informative Sidebar -->
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Informative Sidebar</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!--
+NOTE: This element goes inside default, flushed or slim markup.
+--&gt;
+
+&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
+	&lt;!-- NOTE: Block title and/or description go here. --&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Main Content -->
+										<div class="sui-box-settings-row sui-flushed">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Main Content</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!--
+NOTE: This element goes inside default, flushed or slim markup.
+--&gt;
+
+&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
+	&lt;!-- NOTE: Main content goes here. --&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<h3>Basic Elements</h3>
+
+										<!-- Label -->
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Settings Label</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-form-field">
+
+													<span class="sui-settings-label">Sample for settings label</span>
+													<span class="sui-description">On sidebar label will always have a dark color, while on main content it will be grayish.</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+												<div class="sui-form-field">
+
+													<span class="sui-settings-label sui-dark">Sample for darker settings label</span>
+													<span class="sui-description">Some times when you use settings label on content you need to make it dark, for those cases you can use the <code>sui-dark</code> class variation.</span>
+
+													<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;span class=&quot;sui-settings-label&quot;&gt;Settings Label&lt;/span&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Description -->
+										<div class="sui-box-settings-slim-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Description</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<span class="sui-description" style="margin: 0;">You can use the description styles on both containers: sidebar and main content.</span>
+
+												<div class="demo-code-block" style="margin-top: 10px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;span class=&quot;sui-description&quot;&gt;Description goes here...&lt;/span&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="showcase-assets/build/jquery-3.4.1.min.js"></script>
+	<script src="showcase-assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="dist/js/shared-ui.min.js?ver=2.3.25"></script>
+	<script src="showcase-assets/build/showcase.min.js?ver=2.3.25"></script>
+
+</html>
