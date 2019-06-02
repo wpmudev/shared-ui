@@ -8,7 +8,7 @@
 		window.DEMO = {};
 	}
 
-	DEMO.pageAccordionFlex = function( page ) {
+	DEMO.pageAccordions = function( page ) {
 
 		var body = $( 'body' );
 
@@ -73,7 +73,7 @@
 
 	$( 'body' ).ready( function() {
 
-		DEMO.pageAccordionFlex( 'accordions' );
+		DEMO.pageAccordions( 'accordions' );
 
 	});
 
