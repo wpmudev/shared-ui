@@ -1,3 +1,9 @@
+v2.3.30
+- [Fix]     Select: Disable state styles for options.
+- [Fix]     Select2: Disable state styles for options.
+- [Enhance] Select: Display color box for options.
+
+
 v2.3.29
 - [Fix] Modals - Fix conflict when modals.js is loading twice between plugins - This issue was still happening even with the fix from 2.3.28.
 
