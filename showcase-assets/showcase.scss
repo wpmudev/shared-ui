@@ -329,13 +329,20 @@ body {
 		.quicklinks {
 
 			ul {
-				float: right;
 				text-align: left;
 
 				li {
-					float: right;
+					clear: none;
+					float: left;
+					position: relative;
+					z-index: 99999;
+					margin: 0;
+					padding: 0;
+					background: 0 0;
+					list-style: none;
+					text-indent: 0;
 
-					span {
+					a, span, button {
 						height: 32px;
 						display: block;
 						margin: 0;
@@ -350,10 +357,54 @@ body {
 						}
 					}
 
-					@media screen and (max-width: 782px) {
+					a, button {
+
+						i {
+							width: 8px;
+							height: 8px;
+							display: inline-block;
+							margin: 0 4px;
+							padding: 0;
+							border: 1px solid #808080;
+							border-radius: 20px;
+							background-color: transparent;
+						}
+
+						&:hover {
+							background-color: #32373C;
+							color: #00B9EB;
+						}
+
+						&.active {
+							background-color: #32373C;
+
+							i {
+								border-color: #1ABC9C;
+								background-color: #1ABC9C;
+							}
+						}
+					}
+
+					button {
+						cursor: pointer;
+						border-width: 0;
+						background-image: none;
+						background-color: transparent;
+					}
+				}
+
+				&.ab-top-secondary {
+					float: right;
+					text-align: left;
+
+					li {
 						float: right;
-						display: block;
-						position: static;
+
+						@media screen and (max-width: 782px) {
+							float: right;
+							display: block;
+							position: static;
+						}
 					}
 				}
 
