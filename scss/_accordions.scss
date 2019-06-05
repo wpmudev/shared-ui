@@ -419,11 +419,11 @@
 		&.sui-table {
 
 			> tbody {
-	
+
 				> .sui-accordion-item {
 					cursor: pointer;
 					transition: background-color 0.3s;
-	
+
 					th, td {
 						transition: background-color 0.3s;
 
@@ -439,18 +439,18 @@
 							}
 						}
 					}
-		
+
 					.sui-accordion-open-indicator {
 						float: right;
 						margin-left: 10px;
-		
+
 						[class*="sui-icon-"] {
 							display: block;
 							margin-right: 0;
 							font-size: 12px;
 						}
 					}
-	
+
 					&:hover,
 					&:focus {
 						background-color: $accordion--content-bg-color;
@@ -475,19 +475,19 @@
 					&.sui-success + .sui-accordion-item-content {
 						box-shadow: inset 3px 0 0 $success;
 					}
-		
+
 					// When item is open
 					&.sui-accordion-item--open {
 						background-color: $accordion--content-bg-color;
-	
+
 						th, td {
 							border-bottom-color: transparent;
 						}
-	
+
 						.sui-accordion-open-indicator i {
 							transform: rotate(180deg);
 						}
-		
+
 						+ .sui-accordion-item-content {
 							display: table-row;
 						}
@@ -525,16 +525,16 @@
 						}
 					}
 				}
-		
+
 				> .sui-accordion-item-content {
 					display: none;
 					background-color: $accordion--content-bg-color;
-	
+
 					th, td {
-						padding: 0 $sui-gutter-md;
-	
+						padding: 0 $sui-gutter-md $sui-gutter-md;
+
 						@include media(min-width, md) {
-							padding: 0 $sui-gutter;
+							padding: 0 $sui-gutter $sui-gutter;
 						}
 					}
 				}
@@ -844,7 +844,7 @@
 
 					&:not(.sui-accordion-block) {
 						margin-bottom: -#{$sui-gutter-md};
-	
+
 						@include media(min-width, md) {
 							margin-bottom: -#{$sui-gutter};
 						}
