@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="textarea">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Textarea</h1>
+							</header>
+
+							<section class="sui-box">
+
+								<div class="sui-box-body">
+
+									<!-- SECTION: Default State -->
+									<div class="sui-box-settings-row">
+
+										<div class="sui-box-settings-col-1">
+
+											<span class="sui-settings-label">Default State</span>
+
+										</div>
+
+										<div class="sui-box-settings-col-2">
+
+											<div class="sui-form-field">
+
+												<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+
+												<textarea id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-description"></textarea>
+
+												<span id="textarea-default-description" class="sui-description">Textarea description</span>
+
+											</div>
+
+											<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label
+		for=&quot;unique-id&quot;
+		id=&quot;label-unique-id&quot;
+		class=&quot;sui-label&quot;
+	&gt;
+		Label
+	&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Description&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<!-- SECTION: Error State -->
+									<div class="sui-box-settings-row">
+
+										<div class="sui-box-settings-col-1">
+
+											<span class="sui-settings-label">Error State</span>
+											<span class="sui-description">Some textarea fields need to show an error state styles, for those cases you only have to add <strong style="color: #1ABC9C;">sui-form-field-error</strong> class to <strong style="color: #333333;">sui-form-field</strong>.</span>
+
+										</div>
+
+										<div class="sui-box-settings-col-2">
+
+											<div class="sui-form-field sui-form-field-error">
+
+												<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
+
+												<textarea id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
+
+												<span id="textarea-error-message" class="sui-error-message">There is an error on this field.</span>
+
+												<span id="textarea-error-description" class="sui-description">Textarea error description.</span>
+
+											</div>
+
+											<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+
+	&lt;label
+		for=&quot;unique-id&quot;
+		id=&quot;label-unique-id&quot;
+		class=&quot;sui-label&quot;
+	&gt;
+		Label
+	&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot;&gt;Error message&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Description&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="showcase-assets/build/jquery-3.4.1.min.js"></script>
+	<script src="showcase-assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="dist/js/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="showcase-assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
