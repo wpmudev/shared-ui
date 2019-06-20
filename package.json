@@ -11,7 +11,13 @@
 		"not ie <= 8"
 	],
 	"eslintConfig": {
-		"extends": "wordpress"
+		"extends": "wordpress",
+		"env": {
+			"es6": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 2017
+		}
 	},
 	"eslintIgnore": [
 		"a11y-dialog.js",
