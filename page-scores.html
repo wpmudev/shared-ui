@@ -51,16 +51,16 @@
 
 									<div class="sui-tabs sui-side-tabs">
 
-										<div data-tabs>
-											<div class="active">Error</div>
-											<div>Warning</div>
-											<div>Success</div>
+										<div role="tablist" data-tabs>
+											<div id="tab-score-error" class="active" role="tab">Error</div>
+											<div id="tab-score-warning" role="tab">Warning</div>
+											<div id="tab-score-success" role="tab">Success</div>
 										</div>
 
 										<div class="sui-tabs-content-lg" data-panes>
 
 											<!-- STATE: Error -->
-											<div class="active">
+											<div class="active" role="tabpanel" aria-labelledby="tab-score-error">
 
 												<div class="sui-form-field">
 
@@ -97,7 +97,7 @@
 											</div>
 
 											<!-- STATE: Warning -->
-											<div>
+											<div role="tabpanel" aria-labelledby="tab-score-warning">
 
 												<div class="sui-form-field">
 
@@ -134,7 +134,7 @@
 											</div>
 
 											<!-- STATE: Success -->
-											<div>
+											<div role="tabpanel" aria-labelledby="tab-score-success">
 
 												<div class="sui-form-field">
 
