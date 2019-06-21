@@ -117,6 +117,22 @@ gulp.task( 'sui:scripts', ( cb ) => {
  * Tasks to build showcase assets.
  */
 
+// Showcase Icons Font.
+gulp.task( 'showcase:fonts', () => {
+
+	gulp.src( './dist/fonts/*' )
+		.pipe( gulp.dest( './showcase/assets/fonts/' ) )
+		;
+});
+
+// Showcase Images.
+gulp.task( 'showcase:images', () => {
+
+	gulp.src( './dist/images/*' )
+		.pipe( gulp.dest( './showcase/assets/images/' ) )
+		;
+});
+
 // Showcase Styles.
 gulp.task( 'showcase:styles', () => {
 
@@ -180,6 +196,14 @@ gulp.task( 'watch', () => {
 	]);
 
 	// Watch for showcase changes.
+	gulp.watch( './dist/fonts/*', [
+		'showcase:fonts'
+	]);
+
+	gulp.watch( './dist/images/*', [
+		'showcase:images'
+	]);
+
 	gulp.watch(
 		[ './scss/**/*.scss', './showcase/assets/scss/**/*.scss' ],
 		[ 'showcase:styles' ]
