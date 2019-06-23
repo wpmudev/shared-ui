@@ -41,94 +41,36 @@
 
 								<div class="sui-box-body">
 
-									<!-- SECTION: Default State -->
-									<div class="sui-box-settings-row">
+									<div class="sui-tabs sui-side-tabs">
 
-										<div class="sui-box-settings-col-1">
-
-											<span class="sui-settings-label">Default State</span>
-
+										<div role="tablist" data-tabs>
+											<div id="tab-state-default" class="active" role="tab">Default State</div>
+											<div id="tab-state-error" role="tab">Error State</div>
 										</div>
 
-										<div class="sui-box-settings-col-2">
+										<div class="sui-tabs-content-lg" data-panes>
 
-											<div class="sui-form-field">
+											<!-- TAB: Default State -->
+											<div class="active" role="tabpanel" aria-labelledby="tab-state-default">
 
-												<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+												<div class="sui-form-field">
 
-												<textarea id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-description"></textarea>
+													<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
 
-												<span id="textarea-default-description" class="sui-description">Textarea description</span>
+													<textarea placeholder="" id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-message textarea-default-description"></textarea>
 
-											</div>
+													<span id="textarea-default-message" class="sui-error-message" style="display: none;"></span>
 
-											<div class="demo-code-block">
+													<span id="textarea-default-description" class="sui-description">This is textarea field description.</span>
+
+												</div>
+
+												<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
-	&lt;label
-		for=&quot;unique-id&quot;
-		id=&quot;label-unique-id&quot;
-		class=&quot;sui-label&quot;
-	&gt;
-		Label
-	&lt;/label&gt;
-
-	&lt;textarea
-		id=&quot;unique-id&quot;
-		class=&quot;sui-form-control&quot;
-		aria-labelledby=&quot;label-unique-id&quot;
-		aria-describedby=&quot;description-unique-id&quot;
-	&gt;&lt;/textarea&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Description&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-											</div>
-
-										</div>
-
-									</div>
-
-									<!-- SECTION: Error State -->
-									<div class="sui-box-settings-row">
-
-										<div class="sui-box-settings-col-1">
-
-											<span class="sui-settings-label">Error State</span>
-											<span class="sui-description">Some textarea fields need to show an error state styles, for those cases you only have to add <strong style="color: #1ABC9C;">sui-form-field-error</strong> class to <strong style="color: #333333;">sui-form-field</strong>.</span>
-
-										</div>
-
-										<div class="sui-box-settings-col-2">
-
-											<div class="sui-form-field sui-form-field-error">
-
-												<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
-
-												<textarea id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
-
-												<span id="textarea-error-message" class="sui-error-message">There is an error on this field.</span>
-
-												<span id="textarea-error-description" class="sui-description">Textarea error description.</span>
-
-											</div>
-
-											<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
-
-	&lt;label
-		for=&quot;unique-id&quot;
-		id=&quot;label-unique-id&quot;
-		class=&quot;sui-label&quot;
-	&gt;
-		Label
-	&lt;/label&gt;
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
 
 	&lt;textarea
 		id=&quot;unique-id&quot;
@@ -137,12 +79,64 @@
 		aria-describedby=&quot;error-unique-id description-unique-id&quot;
 	&gt;&lt;/textarea&gt;
 
-	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot;&gt;Error message&lt;/span&gt;
+	&lt;!--
+	NOTE:
+	Notice error message element it is empty. This because content should be printed
+	when error happens and not before to avoid screenreaders confusing users.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot;&gt;&lt;/span&gt;
 
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Description&lt;/span&gt;
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
 
 &lt;/div&gt;
 </pre>
+
+												</div>
+
+											</div>
+
+											<!-- TAB: Error State -->
+											<div role="tabpanel" aria-labelledby="tab-state-error">
+
+												<div class="sui-form-field sui-form-field-error">
+
+													<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
+
+													<textarea id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
+
+													<span id="textarea-error-message" class="sui-error-message">This is an error message.</span>
+
+													<span id="textarea-error-description" class="sui-description">This is textarea field description.</span>
+
+												</div>
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;!--
+	NOTE:
+	When field gets error state you should print error message on element below
+	and also make sure to focus input with JS in case inline error message is in use.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot;&gt;Enter error message here.&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
 
 											</div>
 
