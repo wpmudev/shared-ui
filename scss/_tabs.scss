@@ -14,6 +14,7 @@
 			> *,
 			.sui-tab-item {
 				cursor: pointer;
+				flex: 0 1 auto;
 				margin: 0 10px;
 				padding: 14px 0 12px;
 
@@ -34,7 +35,7 @@
 				&:first-child {
 					margin-left: 0;
 				}
-	
+
 				&:last-child {
 					margin-right: 0;
 				}
@@ -72,6 +73,47 @@
 			> [data-tabs],
 			> .sui-tabs-menu {
 				border-top-width: 0;
+			}
+		}
+
+		// Overflowed tabs
+		&.sui-tabs-overflow {
+			border: 1px solid $tabs-content-border-color;
+			border-radius: $border-radius;
+
+			> [data-tabs],
+			> .sui-tabs-menu {
+				overflow-x: none;
+				padding-right: $sui-gutter-md;
+				padding-left: $sui-gutter-md;
+				border-top-width: 0;
+
+				> *,
+				.sui-tab-item {
+					flex: 0 0 auto;
+				}
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
+			> [data-panes],
+			> .sui-tabs-content {
+
+				> *,
+				> .sui-tab-content {
+					padding-right: $sui-gutter-md;
+					padding-bottom: $sui-gutter-md;
+					padding-left: $sui-gutter-md;
+
+					@include media(min-width, md) {
+						padding-right: $sui-gutter;
+						padding-bottom: $sui-gutter;
+						padding-left: $sui-gutter;
+					}
+				}
 			}
 		}
 	}
@@ -140,6 +182,7 @@
 					padding: $sui-gutter-md;
 					border: 1px solid #E6E6E6;
 					border-radius: $border-radius;
+
 
 					@include media(min-width, md) {
 						padding: $sui-gutter;
