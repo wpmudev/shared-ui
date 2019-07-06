@@ -23,11 +23,10 @@
 		// Add the DOM elements to style the select list.
 		function setupElement() {
 			jq.wrap( '<div class="select-container">' );
-			jq.hide();
 
 			wrap = jq.parent();
-			handle = $( '<span class="dropdown-handle"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span>' ).prependTo( wrap );
-			list = $( '<div class="select-list-container"></div>' ).appendTo( wrap );
+			handle = $( '<span class="dropdown-handle" aria-hidden="true" tabindex="-1" hidden><i class="sui-icon-chevron-down"></i></span>' ).prependTo( wrap );
+			list = $( '<div class="select-list-container" aria-hidden="true" tabindex="-1" hidden></div>' ).appendTo( wrap );
 			value = $( '<div class="list-value">&nbsp;</div>' ).appendTo( list );
 			items = $( '<ul class="list-results"></ul>' ).appendTo( list );
 

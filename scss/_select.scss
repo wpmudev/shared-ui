@@ -12,6 +12,10 @@
 		transition-property: background;
 		transition-duration: 0.3s;
 
+		select {
+			@extend %sui-screen-reader-text;
+		}
+
 		.dropdown-handle {
 			width: #{$select-dropdown-handle-size - 1px};
 			display: block;
