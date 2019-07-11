@@ -13,7 +13,7 @@
 		transition-duration: 0.3s;
 
 		select {
-			@extend %sui-screen-reader-text;
+			display: none;
 		}
 
 		.dropdown-handle {
@@ -54,20 +54,31 @@
 			.list-value {
 				width: 100%;
 				height: auto;
+				cursor: pointer;
 				overflow: hidden;
 				display: block;
 				position: relative;
 				padding: 8px 8px 8px 14px;
 				border: 0;
+				border-radius: 0;
+				background-color: transparent;
 				background-clip: padding-box;
 				color: $select-value--color;
 				font: 500 15px/22px $font;
 				letter-spacing: $font--letter-spacing;
+				text-align: left;
 				text-decoration: none;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				transition-property: color;
 				transition-duration: 0.3s;
+
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
 			}
 
 			.list-results {
@@ -148,6 +159,13 @@
 						cursor: pointer;
 						padding-left: 28px
 					}
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
 				}
 			}
 		}
