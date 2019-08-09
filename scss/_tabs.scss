@@ -14,22 +14,34 @@
 			> *,
 			.sui-tab-item {
 				cursor: pointer;
-				flex: 0 1 auto;
 				margin: 0 10px;
 				padding: 14px 0 12px;
+				border: 0; // Make sure borders are disabled when using "button" element for tabs.
+				background-color: transparent;
 
 				&,
 				&:focus,
 				&:hover,
 				&:active,
 				&:visited {
+					outline: none; // Make sure outline blur is disabled when using "button" element for tabs.
 					border-bottom: 2px solid transparent;
-					color: $tabs-label-color;
 					font-size: 12px;
 					line-height: 22px;
 					font-weight: 500;
 					text-transform: uppercase;
 					text-decoration: none;
+				}
+
+				&,
+				&:visited {
+					color: $tabs-label-color;
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $tabs-label-active-border-color;
 				}
 
 				&:first-child {
@@ -164,12 +176,14 @@
 				flex: 0 0 auto;
 				margin: 0 1px 0 0;
 				padding: 9px 20px;
+				border: 0; // Make sure borders are disabled when using "button" element for tabs.
 
 				&,
 				&:focus,
 				&:hover,
 				&:active,
 				&:visited {
+					outline: none; // Make sure outline blur is disabled when using "button" element for tabs.
 					background-color: $side-tabs--label-background;
 					color: $side-tabs--label-color;
 					font-size: 13px;
@@ -210,7 +224,6 @@
 					padding: $sui-gutter-md;
 					border: 1px solid #E6E6E6;
 					border-radius: $border-radius;
-
 
 					@include media(min-width, md) {
 						padding: $sui-gutter;
