@@ -11942,12 +11942,22 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 								<div class="sui-box-settings-col-1">
 									<span class="sui-settings-label">Overflow</span>
-									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling.</span>
+									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
 									<div class="sui-tabs sui-tabs-overflow">
+										<div class="sui-tabs-overflow__nav">
+											<button type="button" class="sui-button-icon sui-tabs-overflow__nav--left">
+												<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+												<span class="sui-screen-reader-text">Icon button</span>
+											</button>
+											<button type="button" class="sui-button-icon sui-tabs-overflow__nav--right">
+												<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+												<span class="sui-screen-reader-text">Icon button</span>
+											</button>
+										</div>
 
 										<div data-tabs>
 											<div id="tab-overflow-1" class="active">Admin Area</div>
@@ -11957,12 +11967,23 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 											<div id="tab-overflow-5" >Utilities</div>
 											<div id="tab-overflow-6" >Widgets</div>
 											<div id="tab-overflow-7" >Extras</div>
+											<div id="tab-overflow-12" >Emails</div>
+											<div id="tab-overflow-31" >Front-End</div>
+											<div id="tab-overflow-41" >Settings</div>
+											<div id="tab-overflow-51" >Utilities</div>
+											<div id="tab-overflow-61" >Widgets</div>
+											<div id="tab-overflow-71" >Extras</div>
 										</div>
 
 										<div data-panes>
 
 											<div class="active"><p>Content. Tab 1.</p></div>
 											<div><p>Content. Tab 2.</p></div>
+											<div><p>Content. Tab 3.</p></div>
+											<div><p>Content. Tab 4.</p></div>
+											<div><p>Content. Tab 5.</p></div>
+											<div><p>Content. Tab 6.</p></div>
+											<div><p>Content. Tab 7.</p></div>
 											<div><p>Content. Tab 3.</p></div>
 											<div><p>Content. Tab 4.</p></div>
 											<div><p>Content. Tab 5.</p></div>
@@ -12185,6 +12206,39 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 &lt;/div&gt;</pre>
 									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Overflow Tabs</span>
+									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="demo-code-block">
+										<pre class="sui-code-snippet html">&lt;div class="sui-tabs sui-tabs-overflow"&gt;
+	&lt;div class="sui-tabs-overflow__nav"&gt;
+		&lt;button type="button" class="sui-button-icon sui-tabs-overflow__nav--left"&gt;
+			&lt;i class="sui-icon-chevron-left" aria-hidden="true"&gt;&lt;/i&gt;
+			&lt;span class="sui-screen-reader-text"&gt;Icon button&lt;/span&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="sui-button-icon sui-tabs-overflow__nav--right"&gt;
+			&lt;i class="sui-icon-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
+			&lt;span class="sui-screen-reader-text"&gt;Icon button&lt;/span&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+
+	...
+
+&lt;/div&gt;</pre>
+									</div>
+
+									<p>You will need to include the navigation html directly before the [data-tabs]</p>
 
 								</div>
 

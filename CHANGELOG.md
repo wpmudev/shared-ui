@@ -3,6 +3,7 @@ v2.3.30
 - [Fix]     Select2: Disable state styles for options.
 - [Fix]     Accordions: Missing spacing at bottom of content.
 - [Enhance] Select: Display color box for options.
+- [Enhance] Tabs: Add overflow navigation when there's lots of tabs on smaller screens.
 
 
 v2.3.29

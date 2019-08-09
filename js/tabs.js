@@ -123,9 +123,80 @@
         return init( config );
     };
 
+	SUI.suiTabsNav = function( $el ) {
+		var tabs = $el.closest( '.sui-tabs' ).find( '[data-tabs]' ),
+            leftButton = $el.find( '.sui-tabs-overflow__nav--left' ),
+            rightButton = $el.find( '.sui-tabs-overflow__nav--right' );
+
+        function overflowing() {
+            if ( tabs[0].scrollWidth > tabs.width() ) {
+                if ( 0 === tabs.scrollLeft() ) {
+                    leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                } else {
+                    leftButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+                }
+                reachedEnd( 0 );
+                return true;
+            } else {
+                leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                rightButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                return false;
+            }
+        }
+        overflowing();
+
+        function reachedEnd( offset ) {
+            var newScrollLeft,
+                width,
+                scrollWidth;
+            newScrollLeft = tabs.scrollLeft() + offset;
+            width = tabs.outerWidth();
+            scrollWidth = tabs.get( 0 ).scrollWidth;
+
+            if ( scrollWidth - newScrollLeft <= width ) {
+                rightButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+            } else {
+                rightButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+            }
+        }
+
+		leftButton.click( function() {
+            rightButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+            if ( 0 >= tabs.scrollLeft() - 150 ) {
+                leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+            }
+            tabs.animate({
+                scrollLeft: '-=150'
+            }, 400, function() {
+            });
+            return false;
+        });
+		rightButton.click( function() {
+            leftButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+            reachedEnd( 150 );
+            tabs.animate({
+                scrollLeft: '+=150'
+            }, 400, function() {
+            });
+
+            return false;
+        });
+
+
+        $( window ).resize( function() {
+            overflowing();
+        });
+
+        tabs.scroll( function() {
+            overflowing();
+        });
+	};
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
         SUI.suiTabs();
+		$( 'SUI_BODY_CLASS .sui-tabs-overflow__nav' ).each( function() {
+			SUI.suiTabsNav( $( this ) );
+		});
     }
 
 }( jQuery ) );
