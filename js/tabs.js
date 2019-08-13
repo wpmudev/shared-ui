@@ -192,8 +192,108 @@
         });
 	};
 
+	SUI.tabs = function( element ) {
+
+		var tabs     = $( element ),
+			tabList  = tabs.find( '> div[role="tablist"]' ),
+			tabPanel = tabs.find( '> .sui-tabs-content' )
+			;
+
+		if ( ! tabList.length ) {
+			return;
+		}
+
+		function getCurrentTab( el ) {
+
+			var current = $( el ),
+				allTabs = tabList.find( '> [role="tab"]' )
+				;
+
+			// Remove "active" class.
+			allTabs.removeClass( 'active' );
+
+			// Set false "aria-selected" attribute.
+			allTabs.attr( 'aria-selected', false );
+
+			// Make screenreader ignore item.
+			allTabs.attr( 'tabindex', '-1' );
+
+			// Set "active" class.
+			current.addClass( 'active' );
+
+			// Set true "aria-selected" attribute.
+			current.attr( 'aria-selected', true );
+
+			// Make screenreader to read item.
+			current.removeAttr( 'tabindex' );
+
+		}
+
+		function getCurrentContent( el ) {
+
+			var tabCurrent  = $( el ),
+				tabControls = tabCurrent.attr( 'aria-controls' ),
+				tabCurContent = tabPanel.find( '#' + tabControls ),
+				tabAllContent = tabPanel.find( '> [role="tabpanel"]' )
+				;
+
+			// Remove "active" class.
+			tabAllContent.removeClass( 'active' );
+
+			// Add "hidden" attribute.
+			tabAllContent.attr( 'hidden', true );
+
+			// Add "active" class to current content.
+			tabCurContent.addClass( 'active' );
+
+			// Remove "hidden" attribute from current content.
+			tabCurContent.attr( 'hidden', false );
+			tabCurContent.removeAttr( 'hidden' );
+
+		}
+
+		function init() {
+
+			var tab = tabList.find( '> [role="tab"]' );
+
+			tab.on( 'click', function( e ) {
+
+				// Get current tab.
+				getCurrentTab( this );
+
+				// Check if tabs have content.
+				if ( tabPanel.length ) {
+
+					// Get current tab content.
+					getCurrentContent( this );
+				}
+
+				e.preventDefault();
+
+			});
+		}
+
+		init();
+
+		return this;
+
+	};
+
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
-        SUI.suiTabs();
+
+		$( 'SUI_BODY_CLASS .sui-tabs' ).each( function() {
+
+			var element = $( this );
+
+			// Support tabs new markup.
+			if ( 0 === element.find( 'div[data-tabs]' ).length ) {
+				SUI.tabs( this );
+			}
+		});
+
+		// Support legacy tabs.
+		SUI.suiTabs();
+
 		$( 'SUI_BODY_CLASS .sui-tabs-overflow__nav' ).each( function() {
 			SUI.suiTabsNav( $( this ) );
 		});
