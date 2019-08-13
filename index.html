@@ -11849,19 +11849,19 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 									<div class="sui-tabs">
 
-										<div data-tabs>
-											<div id="sui-tab-1" class="active">Tab 1</div>
-											<div id="sui-tab-2" >Tab 2</div>
-											<div id="sui-tab-3" >Tab 3</div>
-											<div id="sui-tab-4" >Tab 4</div>
+										<div role="tablist" class="sui-tabs-menu">
+											<button type="button" role="tab" id="sample-tab-1" class="sui-tab-item active" aria-controls="sample-tab-content-1" aria-selected="true">Tab 1</button>
+											<button type="button" role="tab" id="sample-tab-2" class="sui-tab-item" aria-controls="sample-tab-content-2" aria-selected="false" tabindex="-1">Tab 2</button>
+											<button type="button" role="tab" id="sample-tab-3" class="sui-tab-item" aria-controls="sample-tab-content-3" aria-selected="false" tabindex="-1">Tab 3</button>
+											<button type="button" role="tab" id="sample-tab-4" class="sui-tab-item" aria-controls="sample-tab-content-4" aria-selected="false" tabindex="-1">Tab 4</button>
 										</div>
 
-										<div data-panes>
+										<div class="sui-tabs-content">
 
-											<div class="active"><p>Content. Tab 1.</p></div>
-											<div><p>Content. Tab 2.</p></div>
-											<div><p>Content. Tab 3.</p></div>
-											<div><p>Content. Tab 4.</p></div>
+											<div role="tabpanel" tabindex="0" id="sample-tab-content-1" class="sui-tab-content active" aria-labelledby="sample-tab-1"><p>Content. Tab 1.</p></div>
+											<div role="tabpanel" tabindex="0" id="sample-tab-content-2" class="sui-tab-content" aria-labelledby="sample-tab-2" hidden><p>Content. Tab 2.</p></div>
+											<div role="tabpanel" tabindex="0" id="sample-tab-content-3" class="sui-tab-content" aria-labelledby="sample-tab-3" hidden><p>Content. Tab 3.</p></div>
+											<div role="tabpanel" tabindex="0" id="sample-tab-content-4" class="sui-tab-content" aria-labelledby="sample-tab-4" hidden><p>Content. Tab 4.</p></div>
 
 										</div>
 
