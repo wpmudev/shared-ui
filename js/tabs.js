@@ -192,88 +192,262 @@
         });
 	};
 
-	SUI.tabs = function( element ) {
+	SUI.tabs = function() {
 
-		var tabs     = $( element ),
-			tabList  = tabs.find( '> div[role="tablist"]' ),
-			tabPanel = tabs.find( '> .sui-tabs-content' )
+		var tablist = document.querySelectorAll( '[role="tablist"]' )[0],
+			tabs,
+			panels,
+			i,
+			t,
+			p
 			;
 
-		if ( ! tabList.length ) {
-			return;
+		// For easy reference.
+		var keys = {
+			end: 35,
+			home: 36,
+			left: 37,
+			up: 38,
+			right: 39,
+			down: 40,
+			delete: 46,
+			enter: 13,
+			space: 32
+		};
+
+		// Add or substract depending on key pressed.
+		var direction = {
+			37: -1,
+			38: -1,
+			39: 1,
+			40: 1
+		};
+
+		function generateArrays() {
+			tabs = document.querySelectorAll( '[role="tab"]' );
+			panels = document.querySelectorAll( '[role="tabpanel"]' );
+		};
+
+		function addListeners( index ) {
+
+			tabs[index].addEventListener( 'click', clickEventListener );
+			tabs[index].addEventListener( 'keydown', keydownEventListener );
+			tabs[index].addEventListener( 'keyup', keyupEventListener );
+
+			// Build an array with all tabs (<buttons>s) in it.
+			tabs[index].index = index;
 		}
 
-		function getCurrentTab( el ) {
+		// When a tab is clicked, activateTab is fired to activate it.
+		function clickEventListener( event ) {
+			var tab = event.target;
+			activateTab( tab, false );
+		}
 
-			var current = $( el ),
-				allTabs = tabList.find( '> [role="tab"]' )
+		// Handle keydown on tabs.
+		function keydownEventListener( event ) {
+
+			var key = event.keyCode;
+
+			switch ( key ) {
+
+				case keys.end :
+
+					event.preventDefault();
+
+					// Actiavte last tab.
+					focusLastTab();
+
+					break;
+
+				case keys.home :
+
+					event.preventDefault();
+
+					// Activate first tab.
+					focusFirstTab();
+
+					break;
+
+				// Up and down are in keydown
+				// because we need to prevent page scroll.
+				case keys.up :
+				case keys.down :
+					determineOrientation( event );
+					break;
+			};
+		}
+
+		// Handle keyup on tabs.
+		function keyupEventListener( event ) {
+
+			var key = event.keyCode;
+
+			switch ( key ) {
+
+				case keys.left :
+				case keys.right :
+					determineOrientation( event );
+					break;
+
+				case keys.delete:
+					determineDeletable( event );
+					break;
+
+				case keys.enter :
+				case keys.space :
+					activateTab( event );
+					break;
+			}
+		}
+
+		// When a "tablist" aria-orientation is set to vertical,
+		// only up and down arrow should function.
+		// In all other cases only left and right should function.
+		function determineOrientation( event ) {
+
+			var key      = event.keyCode,
+				vertical = 'vertical' === tablist.getAttribute( 'aria-orientation' ),
+				proceed  = false
 				;
 
-			// Remove "active" class.
-			allTabs.removeClass( 'active' );
+			if ( vertical ) {
 
-			// Set false "aria-selected" attribute.
-			allTabs.attr( 'aria-selected', false );
-
-			// Make screenreader ignore item.
-			allTabs.attr( 'tabindex', '-1' );
-
-			// Set "active" class.
-			current.addClass( 'active' );
-
-			// Set true "aria-selected" attribute.
-			current.attr( 'aria-selected', true );
-
-			// Make screenreader to read item.
-			current.removeAttr( 'tabindex' );
-
-		}
-
-		function getCurrentContent( el ) {
-
-			var tabCurrent  = $( el ),
-				tabControls = tabCurrent.attr( 'aria-controls' ),
-				tabCurContent = tabPanel.find( '#' + tabControls ),
-				tabAllContent = tabPanel.find( '> [role="tabpanel"]' )
-				;
-
-			// Remove "active" class.
-			tabAllContent.removeClass( 'active' );
-
-			// Add "hidden" attribute.
-			tabAllContent.attr( 'hidden', true );
-
-			// Add "active" class to current content.
-			tabCurContent.addClass( 'active' );
-
-			// Remove "hidden" attribute from current content.
-			tabCurContent.attr( 'hidden', false );
-			tabCurContent.removeAttr( 'hidden' );
-
-		}
-
-		function init() {
-
-			var tab = tabList.find( '> [role="tab"]' );
-
-			tab.on( 'click', function( e ) {
-
-				// Get current tab.
-				getCurrentTab( this );
-
-				// Check if tabs have content.
-				if ( tabPanel.length ) {
-
-					// Get current tab content.
-					getCurrentContent( this );
+				if ( keys.up === key || keys.down === key ) {
+					event.preventDefault();
+					proceed = true;
 				}
+			} else {
 
-				e.preventDefault();
+				if ( keys.left === key || keys.right === key ) {
+					proceed = true;
+				}
+			}
 
-			});
+			if ( true === proceed ) {
+				switchTabOnArrowPress( event );
+			}
 		}
 
-		init();
+		// Either focus the next, previous, first, or last tab
+		// depending on key pressed.
+		function switchTabOnArrowPress( event ) {
+
+			var pressed = event.keyCode;
+
+			if ( direction[pressed]) {
+
+				// eslint-disable-next-line vars-on-top
+				var target = event.target;
+
+				if ( undefined !== target.index ) {
+
+					if ( tabs[target.index + direction[pressed] ]) {
+						tabs[target.index + direction[pressed] ].focus();
+					} else if ( keys.left === pressed || keys.up === pressed ) {
+						focusLastTab();
+					} else if ( keys.right === pressed || keys.down === pressed ) {
+						focusFirstTab();
+					}
+				}
+			}
+		}
+
+		// Activate any given tab panel.
+		function activateTab( tab, setFocus ) {
+
+			setFocus = setFocus || true;
+
+			// Deactivate all other tabs.
+			deactivateTabs();
+
+			// Remove tabindex attribute.
+			tab.removeAttribute( 'tabindex' );
+
+			// Set the tab as selected.
+			tab.setAttribute( 'aria-selected', true );
+
+			// Add "active" class.
+			tab.classList.add( 'active' );
+
+			// Get the value of aria-controls (which is an ID).
+			// eslint-disable-next-line vars-on-top
+			var controls = tab.getAttribute( 'aria-controls' );
+
+			// Remove hidden attribute from tab panel to make it visible.
+			document.getElementById( controls ).removeAttribute( 'hidden' );
+			document.getElementById( controls ).classList.add( 'active' );
+
+			// Set focus when required.
+			if ( setFocus ) {
+				tab.focus();
+			}
+		}
+
+		// Deactivate all tabs and tab panels.
+		function deactivateTabs() {
+
+			for ( t = 0; t < tabs.length; t++ ) {
+				tabs[t].classList.remove( 'active' );
+				tabs[t].setAttribute( 'tabindex', '-1' );
+				tabs[t].setAttribute( 'aria-selected', 'false' );
+			}
+
+			for ( p = 0; p < panels.length; p++ ) {
+				panels[p].classList.remove( 'active' );
+				panels[p].setAttribute( 'hidden', 'hidden' );
+			}
+		}
+
+		// Focus first tab.
+		function focusFirstTab() {
+			tabs[0].focus();
+		}
+
+		// Focus last tab.
+		function focusLastTab() {
+			tabs[tabs.length - 1].focus();
+		}
+
+		// Detect if a tab is deletable.
+		function determineDeletable( event ) {
+
+			target = event.target;
+
+			if ( null !== target.getAttribute( 'data-deletable' ) ) {
+
+				// Delete target tab
+				deleteTab( event, target );
+
+				// Update arrays related to tabs widget
+				generateArrays();
+
+				// Activate the closest tab to the one that was just deleted
+				if ( 0 > target.index - 1 ) {
+					activateTab( tabs[0]);
+				} else {
+					activateTab( tabs[target.index - 1]);
+				}
+			}
+		}
+
+		// Deletes a tab and its panel.
+		function deleteTab( event ) {
+
+			var target = event.target,
+				panel  = document.getElementById( target.getAttribute( 'aria-controls' ) )
+				;
+
+			target.parentElement.removeChild( target );
+			panel.parentElement.removeChild( panel );
+
+		}
+
+		generateArrays();
+
+		for ( i = 0; i < tabs.length; ++i ) {
+			addListeners( i );
+		}
 
 		return this;
 
@@ -281,15 +455,8 @@
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
 
-		$( 'SUI_BODY_CLASS .sui-tabs' ).each( function() {
-
-			var element = $( this );
-
-			// Support tabs new markup.
-			if ( 0 === element.find( 'div[data-tabs]' ).length ) {
-				SUI.tabs( this );
-			}
-		});
+		// Support tabs new markup.
+		SUI.tabs();
 
 		// Support legacy tabs.
 		SUI.suiTabs();
