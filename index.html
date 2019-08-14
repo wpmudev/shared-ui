@@ -11963,16 +11963,14 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 									<div class="sui-tabs sui-tabs-overflow">
 
-										<div class="sui-tabs-navigation" aria-hidden="true" tabindex="-1">
+										<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
 
 											<button type="button" class="sui-button-icon sui-tabs-navigation--left">
 												<i class="sui-icon-chevron-left"></i>
-												<span class="sui-screen-reader-text">Icon button</span>
 											</button>
 
 											<button type="button" class="sui-button-icon sui-tabs-navigation--right">
 												<i class="sui-icon-chevron-right"></i>
-												<span class="sui-screen-reader-text">Icon button</span>
 											</button>
 
 										</div>
@@ -12272,26 +12270,45 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-1">
+
 									<span class="sui-settings-label">Overflow Tabs</span>
+
 									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
+
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
 									<div class="demo-code-block">
-										<pre class="sui-code-snippet html">&lt;div class="sui-tabs sui-tabs-overflow"&gt;
-	&lt;div class="sui-tabs-overflow__nav"&gt;
-		&lt;button type="button" class="sui-button-icon sui-tabs-overflow__nav--left"&gt;
-			&lt;i class="sui-icon-chevron-left" aria-hidden="true"&gt;&lt;/i&gt;
-			&lt;span class="sui-screen-reader-text"&gt;Icon button&lt;/span&gt;
+										<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs sui-tabs-overflow&quot;&gt;
+
+	&lt;div
+		tabindex=&quot;-1&quot;
+		class=&quot;sui-tabs-navigation&quot;
+		aria-hidden=&quot;true&quot;
+	&gt;
+		&lt;button
+			type=&quot;button&quot;
+			class=&quot;sui-button-icon sui-tabs-navigation--left&quot;
+		&gt;
+			&lt;i class=&quot;sui-icon-chevron-left&quot;&gt;&lt;/i&gt;
 		&lt;/button&gt;
-		&lt;button type="button" class="sui-button-icon sui-tabs-overflow__nav--right"&gt;
-			&lt;i class="sui-icon-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
-			&lt;span class="sui-screen-reader-text"&gt;Icon button&lt;/span&gt;
+		&lt;button
+			type=&quot;button&quot;
+			class=&quot;sui-button-icon sui-tabs-navigation--right&quot;
+		&gt;
+			&lt;i class=&quot;sui-icon-chevron-right&quot;&gt;&lt;/i&gt;
 		&lt;/button&gt;
 	&lt;/div&gt;
 
-	...
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+		...
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+		...
+	&lt;/div&gt;
 
 &lt;/div&gt;</pre>
 									</div>
