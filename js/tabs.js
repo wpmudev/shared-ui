@@ -123,23 +123,24 @@
         return init( config );
     };
 
-	SUI.suiTabsNav = function( $el ) {
-		var tabs = $el.closest( '.sui-tabs' ).find( '[data-tabs]' ),
-            leftButton = $el.find( '.sui-tabs-overflow__nav--left' ),
-            rightButton = $el.find( '.sui-tabs-overflow__nav--right' );
+	SUI.tabsOverflow = function( $el ) {
+
+		var tabs = $el.closest( '.sui-tabs' ).find( '[data-tabs], [role="tablist"]' ),
+            leftButton = $el.find( '.sui-tabs-navigation--left' ),
+            rightButton = $el.find( '.sui-tabs-navigation--right' );
 
         function overflowing() {
             if ( tabs[0].scrollWidth > tabs.width() ) {
                 if ( 0 === tabs.scrollLeft() ) {
-                    leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                    leftButton.addClass( 'sui-tabs-navigation--hidden' );
                 } else {
-                    leftButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+                    leftButton.removeClass( 'sui-tabs-navigation--hidden' );
                 }
                 reachedEnd( 0 );
                 return true;
             } else {
-                leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
-                rightButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                leftButton.addClass( 'sui-tabs-navigation--hidden' );
+                rightButton.addClass( 'sui-tabs-navigation--hidden' );
                 return false;
             }
         }
@@ -154,16 +155,16 @@
             scrollWidth = tabs.get( 0 ).scrollWidth;
 
             if ( scrollWidth - newScrollLeft <= width ) {
-                rightButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                rightButton.addClass( 'sui-tabs-navigation--hidden' );
             } else {
-                rightButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+                rightButton.removeClass( 'sui-tabs-navigation--hidden' );
             }
         }
 
 		leftButton.click( function() {
-            rightButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+            rightButton.removeClass( 'sui-tabs-navigation--hidden' );
             if ( 0 >= tabs.scrollLeft() - 150 ) {
-                leftButton.addClass( 'sui-tabs-overflow__nav--hidden' );
+                leftButton.addClass( 'sui-tabs-navigation--hidden' );
             }
             tabs.animate({
                 scrollLeft: '-=150'
@@ -172,7 +173,7 @@
             return false;
         });
 		rightButton.click( function() {
-            leftButton.removeClass( 'sui-tabs-overflow__nav--hidden' );
+            leftButton.removeClass( 'sui-tabs-navigation--hidden' );
             reachedEnd( 150 );
             tabs.animate({
                 scrollLeft: '+=150'
@@ -414,8 +415,8 @@
 		// Support legacy tabs.
 		SUI.suiTabs();
 
-		$( 'SUI_BODY_CLASS .sui-tabs-overflow__nav' ).each( function() {
-			SUI.suiTabsNav( $( this ) );
+		$( 'SUI_BODY_CLASS .sui-tabs-navigation' ).each( function() {
+			SUI.tabsOverflow( $( this ) );
 		});
     }
 
