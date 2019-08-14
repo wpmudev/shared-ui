@@ -3,6 +3,7 @@ v2.3.30
 - [Fix]     Select2: Disable state styles for options.
 - [Fix]     Accordions: Missing spacing at bottom of content.
 - [Fix]     Tabs: Improve markup to be accessible for screenreader.
+- [Enhance] Global: Remove all instances of Roboto Condensed.
 - [Enhance] Select: Display color box for options.
 - [Enhance] Tabs: Add overflow navigation when there's lots of tabs on smaller screens.
 
