@@ -12,6 +12,10 @@
 		transition-property: background;
 		transition-duration: 0.3s;
 
+		select {
+			display: none;
+		}
+
 		.dropdown-handle {
 			width: #{$select-dropdown-handle-size - 1px};
 			display: block;
@@ -50,20 +54,31 @@
 			.list-value {
 				width: 100%;
 				height: auto;
+				cursor: pointer;
 				overflow: hidden;
 				display: block;
 				position: relative;
 				padding: 8px 8px 8px 14px;
 				border: 0;
+				border-radius: 0;
+				background-color: transparent;
 				background-clip: padding-box;
 				color: $select-value--color;
 				font: 500 15px/22px $font;
 				letter-spacing: $font--letter-spacing;
+				text-align: left;
 				text-decoration: none;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				transition-property: color;
 				transition-duration: 0.3s;
+
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
 			}
 
 			.list-results {
@@ -117,6 +132,12 @@
 						background-color: $select-results--background-hover;
 						color: $select-results--color-hover;
 					}
+
+					&.sui-disabled {
+						cursor: not-allowed;
+						opacity: 0.5;
+						pointer-events: none;
+					}
 				}
 
 				.optgroup {
@@ -138,6 +159,13 @@
 						cursor: pointer;
 						padding-left: 28px
 					}
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
 				}
 			}
 		}
@@ -239,6 +267,61 @@
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+
+		// VARIATION: Colors
+		&.sui-select-colors {
+
+			.select-list-container {
+
+				.list-value {
+					display: flex;
+					align-items: center;
+					padding-top: 5px;
+					padding-left: 5px;
+					padding-bottom: 5px;
+
+					span {
+						width: 30px;
+						height: 30px;
+						display: block;
+						margin-right: 10px;
+						border: 1px solid transparent;
+						border-radius: #{$border-radius / 2};
+
+						&[data-color="#FFF"],
+						&[data-color="#FFFFFF"] {
+							border-color: #2C2E2F;
+						}
+					}
+				}
+
+				.list-results {
+
+					li {
+						display: flex;
+						align-items: center;
+						padding-left: 9px;
+						padding-right: 9px;
+						font-size: 13px;
+						line-height: 20px;
+
+						span {
+							width: 20px;
+							height: 20px;
+							display: block;
+							margin-right: 10px;
+							border: 1px solid transparent;
+							border-radius: #{$border-radius / 2};
+
+							&[data-color="#FFF"],
+							&[data-color="#FFFFFF"] {
+								border-color: #2C2E2F;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

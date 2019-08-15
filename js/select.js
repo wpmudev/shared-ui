@@ -22,28 +22,44 @@
 
 		// Add the DOM elements to style the select list.
 		function setupElement() {
+
+			// Wrap select
 			jq.wrap( '<div class="select-container">' );
+
+			// Hide select
+			jq.attr( 'aria-hidden', true );
+			jq.attr( 'hidden', true );
 			jq.hide();
 
 			wrap = jq.parent();
-			handle = $( '<span class="dropdown-handle"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span>' ).prependTo( wrap );
+
+			handle = $( '<span class="dropdown-handle" aria-hidden="true"><i class="sui-icon-chevron-down"></i></span>' ).prependTo( wrap );
 			list = $( '<div class="select-list-container"></div>' ).appendTo( wrap );
-			value = $( '<div class="list-value">&nbsp;</div>' ).appendTo( list );
-			items = $( '<ul class="list-results"></ul>' ).appendTo( list );
+			value = $( '<button class="list-value" aria-haspopup="listbox">&nbsp;</button>' ).appendTo( list );
+			items = $( '<ul tabindex="-1" role="listbox" class="list-results"></ul>' ).appendTo( list );
 
 			wrap.addClass( jq.attr( 'class' ) );
+
+			value.attr( 'id', jq.attr( 'id' ) + '-button' );
+			value.attr( 'aria-labelledby', jq.attr( 'aria-labelledby' ) + ' ' + value.attr( 'id' ) );
+
+			items.attr( 'id', jq.attr( 'id' ) + '-list' );
+			items.attr( 'aria-labelledby', jq.attr( 'aria-labelledby' ) );
+
 		}
 
 		// When changing selection using JS, you need to trigger a 'sui:change' event
 		// eg: $('select').val('4').trigger('sui:change')
 		function handleSelectionChange() {
+
 			jq.on( 'sui:change', function() {
 
 				// We need to re-populateList to handle dynamic select options added via JS/ajax.
 				populateList();
+
 				items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 					var opt = $( ev.target );
-					selectItem( opt, false );
+					selectItem( opt, false, opt.data( 'color' ) );
 					handleValue();
 				});
 			});
@@ -60,21 +76,33 @@
                     optGroupItem,
                     $label;
                 if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
-                    item = $( '<li></li>' ).appendTo( items );
+
+					item = $( '<li></li>' ).appendTo( items );
+					item.attr( 'role', 'option' );
 
 					if ( opt.data( 'content' ) ) {
 						item.addClass( 'sui-element-flex' );
 						item.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
 					} else if ( opt.data( 'icon' ) ) {
 						item.html( '<i class="sui-icon-' + opt.data( 'icon' ) + '" aria-hidden="true"></i> ' + opt.text() );
+					} else if ( opt.data( 'color' ) ) {
+						item.html( '<span style="background-color: ' + opt.data( 'color' ) + '" data-color="' + opt.data( 'color' ) + '" aria-hidden="true"></span>' + opt.text() );
 					} else {
 						item.text( opt.text() );
 					}
 
+					if ( opt.is( ':disabled' ) ) {
+						item.addClass( 'sui-disabled' );
+					}
+
+					items.attr( 'aria-activedescendant', jq.attr( 'id' ) + '-option-' + opt.val() );
+					item.attr( 'id', jq.attr( 'id' ) + '-option-' + opt.val() );
+
 					item.data( 'value', opt.val() );
+					item.data( 'color', opt.data( 'color' ) );
 
                     if ( opt.val() == jq.val() ) {
-                        selectItem( item, true );
+                        selectItem( item, true, opt.data( 'color' ) );
                     }
                 } else {
                     optGroupItem = $( '<ul></ul>' ).appendTo( items );
@@ -129,6 +157,7 @@
 
 			item.removeClass( 'active' );
 			item.closest( 'tr' ).removeClass( 'select-open' );
+			item.find( '.list-value' ).removeAttr( 'aria-expanded' );
 		}
 
 		// Open the dropdown list.
@@ -139,14 +168,25 @@
 
 			wrap.addClass( 'active' );
 			wrap.closest( 'tr' ).addClass( 'select-open' );
+			wrap.find( '.list-value' ).attr( 'aria-expanded', true );
 		}
 
 		// Visually mark the specified option as "selected".
-		function selectItem( opt, isInit ) {
+		function selectItem( opt, isInit, optColor ) {
+
 			isInit = 'undefined' === typeof isInit ? false : isInit;
-			value.text( opt.text() );
+
+			if ( undefined !== optColor && '' !== optColor ) {
+				value.html( '<span style="background-color: ' + optColor + '" data-color="' + optColor + '"></span>' + opt.text() );
+			} else {
+				value.text( opt.text() );
+			}
+
+			$( '.current', items ).removeAttr( 'aria-selected' );
 			$( '.current', items ).removeClass( 'current' );
 			opt.addClass( 'current' );
+			opt.attr( 'aria-selected', true );
+			items.attr( 'aria-activedescendant', opt.attr( 'id' ) );
 			stateClose();
 
 			// Also update the select list value.
@@ -168,7 +208,7 @@
 
 			items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 				var opt = $( ev.target );
-				selectItem( opt, false );
+				selectItem( opt, false, opt.data( 'color' ) );
 				handleValue();
 			});
 

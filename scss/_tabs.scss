@@ -16,14 +16,16 @@
 				cursor: pointer;
 				margin: 0 10px;
 				padding: 14px 0 12px;
+				border: 0; // Make sure borders are disabled when using "button" element for tabs.
+				background-color: transparent;
 
 				&,
 				&:focus,
 				&:hover,
 				&:active,
 				&:visited {
+					outline: none; // Make sure outline blur is disabled when using "button" element for tabs.
 					border-bottom: 2px solid transparent;
-					color: $tabs-label-color;
 					font-size: 12px;
 					line-height: 22px;
 					font-weight: 500;
@@ -31,10 +33,21 @@
 					text-decoration: none;
 				}
 
+				&,
+				&:visited {
+					color: $tabs-label-color;
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $tabs-label-active-border-color;
+				}
+
 				&:first-child {
 					margin-left: 0;
 				}
-	
+
 				&:last-child {
 					margin-right: 0;
 				}
@@ -74,6 +87,75 @@
 				border-top-width: 0;
 			}
 		}
+
+		// Overflowed tabs
+		&.sui-tabs-overflow {
+			border: 1px solid $tabs-content-border-color;
+			border-radius: $border-radius;
+			position: relative;
+
+			> [data-tabs],
+			> .sui-tabs-menu {
+				overflow: auto;
+				margin-right: $sui-gutter-md;
+				margin-left: $sui-gutter-md;
+				border-top-width: 0;
+				scrollbar-width: none;
+				scrollbar-height: none;
+				&::-webkit-scrollbar {
+					width: 0;
+					height: 0;
+					background: transparent;
+				}
+
+				> *,
+				.sui-tab-item {
+					flex: 0 0 auto;
+				}
+
+			}
+
+			> [data-panes],
+			> .sui-tabs-content {
+
+				> *,
+				> .sui-tab-content {
+					padding-right: $sui-gutter-md;
+					padding-bottom: $sui-gutter-md;
+					padding-left: $sui-gutter-md;
+
+					@include media(min-width, md) {
+						padding-right: $sui-gutter;
+						padding-bottom: $sui-gutter;
+						padding-left: $sui-gutter;
+					}
+				}
+			}
+
+			// Navigation for overflow.
+			.sui-tabs-navigation {
+				position: absolute;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				height: 50px;
+				align-items: center;
+				top: 1px;
+				pointer-events: none;
+				opacity: 1;
+
+				&--left,
+				&--right {
+					background: rgba(255, 255, 255, 0.8);
+					pointer-events: all;
+					transition: all .2s;
+				}
+				&--hidden {
+					visibility: hidden;
+					opacity: 0;
+				}
+			}
+		}
 	}
 
 	// Side Tabs
@@ -94,12 +176,14 @@
 				flex: 0 0 auto;
 				margin: 0 1px 0 0;
 				padding: 9px 20px;
+				border: 0; // Make sure borders are disabled when using "button" element for tabs.
 
 				&,
 				&:focus,
 				&:hover,
 				&:active,
 				&:visited {
+					outline: none; // Make sure outline blur is disabled when using "button" element for tabs.
 					background-color: $side-tabs--label-background;
 					color: $side-tabs--label-color;
 					font-size: 13px;
