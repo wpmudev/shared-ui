@@ -3,9 +3,14 @@ v2.3.30
 - [Fix]     Select2: Disable state styles for options.
 - [Fix]     Accordions: Missing spacing at bottom of content.
 - [Fix]     Tabs: Improve markup to be accessible for screenreader.
+			Dev Notes: New markup and JS function has been added for default tabs,
+			for more info go to https://wpmudev.github.io/shared-ui/#tabs and read
+			"Documentation".
 - [Enhance] Global: Remove all instances of Roboto Condensed.
 - [Enhance] Select: Display color box for options.
 - [Enhance] Tabs: Add overflow navigation when there's lots of tabs on smaller screens.
+			Dev Notes: See https://wpmudev.github.io/shared-ui/#tabs for sample markup
+			and read "Documentation" for more info.
 
 
 v2.3.29
