@@ -2255,28 +2255,44 @@
 
 		// Add the DOM elements to style the select list.
 		function setupElement() {
+
+			// Wrap select
 			jq.wrap( '<div class="select-container">' );
+
+			// Hide select
+			jq.attr( 'aria-hidden', true );
+			jq.attr( 'hidden', true );
 			jq.hide();
 
 			wrap = jq.parent();
-			handle = $( '<span class="dropdown-handle"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span>' ).prependTo( wrap );
+
+			handle = $( '<span class="dropdown-handle" aria-hidden="true"><i class="sui-icon-chevron-down"></i></span>' ).prependTo( wrap );
 			list = $( '<div class="select-list-container"></div>' ).appendTo( wrap );
-			value = $( '<div class="list-value">&nbsp;</div>' ).appendTo( list );
-			items = $( '<ul class="list-results"></ul>' ).appendTo( list );
+			value = $( '<button class="list-value" aria-haspopup="listbox">&nbsp;</button>' ).appendTo( list );
+			items = $( '<ul tabindex="-1" role="listbox" class="list-results"></ul>' ).appendTo( list );
 
 			wrap.addClass( jq.attr( 'class' ) );
+
+			value.attr( 'id', jq.attr( 'id' ) + '-button' );
+			value.attr( 'aria-labelledby', jq.attr( 'aria-labelledby' ) + ' ' + value.attr( 'id' ) );
+
+			items.attr( 'id', jq.attr( 'id' ) + '-list' );
+			items.attr( 'aria-labelledby', jq.attr( 'aria-labelledby' ) );
+
 		}
 
 		// When changing selection using JS, you need to trigger a 'sui:change' event
 		// eg: $('select').val('4').trigger('sui:change')
 		function handleSelectionChange() {
+
 			jq.on( 'sui:change', function() {
 
 				// We need to re-populateList to handle dynamic select options added via JS/ajax.
 				populateList();
+
 				items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 					var opt = $( ev.target );
-					selectItem( opt, false );
+					selectItem( opt, false, opt.data( 'color' ) );
 					handleValue();
 				});
 			});
@@ -2293,21 +2309,33 @@
                     optGroupItem,
                     $label;
                 if ( 'OPTION' == $( this ).prop ( 'tagName' ) ) {
-                    item = $( '<li></li>' ).appendTo( items );
+
+					item = $( '<li></li>' ).appendTo( items );
+					item.attr( 'role', 'option' );
 
 					if ( opt.data( 'content' ) ) {
 						item.addClass( 'sui-element-flex' );
 						item.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
 					} else if ( opt.data( 'icon' ) ) {
 						item.html( '<i class="sui-icon-' + opt.data( 'icon' ) + '" aria-hidden="true"></i> ' + opt.text() );
+					} else if ( opt.data( 'color' ) ) {
+						item.html( '<span style="background-color: ' + opt.data( 'color' ) + '" data-color="' + opt.data( 'color' ) + '" aria-hidden="true"></span>' + opt.text() );
 					} else {
 						item.text( opt.text() );
 					}
 
+					if ( opt.is( ':disabled' ) ) {
+						item.addClass( 'sui-disabled' );
+					}
+
+					items.attr( 'aria-activedescendant', jq.attr( 'id' ) + '-option-' + opt.val() );
+					item.attr( 'id', jq.attr( 'id' ) + '-option-' + opt.val() );
+
 					item.data( 'value', opt.val() );
+					item.data( 'color', opt.data( 'color' ) );
 
                     if ( opt.val() == jq.val() ) {
-                        selectItem( item, true );
+                        selectItem( item, true, opt.data( 'color' ) );
                     }
                 } else {
                     optGroupItem = $( '<ul></ul>' ).appendTo( items );
@@ -2362,6 +2390,7 @@
 
 			item.removeClass( 'active' );
 			item.closest( 'tr' ).removeClass( 'select-open' );
+			item.find( '.list-value' ).removeAttr( 'aria-expanded' );
 		}
 
 		// Open the dropdown list.
@@ -2372,14 +2401,25 @@
 
 			wrap.addClass( 'active' );
 			wrap.closest( 'tr' ).addClass( 'select-open' );
+			wrap.find( '.list-value' ).attr( 'aria-expanded', true );
 		}
 
 		// Visually mark the specified option as "selected".
-		function selectItem( opt, isInit ) {
+		function selectItem( opt, isInit, optColor ) {
+
 			isInit = 'undefined' === typeof isInit ? false : isInit;
-			value.text( opt.text() );
+
+			if ( undefined !== optColor && '' !== optColor ) {
+				value.html( '<span style="background-color: ' + optColor + '" data-color="' + optColor + '"></span>' + opt.text() );
+			} else {
+				value.text( opt.text() );
+			}
+
+			$( '.current', items ).removeAttr( 'aria-selected' );
 			$( '.current', items ).removeClass( 'current' );
 			opt.addClass( 'current' );
+			opt.attr( 'aria-selected', true );
+			items.attr( 'aria-activedescendant', opt.attr( 'id' ) );
 			stateClose();
 
 			// Also update the select list value.
@@ -2401,7 +2441,7 @@
 
 			items.find( 'li' ).not( '.optgroup-label' ).on( 'click', function onItemClick( ev ) {
 				var opt = $( ev.target );
-				selectItem( opt, false );
+				selectItem( opt, false, opt.data( 'color' ) );
 				handleValue();
 			});
 
@@ -9241,9 +9281,301 @@
         return init( config );
     };
 
+	SUI.tabsOverflow = function( $el ) {
+
+		var tabs = $el.closest( '.sui-tabs' ).find( '[data-tabs], [role="tablist"]' ),
+            leftButton = $el.find( '.sui-tabs-navigation--left' ),
+            rightButton = $el.find( '.sui-tabs-navigation--right' );
+
+        function overflowing() {
+            if ( tabs[0].scrollWidth > tabs.width() ) {
+                if ( 0 === tabs.scrollLeft() ) {
+                    leftButton.addClass( 'sui-tabs-navigation--hidden' );
+                } else {
+                    leftButton.removeClass( 'sui-tabs-navigation--hidden' );
+                }
+                reachedEnd( 0 );
+                return true;
+            } else {
+                leftButton.addClass( 'sui-tabs-navigation--hidden' );
+                rightButton.addClass( 'sui-tabs-navigation--hidden' );
+                return false;
+            }
+        }
+        overflowing();
+
+        function reachedEnd( offset ) {
+            var newScrollLeft,
+                width,
+                scrollWidth;
+            newScrollLeft = tabs.scrollLeft() + offset;
+            width = tabs.outerWidth();
+            scrollWidth = tabs.get( 0 ).scrollWidth;
+
+            if ( scrollWidth - newScrollLeft <= width ) {
+                rightButton.addClass( 'sui-tabs-navigation--hidden' );
+            } else {
+                rightButton.removeClass( 'sui-tabs-navigation--hidden' );
+            }
+        }
+
+		leftButton.click( function() {
+            rightButton.removeClass( 'sui-tabs-navigation--hidden' );
+            if ( 0 >= tabs.scrollLeft() - 150 ) {
+                leftButton.addClass( 'sui-tabs-navigation--hidden' );
+            }
+            tabs.animate({
+                scrollLeft: '-=150'
+            }, 400, function() {
+            });
+            return false;
+        });
+		rightButton.click( function() {
+            leftButton.removeClass( 'sui-tabs-navigation--hidden' );
+            reachedEnd( 150 );
+            tabs.animate({
+                scrollLeft: '+=150'
+            }, 400, function() {
+            });
+
+            return false;
+        });
+
+
+        $( window ).resize( function() {
+            overflowing();
+        });
+
+        tabs.scroll( function() {
+            overflowing();
+        });
+	};
+
+	SUI.tabs = function() {
+
+		var tablist = $( '.sui-tabs > div[role="tablist"]' );
+
+		// For easy reference.
+		var keys = {
+			end: 35,
+			home: 36,
+			left: 37,
+			up: 38,
+			right: 39,
+			down: 40,
+			delete: 46,
+			enter: 13,
+			space: 32
+		};
+
+		// Add or substract depending on key pressed.
+		var direction = {
+			37: -1,
+			38: -1,
+			39: 1,
+			40: 1
+		};
+
+		// Prevent function from running if tablist does not exist.
+		if ( ! tablist.length ) {
+			return;
+		}
+
+		// Deactivate all tabs and tab panels.
+		function deactivateTabs( tabs, panels ) {
+
+			tabs.removeClass( 'active' );
+			tabs.attr( 'tabindex', '-1' );
+			tabs.attr( 'aria-selected', false );
+
+			panels.removeClass( 'active' );
+			panels.attr( 'hidden', true );
+
+		}
+
+		// Activate current tab panel.
+		function activateTab( tab ) {
+
+			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
+				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
+				controls = $( tab ).attr( 'aria-controls' ),
+				panel    = $( '#' + controls )
+				;
+
+			deactivateTabs( tabs, panels );
+
+			$( tab ).addClass( 'active' );
+			$( tab ).removeAttr( 'tabindex' );
+			$( tab ).attr( 'aria-selected', true );
+
+			panel.addClass( 'active' );
+			panel.attr( 'hidden', false );
+			panel.removeAttr( 'hidden' );
+
+		}
+
+		// When a "tablist" aria-orientation is set to vertical,
+		// only up and down arrow should function.
+		// In all other cases only left and right should function.
+		function determineOrientation( event, index, tablist ) {
+
+			var key      = event.keyCode || event.which,
+				vertical = 'vertical' === $( tablist ).attr( 'aria-orientation' ),
+				proceed  = false
+				;
+
+			// Check if aria orientation is set to vertical.
+			if ( vertical ) {
+
+				if ( keys.up === key || keys.down === key ) {
+					event.preventDefault();
+					proceed = true;
+				}
+			} else {
+
+				if ( keys.left === key || keys.right === key ) {
+					proceed = true;
+				}
+			}
+
+			if ( true === proceed ) {
+				switchTabOnArrowPress( event, index );
+			}
+		}
+
+		// Either focus the next, previous, first, or last tab
+		// depending on key pressed.
+		function switchTabOnArrowPress( event, index ) {
+
+			var pressed, target, tabs;
+
+			pressed = event.keyCode || event.which;
+
+			if ( direction[pressed]) {
+
+				target = event.target;
+				tabs   = $( target ).closest( '[role="tablist"]' ).find( '> [role="tab"]' );
+
+				if ( undefined !== index ) {
+
+					if ( tabs[index + direction[pressed] ]) {
+						tabs[index + direction[pressed] ].focus();
+					} else if ( keys.left === pressed || keys.up === pressed ) {
+						tabs[tabs.length - 1].focus();
+					} else if ( keys.right === pressed || keys.down === pressed ) {
+						tabs[0].focus();
+					}
+				}
+			}
+		}
+
+		// When a tab is clicked, activateTab is fired to activate it.
+		function clickEventListener( event ) {
+			var tab = event.target;
+			activateTab( tab );
+		}
+
+		function keydownEventListener( event, index, tablist ) {
+
+			var key = event.keyCode || event.which;
+
+			switch ( key ) {
+
+				case keys.end :
+
+					event.preventDefault();
+
+					// Actiavte last tab.
+					// focusLastTab();
+
+					break;
+
+				case keys.home :
+
+					event.preventDefault();
+
+					// Activate first tab.
+					// focusFirstTab();
+
+					break;
+
+				// Up and down are in keydown
+				// because we need to prevent page scroll.
+				case keys.up :
+				case keys.down :
+					determineOrientation( event, index, tablist );
+					break;
+			}
+		}
+
+		function keyupEventListener( event, index, tablist ) {
+
+			var key = event.keyCode || event.which;
+
+			switch ( key ) {
+
+				case keys.left :
+				case keys.right :
+					determineOrientation( event, index, tablist );
+					break;
+
+				case keys.enter :
+				case keys.space :
+					activateTab( event );
+					break;
+			}
+		}
+
+		function init() {
+
+			var tabgroup = tablist.closest( '.sui-tabs' );
+
+			// Run the function for each group of tabs to prevent conflicts
+			// when having child tabs.
+			tabgroup.each( function() {
+
+				var tabs, panels, index;
+
+				tabgroup = $( this );
+				tablist  = tabgroup.find( '> [role="tablist"]' );
+				tabs     = tablist.find( '> [role="tab"]' );
+				panels   = tabgroup.find( '> .sui-tabs-content > [role="tabpanel"]' );
+
+				// Trigger events on click.
+				tabs.on( 'click', function( e ) {
+					clickEventListener( e );
+
+				// Trigger events when pressing key.
+				}).keydown( function( e ) {
+					index = $( this ).index();
+					keydownEventListener( e, index, tablist );
+
+				// Trigger events when releasing key.
+				}).keyup( function( e ) {
+					index = $( this ).index();
+					keyupEventListener( e, index, tablist );
+
+				});
+			});
+		}
+
+		init();
+
+		return this;
+
+	};
 
     if ( 0 !== $( '.sui-2-3-29 .sui-tabs' ).length ) {
-        SUI.suiTabs();
+
+		// Support tabs new markup.
+		SUI.tabs();
+
+		// Support legacy tabs.
+		SUI.suiTabs();
+
+		$( '.sui-2-3-29 .sui-tabs-navigation' ).each( function() {
+			SUI.tabsOverflow( $( this ) );
+		});
     }
 
 }( jQuery ) );
