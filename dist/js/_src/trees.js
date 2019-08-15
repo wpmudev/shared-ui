@@ -399,9 +399,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-29 .sui-tree' ).length ) {
+	if ( 0 !== $( '.sui-2-3-30 .sui-tree' ).length ) {
 
-		$( '.sui-2-3-29 .sui-tree' ).each( function() {
+		$( '.sui-2-3-30 .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
 		});
 	}
