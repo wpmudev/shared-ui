@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="box-basics">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Basic Box</h1>
+							</header>
+
+							<section class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="example">Example</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- TAB: Example -->
+								<div data-tab="example">
+
+									<div id="sample-box-one" class="sui-box">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Default</h2>
+										</div>
+
+										<div class="sui-box-body">
+											<p>This is a default box with just text/content.</p>
+										</div>
+
+									</div>
+
+									<div class="sui-box sui-box-sticky">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Sticky box</h2>
+										</div>
+
+										<div class="sui-box-body">
+
+											<p>Stick the box to the top of the page when scrolling on large screens. For small screens it will just highlight adding a shadow to the box but won't stick.</p>
+
+											<p>Click on the button below to add more sample boxes at the end to increase the amount of content on the page, then scroll and try the sticky sidebar.</p>
+
+											<button id="add-sample-box" class="sui-button">Add More Boxes</button>
+
+										</div>
+
+									</div>
+
+									<div id="sample-box-two" class="sui-row">
+
+										<div class="sui-col-md-6">
+
+											<div class="sui-box">
+
+												<div class="sui-box-header">
+													<h2 class="sui-box-title">Box 1</h2>
+												</div>
+
+												<div class="sui-box-body">
+													<p>Floated boxes.</p>
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-col-md-6">
+
+											<div class="sui-box">
+
+												<div class="sui-box-header">
+													<h2 class="sui-box-title">Box 2</h2>
+												</div>
+
+												<div class="sui-box-body">
+													<p>Floated boxes.</p>
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div id="sample-box-three" class="sui-box">
+
+										<div class="sui-box-header">
+
+											<h2 class="sui-box-title">Actions</h2>
+
+											<div class="sui-actions-right">
+												<button class="sui-button sui-button-ghost">Button</button>
+											</div>
+
+										</div>
+
+										<div class="sui-box-body">
+											<p>This is a default box with actions in the title and footer.</p>
+										</div>
+
+										<div class="sui-box-footer">
+
+											<button class="sui-button sui-button-ghost">Button</button>
+
+											<div class="sui-actions-right">
+												<button class="sui-button sui-button-blue">Save Changes</button>
+											</div>
+
+										</div>
+
+									</div>
+
+									<div id="sample-box-four" class="sui-box">
+
+										<div class="sui-box-header">
+
+											<h2 class="sui-box-title"><i class="sui-icon-info" aria-hidden="true"></i> Alternatives</h2>
+
+											<div class="sui-actions-left">
+												<span class="sui-tag sui-tag-yellow">Tag</span>
+											</div>
+
+										</div>
+
+										<div class="sui-box-body">
+											<p>On Dashboard widgets we often use icons and tags in the box titles.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- TAB: Documentation -->
+								<div class="sui-box" data-tab="documentation" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Documentation</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<!-- Base Structure -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Base Structure</span>
+												<span class="sui-description">This white-box contains several box-elements depending on what you need.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- Static Box --&gt;
+&lt;div class=&quot;sui-box&quot;&gt;
+	...
+&lt;/div&gt;
+
+&lt;!-- Sticky Box --&gt;
+&lt;div class=&quot;sui-box sui-box-sticky&quot;&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Box Header -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Box Header</span>
+												<span class="sui-description">This is a <code>sui-box</code> element.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-box-header&quot;&gt;
+
+	&lt;!-- Box title with icon --&gt;
+	&lt;h3 class=&quot;sui-box-title&quot;&gt;
+		&lt;i class=&quot;sui-icon-hummingbird&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Box Title
+	&lt;/h3&gt;
+
+	&lt;!-- Elements aligned to left, next to title --&gt;
+	&lt;div class=&quot;sui-actions-left&quot;&gt;
+		...
+	&lt;/div&gt;
+
+	&lt;!-- Elements aligned to right --&gt;
+	&lt;div class=&quot;sui-actions-right&quot;&gt;
+		...
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Box Content -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Base Structure</span>
+												<span class="sui-description">This is a <code>sui-box</code> element.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-box-body&quot;&gt;
+
+	...
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>

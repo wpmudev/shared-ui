@@ -1,65 +1,71 @@
 {
-  "name": "@wpmudev/shared-ui",
-  "version": "2.3.30",
-  "description": "For internal use in WPMU DEV plugins",
-  "author": "WPMU DEV",
-  "license": "GPL-2.0",
-  "homepage": "https://wpmudev.github.io/shared-ui/",
-  "browserslist": [
-    "> 1%",
-    "Last 2 versions",
-    "not ie <= 8"
-  ],
-  "eslintConfig": {
-    "extends": "wordpress"
-  },
-  "eslintIgnore": [
-    "a11y-dialog.js",
-    "clipboard.js",
-    "gulpfile.js",
-    "select2.full.js",
-    "ace.js",
-    "mode-css.js",
-    "sticky-box.js",
-    "mode-html.js",
-    "worker-css.js"
-  ],
-  "files": [
-    "dist/",
-    "js/",
-    "scss/"
-  ],
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "chalk": "^2.4.1",
-    "eslint-config-wordpress": "^2.0.0",
-    "fs": "0.0.1-security",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-eslint": "^5.0.0",
-    "gulp-header": "^2.0.5",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
-    "gulp-watch": "^5.0.1",
-    "pump": "^3.0.0",
-    "natives": "^1.1.6"
-  },
-  "style": "dist/css/shared-ui.css",
-  "sass": "scss/shared-ui.scss",
-  "main": "dist/js/shared-ui",
-  "scripts": {
-    "dev": "gulp dev",
-    "release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "changelog": " ./changelog.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/wpmudev/shared-ui.git"
-  }
+	"name": "@wpmudev/shared-ui",
+	"version": "2.3.30",
+	"description": "For internal use in WPMU DEV plugins",
+	"author": "WPMU DEV",
+	"license": "GPL-2.0",
+	"homepage": "https://wpmudev.github.io/shared-ui/",
+	"browserslist": [
+		"> 1%",
+		"Last 2 versions",
+		"not ie <= 8"
+	],
+	"eslintConfig": {
+		"extends": "wordpress",
+		"env": {
+			"es6": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 2017
+		}
+	},
+	"eslintIgnore": [
+		"a11y-dialog.js",
+		"clipboard.js",
+		"gulpfile.js",
+		"select2.full.js",
+		"ace.js",
+		"mode-css.js",
+		"sticky-box.js",
+		"mode-html.js",
+		"worker-css.js"
+	],
+	"files": [
+		"dist/",
+		"js/",
+		"scss/"
+	],
+	"devDependencies": {
+		"browser-sync": "^2.26.3",
+		"chalk": "^2.4.1",
+		"eslint-config-wordpress": "^2.0.0",
+		"fs": "0.0.1-security",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-eslint": "^5.0.0",
+		"gulp-header": "^2.0.5",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.1",
+		"gulp-watch": "^5.0.1",
+		"pump": "^3.0.0",
+		"natives": "^1.1.6"
+	},
+	"style": "dist/css/shared-ui.css",
+	"sass": "scss/shared-ui.scss",
+	"main": "dist/js/shared-ui",
+	"scripts": {
+		"dev": "gulp dev",
+		"release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
+		"release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
+		"release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
+		"changelog": " ./changelog.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/wpmudev/shared-ui.git"
+	}
 }

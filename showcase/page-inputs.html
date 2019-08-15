@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="inputs">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Inputs</h1>
+							</header>
+
+							<div class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="basics">Default</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="sizes">Sizes</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="prefix">Prefix</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="suffix">Suffix</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- SECTION: Default -->
+								<div class="sui-box" data-tab="basics">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Default</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-tabs sui-side-tabs">
+
+											<div role="tablist" data-tabs>
+												<div id="tab-default-basics" class="active" role="tab">Default State</div>
+												<div id="tab-error-basics" role="tab">Error State</div>
+											</div>
+
+											<div class="sui-tabs-content-lg" data-panes>
+
+												<!-- TAB: Default State -->
+												<div class="active" role="tabpanel" aria-labelledby="tab-default-basics">
+
+													<div class="sui-form-field">
+
+														<label for="input-default" id="input-default-label" class="sui-label">Country</label>
+
+														<input
+															placeholder="E.g. Argentina"
+															id="input-default"
+															class="sui-form-control"
+															aria-labelledby="input-default-label"
+															aria-describedby="input-default-message input-default-description"
+														/>
+
+														<span id="input-default-message" class="sui-error-message" style="display: none;" role="alert"></span>
+
+														<span id="input-default-description" class="sui-description">Insert a country name that starts with A letter.</span>
+
+													</div>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;input
+		placeholder=&quot;Placeholder&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	/&gt;
+
+	&lt;!--
+	NOTE:
+	Notice error message element it is empty. This because content should be printed
+	when error happens and not before to avoid screenreaders confusing users.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot; role=&quot;alert&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+												<!-- TAB: Error State -->
+												<div role="tabpanel" aria-labelledby="tab-error-basics">
+
+													<div class="sui-form-field sui-form-field-error" aria-invalid="true">
+
+														<label id="input-error-label" for="input-error" class="sui-label">Country</label>
+
+														<input
+															placeholder="E.g. Argentina"
+															id="input-error"
+															class="sui-form-control"
+															aria-labelledby="input-error-label"
+															aria-describedby="input-error-message input-error-description"
+														/>
+
+														<span id="input-error-message" class="sui-error-message" role="alert">The country name inserted is not valid.</span>
+
+														<span id="input-error-description" class="sui-description">Insert a country name that starts with A letter.</span>
+
+													</div>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;input
+		placeholder=&quot;Placeholder&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	/&gt;
+
+	&lt;!--
+	NOTE:
+	When field gets error state you should print error message on element below
+	and also make sure to focus input with JS in case inline error message is in use.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; role=&quot;alert&quot;&gt;Enter error message here.&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+													</div>
+
+													<div class="sui-notice sui-notice-error">
+														<p>Notice on the markup we do two things for input error state: add <code>sui-form-field-error</code> class to <strong>sui-form-field</strong> element and print error message inside <code>sui-error-message</code> element.</p>
+														<p>In addition to that we print remove <code>display: none</code> inline style and focus input element.</p>
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-notice sui-notice-warning">
+											<p><strong>IMPORTANT:</strong> Inputs must always have a label but there are times when this is not part of the design, for those cases we keep label for input but hidden replacing <strong>sui-label</strong> with <code>sui-screen-reader-text</code> class.</p>
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Sizes -->
+								<div class="sui-box" data-tab="sizes" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Sizes</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<!-- ROW: Constrain Input -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Constrain Input</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-tabs sui-side-tabs">
+
+													<div role="tablist" data-tabs>
+														<div id="tab-sizes-input-default" class="active" role="tab">Default</div>
+														<div id="tab-sizes-input-medium" role="tab">240 pixels</div>
+														<div id="tab-sizes-input-small" role="tab">80 pixels</div>
+													</div>
+
+													<div class="sui-tabs-content-lg" data-panes>
+
+														<!-- TAB: Default Size -->
+														<div class="active" role="tabpanel" aria-labelledby="tab-sizes-input-default">
+
+															<div class="sui-form-field">
+
+																<label for="input-full" id="input-full-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="input-full"
+																	class="sui-form-control"
+																	aria-labelledby="input-full-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;input class=&quot;sui-form-control&quot; /&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<!-- TAB: Medium Size -->
+														<div role="tabpanel" aria-labelledby="tab-sizes-input-medium">
+
+															<div class="sui-form-field">
+
+																<label for="input-md" id="input-md-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="input-md"
+																	class="sui-form-control sui-input-md"
+																	aria-labelledby="input-md-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;input class=&quot;sui-form-control sui-input-md&quot; /&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>To constrain input only to <strong>240px</strong> of maximum width just add <code>sui-input-md</code> class to it.</p>
+															</div>
+
+														</div>
+
+														<!-- TAB: Small Size -->
+														<div role="tabpanel" aria-labelledby="tab-sizes-input-size">
+
+															<div class="sui-form-field">
+
+																<label for="input-sm" id="input-sm-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="input-sm"
+																	class="sui-form-control sui-input-sm"
+																	aria-labelledby="input-sm-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;input class=&quot;sui-form-control sui-input-sm&quot; /&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>To constrain input only to <strong>80px</strong> of maximum width just add <code>sui-input-sm</code> class to it.</p>
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- ROW: Constrain Field -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Constrain Field</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-tabs sui-side-tabs">
+
+													<div role="tablist" data-tabs>
+														<div id="tab-sizes-field-default" class="active" role="tab">Default</div>
+														<div id="tab-sizes-field-medium" role="tab">240 pixels</div>
+														<div id="tab-sizes-field-small" role="tab">80 pixels</div>
+													</div>
+
+													<div class="sui-tabs-content-lg" data-panes>
+
+														<!-- TAB: Default Size -->
+														<div class="active" role="tabpanel" aria-labelledby="tab-sizes-field-default">
+
+															<div class="sui-form-field">
+
+																<label for="field-full" id="field-full-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="field-full"
+																	class="sui-form-control"
+																	aria-labelledby="field-full-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;input class=&quot;sui-form-control&quot; /&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<!-- TAB: Medium Size -->
+														<div role="tabpanel" aria-labelledby="tab-sizes-field-medium">
+
+															<div class="sui-form-field sui-input-md">
+
+																<label for="field-md" id="field-md-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="field-md"
+																	class="sui-form-control"
+																	aria-labelledby="field-md-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field sui-input-md&quot;&gt;
+
+	&lt;input class=&quot;sui-form-control&quot; /&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>To constrain the whole field to <strong>240px</strong> of maximum width just add <code>sui-input-md</code> class to <strong>sui-form-field</strong> element.</p>
+															</div>
+
+														</div>
+
+														<!-- TAB: Small Size -->
+														<div role="tabpanel" aria-labelledby="tab-sizes-field-size">
+
+															<div class="sui-form-field sui-input-sm">
+
+																<label for="field-sm" id="field-sm-label" class="sui-label">Please, insert in the input field below a country name that starts with A letter</label>
+
+																<input
+																	id="field-sm"
+																	class="sui-form-control"
+																	aria-labelledby="field-sm-label"
+																/>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field sui-input-sm&quot;&gt;
+
+	&lt;input class=&quot;sui-form-control&quot; /&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>To constrain the whole field to <strong>80px</strong> of maximum width§ just add <code>sui-input-sm</code> class to <strong>sui-form-field</strong> element.</p>
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Prefix -->
+								<div class="sui-box" data-tab="prefix" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Prefix</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>Some times inputs need a prefix to indicate currency for a value for example. For those cases you can use the following element:</p>
+
+										<div class="sui-form-field">
+
+											<label for="input-prefix" id="input-prefix-label" class="sui-label">Input with prefix</label>
+
+											<span class="sui-field-prefix">$</span>
+
+											<input placeholder="Placeholder" id="input-prefix" class="sui-form-control sui-field-has-prefix" aria-labelledby="input-prefix-label" />
+
+										</div>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label
+		for=&quot;unique-id&quot;
+		id=&quot;label-unique-id&quot;
+		class=&quot;sui-label&quot;
+	&gt;
+		Label
+	&lt;/label&gt;
+
+	&lt;span class=&quot;sui-field-prefix&quot;&gt;Prefix&lt;/span&gt;
+
+	&lt;input
+		placeholder=&quot;Placeholder&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control sui-field-has-prefix&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+	/&gt;
+
+&lt;/div&gt;
+</pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Suffix -->
+								<div class="sui-box" data-tab="suffix" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Suffix</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>Some times inputs need a suffix to indicate currency for a value for example. For those cases you can use the following element:</p>
+
+										<div class="sui-form-field">
+
+											<label for="input-suffix" id="input-suffix-label" class="sui-label">Input with suffix</label>
+
+											<input placeholder="Placeholder" id="input-suffix" class="sui-form-control sui-field-has-suffix" aria-labelledby="input-suffix-label" />
+
+											<span class="sui-field-suffix">suffix</span>
+
+										</div>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label
+		for=&quot;unique-id&quot;
+		id=&quot;label-unique-id&quot;
+		class=&quot;sui-label&quot;
+	&gt;
+		Label
+	&lt;/label&gt;
+
+	&lt;input
+		placeholder=&quot;Placeholder&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control sui-field-has-suffix&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+	/&gt;
+
+	&lt;span class=&quot;sui-field-suffix&quot;&gt;Suffix&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>

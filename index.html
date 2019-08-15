@@ -9,13 +9,13 @@
 	<title>Shared UI Showcase</title>
 
 	<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.30">
-	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.30">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.3.27">
+	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.3.27">
 
 </head>
 
 <!-- Do not edit body tag - updated via release scripts -->
-<body class="sui-2-3-30">
+<body class="sui-2-3-29">
 
 <nav id="adminmenu">
 	<ul>
@@ -60,7 +60,7 @@
 	<div aria-hidden="true" id="wpadminbar">
 
 		<!-- Do not edit .demo-sui-version - updated via release scripts -->
-		<p class="demo-sui-version">Version 2.3.30</p>
+		<p class="demo-sui-version">Version 2.3.27</p>
 
 	</div>
 
@@ -110,7 +110,7 @@ npm install @wpmudev/shared-ui</pre>
 add_filter( 'admin_body_class', 'admin_body_classes' );
 function admin_body_classes( $classes ) {
 
-	$classes .= 'sui-2-3-30';
+	$classes .= 'sui-2-3-29';
 
 	return $classes;
 
@@ -5868,6 +5868,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 								</div>
 
 								<div class="sui-box-settings-col-2">
+
 									<ul class="sui-tree" data-tree="selector" role="group">
 
 										<li role="treeitem" aria-expanded="true" aria-selected="true">
@@ -5887,6 +5888,7 @@ $('.my-selector').data('SUICodeSnippet').destroy();
 
 											<!-- LEVEL: 1 -->
 											<ul role="group">
+
 												<li role="treeitem">
 
 													<span class="sui-tree-node">
@@ -9276,43 +9278,27 @@ $( function() {
 
 									<div class="sui-form-field">
 
-										<label id="sample-select-label" class="sui-label">Default</label>
+										<label class="sui-label">Default</label>
 
-										<select id="sample-select" aria-labelledby="sample-select-label">
-											<option value="coffee">Coffee</option>
-											<option value="juice">Juice</option>
-											<option value="smoothie">Smoothie</option>
-											<option value="icon" data-icon="speed-optimize">Option with icon</option>
+										<select>
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+											<option data-icon="speed-optimize">Option with icon</option>
 										</select>
 
 									</div>
 
 									<div class="sui-form-field">
 
-										<label id="sample-select-small-label" class="sui-label">Small Select</label>
+										<label class="sui-label">Small Select</label>
 
-										<select id="sample-select-small" class="sui-select-sm" aria-labelledby="sample-select-small-label">
-											<option value="coffee">Coffee</option>
-											<option value="juice">Juice</option>
-											<option value="smoothie">Smoothie</option>
-											<option value="icon" data-icon="speed-optimize">Option with icon</option>
+										<select class="sui-select-sm">
+											<option>Coffee</option>
+											<option>Juice</option>
+											<option>Smoothie</option>
+											<option data-icon="speed-optimize">Option with icon</option>
 										</select>
-
-									</div>
-
-									<div class="sui-form-field">
-
-										<label id="sample-select-colors-label" class="sui-label">Colors Select</label>
-
-										<select id="sample-select-colors" class="sui-select-colors" aria-labelledby="sample-select-colors-label">
-											<option data-color="#FFC439">Gold</option>
-											<option data-color="#009CDE">Blue</option>
-											<option data-color="#EEEEEE">Silver</option>
-											<option data-color="#FFFFFF">White</option>
-											<option data-color="#2C2E2F">Black</option>
-										</select>
-
-										<span class="sui-description"><span style="color: #333; font-weight: bold;">NOTE:</span> This element does not work with <code>sui-select-sm</code> class.</span>
 
 									</div>
 
@@ -11805,7 +11791,7 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 						<p>If you are using individual js components, <code>tabs.js</code> is required.</p>
 					</div>
 
-					<p>If you add some tabs after the DOM has loaded you can initialise them by calling <code>SUI.tabs();</code></p>
+					<p>If you add some tabs after the DOM has loaded you can initialise them by calling <code>SUI.suiTabs();</code></p>
 
 				</div>
 
@@ -11849,19 +11835,19 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 									<div class="sui-tabs">
 
-										<div role="tablist" class="sui-tabs-menu">
-											<button type="button" role="tab" id="sample-tab-1" class="sui-tab-item active" aria-controls="sample-tab-content-1" aria-selected="true">Tab 1</button>
-											<button type="button" role="tab" id="sample-tab-2" class="sui-tab-item" aria-controls="sample-tab-content-2" aria-selected="false" tabindex="-1">Tab 2</button>
-											<button type="button" role="tab" id="sample-tab-3" class="sui-tab-item" aria-controls="sample-tab-content-3" aria-selected="false" tabindex="-1">Tab 3</button>
-											<button type="button" role="tab" id="sample-tab-4" class="sui-tab-item" aria-controls="sample-tab-content-4" aria-selected="false" tabindex="-1">Tab 4</button>
+										<div data-tabs>
+											<div id="sui-tab-1" class="active">Tab 1</div>
+											<div id="sui-tab-2" >Tab 2</div>
+											<div id="sui-tab-3" >Tab 3</div>
+											<div id="sui-tab-4" >Tab 4</div>
 										</div>
 
-										<div class="sui-tabs-content">
+										<div data-panes>
 
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-1" class="sui-tab-content active" aria-labelledby="sample-tab-1"><p>Content. Tab 1.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-2" class="sui-tab-content" aria-labelledby="sample-tab-2" hidden><p>Content. Tab 2.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-3" class="sui-tab-content" aria-labelledby="sample-tab-3" hidden><p>Content. Tab 3.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-4" class="sui-tab-content" aria-labelledby="sample-tab-4" hidden><p>Content. Tab 4.</p></div>
+											<div class="active"><p>Content. Tab 1.</p></div>
+											<div><p>Content. Tab 2.</p></div>
+											<div><p>Content. Tab 3.</p></div>
+											<div><p>Content. Tab 4.</p></div>
 
 										</div>
 
@@ -11889,27 +11875,20 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 										<tr class="sui-accordion-item-content">
 											<td><div class="sui-box">
 												<div class="sui-box-body">
-
 													<div class="sui-tabs sui-tabs-flushed">
-
-														<div role="tablist" class="sui-tabs-menu">
-															<button type="button" role="tab" id="sample-tab-21" class="sui-tab-item active" aria-controls="sample-tab-content-21" aria-selected="true">Tab 1</button>
-															<button type="button" role="tab" id="sample-tab-22" class="sui-tab-item" aria-controls="sample-tab-content-22" aria-selected="false" tabindex="-1">Tab 2</button>
-															<button type="button" role="tab" id="sample-tab-23" class="sui-tab-item" aria-controls="sample-tab-content-23" aria-selected="false" tabindex="-1">Tab 3</button>
-															<button type="button" role="tab" id="sample-tab-24" class="sui-tab-item" aria-controls="sample-tab-content-24" aria-selected="false" tabindex="-1">Tab 4</button>
+														<div data-tabs>
+															<div class="active">Tab 1</div>
+															<div>Tab 2</div>
+															<div>Tab 3</div>
+															<div>Tab 4</div>
 														</div>
-
-														<div class="sui-tabs-content">
-
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-21" class="sui-tab-content active" aria-labelledby="sample-tab-21"><p>Content. Tab 1.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-22" class="sui-tab-content" aria-labelledby="sample-tab-22" hidden><p>Content. Tab 2.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-23" class="sui-tab-content" aria-labelledby="sample-tab-23" hidden><p>Content. Tab 3.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-24" class="sui-tab-content" aria-labelledby="sample-tab-24" hidden><p>Content. Tab 4.</p></div>
-
+														<div data-panes>
+															<div class="active"><p>Content. Tab 1.</p></div>
+															<div><p>Content. Tab 2.</p></div>
+															<div><p>Content. Tab 3.</p></div>
+															<div><p>Content. Tab 4.</p></div>
 														</div>
-
 													</div>
-
 												</div>
 											</div></td>
 										</tr>
@@ -11921,81 +11900,25 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 										<tr class="sui-accordion-item-content">
 											<td><div class="sui-box">
 												<div class="sui-box-body">
-
 													<div class="sui-tabs sui-tabs-flushed">
-
-														<div role="tablist" class="sui-tabs-menu">
-															<button type="button" role="tab" id="sample-tab-31" class="sui-tab-item active" aria-controls="sample-tab-content-31" aria-selected="true">Tab 1</button>
-															<button type="button" role="tab" id="sample-tab-32" class="sui-tab-item" aria-controls="sample-tab-content-32" aria-selected="false" tabindex="-1">Tab 2</button>
-															<button type="button" role="tab" id="sample-tab-33" class="sui-tab-item" aria-controls="sample-tab-content-33" aria-selected="false" tabindex="-1">Tab 3</button>
-															<button type="button" role="tab" id="sample-tab-34" class="sui-tab-item" aria-controls="sample-tab-content-34" aria-selected="false" tabindex="-1">Tab 4</button>
+														<div data-tabs>
+															<div class="active">Tab 1</div>
+															<div>Tab 2</div>
+															<div>Tab 3</div>
+															<div>Tab 4</div>
 														</div>
-
-														<div class="sui-tabs-content">
-
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-31" class="sui-tab-content active" aria-labelledby="sample-tab-31"><p>Content. Tab 1.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-32" class="sui-tab-content" aria-labelledby="sample-tab-32" hidden><p>Content. Tab 2.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-33" class="sui-tab-content" aria-labelledby="sample-tab-33" hidden><p>Content. Tab 3.</p></div>
-															<div role="tabpanel" tabindex="0" id="sample-tab-content-34" class="sui-tab-content" aria-labelledby="sample-tab-34" hidden><p>Content. Tab 4.</p></div>
-
+														<div data-panes>
+															<div class="active"><p>Content. Tab 1.</p></div>
+															<div><p>Content. Tab 2.</p></div>
+															<div><p>Content. Tab 3.</p></div>
+															<div><p>Content. Tab 4.</p></div>
 														</div>
-
 													</div>
-
 												</div>
 											</div></td>
 										</tr>
 
 									</table>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Overflow</span>
-									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-tabs sui-tabs-overflow">
-
-										<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
-
-											<button type="button" class="sui-button-icon sui-tabs-navigation--left">
-												<i class="sui-icon-chevron-left"></i>
-											</button>
-
-											<button type="button" class="sui-button-icon sui-tabs-navigation--right">
-												<i class="sui-icon-chevron-right"></i>
-											</button>
-
-										</div>
-
-										<div role="tablist" class="sui-tabs-menu">
-											<button type="button" role="tab" id="sample-tab-41" class="sui-tab-item active" aria-controls="sample-tab-content-41" aria-selected="true">Admin Area</button>
-											<button type="button" role="tab" id="sample-tab-42" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Emails</button>
-											<button type="button" role="tab" id="sample-tab-43" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Front-End</button>
-											<button type="button" role="tab" id="sample-tab-44" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Settings</button>
-											<button type="button" role="tab" id="sample-tab-45" class="sui-tab-item" aria-controls="sample-tab-content-41" aria-selected="false" tabindex="-1">Utilites</button>
-											<button type="button" role="tab" id="sample-tab-46" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Widgets</button>
-											<button type="button" role="tab" id="sample-tab-47" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Users</button>
-											<button type="button" role="tab" id="sample-tab-48" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Extras</button>
-										</div>
-
-										<div class="sui-tabs-content">
-
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-41" class="sui-tab-content active" aria-labelledby="sample-tab-41"><p>Content. Tab 1.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-42" class="sui-tab-content" aria-labelledby="sample-tab-42" hidden><p>Content. Tab 2.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-43" class="sui-tab-content" aria-labelledby="sample-tab-43" hidden><p>Content. Tab 3.</p></div>
-											<div role="tabpanel" tabindex="0" id="sample-tab-content-44" class="sui-tab-content" aria-labelledby="sample-tab-44" hidden><p>Content. Tab 4.</p></div>
-
-										</div>
-
-									</div>
 
 								</div>
 
@@ -12147,7 +12070,6 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 					</div>
 
-					<!-- DOCUMENTATION -->
 					<div class="sui-box" data-tab="demo-tabs-doc" style="display: none;">
 
 						<div class="sui-box-header">
@@ -12165,82 +12087,30 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 								<div class="sui-box-settings-col-2">
 
-									<div class="sui-notice sui-notice-warning">
-										<p><strong>Tabs markup changed to follow WAI-ARIA best practices</strong>. We still support old legacy code but we strongly recommend to update your project <strong>as soon as possible</strong> to prevent any problems in the future.</p>
-									</div>
-
 									<div class="demo-code-block">
+										<pre class="sui-code-snippet html">&lt;div class="sui-tabs"&gt;
 
-										<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-tabs&quot;&gt;
+	&lt;div data-tabs&gt;
+		&lt;div id="sui-tab-1" class="active"&gt;Tab 1&lt;/div&gt;
+		&lt;div id="sui-tab-2" &gt;Tab 2&lt;/div&gt;
+		&lt;div id="sui-tab-3" &gt;Tab 3&lt;/div&gt;
+		&lt;div id="sui-tab-4" &gt;Tab 4&lt;/div&gt;
+	&lt;/div&gt;
 
-	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+	&lt;div data-panes&gt;
 
-		&lt;!--
-		NOTE(S):
-
-		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
-		problems when submitting the form.
-
-		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
-
-		3. Unique IDs are a must for button tab and its content.
-		--&gt;
-
-		&lt;button
-			type=&quot;button&quot;
-			role=&quot;tab&quot;
-			id=&quot;tab-unique-id&quot;
-			class=&quot;sui-tab-item active&quot;
-			aria-controls=&quot;tab-content-unique-id&quot;
-			aria-selected=&quot;true&quot;
-		&gt;
-			Active Tab
-		&lt;/button&gt;
-
-		&lt;button
-			type=&quot;button&quot;
-			role=&quot;tab&quot;
-			id=&quot;tab-unique-id&quot;
-			class=&quot;sui-tab-item&quot;
-			aria-controls=&quot;tab-content-unique-id&quot;
-			aria-selected=&quot;false&quot;
-			tabindex=&quot;-1&quot;
-		&gt;
-			Inactive Tab
-		&lt;/button&gt;
+		&lt;div class="active"&gt;&lt;p&gt;Content. Tab 1.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
+		&lt;div&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
 
 	&lt;/div&gt;
 
-	&lt;div class=&quot;sui-tabs-content&quot;&gt;
-
-		&lt;div
-			role=&quot;tabpanel&quot;
-			tabindex=&quot;0&quot;
-			id=&quot;tab-content-unique-id&quot;
-			class=&quot;sui-tab-content active&quot;
-			aria-labelledby=&quot;tab-unique-id&quot;
-		&gt;
-			&lt;p&gt;Content. Active Tab.&lt;/p&gt;
-		&lt;/div&gt;
-
-		&lt;div
-			role=&quot;tabpanel&quot;
-			tabindex=&quot;0&quot;
-			id=&quot;tab-content-unique-id&quot;
-			class=&quot;sui-tab-content&quot;
-			aria-labelledby=&quot;tab-unique-id&quot;
-			hidden
-		&gt;
-			&lt;p&gt;Content. Inactive Tab.&lt;/p&gt;
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-										</pre>
-
+&lt;/div&gt;</pre>
 									</div>
+
+									<p>You will note the ids for each of the data-tabs; this is not required but if you
+									want a specific tab to be opened on page load by a hash value you will need them.</p>
 
 								</div>
 
@@ -12262,58 +12132,6 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 
 &lt;/div&gt;</pre>
 									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-
-									<span class="sui-settings-label">Overflow Tabs</span>
-
-									<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
-
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="demo-code-block">
-										<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-tabs sui-tabs-overflow&quot;&gt;
-
-	&lt;div
-		tabindex=&quot;-1&quot;
-		class=&quot;sui-tabs-navigation&quot;
-		aria-hidden=&quot;true&quot;
-	&gt;
-		&lt;button
-			type=&quot;button&quot;
-			class=&quot;sui-button-icon sui-tabs-navigation--left&quot;
-		&gt;
-			&lt;i class=&quot;sui-icon-chevron-left&quot;&gt;&lt;/i&gt;
-		&lt;/button&gt;
-		&lt;button
-			type=&quot;button&quot;
-			class=&quot;sui-button-icon sui-tabs-navigation--right&quot;
-		&gt;
-			&lt;i class=&quot;sui-icon-chevron-right&quot;&gt;&lt;/i&gt;
-		&lt;/button&gt;
-	&lt;/div&gt;
-
-	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
-		...
-	&lt;/div&gt;
-
-	&lt;div class=&quot;sui-tabs-content&quot;&gt;
-		...
-	&lt;/div&gt;
-
-&lt;/div&gt;</pre>
-									</div>
-
-									<p>You will need to include the navigation html directly before the [data-tabs]</p>
 
 								</div>
 
@@ -15869,15 +15687,15 @@ $cross-sell-3: 'smartcrawl';
 </div><!-- #wpcontent -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="showcase-assets/build/Chart.min.js?ver=2.3.30"></script>
+<script src="showcase-assets/build/Chart.min.js?ver=2.3.27"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js"></script>
 
 <!-- Do not edit query string versions - updated via release scripts -->
-<script src="dist/js/shared-ui.min.js?ver=2.3.30"></script>
-<script src="showcase-assets/build/showcase.min.js?ver=2.3.30"></script>
+<script src="dist/js/shared-ui.min.js?ver=2.3.27"></script>
+<script src="showcase-assets/build/showcase.min.js?ver=2.3.27"></script>
 
 <!-- Embed ACE -->
 <script>

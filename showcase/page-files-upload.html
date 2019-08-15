@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="files-upload">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">File Uploads</h1>
+							</header>
+
+							<div class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="default">Single Element</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="multiple">Multiple Elements</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- SECTION: Single Element -->
+								<div class="sui-box" data-tab="default">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Single Element</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>By default, file upload element is used as a single element to allow users upload a single file. An example case will be using the element to upload a file to be imported as we happens on Hustle and Forminator plugins.</p>
+
+										<p>Click on the tabs below to try <strong>file upload</strong> different states.</p>
+
+										<div class="sui-tabs sui-side-tabs">
+
+											<div role="tablist" data-tabs>
+												<div id="tab-single-default" class="active" role="tab">Default</div>
+												<div id="tab-single-selected" role="tab">Selected</div>
+												<div id="tab-single-error" role="tab">Error</div>
+											</div>
+
+											<div class="sui-tabs-content-lg" data-panes>
+
+												<!-- TAB: Default -->
+												<div class="active" role="tabpanel" aria-labelledby="tab-single-default">
+
+													<div class="sui-form-field">
+
+														<label for="default-single-input" id="default-single-label" class="sui-label">Upload file</label>
+
+														<div class="sui-upload">
+
+															<input id="default-single-input" type="file" value="" readonly="readonly" aria-labelledby="default-single-label" aria-describedby="default-single-message" />
+
+															<button class="sui-upload-button">
+																<i class="sui-icon-upload-cloud" aria-hidden="true"></i>
+																Upload File
+															</button>
+
+															<div class="sui-upload-file" aria-hidden="true">
+																<span id="default-single-file"></span>
+																<button>
+																	<i class="sui-icon-close" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text" aria-describedby="default-single-file">Remove File</span>
+																</button>
+															</div>
+
+														</div>
+
+														<span id="default-single-message" class="sui-description">This is a description for files upload element.</span>
+
+													</div>
+
+												</div>
+
+												<!-- TAB: Selected -->
+												<div role="tabpanel" aria-labelledby="tab-single-selected"></div>
+
+												<!-- TAB: Error -->
+												<div role="tabpanel" aria-labelledby="tab-single-error"></div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Multiple Elements -->
+								<div class="sui-box" data-tab="multiple" style="display: none;"></div>
+
+							</div>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>

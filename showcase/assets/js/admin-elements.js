@@ -1,5 +1,88 @@
 ( function( $ ) {
 
+	$( 'body' ).ready( function() {
+
+		// Load admin menu
+		$( '#adminmenumain' ).load( 'templates/wpadmin-menu.html', function() {
+
+			var main = $( this ),
+				menu = main.find( '#adminmenu' ),
+				item = menu.find( 'li' ),
+				body = $( 'body' ).data( 'page' )
+				;
+
+			item.removeClass( 'current' );
+
+			if (  -1 < window.location.href.indexOf( body ) ) {
+
+				if ( 'index' === body ) {
+					item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
+				} else {
+					item.find( 'a[href="/page-' + body + '.html"]' ).parents().addClass( 'current' );
+				}
+			} else {
+				item.find( 'a[href="/' + body + '.html"]' ).parents().addClass( 'current' );
+			}
+		});
+
+		// Load admin bar
+		$( '#wpadminbar' ).load( 'templates/wpadmin-bar.html', function() {
+
+			var bar       = $( this ),
+				body      = $( 'body' ),
+				suiWrap   = body.find( '.sui-wrap' ),
+				main      = bar.find( '#wp-admin-bar-root-default' ),
+				secondary = bar.find( '#wp-admin-bar-top-secondary' )
+				;
+
+			var btnRtl   = main.find( '#wp-lang-mode--rtl' ),
+				btnColor = main.find( '#wp-accessibility-mode--color' )
+				;
+
+			btnRtl.on( 'click', function() {
+
+				var button = $( this );
+
+				if ( button.hasClass( 'active' ) ) {
+
+					button.removeClass( 'active' );
+					body.removeAttr( 'dir' );
+
+				} else {
+
+					button.addClass( 'active' );
+					body.attr( 'dir', 'rtl' );
+
+				}
+			});
+
+			btnColor.on( 'click', function() {
+
+				var button = $( this );
+
+				if ( button.hasClass( 'active' ) ) {
+
+					button.removeClass( 'active' );
+					suiWrap.removeClass( 'sui-color-accessible' );
+
+				} else {
+
+					button.addClass( 'active' );
+
+					if ( 0 !== suiWrap.length ) {
+						suiWrap.addClass( 'sui-color-accessible' );
+					}
+				}
+			});
+		});
+
+	});
+
+}( jQuery ) );
+
+/*
+( function( $ ) {
+
 	var btns            = $( '.demo-icon' ),
 		clipboard       = new ClipboardJS( '.demo-icon' ),
 		navbutton       = $( '.sui-vertical-tab a' ),
@@ -328,3 +411,4 @@
 	});
 
 }( jQuery ) );
+*/

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="snippets">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Code Snippets</h1>
+							</header>
+
+							<article class="sui-box">
+
+								<div class="sui-box-body">
+
+									<p>This element is meant to be used to display code. When copy button is enabled users can easily copy snippet content to clipboard.</p>
+
+									<!-- SECTION: Default -->
+									<div class="sui-box-settings-row">
+
+										<div class="sui-box-settings-col-2">
+
+											<span class="sui-settings-label sui-dark">Default</span>
+
+											<span class="sui-description" style="margin-bottom: 10px;">Code snippets load a copy button by default. It's useful for users to easily copy the entire code.</span>
+
+											<pre class="sui-code-snippet">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+											</pre>
+
+											<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet&quot;&gt;
+	... content goes here ...
+&lt;/pre&gt;
+</pre>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<!-- SECTION: No-Copy Button -->
+									<div class="sui-box-settings-row">
+
+										<div class="sui-box-settings-col-2">
+
+											<span class="sui-settings-label sui-dark">No-Copy Button</span>
+
+											<span class="sui-description" style="margin-bottom: 10px;">There are cases when you gonna need to get rid off the copy button.</span>
+
+											<pre class="sui-code-snippet sui-no-copy">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+											</pre>
+
+											<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet sui-no-copy&quot;&gt;
+	... content goes here ...
+&lt;/pre&gt;
+</pre>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</article>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="textarea">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Textarea</h1>
+							</header>
+
+							<section class="sui-box">
+
+								<div class="sui-box-body">
+
+									<div class="sui-tabs sui-side-tabs">
+
+										<div role="tablist" data-tabs>
+											<div id="tab-state-default" class="active" role="tab">Default State</div>
+											<div id="tab-state-error" role="tab">Error State</div>
+										</div>
+
+										<div class="sui-tabs-content-lg" data-panes>
+
+											<!-- TAB: Default State -->
+											<div class="active" role="tabpanel" aria-labelledby="tab-state-default">
+
+												<div class="sui-form-field">
+
+													<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+
+													<textarea placeholder="" id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-message textarea-default-description"></textarea>
+
+													<span id="textarea-default-message" class="sui-error-message" style="display: none;"></span>
+
+													<span id="textarea-default-description" class="sui-description">This is textarea field description.</span>
+
+												</div>
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;!--
+	NOTE:
+	Notice error message element it is empty. This because content should be printed
+	when error happens and not before to avoid screenreaders confusing users.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+											<!-- TAB: Error State -->
+											<div role="tabpanel" aria-labelledby="tab-state-error">
+
+												<div class="sui-form-field sui-form-field-error">
+
+													<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
+
+													<textarea id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
+
+													<span id="textarea-error-message" class="sui-error-message">This is an error message.</span>
+
+													<span id="textarea-error-description" class="sui-description">This is textarea field description.</span>
+
+												</div>
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;!--
+	NOTE:
+	When field gets error state you should print error message on element below
+	and also make sure to focus input with JS in case inline error message is in use.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot;&gt;Enter error message here.&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-29" data-page="box-message">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Message Box</h1>
+							</header>
+
+							<section class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="default">Default</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="large">Large</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- TAB: Default -->
+								<div class="sui-box sui-message" data-tab="default">
+
+									<img
+										src="assets/images/forminator-empty-message.png"
+										srcset="assets/images/forminator-empty-message.png 1x, assets/images/forminator-empty-message@2x.png 2x"
+										class="sui-image"
+										aria-hidden="true"
+									/>
+
+									<div class="sui-message-content">
+										<h2>Message Box</h2>
+										<p>This message box variation contains: image, title and text. You shouldn't use a button here because it won't match margins designers are using.</p>
+									</div>
+
+								</div>
+
+								<!-- TAB: Large -->
+								<div class="sui-box sui-message sui-message-lg" data-tab="large" style="display: none;">
+
+									<img
+										src="assets/images/forminator-empty-message.png"
+										srcset="assets/images/forminator-empty-message.png 1x, assets/images/forminator-empty-message@2x.png 2x"
+										class="sui-image"
+										aria-hidden="true"
+									/>
+
+									<div class="sui-message-content">
+										<p>This message box variation have larger margins and always contains: image, text and button(s). Notice we don't include a title here.</p>
+										<p>
+											<button class="sui-button">Left Button</button>
+											<button class="sui-button sui-button-blue">Right Button</button>
+										</p>
+									</div>
+
+								</div>
+
+								<!-- TAB: Documentation -->
+								<div class="sui-box" data-tab="documentation" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Documentation</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Default Message</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box sui-message&quot;&gt;
+
+	&lt;img
+		src=&quot;/dist/image.png&quot;
+		srcset=&quot;/dist/image.png 1x, /dist/image@2x.png 2x&quot;
+		class=&quot;sui-image&quot;
+		aria-hidden=&quot;true&quot;
+	/&gt;
+
+	&lt;div class=&quot;sui-message-content&quot;&gt;
+
+		&lt;h2&gt;Message Box Title&lt;/h2&gt;
+
+		&lt;p&gt;Here goes message box content.&lt;/p&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Large Message</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box sui-message sui-message-lg&quot;&gt;
+
+	&lt;img
+		src=&quot;/dist/image.png&quot;
+		srcset=&quot;/dist/image.png 1x, /dist/image@2x.png 2x&quot;
+		class=&quot;sui-image&quot;
+		aria-hidden=&quot;true&quot;
+	/&gt;
+
+	&lt;div class=&quot;sui-message-content&quot;&gt;
+
+		&lt;p&gt;Here goes message box content.&lt;/p&gt;
+
+		&lt;!--
+		NOTE:
+		Always add button(s) inside paragraph tag.
+		--&gt;
+		&lt;p&gt;&lt;button class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;&lt;/p&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
