@@ -34,7 +34,7 @@
 						<main class="sui-wrap">
 
 							<header class="sui-header">
-								<h1 class="sui-header-title">File Uploads</h1>
+								<h1 class="sui-header-title">Files Upload</h1>
 							</header>
 
 							<div class="sui-row-with-sidenav">
@@ -45,77 +45,458 @@
 									<ul class="sui-vertical-tabs">
 
 										<li class="sui-vertical-tab current">
-											<a href="#" role="button" data-tab="default">Single Element</a>
+											<a href="#" role="button" data-tab="default">Single File</a>
 										</li>
 
 										<li class="sui-vertical-tab">
-											<a href="#" role="button" data-tab="multiple">Multiple Elements</a>
+											<a href="#" role="button" data-tab="multiple">Multiple Files</a>
 										</li>
 
 									</ul>
 
 								</div>
 
-								<!-- SECTION: Single Element -->
+								<!-- TAB: Single File -->
 								<div class="sui-box" data-tab="default">
 
 									<div class="sui-box-header">
-										<h2 class="sui-box-title">Single Element</h2>
+										<h2 class="sui-box-title">Single File</h2>
 									</div>
 
 									<div class="sui-box-body">
 
-										<p>By default, file upload element is used as a single element to allow users upload a single file. An example case will be using the element to upload a file to be imported as we happens on Hustle and Forminator plugins.</p>
+										<!-- SECTION: Default Upload -->
+										<div class="sui-box-settings-row">
 
-										<p>Click on the tabs below to try <strong>file upload</strong> different states.</p>
-
-										<div class="sui-tabs sui-side-tabs">
-
-											<div role="tablist" data-tabs>
-												<div id="tab-single-default" class="active" role="tab">Default</div>
-												<div id="tab-single-selected" role="tab">Selected</div>
-												<div id="tab-single-error" role="tab">Error</div>
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Default</span>
+												<span class="sui-description">By default, file upload element is used to allow users uploading a single file.<br />&nbsp;<br />An example case will be using this element to upload a file to be imported as happens on Hustle and Forminator plugins.</span>
 											</div>
 
-											<div class="sui-tabs-content-lg" data-panes>
+											<div class="sui-box-settings-col-2">
 
-												<!-- TAB: Default -->
-												<div class="active" role="tabpanel" aria-labelledby="tab-single-default">
+												<div class="sui-tabs sui-side-tabs">
 
-													<div class="sui-form-field">
+													<div role="tablist" class="sui-tabs-menu">
+														<button type="button" role="tab" id="tab-single-default" class="sui-tab-item active" aria-controls="tab-single-default-content" aria-selected="true">No File</button>
+														<button type="button" role="tab" id="tab-single-selected" class="sui-tab-item" aria-controls="tab-single-selected-content" aria-selected="false" tabindex="-1">File Uploaded</button>
+														<button type="button" role="tab" id="tab-single-error" class="sui-tab-item" aria-controls="tab-single-error-content" aria-selected="false" tabindex="-1">Error</button>
+													</div>
 
-														<label for="default-single-input" id="default-single-label" class="sui-label">Upload file</label>
+													<div class="sui-tabs-content sui-tabs-content-lg">
 
-														<div class="sui-upload">
+														<!-- TAB: No File -->
+														<div role="tabpanel" tabindex="0" id="tab-single-default-content" class="sui-tab-content active" aria-labelledby="tab-single-default">
 
-															<input id="default-single-input" type="file" value="" readonly="readonly" aria-labelledby="default-single-label" aria-describedby="default-single-message" />
+															<div class="sui-form-field">
 
-															<button class="sui-upload-button">
-																<i class="sui-icon-upload-cloud" aria-hidden="true"></i>
-																Upload File
-															</button>
+																<label class="sui-label">Upload file</label>
 
-															<div class="sui-upload-file" aria-hidden="true">
-																<span id="default-single-file"></span>
-																<button>
-																	<i class="sui-icon-close" aria-hidden="true"></i>
-																	<span class="sui-screen-reader-text" aria-describedby="default-single-file">Remove File</span>
-																</button>
+																<div class="sui-upload">
+
+																	<input type="file" value="" readonly="readonly">
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span></span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for files upload element.</span>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-upload&quot;&gt;
+
+		&lt;input type=&quot;file&quot; value=&quot;&quot; readonly=&quot;readonly&quot; /&gt;
+
+		&lt;button class=&quot;sui-upload-button&quot;
+			&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			Upload file
+		&lt;/button&gt;
+
+		&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+			&lt;span&gt;&lt;/span&gt;
+
+			&lt;button aria-label=&quot;Remove file&quot;&gt;
+				&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/button&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;span class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
+
+	&lt;div class=&quot;sui-notice sui-notice-error&quot; style=&quot;margin-top: 5px; display: none;&quot;&gt;
+		&lt;p&gt;Element error message.&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
 															</div>
 
 														</div>
 
-														<span id="default-single-message" class="sui-description">This is a description for files upload element.</span>
+														<!-- TAB: File Uploaded -->
+														<div role="tabpanel" tabindex="0" id="tab-single-selected-content" class="sui-tab-content" aria-labelledby="tab-single-selected" hidden>
+
+															<div class="sui-form-field">
+
+																<label id="default-single-label" class="sui-label">Upload file</label>
+
+																<div class="sui-upload sui-has_file">
+
+																	<input type="file" value="example-file.pdf" readonly="readonly">
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span>example-file.pdf</span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for files upload element.</span>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-upload sui-has_file&quot;&gt;
+
+		&lt;input type=&quot;file&quot; value=&quot;file-name.txt&quot; readonly=&quot;readonly&quot; /&gt;
+
+		&lt;button class=&quot;sui-upload-button&quot;
+			&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			Upload file
+		&lt;/button&gt;
+
+		&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+			&lt;span&gt;file-name.txt&lt;/span&gt;
+
+			&lt;button aria-label=&quot;Remove file&quot;&gt;
+				&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/button&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;span class=&quot;sui-description&quot;&gt;Here goes field description.&lt;/span&gt;
+
+	&lt;div class=&quot;sui-notice sui-notice-error&quot; style=&quot;margin-top: 5px; display: none;&quot;&gt;
+		&lt;p&gt;Element error message.&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>Notice when a file is added <strong>sui-upload</strong> element has <code>sui-has_file</code> class. We also load uploaded file name to <strong>input value</strong> and <code>&lt;span&gt;&lt;/span&gt;</code> inside <strong>sui-upload-file</strong> element.</p>
+															</div>
+
+														</div>
+
+														<!-- TAB: Error -->
+														<div role="tabpanel" tabindex="0" id="tab-single-error-content" class="sui-tab-content" aria-labelledby="tab-single-error" hidden>
+
+															<div class="sui-form-field">
+
+																<label id="default-single-label" class="sui-label">Upload file</label>
+
+																<div class="sui-upload">
+
+																	<input type="file" value="" readonly="readonly">
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span></span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for files upload element.</span>
+
+																<div class="sui-notice sui-notice-error" style="margin-top: 5px;">
+																	<p>Whoops, only .pdf and .doc filetypes are allowed.</p>
+																</div>
+
+															</div>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-upload sui-has_file&quot;&gt;
+
+		&lt;input type=&quot;file&quot; value=&quot;file-name.txt&quot; readonly=&quot;readonly&quot; /&gt;
+
+		&lt;button class=&quot;sui-upload-button&quot;
+			&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			Upload file
+		&lt;/button&gt;
+
+		&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+			&lt;span&gt;file-name.txt&lt;/span&gt;
+
+			&lt;button aria-label=&quot;Remove file&quot;&gt;
+				&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/button&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;span class=&quot;sui-description&quot;&gt;Here goes field description.&lt;/span&gt;
+
+	&lt;div class=&quot;sui-notice sui-notice-error&quot; style=&quot;margin-top: 5px;&quot;&gt;
+		&lt;p&gt;Element error message.&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+															<div class="sui-notice sui-notice-warning">
+																<p>When there's an error notice we remove <code>display: none</code> inline styles from <strong>sui-notice</strong> element.</p>
+															</div>
+
+														</div>
 
 													</div>
 
 												</div>
 
-												<!-- TAB: Selected -->
-												<div role="tabpanel" aria-labelledby="tab-single-selected"></div>
+											</div>
 
-												<!-- TAB: Error -->
-												<div role="tabpanel" aria-labelledby="tab-single-error"></div>
+										</div>
+
+										<!-- SECTION: Image Preview -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Image Preview</span>
+												<span class="sui-description">There are times, when uploading images, that you gonna need to preview the uploaded file reason why you will have to add an extra element into <strong>Default</strong> file upload element.<br />&nbsp;<br />An example case will be using this element to upload a featured image into your Hustle module.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="sui-tabs sui-side-tabs">
+
+													<div role="tablist" class="sui-tabs-menu">
+														<button type="button" role="tab" id="tab-single-image-default" class="sui-tab-item active" aria-controls="tab-single-image-default-content" aria-selected="true">No File</button>
+														<button type="button" role="tab" id="tab-single-image-selected" class="sui-tab-item" aria-controls="tab-single-image-selected-content" aria-selected="false" tabindex="-1">File Uploaded</button>
+														<button type="button" role="tab" id="tab-single-image-error" class="sui-tab-item" aria-controls="tab-single-image-error-content" aria-selected="false" tabindex="-1">Error</button>
+													</div>
+
+													<div class="sui-tabs-content sui-tabs-content-lg">
+
+														<!-- TAB: No File -->
+														<div role="tabpanel" tabindex="0" id="tab-single-image-default-content" class="sui-tab-content active" aria-labelledby="tab-single-image-default">
+
+															<div class="sui-form-field">
+
+																<label class="sui-label">Upload image</label>
+
+																<div class="sui-upload">
+
+																	<input type="file" value="" readonly="readonly">
+
+																	<div class="sui-upload-image" aria-hidden="true">
+																		<div class="sui-image-mask"></div>
+																		<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+																	</div>
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span></span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for image upload element.</span>
+
+															</div>
+
+														</div>
+
+														<!-- TAB: File Uploaded -->
+														<div role="tabpanel" tabindex="0" id="tab-single-image-selected-content" class="sui-tab-content" aria-labelledby="tab-single-image-selected" hidden>
+
+															<div class="sui-form-field">
+
+																<label class="sui-label">Upload image</label>
+
+																<div class="sui-upload sui-has_file">
+
+																	<input type="file" value="example-image.jpg" readonly="readonly">
+
+																	<div class="sui-upload-image" aria-hidden="true">
+																		<div class="sui-image-mask"></div>
+																		<div role="button" class="sui-image-preview" style="background-image: url('assets/images/plugins-smartcrawl.jpg');"></div>
+																	</div>
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span>example-image.jpg</span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for image upload element.</span>
+
+															</div>
+
+														</div>
+
+														<!-- TAB: Error -->
+														<div role="tabpanel" tabindex="0" id="tab-single-image-error-content" class="sui-tab-content" aria-labelledby="tab-single-image-error" hidden>
+
+															<div class="sui-form-field">
+
+																<label class="sui-label">Upload image</label>
+
+																<div class="sui-upload">
+
+																	<input type="file" value="" readonly="readonly">
+
+																	<div class="sui-upload-image" aria-hidden="true">
+																		<div class="sui-image-mask"></div>
+																		<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+																	</div>
+
+																	<button class="sui-upload-button">
+																		<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+																	</button>
+
+																	<div class="sui-upload-file">
+
+																		<span></span>
+
+																		<button aria-label="Remove file">
+																			<i class="sui-icon-close" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<span class="sui-description">This is a description for image upload element.</span>
+
+																<div class="sui-notice sui-notice-error" style="margin-top: 5px;">
+																	<p>Whoops, only .png and .jpg filetypes are allowed.</p>
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-upload&quot;&gt;
+
+	&lt;input type=&quot;file&quot; ... /&gt;
+
+	&lt;!--
+	NOTE: Insert the element after input but before upload button.
+	--&gt;
+	&lt;div class=&quot;sui-upload-image&quot; aria-hidden=&quot;true&quot;&gt;
+
+		&lt;div class=&quot;sui-image-mask&quot;&gt;&lt;/div&gt;
+
+		&lt;!--
+		NOTE: Use the uploaded image URL as background image of the div below.
+			  Leave empty when no file has been uploaded yet.
+		--&gt;
+		&lt;div
+			role=&quot;button&quot;
+			class=&quot;sui-image-preview&quot;
+			style=&quot;background-image: url();&quot;
+		&gt;&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;button class=&quot;sui-upload-button&quot;&gt; ... &lt;/button&gt;
+
+	&lt;div class=&quot;sui-upload-file&quot;&gt; ... &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
 
 											</div>
 
@@ -125,8 +506,129 @@
 
 								</div>
 
-								<!-- SECTION: Multiple Elements -->
-								<div class="sui-box" data-tab="multiple" style="display: none;"></div>
+								<!-- TAB: Multiple Elements -->
+								<div class="sui-box" data-tab="multiple" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Multiple Files</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>There are some cases when you will need to allow user to upload more than one file. The structure is the same as single files with one slightly change: <strong>show a second <code>sui-upload</code> element</strong> right after the previous one and before field description.</p>
+
+										<p>Follow the visual samples below, just click on the tabs to try its different states:</p>
+
+										<div class="sui-tabs sui-side-tabs">
+
+											<div role="tablist" class="sui-tabs-menu">
+												<button type="button" role="tab" id="tab-multiple-default" class="sui-tab-item active" aria-controls="tab-multiple-default-content" aria-selected="true">No File</button>
+												<button type="button" role="tab" id="tab-multiple-selected" class="sui-tab-item" aria-controls="tab-multiple-selected-content" aria-selected="false" tabindex="-1">File Uploaded</button>
+											</div>
+
+											<div class="sui-tabs-content sui-tabs-content-lg">
+
+												<!-- TAB: Default -->
+												<div role="tabpanel" tabindex="0" id="tab-multiple-default-content" class="sui-tab-content active" aria-labelledby="tab-multiple-default">
+
+													<div class="sui-form-field">
+
+														<label class="sui-label">Upload file(s)</label>
+
+														<div class="sui-upload">
+
+															<input type="file" value="" readonly="readonly">
+
+															<button class="sui-upload-button">
+																<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+															</button>
+
+															<div class="sui-upload-file">
+
+																<span></span>
+
+																<button aria-label="Remove file">
+																	<i class="sui-icon-close" aria-hidden="true"></i>
+																</button>
+
+															</div>
+
+														</div>
+
+														<span class="sui-description">This is a description for multiple files upload element.</span>
+
+													</div>
+
+													<div class="sui-notice sui-notice-warning">
+														<p>Use an simple <strong>sui-upload</strong> element for start. Remeber each each element corresponds to one file, this means user can upload just once at the time.</p>
+													</div>
+
+												</div>
+
+												<!-- TAB: Selected -->
+												<div role="tabpanel" tabindex="0" id="tab-multiple-selected-content" class="sui-tab-content" aria-labelledby="tab-multiple-selected" hidden>
+
+													<div class="sui-form-field">
+
+														<label class="sui-label">Upload file(s)</label>
+
+														<div class="sui-upload sui-has_file">
+
+															<input type="file" value="example-file.pdf" readonly="readonly">
+
+															<button class="sui-upload-button">
+																<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+															</button>
+
+															<div class="sui-upload-file">
+
+																<span>example-file.pdf</span>
+
+																<button aria-label="Remove file">
+																	<i class="sui-icon-close" aria-hidden="true"></i>
+																</button>
+
+															</div>
+
+														</div>
+
+														<div class="sui-upload">
+
+															<input type="file" value="" readonly="readonly">
+
+															<button class="sui-upload-button">
+																<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+															</button>
+
+															<div class="sui-upload-file">
+
+																<span></span>
+
+																<button aria-label="Remove file">
+																	<i class="sui-icon-close" aria-hidden="true"></i>
+																</button>
+
+															</div>
+
+														</div>
+
+														<span class="sui-description">This is a description for multiple files upload element.</span>
+
+													</div>
+
+													<div class="sui-notice sui-notice-warning">
+														<p>Once a file has been added you should load a new <strong>sui-upload</strong> element right after the previous one.</p>
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
 
 							</div>
 
