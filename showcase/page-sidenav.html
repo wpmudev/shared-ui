@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-30" data-page="sidenav">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Side Navigation</h1>
+							</header>
+
+							<section>
+
+								<div class="sui-row-with-sidenav">
+
+									<!-- Navigation -->
+									<div class="sui-sidenav" role="navigation">
+
+										<ul class="sui-vertical-tabs">
+
+											<li class="sui-vertical-tab current">
+												<a href="#" role="button" data-tab="section-1">Section 1</a>
+											</li>
+
+											<li class="sui-vertical-tab">
+												<a href="#" role="button" data-tab="section-2">Section 2</a>
+												<span class="sui-tag sui-tag-warning">4</span>
+											</li>
+
+											<li class="sui-vertical-tab">
+												<a href="#" role="button" data-tab="section-3">Section 3</a>
+												<i class="sui-icon-check-tick" aria-hidden="true"></i>
+											</li>
+
+										</ul>
+
+									</div>
+
+									<!-- SECTION: 1 -->
+									<div class="sui-box" data-tab="section-1">
+
+										<div class="sui-box-header">
+											<h1 class="sui-box-title">Section 1</h1>
+										</div>
+
+										<div class="sui-box-body">
+
+											<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+										</div>
+
+									</div>
+
+									<!-- SECTION: 2 -->
+									<div class="sui-box" data-tab="section-2" style="display: none;">
+
+										<div class="sui-box-header">
+											<h1 class="sui-box-title">Section 2</h1>
+										</div>
+
+										<div class="sui-box-body">
+
+											<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+										</div>
+
+									</div>
+
+									<!-- SECTION: 3 -->
+									<div class="sui-box" data-tab="section-3" style="display: none;">
+
+										<div class="sui-box-header">
+											<h1 class="sui-box-title">Section 3</h1>
+										</div>
+
+										<div class="sui-box-body">
+
+											<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;section class=&quot;sui-row-with-sidenav&quot;&gt;
+
+	&lt;!-- Navigation --&gt;
+	&lt;div role=&quot;navigation&quot; class=&quot;sui-sidenav&quot;&gt;
+
+		&lt;ul class=&quot;sui-vertical-tabs&quot;&gt;
+
+			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
+				&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
+			&lt;/li&gt;
+
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+				&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
+				&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
+			&lt;/li&gt;
+
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+				&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
+				&lt;li class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 1 (Current) --&gt;
+	&lt;div class=&quot;sui-box&quot;&gt;...&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 2 --&gt;
+	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 3 --&gt;
+	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+
+&lt;/section&gt;
+</pre>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
