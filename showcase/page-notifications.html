@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-30" data-page="notifications">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Notifications</h1>
+							</header>
+
+							<div class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="float">Float Notifications</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="inline">Inline Notifications</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- SECTION: Float Notifications -->
+								<div class="sui-box" data-tab="float">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Float Notifications</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<p>The top notifications have different styling than inline notifications and are fixed positioned in the screen. They use the class <code>sui-notice-top</code> or <code>sui-notice-floating</code> in the parent class instead of <code>sui-notice</code>.</p>
+
+										<p>Click on the buttons below to try both notifications:</p>
+
+										<button id="show-notice-top" class="sui-button">
+											<i class="sui-icon-eye" aria-hidden="true"></i>
+											Top Notice
+										</button>
+
+										<button id="show-notice-float" class="sui-button">
+											<i class="sui-icon-eye" aria-hidden="true"></i>
+											Float Notice
+										</button>
+
+										<p>By default <code>sui-notice-top</code> notification will automatically hide after 3 seconds. If you prefer to let users hide the notification by themselves you can add <code>sui-can-dismiss</code> class to the parent <strong>div</strong> and add a dismiss button to the notice. If you don't want the notice dismissed at all you can add <code>sui-cant-dismiss</code> class to the parent <strong>div</strong>.</p>
+
+										<p>Below are code samples of both: <code>sui-notice-top</code> and <code>sui-notice-floating</code> (floating with button):</p>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!-- Top notice with button. --&gt;
+&lt;div class=&quot;sui-notice-top sui-notice-success sui-can-dismiss&quot;&gt;
+	&lt;p&gt;&lt;strong&gt;Notice success:&lt;/strong&gt; Page caching is currently active.&lt;/p&gt;
+	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
+		&lt;a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"&gt;&lt;/a&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Floating notice with button. --&gt;
+&lt;div class=&quot;sui-notice-floating sui-notice-info&quot;&gt;
+	&lt;p&gt;You've made changes to your file structure&lt;/p&gt;
+	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
+		&lt;button href="#" class="sui-button sui-button-blue"&gt;&lt;i class="sui-icon-web-globe-world" aria-hidden="true"&gt;&lt;/i&gt;Publish&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Inline Notifications -->
+								<div class="sui-box" data-tab="inline" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Inline Notifications</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<label class="sui-settings-label sui-dark">Basic notifications</label>
+
+												<div class="sui-notice">
+													<p>Default notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-success">
+													<p>Success notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-warning">
+													<p>Warning notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-error">
+													<p>Error notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-info">
+													<p>Informative notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-purple">
+													<p>Purple notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-orange">
+													<p>Orange notice.</p>
+												</div>
+
+												<div class="sui-notice sui-notice-loading">
+													<p>Loading content notice.</p>
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<label class="sui-settings-label sui-dark">Dismissable Notification</label>
+
+												<div class="sui-notice sui-notice-success">
+
+													<p>Success!</p>
+
+													<span class="sui-notice-dismiss">
+														<a role="button" href="#">Dismiss</a>
+													</span>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-2">
+
+												<label class="sui-settings-label sui-dark">CTA Notification</label>
+
+												<div class="sui-notice sui-notice-error">
+
+													<p>The performance test didn't return any results. This probably means you're on a local website (which we can't scan) or something went wrong trying to access WPMU DEV. Try again and if this error continues to appear please open a ticket with our support heroes</p>
+
+													<div class="sui-notice-buttons">
+														<a href="#" class="sui-button">Try again</a>
+														<a href="#" class="sui-button">Support</a>
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Documentation -->
+								<div class="sui-box" data-tab="documentation" style="display: none;">
+
+									<div class="sui-box-header">
+										<h2 class="sui-box-title">Documentation</h2>
+									</div>
+
+									<div class="sui-box-body">
+
+										<!-- Base Structure -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Base Structure</span>
+												<span class="sui-description">All notifications start with this structure but the use of this alone will show a gray notice.</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Success Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Success Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Success Warning -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Warning Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-warning&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Error Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Error Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Info Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Info Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-info&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Purple Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Purple Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-purple&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Orange Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Orange Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-orange&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Loading Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Loading Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-loading&quot;&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- Dismissable Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">Dismissable Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice&quot;&gt;
+
+	&lt;p&gt; ... &lt;/p&gt;
+
+	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
+		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
+	&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<!-- CTA Notice -->
+										<div class="sui-box-settings-row">
+
+											<div class="sui-box-settings-col-1">
+												<span class="sui-settings-label">CTA Notice</span>
+											</div>
+
+											<div class="sui-box-settings-col-2">
+
+												<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
+
+	&lt;p&gt; ... &lt;/p&gt;
+
+	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
+		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
+		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- SAMPLE: Top notice with button. -->
+							<div class="sui-notice-top sui-notice-success sui-can-dismiss" style="display: none;" tabindex="-1">
+								<p><strong>Notice success:</strong> Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+								<span class="sui-notice-dismiss">
+									<a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"></a>
+								</span>
+							</div>
+
+							<!-- SAMPLE: Floating notice with button. -->
+							<div class="sui-notice-floating sui-notice-info" style="display: none;" tabindex="-1">
+								<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+								<div class="sui-notice-buttons">
+									<button href="#" class="sui-button sui-button-blue"><i class="sui-icon-web-globe-world" aria-hidden="true"></i>Publish</button>
+								</div>
+							</div>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
