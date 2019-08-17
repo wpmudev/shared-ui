@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-30" data-page="pagination">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">Pagination</h1>
+							</header>
+
+							<section class="sui-row-with-sidenav">
+
+								<!-- Navigation -->
+								<div class="sui-sidenav" role="navigation">
+
+									<ul class="sui-vertical-tabs">
+
+										<li class="sui-vertical-tab current">
+											<a href="#" role="button" data-tab="elements">Elements</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="samples">Samples</a>
+										</li>
+
+										<li class="sui-vertical-tab">
+											<a href="#" role="button" data-tab="documentation">Documentation</a>
+										</li>
+
+									</ul>
+
+								</div>
+
+								<!-- SECTION: Elements -->
+								<div data-tab="elements">
+
+									<div class="sui-box">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Elements</h2>
+										</div>
+
+										<div class="sui-box-body">
+
+											<!-- ROW: Pagination -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Pagination</span>
+													<span class="sui-description">This element will always be aligned at the right of its container.</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-form-field">
+
+														<label class="sui-settings-label sui-dark">List of Pages</label>
+														<span class="sui-description">Show a list of available pages with arrows for easier navigation.</span>
+
+														<div class="sui-pagination-wrap" style="margin-top: 10px;">
+
+															<ul class="sui-pagination">
+
+																<li><a href="" disabled>
+																	<i class="sui-icon-arrow-skip-back" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Go to first page</span>
+																</a></li>
+
+																<li><a href="" disabled>
+																	<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Previous page</span>
+																</a></li>
+
+																<li class="sui-active"><a href="">1</a></li>
+																<li><a href="">2</a></li>
+																<li><a href="">3</a></li>
+																<li><a href="">...</a></li>
+																<li><a href="">10</a></li>
+																<li><a href="">20</a></li>
+
+																<li><a href="">
+																	<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Next page</span>
+																</a></li>
+
+																<li><a href="">
+																	<i class="sui-icon-arrow-skip-forward" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Go to last page</span>
+																</a></li>
+
+															</ul>
+
+														</div>
+
+													</div>
+
+													<div class="sui-form-field">
+
+														<label class="sui-settings-label sui-dark">Number of Results</label>
+														<span class="sui-description">Show the number of search results.</span>
+
+														<div class="sui-pagination-wrap" style="margin-top: 10px;">
+
+															<span class="sui-pagination-results">25 results</span>
+
+														</div>
+
+													</div>
+
+													<div class="sui-form-field">
+
+														<label class="sui-settings-label sui-dark">List of Pages with Results</label>
+														<span class="sui-description">Even when elements above can work isolated depending on what designer decides for the project you can also use them together.</span>
+
+														<div class="sui-pagination-wrap" style="margin-top: 10px;">
+
+															<span class="sui-pagination-results">25 results</span>
+
+															<ul class="sui-pagination">
+
+																<li><a href="" disabled>
+																	<i class="sui-icon-arrow-skip-back" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Go to first page</span>
+																</a></li>
+
+																<li><a href="" disabled>
+																	<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Previous page</span>
+																</a></li>
+
+																<li class="sui-active"><a href="">1</a></li>
+																<li><a href="">2</a></li>
+																<li><a href="">3</a></li>
+																<li><a href="">4</a></li>
+																<li><a href="">5</a></li>
+
+																<li><a href="">
+																	<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Next page</span>
+																</a></li>
+
+																<li><a href="">
+																	<i class="sui-icon-arrow-skip-forward" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Go to last page</span>
+																</a></li>
+
+															</ul>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- ROW: Filters -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Filters</span>
+													<span class="sui-description">When filtering results you have to use three elements:<br />1. Filtering button<br />2. Filtering form<br />3. List of filters applied</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-pagination-wrap">
+
+														<button class="sui-button-icon sui-button-outlined sui-pagination-open-filter sui-tooltip" data-tooltip="Filter" aria-label="Filter pagination"><i class="sui-icon-filter" aria-hidden="true"></i></button>
+
+													</div>
+
+													<div class="sui-pagination-filter">
+
+														<div class="sui-form-field">
+															<label class="sui-label">Module name has keyword</label>
+															<div class="sui-control-with-icon">
+																<input type="text" placeholder="E.g. Discount" class="sui-form-control">
+																<i class="sui-icon-magnifying-glass-search" aria-hidden="true"></i>
+															</div>
+														</div>
+
+														<div class="sui-row">
+															<div class="sui-col-md-6">
+																<label class="sui-label">Use role assigned for editing</label>
+																<select>
+																	<option>Any</option>
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																</select>
+															</div>
+															<div class="sui-col-md-6">
+																<label class="sui-label">Sort by</label>
+																<select>
+																	<option>Creation date</option>
+																	<option>Module type</option>
+																</select>
+															</div>
+														</div>
+
+													</div>
+
+													<label class="sui-label">Active Filters</label>
+
+													<div class="sui-pagination-active-filters">
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Blah blah
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Another Filter
+															<span class="sui-active-filter-remove"></span>
+														</span>
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Samples -->
+								<div data-tab="samples" style="display: none;">
+
+									<div class="sui-box">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Samples</h2>
+										</div>
+
+										<div class="sui-box-body">
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Simple Pagination</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-pagination-wrap">
+
+														<span class="sui-pagination-results">25 results</span>
+
+														<ul class="sui-pagination">
+
+															<li><a href="" disabled>
+																<i class="sui-icon-arrow-skip-back" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Go to first page</span>
+															</a></li>
+
+															<li><a href="" disabled>
+																<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Previous page</span>
+															</a></li>
+
+															<li class="sui-active"><a href="">1</a></li>
+															<li><a href="">2</a></li>
+															<li><a href="">3</a></li>
+															<li><a href="">...</a></li>
+															<li><a href="">10</a></li>
+															<li><a href="">20</a></li>
+
+															<li><a href="">
+																<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Next page</span>
+															</a></li>
+
+															<li><a href="">
+																<i class="sui-icon-arrow-skip-forward" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Go to last page</span>
+															</a></li>
+
+														</ul>
+
+													</div>
+
+													<table class="sui-table">
+
+														<thead>
+															<tr>
+																<th>Module</th>
+																<th>User Role</th>
+															</tr>
+														</thead>
+
+														<tbody>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+														</tbody>
+
+													</table>
+
+												</div>
+
+											</div>
+
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Pagination with Filters</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-pagination-wrap">
+
+														<span class="sui-pagination-results">25 results</span>
+
+														<ul class="sui-pagination">
+
+															<li><a href="" disabled>
+																<i class="sui-icon-arrow-skip-back" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Go to first page</span>
+															</a></li>
+
+															<li><a href="" disabled>
+																<i class="sui-icon-chevron-left" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Previous page</span>
+															</a></li>
+
+															<li class="sui-active"><a href="">1</a></li>
+															<li><a href="">2</a></li>
+															<li><a href="">3</a></li>
+															<li><a href="">...</a></li>
+															<li><a href="">10</a></li>
+															<li><a href="">20</a></li>
+
+															<li><a href="">
+																<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Next page</span>
+															</a></li>
+
+															<li><a href="">
+																<i class="sui-icon-arrow-skip-forward" aria-hidden="true"></i>
+																<span class="sui-screen-reader-text">Go to last page</span>
+															</a></li>
+
+														</ul>
+
+														<button class="sui-button-icon sui-button-outlined sui-pagination-open-filter sui-tooltip" data-tooltip="Filter" aria-label="Filter pagination"><i class="sui-icon-filter" aria-hidden="true"></i></button>
+
+													</div>
+
+													<div class="sui-pagination-filter">
+
+														<div class="sui-form-field">
+															<label class="sui-label">Module name has keyword</label>
+															<div class="sui-control-with-icon">
+																<input type="text" placeholder="E.g. Discount" class="sui-form-control">
+																<i class="sui-icon-magnifying-glass-search" aria-hidden="true"></i>
+															</div>
+														</div>
+
+														<div class="sui-row">
+															<div class="sui-col-md-6">
+																<label class="sui-label">Use role assigned for editing</label>
+																<select>
+																	<option>Any</option>
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																</select>
+															</div>
+															<div class="sui-col-md-6">
+																<label class="sui-label">Sort by</label>
+																<select>
+																	<option>Creation date</option>
+																	<option>Module type</option>
+																</select>
+															</div>
+														</div>
+
+													</div>
+
+													<label class="sui-label">Active Filters</label>
+
+													<div class="sui-pagination-active-filters">
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Blah blah
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Reporting Period: 05/11/18-12/11/18
+															<span class="sui-active-filter-remove"></span>
+														</span>
+														<span class="sui-active-filter">
+															Another Filter
+															<span class="sui-active-filter-remove"></span>
+														</span>
+													</div>
+
+													<table class="sui-table">
+
+														<thead>
+															<tr>
+																<th>Module</th>
+																<th>User Role</th>
+															</tr>
+														</thead>
+
+														<tbody>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+															<tr>
+																<td class="sui-table-item-title">Item</td>
+																<td><select class="sui-select-sm">
+																	<option>Administrator</option>
+																	<option>Editor</option>
+																	<option>Writer</option>
+																	<option>Visitor</option>
+																</select></td>
+															</tr>
+
+														</tbody>
+
+													</table>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<!-- SECTION: Documentation -->
+								<div data-tab="documentation" style="display: none;">
+
+									<div class="sui-box">
+
+										<div class="sui-box-header">
+											<h2 class="sui-box-title">Documentation</h2>
+										</div>
+
+										<div class="sui-box-body">
+
+											<!-- ROW: Base -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Pagination</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!--
+ELEMENT: Pagination.
+--&gt;
+&lt;div class=&quot;sui-pagination-wrap&quot;&gt;
+
+	&lt;!-- ELEMENT: Number of Results. --&gt;
+	&lt;span class=&quot;sui-pagination-results&quot;&gt;25 results&lt;/span&gt;
+
+	&lt;!-- ELEMENT: List of Pages. --&gt;
+	&lt;ul class=&quot;sui-pagination&quot;&gt;
+
+
+		&lt;!-- BUTTON: Skip to first page. --&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot; disabled&gt;
+			&lt;i class=&quot;sui-icon-arrow-skip-back&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Go to first page&lt;/span&gt;
+		&lt;/a&gt;&lt;/li&gt;
+
+		&lt;!-- BUTTON: Previous page. --&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot; disabled&gt;
+			&lt;i class=&quot;sui-icon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Go to previous page&lt;/span&gt;
+		&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li class=&quot;sui-active&quot;&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;10&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;20&lt;/a&gt;&lt;/li&gt;
+
+		&lt;!-- BUTTON: Next page. --&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot; disabled&gt;
+			&lt;i class=&quot;sui-icon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Go to next page&lt;/span&gt;
+		&lt;/a&gt;&lt;/li&gt;
+
+		&lt;!-- BUTTON: Skip to last page. --&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot; role=&quot;button&quot; disabled&gt;
+			&lt;i class=&quot;sui-icon-arrow-skip-forward&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Go to last page&lt;/span&gt;
+		&lt;/a&gt;&lt;/li&gt;
+
+	&lt;/ul&gt;
+
+	&lt;!-- ELEMENT: Filter Button. --&gt;
+	&lt;button
+		class=&quot;sui-button-icon sui-button-outlined sui-pagination-open-filter sui-tooltip&quot;
+		data-tooltip=&quot;Filter&quot;
+	&gt;
+		&lt;i class=&quot;sui-icon-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Click to open filtering settings&lt;/span&gt;
+	&lt;/button&gt;
+
+&lt;/div&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- ROW: Filter Form. -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Filter Form</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-notice sui-notice-warning">
+														<p>Place this element right after <code>sui-pagination-wrap</code> element.</p>
+													</div>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;!-- By default this element is hidden. --&gt;
+&lt;div class=&quot;sui-pagination-filter&quot;&gt;
+	...
+&lt;/div&gt;
+
+&lt;!-- Add &quot;sui-open&quot; class to show this element. --&gt;
+&lt;div class=&quot;sui-pagination-filter sui-open&quot;&gt;
+	...
+&lt;/div&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<!-- ROW: Filter Tags. -->
+											<div class="sui-box-settings-row">
+
+												<div class="sui-box-settings-col-1">
+													<span class="sui-settings-label">Filter Tags</span>
+												</div>
+
+												<div class="sui-box-settings-col-2">
+
+													<div class="sui-notice sui-notice-warning">
+														<p>Place this element right after <code>sui-pagination-wrap</code> element or in case <strong>Filter Form</strong> element exists, place it after this. <strong>NOTE:</strong> There is no need to wrap this element in a <code>div</code> unless you consider it necessary.</p>
+													</div>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;label class=&quot;sui-label&quot;&gt;Active Filter(s)&lt;/label&gt;
+
+&lt;div class=&quot;sui-pagination-active-filters&quot;&gt;
+
+	&lt;span class=&quot;sui-active-filter&quot;&gt;
+		Filter 1 label
+		&lt;span role=&quot;button&quot; class=&quot;sui-active-filter-remove&quot;&gt;&lt;/span&gt;
+	&lt;/span&gt;
+
+	&lt;span class=&quot;sui-active-filter&quot;&gt;
+		Filter 2 label
+		&lt;span role=&quot;button&quot; class=&quot;sui-active-filter-remove&quot;&gt;&lt;/span&gt;
+	&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</section>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
