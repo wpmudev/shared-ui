@@ -33,7 +33,7 @@
 						<!-- START: SUI Wrapper -->
 						<main class="sui-wrap">
 
-							<header class="sui-header">
+							<header class="sui-header sui-header-inline">
 								<h1 class="sui-header-title">Side Navigation</h1>
 							</header>
 
@@ -44,7 +44,7 @@
 									<!-- Navigation -->
 									<div class="sui-sidenav" role="navigation">
 
-										<ul class="sui-vertical-tabs">
+										<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 											<li class="sui-vertical-tab current">
 												<a href="#" role="button" data-tab="section-1">Section 1</a>
@@ -61,6 +61,30 @@
 											</li>
 
 										</ul>
+
+										<div class="sui-sidenav-settings">
+
+											<div class="sui-form-field sui-with-floating-input" style="top: 0;">
+												<input type="text" placeholder="Name your form" class="sui-form-control" value="" />
+											</div>
+
+											<div class="sui-form-field sui-sidenav-hide-lg">
+
+												<label class="sui-label">Navigate</label>
+
+												<div class="select-container sui-mobile-nav">
+
+													<select class="sui-mobile-nav sui-styled">
+														<option value="#section-1">Section 1</option>
+														<option value="#section-2">Section 2</option>
+														<option value="#section-3">Section 3</option>
+													</select>
+
+												</div>
+
+											</div>
+
+										</div>
 
 									</div>
 
@@ -119,7 +143,7 @@
 	&lt;!-- Navigation --&gt;
 	&lt;div role=&quot;navigation&quot; class=&quot;sui-sidenav&quot;&gt;
 
-		&lt;ul class=&quot;sui-vertical-tabs&quot;&gt;
+		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
 
 			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
 				&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
@@ -136,6 +160,16 @@
 			&lt;/li&gt;
 
 		&lt;/ul&gt;
+
+		&lt;div class=&quot;sui-sidenav-hide-lg&quot;&gt;
+
+			&lt;select class=&quot;sui-mobile-nav&quot; style=&quot;display: none;&quot;&gt;
+				&lt;option value=&quot;tab-1&quot; selected=&quot;selected&quot;&gt;Tab 1&lt;/option&gt;
+				&lt;option value=&quot;tab-2&quot;&gt;Tab 2&lt;/option&gt;
+				&lt;option value=&quot;tab-3&quot;&gt;Tab 3&lt;/option&gt;
+			&lt;/select&gt;
+
+		&lt;/div&gt;
 
 	&lt;/div&gt;
 
