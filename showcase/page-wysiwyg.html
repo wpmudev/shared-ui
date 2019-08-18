@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="robots" content="noindex" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>WPMU DEV Shared UI</title>
+
+		<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/shared-ui.min.css?ver=2.3.29" />
+		<link rel="stylesheet" type="text/css" media="all" href="assets/build/showcase.min.css?ver=2.3.29" />
+
+	</head>
+
+	<!-- Do not edit body tag - updated via release scripts -->
+	<body class="sui-2-3-30" data-page="wysiwyg">
+
+		<div id="wpwrap">
+
+			<div id="adminmenumain" role="navigation" aria-label="Main menu"></div>
+
+			<div id="wpcontent">
+
+				<div id="wpadminbar"></div>
+
+				<div id="wpbody" role="main">
+
+					<div id="wpbody-content">
+
+						<!-- START: SUI Wrapper -->
+						<main class="sui-wrap">
+
+							<header class="sui-header">
+								<h1 class="sui-header-title">WP Editor</h1>
+							</header>
+
+							<article class="sui-box">
+
+								<div class="sui-box-body">
+
+									<div class="sui-notice sui-notice-warning">
+										<p>You will either need to use <code>dist/css/sui-wp-editor.min.css</code> or compile <code>scss/sui-wp-editor.scss</code> to use the SUI WP Editor styles within your plugin.</p>
+									</div>
+
+									<p style="margin-bottom: 10px;">The following code snippet is a sample on how to call the file on <code>wp_editor</code>.</p>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;?php
+ob_start();
+
+require self::$plugin_path . 'assets/css/sui-editor.min.css';
+$editor_css = ob_get_clean();
+$editor_css = '&lt;style&gt;' . $editor_css. '&lt;/style&gt;';
+?&gt;
+
+&lt;!-- Email body --&gt;
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label sui-label-editor&quot; for=&quot;emailmessage&quot;&gt;&lt;?php esc_html_e( 'Email body', Plugin::DOMAIN ); ?&gt;&lt;/label&gt;
+
+	&lt;?php wp_editor(
+		$email['email_body'],
+		'emailmessage',
+		array(
+			'media_buttons'    =&gt; false,
+			'textarea_name'    =&gt; 'email_message',
+			'editor_css'       =&gt; $editor_css,
+			'tinymce'          =&gt; array(
+				'content_css' =&gt; self::$plugin_url . 'assets/css/sui-editor.min.css'
+			),
+			'editor_height'    =&gt; 192,
+			'drag_drop_upload' =&gt; false,
+		)
+	); ?&gt;
+
+	&lt;span class=&quot;sui-description&quot;&gt;&lt;?php esc_html_e( 'Use the placeholder {hustle_unsubscribe_link} to insert the unsubscription link.', Plugin::DOMAIN ); ?&gt;&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</article>
+
+						</main>
+						<!-- END: SUI Wrapper -->
+
+						<div class="clear"></div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="assets/build/jquery-3.4.1.min.js"></script>
+	<script src="assets/build/highlight.min.js?ver=9.15.6"></script>
+
+	<!-- Do not edit query string versions - updated via release scripts -->
+	<script src="assets/build/shared-ui.min.js?ver=2.3.29"></script>
+	<script src="assets/build/showcase.min.js?ver=2.3.29"></script>
+
+</html>
