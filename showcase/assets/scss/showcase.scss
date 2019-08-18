@@ -260,7 +260,6 @@ body {
 		width: 100%;
 		height: 32px;
 		min-width: 600px;
-		direction: ltr;
 		position: fixed;
 		z-index: 99999;
 		top: 0;
@@ -424,8 +423,6 @@ body {
 
 	#wpcontent {
 		height: 100%;
-		margin-left: 160px;
-		padding-left: 20px;
 
 		#wpbody {
 			position: relative;
@@ -457,8 +454,6 @@ body {
 
 		@media screen and (max-width: 782px) {
 			position: relative;
-			margin-left: 0;
-			padding-left: 10px;
 		}
 	}
 
@@ -654,6 +649,42 @@ body {
 
 		@media screen and (max-width: 782px) {
 			height: 50px;
+		}
+	}
+
+	// DIR: LTR
+	&:not([dir="rtl"]) {
+
+		#wpadminbar {
+			direction: ltr;
+		}
+
+		#wpcontent {
+			margin-left: 160px;
+			padding-left: 20px;
+
+			@media screen and (max-width: 782px) {
+				margin-left: 0;
+				padding-left: 10px;
+			}
+		}
+	}
+
+	// DIR: RTL
+	&[dir="rtl"] {
+
+		#wpadminbar {
+			direction: rtl;
+		}
+
+		#wpcontent {
+			margin-right: 160px;
+			padding-right: 20px;
+
+			@media screen and (max-width: 782px) {
+				margin-right: 0;
+				padding-right: 10px;
+			}
 		}
 	}
 
