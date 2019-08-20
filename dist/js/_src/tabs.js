@@ -407,7 +407,7 @@
 
 	};
 
-    if ( 0 !== $( '.sui-2-3-30 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-3-31 .sui-tabs' ).length ) {
 
 		// Support tabs new markup.
 		SUI.tabs();
@@ -415,7 +415,7 @@
 		// Support legacy tabs.
 		SUI.suiTabs();
 
-		$( '.sui-2-3-30 .sui-tabs-navigation' ).each( function() {
+		$( '.sui-2-3-31 .sui-tabs-navigation' ).each( function() {
 			SUI.tabsOverflow( $( this ) );
 		});
     }
