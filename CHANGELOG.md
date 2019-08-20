@@ -1,3 +1,7 @@
+v2.3.31
+- [Fix] Select: Prevent forms from refreshing when using this element.
+
+
 v2.3.30
 - [Fix]     Select: Disable state styles for options.
 - [Fix]     Select2: Disable state styles for options.
