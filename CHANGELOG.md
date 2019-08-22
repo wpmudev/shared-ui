@@ -1,3 +1,7 @@
+v2.4.0
+- [Fix] Insert Variables: Textarea line breaks in contrast mode.
+
+
 v2.3.31
 - [Fix] Select: Prevent forms from refreshing when using this element.
 
