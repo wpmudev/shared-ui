@@ -1,3 +1,7 @@
+v2.4.0
+- [Enhance] Tabs: Allow callback functions.
+
+
 v2.3.31
 - [Fix] Select: Prevent forms from refreshing when using this element.
 
