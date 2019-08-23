@@ -12360,16 +12360,18 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 								<div class="sui-box-settings-col-2">
 
 									<div class="demo-code-block">
-										<pre class="sui-code-snippet js">SUI.suiTabs({
-    tabGroup: '[data-tabs]',
-    paneGroup: '[data-panes]',
-    tabActive: 'active',
-    paneActive: 'active',
-    callback: function(tab, pane) {
-      console.log(tab);
-      console.log(pane);
-    });</pre>
+
+<pre class="sui-code-snippet js">
+SUI.tabs({
+	callback: function( tab, panel ) {
+		console.log( tab );
+		console.log( panel );
+	}
+});
+</pre>
+
 									</div>
+
 									<p><code>tabGroup</code> and <code>paneGroup</code></p>
 									<ul>
 										<li><code>tabGroup</code> is the selector of the direct parent of the tabs.</li>
