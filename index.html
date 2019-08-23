@@ -12372,23 +12372,25 @@ SUI.tabs({
 
 									</div>
 
-									<p><code>tabGroup</code> and <code>paneGroup</code></p>
-									<ul>
-										<li><code>tabGroup</code> is the selector of the direct parent of the tabs.</li>
-										<li><code>paneGroup</code> is the selector of the direct parent of the panes.</li>
-									</ul>
-									<p><code>tabActive</code> and <code>paneActive</code></p>
-									<ul>
-										<li><code>tabActive</code> is the classname that will be set when the tab is active.</li>
-										<li><code>paneActive</code> is the classname that will be set when the pane is active.</li>
-									</ul>
 									<p><code>callback</code></p>
-									<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>pane</code>.</p>
+
+									<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>panel (tab content)</code>.</p>
+
 									<p>To get all tabs within the group you can do this inside the anonymous function:</p>
 
 									<div class="demo-code-block">
-										<pre class="sui-code-snippet js">console.log(tab.parentNode.children);
-console.log(pane.parentNode.children);</pre>
+
+<pre class="sui-code-snippet js">
+var wrapper = tab.closest( '.sui-tabs' ),
+	tablist = tab.closest( '[role=&quot;tablist&quot;]' ),
+	tabs    = tablist.find( '> .sui-tab-item' ),
+	panels  = wrapper.find( '> .sui-tabs-content > [role=&quot;tabpanel&quot;]' )
+	;
+
+console.log( tabs );
+console.log( panels );
+</pre>
+
 									</div>
 
 								</div>
