@@ -1,5 +1,7 @@
 v2.4.0
-- [Fix] Insert Variables: Textarea line breaks in contrast mode.
+- [New]     Search select element.
+- [Fix]     Insert Variables: Textarea line breaks in contrast mode.
+- [Enhance] Tags: Add new "small" sized tags.
 
 
 v2.3.31
