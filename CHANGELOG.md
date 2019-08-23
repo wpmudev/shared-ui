@@ -1,6 +1,7 @@
 v2.4.0
 - [New]     Search select element.
 - [Fix]     Insert Variables: Textarea line breaks in contrast mode.
+- [Enhance] Tabs: Allow callback functions.
 - [Enhance] Tags: Add new "small" sized tags.
 
 
