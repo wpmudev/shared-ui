@@ -1,15 +1,174 @@
 @include body-class {
 
+	// NOTE: New modal.
+	.sui-modal {
+		overflow: auto;
+		display: flex;
+		align-items: center;
+		position: fixed;
+		z-index: map-get($modal, z-index);
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: map-get($wordpress, adminbar);
+
+		&, * {
+			box-sizing: border-box;
+		}
+
+		// ELEMENT: Overlay mask.
+		.sui-modal-overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: map-get($modal, z-index);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: $modal-overlay-bg-color;
+		}
+
+		// ELEMENT: Content.
+		.sui-modal-content {
+			width: 100%;
+			max-width: #{map-get($modal, size-xl) + ($sui-gutter * 2)};
+			position: relative;
+			z-index: map-get($modal, z-index);
+			margin: 0 auto;
+			padding: 0 $sui-gutter;
+
+			@include media(max-width, md) {
+				max-width: #{map-get($modal, size-xl) + ($sui-gutter-md * 2)};
+				padding: 0 $sui-gutter-md;
+			}
+		}
+
+		// ELEMENT: Box.
+		.sui-box {
+
+			// ELEMENT: Box Title.
+			.sui-box-title {
+
+				&.sui-highlight {
+					font-size: 22px;
+					line-height: 30px;
+				}
+			}
+
+			// ELEMENT: Box Header.
+			.sui-box-header {
+				position: relative;
+				padding-bottom: 0;
+				border-bottom-width: 0;
+
+				// VAR: Outlined.
+				&.sui-outlined {
+					padding-bottom: #{$sui-gutter / 2};
+					border-bottom-width: 1px;
+
+					@include media(max-width, md) {
+						padding-bottom: #{$sui-gutter-md / 2};
+					}
+				}
+
+				// ELEMENT: Floated button.
+				.sui-button-float {
+					position: absolute;
+					top: #{$sui-gutter / 2};
+
+					&.sui-button-float--left {
+						left: $sui-gutter;
+
+						@include media(max-height, md) {
+							left: $sui-gutter-md;
+						}
+					}
+
+					&.sui-button-float--right {
+						right: $sui-gutter;
+
+						@include media(max-height, md) {
+							right: $sui-gutter-md;
+						}
+					}
+
+					@include media(max-height, md) {
+						top: #{$sui-gutter-md / 2};
+					}
+				}
+			}
+
+			// ELEMENT: Box Footer.
+			.sui-box-footer {
+				padding-top: 0;
+				border-top-width: 0;
+
+				// VAR: Outlined.
+				&.sui-outlined {
+					padding-top: $sui-gutter;
+					border-top-width: 1px;
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+				}
+			}
+		}
+
+		// SIZE: Large.
+		&.sui-modal-lg {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-lg) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-lg) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// SIZE: Medium.
+		&.sui-modal-md {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-md) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-md) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// SIZE: Small.
+		&.sui-modal-sm {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-sm) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-sm) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// STATE: Hidden.
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
+
+	// NOTE: Support old legacy code for modals.
 	.sui-dialog {
+		overflow: auto;
+		display: flex;
+		align-items: center;
 		position: fixed;
 		z-index: 13;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 160px;
-		display: flex;
-		align-items: center;
-		overflow: auto;
 		background-color: $modal-overlay-bg-color;
 
 		&, * {
