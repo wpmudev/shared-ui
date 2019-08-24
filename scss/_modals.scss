@@ -232,6 +232,31 @@
 				}
 			}
 
+			// ELEMENT: Box Selectors.
+			.sui-box-selectors {
+				margin: $sui-gutter 0;
+
+				&:first-child {
+					margin-top: 0;
+
+					@include media(max-height, md) {
+						margin-top: 0;
+					}
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@include media(max-height, md) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(max-height, md) {
+					margin: $sui-gutter-md 0;
+				}
+			}
+
 			// ELEMENT: Box Footer.
 			.sui-box-footer {
 				padding-top: 0;
