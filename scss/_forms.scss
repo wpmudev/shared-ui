@@ -191,8 +191,9 @@
 		margin-top: 5px;
 		color: $form--description-color;
 		font-size: $form--description-font-size;
-		line-height: $form--label-line-height;
+		line-height: 22px;
 		font-weight: $form--description-font-weight;
+		letter-spacing: $font--letter-spacing;
 
 		&.sui-toggle-description {
 			margin-left: 48px;
@@ -265,13 +266,13 @@
 		// STATE: Error
 		&.sui-has_error,
 		&.sui-form-field-error {
-		
+
 			.sui-form-control {
 				border-bottom: 2px solid $form--input-border-color-error;
 			}
-			
+
 			.sui-control-with-icon {
-				
+
 				[class*="sui-icon-"]:before {
 					color: $form--input-border-color-error;
 				}
@@ -304,7 +305,7 @@
 
 	// GROUP: Form field (inline)
 	.sui-form-field-inline {
-		
+
 		> .sui-form-field,
 		> .select-container {
 
@@ -430,7 +431,7 @@
 		.sui-form-control {
 			flex: 1;
 			margin: 0 5px;
-			
+
 			&:first-child {
 				margin-left: 0;
 			}
@@ -622,7 +623,7 @@
 			.select-list-container {
 				padding-right: 0;
 				pointer-events: initial;
-				
+
 				.list-value {
 					width: $form--input-height-base;
 					height: $form--input-height-base;
@@ -739,7 +740,7 @@
 				border-radius: 0 $border-radius $border-radius 0;
 				background-color: transparent;
 				transition: 0.2s ease;
-				
+
 				.select2-selection__rendered {
 					@extend %sui-screen-reader-text;
 				}
@@ -752,7 +753,7 @@
 					position: relative;
 					top: auto;
 					right: auto;
-					
+
 					@include icon(before, plus-circle) {
 						display: block;
 						margin: 0 auto;
