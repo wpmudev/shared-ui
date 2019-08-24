@@ -85,8 +85,17 @@
 
         this.node.classList.add('sui-fade-in');
         this.node.classList.remove('sui-fade-out');
-        var content = this.node.getElementsByClassName('sui-dialog-content');
-        content[0].className = 'sui-dialog-content sui-content-fade-in';
+
+		var content  = this.node.getElementsByClassName('sui-modal-content');
+		var content2 = this.node.getElementsByClassName('sui-dialog-content');
+
+		if ( content.length ) {
+			content[0].className  = 'sui-modal-content sui-content-fade-in';
+		}
+
+		if ( content2.length ) {
+			content2[0].className = 'sui-dialog-content sui-content-fade-in';
+		}
 
         // Execute all callbacks registered for the `show` event
         this._fire('show', event);
@@ -141,9 +150,17 @@
         }
 
 
-        var content = this.node.getElementsByClassName('sui-dialog-content');
+		var content  = this.node.getElementsByClassName('sui-modal-content');
+		var content2 = this.node.getElementsByClassName('sui-dialog-content');
 
-        content[0].className = 'sui-dialog-content sui-content-fade-out';
+		if ( content.length ) {
+			content[0].className  = 'sui-modal-content sui-content-fade-out';
+		}
+
+		if ( content2.length ) {
+			content2[0].className = 'sui-dialog-content sui-content-fade-out';
+		}
+
         this.node.classList.add('sui-fade-out');
         this.node.classList.remove('sui-fade-in');
 
