@@ -14198,15 +14198,19 @@ p:first-of-type {
 						<ul class="sui-vertical-tabs">
 
 							<li class="sui-vertical-tab current">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-default">Default</a>
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-new">New Modals</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-alternative">Alternative</a>
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-default">OLD: Default</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-onboarding">On Boarding</a>
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-alternative">OLD: Alt</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--dialogs-sample-onboarding">OLD: On Boarding</a>
 							</li>
 
 							<li class="sui-vertical-tab">
@@ -14217,7 +14221,61 @@ p:first-of-type {
 
 					</div><!-- END: Dialogs Sidenav -->
 
-					<div class="sui-box" data-tab="demo-element--dialogs-sample-default">
+					<div class="sui-box" data-tab="demo-element--dialogs-sample-new">
+
+						<div class="sui-box-header">
+							<h3 class="sui-box-title">New Modals</h3>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">List of Samples</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">1. Welcome to Beehive:</span>
+										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-beehive">Show Sample</button>
+										<span class="sui-description">Click on the following link for the original design: <a href="#" target="_blank">https://projects.invisionapp.com/d/main#/console/17026452/364335050/preview</a></span>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">2. Hustle Onboard:</span>
+										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-hustle">Show Sample</button>
+										<span class="sui-description">Click on the following link for the original design: <a href="#" target="_blank">https://projects.invisionapp.com/d/main#/console/17856719/370329110/preview</a></span>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">3. Hummingbird Get Started:</span>
+										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-hummingbird">Show Sample</button>
+										<span class="sui-description">Click on the following link for the original design: <a href="#" target="_blank">https://projects.invisionapp.com/d/main#/console/17591467/364654323/preview</a></span>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">4. Warning Modal:</span>
+										<button type="button" class="sui-button" data-a11y-dialog-show="warning-modal">Show Sample</button>
+										<span class="sui-description">Click on the following link for the original design: <a href="#" target="_blank">https://projects.invisionapp.com/d/main#/console/14626511/352595190/preview</a></span>
+									</div>
+
+									<div class="sui-form-field">
+										<span class="sui-settings-label">5. Import Popup:</span>
+										<button type="button" class="sui-button" data-a11y-dialog-show="import-modal">Show Sample</button>
+										<span class="sui-description">Click on the following link for the original design: <a href="#" target="_blank">https://projects.invisionapp.com/d/main#/console/14626511/334429842/preview</a></span>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-box" data-tab="demo-element--dialogs-sample-default" style="display: none;">
 
 						<div class="sui-box-header">
 							<h2 class="sui-box-title">Default Dialog</h2>
@@ -14234,8 +14292,6 @@ p:first-of-type {
 							<div class="sui-notice sui-notice-warning">
 								<p>Currently is not possible to have a <strong>small</strong> version of this dialog.</p>
 							</div>
-
-							<button type="button" class="sui-button" data-a11y-dialog-show="new-dialog">NEW DIALOG</button>
 
 						</div>
 
@@ -14584,6 +14640,7 @@ SUI.dialogs['my-accessible-dialog'].on( 'hide', function( dialogEl, event ) {
 &lt;/div&gt;
 </pre>
 				</div>
+
 			</section>
 
 			<section id="wp-editor">
@@ -15184,53 +15241,6 @@ $cross-sell-3: 'smartcrawl';
 
 				</div>
 
-
-
-				<!-- <div role="dialog" tabindex="-1" aria-labelledby="dialog-title" id="sui-upgrade-membership-modal" class="sui-modal">
-					<div id="dialog-title" class="sui-dialog-content">
-						<h1>Upgrade Membership</h1>
-						<p>Here's what you'll get by upgrading to Hummingbird Pro.</p>
-
-						<ul class="sui-listing">
-							<li>
-								<strong>Automation</strong>
-								<p>Schedule Hummingbird to run regular performance tests daily, weekly or monthly and get
-									email reports delivered straight to your inbox.</p>
-							</li>
-							<li>
-								<strong>Enhanced Minify Compression</strong>
-								<p>Compress your minified files up to 2x more than regular optimization and reuce your page
-									load speed even further.</p>
-							</li>
-							<li>
-								<strong>WPMU DEV CDN</strong>
-								<p>By default we minify your files via our API and send them back to your server. Pro users
-									can host their files on WPMU DEV’s secure and hyper fast CDN, which will mean less load
-									on your server and a fast visitor experience.</p>
-							</li>
-							<li>
-								<strong>Smush Pro</strong>
-								<p>A membership for Hummingbird Pro also gets you the award winning Smush Pro with unlimited
-									advanced lossy compression that’ll give image heavy websites a speed boost.</p>
-							</li>
-						</ul>
-
-						<p class="sui-block-content-center">Get all of this, plus heaps more as part of a WPMU DEV
-							membership.</p>
-
-						<div class="sui-block-content-center">
-							<a target="_blank" href="" class="sui-button sui-button-green">Upgrade
-								Membership</a>
-						</div>
-
-						<div aria-hidden="true" class="sui-modal-image sui-modal-image-bottom dev-man">
-							<img class="sui-image sui-image-center"
-								 src="dist/images/dev-team.png"
-								 srcset="dist/images/dev-team@2x.png 2x"
-								 alt="">
-						</div>
-					</div>
-				</div> -->
 			</section>
 
 		</div><!-- .sui-wrap -->
@@ -16045,8 +16055,10 @@ $cross-sell-3: 'smartcrawl';
 
 			</div>
 
-			<!-- NEW DIALOG -->
-			<div class="sui-modal" aria-hidden="true" tabindex="-1" id="new-dialog">
+			<!-- NEW MODAL SAMPLES -->
+
+			<!-- SAMPLE #1: Welcome to Beehive -->
+			<div class="sui-modal sui-modal-lg" aria-hidden="true" tabindex="-1" id="welcome-beehive">
 
 				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
 
@@ -16054,28 +16066,344 @@ $cross-sell-3: 'smartcrawl';
 
 					<div role="document" class="sui-box">
 
-						<div class="sui-box-header">
+						<div class="sui-box-header sui-content-center sui-spacing-top--lg sui-spacing-sides--lg">
 
-							<h2 class="sui-box-title">Delete Pop-up</h2>
+							<div class="sui-box-image" aria-hidden="true">
+								<img
+									src="./dist/images/modal-header.png"
+									srcset="./dist/images/modal-header.png 1x, ./dist/images/modal-header@2x.png 2x"
+								/>
+							</div>
 
-							<button class="sui-button-icon sui-button-float">
-								<i class="sui-icon-close"></i>
+							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
+								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 							</button>
+
+							<span class="sui-box-title sui-lg">Welcome to Beehive Pro</span>
+
+							<span class="sui-description">Andy, welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data.  If you only want to enable tracking without reports, you can paste your analytics code via the link below.</span>
 
 						</div>
 
 						<div class="sui-box-body">
 
-							<p>Are you sure you wish to permanently delete this pop-up? Its additional data, like subscriptions and tracking data, will be deleted as well.</p>
+							<div class="sui-form-field">
+								<div class="sui-tabs sui-side-tabs">
+									<div data-tabs>
+										<div class="active">Connect with Google</div>
+										<div>Setup API Project</div>
+									</div>
+									<div data-panes>
+										<div class="sui-border-frame active">
+											<span class="sui-description">Easily connect with Google and paste the access code below. Please note,  we only retrieve analytics information and no personally identifiable data.</span>
+											<div class="sui-form-field">
+												<label class="sui-label">Access Code</label>
+												<input class="sui-form-control" placeholder="Place access code here" />
+												<button class="sui-button sui-button-blue" style="margin-top: 20px;">Authorize</button>
+											</div>
+										</div>
+										<div class="sui-border-frame">
+											<span class="sui-description">Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
+										</div>
+									</div>
+								</div>
+							</div>
 
 						</div>
 
-						<div class="sui-box-footer">
+					</div>
 
-							<button class="sui-button sui-button-ghost">Cancel</button>
+					<button role="button" class="sui-modal-skip" data-a11y-dialog-hide>Skip this</button>
 
-							<button class="sui-button sui-button-red sui-button-ghost">Delete</button>
+				</div>
 
+			</div>
+
+			<!-- SAMPLE #2: Hustle Onboard -->
+			<div class="sui-modal sui-modal-onboard sui-modal-md" aria-hidden="true" tabindex="-1" id="welcome-hustle">
+
+				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+
+				<div role="dialog" class="sui-modal-content">
+
+					<div role="document" class="sui-slider">
+
+						<ul class="sui-slider-content">
+
+							<li data-slide="1" class="sui-current sui-loaded">
+
+								<div class="sui-box">
+
+									<div class="sui-box-header sui-content-center sui-spacing-top--lg sui-spacing-sides--lg">
+
+										<figure class="sui-box-image">
+											<img
+												src="./dist/images/onboard.png"
+												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
+												alt="Hustle character"
+											/>
+											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
+										</figure>
+
+										<span class="sui-box-title sui-lg">Hey, Andy</span>
+
+										<span class="sui-description">Welcome to Hustle, the only plugin you'll ever need to turn your visitors into loyal subscribers, leads and customers.</span>
+
+									</div>
+
+									<div class="sui-box-footer sui-content-center">
+
+										<button class="sui-button sui-button-blue sui-button-icon-right" data-tour="next">
+											Get Started
+											<i class="sui-icon-chevron-right" aria-hidden="true"></i>
+										</button>
+
+									</div>
+
+									<div tabindex="-1" class="sui-box-footer sui-content-center" aria-hidden="true">
+
+										<ul class="sui-slider-steps">
+											<li class="current"><span></span></li>
+											<li><span></span></li>
+											<li><span></span></li>
+										</ul>
+
+									</div>
+
+								</div>
+
+								<a href="#" class="sui-modal-skip" data-a11y-dialog-hide>Skip this, I know my way around</a>
+
+							</li>
+
+							<li data-slide="2">
+
+								<div class="sui-box">
+
+									<div class="sui-box-header sui-content-center sui-spacing-top--lg sui-spacing-sides--lg">
+
+										<figure class="sui-box-image">
+											<img
+												src="./dist/images/onboard.png"
+												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
+												alt="Hustle character"
+											/>
+											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
+										</figure>
+
+										<button class="sui-button-icon sui-button-float--left" data-tour="back">
+											<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Go to previous slide</span>
+										</button>
+
+										<span class="sui-box-title sui-lg">Migrate Data</span>
+
+										<span class="sui-description">Nice work on updating the Hustle! All your modules are already in place, however you need to migrate the data of your existing modules such as tracking data and email list manually.</span>
+
+									</div>
+
+									<div class="sui-box-footer sui-content-center">
+
+										<button class="sui-button" data-tour="next">Begin Migration</button>
+
+									</div>
+
+									<div tabindex="-1" class="sui-box-footer sui-content-center" aria-hidden="true">
+
+										<ul class="sui-slider-steps">
+											<li><span></span></li>
+											<li class="current"><span></span></li>
+											<li><span></span></li>
+										</ul>
+
+									</div>
+
+								</div>
+
+								<a href="#" class="sui-modal-skip" data-a11y-dialog-hide>Skip this, I'll migrate data later</a>
+
+							</li>
+
+							<li data-slide="3">
+
+								<div class="sui-box">
+
+									<div class="sui-box-header sui-content-center sui-spacing-top--lg sui-spacing-sides--lg">
+
+										<figure class="sui-box-image">
+											<img
+												src="./dist/images/onboard.png"
+												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
+												alt="Hustle character"
+											/>
+											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
+										</figure>
+
+										<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
+											<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Close this dialog</span>
+										</button>
+
+										<span class="sui-box-title sui-lg">Migrate Complete</span>
+
+										<span class="sui-description">We've successfully migrated data of your existing modules. You're good to continue using Hustle!</span>
+
+									</div>
+
+									<div class="sui-box-footer sui-content-center">
+
+										<button class="sui-button" data-a11y-dialog-hide>Continue</button>
+
+									</div>
+
+									<div tabindex="-1" class="sui-box-footer sui-content-center" aria-hidden="true">
+
+										<ul class="sui-slider-steps">
+											<li><span></span></li>
+											<li><span></span></li>
+											<li class="current"><span></span></li>
+										</ul>
+
+									</div>
+
+								</div>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SAMPLE #3: Hummingbird Get Started -->
+			<div class="sui-modal sui-modal-lg" aria-hidden="true" tabindex="-1" id="welcome-hummingbird">
+
+				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+
+				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+
+					<div role="document" class="sui-box">
+
+						<div class="sui-box-header sui-outlined">
+
+							<span class="sui-box-title">Get Started</span>
+
+							<div class="sui-actions-right">
+								<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>
+									Skip
+								</button>
+							</div>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<p>Welcome to Hummingbird, the hottest Performance plugin for WordPress! We recommend running a quick performance test before you start tweaking things. Alternatively you can skip this step if you'd prefer to start customizing.</p>
+
+							<div class="sui-border-frame" style="display: flex;">
+								<span class="sui-description" style="flex: 1; margin-top: 0; margin-right: 15px;">This is only a performance test. Once you know what to fix you can get started in the next steps.</span>
+								<button class="sui-button sui-button-blue" style="flex: 0 0 auto; align-self: flex-start; margin-left: 15px;">
+									Run Performnace Test
+								</button>
+							</div>
+
+						</div>
+
+						<img
+							src="./dist/images/graphic-minify-modal-warning.png"
+							srcset="./dist/images/graphic-minify-modal-warning.png 1x, ./dist/images/graphic-minify-modal-warning@2x.png 2x"
+							class="sui-image"
+						/>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SAMPLE #4: Warning Modal -->
+			<div class="sui-modal sui-modal-sm" aria-hidden="true" tabindex="-1" id="warning-modal">
+
+				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+
+				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+
+					<div role="document" class="sui-box">
+
+						<div class="sui-box-header sui-content-center sui-spacing-top--lg">
+
+							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
+								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+							</button>
+
+							<span class="sui-box-title sui-lg">Dismiss Migrate Data Notice</span>
+
+							<span class="sui-description">Are you sure you wish to dismiss this notice? Make sure you’ve already migrated data of your existing modules, and you don't need to migrate data anymore.</span>
+
+						</div>
+
+						<div class="sui-box-footer sui-content-center">
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>Cancel</button>
+							<button class="sui-button sui-button-ghost sui-button-red" data-a11y-dialog-hide>Dismiss Forever</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SAMPLE #5: Import Modal -->
+			<div class="sui-modal sui-modal-sm" aria-hidden="true" tabindex="-1" id="import-modal">
+
+				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+
+				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+
+					<div role="document" class="sui-box">
+
+						<div class="sui-box-header sui-content-center sui-spacing-top--lg">
+
+							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
+								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+							</button>
+
+							<span class="sui-box-title sui-lg">Import Popup</span>
+
+							<span class="sui-description">Choose the popup configuration file and hit import to import your popup.</span>
+
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-form-field">
+								<label class="sui-label">Configuration file</label>
+								<div class="sui-upload">
+									<input type="file" value="" readonly="readonly" />
+									<button class="sui-upload-button">
+										<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+									</button>
+									<div class="sui-upload-file">
+										<span></span>
+										<button aria-label="Remove file">
+											<i class="sui-icon-close" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
+								<span class="sui-description">Choose a JSON (.json) file to import the popup form.</span>
+							</div>
+
+						</div>
+
+						<div class="sui-box-footer sui-outlined sui-content-separated">
+							<button class="sui-button sui-button-ghost" disabled>
+								<i class="sui-icon-upload-cloud" aria-hidden="true"></i>
+								Import
+							</button>
+							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>Cancel</button>
 						</div>
 
 					</div>
