@@ -93,6 +93,25 @@
 					}
 				}
 
+				// ELEMENT: Box logo.
+				.sui-box-logo {
+					width: map-get($modal, logo-size);
+					height: map-get($modal, logo-size);
+					display: block;
+					margin: -#{(map-get($modal, logo-size) / 2) + ($sui-gutter / 2)} auto #{$sui-gutter - map-get($modal, logo-border)};
+					padding: 0;
+					border: map-get($modal, logo-border) solid $white;
+					border-radius: $border-radius;
+
+					img {
+						width: #{$sui-gutter * 2};
+						height: #{$sui-gutter * 2};
+						margin: 0;
+						padding: 0;
+						border: 0;
+					}
+				}
+
 				// ELEMENT: Floated button.
 				.sui-button-float {
 
@@ -133,6 +152,11 @@
 						// ELEMENT: Box image.
 						.sui-box-image {
 							margin-top: -#{$sui-gutter * 2};
+						}
+
+						// ELEMENT: Box logo.
+						.sui-box-logo {
+							margin-top: -#{($sui-gutter * 2) + (map-get($modal, logo-size) / 2)};
 						}
 
 						@include media(max-width, md) {
