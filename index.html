@@ -8368,6 +8368,10 @@ $( function() {
 							</li>
 
 							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-element--search">Search</a>
+							</li>
+
+							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--file-uploads">File Uploads</a>
 							</li>
 
@@ -9407,6 +9411,161 @@ $( function() {
 											<option>Whiskey</option>
 											<option>Bourbon</option>
 										</select>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Search -->
+					<div class="sui-box" data-tab="demo-element--search" style="display: none;">
+
+						<div class="sui-box-header">
+							<h2 class="sui-box-title">Search</h2>
+						</div>
+
+						<div class="sui-box-body">
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Default</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field">
+
+										<label class="sui-label">Search users</label>
+
+										<select
+											class="sui-search"
+											data-placeholder="Type username"
+											multiple
+										>
+											<option value="allison@email.com">Allison (allison@email.com)</option>
+											<option value="daniel@email.com">Daniel (daniel@email.com)</option>
+											<option value="david@email.com">David (david@email.com)</option>
+											<option value="jake@email.com">Jake (jake@email.com)</option>
+											<option value="james@email.com">James (james@email.com)</option>
+											<option value="jason@email.com">Jason (jason@email.com)</option>
+											<option value="mark@email.com">Mark (mark@email.com)</option>
+											<option value="patrick@email.com">Patrick (patrick@email.com)</option>
+											<option value="paul@email.com">Paul (paul@email.com)</option>
+										</select>
+
+										<span class="sui-description">Vestibulum id ligula porta felis euismod semper.</span>
+
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;select
+		class=&quot;sui-search&quot;
+		data-placeholder=&quot;Placeholder text&quot;
+		multiple
+	&gt;
+		&lt;option value=&quot;option-1&quot;&gt;Option 1&lt;/option&gt;
+		&lt;option value=&quot;option-2&quot;&gt;Option 2&lt;/option&gt;
+		&lt;option value=&quot;option-3&quot;&gt;Option 3&lt;/option&gt;
+		&lt;option value=&quot;option-4&quot;&gt;Option 4&lt;/option&gt;
+		&lt;option value=&quot;option-5&quot;&gt;Option 5&lt;/option&gt;
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Error State</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<div class="sui-form-field sui-form-field-error">
+
+										<label class="sui-label">Search users</label>
+
+										<select
+											class="sui-search"
+											data-placeholder="Type username"
+											multiple
+										>
+											<option value="allison@email.com">Allison (allison@email.com)</option>
+											<option value="daniel@email.com">Daniel (daniel@email.com)</option>
+											<option value="david@email.com">David (david@email.com)</option>
+											<option value="jake@email.com">Jake (jake@email.com)</option>
+											<option value="james@email.com">James (james@email.com)</option>
+											<option value="jason@email.com">Jason (jason@email.com)</option>
+											<option value="mark@email.com">Mark (mark@email.com)</option>
+											<option value="patrick@email.com">Patrick (patrick@email.com)</option>
+											<option value="paul@email.com">Paul (paul@email.com)</option>
+										</select>
+
+										<span class="sui-description">Vestibulum id ligula porta felis euismod semper.</span>
+
+									</div>
+
+									<div class="sui-notice sui-notice-warning">
+										<p>To get error state you have to add <code>sui-form-field-error</code> class to <code>sui-form-field</code>.</p>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Re-init Element</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<p>If you added this element after the DOM has loaded you can initialize it again by calling:</p>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+if ( $( '.sui-color-accessible' )[0] ) {
+
+	$( '.sui-search' ).SUIselect2({
+		minimumInputLength: 2,
+		maximumSelectionLength: 1,
+		dropdownCssClass: 'sui-search-dropdown sui-color-accessible'
+		placeholder: function() {
+			$( this ).data( 'placeholder' );
+		},
+	});
+} else {
+
+	$( '.sui-search' ).SUIselect2({
+		minimumInputLength: 2,
+		maximumSelectionLength: 1,
+		dropdownCssClass: 'sui-search-dropdown'
+		placeholder: function() {
+			$( this ).data( 'placeholder' );
+		},
+	});
+}
+</pre>
 
 									</div>
 
@@ -12360,33 +12519,37 @@ $summary-image-sm--position-y: bottom; // Vertical position (only)
 								<div class="sui-box-settings-col-2">
 
 									<div class="demo-code-block">
-										<pre class="sui-code-snippet js">SUI.suiTabs({
-    tabGroup: '[data-tabs]',
-    paneGroup: '[data-panes]',
-    tabActive: 'active',
-    paneActive: 'active',
-    callback: function(tab, pane) {
-      console.log(tab);
-      console.log(pane);
-    });</pre>
+
+<pre class="sui-code-snippet js">
+SUI.tabs({
+	callback: function( tab, panel ) {
+		console.log( tab );
+		console.log( panel );
+	}
+});
+</pre>
+
 									</div>
-									<p><code>tabGroup</code> and <code>paneGroup</code></p>
-									<ul>
-										<li><code>tabGroup</code> is the selector of the direct parent of the tabs.</li>
-										<li><code>paneGroup</code> is the selector of the direct parent of the panes.</li>
-									</ul>
-									<p><code>tabActive</code> and <code>paneActive</code></p>
-									<ul>
-										<li><code>tabActive</code> is the classname that will be set when the tab is active.</li>
-										<li><code>paneActive</code> is the classname that will be set when the pane is active.</li>
-									</ul>
+
 									<p><code>callback</code></p>
-									<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>pane</code>.</p>
+
+									<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>panel (tab content)</code>.</p>
+
 									<p>To get all tabs within the group you can do this inside the anonymous function:</p>
 
 									<div class="demo-code-block">
-										<pre class="sui-code-snippet js">console.log(tab.parentNode.children);
-console.log(pane.parentNode.children);</pre>
+
+<pre class="sui-code-snippet js">
+var wrapper = tab.closest( '.sui-tabs' ),
+	tablist = tab.closest( '[role=&quot;tablist&quot;]' ),
+	tabs    = tablist.find( '> .sui-tab-item' ),
+	panels  = wrapper.find( '> .sui-tabs-content > [role=&quot;tabpanel&quot;]' )
+	;
+
+console.log( tabs );
+console.log( panels );
+</pre>
+
 									</div>
 
 								</div>
@@ -12413,7 +12576,7 @@ console.log(pane.parentNode.children);</pre>
 
 						<p>Tags are used to highlight specific bits of information and warnings.</p>
 
-						<h3>Default</h3>
+						<h3 style="margin: 0 0 10px; line-height: 30px;">Default</h3>
 
 						<div class="sui-form-field">
 
@@ -12427,7 +12590,32 @@ console.log(pane.parentNode.children);</pre>
 
 						</div>
 
-						<h3>Ghosts</h3>
+						<h3 style="margin: 0 0 10px; line-height: 30px;">Small</h3>
+
+						<p>You can use the class <code>sui-tag-sm</code> to change the tag text size.</p>
+
+						<div class="sui-form-field">
+
+							<span class="sui-tag sui-tag-sm">Default</span>
+							<span class="sui-tag sui-tag-sm sui-tag-error">Red</span>
+							<span class="sui-tag sui-tag-sm sui-tag-warning">Yellow</span>
+							<span class="sui-tag sui-tag-sm sui-tag-success">Green</span>
+							<span class="sui-tag sui-tag-sm sui-tag-branded">Blue</span>
+							<span class="sui-tag sui-tag-sm sui-tag-purple">Purple</span>
+							<span class="sui-tag sui-tag-sm sui-tag-disabled">Disabled</span>
+
+						</div>
+
+						<h3 style="margin: 0 0 10px; line-height: 30px;">Mini</h3>
+
+						<div class="sui-form-field">
+
+							<span class="sui-tag sui-tag-pro">Pro</span>
+							<span class="sui-tag sui-tag-beta">Beta</span>
+
+						</div>
+
+						<h3 style="margin: 0 0 10px; line-height: 30px;">Ghosts</h3>
 
 						<div class="sui-form-field">
 
@@ -12439,16 +12627,8 @@ console.log(pane.parentNode.children);</pre>
 
 						</div>
 
-						<h3>Mini</h3>
+						<h3 style="margin: 0 0 10px; line-height: 30px;">Uppercase</h3>
 
-						<div class="sui-form-field">
-
-							<span class="sui-tag sui-tag-pro">Pro</span>
-							<span class="sui-tag sui-tag-beta">Beta</span>
-
-						</div>
-
-						<h3>Uppercase</h3>
 						<p>You can use the class <code>sui-tag-uppercase</code> to transform the tag text to uppercase.</p>
 
 						<div class="sui-form-field">
