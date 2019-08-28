@@ -569,9 +569,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-31 .sui-accordion' ).length ) {
+	if ( 0 !== $( '.sui-2-4-0 .sui-accordion' ).length ) {
 
-		$( '.sui-2-3-31 .sui-accordion' ).each( function() {
+		$( '.sui-2-4-0 .sui-accordion' ).each( function() {
 			SUI.suiAccordion( this );
 		});
 	}
@@ -1644,7 +1644,7 @@
     SUI.suiCodeSnippet = function( ) {
 
         // Convert all code snippet.
-        $( '.sui-2-3-31 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
+        $( '.sui-2-4-0 .sui-code-snippet:not(.sui-no-copy)' ).each( function() {
 
             // backward compat of instantiate new accordion
             $( this ).SUICodeSnippet({});
@@ -2011,7 +2011,7 @@
 		return this;
 	};
 
-	$( '.sui-2-3-31 .sui-slider' ).each( function() {
+	$( '.sui-2-4-0 .sui-slider' ).each( function() {
 		SUI.dialogSlider( this );
 	});
 
@@ -2031,7 +2031,7 @@
 
 		function closeAllDropdowns( $except ) {
 
-			var $dropdowns = $( '.sui-2-3-31 .sui-dropdown' );
+			var $dropdowns = $( '.sui-2-4-0 .sui-dropdown' );
 
 			if ( $except ) {
 				$dropdowns = $dropdowns.not( $except );
@@ -2058,7 +2058,7 @@
 
 		$( 'body' ).mouseup( function( e ) {
 
-			var $anchor = $( '.sui-2-3-31 .sui-dropdown-anchor' );
+			var $anchor = $( '.sui-2-4-0 .sui-dropdown-anchor' );
 
 			if ( ( ! $anchor.is( e.target ) ) && ( 0 === $anchor.has( e.target ).length ) ) {
 				closeAllDropdowns();
@@ -2103,7 +2103,7 @@
 		}
 
 		// Init the dialog elements.
-		$( '.sui-2-3-31 .sui-dialog' ).each( function() {
+		$( '.sui-2-4-0 .sui-dialog' ).each( function() {
 			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
 				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
 			}
@@ -2116,9 +2116,9 @@
 ( function( $ ) {
 
 	// This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-	$( '.sui-2-3-31 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
+	$( '.sui-2-4-0 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)' ).delay( 3000 ).slideUp( 'slow' );
 
-	$( '.sui-2-3-31 .sui-notice-dismiss' ).click( function( e ) {
+	$( '.sui-2-4-0 .sui-notice-dismiss' ).click( function( e ) {
 		e.preventDefault();
 
         $( this ).parent().stop().slideUp( 'slow' );
@@ -2140,7 +2140,7 @@
 
 	SUI.showHidePassword = function() {
 
-		$( '.sui-2-3-31 .sui-form-field' ).each( function() {
+		$( '.sui-2-4-0 .sui-form-field' ).each( function() {
 
 			var $this = $( this );
 
@@ -2181,7 +2181,7 @@
     var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org';
 
     // Update the reviews with the live stats.
-    $( '.sui-2-3-31 .sui-reviews' ).each( function() {
+    $( '.sui-2-4-0 .sui-reviews' ).each( function() {
         var review = $( this );
         $.get( endpoint, function( data ) {
             var stars = Math.round( data.stats.average_rating );
@@ -2225,7 +2225,7 @@
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
 	};
 
-	$( '.sui-2-3-31 .sui-circle-score' ).each( function() {
+	$( '.sui-2-4-0 .sui-circle-score' ).each( function() {
 		SUI.loadCircleScore( this );
 	});
 
@@ -2483,7 +2483,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-31 select:not([multiple])' ).each( function() {
+	$( '.sui-2-4-0 select:not([multiple])' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
@@ -9026,6 +9026,14 @@
     if ( $( '.sui-color-accessible' )[0]) {
         $( '.sui-select' ).SUIselect2({
             dropdownCssClass: 'sui-select-dropdown sui-color-accessible'
+		});
+		$( '.sui-search' ).SUIselect2({
+			placeholder: function() {
+				$( this ).data( 'placeholder' );
+			},
+			minimumInputLength: 2,
+			maximumSelectionLength: 1,
+            dropdownCssClass: 'sui-search-dropdown sui-color-accessible'
         });
         $( '.sui-variables' ).SUIselect2({
             dropdownCssClass: 'sui-variables-dropdown sui-color-accessible'
@@ -9033,6 +9041,14 @@
     } else {
         $( '.sui-select' ).SUIselect2({
             dropdownCssClass: 'sui-select-dropdown'
+		});
+		$( '.sui-search' ).SUIselect2({
+			placeholder: function() {
+				$( this ).data( 'placeholder' );
+			},
+			minimumInputLength: 2,
+			maximumSelectionLength: 1,
+            dropdownCssClass: 'sui-search-dropdown'
         });
         $( '.sui-variables' ).SUIselect2({
             dropdownCssClass: 'sui-variables-dropdown'
@@ -9080,7 +9096,7 @@
 
 	};
 
-	$( '.sui-2-3-31 .sui-side-tabs label.sui-tab-item input' ).each( function() {
+	$( '.sui-2-4-0 .sui-side-tabs label.sui-tab-item input' ).each( function() {
 		SUI.sideTabs( this );
 	});
 
@@ -9351,9 +9367,10 @@
         });
 	};
 
-	SUI.tabs = function() {
+	SUI.tabs = function( config ) {
 
 		var tablist = $( '.sui-tabs > div[role="tablist"]' );
+		var data    = config;
 
 		// For easy reference.
 		var keys = {
@@ -9469,10 +9486,30 @@
 			}
 		}
 
+		// Callback function.
+		function setCallback( currentTab ) {
+
+			var tab      = $( currentTab ),
+				controls = tab.attr( 'aria-controls' ),
+				panel    = $( '#' + controls )
+				;
+
+			if ( 'function' === typeof data.callback ) {
+				data.callback( tab, panel );
+			}
+		}
+
 		// When a tab is clicked, activateTab is fired to activate it.
 		function clickEventListener( event ) {
+
 			var tab = event.target;
+
 			activateTab( tab );
+			setCallback( tab );
+
+			event.preventDefault();
+			event.stopPropagation();
+
 		}
 
 		function keydownEventListener( event, index, tablist ) {
@@ -9534,12 +9571,11 @@
 			// when having child tabs.
 			tabgroup.each( function() {
 
-				var tabs, panels, index;
+				var tabs, index;
 
 				tabgroup = $( this );
 				tablist  = tabgroup.find( '> [role="tablist"]' );
 				tabs     = tablist.find( '> [role="tab"]' );
-				panels   = tabgroup.find( '> .sui-tabs-content > [role="tabpanel"]' );
 
 				// Trigger events on click.
 				tabs.on( 'click', function( e ) {
@@ -9554,7 +9590,6 @@
 				}).keyup( function( e ) {
 					index = $( this ).index();
 					keyupEventListener( e, index, tablist );
-
 				});
 			});
 		}
@@ -9565,7 +9600,7 @@
 
 	};
 
-    if ( 0 !== $( '.sui-2-3-31 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-4-0 .sui-tabs' ).length ) {
 
 		// Support tabs new markup.
 		SUI.tabs();
@@ -9573,7 +9608,7 @@
 		// Support legacy tabs.
 		SUI.suiTabs();
 
-		$( '.sui-2-3-31 .sui-tabs-navigation' ).each( function() {
+		$( '.sui-2-4-0 .sui-tabs-navigation' ).each( function() {
 			SUI.tabsOverflow( $( this ) );
 		});
     }
@@ -9981,9 +10016,9 @@
 		return this;
 	};
 
-	if ( 0 !== $( '.sui-2-3-31 .sui-tree' ).length ) {
+	if ( 0 !== $( '.sui-2-4-0 .sui-tree' ).length ) {
 
-		$( '.sui-2-3-31 .sui-tree' ).each( function() {
+		$( '.sui-2-4-0 .sui-tree' ).each( function() {
 			SUI.suiTree( $( this ), true );
 		});
 	}
@@ -10002,7 +10037,7 @@
 
 	SUI.upload = function() {
 
-		$( '.sui-2-3-31 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
+		$( '.sui-2-4-0 .sui-upload-group input[type="file"]' ).on( 'change', function( e ) {
 			var file = $( this )[0].files[0],
 				message = $( this ).find( '~ .sui-upload-message' );
 
