@@ -15,6 +15,11 @@
 		}
 
 		// Init the dialog elements.
+		$( 'SUI_BODY_CLASS .sui-modal' ).each( function() {
+			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
+				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
+			}
+		});
 		$( 'SUI_BODY_CLASS .sui-dialog' ).each( function() {
 			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
 				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
