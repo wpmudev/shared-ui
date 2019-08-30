@@ -14281,7 +14281,7 @@ p:first-of-type {
 
 									<div class="sui-form-field">
 										<span class="sui-settings-label">8. HubSpot:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="hubspot">Show Sample</button>
+										<button type="button" class="sui-button" data-modal-open="hubspot-dialog">Show Sample</button>
 										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview</a></span>
 									</div>
 
@@ -16590,13 +16590,18 @@ $cross-sell-3: 'smartcrawl';
 			</div>
 
 			<!-- SAMPLE #8: HubSpot -->
-			<div class="sui-modal sui-modal-md" aria-hidden="true" tabindex="-1" id="hubspot">
+			<div class="sui-dialog sui-modal-md" data-markup="new">
 
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+				<div
+					role="dialog"
+					id="hubspot-dialog"
+					class="sui-modal-content"
+					aria-modal="true"
+					aria-labelledby="hubspotTitle"
+					aria-describedby="hubspotDesc"
+				>
 
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
+					<div class="sui-box">
 
 						<div class="sui-box-header sui-content-center">
 
@@ -16608,17 +16613,17 @@ $cross-sell-3: 'smartcrawl';
 								/>
 							</figure>
 
-							<button class="sui-button-icon sui-button-float--left" data-a11y-dialog-hide>
+							<button class="sui-button-icon sui-button-float--left" aria-label="Go back to previous step" data-modal-close>
 								<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
 							</button>
 
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
+							<button class="sui-button-icon sui-button-float--right" aria-label="Close this dialog" data-modal-close>
 								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 							</button>
 
-							<span class="sui-box-title sui-lg">Create Ticket</span>
+							<p id="hubspotTitle" class="sui-box-title sui-lg">Create Ticket</p>
 
-							<span class="sui-description">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</span>
+							<p id="hubspotDesc" class="sui-description">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
 
 						</div>
 
@@ -16696,7 +16701,12 @@ $cross-sell-3: 'smartcrawl';
 						</div>
 
 						<div class="sui-box-footer sui-content-right">
-							<button class="sui-button sui-button-blue" data-a11y-dialog-hide>Activate</button>
+
+							<button id="hubspot-dialog-close" class="sui-button sui-button-blue" data-modal-close>
+								<span class="sui-loading-text">Activate</span>
+								<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+							</button>
+
 						</div>
 
 					</div>

@@ -1,7 +1,8 @@
 @include body-class {
 
 	// NOTE: New modal.
-	.sui-modal {
+	.sui-modal,
+	.sui-dialog[data-markup="new"] {
 		overflow: auto;
 		display: flex;
 		align-items: center;
@@ -11,6 +12,7 @@
 		right: 0;
 		bottom: 0;
 		left: map-get($wordpress, adminbar);
+		background-color: $modal-overlay-bg-color;
 
 		&, * {
 			box-sizing: border-box;
@@ -531,13 +533,14 @@
 		}
 
 		// STATE: Hidden.
-		&[aria-hidden="true"] {
+		&:not(.sui-active),
+		&[aria-hidden="true"]:not(.sui-active) {
 			display: none;
 		}
 	}
 
 	// NOTE: Support old legacy code for modals.
-	.sui-dialog {
+	.sui-dialog:not([data-markup="new"]) {
 		overflow: auto;
 		display: flex;
 		align-items: center;
@@ -1362,16 +1365,16 @@
 			}
 		}
 
-		.sui-dialog {
+		.sui-dialog:not([data-markup="new"]) {
 			left: 36px;
 
-			@media (max-width: 782px) {
-				left: 0;
+			.sui-dialog-overlay {
+				left: 36px;
+
+				@media (max-width: 782px) {
+					left: 0;
+				}
 			}
-		}
-
-		.sui-dialog-overlay {
-			left: 36px;
 
 			@media (max-width: 782px) {
 				left: 0;
