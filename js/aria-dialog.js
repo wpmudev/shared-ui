@@ -83,10 +83,29 @@
 		}
 	};
 
+	/**
+	 * Simulate a click event.
+	 * @public
+	 * @param {Element} element the element to simulate a click on
+	 */
+	aria.Utils.simulateClick = function( element ) {
+
+		// Create our event (with options)
+		var evt = new MouseEvent( 'click', {
+			bubbles: true,
+			cancelable: true,
+			view: window
+		});
+
+		// If cancelled, don't dispatch our event
+		var canceled = ! element.dispatchEvent( evt );
+
+	};
+
 	// When util functions move focus around, set this true so
 	// the focus listener can ignore the events.
 	aria.Utils.IgnoreUtilFocusChanges = false;
-	aria.Utils.dialogOpenClass = 'has-dialog';
+	aria.Utils.dialogOpenClass = 'sui-has-modal';
 
 	/**
 	 * @desc Set focus on descendant nodes until the first
@@ -230,7 +249,7 @@
 		}
 
 		var validRoles = [ 'dialog', 'alertdialog' ];
-		var isDialog = ( this.dialogNode.getAttribute('role') || '' )
+		var isDialog = ( this.dialogNode.getAttribute( 'role' ) || '' )
 			.trim()
 			.split( /\s+/g )
 			.some( function( token ) {
@@ -248,7 +267,7 @@
 		// Wrap in an individual backdrop element if one doesn't exist
 		// Native <dialog> elements use the ::backdrop pseudo-element, which
 		// works similarly.
-		var backdropClass = 'sui-dialog';
+		var backdropClass = 'sui-modal';
 
 		if ( this.dialogNode.parentNode.classList.contains( backdropClass ) ) {
 			this.backdropNode = this.dialogNode.parentNode;
@@ -301,8 +320,8 @@
 		this.addListeners();
 		aria.OpenDialogList.push( this );
 		this.clearDialog();
-		this.dialogNode.classList.remove( 'sui-fade-out' );
-		this.dialogNode.classList.add( 'sui-fade-in' ); // make visible
+		this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
+		this.dialogNode.classList.remove( 'sui-content-fade-out' );
 
 		if ( this.focusFirst ) {
 			this.focusFirst.focus();
@@ -331,15 +350,22 @@
 	 */
 	aria.Dialog.prototype.close = function() {
 
-		aria.OpenDialogList.pop();
+		var self = this;
 
+		aria.OpenDialogList.pop();
 		this.removeListeners();
+
 		this.preNode.parentNode.removeChild( this.preNode );
 		this.postNode.parentNode.removeChild( this.postNode );
-		this.dialogNode.classList.add( 'sui-fade-out' );
-		this.dialogNode.classList.remove( 'sui-fade-in' );
-		this.backdropNode.classList.remove('sui-active');
+
+		this.dialogNode.classList.add( 'sui-content-fade-out' );
+		this.dialogNode.classList.remove( 'sui-content-fade-in' );
+
 		this.focusAfterClosed.focus();
+
+		setTimeout( function() {
+			self.backdropNode.classList.remove( 'sui-active' );
+		}, 300 );
 
 		// If a dialog was open underneath this one, restore its listeners.
 		if ( 0 < aria.OpenDialogList.length ) {
@@ -366,11 +392,14 @@
 	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst ) {
 
 		var closedDialog = aria.getCurrentDialog();
+
 		aria.OpenDialogList.pop();
 		this.removeListeners();
-		aria.Utils.remove(this.preNode);
-		aria.Utils.remove(this.postNode);
-		this.dialogNode.className = 'hidden';
+
+		aria.Utils.remove( this.preNode );
+		aria.Utils.remove( this.postNode );
+
+		this.dialogNode.classList.remove( 'sui-content-fade-in' );
 		this.backdropNode.classList.remove( 'sui-active' );
 
 		var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
@@ -408,11 +437,11 @@
 		}
 	}; // end trapFocus
 
-	SUI.openDialog = function( dialogId, focusAfterClosed, focusFirst ) {
+	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst ) {
 		var dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst );
 	};
 
-	SUI.closeDialog = function( closeButton ) {
+	SUI.closeModal = function( closeButton ) {
 
 		var topDialog = aria.getCurrentDialog();
 
@@ -421,7 +450,19 @@
 		}
 	}; // end closeDialog
 
-	SUI.replaceDialog = function( newDialogId, newFocusAfterClosed, newFocusFirst ) {
+	SUI.closeMask = function( overlayMask ) {
+
+		var getDialogElement = overlayMask.parentNode.querySelector( '.sui-modal-content > div' );
+
+		getDialogElement.addEventListener( 'click', function() {
+			SUI.closeModal( this );
+		});
+
+		aria.Utils.simulateClick( getDialogElement );
+
+	}; // end overlayModal
+
+	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst ) {
 
 		var topDialog = aria.getCurrentDialog();
 
@@ -430,14 +471,20 @@
 		}
 	}; // end replaceDialog
 
-	SUI.modals = function() {
+}() );
+
+( function( $ ) {
+
+	SUI.modalDialog = function() {
 
 		function init() {
 
-			var button, buttonOpen, buttonClose, modalId;
+			var button, buttonOpen, buttonClose, buttonReplace, overlayMask, modalId;
 
-			buttonOpen = $( '[data-modal-open]' );
-			buttonClose = $( '[data-modal-close]' );
+			buttonOpen    = $( '[data-modal-open]' );
+			buttonClose   = $( '[data-modal-close]' );
+			buttonReplace = $( '[data-modal-replace]' );
+			overlayMask   = $( '.sui-modal-overlay' );
 
 			if ( '' !== buttonOpen.data( 'modal-open' ) ) {
 
@@ -446,13 +493,29 @@
 					button  = $( e.target );
 					modalId = button.data( 'modal-open' );
 
-					SUI.openDialog( modalId, this );
+					SUI.openModal( modalId, this );
+
+				});
+			}
+
+			if ( '' !== buttonReplace.data( 'modal-replace' ) ) {
+
+				buttonReplace.on( 'click', function( e ) {
+
+					button  = $( e.target );
+					modalId = button.data( 'modal-replace' );
+
+					SUI.replaceModal( modalId, this );
 
 				});
 			}
 
 			buttonClose.on( 'click', function() {
-				SUI.closeDialog( this );
+				SUI.closeModal( this );
+			});
+
+			overlayMask.on( 'click', function() {
+				SUI.closeMask( this );
 			});
 		}
 
@@ -461,6 +524,6 @@
 		return this;
 	};
 
-	SUI.modals();
+	SUI.modalDialog();
 
-}() );
+}( jQuery ) );
