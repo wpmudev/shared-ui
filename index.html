@@ -14275,7 +14275,7 @@ p:first-of-type {
 
 									<div class="sui-form-field">
 										<span class="sui-settings-label">7. ActiveCampaign:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="activecampaign">Show Sample</button>
+										<button type="button" class="sui-button" data-modal-open="activecampaign">Show Sample</button>
 										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/17262179/357797115/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/17262179/357797115/preview</a></span>
 									</div>
 
@@ -16531,13 +16531,18 @@ $cross-sell-3: 'smartcrawl';
 			</div>
 
 			<!-- SAMPLE #7: ActiveCampaign -->
-			<div class="sui-modal sui-modal-sm" aria-hidden="true" tabindex="-1" id="activecampaign">
+			<div class="sui-modal sui-modal-sm">
 
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
+				<div
+					role="dialog"
+					id="activecampaign"
+					class="sui-modal-content"
+					aria-modal="true"
+					aria-labelledby="activecampaign-title"
+					aria-describedby="activecampaign-desc"
+				>
 
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
+					<div class="sui-box">
 
 						<div class="sui-box-header sui-content-center">
 
@@ -16580,7 +16585,7 @@ $cross-sell-3: 'smartcrawl';
 						</div>
 
 						<div class="sui-box-footer sui-content-right">
-							<button class="sui-button" data-a11y-dialog-hide>Connect</button>
+							<button class="sui-button" data-modal-replace="hubspot-dialog" data-modal-close>Connect</button>
 						</div>
 
 					</div>
@@ -16590,7 +16595,9 @@ $cross-sell-3: 'smartcrawl';
 			</div>
 
 			<!-- SAMPLE #8: HubSpot -->
-			<div class="sui-dialog sui-modal-md" data-markup="new">
+			<div class="sui-modal sui-modal-md">
+
+				<div class="sui-modal-overlay"></div>
 
 				<div
 					role="dialog"
@@ -16702,7 +16709,7 @@ $cross-sell-3: 'smartcrawl';
 
 						<div class="sui-box-footer sui-content-right">
 
-							<button id="hubspot-dialog-close" class="sui-button sui-button-blue" data-modal-close>
+							<button id="hubspot-dialog-close" class="sui-button sui-button-blue">
 								<span class="sui-loading-text">Activate</span>
 								<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
 							</button>
