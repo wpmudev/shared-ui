@@ -28,7 +28,6 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-color: $modal-overlay-bg-color;
 
 			&:hover {
 				outline: none;
@@ -533,14 +532,13 @@
 		}
 
 		// STATE: Hidden.
-		&:not(.sui-active),
-		&[aria-hidden="true"]:not(.sui-active) {
-			display: none;
+		&:not(.sui-active) {
+			display: none !important;
 		}
 	}
 
 	// NOTE: Support old legacy code for modals.
-	.sui-dialog:not([data-markup="new"]) {
+	.sui-dialog {
 		overflow: auto;
 		display: flex;
 		align-items: center;
