@@ -16,7 +16,7 @@
 			SUI.dialogs = {};
 		}
 
-		$( 'SUI_BODY_CLASS .sui-dialog:not([data-markup="new"])' ).each( function() {
+		$( 'SUI_BODY_CLASS .sui-dialog' ).each( function() {
 
 			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
 				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
