@@ -9505,7 +9505,10 @@
 			var tab = event.target;
 
 			activateTab( tab );
-			setCallback( tab );
+
+			if ( undefined !== data && 'undefined' !== data ) {
+				setCallback( tab );
+			}
 
 			event.preventDefault();
 			event.stopPropagation();
