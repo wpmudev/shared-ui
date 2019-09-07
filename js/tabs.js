@@ -332,7 +332,7 @@
 
 			activateTab( tab );
 
-			if ( undefined !== data ) {
+			if ( undefined !== data && 'undefined' !== data ) {
 				setCallback( tab );
 			}
 
