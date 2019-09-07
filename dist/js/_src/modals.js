@@ -15,7 +15,7 @@
 		}
 
 		// Init the dialog elements.
-		$( '.sui-2-4-0 .sui-dialog' ).each( function() {
+		$( '.sui-2-4-1 .sui-dialog' ).each( function() {
 			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
 				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
 			}
