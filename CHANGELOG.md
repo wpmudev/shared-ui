@@ -1,3 +1,7 @@
+v2.4.1
+- [Fix] Tabs: Undefined object error on console.
+
+
 v2.4.0
 - [New]     Search select element.
 - [Fix]     Insert Variables: Textarea line breaks in contrast mode.

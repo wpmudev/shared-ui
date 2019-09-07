@@ -331,7 +331,10 @@
 			var tab = event.target;
 
 			activateTab( tab );
-			setCallback( tab );
+
+			if ( undefined !== data ) {
+				setCallback( tab );
+			}
 
 			event.preventDefault();
 			event.stopPropagation();
