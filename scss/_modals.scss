@@ -1,15 +1,553 @@
 @include body-class {
 
+	// NOTE: New modal.
+	.sui-modal,
+	.sui-dialog[data-markup="new"] {
+		overflow: auto;
+		display: flex;
+		align-items: center;
+		position: fixed;
+		z-index: map-get($modal, z-index);
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: map-get($wordpress, adminbar);
+		background-color: $modal-overlay-bg-color;
+
+		&, * {
+			box-sizing: border-box;
+		}
+
+		// ELEMENT: Overlay mask.
+		.sui-modal-overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: map-get($modal, z-index);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			&:hover {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+		// ELEMENT: Content.
+		.sui-modal-content {
+			width: 100%;
+			max-width: #{map-get($modal, size-xl) + ($sui-gutter * 2)};
+			position: relative;
+			z-index: map-get($modal, z-index);
+			margin: 0 auto;
+			padding: 0 $sui-gutter;
+
+			@include media(max-width, md) {
+				max-width: #{map-get($modal, size-xl) + ($sui-gutter-md * 2)};
+				padding: 0 $sui-gutter-md;
+			}
+		}
+
+		// ELEMENT: Box.
+		.sui-box {
+			box-shadow: none;
+
+			// ELEMENT: Box Title.
+			.sui-box-title {
+
+				&.sui-lg {
+					font-size: 22px;
+					line-height: 30px;
+				}
+
+				+ .sui-description {
+					margin-top: #{$sui-gutter / 2};
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter-md / 2};
+					}
+				}
+			}
+
+			// ELEMENT: Box Header.
+			.sui-box-header {
+				position: relative;
+				padding-bottom: 0;
+				border-bottom-width: 0;
+
+				// ELEMENT: Box image.
+				.sui-box-image {
+					overflow: hidden;
+					display: block;
+					margin: -#{$sui-gutter / 2} -#{$sui-gutter} #{$sui-gutter + 10px};
+					padding: 0;
+					border-top-left-radius: $border-radius;
+					border-top-right-radius: $border-radius;
+
+					img {
+						max-width: 100%;
+						display: block;
+						margin: 0 auto;
+						padding: 0;
+						border: 0;
+					}
+
+					@include media(max-width, md) {
+						margin: -#{$sui-gutter-md / 2} -#{$sui-gutter-md} #{$sui-gutter-md + 10px};
+					}
+				}
+
+				// ELEMENT: Box logo.
+				.sui-box-logo {
+					width: map-get($modal, logo-size);
+					height: map-get($modal, logo-size);
+					display: block;
+					margin: -#{(map-get($modal, logo-size) / 2) + ($sui-gutter / 2)} auto #{$sui-gutter - map-get($modal, logo-border)};
+					padding: 0;
+					border: map-get($modal, logo-border) solid $white;
+					border-radius: $border-radius;
+
+					img {
+						width: #{$sui-gutter * 2};
+						height: #{$sui-gutter * 2};
+						margin: 0;
+						padding: 0;
+						border: 0;
+					}
+				}
+
+				// ELEMENT: Floated button.
+				.sui-button-float {
+
+					// FLOAT: Right.
+					&--right {
+						position: absolute;
+						top: #{$sui-gutter - 10px};
+						right: #{$sui-gutter - 10px};
+						margin: 0;
+
+						@include media(max-width, md) {
+							top: #{$sui-gutter-md - 5px};
+							right: #{$sui-gutter-md - 5px};
+						}
+					}
+
+					// FLOAT: Left.
+					&--left {
+						position: absolute;
+						top: #{$sui-gutter - 10px};
+						left: #{$sui-gutter - 10px};
+						margin: 0;
+
+						@include media(max-width, md) {
+							top: #{$sui-gutter-md - 5px};
+							left: #{$sui-gutter-md - 5px};
+						}
+					}
+				}
+
+				// VAR: Spacing.
+				&.sui-spacing {
+
+					// SPACING: Top (60px).
+					&-top--lg {
+						padding-top: #{$sui-gutter * 2};
+
+						// ELEMENT: Box image.
+						.sui-box-image {
+							margin-top: -#{$sui-gutter * 2};
+						}
+
+						// ELEMENT: Box logo.
+						.sui-box-logo {
+							margin-top: -#{($sui-gutter * 2) + (map-get($modal, logo-size) / 2)};
+						}
+
+						@include media(max-width, md) {
+							padding-top: #{$sui-gutter-md * 2};
+						}
+					}
+
+					// SPACING: Right (60px).
+					&-right--lg {
+						padding-right: #{$sui-gutter * 2};
+
+						// ELEMENT: Box image.
+						.sui-box-image {
+							margin-right: -#{$sui-gutter * 2};
+
+							@include media(max-width, md) {
+								margin-right: -#{$sui-gutter-md * 2};
+							}
+						}
+
+						@include media(max-width, md) {
+							padding-right: #{$sui-gutter-md * 2};
+						}
+					}
+
+					// SPACING: Left (60px).
+					&-left--lg {
+						padding-left: #{$sui-gutter * 2};
+
+						// ELEMENT: Box image.
+						.sui-box-image {
+							margin-left: -#{$sui-gutter * 2};
+
+							@include media(max-width, md) {
+								margin-left: -#{$sui-gutter-md * 2};
+							}
+						}
+
+						@include media(max-width, md) {
+							padding-left: #{$sui-gutter-md * 2};
+						}
+					}
+
+					// SPACING: Sides (60px).
+					&-sides--lg {
+						padding-left: #{$sui-gutter * 2};
+						padding-right: #{$sui-gutter * 2};
+
+						// ELEMENT: Box image.
+						.sui-box-image {
+							margin-left: -#{$sui-gutter * 2};
+							margin-right: -#{$sui-gutter * 2};
+
+							@include media(max-width, md) {
+								margin-left: -#{$sui-gutter-md * 2};
+								margin-right: -#{$sui-gutter-md * 2};
+							}
+						}
+
+						@include media(max-width, md) {
+							padding-left: #{$sui-gutter-md * 2};
+							padding-right: #{$sui-gutter-md * 2};
+						}
+					}
+				}
+
+				// VAR: Outlined.
+				&.sui-outlined {
+					padding-bottom: #{$sui-gutter / 2};
+					border-bottom-width: 1px;
+
+					@include media(max-width, md) {
+						padding-bottom: #{$sui-gutter-md / 2};
+					}
+				}
+
+				// VAR: Center align content.
+				&.sui-content-center {
+					display: block;
+					text-align: center;
+				}
+
+				+ .sui-box-footer:not(.sui-outlined) {
+					padding-top: $sui-gutter;
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+				}
+
+				+ .sui-box-footer.sui-outlined {
+					margin-top: $sui-gutter;
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+				}
+			}
+
+			// ELEMENT: Box Selectors.
+			.sui-box-selectors {
+				margin: $sui-gutter 0;
+
+				&:first-child {
+					margin-top: 0;
+
+					@include media(max-width, md) {
+						margin-top: 0;
+					}
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@include media(max-width, md) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(max-width, md) {
+					margin: $sui-gutter-md 0;
+				}
+			}
+
+			// ELEMENT: Box Footer.
+			.sui-box-footer {
+				padding-top: 0;
+				border-top-width: 0;
+
+				// VAR: Outlined.
+				&.sui-outlined {
+					padding-top: $sui-gutter;
+					border-top-width: 1px;
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+				}
+
+				// VAR: Align content.
+				&.sui-content {
+
+					// ALIGN: Center.
+					&-center {
+						justify-content: center;
+					}
+
+					// ALIGN: Right.
+					&-right {
+						justify-content: flex-end;
+					}
+
+					// ALIGN: Separated (space between).
+					&-separated {
+						justify-content: space-between;
+					}
+				}
+
+				+ .sui-image {
+					margin-top: #{$sui-gutter - 10px};
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter-md - 10px};
+					}
+				}
+			}
+		}
+
+		// ELEMENT: Skip modal.
+		.sui-modal-skip:not(.sui-button) {
+			width: auto;
+			max-width: 100%;
+			cursor: pointer;
+			display: block;
+			margin: 0 auto;
+			padding: 0;
+			border: 0;
+			background-color: transparent;
+			background-image: none;
+			box-shadow: none;
+			color: palette(silver, medium);
+			font: 500 12px/16px $font;
+			letter-spacing: -0.18px;
+			text-align: center;
+
+			&:focus,
+			&:hover,
+			&:active {
+				color: $white;
+			}
+		}
+
+		// SIZE: Large.
+		&.sui-modal-lg {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-lg) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-lg) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// SIZE: Medium.
+		&.sui-modal-md {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-md) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-md) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// SIZE: Small.
+		&.sui-modal-sm {
+
+			.sui-modal-content {
+				max-width: #{map-get($modal, size-sm) + ($sui-gutter * 2)};
+
+				@include media(max-width, md) {
+					max-width: #{map-get($modal, size-sm) + ($sui-gutter-md * 2)};
+				}
+			}
+		}
+
+		// VAR: Onboard modal.
+		&.sui-modal-onboard {
+
+			.sui-modal-content {
+				pointer-events: none;
+			}
+
+			.sui-slider {
+				display: block;
+				position: relative;
+
+				ul.sui-slider-content {
+					pointer-events: all;
+
+					&, > li {
+						margin: 0;
+						padding: 0;
+						border: 0;
+						list-style: none;
+					}
+
+					> li {
+						opacity: 0;
+						display: none;
+						animation-duration: 0.7s;
+						animation-fill-mode: both;
+						transform-origin: center;
+						transform-style: preserve-3d;
+
+						// ANIMATE: Move slide to left.
+						&.fadeInLeft {
+							opacity: 1;
+							animation-name: fadeInLeft;
+						}
+
+						// ANIMATE: Move slide to right.
+						&.fadeInRight {
+							opacity: 1;
+							animation-name: fadeInRight;
+						}
+
+						// STATE: Current.
+						&.sui-current {
+							display: block;
+						}
+
+						// STATE: Loaded.
+						&.sui-loaded {
+							opacity: 1;
+						}
+					}
+				}
+
+				.sui-slider-steps {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: center;
+					margin: 0 -5px;
+					padding: #{map-get($onboard, spacing) / 2} 0;
+					border: 0;
+
+					&, li {
+						list-style: none;
+
+						&:before,
+						&:after {
+							content: unset;
+						}
+					}
+
+					li {
+						display: block;
+						flex: 0 0 auto;
+						margin: 0;
+						padding: 0 5px;
+
+						a, button, > span {
+							width: 7px;
+							height: 7px;
+							display: block;
+							border-radius: 14px;
+
+							&,
+							&:hover,
+							&:focus,
+							&:active,
+							&:visited {
+								margin: 0;
+								padding: 0;
+								border: 0;
+								outline: none;
+								box-shadow: none;
+							}
+						}
+					}
+
+					&.sui-clickable li {
+
+						a, button, > span {
+							background-color: palette(silver, soft);
+						}
+
+						a, button {
+							cursor: pointer;
+						}
+
+						&.current {
+
+							a, button, > span {
+								background-color: palette(gray, default);
+							}
+
+							a, button {
+								pointer-events: none;
+							}
+						}
+					}
+
+					&:not(.sui-clickable) li {
+
+						a, button, > span {
+							background-color: palette(gray, default);
+						}
+
+						a, button {
+							pointer-events: none;
+						}
+
+						&.current ~ li {
+
+							a, button, > span {
+								background-color: palette(silver, soft);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// STATE: Hidden.
+		&:not(.sui-active) {
+			display: none !important;
+		}
+	}
+
+	// NOTE: Support old legacy code for modals.
 	.sui-dialog {
+		overflow: auto;
+		display: flex;
+		align-items: center;
 		position: fixed;
 		z-index: 13;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 160px;
-		display: flex;
-		align-items: center;
-		overflow: auto;
 		background-color: $modal-overlay-bg-color;
 
 		&, * {
@@ -814,19 +1352,27 @@
 		}
 	}
 
-	// Folded sidebar
+	// VAR: Folded sidebar.
 	&.wp-admin.folded {
 
-		.sui-dialog {
+		.sui-modal {
 			left: 36px;
 
-			@media (max-width: 782px) {
+			@include media(max-width, md) {
 				left: 0;
 			}
 		}
 
-		.sui-dialog-overlay {
+		.sui-dialog:not([data-markup="new"]) {
 			left: 36px;
+
+			.sui-dialog-overlay {
+				left: 36px;
+
+				@media (max-width: 782px) {
+					left: 0;
+				}
+			}
 
 			@media (max-width: 782px) {
 				left: 0;
