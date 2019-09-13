@@ -282,7 +282,7 @@
 		this.backdropNode.classList.add( 'sui-active' );
 
 		// Disable scroll on the body element
-		document.body.classList.add( aria.Utils.dialogOpenClass );
+		document.body.parentNode.classList.add( aria.Utils.dialogOpenClass );
 
 		if ( 'string' === typeof focusAfterClosed ) {
 			this.focusAfterClosed = document.getElementById( focusAfterClosed );
@@ -371,7 +371,7 @@
 		if ( 0 < aria.OpenDialogList.length ) {
 			aria.getCurrentDialog().addListeners();
 		} else {
-			document.body.classList.remove( aria.Utils.dialogOpenClass );
+			document.body.parentNode.classList.remove( aria.Utils.dialogOpenClass );
 		}
 	}; // end close
 
@@ -406,6 +406,48 @@
 		var dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst );
 
 	}; // end replace
+
+	/**
+	 * @desc
+	 *
+	 * @param newSlideId
+	 *
+	 * @param newFocusFirst
+	 */
+	aria.Dialog.prototype.slide = function( newSlideId, newFocusFirst ) {
+
+		var currentDialog = aria.getCurrentDialog(),
+			getAllSlides  = this.dialogNode.querySelectorAll( '.sui-modal-slide' ),
+			getNewSlide   = document.getElementById( newSlideId )
+			;
+
+		// Hide all slides.
+		for ( var i = 0; i < getAllSlides.length; i++ ) {
+			getAllSlides[i].classList.add( 'sui-hidden' );
+			getAllSlides[i].setAttribute( 'tabindex', '-1' );
+			getAllSlides[i].setAttribute( 'aria-hidden', true );
+		}
+
+		// Show new slide.
+		getNewSlide.classList.remove( 'sui-hidden' );
+		getNewSlide.removeAttribute( 'tabindex' );
+		getNewSlide.removeAttribute( 'aria-hidden' );
+
+		if ( 'string' === typeof newFocusFirst ) {
+			this.newFocusFirst = document.getElementById( newFocusFirst );
+		} else if ( 'object' === typeof newFocusFirst ) {
+			this.newFocusFirst = newFocusFirst;
+		} else {
+			this.newFocusFirst = null;
+		}
+
+		if ( this.newFocusFirst ) {
+			this.newFocusFirst.focus();
+		} else {
+			aria.Utils.focusFirstDescendant( this.dialogNode );
+		}
+
+	}; // end slide
 
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
@@ -469,7 +511,15 @@
 		if ( topDialog.dialogNode.contains( document.activeElement ) ) {
 			topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst );
 		}
-	}; // end replaceDialog
+	}; // end replaceModal
+
+	SUI.slideModal = function( newSlideId, newFocusFirst ) {
+
+		var topDialog = aria.getCurrentDialog();
+
+		topDialog.slide( newSlideId, newFocusFirst );
+
+	}; // end slideModal
 
 }() );
 
@@ -479,11 +529,12 @@
 
 		function init() {
 
-			var button, buttonOpen, buttonClose, buttonReplace, overlayMask, modalId;
+			var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, closeFocus, newFocus;
 
 			buttonOpen    = $( '[data-modal-open]' );
 			buttonClose   = $( '[data-modal-close]' );
 			buttonReplace = $( '[data-modal-replace]' );
+			buttonSlide   = $( '[data-modal-slide]' );
 			overlayMask   = $( '.sui-modal-overlay' );
 
 			if ( '' !== buttonOpen.data( 'modal-open' ) ) {
@@ -495,6 +546,8 @@
 
 					SUI.openModal( modalId, this );
 
+					e.preventDefault();
+
 				});
 			}
 
@@ -503,19 +556,55 @@
 				buttonReplace.on( 'click', function( e ) {
 
 					button  = $( e.target );
-					modalId = button.data( 'modal-replace' );
+					modalId = $( this ).data( 'modal-replace' );
+					closeFocus = $( this ).data( 'modal-close-focus' );
+					newFocus = $( this ).data( 'modal-open-focus' );
 
-					SUI.replaceModal( modalId, this );
+					if ( '' === closeFocus ) {
+						closeFocus = undefined;
+					}
+
+					if ( '' === newFocus ) {
+						newFocus = undefined;
+					}
+
+					if ( undefined !== modalId && '' !== modalId ) {
+
+						SUI.replaceModal( modalId, closeFocus, newFocus );
+					}
+
+					e.preventDefault();
 
 				});
 			}
 
-			buttonClose.on( 'click', function() {
+			if ( '' !== buttonSlide.data( 'modal-slide' ) ) {
+
+				buttonSlide.on( 'click', function( e ) {
+
+					button  = $( e.target );
+					modalId = $( this ).data( 'modal-slide' );
+					newFocus = $( this ).data( 'modal-slide-focus' );
+
+					if ( undefined !== modalId && '' !== modalId ) {
+
+						if ( '' !== newFocus ) {
+							SUI.slideModal( modalId, newFocus );
+						} else {
+							SUI.slideModal( modalId );
+						}
+					}
+				});
+			}
+
+			buttonClose.on( 'click', function( e ) {
 				SUI.closeModal( this );
+				e.preventDefault();
 			});
 
-			overlayMask.on( 'click', function() {
+			overlayMask.on( 'click', function( e ) {
 				SUI.closeMask( this );
+				e.preventDefault();
 			});
 		}
 
