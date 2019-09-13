@@ -1,8 +1,7 @@
 @include body-class {
 
 	// NOTE: New modal.
-	.sui-modal,
-	.sui-dialog[data-markup="new"] {
+	.sui-modal {
 		overflow: auto;
 		display: flex;
 		align-items: center;
@@ -74,8 +73,6 @@
 			// ELEMENT: Box Header.
 			.sui-box-header {
 				position: relative;
-				padding-bottom: 0;
-				border-bottom-width: 0;
 
 				// ELEMENT: Box image.
 				.sui-box-image {
@@ -108,6 +105,7 @@
 					padding: 0;
 					border: map-get($modal, logo-border) solid $white;
 					border-radius: $border-radius;
+					background-color: $white;
 
 					img {
 						width: #{$sui-gutter * 2};
@@ -115,6 +113,7 @@
 						margin: 0;
 						padding: 0;
 						border: 0;
+						border-radius: 4px;
 					}
 				}
 
@@ -355,6 +354,92 @@
 			}
 		}
 
+		// ELEMENT: Steps.
+		.sui-modal-steps {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			margin: 0 -5px;
+			padding: #{map-get($onboard, spacing) / 2} 0;
+			border: 0;
+
+			&, li {
+				list-style: none;
+
+				&:before,
+				&:after {
+					content: unset;
+				}
+			}
+
+			li {
+				display: block;
+				flex: 0 0 auto;
+				margin: 0;
+				padding: 0 5px;
+
+				a, button, > span {
+					width: 7px;
+					height: 7px;
+					display: block;
+					border-radius: 14px;
+
+					&,
+					&:hover,
+					&:focus,
+					&:active,
+					&:visited {
+						margin: 0;
+						padding: 0;
+						border: 0;
+						outline: none;
+						box-shadow: none;
+					}
+				}
+			}
+
+			&.sui-clickable li {
+
+				a, button, > span {
+					background-color: palette(silver, soft);
+				}
+
+				a, button {
+					cursor: pointer;
+				}
+
+				&.current {
+
+					a, button, > span {
+						background-color: palette(gray, default);
+					}
+
+					a, button {
+						pointer-events: none;
+					}
+				}
+			}
+
+			&:not(.sui-clickable) li {
+
+				a, button, > span {
+					background-color: palette(gray, default);
+				}
+
+				a, button {
+					pointer-events: none;
+				}
+
+				&.current ~ li {
+
+					a, button, > span {
+						background-color: palette(silver, soft);
+					}
+				}
+			}
+		}
+
 		// SIZE: Large.
 		&.sui-modal-lg {
 
@@ -387,146 +472,6 @@
 
 				@include media(max-width, md) {
 					max-width: #{map-get($modal, size-sm) + ($sui-gutter-md * 2)};
-				}
-			}
-		}
-
-		// VAR: Onboard modal.
-		&.sui-modal-onboard {
-
-			.sui-modal-content {
-				pointer-events: none;
-			}
-
-			.sui-slider {
-				display: block;
-				position: relative;
-
-				ul.sui-slider-content {
-					pointer-events: all;
-
-					&, > li {
-						margin: 0;
-						padding: 0;
-						border: 0;
-						list-style: none;
-					}
-
-					> li {
-						opacity: 0;
-						display: none;
-						animation-duration: 0.7s;
-						animation-fill-mode: both;
-						transform-origin: center;
-						transform-style: preserve-3d;
-
-						// ANIMATE: Move slide to left.
-						&.fadeInLeft {
-							opacity: 1;
-							animation-name: fadeInLeft;
-						}
-
-						// ANIMATE: Move slide to right.
-						&.fadeInRight {
-							opacity: 1;
-							animation-name: fadeInRight;
-						}
-
-						// STATE: Current.
-						&.sui-current {
-							display: block;
-						}
-
-						// STATE: Loaded.
-						&.sui-loaded {
-							opacity: 1;
-						}
-					}
-				}
-
-				.sui-slider-steps {
-					display: flex;
-					flex-wrap: wrap;
-					align-items: center;
-					justify-content: center;
-					margin: 0 -5px;
-					padding: #{map-get($onboard, spacing) / 2} 0;
-					border: 0;
-
-					&, li {
-						list-style: none;
-
-						&:before,
-						&:after {
-							content: unset;
-						}
-					}
-
-					li {
-						display: block;
-						flex: 0 0 auto;
-						margin: 0;
-						padding: 0 5px;
-
-						a, button, > span {
-							width: 7px;
-							height: 7px;
-							display: block;
-							border-radius: 14px;
-
-							&,
-							&:hover,
-							&:focus,
-							&:active,
-							&:visited {
-								margin: 0;
-								padding: 0;
-								border: 0;
-								outline: none;
-								box-shadow: none;
-							}
-						}
-					}
-
-					&.sui-clickable li {
-
-						a, button, > span {
-							background-color: palette(silver, soft);
-						}
-
-						a, button {
-							cursor: pointer;
-						}
-
-						&.current {
-
-							a, button, > span {
-								background-color: palette(gray, default);
-							}
-
-							a, button {
-								pointer-events: none;
-							}
-						}
-					}
-
-					&:not(.sui-clickable) li {
-
-						a, button, > span {
-							background-color: palette(gray, default);
-						}
-
-						a, button {
-							pointer-events: none;
-						}
-
-						&.current ~ li {
-
-							a, button, > span {
-								background-color: palette(silver, soft);
-							}
-						}
-					}
 				}
 			}
 		}
@@ -1363,7 +1308,7 @@
 			}
 		}
 
-		.sui-dialog:not([data-markup="new"]) {
+		.sui-dialog {
 			left: 36px;
 
 			.sui-dialog-overlay {
@@ -1381,6 +1326,7 @@
 	}
 }
 
+html.sui-has-modal,
 html.sui-has-overlay {
 	overflow: hidden;
 }
