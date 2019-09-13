@@ -147,104 +147,118 @@
 					}
 				}
 
-				// VAR: Spacing.
-				&.sui-spacing {
+				// VAR: Flatten.
+				&.sui-flatten {
+					padding-bottom: 0;
+					border-bottom-width: 0;
+				}
 
-					// SPACING: Top (60px).
-					&-top--lg {
-						padding-top: #{$sui-gutter * 2};
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
+
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
 
 						// ELEMENT: Box image.
 						.sui-box-image {
-							margin-top: -#{$sui-gutter * 2};
+							margin-top: -#{nth($spacing, 1)};
 						}
 
 						// ELEMENT: Box logo.
 						.sui-box-logo {
-							margin-top: -#{($sui-gutter * 2) + (map-get($modal, logo-size) / 2)};
+							margin-top: -#{nth($spacing, 1) + (map-get($modal, logo-size) / 2)};
 						}
 
 						@include media(max-width, md) {
-							padding-top: #{$sui-gutter-md * 2};
+							padding-top: #{nth($spacing, 2)};
 						}
 					}
 
-					// SPACING: Right (60px).
-					&-right--lg {
-						padding-right: #{$sui-gutter * 2};
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
 
 						// ELEMENT: Box image.
 						.sui-box-image {
-							margin-right: -#{$sui-gutter * 2};
+							margin-right: -#{nth($spacing, 1)};
 
 							@include media(max-width, md) {
-								margin-right: -#{$sui-gutter-md * 2};
+								margin-right: -#{nth($spacing, 2)};
 							}
 						}
 
 						@include media(max-width, md) {
-							padding-right: #{$sui-gutter-md * 2};
+							padding-right: nth($spacing, 2);
 						}
 					}
 
-					// SPACING: Left (60px).
-					&-left--lg {
-						padding-left: #{$sui-gutter * 2};
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-bottom: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Left (30px).
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
 
 						// ELEMENT: Box image.
 						.sui-box-image {
-							margin-left: -#{$sui-gutter * 2};
+							margin-left: -#{nth($spacing, 1)};
 
 							@include media(max-width, md) {
-								margin-left: -#{$sui-gutter-md * 2};
+								margin-left: -#{nth($spacing, 2)};
 							}
 						}
 
 						@include media(max-width, md) {
-							padding-left: #{$sui-gutter-md * 2};
+							padding-left: nth($spacing, 2);
 						}
 					}
 
-					// SPACING: Sides (60px).
-					&-sides--lg {
-						padding-left: #{$sui-gutter * 2};
-						padding-right: #{$sui-gutter * 2};
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
 
-						// ELEMENT: Box image.
+						// ELEMENT: Box Image.
 						.sui-box-image {
-							margin-left: -#{$sui-gutter * 2};
-							margin-right: -#{$sui-gutter * 2};
+							margin-left: -#{nth($spacing, 1)};
+							margin-right: -#{nth($spacing, 1)};
 
 							@include media(max-width, md) {
-								margin-left: -#{$sui-gutter-md * 2};
-								margin-right: -#{$sui-gutter-md * 2};
+								margin-left: -#{nth($spacing, 2)};
+								margin-right: -#{nth($spacing, 2)};
 							}
 						}
 
 						@include media(max-width, md) {
-							padding-left: #{$sui-gutter-md * 2};
-							padding-right: #{$sui-gutter-md * 2};
+							padding-left: nth($spacing, 2);
+							padding-right: nth($spacing, 2);
 						}
 					}
 				}
 
-				// VAR: Outlined.
-				&.sui-outlined {
-					padding-bottom: #{$sui-gutter / 2};
-					border-bottom-width: 1px;
+				// VAR: Content alignment.
+				&.sui-content {
 
-					@include media(max-width, md) {
-						padding-bottom: #{$sui-gutter-md / 2};
+					// ALIGN: Center.
+					&-center {
+						display: block;
+						text-align: center;
+					}
+
+					// ALIGN: Center Inline.
+					&-center-inline {
+						justify-content: center;
 					}
 				}
 
-				// VAR: Center align content.
-				&.sui-content-center {
-					display: block;
-					text-align: center;
-				}
-
-				+ .sui-box-footer:not(.sui-outlined) {
+				+ .sui-box-footer.sui-flatten {
 					padding-top: $sui-gutter;
 
 					@include media(max-width, md) {
@@ -252,11 +266,80 @@
 					}
 				}
 
-				+ .sui-box-footer.sui-outlined {
+				+ .sui-box-footer:not(.sui-flatten) {
 					margin-top: $sui-gutter;
 
 					@include media(max-width, md) {
 						margin-top: $sui-gutter-md;
+					}
+				}
+			}
+
+			// ELEMENT: Box Body.
+			.sui-box-body {
+
+				// VAR: Content alignment.
+				&.sui-content {
+
+					// ALIGN: Center.
+					&-center {
+						text-align: center;
+					}
+
+					// ALIGN: Right.
+					&-center-inline {
+						text-align: right;
+					}
+				}
+
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
+
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-top: #{nth($spacing, 2)};
+						}
+					}
+
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-right: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-bottom: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Left (30px).
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-left: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-left: nth($spacing, 2);
+							padding-right: nth($spacing, 2);
+						}
 					}
 				}
 			}
@@ -288,20 +371,14 @@
 
 			// ELEMENT: Box Footer.
 			.sui-box-footer {
-				padding-top: 0;
-				border-top-width: 0;
 
-				// VAR: Outlined.
-				&.sui-outlined {
-					padding-top: $sui-gutter;
-					border-top-width: 1px;
-
-					@include media(max-width, md) {
-						padding-top: $sui-gutter-md;
-					}
+				// VAR: Flatten.
+				&.sui-flatten {
+					padding-top: 0;
+					border-top-width: 0;
 				}
 
-				// VAR: Align content.
+				// VAR: Content alignment.
 				&.sui-content {
 
 					// ALIGN: Center.
@@ -320,11 +397,50 @@
 					}
 				}
 
-				+ .sui-image {
-					margin-top: #{$sui-gutter - 10px};
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
 
-					@include media(max-width, md) {
-						margin-top: #{$sui-gutter-md - 10px};
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-top: #{nth($spacing, 2)};
+						}
+					}
+
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-right: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+					}
+
+					// SPACING: Left (30px).
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-left: nth($spacing, 2);
+						}
+					}
+
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
+
+						@include media(max-width, md) {
+							padding-left: nth($spacing, 2);
+							padding-right: nth($spacing, 2);
+						}
 					}
 				}
 			}
