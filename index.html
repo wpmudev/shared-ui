@@ -14199,19 +14199,27 @@ p:first-of-type {
 						<ul class="sui-vertical-tabs">
 
 							<li class="sui-vertical-tab current">
-								<a href="#" role="button" data-tab="demo-dialog--base">Base</a>
+								<a href="#" role="button" data-tab="demo-dialog--base">Base Structure</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--sizes">Sizes</a>
+								<a href="#" role="button" data-tab="demo-dialog--sizes">Modal Sizes</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--elements">Elements</a>
+								<a href="#" role="button" data-tab="demo-dialog--replace">Replace Modal</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--content">Content</a>
+								<a href="#" role="button" data-tab="demo-dialog--slider">Slide Modal</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-dialog--elements">Modal Elements</a>
+							</li>
+
+							<li class="sui-vertical-tab">
+								<a href="#" role="button" data-tab="demo-dialog--content">Content Elements</a>
 							</li>
 
 							<li class="sui-vertical-tab">
@@ -14246,7 +14254,7 @@ p:first-of-type {
 
 					</div>
 
-					<!-- SECTION: Modal Base. -->
+					<!-- SECTION: Base Structure. -->
 					<div class="sui-box" data-tab="demo-dialog--base">
 
 						<div class="sui-box-header">
@@ -14291,75 +14299,94 @@ p:first-of-type {
 
 							</div>
 
-							<!-- ROW: Action Attributes. -->
+							<!-- ROW: Base Actions. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Action Attributes</span>
+									<span class="sui-settings-label">Base Actions</span>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
-									<div class="sui-notice sui-notice-warning">
-										<p>If you want to perform <strong>replace</strong> action by opening a new modal while current one is still active you should review <strong>Transitions</strong> tab, there you will learn more about replacing opened modals. It will help you with modals that transition between 2 or more steps.</p>
-									</div>
-
-									<p>You have 2 base actions for modals: open (on click) and close (on click). To perform an action you need to include <code>data-modal-{action}</code> attribute where <code>{action}</code> will be replaced by the action you want to perform.</p>
-
-									<ul>
-										<li><code>open</code> action needs to include the ID of the modal you want to open. This attribute can be used only if is placed outside a modal.</li>
-										<li><code>close</code> action does not need any extra info.</li>
-									</ul>
+									<label class="sui-label" style="margin-bottom: 5px;">HTML Actions</label>
+									<span class="sui-description" style="margin-bottom: 10px;">These actions can be added directly on markup as <code>data</code> attributes to the element that's going to trigger the action (to open or to close the modal).</span>
 
 									<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;!-- SAMPLE: Open Modal --&gt;
-&lt;button data-modal-open=&quot;modal-unique-id&quot;&gt;Click To Open&lt;/button&gt;
+&lt;!--
+	ACTION: Open Modal
+	You can only use these attributes on an element that's placed "outside" modal.
 
-&lt;!-- SAMPLE: Close Modal --&gt;
-&lt;button data-modal-close&gt;Click To Close&lt;/button&gt;
+	1. "data-modal-open" attribute will open the modal you assign.
+	2. "data-modal-open-focus" attribute will focus element you assign that's placed
+		inside modal on modal open action.
+--&gt;
+&lt;button
+	data-modal-open=&quot;unique-id&quot;
+	data-modal-open-focus=&quot;focused-element-id&quot;
+&gt;
+	Open Modal
+&lt;/button&gt;
+
+&lt;!--
+	ACTION: Close Modal
+	You can use this attribute on an element that's placed "inside" modal.
+--&gt;
+&lt;button
+	data-modal-close=&quot;&quot;
+&gt;
+	Close Modal
+&lt;/button&gt;
 </pre>
 
 									</div>
 
-								</div>
-
-							</div>
-
-							<!-- ROW: Action Functions. -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Action Functions</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-notice sui-notice-warning">
-										<p>If you want to perform <strong>replace</strong> action by opening a new modal while current one is still active you should review <strong>Transitions</strong> tab, there you will learn more about replacing opened modals. It will help you with modals that transition between 2 or more steps.</p>
-									</div>
-
-									<p>You have 2 base actions for modals: open and close. To perform them you will need a SUI function.</p>
-
-									<ul>
-										<li><code>open</code> action needs to include the ID of the modal you want to open. This function can be used only if is there is no other modal opened, if you need to replace an existing one you will need <strong>replace</strong> function, you can find more info about it on <strong>Transitions</strong> tab.</li>
-										<li><code>close</code> action will run without errors if clicked element is inside the modal content.</li>
-									</ul>
+									<label class="sui-label" style="margin-bottom: 5px">JS Actions</label>
+									<span class="sui-description" style="margin-bottom: 10px;">There are times when you need to excecute some actions with JS during moda open/close. For those cases is recommended to use JS functions when to trigger modal open/close action.</span>
 
 									<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-// SAMPLE: Open Modal
-$( 'button' ).on( 'click', function() {
-	var modalId = 'modal-unique-id'; // Do not include hash ( # ) before ID name.
-	SUI.openModal( modalId, this );
-});
+( function( $ ) {
 
-// SAMPLE: Close Modal
-$( 'button' ).on( 'click', function() {
-	SUI.closeModal( this );
-});
+	/**
+	* OPEN MODAL.
+	*
+	* @desc Trigger this function when performing a click action on
+	* an element that's placed outside modal.
+	*
+	* @param modalId
+	* The ID of the element serving as the modal container.
+	*
+	* @param focusAfterClosed
+	* Either the DOM node or the ID of the DOM node to focus when the
+	* modal closes.
+	*
+	* @param focusWhenOpen
+	* Optional parameter containing either the DOM node or the ID of the
+	* DOM node to focus when the module opens. If not specified, the
+	* first focusable element in the module will receive focus.
+	*
+	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen );
+	*/
+	$( 'button' ).on( 'click', function() {
+		SUI.openModal( 'modal-unique-id', this, 'element-unique-id' );
+	});
+
+	/**
+	 * CLOSE MODAL.
+	 *
+	 * @desc Hides the current top modal and sets focus on the element
+	 * specified for "focusAfterClosed" on open function.
+	 *
+	 * SUI.closeModal( closeButton );
+	 */
+	$( 'button' ).on( 'click', function() {
+		SUI.closeModal( this );
+	});
+
+}( jQuery ) );
 </pre>
 
 									</div>
@@ -14391,43 +14418,39 @@ $( 'button' ).on( 'click', function() {
 
 								<div class="sui-box-settings-col-2">
 
-									<p>By default modals assign <strong>980px max-width</strong> to its content. You can get this by using <code>sui-modal</code> class only.</p>
+									<p style="margin-bottom: 15px;">By default modals assign <strong>100% width</strong> to its content. You can get this by using <code>sui-modal</code> class only.</p>
 
-									<p><button class="sui-button" data-modal-open="demo-dialog--size-default">Try the modal</button></p>
+									<div class="demo-code-block">
 
-									<div class="demo-code-block" style="margin-bottom: 0;">
-<pre class="sui-code-snippet html">
+<pre class="sui-code-snippet html sui-no-copy">
 &lt;div class=&quot;sui-modal&quot;&gt;
 	...
 &lt;/div&gt;
 </pre>
+
 									</div>
 
-									<div class="sui-modal">
+								</div>
 
-										<div
-											role="dialog"
-											id="demo-dialog--size-default"
-											class="sui-modal-content"
-											aria-modal="true"
-											aria-labelledby="demo-dialog--size-default-title"
-											aria-describedby="demo-dialog--size-default-desc"
-										>
+							</div>
 
-											<div class="sui-box">
+							<div class="sui-box-settings-row">
 
-												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--30">
-													<h3 id="demo-dialog--size-default-title" class="sui-box-title sui-lg">Default Size Modal</h3>
-													<p id="demo-dialog--size-default-desc">This modal assigns 980px width to its content.</p>
-												</div>
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label">Extra Large</span>
+								</div>
 
-												<div class="sui-box-footer sui-flatten sui-content-center">
-													<button class="sui-button sui-button-ghost" data-modal-close>Close</button>
-												</div>
+								<div class="sui-box-settings-col-2">
 
-											</div>
+									<p style="margin-bottom: 15px;">Extra large modals assign <strong>980px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-xl</code> classes together.</p>
 
-										</div>
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;div class=&quot;sui-modal sui-modal-xl&quot;&gt;
+	...
+&lt;/div&gt;
+</pre>
 
 									</div>
 
@@ -14443,43 +14466,15 @@ $( 'button' ).on( 'click', function() {
 
 								<div class="sui-box-settings-col-2">
 
-									<p>Large modals assign <strong>600px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-lg</code> classes together.</p>
+									<p style="margin-bottom: 15px;">Large modals assign <strong>600px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-lg</code> classes together.</p>
 
-									<p><button class="sui-button" data-modal-open="demo-dialog--size-large">Try the modal</button></p>
+									<div class="demo-code-block">
 
-									<div class="demo-code-block" style="margin-bottom: 0;">
-<pre class="sui-code-snippet html">
+<pre class="sui-code-snippet html sui-no-copy">
 &lt;div class=&quot;sui-modal sui-modal-lg&quot;&gt;
 	...
 &lt;/div&gt;
 </pre>
-									</div>
-
-									<div class="sui-modal sui-modal-lg">
-
-										<div
-											role="dialog"
-											id="demo-dialog--size-large"
-											class="sui-modal-content"
-											aria-modal="true"
-											aria-labelledby="demo-dialog--size-large-title"
-											aria-describedby="demo-dialog--size-large-desc"
-										>
-
-											<div class="sui-box">
-
-												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--30">
-													<h3 id="demo-dialog--size-large-title" class="sui-box-title sui-lg">Large Size Modal</h3>
-													<p id="demo-dialog--size-large-desc">This modal assigns 600px width to its content.</p>
-												</div>
-
-												<div class="sui-box-footer sui-flatten sui-content-center">
-													<button class="sui-button sui-button-ghost" data-modal-close>Close</button>
-												</div>
-
-											</div>
-
-										</div>
 
 									</div>
 
@@ -14495,43 +14490,15 @@ $( 'button' ).on( 'click', function() {
 
 								<div class="sui-box-settings-col-2">
 
-									<p>Large modals assign <strong>500px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-md</code> classes toegether.</p>
+									<p style="margin-bottom: 15px;">Large modals assign <strong>500px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-md</code> classes toegether.</p>
 
-									<p><button class="sui-button" data-modal-open="demo-dialog--size-medium">Try the modal</button></p>
+									<div class="demo-code-block">
 
-									<div class="demo-code-block" style="margin-bottom: 0;">
-<pre class="sui-code-snippet html">
+<pre class="sui-code-snippet html sui-no-copy">
 &lt;div class=&quot;sui-modal sui-modal-md&quot;&gt;
 	...
 &lt;/div&gt;
 </pre>
-									</div>
-
-									<div class="sui-modal sui-modal-md">
-
-										<div
-											role="dialog"
-											id="demo-dialog--size-medium"
-											class="sui-modal-content"
-											aria-modal="true"
-											aria-labelledby="demo-dialog--size-medium-title"
-											aria-describedby="demo-dialog--size-medium-desc"
-										>
-
-											<div class="sui-box">
-
-												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--30">
-													<h3 id="demo-dialog--size-medium-title" class="sui-box-title sui-lg">Medium Size Modal</h3>
-													<p id="demo-dialog--size-medium-desc">This modal assigns 500px width to its content.</p>
-												</div>
-
-												<div class="sui-box-footer sui-flatten sui-content-center">
-													<button class="sui-button sui-button-ghost" data-modal-close>Close</button>
-												</div>
-
-											</div>
-
-										</div>
 
 									</div>
 
@@ -14547,41 +14514,172 @@ $( 'button' ).on( 'click', function() {
 
 								<div class="sui-box-settings-col-2">
 
-									<p>Large modals assign <strong>400px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-sm</code> classes toegether.</p>
+									<p style="margin-bottom: 15px;">Large modals assign <strong>400px max-width</strong> to its content. You can get this by using <code>sui-modal sui-modal-sm</code> classes toegether.</p>
 
-									<p><button class="sui-button" data-modal-open="demo-dialog--size-small">Try the modal</button></p>
+									<div class="demo-code-block">
 
-									<div class="demo-code-block" style="margin-bottom: 0;">
-<pre class="sui-code-snippet html">
+<pre class="sui-code-snippet html sui-no-copy">
 &lt;div class=&quot;sui-modal sui-modal-sm&quot;&gt;
 	...
 &lt;/div&gt;
 </pre>
+
 									</div>
 
-									<div class="sui-modal sui-modal-sm">
+								</div>
 
-										<div
-											role="dialog"
-											id="demo-dialog--size-small"
-											class="sui-modal-content"
-											aria-modal="true"
-											aria-labelledby="demo-dialog--size-small-title"
-											aria-describedby="demo-dialog--size-small-desc"
-										>
+							</div>
 
-											<div class="sui-box">
+						</div>
 
-												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--30">
-													<h3 id="demo-dialog--size-small-title" class="sui-box-title sui-lg">Medium Size Modal</h3>
-													<p id="demo-dialog--size-small-desc">This modal assigns 400px width to its content.</p>
-												</div>
+					</div>
 
-												<div class="sui-box-footer sui-flatten sui-content-center">
-													<button class="sui-button sui-button-ghost" data-modal-close>Close</button>
-												</div>
+					<!-- SECTION: Replace Modal. -->
+					<div class="sui-box" data-tab="demo-dialog--replace" style="display: none;">
 
-											</div>
+						<div class="sui-box">
+
+							<div class="sui-box-header">
+								<h3 class="sui-box-title">Replace Modal</h3>
+							</div>
+
+							<div class="sui-box-body">
+
+								<p>This action will allow you to replace the current opened modal with a new one.</p>
+
+								<label class="sui-label" style="margin-bottom: 5px;">HTML Actions</label>
+
+								<span class="sui-description" style="margin-bottom: 10px;">These actions can be added directly on markup as <code>data</code> attributes to the element that's going to trigger the action (to open or to close the modal).</span>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;!--
+	ACTION: Replace Modal
+	You can only use these attributes on an element that's placed "inside" currently opened modal.
+
+	1. "data-modal-replace" attribute will close current opened modal and open the new modal you assign.
+	2. "data-modal-open-focus" attribute will focus element you assign that's placed inside modal when
+		it opens.
+	3. "data-modal-close-focus" attribute will focus element you assign that's placed outside modal when
+		it closes. It is important to use this attribute to make sure you re-focus the button you used to
+		originally open the first modal and bring back screenreader to that same spot, or assign a new ID
+		to focus screenreader on a new element.
+--&gt;
+&lt;button
+	data-modal-replace=&quot;unique-id&quot;
+	data-modal-open-focus=&quot;element-unique-id&quot;
+	data-modal-close-focus=&quot;element-unique-id&quot;
+&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<label class="sui-label" style="margin-bottom: 5px;">JS Actions</label>
+
+								<span class="sui-description" style="margin-bottom: 10px;">There are times when you need to excecute some actions with JS during moda open/close. For those cases is recommended to use JS functions when to trigger modal open/close action.</span>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet js sui-no-copy">
+/**
+ * REPLACE MODAL
+ *
+ * @desc Hides the current modal and replaces it with another.
+ *
+ * @param newModalId
+ * ID of the modal that will replace the currently open top modal.
+ *
+ * @param newFocusAfterClosed
+ * Optional ID or DOM node specifying where to place focus when the new modal closes.
+ * If not specified, focus will be placed on the element specified by the modal being replaced.
+ *
+ * @param newFocusFirst
+ * Optional ID or DOM node specifying where to place focus in the new modal when it opens.
+ * If not specified, the first focusable element will receive focus.
+ *
+ * SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst );
+ */
+( function( $ ) {
+
+	$( 'button' ).on( 'click', function() {
+
+		const newModalId        = 'modal-unique-id',
+			newFocusAfterClosed = 'element-unique-id',
+			newFocusFirst       = 'element-unique-id'
+			;
+
+		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst );
+
+	});
+
+}( jQuery ) );
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- SECTION: Slide Modal. -->
+					<div class="sui-box" data-tab="demo-dialog--slider" style="display: none;">
+
+						<div class="sui-box">
+
+							<div class="sui-box-header">
+								<h3 class="sui-box-title">Slide Modal</h3>
+							</div>
+
+							<div class="sui-box-body">
+
+								<p>Some modals have more than one step, and even when you can use <strong>Replace Modal</strong> to show different content, another approach could be using <strong>Slide Modal</strong> where you going to use 1 modal with 2 or more sliders inside and each with the content you want to show. You will also have to option to animate the slide with fade-in transitions from left or right depending the case or if you want to use it.</p>
+
+								<div class="sui-box-settings-row">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Markup</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet">
+&lt;div class=&quot;sui-modal&quot;&gt;
+
+	&lt;div
+		role=&quot;dialog&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-modal-content&quot;
+		aria-live=&quot;polite&quot;
+		aria-modal=&quot;true&quot;
+	&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-settings-row">
+
+									<div class="sui-box-settings-col-1">
+										<span class="sui-settings-label">Actions</span>
+									</div>
+
+									<div class="sui-box-settings-col-2">
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet"></pre>
 
 										</div>
 
@@ -16187,58 +16285,173 @@ $( 'button' ).on( 'click', function( e ) {
 
 							</div>
 
-							<!-- ROW: TEST transition -->
+							<!-- ROW: Create Hustle Module. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-2">
 
-									<p class="sui-settings-label sui-dark">3. TEST transition.</p>
+									<p class="sui-settings-label sui-dark">3. Create Hustle Module.</p>
 
-									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-test-slide">Show Sample Modal</button></p>
+									<p class="sui-description">This sample was grabbed from Hustle project. The modal slides between two contents changing modal size.</p>
 
-									<!-- MODAL: TEST transition. -->
-									<div class="sui-modal">
+									<p><a href="https://projects.invisionapp.com/d/main#/console/14626511/304432144/preview" target="_blank">( Review original design )</a></p>
+
+									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-hustle-create">Show Sample Modal</button></p>
+
+									<!-- MODAL: Create Hustle Module. -->
+									<div class="sui-modal sui-modal-lg">
 
 										<div
 											role="dialog"
-											id="demo-dialog--sample-test-slide"
+											id="demo-dialog--sample-hustle-create"
 											class="sui-modal-content"
 											aria-live="polite"
 											aria-modal="true"
-											aria-label="Test dialog..."
+											aria-label="Create a new popup"
 										>
 
-											<div id="demo-dialog--sample-test-slide-1" class="sui-modal-slide">
+											<div
+												id="demo-dialog--sample-hustle-create-slide-1"
+												class="sui-modal-slide sui-active sui-loaded"
+												data-modal-size="lg"
+											>
 
 												<div class="sui-box">
 
-													<div class="sui-box-body">
+													<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-flatten">
 
-														<p>Content for slide 1</p>
+														<h3 class="sui-box-title sui-lg">Choose Content Type</h3>
 
-														<button class="sui-button" data-modal-slide="demo-dialog--sample-test-slide-2" data-modal-slide-focus="focus-this">Next Slide</button>
+														<p class="sui-description">Let's start by choosing an appropriate content type based on your goal.</p>
 
-														<button class="sui-button" data-modal-close="">Close</button>
+														<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this modal</span>
+														</button>
 
 													</div>
+
+													<div id="demo-dialog--sample-hustle-create-slide-1-options" class="sui-box-selectors sui-box-selectors-col-2">
+
+														<ul>
+
+															<li><label for="demo-dialog--sample-hustle-create-option-1" class="sui-box-selector">
+																<input
+																	type="radio"
+																	name="demo-dialog--sample-hustle-create-options"
+																	id="demo-dialog--sample-hustle-create-option-1"
+																	checked
+																/>
+																<span><i class="sui-icon-mail" aria-hidden="true" tabindex="-1"></i> Email Opt-in</span>
+																<span>Perfect for Newsletter signups, or collecting user data in general.</span>
+															</label></li>
+
+															<li><label for="demo-dialog--sample-hustle-create-option-2" class="sui-box-selector">
+																<input
+																	type="radio"
+																	name="demo-dialog--sample-hustle-create-options"
+																	id="demo-dialog--sample-hustle-create-option-2"
+																/>
+																<span><i class="sui-icon-info" aria-hidden="true" tabindex="-1"></i> Informational</span>
+																<span>Perfect for promotional offers with Call to Action.</span>
+															</label></li>
+
+														</ul>
+
+													</div>
+
+													<div class="sui-box-footer sui-content-right sui-flatten">
+
+														<button
+															id="demo-dialog--sample-hustle-create-slide-next"
+															class="sui-button"
+															data-modal-slide="demo-dialog--sample-hustle-create-slide-2"
+															data-modal-slide-focus="demo-dialog--sample-hustle-create-slide-2-input"
+															data-modal-slide-intro="next"
+														>Next</button>
+
+													</div>
+
+													<img
+														src="./dist/images/hustle-footer.png"
+														srcset="./dist/images/hustle-footer.png 1x, ./dist/images/hustle-footer@2x.png 2x"
+														class="sui-image sui-image-center"
+														aria-hidden="true"
+													/>
 
 												</div>
 
 											</div>
 
-											<div id="demo-dialog--sample-test-slide-2" class="sui-modal-slide sui-hidden" aria-hidden="true" tabindex="-1">
+											<div
+												id="demo-dialog--sample-hustle-create-slide-2"
+												class="sui-modal-slide"
+												data-modal-size="sm"
+												aria-hidden="true"
+												tabindex="-1"
+											>
 
 												<div class="sui-box">
 
-													<div class="sui-box-body">
+													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-														<p>Content for slide 2</p>
+														<h3 class="sui-box-title sui-lg">Create Popup</h3>
 
-														<button id="focus-this" class="sui-button" data-modal-slide="demo-dialog--sample-test-slide-1">Previous Slide</button>
+														<p class="sui-description" style="margin-bottom: 0;">Let's give your new popup a name. What would you like to name it?</p>
 
-														<button class="sui-button" data-modal-close="">Close</button>
+														<button
+															id="demo-dialog--sample-hustle-create-slide-back"
+															class="sui-button-icon sui-button-float--left"
+															data-modal-slide="demo-dialog--sample-hustle-create-slide-1"
+															data-modal-slide-focus="demo-dialog--sample-hustle-create-slide-1-options"
+															data-modal-slide-intro="back"
+														>
+															<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Back to "Choose Content Type"</span>
+														</button>
+
+														<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this dialog</span>
+														</button>
 
 													</div>
+
+													<div class="sui-box-body">
+
+														<div class="sui-form-field">
+
+															<label for="demo-dialog--sample-hustle-create-slide-2-input" id="demo-dialog--sample-hustle-create-slide-2-input-label" class="sui-screen-reader-text">Enter form name</label>
+
+															<div class="demo-modal-input-with-button">
+
+																<input
+																	type="text"
+																	id="demo-dialog--sample-hustle-create-slide-2-input"
+																	class="sui-form-control"
+																	aria-labelledby="demo-dialog--sample-hustle-create-slide-2-input-label"
+																	aria-describedby="demo-dialog--sample-hustle-create-slide-2-input-desc"
+																/>
+
+																<button data-modal-close="">
+																	<i class="sui-icon-arrow-right sui-md" aria-hidden="true"></i>
+																	<span class="sui-screen-reader-text">Build new popup</span>
+																</button>
+
+															</div>
+
+															<span id="demo-dialog--sample-hustle-create-slide-2-input-desc" class="sui-description" style="margin-top: 10px;">This will not be visible anywhere on your website</span>
+
+														</div>
+
+													</div>
+
+													<img
+														src="./dist/images/hustle-footer.png"
+														srcset="./dist/images/hustle-footer.png 1x, ./dist/images/hustle-footer@2x.png 2x"
+														class="sui-image sui-image-center"
+														aria-hidden="true"
+													/>
 
 												</div>
 
