@@ -37,24 +37,60 @@
 		// ELEMENT: Content.
 		.sui-modal-content {
 			width: 100%;
-			max-width: #{map-get($modal, size-xl) + ($sui-gutter * 2)};
 			position: relative;
 			z-index: map-get($modal, z-index);
 			margin: 0 auto;
 			padding: 0 $sui-gutter;
 
 			@include media(max-width, md) {
-				max-width: #{map-get($modal, size-xl) + ($sui-gutter-md * 2)};
 				padding: 0 $sui-gutter-md;
 			}
 		}
 
 		// ELEMENT: Slide.
 		.sui-modal-slide {
-			animation-duration: 0.7s;
-			animation-fill-mode: both;
-			transform-origin: center;
-			transform-style: preserve-3d;
+			display: none;
+
+			&.sui-active {
+				opacity: 0;
+				display: block;
+				animation-duration: 0.7s;
+				animation-fill-mode: both;
+				transform-origin: center;
+				transform-style: preserve-3d;
+
+				&.sui-loaded {
+					opacity: 1;
+				}
+
+				&.sui-fadein {
+					opacity: 1;
+					animation-name: fadeIn;
+				}
+
+				&.sui-fadein-left {
+					opacity: 1;
+					animation-name: fadeInLeft;
+				}
+
+				&.sui-fadein-right {
+					opacity: 1;
+					animation-name: fadeInRight;
+				}
+			}
+
+			&:disabled,
+			&[disabled] {
+
+				a,
+				input,
+				select,
+				button,
+				textarea {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+			}
 		}
 
 		// ELEMENT: Box.
@@ -564,38 +600,16 @@
 			}
 		}
 
-		// SIZE: Large.
-		&.sui-modal-lg {
+		@each $name, $size in $modal-size {
 
-			.sui-modal-content {
-				max-width: #{map-get($modal, size-lg) + ($sui-gutter * 2)};
+			&.sui-modal-#{$name} {
 
-				@include media(max-width, md) {
-					max-width: #{map-get($modal, size-lg) + ($sui-gutter-md * 2)};
-				}
-			}
-		}
+				.sui-modal-content {
+					max-width: #{$size + ($sui-gutter * 2)};
 
-		// SIZE: Medium.
-		&.sui-modal-md {
-
-			.sui-modal-content {
-				max-width: #{map-get($modal, size-md) + ($sui-gutter * 2)};
-
-				@include media(max-width, md) {
-					max-width: #{map-get($modal, size-md) + ($sui-gutter-md * 2)};
-				}
-			}
-		}
-
-		// SIZE: Small.
-		&.sui-modal-sm {
-
-			.sui-modal-content {
-				max-width: #{map-get($modal, size-sm) + ($sui-gutter * 2)};
-
-				@include media(max-width, md) {
-					max-width: #{map-get($modal, size-sm) + ($sui-gutter-md * 2)};
+					@include media(max-width, md) {
+						max-width: #{$size + ($sui-gutter-md * 2)};
+					}
 				}
 			}
 		}
