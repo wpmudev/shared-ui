@@ -367,6 +367,107 @@
 			self.backdropNode.classList.remove( 'sui-active' );
 		}, 300 );
 
+		setTimeout( function() {
+			var slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
+
+			if ( 0 < slides.length ) {
+
+				// Hide all slides.
+				for ( var i = 0; i < slides.length; i++ ) {
+					slides[i].setAttribute( 'disabled', true );
+					slides[i].classList.remove( 'sui-loaded' );
+					slides[i].classList.remove( 'sui-active' );
+					slides[i].setAttribute( 'tabindex', '-1' );
+					slides[i].setAttribute( 'aria-hidden', true );
+				}
+
+				// Change modal size.
+				if ( slides[0].hasAttribute( 'data-modal-size' ) ) {
+
+					var newDialogSize = slides[0].getAttribute( 'data-modal-size' );
+
+					switch( newDialogSize ) {
+						case 'sm':
+						case 'small':
+							newDialogSize = 'sm';
+							break;
+
+						case 'md':
+						case 'med':
+						case 'medium':
+							newDialogSize = 'md';
+							break;
+
+						case 'lg':
+						case 'large':
+							newDialogSize = 'lg';
+							break;
+
+						case 'xl':
+						case 'extralarge':
+						case 'extraLarge':
+						case 'extra-large':
+							newDialogSize = 'xl';
+							break;
+
+						default:
+							newDialogSize = undefined;
+					}
+
+					if ( undefined !== newDialogSize ) {
+
+						// Remove others sizes from dialog to prevent any conflicts with styles.
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-sm' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-md' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-lg' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-xl' );
+
+						// Apply the new size to dialog.
+						self.dialogNode.parentNode.classList.add( 'sui-modal-' + newDialogSize );
+					}
+				}
+
+				// Show first slide.
+				slides[0].classList.add( 'sui-active' );
+				slides[0].classList.add( 'sui-loaded' );
+				slides[0].removeAttribute( 'disabled' );
+				slides[0].removeAttribute( 'tabindex' );
+				slides[0].removeAttribute( 'aria-hidden' );
+
+				// Change modal label.
+				if ( slides[0].hasAttribute( 'data-modal-labelledby' ) ) {
+
+					var newDialogLabel, getDialogLabel;
+
+					newDialogLabel = '';
+					getDialogLabel = slides[0].getAttribute( 'data-modal-labelledby' );
+
+					if ( '' !== getDialogLabel || undefined !== getDialogLabel ) {
+						newDialogLabel = getDialogLabel;
+					}
+
+					self.dialogNode.setAttribute( 'aria-labelledby', newDialogLabel );
+
+				}
+
+				// Change modal description.
+				if ( slides[0].hasAttribute( 'data-modal-describedby' ) ) {
+
+					var newDialogDesc, getDialogDesc;
+
+					newDialogDesc = '';
+					getDialogDesc = slides[0].getAttribute( 'data-modal-describedby' );
+
+					if ( '' !== getDialogDesc || undefined !== getDialogDesc ) {
+						newDialogDesc = getDialogDesc;
+					}
+
+					self.dialogNode.setAttribute( 'aria-describedby', newDialogDesc );
+
+				}
+			}
+		}, 350 );
+
 		// If a dialog was open underneath this one, restore its listeners.
 		if ( 0 < aria.OpenDialogList.length ) {
 			aria.getCurrentDialog().addListeners();
@@ -412,37 +513,143 @@
 	 *
 	 * @param newSlideId
 	 *
-	 * @param newFocusFirst
+	 * @param newSlideFocus
+	 *
+	 * @param newSlideEntrance
 	 */
-	aria.Dialog.prototype.slide = function( newSlideId, newFocusFirst ) {
+	aria.Dialog.prototype.slide = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
-		var currentDialog = aria.getCurrentDialog(),
+		var animation     = 'sui-fadein',
+			currentDialog = aria.getCurrentDialog(),
 			getAllSlides  = this.dialogNode.querySelectorAll( '.sui-modal-slide' ),
 			getNewSlide   = document.getElementById( newSlideId )
 			;
 
+		switch( newSlideEntrance ) {
+			case 'back':
+			case 'left':
+				animation = 'sui-fadein-left';
+				break;
+
+			case 'next':
+			case 'right':
+				animation = 'sui-fadein-right';
+				break;
+
+			default:
+				animation = 'sui-fadein';
+				break;
+		}
+
 		// Hide all slides.
 		for ( var i = 0; i < getAllSlides.length; i++ ) {
-			getAllSlides[i].classList.add( 'sui-hidden' );
+			getAllSlides[i].setAttribute( 'disabled', true );
+			getAllSlides[i].classList.remove( 'sui-loaded' );
+			getAllSlides[i].classList.remove( 'sui-active' );
 			getAllSlides[i].setAttribute( 'tabindex', '-1' );
 			getAllSlides[i].setAttribute( 'aria-hidden', true );
 		}
 
+		// Change modal size.
+		if ( getNewSlide.hasAttribute( 'data-modal-size' ) ) {
+
+			var newDialogSize = getNewSlide.getAttribute( 'data-modal-size' );
+
+			switch( newDialogSize ) {
+				case 'sm':
+				case 'small':
+					newDialogSize = 'sm';
+					break;
+
+				case 'md':
+				case 'med':
+				case 'medium':
+					newDialogSize = 'md';
+					break;
+
+				case 'lg':
+				case 'large':
+					newDialogSize = 'lg';
+					break;
+
+				case 'xl':
+				case 'extralarge':
+				case 'extraLarge':
+				case 'extra-large':
+					newDialogSize = 'xl';
+					break;
+
+				default:
+					newDialogSize = undefined;
+			}
+
+			if ( undefined !== newDialogSize ) {
+
+				// Remove others sizes from dialog to prevent any conflicts with styles.
+				this.dialogNode.parentNode.classList.remove( 'sui-modal-sm' );
+				this.dialogNode.parentNode.classList.remove( 'sui-modal-md' );
+				this.dialogNode.parentNode.classList.remove( 'sui-modal-lg' );
+				this.dialogNode.parentNode.classList.remove( 'sui-modal-xl' );
+
+				// Apply the new size to dialog.
+				this.dialogNode.parentNode.classList.add( 'sui-modal-' + newDialogSize );
+			}
+		}
+
+		// Change modal label.
+		if ( getNewSlide.hasAttribute( 'data-modal-labelledby' ) ) {
+
+			var newDialogLabel, getDialogLabel;
+
+			newDialogLabel = '';
+			getDialogLabel = getNewSlide.getAttribute( 'data-modal-labelledby' );
+
+			if ( '' !== getDialogLabel || undefined !== getDialogLabel ) {
+				newDialogLabel = getDialogLabel;
+			}
+
+			this.dialogNode.setAttribute( 'aria-labelledby', newDialogLabel );
+
+		}
+
+		// Change modal description.
+		if ( getNewSlide.hasAttribute( 'data-modal-describedby' ) ) {
+
+			var newDialogDesc, getDialogDesc;
+
+			newDialogDesc = '';
+			getDialogDesc = getNewSlide.getAttribute( 'data-modal-describedby' );
+
+			if ( '' !== getDialogDesc || undefined !== getDialogDesc ) {
+				newDialogDesc = getDialogDesc;
+			}
+
+			this.dialogNode.setAttribute( 'aria-describedby', newDialogDesc );
+
+		}
+
 		// Show new slide.
-		getNewSlide.classList.remove( 'sui-hidden' );
+		getNewSlide.classList.add( 'sui-active' );
+		getNewSlide.classList.add( animation );
 		getNewSlide.removeAttribute( 'tabindex' );
 		getNewSlide.removeAttribute( 'aria-hidden' );
 
-		if ( 'string' === typeof newFocusFirst ) {
-			this.newFocusFirst = document.getElementById( newFocusFirst );
-		} else if ( 'object' === typeof newFocusFirst ) {
-			this.newFocusFirst = newFocusFirst;
+		setTimeout( function() {
+			getNewSlide.classList.add( 'sui-loaded' );
+			getNewSlide.classList.remove( animation );
+			getNewSlide.removeAttribute( 'disabled' );
+		}, 600 );
+
+		if ( 'string' === typeof newSlideFocus ) {
+			this.newSlideFocus = document.getElementById( newSlideFocus );
+		} else if ( 'object' === typeof newSlideFocus ) {
+			this.newSlideFocus = newSlideFocus;
 		} else {
-			this.newFocusFirst = null;
+			this.newSlideFocus = null;
 		}
 
-		if ( this.newFocusFirst ) {
-			this.newFocusFirst.focus();
+		if ( this.newSlideFocus ) {
+			this.newSlideFocus.focus();
 		} else {
 			aria.Utils.focusFirstDescendant( this.dialogNode );
 		}
@@ -513,11 +720,11 @@
 		}
 	}; // end replaceModal
 
-	SUI.slideModal = function( newSlideId, newFocusFirst ) {
+	SUI.slideModal = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
 		var topDialog = aria.getCurrentDialog();
 
-		topDialog.slide( newSlideId, newFocusFirst );
+		topDialog.slide( newSlideId, newSlideFocus, newSlideEntrance );
 
 	}; // end slideModal
 
@@ -529,7 +736,7 @@
 
 		function init() {
 
-			var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, closeFocus, newFocus;
+			var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
 
 			buttonOpen    = $( '[data-modal-open]' );
 			buttonClose   = $( '[data-modal-close]' );
@@ -582,17 +789,21 @@
 
 				buttonSlide.on( 'click', function( e ) {
 
-					button  = $( e.target );
-					modalId = $( this ).data( 'modal-slide' );
-					newFocus = $( this ).data( 'modal-slide-focus' );
+					button    = $( e.target );
+					slideId   = $( this ).data( 'modal-slide' );
+					newFocus  = $( this ).data( 'modal-slide-focus' );
+					animation = $( this ).data( 'modal-slide-intro' );
+
+					if ( '' === newFocus ) {
+						newFocus = undefined;
+					}
+
+					if ( '' === animation ) {
+						animation = '';
+					}
 
 					if ( undefined !== modalId && '' !== modalId ) {
-
-						if ( '' !== newFocus ) {
-							SUI.slideModal( modalId, newFocus );
-						} else {
-							SUI.slideModal( modalId );
-						}
+						SUI.slideModal( slideId, newFocus, animation );
 					}
 				});
 			}
