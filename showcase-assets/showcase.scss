@@ -383,6 +383,69 @@ hr {
 	}
 }
 
+.demo-modal {
+
+	&-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 19px 20px;
+		background-color: #F8F8F8;
+
+		.sui-toggle-label {
+			font-size: 13px;
+			line-height: 22px;
+		}
+	}
+
+	&-performance {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		p {
+			min-width: 1px;
+			flex: 1;
+			margin-right: 30px;
+			margin-bottom: 0 !important;
+		}
+
+		button {
+			margin: 0 !important;
+			flex: 0 0 auto;
+		}
+	}
+
+	&-input-with-button {
+		display: flex;
+		align-items: center;
+
+		input {
+			border-right-width: 0 !important;
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+
+		button {
+			cursor: pointer;
+			display: block;
+			padding: 12px 17px 11px;
+			border: 0;
+			border-radius: 0 4px 4px 0;
+			background-color: #17A8E3;
+			color: #FFF;
+
+			[class*="sui-icon-"] {
+				display: block;
+
+				&:before {
+					color: inherit !important;
+				}
+			}
+		}
+	}
+}
+
 /**
 Section specific
  */
