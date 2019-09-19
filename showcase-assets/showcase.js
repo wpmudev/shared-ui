@@ -445,19 +445,6 @@
 
 	});
 
-	$( '#section-selector' ).on( 'change', function() {
-
-		var option = $( this ).val();
-
-		$( '.dialog-section, .dialog-section-inner' ).addClass( 'sui-hidden' );
-		$( '.' + option + '-section, .' + option + '-section-loading' ).removeClass( 'sui-hidden' );
-
-		setTimeout( function() {
-			$( '.' + option + '-section-inner' ).removeClass( 'sui-hidden' );
-			$( '.' + option + '-section-loading' ).addClass( 'sui-hidden' );
-		}, 1000 );
-	});
-
 }( jQuery ) );
 
 
