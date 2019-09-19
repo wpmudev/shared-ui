@@ -14223,10 +14223,6 @@ p:first-of-type {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--transitions">Transitions</a>
-							</li>
-
-							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-dialog--samples">Samples</a>
 							</li>
 
@@ -14648,7 +14644,7 @@ p:first-of-type {
 
 										<div class="demo-code-block">
 
-<pre class="sui-code-snippet">
+<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-modal&quot;&gt;
 
 	&lt;div
@@ -14677,9 +14673,74 @@ p:first-of-type {
 
 									<div class="sui-box-settings-col-2">
 
+										<label class="sui-label" style="margin-bottom: 5px;">HTML Actions</label>
+
+										<span class="sui-description" style="margin-bottom: 10px;">These actions can be added directly on markup as data attributes to the element that's going to trigger the action (to open or to close the modal).</span>
+
 										<div class="demo-code-block">
 
-<pre class="sui-code-snippet"></pre>
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;!--
+	ACTION: Slide Content
+	You can only use these attributes on an element that's placed "inside" currently opened modal.
+
+	1. "data-modal-slide" attribute will open the slide you assign.
+	2. "data-modal-slide-focus" attribute will focus element you assign that's placed
+		inside modal on modal open action.
+	3. "data-modal-slide-intro" attribute will set from where the slide will animate.
+		If not chosen the slide intro animation will be fade in.
+--&gt;
+&lt;button
+	data-modal-slide=&quot;unique-id&quot;
+	data-modal-slide-focus=&quot;element-unique-id&quot;
+	data-modal-slide-intro=&quot;next&quot;
+&gt;
+&lt;/button&gt;
+</pre>
+
+										</div>
+
+										<label class="sui-label" style="margin-bottom: 5px;">JS Actions</label>
+
+										<span class="sui-description" style="margin-bottom: 10px;">There are times when you need to excecute some actions with JS during moda open/close. For those cases is recommended to use JS functions when to trigger modal open/close action.</span>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet js sui-no-copy">
+( function( $ ) {
+
+	/**
+	 * SLIDE-IN NEW CONTENT.
+	 *
+	 * @desc Uses the same dialog to display different content that will slide to show.
+	 *
+	 * @param newSlideId
+	 * ID of the slide that will replace the currently active slide content.
+	 *
+	 * @param newSlideFocus
+	 * Optional ID or DOM node specifying where to place focus in the new slide when it shows.
+	 * If not specified, the first focusable element will receive focus.
+	 *
+	 * @param newSlideEntrance
+	 * Determine if slide entrance animation comes from left or right of the screen.
+	 * You can use: next, back, left or right.
+	 * If not specified, the slide entrance animation will be "fade in".
+	 *
+	 * SUI.slideModal( newSlideId, newSlideFocus, newSlideEntrance );
+	 */
+	$( 'button' ).on( 'click', function( e ) {
+
+		const newSlideId     = 'slide-unique-id',
+			newSlideFocus    = 'element-unique-id',
+			newSlideEntrance = 'next'
+			;
+
+		SUI.slideModal( newSlideId, slideNewFocus, newSlideEntrance );
+
+	});
+
+}( jQuery ) );
+</pre>
 
 										</div>
 
@@ -15461,420 +15522,6 @@ p:first-of-type {
 
 					</div>
 
-					<!-- SECTION: Modal Transitions. -->
-					<div class="sui-box" data-tab="demo-dialog--transitions" style="display: none;">
-
-						<div class="sui-box-header">
-							<h3 class="sui-box-title">Modal Transitions</h3>
-						</div>
-
-						<div class="sui-box-body">
-
-							<p>You will find some modals that need to transition into different steps. In the past we used sliders, but since proper accessibility is important for us each step will be now on its own modal wrapper and to transition from one modal to another you will need to add <code>data-modal-replace=&quot;modal-unique-id&quot;</code> attribute to a button or using <code>SUI.replaceModal( modalId, this );</code> JS function.</p>
-
-							<p>Click on the buttons below to try different cases where you can use transitions:</p>
-
-							<p>
-								<button class="sui-button" data-modal-open="demo-dialog--onboard-welcome">Hustle On Board</button>
-								<button class="sui-button" data-modal-open="demo-dialog--newform-template">Forminator New Form</button>
-							</p>
-
-							<label class="sui-label" style="margin-bottom: 5px;">Replace modal with data attribute:</label>
-
-							<div class="demo-code-block" style="margin-top: 5px;">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;button class=&quot;sui-button&quot; data-modal-replace=&quot;modal-unique-id&quot;&gt;Go back&lt;/button&gt;
-</pre>
-
-							</div>
-
-							<label class="sui-label" style="margin-bottom: 5px;">Replace modal with JS:</label>
-
-							<div class="demo-code-block" style="margin-top: 5px; margin-bottom: 0;">
-
-<pre class="sui-code-snippet js">
-$( 'button' ).on( 'click', function( e ) {
-	var modalId = 'modal-unique-id'; // Do not include hash ( # ) before ID name.
-	SUI.replaceModal( modalId, this );
-});
-</pre>
-
-							</div>
-
-							<!-- MODAL: Hustle On Board (Step 1) -->
-							<div class="sui-modal sui-modal-md">
-
-								<div
-									role="dialog"
-									id="demo-dialog--onboard-welcome"
-									class="sui-modal-content"
-									aria-modal="true"
-									aria-labelledby="demo-dialog--onboard-welcome-title"
-									aria-describedby="demo-dialog--onboard-welcome-desc"
-								>
-
-									<div class="sui-box">
-
-										<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-											<figure class="sui-box-image">
-												<img
-													src="./dist/images/onboard.png"
-													srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-													alt="Hustle character waving at you"
-												/>
-											</figure>
-
-											<h2 id="demo-dialog--onboard-welcome-title" class="sui-box-title sui-lg">Hey, Andy</h2>
-
-											<p id="demo-dialog--onboard-welcome-desc" class="sui-description">Welcome to Hustle, the only plugin you’ll ever need to turn your visitors into loyal subscribers, leads and customers.</p>
-
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-center">
-											<button class="sui-button sui-button-blue sui-button-icon-right" data-modal-replace="demo-dialog--onboard-migrate">
-												Get Started
-												<i class="sui-icon-chevron-right" aria-hidden="true"></i>
-											</button>
-										</div>
-
-										<div tabindex="-1" class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-											<ul class="sui-modal-steps">
-												<li class="current"><span></span></li>
-												<li><span></span></li>
-												<li><span></span></li>
-											</ul>
-
-										</div>
-
-									</div>
-
-									<button role="button" class="sui-modal-skip" data-modal-close>Skip this, I know my way around</button>
-
-								</div>
-
-							</div>
-
-							<!-- MODAL: Hustle On Board (Step 2) -->
-							<div class="sui-modal sui-modal-md">
-
-								<div
-									role="dialog"
-									id="demo-dialog--onboard-migrate"
-									class="sui-modal-content"
-									aria-modal="true"
-									aria-labelledby="demo-dialog--onboard-migrate-title"
-									aria-describedby="demo-dialog--onboard-migrate-desc"
-								>
-
-									<div class="sui-box">
-
-										<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-											<figure class="sui-box-image">
-												<img
-													src="./dist/images/onboard.png"
-													srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-													alt="Hustle character waving at you"
-												/>
-											</figure>
-
-											<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--onboard-welcome">
-												<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
-												<span class="sui-screen-reader-text">Take me back to welcome message.</span>
-											</button>
-
-											<button class="sui-button-icon sui-button-float--right" data-modal-replace="demo-dialog--onboard-create">
-												<i class="sui-icon-chevron-right sui-md" aria-hidden="true"></i>
-												<span class="sui-screen-reader-text">Go to next step, I will migrate data later.</span>
-											</button>
-
-											<h2 id="demo-dialog--onboard-migrate-title" class="sui-box-title sui-lg">Migrate Data</h2>
-
-											<p id="demo-dialog--onboard-migrate-desc" class="sui-description">Nice work on updating the Hustle! All your modules are already in place. However, You need to migrate the data of your existing modules such as tracking data and email list manually.</p>
-
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-center">
-											<button id="demo-dialog--onboard-migrate-start" class="sui-button sui-button-icon-right">
-												Begin Migration
-												<i class="sui-icon-chevron-right" aria-hidden="true"></i>
-											</button>
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-											<ul class="sui-modal-steps">
-												<li><span></span></li>
-												<li class="current"><span></span></li>
-												<li><span></span></li>
-											</ul>
-
-										</div>
-
-									</div>
-
-									<button role="button" class="sui-modal-skip" data-modal-close>Skip this, I'll migrate later</button>
-
-								</div>
-
-							</div>
-
-							<!-- MODAL: Hustle On Board (Step 3) -->
-							<div class="sui-modal sui-modal-md">
-
-								<div
-									role="dialog"
-									id="demo-dialog--onboard-create"
-									class="sui-modal-content"
-									aria-modal="true"
-									aria-labelledby="demo-dialog--onboard-create-title"
-									aria-describedby="demo-dialog--onboard-create-desc"
-								>
-
-									<div class="sui-box">
-
-										<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-											<figure class="sui-box-image">
-												<img
-													src="./dist/images/onboard.png"
-													srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-													alt="Hustle character waving at you"
-												/>
-											</figure>
-
-											<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--onboard-migrate">
-												<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
-												<span class="sui-screen-reader-text">Take me back to welcome message.</span>
-											</button>
-
-											<h2 id="demo-dialog--onboard-create-title" class="sui-box-title sui-lg">Create Module</h2>
-
-											<p id="demo-dialog--onboard-create-desc" class="sui-description">Choose a module to get started on converting your visitors into subscribers, generate more leads and grow your social following.</p>
-
-										</div>
-
-										<div class="sui-box-selectors sui-box-selectors-col-2">
-
-											<ul>
-
-												<li><label for="choose-module-popup" class="sui-box-selector">
-													<input id="choose-module-popup" type="radio" name="choose-module-create" />
-													<span>Pop-up</span>
-												</label></li>
-
-												<li><label for="choose-module-slidein" class="sui-box-selector">
-													<input id="choose-module-slidein" type="radio" name="choose-module-create" />
-													<span>Slide-in</span>
-												</label></li>
-
-												<li><label for="choose-module-embed" class="sui-box-selector">
-													<input id="choose-module-embed" type="radio" name="choose-module-create" />
-													<span>Embed</span>
-												</label></li>
-
-												<li><label for="choose-module-sshare" class="sui-box-selector">
-													<input id="choose-module-sshare" type="radio" name="choose-module-create" />
-													<span>Social Share</span>
-												</label></li>
-
-											</ul>
-
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-center">
-											<button class="sui-button sui-button-blue" data-modal-close>Create</button>
-										</div>
-
-										<div tabindex="-1" class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-											<ul class="sui-modal-steps">
-												<li><span></span></li>
-												<li><span></span></li>
-												<li class="current"><span></span></li>
-											</ul>
-
-										</div>
-
-									</div>
-
-									<button role="button" class="sui-modal-skip" data-modal-close>Skip this, I'll create a module later</button>
-
-								</div>
-
-							</div>
-
-							<!-- MODAL: Forminator New Form (Step 1) -->
-							<div class="sui-modal sui-modal-lg">
-
-								<div
-									role="dialog"
-									id="demo-dialog--newform-template"
-									class="sui-modal-content"
-									aria-modal="true"
-									aria-labelledby="demo-dialog--newform-template-title"
-									aria-describedby="demo-dialog--newform-template-desc"
-								>
-
-									<div class="sui-box">
-
-										<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
-
-											<h2 id="demo-dialog--newform-template-title" class="sui-box-title sui-lg">Choose a Template</h2>
-
-											<p id="demo-dialog--newform-template-desc" class="sui-description" style="margin-bottom: 0;">Customize one of our pre-made form templates, or start from scratch.</p>
-
-											<button class="sui-button-icon sui-button-float--right" data-modal-close>
-												<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-												<span class="sui-screen-reader-text">Close this modal</span>
-											</button>
-
-										</div>
-
-										<div class="sui-box-selectors sui-box-selectors-col-2">
-
-											<ul>
-
-												<li><label for="choose-template-blank" class="sui-box-selector">
-													<input id="choose-template-blank" type="radio" name="choose-template-create" checked="checked" />
-													<span><i class="sui-icon-book" aria-hidden="true"></i> Blank</span>
-												</label></li>
-
-												<li><label for="choose-template-contactform" class="sui-box-selector">
-													<input id="choose-template-contactform" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-mail" aria-hidden="true"></i> Contact Form</span>
-												</label></li>
-
-												<li><label for="choose-template-quote" class="sui-box-selector">
-													<input id="choose-template-quote" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-book" aria-hidden="true"></i> Quote Request</span>
-												</label></li>
-
-												<li><label for="choose-template-newsletter" class="sui-box-selector">
-													<input id="choose-template-newsletter" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-send" aria-hidden="true"></i> Newsletter</span>
-												</label></li>
-
-												<li><label for="choose-template-registration" class="sui-box-selector">
-													<input id="choose-template-registration" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-profile-male" aria-hidden="true"></i> Registration</span>
-												</label></li>
-
-												<li><label for="choose-template-login" class="sui-box-selector">
-													<input id="choose-template-login" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-profile-male" aria-hidden="true"></i> Login</span>
-												</label></li>
-
-												<li><label for="choose-template-post" class="sui-box-selector">
-													<input id="choose-template-post" type="radio" name="choose-template-create" />
-													<span><i class="sui-icon-plus" aria-hidden="true"></i> Create Post</span>
-												</label></li>
-
-											</ul>
-
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-right">
-
-											<button class="sui-button" data-modal-replace="demo-dialog--newform-name">Continue</button>
-
-										</div>
-
-										<img
-											src="dist/images/forminator-create.png"
-											srcset="dist/images/forminator-create.png 1x, dist/images/forminator-create@2x.png 2x"
-											class="sui-image sui-image-center"
-											style="margin-top: 0;"
-											aria-hidden="true"
-										/>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<!-- MODAL: Forminator New Form (Step 2) -->
-							<div class="sui-modal sui-modal-sm">
-
-								<div
-									role="dialog"
-									id="demo-dialog--newform-name"
-									class="sui-modal-content"
-									aria-modal="true"
-									aria-labelledby="demo-dialog--newform-name-title"
-									aria-describedby="demo-dialog--newform-name-desc"
-								>
-
-									<div class="sui-box">
-
-										<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
-
-											<h2 id="demo-dialog--newform-name-title" class="sui-box-title sui-lg">Enter a Name</h2>
-
-											<p id="demo-dialog--newform-name-desc" class="sui-description" style="margin-bottom: 0;">Name your new form, then lets start building!</p>
-
-											<button class="sui-button-icon sui-button-float--right" data-modal-close>
-												<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-												<span class="sui-screen-reader-text">Close this modal</span>
-											</button>
-
-										</div>
-
-										<div class="sui-box-body">
-
-											<div class="sui-form-field">
-
-												<label for="newform-name-input" id="newform-name-label" class="sui-screen-reader-text">Give your form a name</label>
-
-												<input
-													type="text"
-													placeholder="E.g. Blank Form"
-													id="newform-name-input"
-													class="sui-form-control"
-													aria-labelledby="newform-name-label"
-													aria-describedby="newform-name-error"
-													aria-required="true"
-												/>
-
-												<span id="newform-name-error" class="sui-error-message" style="display: none;" hidden></span>
-
-											</div>
-
-										</div>
-
-										<div class="sui-box-footer sui-flatten sui-content-right">
-
-											<button id="demo-dialog--newform-name-build" class="sui-button sui-button-blue">
-												<span class="sui-loading-text">
-													<i class="sui-icon-plus" aria-hidden="true"></i> Create
-												</span>
-												<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-											</button>
-
-										</div>
-
-										<img
-											src="dist/images/forminator-create.png"
-											srcset="dist/images/forminator-create.png 1x, dist/images/forminator-create@2x.png 2x"
-											class="sui-image sui-image-center"
-											style="margin-top: 0;"
-											aria-hidden="true"
-										/>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
 					<!-- SECTION: Modal Samples -->
 					<div class="sui-box" data-tab="demo-dialog--samples" style="display: none;">
 
@@ -15884,7 +15531,7 @@ $( 'button' ).on( 'click', function( e ) {
 
 						<div class="sui-box-body">
 
-							<!-- ROW: HubSpot Integration -->
+							<!-- ROW: HubSpot Integration. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-2">
@@ -16184,7 +15831,7 @@ $( 'button' ).on( 'click', function( e ) {
 
 							</div>
 
-							<!-- ROW: Hummingbird On Board -->
+							<!-- ROW: Hummingbird On Board. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-2">
@@ -16452,6 +16099,102 @@ $( 'button' ).on( 'click', function( e ) {
 														class="sui-image sui-image-center"
 														aria-hidden="true"
 													/>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- ROW: Hassan Sample Modal. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-settings-label sui-dark">3. Create Hustle Module.</p>
+
+									<p class="sui-description">This sample was grabbed from Hustle project. The modal slides between two contents changing modal size.</p>
+
+									<p><a href="https://projects.invisionapp.com/d/main#/console/14626511/304432144/preview" target="_blank">( Review original design )</a></p>
+
+									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-hassan">Show Sample Modal</button></p>
+
+									<!-- MODAL: Hassan Sample Modal. -->
+									<div class="sui-modal sui-modal-lg">
+
+										<div
+											role="dialog"
+											id="demo-dialog--sample-hassan"
+											class="sui-modal-content"
+											aria-live="polite"
+											aria-modal="true"
+											aria-labelledby="demo-dialog--sample-hassan-title"
+										>
+
+											<div class="sui-box">
+
+												<div class="sui-box-header">
+													<h3 class="sui-box-title" id="demo-dialog--sample-hassan-title">Dialog Title</h3>
+													<div class="sui-actions-right">
+														<button class="sui-button-icon" data-modal-close="">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this dialog</span>
+														</button>
+													</div>
+												</div>
+
+												<div class="sui-box-body">
+
+													<select class="sui-select" id="section-selector">
+														<option value="first">First Section</option>
+														<option value="second">Second Section</option>
+													</select>
+
+													<div class="dialog-section first-section">
+
+														<div class="dialog-section-loading first-section-loading sui-hidden" style="margin: 30px 0 0; text-align: center;">
+															<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+														</div>
+
+														<div class="dialog-section-inner first-section-inner">
+
+															<h4>First Section</h4>
+
+															<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+															<p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+
+															<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+														</div>
+
+													</div>
+
+													<div class="dialog-section second-section sui-hidden">
+
+														<div class="dialog-section-loading second-section-loading" style="margin: 30px 0 0; text-align: center;">
+															<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+														</div>
+
+														<div class="dialog-section-inner second-section-inner sui-hidden">
+
+															<h4>Second Section</h4>
+
+															<p>Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+															<p>Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+															<p>Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum.</p>
+
+														</div>
+
+													</div>
 
 												</div>
 

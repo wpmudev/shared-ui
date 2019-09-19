@@ -2,15 +2,16 @@
 
 	// NOTE: New modal.
 	.sui-modal {
+		width: calc(100% - #{map-get($wordpress, adminmenu)});
+		height: calc(100vh - #{map-get($wordpress, adminbar)});
 		overflow: auto;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
 		position: fixed;
 		z-index: map-get($modal, z-index);
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: map-get($wordpress, adminbar);
+		top: map-get($wordpress, adminbar);
+		left: map-get($wordpress, adminmenu);
+		padding: $sui-gutter 0;
 		background-color: $modal-overlay-bg-color;
 
 		&, * {
@@ -37,9 +38,11 @@
 		// ELEMENT: Content.
 		.sui-modal-content {
 			width: 100%;
+			min-height: 0;
+			flex: 0 0 auto;
 			position: relative;
 			z-index: map-get($modal, z-index);
-			margin: 0 auto;
+			margin: auto;
 			padding: 0 $sui-gutter;
 
 			@include media(max-width, md) {
@@ -617,6 +620,12 @@
 		// STATE: Hidden.
 		&:not(.sui-active) {
 			display: none !important;
+		}
+
+		@include media(max-width, md) {
+			width: 100%;
+			left: 0;
+			padding: $sui-gutter-md 0;
 		}
 	}
 
@@ -1439,10 +1448,10 @@
 	&.wp-admin.folded {
 
 		.sui-modal {
-			left: 36px;
 
-			@include media(max-width, md) {
-				left: 0;
+			@include media(min-width, md) {
+				width: calc(100% - #{map-get($wordpress, adminmenu-sm)});
+				left: map-get($wordpress, adminmenu-sm);
 			}
 		}
 

@@ -509,13 +509,18 @@
 	}; // end replace
 
 	/**
-	 * @desc
+	 * @desc Uses the same dialog to display different content that will slide to show.
 	 *
 	 * @param newSlideId
+	 * ID of the slide that will replace the currently active slide content.
 	 *
 	 * @param newSlideFocus
+	 * Optional ID or DOM node specifying where to place focus in the new slide when it shows.
+	 * If not specified, the first focusable element will receive focus.
 	 *
 	 * @param newSlideEntrance
+	 * Determine if the new slide will show up from "left" or "right" of the screen.
+	 * If not specified, the slide entrance animation will be "fade in".
 	 */
 	aria.Dialog.prototype.slide = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
