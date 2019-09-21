@@ -14227,10 +14227,6 @@ p:first-of-type {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-new">New Modals</a>
-							</li>
-
-							<li class="sui-vertical-tab">
 								<a href="#" role="button" data-tab="demo-element--dialogs-sample-default">OLD: Default</a>
 							</li>
 
@@ -14311,22 +14307,43 @@ p:first-of-type {
 
 <pre class="sui-code-snippet html">
 &lt;!--
-	ACTION: Open Modal
+	OPEN MODAL.
 	You can only use these attributes on an element that's placed "outside" modal.
 
-	1. "data-modal-open" attribute will open the modal you assign.
-	2. "data-modal-open-focus" attribute will focus element you assign that's placed
-		inside modal on modal open action.
+	1. (required) data-modal-open="unique-id"
+		This attribute will open the modal you assign.
+
+	2. data-modal-open-focus="focused-element-id"
+		This attribute will focus element you assign that's
+		placed inside modal when open function fires.
+
+		!! When not used, modal will find the first focusable
+		element in the markup to focus it.
+
+	3. data-modal-close-focus="focused-element-id"
+		This attribute will focus element you assign that's
+		placed outside modal when close function fires.
+
+		!! When not used, modal will find focus-back button
+		you clicked to open modal on first place.
+
+	4. data-modal-mask="true"
+		This attribute will allow overlay mask to fire close
+		function when clicking on it.
+
+		!! When not used, overlay mask will do nothing.
 --&gt;
 &lt;button
 	data-modal-open=&quot;unique-id&quot;
 	data-modal-open-focus=&quot;focused-element-id&quot;
+	data-modal-close-focus=&quot;focused-element-id&quot;
+	data-modal-mask=&quot;true&quot;
 &gt;
 	Open Modal
 &lt;/button&gt;
 
 &lt;!--
-	ACTION: Close Modal
+	CLOSE MODAL.
 	You can use this attribute on an element that's placed "inside" modal.
 --&gt;
 &lt;button
@@ -14364,10 +14381,15 @@ p:first-of-type {
 	* DOM node to focus when the module opens. If not specified, the
 	* first focusable element in the module will receive focus.
 	*
-	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen );
+	* @param hasOverlayMask
+	* Optional boolean parameter that when is set to "true" will enable
+	* a clickable overlay mask. This mask will fire close modal function
+	* when you click on it.
+	*
+	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask );
 	*/
 	$( 'button' ).on( 'click', function() {
-		SUI.openModal( 'modal-unique-id', this, 'element-unique-id' );
+		SUI.openModal( 'modal-unique-id', this, 'element-unique-id', false );
 	});
 
 	/**
@@ -14379,7 +14401,7 @@ p:first-of-type {
 	 * SUI.closeModal( closeButton );
 	 */
 	$( 'button' ).on( 'click', function() {
-		SUI.closeModal( this );
+		SUI.closeModal();
 	});
 
 }( jQuery ) );
@@ -14551,21 +14573,37 @@ p:first-of-type {
 
 <pre class="sui-code-snippet html sui-no-copy">
 &lt;!--
-	ACTION: Replace Modal
-	You can only use these attributes on an element that's placed "inside" currently opened modal.
+	REPLACE MODAL.
+	You can only use these attributes on an element that's placed
+	"inside" currently opened modal.
 
-	1. "data-modal-replace" attribute will close current opened modal and open the new modal you assign.
-	2. "data-modal-open-focus" attribute will focus element you assign that's placed inside modal when
-		it opens.
-	3. "data-modal-close-focus" attribute will focus element you assign that's placed outside modal when
-		it closes. It is important to use this attribute to make sure you re-focus the button you used to
-		originally open the first modal and bring back screenreader to that same spot, or assign a new ID
-		to focus screenreader on a new element.
+	1. (required) data-modal-replace=&quot;unique-id&quot;
+		This attribute will close current opened modal and
+		open instead the new modal you assigned.
+
+	2. (required) data-modal-close-focus=&quot;unique-id&quot;
+		This attribute will help modal re-assign focusable
+		element, that's lost after we replaced modal, when
+		close function fires.
+
+	3. data-modal-open-focus=&quot;unique-id&quot;
+		This attribute will focus element you assign that's
+		placed inside modal when open function fires.
+
+		!! When not used, modal will find the first focusable
+		element in the markup to focus on it.
+
+	4. data-modal-replace-mask=&quot;true&quot;
+		This attribute will allow new modal to have an overlay
+		mask that fires close function when clicking on it.
+
+		!! When not used, overlay mask will do nothing.
 --&gt;
 &lt;button
 	data-modal-replace=&quot;unique-id&quot;
 	data-modal-open-focus=&quot;element-unique-id&quot;
 	data-modal-close-focus=&quot;element-unique-id&quot;
+	data-modal-replace-mask=&quot;true&quot;
 &gt;
 &lt;/button&gt;
 </pre>
@@ -14595,7 +14633,11 @@ p:first-of-type {
  * Optional ID or DOM node specifying where to place focus in the new modal when it opens.
  * If not specified, the first focusable element will receive focus.
  *
- * SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst );
+ * @param hasOverlayMask
+ * Optional boolean parameter that when is set to "true" will enable a clickable overlay
+ * mask to the new opened modal. This mask will fire close modal function when you click it.
+ *
+ * SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
  */
 ( function( $ ) {
 
@@ -14603,10 +14645,11 @@ p:first-of-type {
 
 		const newModalId        = 'modal-unique-id',
 			newFocusAfterClosed = 'element-unique-id',
-			newFocusFirst       = 'element-unique-id'
+			newFocusFirst       = 'element-unique-id',
+			hasOverlayMask      = true
 			;
 
-		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst );
+		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
 
 	});
 
@@ -14763,7 +14806,7 @@ p:first-of-type {
 
 						<div class="sui-box-body">
 
-							<p>Modals have 3 basic elements:</p>
+							<p>Modals have 2 basic elements:</p>
 
 							<div class="sui-box-settings-row">
 
@@ -14818,38 +14861,6 @@ p:first-of-type {
 
 &lt;!-- Skip Button (using &quot;a&quot; tag) --&gt;
 &lt;a href=&quot;#&quot; role=&quot;button&quot; class=&quot;sui-modal-skip&quot; data-modal-close&gt;Skip this&lt;/a&gt;
-</pre>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Overlay Mask</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<p>Some times designers will ask you to allow closing modal using the overlay background, for those cases you have to add an extra element before (above) <strong>content wrapper</strong> element.</p>
-
-									<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;div class=&quot;sui-modal&quot;&gt;
-
-	&lt;!-- Overlay Mask --&gt;
-	&lt;div class=&quot;sui-modal-overlay&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
-
-	&lt;!-- Content Wrapper --&gt;
-	&lt;div class=&quot;sui-modal-content&quot;&gt;
-		...
-	&lt;/div&gt;
-
-&lt;/div&gt;
 </pre>
 
 									</div>
@@ -15542,7 +15553,7 @@ p:first-of-type {
 
 									<p><a href="https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview" target="_blank">( Review original design )</a></p>
 
-									<p style="margin-bottom: 0;"><button id="demo-dialog--sample-hubspot-open" class="sui-button" data-modal-open="demo-dialog--sample-hubspot-contact">Show Sample Modal</button></p>
+									<p style="margin-bottom: 0;"><button id="demo-dialog--sample-hubspot-open" class="sui-button" data-modal-open="demo-dialog--sample-hubspot-contact" data-modal-mask="true">Show Sample Modal</button></p>
 
 									<!-- MODAL: HubSpot Integration (Step 1) -->
 									<div class="sui-modal sui-modal-lg">
@@ -15669,7 +15680,7 @@ p:first-of-type {
 												</div>
 
 												<div class="sui-box-footer sui-flatten sui-content-right">
-													<button class="sui-button" data-modal-replace="demo-dialog--sample-hubspot-ticket" data-modal-close-focus="demo-dialog--sample-hubspot-open">Continue</button>
+													<button role="button" class="sui-button" data-modal-replace="demo-dialog--sample-hubspot-ticket" data-modal-close-focus="demo-dialog--sample-hubspot-open">Continue</button>
 												</div>
 
 											</div>
@@ -15707,7 +15718,7 @@ p:first-of-type {
 
 													<p id="demo-dialog--sample-hubspot-ticket-desc" class="sui-description" style="margin-bottom: 0;">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
 
-													<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-hubspot-contact">
+													<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-hubspot-contact" data-modal-replace-mask="true">
 														<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Go back to create contact</span>
 													</button>
@@ -15943,7 +15954,7 @@ p:first-of-type {
 
 									<p><a href="https://projects.invisionapp.com/d/main#/console/14626511/304432144/preview" target="_blank">( Review original design )</a></p>
 
-									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-hustle-create">Show Sample Modal</button></p>
+									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-hustle-create" data-modal-mask="true">Show Sample Modal</button></p>
 
 									<!-- MODAL: Create Hustle Module. -->
 									<div class="sui-modal sui-modal-lg">
@@ -16112,72 +16123,592 @@ p:first-of-type {
 
 							</div>
 
-						</div>
-
-					</div>
-
-					<div class="sui-box" data-tab="demo-element--dialogs-sample-new" style="display: none;">
-
-						<div class="sui-box-header">
-							<h3 class="sui-box-title">New Modals</h3>
-						</div>
-
-						<div class="sui-box-body">
-
+							<!-- ROW: Import Hustle Pop-up. -->
 							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">List of Samples</span>
-								</div>
 
 								<div class="sui-box-settings-col-2">
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">1. Welcome to Beehive:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-beehive">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/17026452/364335050/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/17026452/364335050/preview</a></span>
+									<p class="sui-settings-label sui-dark">4. Import Hustle Pop-up.</p>
+
+									<p class="sui-description">This sample was grabbed from Hustle project. This is a simple small-size modal.</p>
+
+									<p><a href="https://projects.invisionapp.com/d/main#/console/14626511/334429842/preview" target="_blank">( Review original design )</a></p>
+
+									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-hustle-import" data-modal-mask="true">Show Sample Modal</button></p>
+
+									<!-- MODAL: Import Hustle Pop-up. -->
+									<div class="sui-modal sui-modal-sm">
+
+										<div
+											role="dialog"
+											id="demo-dialog--sample-hustle-import"
+											class="sui-modal-content"
+											aria-modal="true"
+											aria-labelledby="demo-dialog--sample-hustle-import-title"
+											aria-describedby="demo-dialog--sample-hustle-import-desc"
+										>
+
+											<div class="sui-box">
+
+												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
+
+													<h3 id="demo-dialog--sample-hustle-import-title" class="sui-box-title sui-lg">Import Pop-up</h3>
+
+													<p id="demo-dialog--sample-hustle-import-desc" class="sui-description" style="margin-bottom: 0;">Choose the popup configuration file and hit import to import your popup.</p>
+
+													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text">Close this dialog.</span>
+													</button>
+
+												</div>
+
+												<div class="sui-box-body">
+
+													<div class="sui-form-field">
+
+														<label class="sui-label">Configuration file</label>
+
+														<div class="sui-upload">
+
+															<input type="file"
+																value="filename.pdf"
+																readonly="readonly" />
+
+															<button class="sui-upload-button">
+																<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
+															</button>
+
+															<div class="sui-upload-file">
+
+																<span>filename.pdf</span>
+
+																<button aria-label="Remove file">
+																	<i class="sui-icon-close" aria-hidden="true"></i>
+																</button>
+
+															</div>
+
+														</div>
+
+														<span class="sui-description">Choose a JSON (.json) file to import the popup from.</span>
+
+													</div>
+
+												</div>
+
+												<div class="sui-box-footer sui-content-separated">
+
+													<button class="sui-button" disabled>
+														<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Import
+													</button>
+
+													<button class="sui-button sui-button-ghost" data-modal-close="">Cancel</button>
+
+												</div>
+
+											</div>
+
+										</div>
+
 									</div>
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">2. Hustle Onboard:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-hustle">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/17856719/370329110/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/17856719/370329110/preview</a></span>
+								</div>
+
+							</div>
+
+							<!-- ROW: Dismiss Notice. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-settings-label sui-dark">5. Dismiss Notice.</p>
+
+									<p class="sui-description">This sample was grabbed from Hustle project. This is a simple small-size modal.</p>
+
+									<p><a href="https://projects.invisionapp.com/d/main#/console/14626511/352595190/preview" target="_blank">( Review original design )</a></p>
+
+									<p style="margin-bottom: 0;"><button class="sui-button" data-modal-open="demo-dialog--sample-dismiss-notice">Show Sample Modal</button></p>
+
+									<!-- MODAL: Dismiss Notice. -->
+									<div class="sui-modal sui-modal-sm">
+
+										<div
+											role="dialog"
+											id="demo-dialog--sample-dismiss-notice"
+											class="sui-modal-content"
+											aria-modal="true"
+											aria-labelledby="demo-dialog--sample-dismiss-notice-title"
+											aria-describedby="demo-dialog--sample-dismiss-notice-desc"
+										>
+
+											<div class="sui-box">
+
+												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
+
+													<h3 id="demo-dialog--sample-dismiss-notice-title" class="sui-box-title sui-lg">Dismiss Migrate Data Notice</h3>
+
+													<p id="demo-dialog--sample-dismiss-notice-desc" class="sui-description" style="margin-bottom: 0;">Are you sure you wish to dismiss this notice? Make sure you've already migrated data of your existing modules, and you don't need to migrate data anymore.</p>
+
+													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text">Close this dialog.</span>
+													</button>
+
+												</div>
+
+												<div class="sui-box-footer sui-flatten sui-content-center">
+
+													<button class="sui-button sui-button-ghost" data-modal-close="">Cancel</button>
+
+													<button class="sui-button sui-button-red sui-button-ghost" data-modal-close="">Dismiss Forever</button>
+
+												</div>
+
+											</div>
+
+										</div>
+
 									</div>
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">3. Hummingbird Get Started:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="welcome-hummingbird">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/17591467/364654323/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/17591467/364654323/preview</a></span>
+								</div>
+
+							</div>
+
+							<!-- ROW: Beehive On Board. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-2">
+
+									<p class="sui-settings-label sui-dark">6. Beehive On Board.</p>
+
+									<p class="sui-description">This sample was grabbed from Beehive project. This modal uses "replace" and "slide" functions to perform different actions.</p>
+
+									<p><a href="https://projects.invisionapp.com/d/main#/console/17026452/364335050/preview" target="_blank">( Review original design )</a></p>
+
+									<p style="margin-bottom: 0;"><button id="demo-dialog--sample-beehive-onboard-trigger-button" class="sui-button" data-modal-open="demo-dialog--sample-beehive-onboard" data-modal-open-focus="demo-dialog--sample-beehive-onboard-google-button">Show Sample Modal</button></p>
+
+									<!-- MODAL: Beehive On Board. -->
+									<div class="sui-modal sui-modal-lg">
+
+										<div
+											role="dialog"
+											id="demo-dialog--sample-beehive-onboard"
+											class="sui-modal-content"
+											aria-live="polite"
+											aria-modal="true"
+											aria-label="Connect Beehive with your Google account"
+										>
+
+											<!-- SLIDE: Welcome. -->
+											<div id="demo-dialog--sample-beehive-onboard-slide-1" class="sui-modal-slide sui-active sui-loaded" data-modal-size="lg">
+
+												<div class="sui-box">
+
+													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
+
+														<figure class="sui-box-image" aria-hidden="true">
+															<img
+																src="./dist/images/beehive-welcome.png"
+																srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
+															/>
+														</figure>
+
+														<h3 class="sui-box-title sui-lg">Welcome to Beehive Pro</h3>
+
+														<p class="sui-description" style="margin-bottom: 0;">Andy, welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data. If you only want to enable tracking without reports, you can paste your analytics code via the link below.</p>
+
+														<button class="sui-button-icon sui-button-float--right demo-dialog--sample-beehive-onboard-reset">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this dialog.</span>
+														</button>
+
+													</div>
+
+													<div class="sui-box-body">
+
+														<div role="alert" id="demo-dialog--sample-beehive-onboard-google-access-notice" class="sui-notice sui-notice-error" style="display: none;"></div>
+
+														<div class="sui-tabs sui-side-tabs">
+
+															<div role="tablist" class="sui-tabs-menu">
+
+																<button
+																	type="button"
+																	role="tab"
+																	id="demo-dialog--sample-beehive-onboard-google-button"
+																	class="sui-tab-item active"
+																	aria-controls="demo-dialog--sample-beehive-onboard-google-panel"
+																	aria-selected="true"
+																>
+																	Connect with Google
+																</button>
+
+																<button
+																	type="button"
+																	role="tab"
+																	id="demo-dialog--sample-beehive-onboard-api-button"
+																	class="sui-tab-item"
+																	aria-controls="demo-dialog--sample-beehive-onboard-api-panel"
+																	aria-selected="false"
+																	tabindex="-1"
+																>
+																	Set up API Project
+																</button>
+
+															</div>
+
+															<div class="sui-tabs-content">
+
+																<!-- PANEL: Connect with Google -->
+																<div
+																	role="tabpanel"
+																	tabindex="0"
+																	id="demo-dialog--sample-beehive-onboard-google-panel"
+																	class="sui-tab-content sui-border-frame active"
+																	aria-labelledby="demo-dialog--sample-beehive-onboard-google-button"
+																>
+
+																	<p class="sui-description">Easily connect with Google and paste the access code below. Please note,  we only retrieve analytics information and no personally identifiable data.</p>
+
+																	<button id="demo-dialog--sample-beehive-onboard-google-access-connect" class="demo-modal-button-google">
+																		<i class="sui-icon-google-connect" aria-hidden="true"></i> Connect with Google
+																	</button>
+
+																	<div class="sui-form-field">
+
+																		<label for="demo-dialog--sample-beehive-onboard-google-access" id="demo-dialog--sample-beehive-onboard-google-access-label" class="sui-label">Access Code</label>
+
+																		<input
+																			type="text"
+																			placeholder="Place access code here"
+																			id="demo-dialog--sample-beehive-onboard-google-access"
+																			class="sui-form-control"
+																			style="margin-bottom: 20px;"
+																			aria-labelledby="demo-dialog--sample-beehive-onboard-google-access-label"
+																			aria-describedby="demo-dialog--sample-beehive-onboard-google-access-error"
+																		/>
+
+																		<button id="demo-dialog--sample-beehive-onboard-google-access-auth" class="sui-button sui-button-blue">
+																				<span class="sui-loading-text">Authorize</span>
+																			<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+																		</button>
+
+																	</div>
+
+																</div>
+
+																<!-- PANEL: Set up API Project -->
+																<div
+																	role="tabpanel"
+																	tabindex="0"
+																	id="demo-dialog--sample-beehive-onboard-api-panel"
+																	class="sui-tab-content sui-border-frame"
+																	aria-labelledby="demo-dialog--sample-beehive-onboard-api-button"
+																	hidden
+																>
+
+																	<p class="sui-description">We recommend to set up API project, as it results in smoother experience for site admins. You can check the documentation on how to set up API project <a href="https://premium.wpmudev.org/" target="_blank" rel="nofollow">here</a>.</p>
+
+																	<div class="sui-form-field" style="margin-bottom: 20px;">
+
+																		<label for="demo-dialog--sample-beehive-onboard-api-id" id="demo-dialog--sample-beehive-onboard-api-id-label" class="sui-label">Google Client ID</label>
+
+																		<input
+																			type="text"
+																			placeholder="Place Google Client ID here"
+																			id="demo-dialog--sample-beehive-onboard-api-id"
+																			class="sui-form-control"
+																			aria-labelledby="demo-dialog--sample-beehive-onboard-api-id-label"
+																			aria-describedby="demo-dialog--sample-beehive-onboard-api-id-error"
+																		/>
+
+																		<span id="demo-dialog--sample-beehive-onboard-api-id-error" class="sui-error-message sui-hidden"></span>
+
+																	</div>
+
+																	<div class="sui-form-field" style="margin-bottom: 20px;">
+
+																		<label for="demo-dialog--sample-beehive-onboard-api-secret" id="demo-dialog--sample-beehive-onboard-api-secret-label" class="sui-label">Google Client Secret</label>
+
+																		<input
+																			type="text"
+																			placeholder="Place Google Client Secret here"
+																			id="demo-dialog--sample-beehive-onboard-api-secret"
+																			class="sui-form-control"
+																			aria-labelledby="demo-dialog--sample-beehive-onboard-api-secret-label"
+																			aria-describedby="demo-dialog--sample-beehive-onboard-api-secret-error"
+																		/>
+
+																		<span id="demo-dialog--sample-beehive-onboard-api-secret-error" class="sui-error-message sui-hidden"></span>
+
+																	</div>
+
+																	<button id="demo-dialog--sample-beehive-onboard-api-auth" class="sui-button sui-button-blue">
+																			<span class="sui-loading-text">Authorize</span>
+																		<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+																	</button>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+
+													<div class="sui-box-footer sui-flatten sui-content-center sui-spacing-bottom--50">
+
+														<button id="demo-dialog--sample-beehive-onboard-tracking" class="demo-modal-footer-link">Add Google Analytics tracking code</button>
+
+													</div>
+
+												</div>
+
+												<button class="sui-modal-skip demo-dialog--sample-beehive-onboard-reset">Skip this</button>
+
+											</div>
+
+											<!-- SLIDE: Setup. -->
+											<div id="demo-dialog--sample-beehive-onboard-slide-2" class="sui-modal-slide" data-modal-size="md">
+
+												<div class="sui-box">
+
+													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
+
+														<figure class="sui-box-image" aria-hidden="true">
+															<img
+																src="./dist/images/beehive-welcome.png"
+																srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
+															/>
+														</figure>
+
+														<h3 class="sui-box-title sui-lg">Set up your account</h3>
+
+														<p class="sui-description" style="margin-bottom: 0;">We have successfully connected your Google account. The next step is to choose your Analytics Profile to get data feeding.</p>
+
+														<button class="sui-button-icon sui-button-float--right demo-dialog--sample-beehive-onboard-reset">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this dialog.</span>
+														</button>
+
+													</div>
+
+													<div tabindex="0" role="form" class="sui-box-body sui-spacing-sides--60">
+
+														<div role="group" class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<label for="demo-dialog--sample-beehive-onboard-profile" id="demo-dialog--sample-beehive-onboard-profile-label" class="sui-label">Choose your analytics profile</label>
+
+																<select id="demo-dialog--sample-beehive-onboard-profile" aria-labelledby="demo-dialog--sample-beehive-onboard-profile-label">
+																	<option value="yourwebsite.com">http://yourwebsite.com</option>
+																	<option value="yourwebsite2.com">http://yourwebsite2.com</option>
+																	<option value="yourwebsite3.com">http://yourwebsite3.com</option>
+																	<option value="yourwebsite4.com">http://yourwebsite4.com</option>
+																</select>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-output" class="sui-checkbox sui-checkbox-sm sui-checkbox-stacked" style="margin-top: 20px;">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-output"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-output-label"
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-output-label">Automatically output my Google Analytics tracking code</span>
+																</label>
+
+															</div>
+
+														</div>
+
+														<div role="group" class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<label id="demo-dialog--sample-beehive-onboard-display-label" class="sui-label">Display Analytics statistics to:</label>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-display-admin" class="sui-checkbox sui-checkbox-stacked">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-display-admin"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-display-admin-label"
+																		checked
+																		disabled
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-display-admin-label">Administrator</span>
+																</label>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-display-editor" class="sui-checkbox sui-checkbox-stacked">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-display-editor"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-display-editor-label"
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-display-editor-label">Editor</span>
+																</label>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-display-author" class="sui-checkbox sui-checkbox-stacked">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-display-author"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-display-author-label"
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-display-author-label">Author</span>
+																</label>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-display-contrib" class="sui-checkbox sui-checkbox-stacked">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-display-contrib"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-display-contrib-label"
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-display-contrib-label">Contributor</span>
+																</label>
+
+																<label for="demo-dialog--sample-beehive-onboard-profile-display-subs" class="sui-checkbox sui-checkbox-stacked">
+																	<input
+																		type="checkbox"
+																		id="demo-dialog--sample-beehive-onboard-profile-display-subs"
+																		aria-labelledby="demo-dialog--sample-beehive-onboard-profile-display-subs-label"
+																	/>
+																	<span aria-hidden="true"></span>
+																	<span id="demo-dialog--sample-beehive-onboard-profile-display-subs-label">Subscriber</span>
+																</label>
+
+															</div>
+
+														</div>
+
+													</div>
+
+													<div class="sui-box-footer sui-flatten sui-content-center sui-spacing-bottom--50 sui-spacing-sides--60">
+
+														<button id="demo-dialog--sample-beehive-onboard-profile-setup" class="sui-button">Continue</button>
+
+													</div>
+
+												</div>
+
+												<button class="sui-modal-skip demo-dialog--sample-beehive-onboard-reset">Skip this</button>
+
+											</div>
+
+										</div>
+
 									</div>
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">4. Warning Modal:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="warning-modal">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/14626511/352595190/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/14626511/352595190/preview</a></span>
+									<!-- MODAL: Tracking Code. -->
+									<div class="sui-modal sui-modal-md">
+
+										<div
+											role="dialog"
+											id="demo-dialog--sample-beehive-tracking"
+											class="sui-modal-content"
+											aria-live="polite"
+											aria-modal="true"
+											aria-labelledby="demo-dialog--sample-beehive-tracking-title"
+											aria-describedby="demo-dialog--sample-beehive-tracking-subtitle"
+										>
+
+											<div class="sui-box">
+
+												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
+
+													<figure class="sui-box-image" aria-hidden="true">
+														<img
+															src="./dist/images/beehive-welcome.png"
+															srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
+														/>
+													</figure>
+
+													<h3 id="demo-dialog--sample-beehive-tracking-title" class="sui-box-title sui-lg">Add Tracking Code</h3>
+
+													<p id="demo-dialog--sample-beehive-tracking-subtitle" class="sui-description" style="margin-bottom: 0;">Paste your Google Analytics tracking ID in the field below to enable analytics tracking. You can get your ID <a href="https://analytics.google.com/analytics/" target="_blank" rel="nofollow">here</a>.</p>
+
+													<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-beehive-onboard">
+														<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text">Go back to previous screen</span>
+													</button>
+
+													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text"></span>
+													</button>
+
+												</div>
+
+												<div class="sui-box-body sui-spacing-bottom--50">
+
+													<div class="sui-form-field">
+
+														<label for="demo-dialog--sample-beehive-tracking-input" id="demo-dialog--sample-beehive-tracking-label" class="sui-label">Tracking Code</label>
+
+														<input
+															type="text"
+															placeholder="E.g: UA-XXXXXXXXX-X"
+															id="demo-dialog--sample-beehive-tracking-input"
+															class="sui-form-control"
+															aria-labelledby="demo-dialog--sample-beehive-tracking-label"
+															aria-describedby="demo-dialog--sample-beehive-tracking-error"
+														/>
+
+														<span id="demo-dialog--sample-beehive-tracking-error" class="sui-error-message" style="display: none;" hidden></span>
+
+													</div>
+
+												</div>
+
+												<div class="sui-box-footer sui-flatten sui-content-center sui-spacing-bottom--50" style="display: none;" hidden>
+
+													<button id="demo-dialog--sample-beehive-tracking-save" class="sui-button sui-button-blue">
+														<span class="sui-loading-text">Save Code</span>
+														<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+													</button>
+
+												</div>
+
+											</div>
+
+										</div>
+
 									</div>
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">5. Import Popup:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="import-modal">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/14626511/334429842/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/14626511/334429842/preview</a></span>
-									</div>
+									<!-- MODAL: Finishing Setup. -->
+									<div class="sui-modal sui-modal-md">
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">6. Choose Conditions:</span>
-										<button type="button" class="sui-button" data-a11y-dialog-show="choose-conditions">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/14626511/316780894/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/14626511/316780894/preview</a></span>
-									</div>
+										<div
+											role="dialog"
+											id="demo-dialog--sample-beehive-setup"
+											class="sui-modal-content"
+											aria-modal="true"
+											aria-labelledby="demo-dialog--sample-beehive-setup-title"
+											aria-describedby="demo-dialog--sample-beehive-setup-desc"
+										>
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">7. ActiveCampaign:</span>
-										<button type="button" class="sui-button" data-modal-open="activecampaign">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/17262179/357797115/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/17262179/357797115/preview</a></span>
-									</div>
+											<div class="sui-box">
 
-									<div class="sui-form-field">
-										<span class="sui-settings-label">8. HubSpot:</span>
-										<button type="button" class="sui-button" data-modal-open="hubspot-dialog">Show Sample</button>
-										<span class="sui-description">Click on the following link for the original design: <a href="https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview" target="_blank">https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview</a></span>
+												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60 sui-spacing-bottom--30">
+
+													<i class="sui-icon-loader sui-lg sui-loading" aria-hidden="true"></i>
+
+													<h3 id="demo-dialog--sample-beehive-setup-title" class="sui-box-title sui-lg">Finishing Setup...</h3>
+
+													<p id="demo-dialog--sample-beehive-setup-desc" class="sui-description">Please wait a few moments while we set up your account. Note that data can take up to 24 hours to display.</p>
+
+												</div>
+
+												<img src="./dist/images/beehive-footer.png" srcset="./dist/images/beehive-footer.png 1x, ./dist/images/beehive-footer@2x.png 2x" class="sui-image sui-image-center" aria-hidden="true">
+
+											</div>
+
+										</div>
+
 									</div>
 
 								</div>
