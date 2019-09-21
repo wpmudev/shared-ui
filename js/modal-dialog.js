@@ -239,8 +239,13 @@
 	 * Optional parameter containing either the DOM node or the ID of the
 	 * DOM node to focus when the dialog opens. If not specified, the
 	 * first focusable element in the dialog will receive focus.
+	 *
+	 * @param hasOverlayMask
+	 * Optional boolean parameter that when is set to "true" will enable
+	 * a clickable overlay mask. This mask will fire close modal function
+	 * when you click on it.
 	 */
-	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst ) {
+	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask ) {
 
 		this.dialogNode = document.getElementById( dialogId );
 
@@ -307,6 +312,13 @@
 		this.preNode = this.dialogNode.parentNode.insertBefore( preDiv, this.dialogNode );
 		this.preNode.tabIndex = 0;
 
+		if ( 'boolean' === typeof hasOverlayMask && true === hasOverlayMask ) {
+			this.preNode.classList.add( 'sui-modal-overlay' );
+			this.preNode.onclick = function() {
+				aria.getCurrentDialog().close();
+			};
+		}
+
 		var postDiv = document.createElement( 'div' );
 		this.postNode = this.dialogNode.parentNode.insertBefore( postDiv, this.dialogNode.nextSibling );
 		this.postNode.tabIndex = 0;
@@ -331,7 +343,7 @@
 
 		this.lastFocus = document.activeElement;
 
-	}; // end Dialog constructor
+	}; // end Dialog constructor.
 
 	aria.Dialog.prototype.clearDialog = function() {
 
@@ -368,6 +380,7 @@
 		}, 300 );
 
 		setTimeout( function() {
+
 			var slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
 
 			if ( 0 < slides.length ) {
@@ -474,7 +487,7 @@
 		} else {
 			document.body.parentNode.classList.remove( aria.Utils.dialogOpenClass );
 		}
-	}; // end close
+	}; // end close.
 
 	/**
 	 * @desc Hides the current dialog and replaces it with another.
@@ -489,10 +502,14 @@
 	 * @param newFocusFirst
 	 * Optional ID or DOM node specifying where to place focus in the new dialog when it opens.
 	 * If not specified, the first focusable element will receive focus.
+	 *
+	 * @param hasOverlayMask
+	 * Optional boolean parameter that when is set to "true" will enable a clickable overlay
+	 * mask to the new opened dialog. This mask will fire close dialog function when you click it.
 	 */
-	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst ) {
+	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
 
-		var closedDialog = aria.getCurrentDialog();
+		var self = this;
 
 		aria.OpenDialogList.pop();
 		this.removeListeners();
@@ -503,8 +520,110 @@
 		this.dialogNode.classList.remove( 'sui-content-fade-in' );
 		this.backdropNode.classList.remove( 'sui-active' );
 
+		setTimeout( function() {
+
+			var slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
+
+			if ( 0 < slides.length ) {
+
+				// Hide all slides.
+				for ( var i = 0; i < slides.length; i++ ) {
+					slides[i].setAttribute( 'disabled', true );
+					slides[i].classList.remove( 'sui-loaded' );
+					slides[i].classList.remove( 'sui-active' );
+					slides[i].setAttribute( 'tabindex', '-1' );
+					slides[i].setAttribute( 'aria-hidden', true );
+				}
+
+				// Change modal size.
+				if ( slides[0].hasAttribute( 'data-modal-size' ) ) {
+
+					var newDialogSize = slides[0].getAttribute( 'data-modal-size' );
+
+					switch( newDialogSize ) {
+						case 'sm':
+						case 'small':
+							newDialogSize = 'sm';
+							break;
+
+						case 'md':
+						case 'med':
+						case 'medium':
+							newDialogSize = 'md';
+							break;
+
+						case 'lg':
+						case 'large':
+							newDialogSize = 'lg';
+							break;
+
+						case 'xl':
+						case 'extralarge':
+						case 'extraLarge':
+						case 'extra-large':
+							newDialogSize = 'xl';
+							break;
+
+						default:
+							newDialogSize = undefined;
+					}
+
+					if ( undefined !== newDialogSize ) {
+
+						// Remove others sizes from dialog to prevent any conflicts with styles.
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-sm' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-md' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-lg' );
+						self.dialogNode.parentNode.classList.remove( 'sui-modal-xl' );
+
+						// Apply the new size to dialog.
+						self.dialogNode.parentNode.classList.add( 'sui-modal-' + newDialogSize );
+					}
+				}
+
+				// Show first slide.
+				slides[0].classList.add( 'sui-active' );
+				slides[0].classList.add( 'sui-loaded' );
+				slides[0].removeAttribute( 'disabled' );
+				slides[0].removeAttribute( 'tabindex' );
+				slides[0].removeAttribute( 'aria-hidden' );
+
+				// Change modal label.
+				if ( slides[0].hasAttribute( 'data-modal-labelledby' ) ) {
+
+					var newDialogLabel, getDialogLabel;
+
+					newDialogLabel = '';
+					getDialogLabel = slides[0].getAttribute( 'data-modal-labelledby' );
+
+					if ( '' !== getDialogLabel || undefined !== getDialogLabel ) {
+						newDialogLabel = getDialogLabel;
+					}
+
+					self.dialogNode.setAttribute( 'aria-labelledby', newDialogLabel );
+
+				}
+
+				// Change modal description.
+				if ( slides[0].hasAttribute( 'data-modal-describedby' ) ) {
+
+					var newDialogDesc, getDialogDesc;
+
+					newDialogDesc = '';
+					getDialogDesc = slides[0].getAttribute( 'data-modal-describedby' );
+
+					if ( '' !== getDialogDesc || undefined !== getDialogDesc ) {
+						newDialogDesc = getDialogDesc;
+					}
+
+					self.dialogNode.setAttribute( 'aria-describedby', newDialogDesc );
+
+				}
+			}
+		}, 350 );
+
 		var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-		var dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst );
+		var dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask );
 
 	}; // end replace
 
@@ -659,15 +778,15 @@
 			aria.Utils.focusFirstDescendant( this.dialogNode );
 		}
 
-	}; // end slide
+	}; // end slide.
 
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
-	}; // end addListeners
+	}; // end addListeners.
 
 	aria.Dialog.prototype.removeListeners = function() {
 		document.removeEventListener( 'focus', this.trapFocus, true );
-	}; // end removeListeners
+	}; // end removeListeners.
 
 	aria.Dialog.prototype.trapFocus = function( event ) {
 
@@ -689,41 +808,32 @@
 
 			currentDialog.lastFocus = document.activeElement;
 		}
-	}; // end trapFocus
+	}; // end trapFocus.
 
-	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst ) {
-		var dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst );
-	};
+	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay ) {
+		var dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay );
+	}; // end openModal.
 
-	SUI.closeModal = function( closeButton ) {
+	SUI.closeModal = function() {
+		var topDialog = aria.getCurrentDialog();
+		topDialog.close();
+	}; // end closeDialog.
+
+	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
 
 		var topDialog = aria.getCurrentDialog();
 
-		if ( topDialog.dialogNode.contains( closeButton ) ) {
-			topDialog.close();
-		}
-	}; // end closeDialog
+		/**
+		 * BUG #1:
+		 * When validating document.activeElement it always returns "false" but
+		 * even when "false" on Chrome function is fired correctly while on Firefox
+		 * and Safari this validation prevents function to be fired on click.
+		 *
+		 * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
+		 */
+		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
 
-	SUI.closeMask = function( overlayMask ) {
-
-		var getDialogElement = overlayMask.parentNode.querySelector( '.sui-modal-content > div' );
-
-		getDialogElement.addEventListener( 'click', function() {
-			SUI.closeModal( this );
-		});
-
-		aria.Utils.simulateClick( getDialogElement );
-
-	}; // end overlayModal
-
-	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst ) {
-
-		var topDialog = aria.getCurrentDialog();
-
-		if ( topDialog.dialogNode.contains( document.activeElement ) ) {
-			topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst );
-		}
-	}; // end replaceModal
+	}; // end replaceModal.
 
 	SUI.slideModal = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
@@ -731,11 +841,18 @@
 
 		topDialog.slide( newSlideId, newSlideFocus, newSlideEntrance );
 
-	}; // end slideModal
+	}; // end slideModal.
 
 }() );
 
 ( function( $ ) {
+
+	// Enable strict mode.
+    'use strict';
+
+    if ( 'object' !== typeof window.SUI ) {
+        window.SUI = {};
+	}
 
 	SUI.modalDialog = function() {
 
@@ -749,77 +866,91 @@
 			buttonSlide   = $( '[data-modal-slide]' );
 			overlayMask   = $( '.sui-modal-overlay' );
 
-			if ( '' !== buttonOpen.data( 'modal-open' ) ) {
+			buttonOpen.on( 'click', function( e ) {
 
-				buttonOpen.on( 'click', function( e ) {
+				button      = $( this );
+				modalId     = button.attr( 'data-modal-open' );
+				closeFocus  = button.attr( 'data-modal-close-focus' );
+				newFocus    = button.attr( 'data-modal-open-focus' );
+				overlayMask = button.attr( 'data-modal-mask' );
 
-					button  = $( e.target );
-					modalId = button.data( 'modal-open' );
+				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
+					closeFocus = this;
+				}
 
-					SUI.openModal( modalId, this );
+				if ( typeof undefined === typeof newFocus || false === newFocus || '' === newFocus ) {
+					newFocus = undefined;
+				}
 
-					e.preventDefault();
+				if ( typeof undefined !== typeof overlayMask && false !== overlayMask && 'true' === overlayMask ) {
+					overlayMask = true;
+				} else {
+					overlayMask = false;
+				}
 
-				});
-			}
+				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
+					SUI.openModal( modalId, closeFocus, newFocus, overlayMask );
+				}
 
-			if ( '' !== buttonReplace.data( 'modal-replace' ) ) {
-
-				buttonReplace.on( 'click', function( e ) {
-
-					button  = $( e.target );
-					modalId = $( this ).data( 'modal-replace' );
-					closeFocus = $( this ).data( 'modal-close-focus' );
-					newFocus = $( this ).data( 'modal-open-focus' );
-
-					if ( '' === closeFocus ) {
-						closeFocus = undefined;
-					}
-
-					if ( '' === newFocus ) {
-						newFocus = undefined;
-					}
-
-					if ( undefined !== modalId && '' !== modalId ) {
-
-						SUI.replaceModal( modalId, closeFocus, newFocus );
-					}
-
-					e.preventDefault();
-
-				});
-			}
-
-			if ( '' !== buttonSlide.data( 'modal-slide' ) ) {
-
-				buttonSlide.on( 'click', function( e ) {
-
-					button    = $( e.target );
-					slideId   = $( this ).data( 'modal-slide' );
-					newFocus  = $( this ).data( 'modal-slide-focus' );
-					animation = $( this ).data( 'modal-slide-intro' );
-
-					if ( '' === newFocus ) {
-						newFocus = undefined;
-					}
-
-					if ( '' === animation ) {
-						animation = '';
-					}
-
-					if ( undefined !== modalId && '' !== modalId ) {
-						SUI.slideModal( slideId, newFocus, animation );
-					}
-				});
-			}
-
-			buttonClose.on( 'click', function( e ) {
-				SUI.closeModal( this );
 				e.preventDefault();
+
 			});
 
-			overlayMask.on( 'click', function( e ) {
-				SUI.closeMask( this );
+			buttonReplace.on( 'click', function( e ) {
+
+				button      = $( this );
+				modalId     = button.attr( 'data-modal-replace' );
+				closeFocus  = button.attr( 'data-modal-close-focus' );
+				newFocus    = button.attr( 'data-modal-open-focus' );
+				overlayMask = button.attr( 'data-modal-replace-mask' );
+
+				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
+					closeFocus = undefined;
+				}
+
+				if ( typeof undefined === typeof newFocus || false === newFocus || '' === newFocus ) {
+					newFocus = undefined;
+				}
+
+				if ( typeof undefined !== typeof overlayMask && false !== overlayMask && 'true' === overlayMask ) {
+					overlayMask = true;
+				} else {
+					overlayMask = false;
+				}
+
+				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
+					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask );
+				}
+
+				e.preventDefault();
+
+			});
+
+			buttonSlide.on( 'click', function( e ) {
+
+				button    = $( this );
+				slideId   = button.attr( 'data-modal-slide' );
+				newFocus  = button.attr( 'data-modal-slide-focus' );
+				animation = button.attr( 'data-modal-slide-intro' );
+
+				if ( typeof undefined === typeof newFocus || false === newFocus || '' === newFocus ) {
+					newFocus = undefined;
+				}
+
+				if ( typeof undefined === typeof animation || false === animation || '' === animation ) {
+					animation = '';
+				}
+
+				if ( typeof undefined !== typeof slideId && false !== slideId && '' !== slideId ) {
+					SUI.slideModal( slideId, newFocus, animation );
+				}
+
+				e.preventDefault();
+
+			});
+
+			buttonClose.on( 'click', function( e ) {
+				SUI.closeModal();
 				e.preventDefault();
 			});
 		}
