@@ -121,51 +121,79 @@
 				}
 			}
 
+			// ELEMENT: Box Banner.
+			.sui-box-banner {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				overflow: hidden;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+
+				img {
+					max-width: 100%;
+					display: block;
+					margin: 0 auto;
+					padding: 0;
+					border: 0;
+				}
+			}
+
+			// ELEMENT: Box Logo.
+			.sui-box-logo {
+				width: map-get($modal-logo, size);
+				height: map-get($modal-logo, size);
+				overflow: hidden;
+				display: block;
+				margin: 0 auto;
+				padding: 0;
+				border: map-get($modal-logo, frame-width) solid map-get($modal-logo, frame-color);
+				border-radius: $border-radius;
+				background-color: map-get($modal-logo, frame-color);
+
+				img {
+					width: #{map-get($modal-logo, size) - (map-get($modal-logo, frame-width) * 2)};
+					height: #{map-get($modal-logo, size) - (map-get($modal-logo, frame-width) * 2)};
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					border-radius: $border-radius;
+				}
+			}
+
 			// ELEMENT: Box Header.
 			.sui-box-header {
 				position: relative;
 
-				// ELEMENT: Box image.
-				.sui-box-image {
-					overflow: hidden;
-					display: block;
-					margin: -#{$sui-gutter / 2} -#{$sui-gutter} #{$sui-gutter + 10px};
-					padding: 0;
+				// ELEMENT: Box Banner.
+				.sui-box-banner {
+					width: auto;
+					max-width: none;
+					margin-top: -#{$sui-gutter / 2};
+					margin-right: -#{$sui-gutter};
+					margin-bottom: #{$sui-gutter + 10px};
+					margin-left: -#{$sui-gutter};
 					border-top-left-radius: $border-radius;
 					border-top-right-radius: $border-radius;
 
-					img {
-						max-width: 100%;
-						display: block;
-						margin: 0 auto;
-						padding: 0;
-						border: 0;
-					}
-
 					@include media(max-width, md) {
-						margin: -#{$sui-gutter-md / 2} -#{$sui-gutter-md} #{$sui-gutter-md + 10px};
+						margin-top: -#{$sui-gutter-md / 2};
+						margin-right: -#{$sui-gutter-md};
+						margin-bottom: #{$sui-gutter-md + 10px};
+						margin-left: -#{$sui-gutter-md};
 					}
 				}
 
-				// ELEMENT: Box logo.
+				// ELEMENT: Box Logo.
 				.sui-box-logo {
-					width: map-get($modal, logo-size);
-					height: map-get($modal, logo-size);
-					display: block;
-					margin: -#{(map-get($modal, logo-size) / 2) + ($sui-gutter / 2)} auto #{$sui-gutter - map-get($modal, logo-border)};
-					padding: 0;
-					border: map-get($modal, logo-border) solid $white;
-					border-radius: $border-radius;
-					background-color: $white;
-
-					img {
-						width: #{$sui-gutter * 2};
-						height: #{$sui-gutter * 2};
-						margin: 0;
-						padding: 0;
-						border: 0;
-						border-radius: 4px;
-					}
+					position: absolute;
+					top: -#{map-get($modal-logo, size) / 2};
+					left: 50%;
+					transform: translateX(-50%);
 				}
 
 				// ELEMENT: Floated button.
@@ -198,6 +226,19 @@
 					}
 				}
 
+				// ELEMENT: Floated steps.
+				.sui-steps-float {
+					position: absolute;
+					top: #{$sui-gutter - 10px};
+					left: 50%;
+					margin: 0;
+					transform: translateX(-50%);
+
+					@include media(max-width, md) {
+						top: #{$sui-gutter-md - 5px};
+					}
+				}
+
 				// VAR: Flatten.
 				&.sui-flatten {
 					padding-bottom: 0;
@@ -212,17 +253,8 @@
 						padding-top: nth($spacing, 1);
 
 						// ELEMENT: Box image.
-						.sui-box-image {
+						.sui-box-banner {
 							margin-top: -#{nth($spacing, 1)};
-						}
-
-						// ELEMENT: Box logo.
-						.sui-box-logo {
-							margin-top: -#{nth($spacing, 1) + (map-get($modal, logo-size) / 2)};
-						}
-
-						@include media(max-width, md) {
-							padding-top: #{nth($spacing, 2)};
 						}
 					}
 
@@ -231,16 +263,22 @@
 						padding-right: nth($spacing, 1);
 
 						// ELEMENT: Box image.
-						.sui-box-image {
+						.sui-box-banner {
 							margin-right: -#{nth($spacing, 1)};
 
-							@include media(max-width, md) {
-								margin-right: -#{nth($spacing, 2)};
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-right: -#{nth($spacing, 2)};
+								}
 							}
 						}
 
-						@include media(max-width, md) {
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -248,26 +286,35 @@
 					&.sui-spacing-bottom--#{$name} {
 						padding-bottom: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-bottom: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-bottom: nth($spacing, 2);
+							}
 						}
 					}
 
-					// SPACING: Left (30px).
+					// SPACING: Left.
 					&.sui-spacing-left--#{$name} {
 						padding-left: nth($spacing, 1);
 
 						// ELEMENT: Box image.
-						.sui-box-image {
+						.sui-box-banner {
 							margin-left: -#{nth($spacing, 1)};
 
-							@include media(max-width, md) {
-								margin-left: -#{nth($spacing, 2)};
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-left: -#{nth($spacing, 2)};
+								}
 							}
 						}
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -277,19 +324,25 @@
 						padding-right: nth($spacing, 1);
 
 						// ELEMENT: Box Image.
-						.sui-box-image {
+						.sui-box-banner {
 							margin-left: -#{nth($spacing, 1)};
 							margin-right: -#{nth($spacing, 1)};
 
-							@include media(max-width, md) {
-								margin-left: -#{nth($spacing, 2)};
-								margin-right: -#{nth($spacing, 2)};
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-left: -#{nth($spacing, 2)};
+									margin-right: -#{nth($spacing, 2)};
+								}
 							}
 						}
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 				}
@@ -350,8 +403,11 @@
 					&.sui-spacing-top--#{$name} {
 						padding-top: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-top: #{nth($spacing, 2)};
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-top: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -359,8 +415,11 @@
 					&.sui-spacing-right--#{$name} {
 						padding-right: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -368,8 +427,11 @@
 					&.sui-spacing-bottom--#{$name} {
 						padding-bottom: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-bottom: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-bottom: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -377,8 +439,11 @@
 					&.sui-spacing-left--#{$name} {
 						padding-left: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -387,9 +452,12 @@
 						padding-left: nth($spacing, 1);
 						padding-right: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 				}
@@ -455,8 +523,11 @@
 					&.sui-spacing-top--#{$name} {
 						padding-top: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-top: #{nth($spacing, 2)};
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-top: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -464,8 +535,11 @@
 					&.sui-spacing-right--#{$name} {
 						padding-right: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -478,8 +552,11 @@
 					&.sui-spacing-left--#{$name} {
 						padding-left: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
 						}
 					}
 
@@ -488,9 +565,12 @@
 						padding-left: nth($spacing, 1);
 						padding-right: nth($spacing, 1);
 
-						@include media(max-width, md) {
-							padding-left: nth($spacing, 2);
-							padding-right: nth($spacing, 2);
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
 						}
 					}
 				}
@@ -522,86 +602,53 @@
 		}
 
 		// ELEMENT: Steps.
-		.sui-modal-steps {
+		.sui-box-steps {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
 			margin: 0 -5px;
-			padding: #{map-get($onboard, spacing) / 2} 0;
+			padding: 0;
 			border: 0;
 
-			&, li {
-				list-style: none;
-
-				&:before,
-				&:after {
-					content: unset;
-				}
-			}
-
-			li {
+			a,
+			span,
+			button {
+				overflow: hidden;
+				cursor: pointer;
 				display: block;
 				flex: 0 0 auto;
-				margin: 0;
-				padding: 0 5px;
+				margin: 0 5px;
+				padding: 0;
+				border: 0;
+				background-color: palette(silver, soft);
+				white-space: nowrap;
+				text-overflow: clip;
+				color: transparent;
 
-				a, button, > span {
-					width: 7px;
-					height: 7px;
-					display: block;
-					border-radius: 14px;
-
-					&,
-					&:hover,
-					&:focus,
-					&:active,
-					&:visited {
-						margin: 0;
-						padding: 0;
-						border: 0;
-						outline: none;
-						box-shadow: none;
-					}
-				}
-			}
-
-			&.sui-clickable li {
-
-				a, button, > span {
-					background-color: palette(silver, soft);
+				&.sui-current {
+					background-color: $blue;
 				}
 
-				a, button {
-					cursor: pointer;
-				}
-
-				&.current {
-
-					a, button, > span {
-						background-color: palette(gray, default);
-					}
-
-					a, button {
-						pointer-events: none;
-					}
-				}
-			}
-
-			&:not(.sui-clickable) li {
-
-				a, button, > span {
-					background-color: palette(gray, default);
-				}
-
-				a, button {
+				&:disabled,
+				&[disabled],
+				&.sui-disabled {
+					cursor: not-allowed;
 					pointer-events: none;
 				}
+			}
 
-				&.current ~ li {
+			@each $name, $size in $modal-steps {
 
-					a, button, > span {
-						background-color: palette(silver, soft);
+				&.sui-#{$name} {
+					padding: #{(30px - $size) / 2} 0;
+
+					a,
+					span,
+					button {
+						width: $size;
+						height: $size;
+						border-radius: #{$size * 2};
 					}
 				}
 			}
