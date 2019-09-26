@@ -69,12 +69,15 @@
 		<div class="sui-wrap">
 
 			<div class="sui-notice-top sui-notice-success sui-can-dismiss">
+
 				<div class="sui-notice-content">
 					<p><strong>Notice success:</strong> Page caching is currently active.</p>
 				</div>
+
 				<span class="sui-notice-dismiss">
 					<a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"></a>
 				</span>
+
 			</div>
 
 			<section id="usage">
@@ -14215,11 +14218,11 @@ p:first-of-type {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--elements">Modal Elements</a>
+								<a href="#" role="button" data-tab="demo-dialog--elements">Elements</a>
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-dialog--content">Content Elements</a>
+								<a href="#" role="button" data-tab="demo-dialog--accessibility">Accessibility</a>
 							</li>
 
 							<li class="sui-vertical-tab">
@@ -14227,19 +14230,8 @@ p:first-of-type {
 							</li>
 
 							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-default">OLD: Default</a>
-							</li>
-
-							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-alternative">OLD: Alt</a>
-							</li>
-
-							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-sample-onboarding">OLD: On Boarding</a>
-							</li>
-
-							<li class="sui-vertical-tab">
-								<a href="#" role="button" data-tab="demo-element--dialogs-docs">Documentation</a>
+								<a href="#" role="button" data-tab="demo-dialog--legacy" style="color: #FF6D6D;">Legacy Code</a>
+								<i class="sui-icon-warning-alert sui-error" aria-hidden="true"></i>
 							</li>
 
 						</ul>
@@ -14806,36 +14798,51 @@ p:first-of-type {
 
 						<div class="sui-box-body">
 
-							<p>Modals have 2 basic elements:</p>
+							<div class="sui-notice sui-notice-info">
+								<p><strong>Modals have 2 basic elements:</strong> content wrapper, skip button and step dots.</p>
+							</div>
 
+							<!-- ELEMENT: Content Wrapper. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Content Wrapper</span>
+									<p class="sui-settings-label">Content Wrapper</p>
+									<p class="sui-description">This element holds the main content and is important for the modal to work correctly.</p>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
 									<p>This is the most important element for a modal and without it nothing will work correctly. The <storng>content wrapper</storng> holds the content displayed on the modal that's usually a <code>sui-box</code> element, but it can also hold an <strong>skip modal</strong> button that is usually placed after <code>sui-box</code> element.</p>
 
-									<div class="demo-code-block">
+									<div class="sui-form-field" aria-hidden="true">
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-modal&quot;&gt;
+										<p class="sui-label" style="margin-bottom: 10px;">Sample markup</p>
 
-	&lt;div
-		role=&quot;dialog&quot;
-		id=&quot;modal-unique-id&quot;
-		class=&quot;sui-modal-content&quot;
-		aria-modal=&quot;true&quot;
-		aria-labelledby=&quot;title-unique-id&quot;
-		aria-describedby=&quot;desc-unique-id&quot;
-	&gt;
-		...
+										<div class="demo-code-block">
+
+	<pre class="sui-code-snippet html">
+	&lt;div class=&quot;sui-modal&quot;&gt;
+
+		&lt;div
+			role=&quot;dialog&quot;
+			id=&quot;modal-unique-id&quot;
+			class=&quot;sui-modal-content&quot;
+			aria-modal=&quot;true&quot;
+			aria-labelledby=&quot;title-unique-id&quot;
+			aria-describedby=&quot;desc-unique-id&quot;
+		&gt;
+
+			&lt;!--
+				NOTE:
+				You can place skip button, slider modal wrapper or "sui-box" with any of its element.
+			--&gt;
+
+		&lt;/div&gt;
+
 	&lt;/div&gt;
+	</pre>
 
-&lt;/div&gt;
-</pre>
+										</div>
 
 									</div>
 
@@ -14843,27 +14850,647 @@ p:first-of-type {
 
 							</div>
 
+							<!-- ELEMENT: Skip Button. -->
 							<div class="sui-box-settings-row">
 
 								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Skip Button</span>
+									<p class="sui-settings-label">Skip Button</p>
+									<p class="sui-description">Optional element for users to skip into next step, next modal or close everything. It looks like a link but with gray font color.</p>
 								</div>
 
 								<div class="sui-box-settings-col-2">
 
-									<p>This element is placed before <strong>content wrapper</strong> closing tag. It's used to close the modal.</p>
+									<p>This element is placed before <strong>content wrapper</strong> closing tag, right after <code>sui-box</code> closes, but you can also have it inside of <code>sui-box</code> if that's what you need.</p>
 
-									<div class="demo-code-block">
+									<p>Code below represents only the markup needed for the element to show up correctly styled, but if you want this element to close or change modal, or maybe switch slide you have to add proper data attribute or assign to it the desired JS function.</p>
+
+									<div class="sui-form-field" aria-hidden="true">
+
+										<p class="sui-label" style="margin-bottom: 10px;">Sample markup</p>
+
+										<div class="demo-code-block">
 
 <pre class="sui-code-snippet html sui-no-copy">
 &lt;!-- Skip Button (using &quot;button&quot; tag) --&gt;
-&lt;button role=&quot;button&quot; class=&quot;sui-modal-skip&quot; data-modal-close&gt;Skip this&lt;/button&gt;
+&lt;button role=&quot;button&quot; class=&quot;sui-modal-skip&quot;&gt;Skip this&lt;/button&gt;
 
 &lt;!-- Skip Button (using &quot;a&quot; tag) --&gt;
-&lt;a href=&quot;#&quot; role=&quot;button&quot; class=&quot;sui-modal-skip&quot; data-modal-close&gt;Skip this&lt;/a&gt;
+&lt;a href=&quot;#&quot; role=&quot;button&quot; class=&quot;sui-modal-skip&quot;&gt;Skip this&lt;/a&gt;
 </pre>
 
+										</div>
+
 									</div>
+
+								</div>
+
+							</div>
+
+							<div class="sui-notice sui-notice-info">
+								<p>Inside modal <strong>content wrapper</strong> you will have to use <code>sui-box</code> div to wrap content in a white box. This element is basic when placed outside modal, but inside each part (header, body and footer) allow further customization to easily get a pixel perfect result when compared with the design.</p>
+							</div>
+
+							<!-- ELEMENT: Box Header. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<p class="sui-settings-label">Box Header</p>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<tbody>
+
+											<!-- ROW: Variations. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Variations</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Variations</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<!-- Spacing -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Spacing</h5>
+
+																<p>You can overwrite <strong>Box Header</strong> default padding (spacing) with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-spacing-{position}--{size}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables: <code>top</code> - <code>bottom</code> - <code>left</code> - <code>right</code> - <code>sides</code> (this variable replaces left and right padding of the element)</p>
+
+																<p><code>{size}</code> accepts the following variables: <code>10</code> - <code>20</code> - <code>30</code> - <code>40</code> - <code>50</code> - <code>60</code> - <code>70</code> - <code>80</code> - <code>90</code> - <code>100</code></p>
+
+															</div>
+
+														</div>
+
+														<!-- Content Alignment -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Content Alignment</h5>
+
+																<p>Have in mind that <strong>Box Header</strong> uses flexbox by default to align elements in a single row.</p>
+
+																<p>You can overwrite default content alignment with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-content-{position}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables:</p>
+
+																<ul>
+																	<li><code>center</code> to center align content while using stacked elements (block display).</li>
+																	<li><code>center-inline</code> to center align content while keeping flexbox row display.</li>
+																</ul>
+
+															</div>
+
+														</div>
+
+														<!-- Flatten Element -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Flatten Element</h5>
+
+																<p>By default <strong>Box Header</strong> comes with bottom border to mark a separation with elements placed after this.</p>
+
+																<p>Remove border and bottom padding using <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-flatten</code> class.</p>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Header Title. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Title</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Title</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p style="margin-top: 0;">By default this element has <code>15px</code> font size and <code>30px</code> line-height no matter which tag (heading or span) you are using. Remember:</p>
+
+														<ul>
+															<li>Use <code>sui-lg</code> class to increase title font size.</li>
+															<li>Modal will be labelled by this element, reason why title <strong>unique-id</strong> has to match with the value assigned to modal <code>aria-labelledby</code> attribute.</li>
+														</ul>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Header Logo. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Logo</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Logo</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p style="margin-top: 0;">This element is used to highlight a service logo for brands, for example: when setting up <a href="https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview" target="_blank" rel="nofollow">HubSpot integration</a> in Forminator.</p>
+
+														<div class="sui-form-field" aria-hidden="true">
+
+															<p class="sui-label" style="margin-bottom: 5px;">SR Hidden</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will hide <strong>box header logo</strong> element from screenreader. Use this markup when image provided does not contain relevant information for users, but if that's not the case then is better to use <strong>SR Accessible</strong> markup.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;figure class=&quot;sui-box-logo&quot; aria-hidden=&quot;true&quot;&gt;
+
+	&lt;img
+		src=&quot;./path/to/image.png&quot;
+		srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
+	/&gt;
+
+&lt;/figure&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<div class="sui-form-field" aria-hidden="true">
+
+															<p class="sui-label" style="margin-bottom: 5px;">SR Accessible</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will allow <strong>box header logo</strong> element to be accessible by screenreader providing a brief description of the image that you will place on <code>alt</code> attribute and (optional) more detailed information through <code>figcaption</code> tag.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;figure class=&quot;sui-box-logo&quot;&gt;
+
+	&lt;img
+		src=&quot;./path/to/image.png&quot;
+		srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
+		alt=&quot;Image brief description&quot;
+	/&gt;
+
+	&lt;figcaption&gt;Image detailed (extended) description.&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Header Banner. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Banner</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Banner</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p style="margin-top: 0;">This element is used to place a banner (image) that occupies full width of the modal, for example: <a href="https://projects.invisionapp.com/d/main#/console/17026452/364335050/preview" target="_blank" rel="nofollow">Beehive on board design</a>.</p>
+
+														<div class="sui-form-field" aria-hidden="true">
+
+															<p class="sui-label" style="margin-bottom: 5px;">SR Hidden</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will hide <strong>box header banner</strong> element from screenreader. Use this markup when image provided does not contain relevant information for users, but if that's not the case then is better to use <strong>SR Accessible</strong> markup.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;figure class=&quot;sui-box-banner&quot; aria-hidden=&quot;true&quot;&gt;
+
+	&lt;img
+		src=&quot;./path/to/image.png&quot;
+		srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
+	/&gt;
+
+&lt;/figure&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<div class="sui-form-field" aria-hidden="true">
+
+															<p class="sui-label" style="margin-bottom: 5px;">SR Accessible</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will allow <strong>box header banner</strong> element to be accessible by screenreader providing a brief description of the image that you will place on <code>alt</code> attribute and (optional) more detailed information through <code>figcaption</code> tag.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;figure class=&quot;sui-box-banner&quot;&gt;
+
+	&lt;img
+		src=&quot;./path/to/image.png&quot;
+		srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
+		alt=&quot;Image brief description&quot;
+	/&gt;
+
+	&lt;figcaption&gt;Image detailed (extended) description.&lt;/figcaption&gt;
+
+&lt;/figure&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Header Steps. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Steps</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Steps</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p>This element is used to show users where they are and how many steps are missing before they finish setting up something. For example, Forminator uses this element when users <a href="https://projects.invisionapp.com/d/main#/console/18284199/379684509/preview" target="_blank" rel="nofollow">create a new quiz</a>.</p>
+
+														<p>This element works with two classes: <strong>sui-box-steps</strong> and <strong>sui-{size}</strong> where <strong>{size}</strong> defines the width and height of the dots and can be <code>sm</code> (7px), <code>md</code> 10px, or <code>lg</code> 14px.</p>
+
+														<p>Also, if you want to place <strong>Steps</strong> element on top center of the modal (as it shows on the sample above) you can use <code>sui-steps-float</code> class.</p>
+
+														<div class="sui-form-field">
+
+															<p class="sui-label" style="margin-bottom: 5px;">Informative Steps</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will be hidden from screenreader and regular users won't be able to interact with it either. It's just to show in which step user is at the moment.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-steps sui-md sui-steps-float&quot; aria-hidden=&quot;true&quot;&gt;
+
+	&lt;span class=&quot;sui-current&quot;&gt;First step (current).&lt;/span&gt;
+	&lt;span&gt;Second step.&lt;/span&gt;
+	&lt;span&gt;Third step.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<div class="sui-form-field">
+
+															<p class="sui-label" style="margin-bottom: 5px;">Interactive Steps</p>
+															<p class="sui-description" style="margin-bottom: 10px;">These are clickable steps that users can interact with. For example, you can use <strong>Replace Modal</strong> attributes or functions to open a new modal when clicking on second step button.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-steps sui-md sui-steps-float&quot;&gt;
+
+	&lt;button class=&quot;sui-current&quot; disabled&gt;First step (current).&lt;/button&gt;
+	&lt;button&gt;Go to second step.&lt;/button&gt;
+	&lt;button&gt;Go to third step.&lt;/button&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Header Buttons. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Header - Buttons</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Header - Buttons</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p>When you need to add a button for any action just check on <a href="#buttons">SUI Buttons</a> section. In addition to that have in mind:</p>
+
+														<p style="margin-top: 30px;"><strong>#1 Float Buttons:</strong> There are times you will have to place an button on top right or left of the modal, for those cases just include <code>sui-button-float--{position}</code> as an extra class for your button, replacing <strong>{position}</strong> with <code>left</code> or <code>right</code>. For example:</p>
+
+														<p><code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">&lt;button class=&quot;sui-button sui-button-float--right&quot;&gt;...&lt;/button&gt;</code> will float button at right of the modal.</p>
+
+														<p style="margin-top: 30px;"><strong>#2 Icons Size:</strong> By default icons are set to 12px, but there are times you gonna need to use a bigger icon. For those cases in the icon element include <code>sui-{size}</code> extra class, replacing <strong>{size}</strong> with <code>md</code> for 16px icon size or <code>lg</code> for 20px icon size. For example:</p>
+
+														<p><code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">&lt;i class=&quot;sui-icon-close sui-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code> will make icon 16px width and height.</p>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Box Body. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<p class="sui-settings-label">Box Body</p>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<tbody>
+
+											<!-- ROW: Variations. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Body - Variations</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Body - Variations</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<!-- Spacing -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Spacing</h5>
+
+																<p>You can overwrite <strong>Box Body</strong> default padding (spacing) with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-spacing-{position}--{size}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables: <code>top</code> - <code>bottom</code> - <code>left</code> - <code>right</code> - <code>sides</code> (this variable replaces left and right padding of the element)</p>
+
+																<p><code>{size}</code> accepts the following variables: <code>10</code> - <code>20</code> - <code>30</code> - <code>40</code> - <code>50</code> - <code>60</code> - <code>70</code> - <code>80</code> - <code>90</code> - <code>100</code></p>
+
+															</div>
+
+														</div>
+
+														<!-- Content Alignment -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Content Alignment</h5>
+
+																<p>By default <strong>Box Body</strong> aligns content to left but you can overwrite how content will align with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-content-{position}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables:</p>
+
+																<ul>
+																	<li><code>center</code> to center align content while using stacked elements (block display).</li>
+																	<li><code>center-inline</code> to center align content while keeping flexbox row display.</li>
+																</ul>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+							<!-- ELEMENT: Box Footer. -->
+							<div class="sui-box-settings-row">
+
+								<div class="sui-box-settings-col-1">
+									<p class="sui-settings-label">Box Footer</p>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+
+									<table class="sui-table sui-accordion">
+
+										<tbody>
+
+											<!-- ROW: Box Footer Variations. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Footer - Variations</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Footer - Variations</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<!-- Spacing -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Spacing</h5>
+
+																<p>You can overwrite <strong>Box Footer</strong> default padding (spacing) with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-spacing-{position}--{size}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables: <code>top</code> - <code>bottom</code> - <code>left</code> - <code>right</code> - <code>sides</code> (this variable replaces left and right padding of the element)</p>
+
+																<p><code>{size}</code> accepts the following variables: <code>10</code> - <code>20</code> - <code>30</code> - <code>40</code> - <code>50</code> - <code>60</code> - <code>70</code> - <code>80</code> - <code>90</code> - <code>100</code></p>
+
+															</div>
+
+														</div>
+
+														<!-- Content Alignment -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Content Alignment</h5>
+
+																<p>Have in mind that <strong>Box Footer</strong> uses flexbox by default to align elements in a single row.</p>
+
+																<p>You can overwrite default content alignment with <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-content-{position}</code> class.</p>
+
+																<p><code>{position}</code> accepts the following variables:</p>
+
+																<ul>
+																	<li><code>center</code> to center align content while using stacked elements (block display).</li>
+																	<li><code>center-inline</code> to center align content while keeping flexbox row display.</li>
+																</ul>
+
+															</div>
+
+														</div>
+
+														<!-- Flatten Element -->
+														<div class="sui-box-settings-row">
+
+															<div class="sui-box-settings-col-2">
+
+																<h5 class="sui-settings-label sui-dark">Flatten Element</h5>
+
+																<p>By default <strong>Box Header</strong> comes with bottom border to mark a separation with elements placed after this.</p>
+
+																<p>Remove border and bottom padding using <code style="border-color: #002F3D; background-color: #002F3D; color: #FFF;">sui-flatten</code> class.</p>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+											<!-- ROW: Box Footer Steps. -->
+											<tr class="sui-accordion-item">
+												<td class="sui-table-item-title">Box Footer - Steps</td>
+											</tr>
+
+											<tr class="sui-accordion-item-content">
+
+												<td><div class="sui-box">
+
+													<div class="sui-box-header">
+														<h4 class="sui-box-title">Box Footer - Steps</h4>
+													</div>
+
+													<div class="sui-box-body">
+
+														<p>This element is used to show users where they are and how many steps are missing before they finish setting up something. For example, Hustle uses this element for <a href="https://projects.invisionapp.com/d/main#/console/14626511/351732642/preview" target="_blank" rel="nofollow">welcoming new users</a>.</p>
+
+														<p>This element works with two classes: <strong>sui-box-steps</strong> and <strong>sui-{size}</strong> where <strong>{size}</strong> defines the width and height of the dots and can be <code>sm</code> (7px), <code>md</code> 10px, or <code>lg</code> 14px.</p>
+
+														<div class="sui-form-field">
+
+															<p class="sui-label" style="margin-bottom: 5px;">Informative Steps</p>
+															<p class="sui-description" style="margin-bottom: 10px;">This markup will be hidden from screenreader and regular users won't be able to interact with it either. It's just to show in which step user is at the moment.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-steps sui-sm&quot; aria-hidden=&quot;true&quot;&gt;
+
+	&lt;span class=&quot;sui-current&quot;&gt;First step (current).&lt;/span&gt;
+	&lt;span&gt;Second step.&lt;/span&gt;
+	&lt;span&gt;Third step.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+														<div class="sui-form-field">
+
+															<p class="sui-label" style="margin-bottom: 5px;">Interactive Steps</p>
+															<p class="sui-description" style="margin-bottom: 10px;">These are clickable steps that users can interact with. For example, you can use <strong>Replace Modal</strong> attributes or functions to open a new modal when clicking on second step button.</p>
+
+															<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-steps sui-sm&quot;&gt;
+
+	&lt;button class=&quot;sui-current&quot; disabled&gt;First step (current).&lt;/button&gt;
+	&lt;button&gt;Go to second step.&lt;/button&gt;
+	&lt;button&gt;Go to third step.&lt;/button&gt;
+
+&lt;/div&gt;
+</pre>
+
+															</div>
+
+														</div>
+
+													</div>
+
+												</div></td>
+
+											</tr>
+
+										</tbody>
+
+									</table>
 
 								</div>
 
@@ -14873,657 +15500,34 @@ p:first-of-type {
 
 					</div>
 
-					<!-- SECTION: Modal Content. -->
-					<div class="sui-box" data-tab="demo-dialog--content" style="display: none;">
+					<!-- SECTION: Accessibility. -->
+					<div class="sui-box" data-tab="demo-dialog--accessibility" style="display: none;">
 
 						<div class="sui-box-header">
-							<h3 class="sui-box-title">Modal Content</h3>
+							<h3 class="sui-box-title">Accessibility</h3>
 						</div>
 
 						<div class="sui-box-body">
 
-							<p>Modals content are always wrapped in a <code>sui-box</code> div. That element styles are the base, but modals allow this element parts (sections) to have further customization.</p>
-
-							<!-- Box Header -->
 							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Header</span>
-								</div>
 
 								<div class="sui-box-settings-col-2">
 
-									<table class="sui-table sui-accordion">
+									<p>Here's a list of some rules to follow when creating correct markup for modals to allow screenreader users navigate easily through our content:</p>
 
-										<tbody>
+									<h4 class="sui-settings-label sui-dark">1. Modals must be properly labelled.</h4>
 
-											<!-- Element Spacing -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Spacing</td>
-											</tr>
+									<p>You must use <code>aria-labelledby="unique-id"</code> or <code>aria-label="Some text"</code> but always have your modals properly labelled. In addition to this you can use <code>aria-describedby="unique-id"</code> in case you have a longer text with more information.</p>
 
-											<tr class="sui-accordion-item-content">
+									<h4 class="sui-settings-label sui-dark">2. Changing content.</h4>
 
-												<td><div class="sui-box">
+									<p>You must use <code>aria-live="polite"</code> attribute for <code>sui-modal-content</code> when there are changes on the modal content while users are interacting with it. For example: forms showing errors, lazy load content, etc.</p>
 
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Header - Spacing</h4>
-													</div>
+									<p>In case you lazy load content make sure to alert users there's some content being loaded.</p>
 
-													<div class="sui-box-body">
+									<h4 class="sui-settings-label sui-dark">4. Close button as first element.</h4>
 
-														<p>By default this element has <strong>15px</strong> spacing on top and bottom, while sides have <strong>30px</strong> spacing each.</p>
-
-														<p>You can overwrite default settings and assign <code>30px</code> or <code>60px</code> spacing to each side of the element depending on your design needs. To do that you only have to add <code>sui-spacing-{position}--{size}</code> class next to <code>sui-box-header</code> where:</p>
-
-														<ul>
-															<li><code>{position}</code> could be: top, left, bottom, right or sides (it affects left and right spacing).</li>
-															<li><code>{size}</code> could be: 30 or 60.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- SPACING: Top (30px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-top--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Top (60px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-top--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (30px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-right--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (60px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-right--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (30px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-left--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (60px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-left--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (30px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-bottom--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (60px) --&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-bottom--60&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (30px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-sides--30&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (60px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-header sui-spacing-sides--60&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-											<!-- Flatten Element -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Flatten Element</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Header - Flat</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default this element comes with bottom border to mark a separation between this and other elements.</p>
-
-														<p>To remove bottom border from this element you have to use <code>sui-flatten</code> class. It will overwrite it styles and also remove bottom padding from it.</p>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;div class=&quot;sui-box-header sui-flatten&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-											<!-- Element Content Alignment -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Content Alignment</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Header - Content Alignment</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default this element uses flexbox to align all its elements on a single row.</p>
-
-														<p>To change <code>sui-box-header</code> elements position just need to add <code>sui-content-{position}</code> class, where <code>{position}</code> could be:</p>
-
-														<ul>
-															<li><code>center</code> to center align text and use stacked elements with <code>display: block</code>.</li>
-															<li><code>center-inline</code> to center align content keeping flexbox row position.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- ALIGN: Center --&gt;
-&lt;div class=&quot;sui-box-header sui-content-center&quot;&gt;&lt;/div&gt;
-
-&lt;!-- ALIGN: Center Inline --&gt;
-&lt;div class=&quot;sui-box-header sui-content-center-inline&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-										</tbody>
-
-									</table>
-
-								</div>
-
-							</div>
-
-							<!-- Box Body -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Header</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<table class="sui-table sui-accordion">
-
-										<tbody>
-
-											<!-- Element Spacing -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Spacing</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Body - Spacing</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default this element has <strong>30px</strong> on each of its sides (top, right, bottom, left).</p>
-
-														<p>You can overwrite default settings and assign <code>30px</code> or <code>60px</code> spacing to each side of the element depending on your design needs. To do that you only have to add <code>sui-spacing-{position}--{size}</code> class next to <code>sui-box-header</code> where:</p>
-
-														<ul>
-															<li><code>{position}</code> could be: top, left, bottom, right or sides (it affects left and right spacing).</li>
-															<li><code>{size}</code> could be: 30 or 60.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- SPACING: Top (30px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-top--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Top (60px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-top--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (30px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-right--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (60px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-right--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (30px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-left--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (60px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-left--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (30px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-bottom--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (60px) --&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-bottom--60&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (30px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-sides--30&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (60px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-body sui-spacing-sides--60&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-											<!-- Element Content Alignment -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Content Alignment</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Body - Content Alignment</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>To change <code>sui-box-body</code> elements position just need to add <code>sui-content-{position}</code> class, where <code>{position}</code> could be:</p>
-
-														<ul>
-															<li><code>center</code> to center align text.</li>
-															<li><code>right</code> to right align text.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- ALIGN: Center --&gt;
-&lt;div class=&quot;sui-box-body sui-content-center&quot;&gt;&lt;/div&gt;
-
-&lt;!-- ALIGN: Right --&gt;
-&lt;div class=&quot;sui-box-body sui-content-right&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-										</tbody>
-
-									</table>
-
-								</div>
-
-							</div>
-
-							<!-- Box Footer -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Footer</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<table class="sui-table sui-accordion">
-
-										<tbody>
-
-											<!-- Element Spacing -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Spacing</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Header - Spacing</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default this element has <strong>30px</strong> on each of its sides (top, right, bottom, left).</p>
-
-														<p>You can overwrite default settings and assign <code>30px</code> or <code>60px</code> spacing to each side of the element depending on your design needs. To do that you only have to add <code>sui-spacing-{position}--{size}</code> class next to <code>sui-box-header</code> where:</p>
-
-														<ul>
-															<li><code>{position}</code> could be: top, left, bottom, right or sides (it affects left and right spacing).</li>
-															<li><code>{size}</code> could be: 30 or 60.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- SPACING: Top (30px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-top--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Top (60px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-top--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (30px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-right--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Right (60px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-right--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (30px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-left--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Left (60px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-left--60&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (30px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-bottom--30&quot;&gt;&lt;/div&gt;
-
-&lt;!-- SPACING: Bottom (60px) --&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-bottom--60&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (30px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-sides--30&quot;&gt;&lt;/div&gt;
-
-&lt;!--
-	SPACING: Sides (60px)
-	The spacing is applied to left and right sides of the element.
---&gt;
-&lt;div class=&quot;sui-box-footer sui-spacing-sides--60&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-											<!-- Flatten Element -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Flatten Element</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Footer - Flat</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default this element comes with top border to mark a separation between this and other elements.</p>
-
-														<p>To remove bottom border from this element you have to use <code>sui-flatten</code> class. It will overwrite it styles to remove top border from it.</p>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;div class=&quot;sui-box-footer sui-flatten&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-											<!-- Element Content Alignment -->
-											<tr class="sui-accordion-item">
-												<td class="sui-table-item-title">Element Content Alignment</td>
-											</tr>
-
-											<tr class="sui-accordion-item-content">
-
-												<td><div class="sui-box">
-
-													<div class="sui-box-header">
-														<h4 class="sui-box-title">Box Footer - Content Alignment</h4>
-													</div>
-
-													<div class="sui-box-body">
-
-														<p>By default footer holds buttons only reason why it uses <strong>flexbox</strong> to align all its elements on a single row, all of them justified to left of the container.</p>
-
-														<p>To change where buttons are going to be positioned you just need to add <code>sui-content-{position}</code> class, where <code>{position}</code> could be:</p>
-
-														<ul>
-															<li><code>center</code> to <strong>justify content</strong> to center of the container.</li>
-															<li><code>right</code> to <strong>justify content</strong> to right of the container.</li>
-															<li><code>separated</code> to <strong>justify content</strong> to each of the sides of the container. E.g. If you have 2 buttons, first button will be placed to the left side of the container, while the other will be at right side of the container.</li>
-														</ul>
-
-														<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;!-- ALIGN: Center --&gt;
-&lt;div class=&quot;sui-box-footer sui-content-center&quot;&gt;&lt;/div&gt;
-
-&lt;!-- ALIGN: Right --&gt;
-&lt;div class=&quot;sui-box-footer sui-content-right&quot;&gt;&lt;/div&gt;
-
-&lt;!-- ALIGN: Separated --&gt;
-&lt;div class=&quot;sui-box-footer sui-content-separated&quot;&gt;&lt;/div&gt;
-</pre>
-
-														</div>
-
-													</div>
-
-												</div></td>
-
-											</tr>
-
-										</tbody>
-
-									</table>
-
-								</div>
-
-							</div>
-
-							<!-- Box Title -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Title</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-notice sui-notice-warning">
-										<p>This element should always be placed inside <strong>Box Header</strong>.</p>
-									</div>
-
-									<p>By default this element has <code>15px</code> font size and <code>30px</code> line-height no matter which tag (heading or span) you are using. <strong>Remember:</strong></p>
-
-									<ul>
-										<li>Use <code>sui-lg</code> extra class to increase title font size.</li>
-										<li>Modal will be labelled by this elemen, reason why title <strong>unique-id</strong> has to match with the value assigned to modal attribute (<code>aria-labelledby</code>).</li>
-									</ul>
-
-									<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;div class=&quot;sui-box-header&quot;&gt;
-	&lt;h3 id=&quot;unique-id&quot; class=&quot;sui-box-title&quot;&gt;Box Title&lt;/h3&gt;
-&lt;/div&gt;
-</pre>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<!-- Box Image -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Image</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-notice sui-notice-warning">
-										<p>This element should always be placed inside <strong>Box Header</strong>.</p>
-									</div>
-
-									<p>This element is used to place a banner image that occupies full width of the container. It also has by default a <code>40px</code> spacing between image and content below.</p>
-
-									<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy" style="max-height: 200px;">
-&lt;div class=&quot;sui-box-header&quot;&gt;
-
-	&lt;!--
-		Accessible Box Image
-		This is an image that can be accessible by screenreader by providing
-		a brief description of it in image &quot;alt&quot; attribute and (optional) more detailed
-		information about the image using &quot;figcaption&quot; element.
-	--&gt;
-	&lt;figure class=&quot;sui-box-image&quot;&gt;
-
-		&lt;img
-			src=&quot;./path/to/image.png&quot;
-			srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
-			alt=&quot;Image brief description&quot;
-		/&gt;
-
-		&lt;!--
-			NOTE:
-			In case you want to add more detailed information about the image,
-			you could do it by adding this element. Remeber it won't be visible
-			but will be accessible by screenreader.
-		--&gt;
-		&lt;figcaption class=&quot;sui-screen-reader-text&quot;&gt;Image detailed (extended) description.&lt;/figcaption&gt;
-
-	&lt;/figure&gt;
-
-	&lt;!--
-		SR Hidden Box Image
-		If the provided image does not container relevant information for the user(s),
-		you can make use of this markup that hides image from screenreader. It does not
-		contain "alt" attribute neither "figcaption", the lack of this information forces
-		us to hide to respect proper accessibility.
-	--&gt;
-	&lt;figure class=&quot;sui-box-image&quot; aria-hidden=&quot;true&quot;&gt;
-
-		&lt;img
-			src=&quot;./path/to/image.png&quot;
-			srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
-		/&gt;
-
-	&lt;/figure&gt;
-
-&lt;/div&gt;
-</pre>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<!-- Box Logo -->
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label">Box Logo</span>
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-notice sui-notice-warning">
-										<p>This element should always be placed inside <strong>Box Header</strong>.</p>
-									</div>
-
-									<p>This element is used to display a center-aligned square image before content starts. It is commonly used to show integrations (providers) logo for an easier recognition.</p>
-
-									<div class="demo-code-block">
-
-<pre class="sui-code-snippet html sui-no-copy" style="max-height: 200px;">
-&lt;div class=&quot;sui-box-header&quot;&gt;
-
-	&lt;!--
-		Accessible Box Logo
-		This is an image that can be accessible by screenreader by providing
-		a brief description of it in image &quot;alt&quot; attribute and (optional) more detailed
-		information about the image using &quot;figcaption&quot; element.
-	--&gt;
-	&lt;figure class=&quot;sui-box-logo&quot;&gt;
-
-		&lt;img
-			src=&quot;./path/to/image.png&quot;
-			srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
-			alt=&quot;Image brief description&quot;
-		/&gt;
-
-		&lt;!--
-			NOTE:
-			In case you want to add more detailed information about the image,
-			you could do it by adding this element. Remeber it won't be visible
-			but will be accessible by screenreader.
-		--&gt;
-		&lt;figcaption class=&quot;sui-screen-reader-text&quot;&gt;Image detailed (extended) description.&lt;/figcaption&gt;
-
-	&lt;/figure&gt;
-
-	&lt;!--
-		SR Hidden Box Image
-		If the provided image does not container relevant information for the user(s),
-		you can make use of this markup that hides image from screenreader. It does not
-		contain "alt" attribute neither "figcaption", the lack of this information forces
-		us to hide to respect proper accessibility.
-	--&gt;
-	&lt;figure class=&quot;sui-box-logo&quot; aria-hidden=&quot;true&quot;&gt;
-
-		&lt;img
-			src=&quot;./path/to/image.png&quot;
-			srcset=&quot;./path/to/image.png 1x, ./path/to/image@2x.png 2x&quot;
-		/&gt;
-
-	&lt;/figure&gt;
-
-&lt;/div&gt;
-</pre>
-
-									</div>
+									<p>This element should always be placed at the beginning of the content. For example, on Hustle <a href="https://projects.invisionapp.com/d/main#/console/14626511/304432145/preview" target="_blank" rel="nofollow">Create Module</a> modal you will have to place inside <code>sui-box-header</code> 4 elements in the following order: floated to right close button, floated steps element (hidden for screenreader), large title and description.</p>
 
 								</div>
 
@@ -15533,7 +15537,7 @@ p:first-of-type {
 
 					</div>
 
-					<!-- SECTION: Modal Samples -->
+					<!-- SECTION: Modal Samples. -->
 					<div class="sui-box" data-tab="demo-dialog--samples" style="display: none;">
 
 						<div class="sui-box-header">
@@ -16246,14 +16250,14 @@ p:first-of-type {
 
 												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-													<h3 id="demo-dialog--sample-dismiss-notice-title" class="sui-box-title sui-lg">Dismiss Migrate Data Notice</h3>
-
-													<p id="demo-dialog--sample-dismiss-notice-desc" class="sui-description" style="margin-bottom: 0;">Are you sure you wish to dismiss this notice? Make sure you've already migrated data of your existing modules, and you don't need to migrate data anymore.</p>
-
 													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
 														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Close this dialog.</span>
 													</button>
+
+													<h3 id="demo-dialog--sample-dismiss-notice-title" class="sui-box-title sui-lg">Dismiss Migrate Data Notice</h3>
+
+													<p id="demo-dialog--sample-dismiss-notice-desc" class="sui-description">Are you sure you wish to dismiss this notice? Make sure you've already migrated data of your existing modules, and you don't need to migrate data anymore.</p>
 
 												</div>
 
@@ -16307,7 +16311,7 @@ p:first-of-type {
 
 													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-														<figure class="sui-box-image" aria-hidden="true">
+														<figure class="sui-box-banner" aria-hidden="true">
 															<img
 																src="./dist/images/beehive-welcome.png"
 																srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
@@ -16476,7 +16480,7 @@ p:first-of-type {
 
 													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
 
-														<figure class="sui-box-image" aria-hidden="true">
+														<figure class="sui-box-banner" aria-hidden="true">
 															<img
 																src="./dist/images/beehive-welcome.png"
 																srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
@@ -16620,7 +16624,7 @@ p:first-of-type {
 
 												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-													<figure class="sui-box-image" aria-hidden="true">
+													<figure class="sui-box-banner" aria-hidden="true">
 														<img
 															src="./dist/images/beehive-welcome.png"
 															srcset="./dist/images/beehive-welcome.png 1x, ./dist/images/beehive-welcome@2x.png 2x"
@@ -16719,336 +16723,30 @@ p:first-of-type {
 
 					</div>
 
-					<div class="sui-box" data-tab="demo-element--dialogs-sample-default" style="display: none;">
+					<!-- SECTION: Legacy Code. -->
+					<div class="sui-box" data-tab="demo-dialog--legacy" style="display: none;">
 
 						<div class="sui-box-header">
-							<h2 class="sui-box-title">Default Dialog</h2>
+							<h3 class="sui-box-title">Legacy Code</h3>
 						</div>
 
 						<div class="sui-box-body">
-
-							<p>This dialog can come in two different sizes: default and large.</p>
-
-							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--default-default">Default Size</button>
-
-							<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--default-large">Large Dialog</button>
 
 							<div class="sui-notice sui-notice-warning">
-								<p>Currently is not possible to have a <strong>small</strong> version of this dialog.</p>
+								<p>Old markup and functions for modals will still be supported for couple more versions. Enough time for all of our products to be correctly updated to new modal markup.</p>
 							</div>
 
-						</div>
+							<p>To check if old modals are still working correctly you can click on the buttons below to test some samples:</p>
 
-					</div><!-- END: Dialogs Sample Default -->
-
-					<div class="sui-box" data-tab="demo-element--dialogs-sample-alternative" style="display: none;">
-
-						<div class="sui-box-header">
-							<h2 class="sui-box-title">Alternative Dialog</h2>
-						</div>
-
-						<div class="sui-box-body">
-
-							<p>Alternative dialogs differ from default ones in two main things: it's content is center aligned, header and footer doesn't have any border to visually split them from body content.</p>
-
-							<p>It can be used in three different modes (or cases):</p>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label sui-dark">Basic Content</label>
-
-									<p class="sui-description">Commonly used on dialogs to delete an element or confirm an action. There are some cases when are accompanied by a footer image.</p>
-
-									<div class="sui-row">
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 600px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic">Default Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 500px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-rd">Reduced Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 400px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-sm">Small Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 980px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-basic-lg">Large Size</button>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-2">
-
-									<label class="sui-settings-label sui-dark">Product Image</label>
-
-									<p class="sui-description">This kind of dialog is commonly used for <strong>integrations</strong> settings or in cases where we need to highlight the image of the product we're editing.</p>
-
-									<div class="sui-row">
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 600px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image">Default Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 500px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-rd">Reduced Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 400px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-sm">Small Size</button>
-
-										</div>
-
-										<div class="sui-col-md-3">
-
-											<label class="sui-label">Maximum width: 980px</label>
-
-											<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--alt-image-lg">Large Size</button>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
+							<p>
+								<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="demo-legacy-dialog--basic">Basic Modal #1</button>
+								<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="demo-legacy-dialog--slider">Slider Modal #2</button>
+							</p>
 
 						</div>
 
-					</div><!-- END: Dialogs Sample Alternative -->
-
-					<div class="sui-box" data-tab="demo-element--dialogs-sample-onboarding" style="display: none;">
-
-						<div class="sui-box-header">
-							<h2 class="sui-box-title">On Boarding</h2>
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-2">
-
-									<p>This dialog comes in one size (500px maximum width).</p>
-
-									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--tour-basic">Basic Tour</button>
-
-									<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="sample-dialog--tour-forward">Forward Only Tour</button>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div><!-- END: Dialogs Sample On Boarding -->
-
-					<div class="sui-box" data-tab="demo-element--dialogs-docs" style="display: none;">
-
-						<div class="sui-box-header">
-							<h2 class="sui-box-title">Documentation</h2>
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="sui-notice sui-notice-warning">
-										<p>If you are using individual js components, <code>dialog.js</code> and <code>a11y-dialog.js</code> are both required.</p>
-									</div>
-
-									<p>Dialogs are streamlined, but flexible, dialog prompts with the minimum required functionality.</p>
-
-									<p>We use the library <a target="_blank" href="https://github.com/edenspiekermann/a11y-dialog">A11y-Dialog</a> to make sure they're accessible as possible.</p>
-
-									<p>Any dialogs with the class <code>sui-dialog</code> will be instantiated and stored in <code>SUI.dialogs</code> with their id. You will be able to call methods on these instances e.g. <code>SUI.dialogs['my-accessible-dialog'].hide()</code> will hide the corresponding dialog with the id my-accessible-dialog.</p>
-
-								</div>
-
-							</div>
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-
-									<span class="sui-settings-label">Javascript Instantiation</span>
-
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<div class="demo-code-block">
-<pre class="sui-code-snippet js">
-// Get the dialog element (with the accessor method you want)
-const el = document.getElementById('my-accessible-dialog');
-
-// Instantiate a new A11yDialog module
-const dialog = new A11yDialog(el);
-</pre>
-									</div>
-
-								</div>
-
-							</div><!-- END: Javascript Instantiation -->
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-
-									<span class="sui-settings-label">DOM API</span>
-
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<p class="sui-description">The following button will open the dialog with the <code>my-accessible-dialog</code> id when interacted with.</p>
-
-									<div class="demo-code-block">
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;button type="button" data-a11y-dialog-show="my-accessible-dialog"&gt;Open the dialog&lt;/button&gt;
-</pre>
-									</div>
-
-									<p class="sui-description">The following button will hide the dialog with the <code>my-accessible-dialog</code> id when interacted with.</p>
-
-									<div class="demo-code-block">
-<pre class="sui-code-snippet html sui-no-copy">
-&lt;button type="button" data-a11y-dialog-hide&gt;Close the dialog&lt;/button&gt;
-</pre>
-									</div>
-
-								</div>
-
-							</div><!-- END: DOM API -->
-
-							<div class="sui-box-settings-row">
-
-								<div class="sui-box-settings-col-1">
-
-									<span class="sui-settings-label">JS API</span>
-
-								</div>
-
-								<div class="sui-box-settings-col-2">
-
-									<p class="sui-description">Regarding the JS API, it simply consists on <code>show()</code> and <code>hide()</code> methods on the dialog instance.</p>
-
-									<div class="demo-code-block">
-<pre class="sui-code-snippet js">
-// Show the dialog
-dialog.show();
-
-// Hide the dialog
-dialog.hide();
-</pre>
-									</div>
-
-								</div>
-
-							</div><!-- END: JS API -->
-
-						</div>
-
-					</div><!-- END: Dialogs Documentation -->
-
-				</div>
-
-				<div class="sui-box">
-
-					<div class="sui-box-body">
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog">Default</button>
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small">Small</button>
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-small-complex">Small (Complex)</button>
-						<button type="button" class="sui-button sui-button-ghost" data-a11y-dialog-show="my-accessible-dialog-large">Large</button>
-						<p>The following code snippet is an example of the dialog code.</p>
 					</div>
 
-				</div>
-
-				<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class="sui-dialog" aria-hidden="true" tabindex="-1" id="my-accessible-dialog"&gt;
-
-	&lt;div class="sui-dialog-overlay" data-a11y-dialog-hide&gt;&lt;/div&gt;
-
-	&lt;div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog"&gt;
-
-		&lt;div class="sui-box" role="document"&gt;
-
-			&lt;div class="sui-box-header"&gt;
-				&lt;h3 class="sui-box-title" id="dialogTitle"&gt;Dialog Title&lt;/h3&gt;
-				&lt;div class="sui-actions-right"&gt;
-					&lt;button data-a11y-dialog-hide class="sui-dialog-close" aria-label="Close this dialog window"&gt;&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-
-			&lt;div class="sui-box-body"&gt;
-				&lt;p id="dialogDescription"&gt;Fill in the ridiculously small form below to receive our ridiculously cool newsletter!&lt;/p&gt;
-				&lt;div class="sui-row"&gt;
-					&lt;div class="sui-col"&gt;
-						&lt;div class="sui-form-field"&gt;
-							&lt;label for="dialog-text-5" class="sui-label"&gt;Text&lt;/label&gt;
-							&lt;input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text"&gt;
-						&lt;/div&gt;
-					&lt;/div&gt;
-					&lt;div class="sui-col"&gt;
-						&lt;div class="sui-form-field"&gt;
-							&lt;label for="dialog-text-6" class="sui-label"&gt;Text&lt;/label&gt;
-							&lt;input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text"&gt;
-						&lt;/div&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-
-			&lt;div class="sui-box-footer sui-space-between"&gt;
-				&lt;button class="sui-button" data-a11y-dialog-hide="my-accessible-dialog"&gt;Cancel&lt;/button&gt;
-				&lt;button class="sui-modal-close sui-button sui-button-blue"&gt;Add&lt;/button&gt;
-			&lt;/div&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-</pre>
 				</div>
 
 			</section>
@@ -17659,7 +17357,7 @@ $cross-sell-3: 'smartcrawl';
 		<div class="sui-wrap">
 
 			<!-- DIALOG: Default (Default) -->
-			<div class="sui-dialog" aria-hidden="true" tabindex="-1" id="sample-dialog--default-default">
+			<div class="sui-dialog" aria-hidden="true" tabindex="-1" id="demo-legacy-dialog--basic">
 
 				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--default-default"></div>
 
@@ -17718,512 +17416,8 @@ $cross-sell-3: 'smartcrawl';
 
 			</div>
 
-			<!-- DIALOG: Default (Large) -->
-			<div class="sui-dialog sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--default-large">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--default-large"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header">
-
-							<h3 class="sui-box-title" id="dialogTitle">Dialog Title</h3>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--default-large" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
-
-							<div class="sui-row">
-
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="dialog-text-5" class="sui-label">Text</label>
-										<input type="text" id="dialog-text-5" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-
-								<div class="sui-col">
-									<div class="sui-form-field">
-										<label for="dialog-text-6" class="sui-label">Text</label>
-										<input type="text" id="dialog-text-6" class="sui-form-control" placeholder="input type text">
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-space-between">
-
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--default-large">
-								<i class="sui-icon-undo" aria-hidden="true"></i>
-								Cancel
-							</button>
-
-							<button class="sui-modal-close sui-button sui-button-blue">Save Changes</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative (Default) -->
-			<div class="sui-dialog sui-dialog-alt" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-basic" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
-
-							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-center">
-
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic">Cancel</button>
-
-							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
-								<i class="sui-icon-trash" aria-hidden="true"></i>
-								Delete
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative (Reduced) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-reduced" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-rd">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-rd"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-basic-rd" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
-
-							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-center">
-
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-rd">Cancel</button>
-
-							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
-								<i class="sui-icon-trash" aria-hidden="true"></i>
-								Delete
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative (Small) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-sm" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-sm">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-sm"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-basic-sm" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
-
-							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-center">
-
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-sm">Cancel</button>
-
-							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
-								<i class="sui-icon-trash" aria-hidden="true"></i>
-								Delete
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative (Large) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-basic-lg">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-basic-lg"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<h3 class="sui-box-title" id="dialogTitle">Delete Module</h3>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-basic-lg" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body sui-box-body-slim sui-block-content-center">
-
-							<p id="dialogDescription" class="sui-description">Are you sure you wish to permanently delete this form?</p>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-center">
-
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide="sample-dialog--alt-basic-lg">Cancel</button>
-
-							<button class="sui-modal-close sui-button sui-button-ghost sui-button-red">
-								<i class="sui-icon-trash" aria-hidden="true"></i>
-								Delete
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative with image -->
-			<div class="sui-dialog sui-dialog-alt" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<div class="sui-dialog-image" aria-hidden="true">
-								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
-							</div>
-
-							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
-
-							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-image" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API URL</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
-
-									<i class="sui-icon-link" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API Key</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
-
-									<i class="sui-icon-key" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-right">
-
-							<button class="sui-modal-close sui-button">Connect</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative with image (Reduced) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-reduced" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-rd">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-rd"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<div class="sui-dialog-image" aria-hidden="true">
-								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
-							</div>
-
-							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
-
-							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-image-rd" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API URL</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
-
-									<i class="sui-icon-link" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API Key</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
-
-									<i class="sui-icon-key" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-right">
-
-							<button class="sui-modal-close sui-button">Connect</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative with image (Small) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-sm" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-sm">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-sm"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<div class="sui-dialog-image" aria-hidden="true">
-								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
-							</div>
-
-							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
-
-							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-image-sm" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API URL</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
-
-									<i class="sui-icon-link" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API Key</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
-
-									<i class="sui-icon-key" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-right">
-
-							<button class="sui-modal-close sui-button">Connect</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- DIALOG: Alternative with image (Large) -->
-			<div class="sui-dialog sui-dialog-alt sui-dialog-lg" aria-hidden="true" tabindex="-1" id="sample-dialog--alt-image-lg">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-image-lg"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-box" role="document">
-
-						<div class="sui-box-header sui-block-content-center">
-
-							<div class="sui-dialog-image" aria-hidden="true">
-								<img src="dist/images/activecampaign.png" srcset="dist/images/activecampaign.png 1x, dist/images/activecampaign@2x.png 2x" alt="Sample" />
-							</div>
-
-							<h3 class="sui-box-title" id="dialogTitle">Configure ActiveCampaign API</h3>
-
-							<span id="dialogDescription" class="sui-description">Setup ActiveCampaign API Access.</span>
-
-							<div class="sui-actions-right">
-								<button data-a11y-dialog-hide="sample-dialog--alt-image-lg" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API URL</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_url" placeholder="Enter ActiveCampaign API URL" class="sui-form-control" />
-
-									<i class="sui-icon-link" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-							<div class="sui-form-field">
-
-								<label class="sui-label">API Key</label>
-
-								<div class="sui-control-with-icon">
-
-									<input name="api_key" placeholder="Enter ActiveCampaign API Key" class="sui-form-control">
-
-									<i class="sui-icon-key" aria-hidden="true"></i>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-box-footer-right">
-
-							<button class="sui-modal-close sui-button">Connect</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
 			<!-- DIALOG: Basic Tour -->
-			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--tour-basic">
+			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="demo-legacy-dialog--slider">
 
 				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-default"></div>
 
@@ -18338,786 +17532,10 @@ $cross-sell-3: 'smartcrawl';
 
 			</div>
 
-			<!-- DIALOG: Forward Only Tour -->
-			<div class="sui-dialog sui-dialog-onboard" aria-hidden="true" tabindex="-1" id="sample-dialog--tour-forward">
-
-				<div class="sui-dialog-overlay" data-a11y-dialog-hide="sample-dialog--alt-default"></div>
-
-				<div class="sui-dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
-
-					<div class="sui-slider">
-
-						<ul class="sui-slider-content" role="document">
-
-							<li class="sui-current sui-loaded" data-slide="1">
-
-								<div class="sui-box">
-
-									<div class="sui-box-banner" role="banner" aria-hidden="true">
-										<img src="dist/images/plugins-hustle.jpg" />
-									</div>
-
-									<div class="sui-box-header sui-lg sui-block-content-center">
-
-										<h2 id="dialogTitle" class="sui-box-title">First Step</h2>
-
-										<span id="dialogDescription" class="sui-description">Ok so this is the first step in the experience. The user can close the modal to cancel the flow but the primary action is to proceed using the button. These will usually be user triggered actions like adding a new module.</span>
-
-										<button data-a11y-dialog-hide="sample-dialog--tour-forward" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-
-									</div>
-
-									<div class="sui-box-selectors sui-box-selectors-col-2">
-
-										<ul>
-
-											<li><label for="demo-element--forward-option-1" class="sui-box-selector">
-												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-1" />
-												<span>
-													<i class="sui-icon-popup" aria-hidden="true"></i>
-													Pop-up
-												</span>
-											</label></li>
-
-											<li><label for="demo-element--forward-option-2" class="sui-box-selector">
-												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-2" />
-												<span>
-													<i class="sui-icon-slide-in" aria-hidden="true"></i>
-													Slide-in
-												</span>
-											</label></li>
-
-											<li><label for="demo-element--forward-option-3" class="sui-box-selector">
-												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-3" />
-												<span>
-													<i class="sui-icon-embed" aria-hidden="true"></i>
-													Embed
-												</span>
-											</label></li>
-
-											<li><label for="demo-element--forward-option-4" class="sui-box-selector">
-												<input type="radio" name="demo-element--forward-options" id="demo-element--forward-option-4" />
-												<span>
-													<i class="sui-icon-share" aria-hidden="true"></i>
-													Social Share
-												</span>
-											</label></li>
-
-										</ul>
-
-									</div>
-
-									<div class="sui-box-body sui-lg sui-block-content-center">
-
-										<button class="sui-button" data-a11y-dialog-tour-next>Continue</button>
-
-									</div>
-
-								</div>
-
-								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-forward">Skip this, I know my way around</a></p>
-
-							</li>
-
-							<li data-slide="2">
-
-								<div class="sui-box">
-
-									<div class="sui-box-banner" role="banner" aria-hidden="true">
-										<img src="dist/images/plugins-hustle.jpg" />
-									</div>
-
-									<div class="sui-box-header sui-lg sui-block-content-center">
-
-										<h2 id="dialogTitle" class="sui-box-title">Last Step</h2>
-
-										<span id="dialogDescription" class="sui-description">In the final step, we change the button back to blue to subconsciously highlight that it’s a final step. In this example the user is unable to go back and must proceed.</span>
-
-										<button data-a11y-dialog-hide="sample-dialog--tour-forward" class="sui-dialog-close" aria-label="Close this dialog window"></button>
-
-									</div>
-
-									<div class="sui-box-body sui-lg">
-
-										<div class="sui-form-field">
-											<input type="text" class="sui-form-control" placeholder="E.g. Blank Form" />
-										</div>
-
-									</div>
-
-									<div class="sui-box-body sui-lg sui-block-content-center">
-
-										<button class="sui-button sui-button-blue" data-a11y-dialog-hide="sample-dialog--tour-forward">Finish</button>
-
-									</div>
-
-								</div>
-
-								<p class="sui-onboard-skip"><a href="/" data-a11y-dialog-hide="sample-dialog--tour-forward">Skip this, I'll create a module later</a></p>
-
-							</li>
-
-						</ul>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- NEW MODAL SAMPLES -->
-
-			<!-- SAMPLE #1: Welcome to Beehive -->
-			<div class="sui-modal sui-modal-lg" aria-hidden="true" tabindex="-1" id="welcome-beehive">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
-
-						<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-							<figure class="sui-box-image" aria-hidden="true">
-								<img
-									src="./dist/images/modal-header.png"
-									srcset="./dist/images/modal-header.png 1x, ./dist/images/modal-header@2x.png 2x"
-								/>
-							</figure>
-
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-							<span class="sui-box-title sui-lg">Welcome to Beehive Pro</span>
-
-							<span class="sui-description">Andy, welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data.  If you only want to enable tracking without reports, you can paste your analytics code via the link below.</span>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-								<div class="sui-tabs sui-side-tabs">
-									<div data-tabs>
-										<div class="active">Connect with Google</div>
-										<div>Setup API Project</div>
-									</div>
-									<div data-panes>
-										<div class="sui-border-frame active">
-											<span class="sui-description">Easily connect with Google and paste the access code below. Please note,  we only retrieve analytics information and no personally identifiable data.</span>
-											<div class="sui-form-field">
-												<label class="sui-label">Access Code</label>
-												<input class="sui-form-control" placeholder="Place access code here" />
-												<button class="sui-button sui-button-blue" style="margin-top: 20px;">Authorize</button>
-											</div>
-										</div>
-										<div class="sui-border-frame">
-											<span class="sui-description">Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna.</span>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<button role="button" class="sui-modal-skip" data-a11y-dialog-hide>Skip this</button>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #2: Hustle Onboard -->
-			<div class="sui-modal sui-modal-onboard sui-modal-md" aria-hidden="true" tabindex="-1" id="welcome-hustle">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content">
-
-					<div role="document" class="sui-slider">
-
-						<ul class="sui-slider-content">
-
-							<li data-slide="1" class="sui-current sui-loaded">
-
-								<div class="sui-box">
-
-									<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-										<figure class="sui-box-image">
-											<img
-												src="./dist/images/onboard.png"
-												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-												alt="Hustle character"
-											/>
-											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
-										</figure>
-
-										<span class="sui-box-title sui-lg">Hey, Andy</span>
-
-										<span class="sui-description">Welcome to Hustle, the only plugin you'll ever need to turn your visitors into loyal subscribers, leads and customers.</span>
-
-									</div>
-
-									<div class="sui-box-footer sui-flatten sui-content-center">
-
-										<button class="sui-button sui-button-blue sui-button-icon-right" data-tour="next">
-											Get Started
-											<i class="sui-icon-chevron-right" aria-hidden="true"></i>
-										</button>
-
-									</div>
-
-									<div tabindex="-1" class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-										<ul class="sui-slider-steps">
-											<li class="current"><span></span></li>
-											<li><span></span></li>
-											<li><span></span></li>
-										</ul>
-
-									</div>
-
-								</div>
-
-								<a href="#" class="sui-modal-skip" data-a11y-dialog-hide>Skip this, I know my way around</a>
-
-							</li>
-
-							<li data-slide="2">
-
-								<div class="sui-box">
-
-									<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-										<figure class="sui-box-image">
-											<img
-												src="./dist/images/onboard.png"
-												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-												alt="Hustle character"
-											/>
-											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
-										</figure>
-
-										<button class="sui-button-icon sui-button-float--left" data-tour="back">
-											<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
-											<span class="sui-screen-reader-text">Go to previous slide</span>
-										</button>
-
-										<span class="sui-box-title sui-lg">Migrate Data</span>
-
-										<span class="sui-description">Nice work on updating the Hustle! All your modules are already in place, however you need to migrate the data of your existing modules such as tracking data and email list manually.</span>
-
-									</div>
-
-									<div class="sui-box-footer sui-flatten sui-content-center">
-
-										<button class="sui-button" data-tour="next">Begin Migration</button>
-
-									</div>
-
-									<div tabindex="-1" class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-										<ul class="sui-slider-steps">
-											<li><span></span></li>
-											<li class="current"><span></span></li>
-											<li><span></span></li>
-										</ul>
-
-									</div>
-
-								</div>
-
-								<a href="#" class="sui-modal-skip" data-a11y-dialog-hide>Skip this, I'll migrate data later</a>
-
-							</li>
-
-							<li data-slide="3">
-
-								<div class="sui-box">
-
-									<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-spacing-sides--60">
-
-										<figure class="sui-box-image">
-											<img
-												src="./dist/images/onboard.png"
-												srcset="./dist/images/onboard.png 1x, ./dist/images/onboard@2x.png 2x"
-												alt="Hustle character"
-											/>
-											<figcaption class="sui-screen-reader-text">This image shows Hustle-man, or Hustle character, waving at you.</figcaption>
-										</figure>
-
-										<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-											<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-											<span class="sui-screen-reader-text">Close this dialog</span>
-										</button>
-
-										<span class="sui-box-title sui-lg">Migrate Complete</span>
-
-										<span class="sui-description">We've successfully migrated data of your existing modules. You're good to continue using Hustle!</span>
-
-									</div>
-
-									<div class="sui-box-footer sui-flatten sui-content-center">
-
-										<button class="sui-button" data-a11y-dialog-hide>Continue</button>
-
-									</div>
-
-									<div tabindex="-1" class="sui-box-footer sui-flatten sui-content-center" aria-hidden="true">
-
-										<ul class="sui-slider-steps">
-											<li><span></span></li>
-											<li><span></span></li>
-											<li class="current"><span></span></li>
-										</ul>
-
-									</div>
-
-								</div>
-
-							</li>
-
-						</ul>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #3: Hummingbird Get Started -->
-			<div class="sui-modal sui-modal-lg" aria-hidden="true" tabindex="-1" id="welcome-hummingbird">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
-
-						<div class="sui-box-header sui-outlined">
-
-							<span class="sui-box-title">Get Started</span>
-
-							<div class="sui-actions-right">
-								<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>
-									Skip
-								</button>
-							</div>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<p>Welcome to Hummingbird, the hottest Performance plugin for WordPress! We recommend running a quick performance test before you start tweaking things. Alternatively you can skip this step if you'd prefer to start customizing.</p>
-
-							<div class="sui-border-frame" style="display: flex;">
-								<span class="sui-description" style="flex: 1; margin-top: 0; margin-right: 15px;">This is only a performance test. Once you know what to fix you can get started in the next steps.</span>
-								<button class="sui-button sui-button-blue" style="flex: 0 0 auto; align-self: flex-start; margin-left: 15px;">
-									Run Performnace Test
-								</button>
-							</div>
-
-						</div>
-
-						<img
-							src="./dist/images/graphic-minify-modal-warning.png"
-							srcset="./dist/images/graphic-minify-modal-warning.png 1x, ./dist/images/graphic-minify-modal-warning@2x.png 2x"
-							class="sui-image"
-						/>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #4: Warning Modal -->
-			<div class="sui-modal sui-modal-sm" aria-hidden="true" tabindex="-1" id="warning-modal">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
-
-						<div class="sui-box-header sui-content-center sui-spacing-top--60">
-
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-							<span class="sui-box-title sui-lg">Dismiss Migrate Data Notice</span>
-
-							<span class="sui-description">Are you sure you wish to dismiss this notice? Make sure you’ve already migrated data of your existing modules, and you don't need to migrate data anymore.</span>
-
-						</div>
-
-						<div class="sui-box-footer sui-flatten sui-content-center">
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>Cancel</button>
-							<button class="sui-button sui-button-ghost sui-button-red" data-a11y-dialog-hide>Dismiss Forever</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #5: Import Modal -->
-			<div class="sui-modal sui-modal-sm" aria-hidden="true" tabindex="-1" id="import-modal">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
-
-						<div class="sui-box-header sui-content-center sui-spacing-top--60">
-
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-							<span class="sui-box-title sui-lg">Import Popup</span>
-
-							<span class="sui-description">Choose the popup configuration file and hit import to import your popup.</span>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-								<label class="sui-label">Configuration file</label>
-								<div class="sui-upload">
-									<input type="file" value="" readonly="readonly" />
-									<button class="sui-upload-button">
-										<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload file
-									</button>
-									<div class="sui-upload-file">
-										<span></span>
-										<button aria-label="Remove file">
-											<i class="sui-icon-close" aria-hidden="true"></i>
-										</button>
-									</div>
-								</div>
-								<span class="sui-description">Choose a JSON (.json) file to import the popup form.</span>
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-outlined sui-content-separated">
-							<button class="sui-button sui-button-ghost" disabled>
-								<i class="sui-icon-upload-cloud" aria-hidden="true"></i>
-								Import
-							</button>
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>Cancel</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #6: Choose Conditions -->
-			<div class="sui-modal sui-modal-lg" aria-hidden="true" tabindex="-1" id="choose-conditions">
-
-				<div class="sui-modal-overlay" data-a11y-dialog-hide></div>
-
-				<div role="dialog" class="sui-modal-content" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-
-					<div role="document" class="sui-box">
-
-						<div class="sui-box-header sui-content-center sui-spacing-top--60">
-
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-							<span class="sui-box-title sui-lg">Choose Conditions</span>
-
-							<span class="sui-description">Choose the visibility conditions which you want to apply on the popup.</span>
-
-						</div>
-
-						<div class="sui-box-selectors sui-box-selectors-col-2">
-
-							<ul>
-
-								<li><label for="choose-conditions-posts" class="sui-box-selector">
-									<input id="choose-conditions-posts" type="checkbox" checked="checked" />
-									<span>Posts</span>
-								</label></li>
-
-								<li><label for="choose-conditions-pages" class="sui-box-selector">
-									<input id="choose-conditions-pages" type="checkbox" />
-									<span>Pages</span>
-								</label></li>
-
-								<li><label for="choose-conditions-category" class="sui-box-selector">
-									<input id="choose-conditions-category" type="checkbox" />
-									<span>Category</span>
-								</label></li>
-
-								<li><label for="choose-conditions-tags" class="sui-box-selector">
-									<input id="choose-conditions-tags" type="checkbox" />
-									<span>Tags</span>
-								</label></li>
-
-								<li><label for="choose-conditions-visitors" class="sui-box-selector">
-									<input id="choose-conditions-visitors" type="checkbox" />
-									<span>Visitor's logged in status</span>
-								</label></li>
-
-								<li><label for="choose-conditions-times" class="sui-box-selector">
-									<input id="choose-conditions-times" type="checkbox" />
-									<span>Number of times visitor has seen</span>
-								</label></li>
-
-								<li><label for="choose-conditions-device" class="sui-box-selector">
-									<input id="choose-conditions-device" type="checkbox" />
-									<span>Visitor's device</span>
-								</label></li>
-
-								<li><label for="choose-conditions-referrer" class="sui-box-selector">
-									<input id="choose-conditions-referrer" type="checkbox" />
-									<span>Referrer</span>
-								</label></li>
-
-								<li><label for="choose-conditions-arrival" class="sui-box-selector">
-									<input id="choose-conditions-arrival" type="checkbox" />
-									<span>Source of Arrival</span>
-								</label></li>
-
-								<li><label for="choose-conditions-url" class="sui-box-selector">
-									<input id="choose-conditions-url" type="checkbox" />
-									<span>Specific URL</span>
-								</label></li>
-
-								<li><label for="choose-conditions-comments" class="sui-box-selector">
-									<input id="choose-conditions-comments" type="checkbox" />
-									<span>Visitor Commented Before</span>
-								</label></li>
-
-								<li><label for="choose-conditions-country" class="sui-box-selector">
-									<input id="choose-conditions-country" type="checkbox" />
-									<span>Visitor's Country</span>
-								</label></li>
-
-							</ul>
-
-						</div>
-
-						<div class="sui-box-footer sui-content-separated">
-							<button class="sui-button sui-button-ghost" data-a11y-dialog-hide>Cancel</button>
-							<button class="sui-button" data-a11y-dialog-hide>Add Conditions</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #7: ActiveCampaign -->
-			<div class="sui-modal sui-modal-sm">
-
-				<div
-					role="dialog"
-					id="activecampaign"
-					class="sui-modal-content"
-					aria-modal="true"
-					aria-labelledby="activecampaign-title"
-					aria-describedby="activecampaign-desc"
-				>
-
-					<div class="sui-box">
-
-						<div class="sui-box-header sui-content-center">
-
-							<figure class="sui-box-logo">
-								<img
-									src="./dist/images/activecampaign.png"
-									srcset="./dist/images/activecampaign.png 1x, ./dist/images/activecampaign@2x.png 2x"
-									alt="Active campaign logo"
-								/>
-							</figure>
-
-							<span class="sui-box-title sui-lg">Activate ActiveCampaign API</span>
-
-							<span class="sui-description">Setup ActiveCampaign API access.</span>
-
-							<button class="sui-button-icon sui-button-float--right" data-a11y-dialog-hide>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="sui-form-field">
-								<label class="sui-label">API URL</label>
-								<div class="sui-control-with-icon">
-									<i class="sui-icon-link" aria-hidden="true"></i>
-									<input type="url" placeholder="Enter API URL" class="sui-form-control" />
-								</div>
-							</div>
-
-							<div class="sui-form-field">
-								<label class="sui-label">API Key</label>
-								<div class="sui-control-with-icon">
-									<i class="sui-icon-key" aria-hidden="true"></i>
-									<input type="text" placeholder="Enter API Key" class="sui-form-control" />
-								</div>
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-flatten sui-content-right">
-							<button class="sui-button" data-modal-replace="hubspot-dialog" data-modal-close>Connect</button>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SAMPLE #8: HubSpot -->
-			<div class="sui-modal sui-modal-md">
-
-				<div class="sui-modal-overlay"></div>
-
-				<div
-					role="dialog"
-					id="hubspot-dialog"
-					class="sui-modal-content"
-					aria-modal="true"
-					aria-labelledby="hubspotTitle"
-					aria-describedby="hubspotDesc"
-				>
-
-					<div class="sui-box">
-
-						<div class="sui-box-header sui-content-center">
-
-							<figure class="sui-box-logo">
-
-								<img
-									src="./dist/images/activecampaign.png"
-									srcset="./dist/images/activecampaign.png 1x, ./dist/images/activecampaign@2x.png 2x"
-									alt="Active campaign logo"
-								/>
-							</figure>
-
-							<button class="sui-button-icon sui-button-float--left" aria-label="Go back to previous step" data-modal-close>
-								<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
-							</button>
-
-							<button class="sui-button-icon sui-button-float--right" aria-label="Close this dialog" data-modal-close>
-								<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-							</button>
-
-							<h2 id="hubspotTitle" class="sui-box-title sui-lg">Create Ticket</h2>
-
-							<p id="hubspotDesc" class="sui-description">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
-
-						</div>
-
-						<div class="sui-box-body">
-
-							<div class="custom-toggle-box" style="margin-left: -30px; margin-right: -30px; background-color: #F8F8F8; text-align: center; padding: 15px 0;">
-								<label class="sui-toggle" style="padding-top: 1px; padding-bottom: 1px; vertical-align: text-top;">
-									<input type="checkbox" id="toggle-with-label">
-									<span class="sui-toggle-slider"></span>
-								</label>
-								<label for="toggle-with-label" class="sui-toggle-label" style="font-size: 13px;">Toggle with label.</label>
-							</div>
-
-							<div class="custom-toggle-content" style="display: none;">
-
-								<div class="sui-form-field" style="margin-top: 30px;">
-									<label class="sui-label">Pipeline</label>
-									<select>
-										<option>Support Requests</option>
-										<option>Another thing</option>
-										<option>And... another thing</option>
-									</select>
-								</div>
-
-								<div class="sui-form-field">
-									<label class="sui-label">Ticket Status</label>
-									<select>
-										<option>New</option>
-										<option>Repeated</option>
-										<option>Old</option>
-									</select>
-								</div>
-
-								<div class="sui-form-field">
-									<label class="sui-label">Ticket Name <span class="sui-label-note">Use the “+” icon to add form fields</span></label>
-									<div class="sui-insert-variables">
-											<input type="text" class="sui-form-control" placeholder="New enquiry from {first-name}">
-											<div class="select-container"><span class="dropdown-handle" aria-hidden="true"><i class="sui-icon-chevron-down"></i></span><select aria-hidden="true" hidden="hidden" class="sui-styled" style="display: none;">
-												<option value="{address}" data-content="{address}">Address</option>
-												<option value="{email-address}" data-content="{email-address}">Email Address</option>
-												<option value="{first-name}" data-content="{first-name}">First Name</option>
-												<option value="{last-name}" data-content="{last-name}">Last Name</option>
-												<option value="{mobile}" data-content="{mobile}">Mobile</option>
-												<option value="{telephone}" data-content="{telephone}">Telephone</option>
-												<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
-											</select><div class="select-list-container"><button type="button" class="list-value" aria-haspopup="listbox" id="undefined-button" aria-labelledby="undefined undefined-button">Address{address}</button><ul tabindex="-1" role="listbox" class="list-results" id="undefined-list" aria-activedescendant="undefined-option-{work-phone}"><li role="option" class="sui-element-flex current" id="undefined-option-{address}" aria-selected="true"><span>Address</span><span>{address}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{email-address}"><span>Email Address</span><span>{email-address}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{first-name}"><span>First Name</span><span>{first-name}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{last-name}"><span>Last Name</span><span>{last-name}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{mobile}"><span>Mobile</span><span>{mobile}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{telephone}"><span>Telephone</span><span>{telephone}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{work-phone}"><span>Work Phone</span><span>{work-phone}</span></li></ul></div></div>
-										</div>
-								</div>
-
-								<div class="sui-form-field">
-									<label class="sui-label">Ticket Description (optional) <span class="sui-label-note">Use the “+” icon to add form fields</span></label>
-									<div class="sui-insert-variables">
-											<textarea class="sui-form-control" placeholder="New enquiry from {first-name}"></textarea>
-											<div class="select-container"><span class="dropdown-handle" aria-hidden="true"><i class="sui-icon-chevron-down"></i></span><select aria-hidden="true" hidden="hidden" class="sui-styled" style="display: none;">
-												<option value="{address}" data-content="{address}">Address</option>
-												<option value="{email-address}" data-content="{email-address}">Email Address</option>
-												<option value="{first-name}" data-content="{first-name}">First Name</option>
-												<option value="{last-name}" data-content="{last-name}">Last Name</option>
-												<option value="{mobile}" data-content="{mobile}">Mobile</option>
-												<option value="{telephone}" data-content="{telephone}">Telephone</option>
-												<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
-											</select><div class="select-list-container"><button type="button" class="list-value" aria-haspopup="listbox" id="undefined-button" aria-labelledby="undefined undefined-button">Address{address}</button><ul tabindex="-1" role="listbox" class="list-results" id="undefined-list" aria-activedescendant="undefined-option-{work-phone}"><li role="option" class="sui-element-flex current" id="undefined-option-{address}" aria-selected="true"><span>Address</span><span>{address}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{email-address}"><span>Email Address</span><span>{email-address}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{first-name}"><span>First Name</span><span>{first-name}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{last-name}"><span>Last Name</span><span>{last-name}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{mobile}"><span>Mobile</span><span>{mobile}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{telephone}"><span>Telephone</span><span>{telephone}</span></li><li role="option" class="sui-element-flex" id="undefined-option-{work-phone}"><span>Work Phone</span><span>{work-phone}</span></li></ul></div></div>
-										</div>
-								</div>
-
-								<div class="sui-form-field">
-									<label class="sui-label">Supported File (optional)</label>
-									<select>
-										<option>Select a file upload field</option>
-									</select>
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-footer sui-flatten sui-content-right">
-
-							<button id="hubspot-dialog-close" class="sui-button sui-button-blue">
-								<span class="sui-loading-text">Activate</span>
-								<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
 		</div><!-- End Modals -->
 
 	</div><!-- #wpbody -->
+
 </div><!-- #wpcontent -->
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
