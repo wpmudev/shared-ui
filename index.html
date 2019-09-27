@@ -3066,6 +3066,47 @@ function admin_body_classes( $classes ) {
 </pre>
 									</div>
 
+									<span class="sui-settings-label">Regular Button with Helper Text</span>
+									<span class="sui-description" style="margin-bottom: 10px;">Use this element when you need to show a loading state text to indicate users something is happening, for example when <a href="https://projects.invisionapp.com/d/main#/console/17856719/370330232/preview" target="_blank" rel="nofollow">connecting to HubSpot</a> app like we do on Hustle plugin.</span>
+
+									<button class="sui-button" aria-live="polite">
+										<span class="sui-button-text-default">Button</span>
+										<span class="sui-button-text-onload">
+											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+											Loading State
+										</span>
+									</button>
+
+									<button class="sui-button sui-button-onload-text" aria-live="polite">
+										<span class="sui-button-text-default">Button</span>
+										<span class="sui-button-text-onload">
+											<i class="sui-icon-loader sui-loading" aria-hidden="true"></i>
+											Loading State
+										</span>
+									</button>
+
+									<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- STATE: Default --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button&quot; aria-live=&quot;polite&quot;&gt;
+	&lt;span class=&quot;sui-button-text-default&quot;&gt;Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button-text-onload&quot;&gt;
+		&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		Loading State
+	&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- STATE: On Load (Loading) --&gt;
+&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-onload-text&quot; aria-live=&quot;polite&quot;&gt;
+	&lt;span class=&quot;sui-button-text-default&quot;&gt;Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button-text-onload&quot;&gt;
+		&lt;i class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		Loading State
+	&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+									</div>
+
 									<span class="sui-settings-label">Icon Button</span>
 									<span class="sui-description" style="margin-bottom: 10px;">When you need to add a spinning wheel after click to the button making users feel like something is being saved or loaded.</span>
 
