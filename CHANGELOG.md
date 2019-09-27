@@ -1,3 +1,7 @@
+v2.5.0
+- [Fix] Sticky Box: Shadow is visible when not sticky after changing tab.
+
+
 v2.4.1
 - [Fix] Tabs: Undefined object error on console.
 
