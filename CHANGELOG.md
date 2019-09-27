@@ -1,3 +1,7 @@
+v2.5.0
+- [New] Buttons: Loading buttons with helper text.
+
+
 v2.4.1
 - [Fix] Tabs: Undefined object error on console.
 
