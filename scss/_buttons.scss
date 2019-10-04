@@ -26,13 +26,14 @@
 				justify-content: center;
 				position: absolute;
 				margin: 0;
-	
+
 				&:before {
 					display: block;
 				}
 			}
-	
-			.sui-loading-text {
+
+			.sui-loading-text,
+			.sui-button-text-default {
 				display: block;
 				pointer-events: none;
 				@include media(max-width, md) {
@@ -43,9 +44,13 @@
 				}
 			}
 
+			.sui-button-text-onload {
+				display: none;
+			}
+
 			[class*="sui-icon-"] {
 				font-size: 12px;
-	
+
 				&:before {
 					display: block;
 					color: inherit;
@@ -63,7 +68,8 @@
 			&.disabled,
 			&:disabled,
 			&[disabled],
-			&.sui-button-onload {
+			&.sui-button-onload,
+			&.sui-button-onload-text {
 				cursor: default;
 				pointer-events: none;
 			}
@@ -74,13 +80,38 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-	
+
 				.sui-loading {
 					display: flex;
 				}
-	
+
 				.sui-loading-text {
 					opacity: 0;
+				}
+			}
+
+			&.sui-button-onload-text {
+				pointer-events: none;
+
+				.sui-button-text-default {
+					display: none;
+				}
+
+				.sui-button-text-onload {
+					display: block;
+
+					.sui-loading {
+						width: auto;
+						height: auto;
+						display: inline-block;
+						position: relative;
+						vertical-align: unset;
+						margin-right: 4px;
+
+						&:before {
+							display: inline-block;
+						}
+					}
 				}
 			}
 
@@ -122,7 +153,8 @@
 		&.disabled,
 		&:disabled,
 		&[disabled],
-		&.sui-button-onload {
+		&.sui-button-onload,
+		&.sui-button-onload-text {
 			background-color: $button-disabled--background;
 			color: $button-disabled--color;
 		}
@@ -131,7 +163,7 @@
 		&.sui-button-icon-right {
 
 			[class*="sui-icon-"] {
-				
+
 				&:not(.sui-loading) {
 					margin-right: -7px;
 					margin-left: 0;
@@ -154,7 +186,8 @@
 				&.disabled,
 				&:disabled,
 				&[disabled],
-				&.sui-button-onload {
+				&.sui-button-onload,
+				&.sui-button-onload-text {
 					background-color: $button-disabled--background;
 					color: $button-disabled--color;
 				}
@@ -228,7 +261,8 @@
 			&.disabled,
 			&:disabled,
 			&[disabled],
-			&.sui-button-onload {
+			&.sui-button-onload,
+			&.sui-button-onload-text {
 				border-color: $button-disabled--background;
 				background-color: $button-disabled--background;
 				color: $button-disabled--color;
@@ -345,7 +379,8 @@
 		&.disabled,
 		&:disabled,
 		&[disabled],
-		&.sui-button-onload {
+		&.sui-button-onload,
+		&.sui-button-onload-text {
 			color: $button-disabled--color;
 			background-color: $button-disabled--background;
 		}
@@ -365,7 +400,8 @@
 				&.disabled,
 				&:disabled,
 				&[disabled],
-				&.sui-button-onload {
+				&.sui-button-onload,
+				&.sui-button-onload-text {
 					color: $button-disabled--color;
 					background-color: $button-disabled--background;
 				}
@@ -388,7 +424,8 @@
 			&.disabled,
 			&:disabled,
 			&[disabled],
-			&.sui-button-onload {
+			&.sui-button-onload,
+			&.sui-button-onload-text {
 				border-color: $button-disabled--background;
 			}
 
@@ -408,7 +445,8 @@
 					&.disabled,
 					&:disabled,
 					&[disabled],
-					&.sui-button-onload {
+					&.sui-button-onload,
+					&.sui-button-onload-text {
 						border-color: $button-disabled--background;
 					}
 				}
@@ -429,7 +467,8 @@
 			&.disabled,
 			&:disabled,
 			&[disabled],
-			&.sui-button-onload {
+			&.sui-button-onload,
+			&.sui-button-onload-text {
 				background-color: $button-disabled--background;
 				color: $button-disabled--color;
 			}
@@ -449,7 +488,8 @@
 					&.disabled,
 					&:disabled,
 					&[disabled],
-					&.sui-button-onload {
+					&.sui-button-onload,
+					&.sui-button-onload-text {
 						background-color: $button-disabled--background;
 						color: $button-disabled--color;
 					}
