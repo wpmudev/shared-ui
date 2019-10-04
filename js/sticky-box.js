@@ -7,10 +7,14 @@
 
     _$stickies.forEach(function(_$sticky){
         if (CSS.supports && CSS.supports('position', 'sticky')) {
-            apply_sticky_class(_$sticky);
+			if ( null !== _$sticky.offsetParent ) {
+				apply_sticky_class(_$sticky);
+			}
 
             window.addEventListener('scroll', function(){
-                apply_sticky_class(_$sticky);
+                if ( null !== _$sticky.offsetParent ) {
+					apply_sticky_class(_$sticky);
+				}
             })
         }
     });
