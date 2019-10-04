@@ -1,4 +1,5 @@
 v2.5.0
+- [New] Modals: Accessible modal markup and functions.
 - [New] Buttons: Loading buttons with helper text.
 - [Fix] Sticky Box: Shadow is visible when not sticky after changing tab.
 

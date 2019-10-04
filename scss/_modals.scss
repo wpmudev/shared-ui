@@ -1,15 +1,696 @@
 @include body-class {
 
+	// NOTE: New modal.
+	.sui-modal {
+		width: calc(100% - #{map-get($wordpress, adminmenu)});
+		height: calc(100vh - #{map-get($wordpress, adminbar)});
+		overflow-x: hidden;
+		overflow-y: auto;
+		user-select: auto;
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		position: fixed;
+		z-index: map-get($modal, z-index);
+		top: map-get($wordpress, adminbar);
+		left: map-get($wordpress, adminmenu);
+		padding: $sui-gutter 0;
+		background-color: $modal-overlay-bg-color;
+
+		&, * {
+			box-sizing: border-box;
+		}
+
+		// ELEMENT: Overlay mask.
+		.sui-modal-overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			// z-index: map-get($modal, z-index);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			&:hover {
+				cursor: pointer;
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+		// ELEMENT: Content.
+		.sui-modal-content {
+			width: 100%;
+			min-height: 0;
+			flex: 0 0 auto;
+			position: relative;
+			// z-index: map-get($modal, z-index);
+			margin: auto;
+			padding: 0 $sui-gutter;
+
+			@include media(max-width, md) {
+				padding: 0 $sui-gutter-md;
+			}
+		}
+
+		// ELEMENT: Slide.
+		.sui-modal-slide {
+			display: none;
+
+			&.sui-active {
+				opacity: 0;
+				display: block;
+				animation-duration: 0.7s;
+				animation-fill-mode: both;
+				transform-origin: center;
+				transform-style: preserve-3d;
+
+				&.sui-loaded {
+					opacity: 1;
+				}
+
+				&.sui-fadein {
+					opacity: 1;
+					animation-name: fadeIn;
+				}
+
+				&.sui-fadein-left {
+					opacity: 1;
+					animation-name: fadeInLeft;
+				}
+
+				&.sui-fadein-right {
+					opacity: 1;
+					animation-name: fadeInRight;
+				}
+			}
+
+			&:disabled,
+			&[disabled] {
+
+				a,
+				input,
+				select,
+				button,
+				textarea {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+			}
+		}
+
+		// ELEMENT: Box.
+		.sui-box {
+			box-shadow: none;
+
+			// ELEMENT: Box Title.
+			.sui-box-title {
+
+				&.sui-lg {
+					font-size: 22px;
+					line-height: 30px;
+				}
+
+				+ .sui-description {
+					margin-top: #{$sui-gutter / 2};
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter-md / 2};
+					}
+				}
+			}
+
+			// ELEMENT: Box Banner.
+			.sui-box-banner {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				overflow: hidden;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+
+				img {
+					max-width: 100%;
+					display: block;
+					margin: 0 auto;
+					padding: 0;
+					border: 0;
+				}
+			}
+
+			// ELEMENT: Box Logo.
+			.sui-box-logo {
+				width: map-get($modal-logo, size);
+				height: map-get($modal-logo, size);
+				overflow: hidden;
+				display: block;
+				margin: 0 auto;
+				padding: 0;
+				border: map-get($modal-logo, frame-width) solid map-get($modal-logo, frame-color);
+				border-radius: $border-radius;
+				background-color: map-get($modal-logo, frame-color);
+
+				img {
+					width: #{map-get($modal-logo, size) - (map-get($modal-logo, frame-width) * 2)};
+					height: #{map-get($modal-logo, size) - (map-get($modal-logo, frame-width) * 2)};
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					border-radius: $border-radius;
+				}
+			}
+
+			// ELEMENT: Box Header.
+			.sui-box-header {
+				position: relative;
+
+				// ELEMENT: Box Banner.
+				.sui-box-banner {
+					width: auto;
+					max-width: none;
+					margin-top: -#{$sui-gutter / 2};
+					margin-right: -#{$sui-gutter};
+					margin-bottom: #{$sui-gutter + 10px};
+					margin-left: -#{$sui-gutter};
+					border-top-left-radius: $border-radius;
+					border-top-right-radius: $border-radius;
+
+					@include media(max-width, md) {
+						margin-top: -#{$sui-gutter-md / 2};
+						margin-right: -#{$sui-gutter-md};
+						margin-bottom: #{$sui-gutter-md + 10px};
+						margin-left: -#{$sui-gutter-md};
+					}
+				}
+
+				// ELEMENT: Box Logo.
+				.sui-box-logo {
+					position: absolute;
+					top: -#{map-get($modal-logo, size) / 2};
+					left: 50%;
+					transform: translateX(-50%);
+				}
+
+				// ELEMENT: Floated button.
+				.sui-button-float {
+
+					// FLOAT: Right.
+					&--right {
+						position: absolute;
+						top: #{$sui-gutter - 10px};
+						right: #{$sui-gutter - 10px};
+						margin: 0;
+
+						@include media(max-width, md) {
+							top: #{$sui-gutter-md - 5px};
+							right: #{$sui-gutter-md - 5px};
+						}
+					}
+
+					// FLOAT: Left.
+					&--left {
+						position: absolute;
+						top: #{$sui-gutter - 10px};
+						left: #{$sui-gutter - 10px};
+						margin: 0;
+
+						@include media(max-width, md) {
+							top: #{$sui-gutter-md - 5px};
+							left: #{$sui-gutter-md - 5px};
+						}
+					}
+				}
+
+				// ELEMENT: Floated steps.
+				.sui-steps-float {
+					position: absolute;
+					top: #{$sui-gutter - 10px};
+					left: 50%;
+					margin: 0;
+					transform: translateX(-50%);
+
+					@include media(max-width, md) {
+						top: #{$sui-gutter-md - 5px};
+					}
+				}
+
+				// VAR: Flatten.
+				&.sui-flatten {
+					padding-bottom: 0;
+					border-bottom-width: 0;
+				}
+
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
+
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
+
+						// ELEMENT: Box image.
+						.sui-box-banner {
+							margin-top: -#{nth($spacing, 1)};
+						}
+					}
+
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
+
+						// ELEMENT: Box image.
+						.sui-box-banner {
+							margin-right: -#{nth($spacing, 1)};
+
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-right: -#{nth($spacing, 2)};
+								}
+							}
+						}
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-bottom: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Left.
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
+
+						// ELEMENT: Box image.
+						.sui-box-banner {
+							margin-left: -#{nth($spacing, 1)};
+
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-left: -#{nth($spacing, 2)};
+								}
+							}
+						}
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
+
+						// ELEMENT: Box Image.
+						.sui-box-banner {
+							margin-left: -#{nth($spacing, 1)};
+							margin-right: -#{nth($spacing, 1)};
+
+							@if nth($spacing, 1) != nth($spacing, 2) {
+
+								@include media(max-width, md) {
+									margin-left: -#{nth($spacing, 2)};
+									margin-right: -#{nth($spacing, 2)};
+								}
+							}
+						}
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+				}
+
+				// VAR: Content alignment.
+				&.sui-content {
+
+					// ALIGN: Center.
+					&-center {
+						display: block;
+						text-align: center;
+					}
+
+					// ALIGN: Center Inline.
+					&-center-inline {
+						justify-content: center;
+					}
+				}
+
+				+ .sui-box-footer.sui-flatten {
+					padding-top: $sui-gutter;
+
+					@include media(max-width, md) {
+						padding-top: $sui-gutter-md;
+					}
+				}
+
+				+ .sui-box-footer:not(.sui-flatten) {
+					margin-top: $sui-gutter;
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+				}
+			}
+
+			// ELEMENT: Box Body.
+			.sui-box-body {
+
+				// VAR: Content alignment.
+				&.sui-content {
+
+					// ALIGN: Center.
+					&-center {
+						text-align: center;
+					}
+
+					// ALIGN: Right.
+					&-center-inline {
+						text-align: right;
+					}
+				}
+
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
+
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-top: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-bottom: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Left (30px).
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+				}
+			}
+
+			// ELEMENT: Box Selectors.
+			.sui-box-selectors {
+				margin: $sui-gutter 0;
+
+				&:first-child {
+					margin-top: 0;
+
+					@include media(max-width, md) {
+						margin-top: 0;
+					}
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@include media(max-width, md) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(max-width, md) {
+					margin: $sui-gutter-md 0;
+				}
+			}
+
+			// ELEMENT: Box Footer.
+			.sui-box-footer {
+
+				// VAR: Flatten.
+				&.sui-flatten {
+					padding-top: 0;
+					border-top-width: 0;
+				}
+
+				// VAR: Content alignment.
+				&.sui-content {
+
+					// ALIGN: Center.
+					&-center {
+						justify-content: center;
+					}
+
+					// ALIGN: Right.
+					&-right {
+						justify-content: flex-end;
+					}
+
+					// ALIGN: Separated (space between).
+					&-separated {
+						justify-content: space-between;
+					}
+				}
+
+				// VAR: Spacing.
+				@each $name, $spacing in $modal-spacing {
+
+					// SPACING: Top.
+					&.sui-spacing-top--#{$name} {
+						padding-top: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-top: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Right.
+					&.sui-spacing-right--#{$name} {
+						padding-right: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Bottom.
+					&.sui-spacing-bottom--#{$name} {
+						padding-bottom: nth($spacing, 1);
+					}
+
+					// SPACING: Left (30px).
+					&.sui-spacing-left--#{$name} {
+						padding-left: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+							}
+						}
+					}
+
+					// SPACING: Sides.
+					&.sui-spacing-sides--#{$name} {
+						padding-left: nth($spacing, 1);
+						padding-right: nth($spacing, 1);
+
+						@if nth($spacing, 1) != nth($spacing, 2) {
+
+							@include media(max-width, md) {
+								padding-left: nth($spacing, 2);
+								padding-right: nth($spacing, 2);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// ELEMENT: Skip modal.
+		.sui-modal-skip:not(.sui-button) {
+			width: auto;
+			max-width: 100%;
+			cursor: pointer;
+			display: block;
+			margin: 0 auto;
+			padding: 0;
+			border: 0;
+			background-color: transparent;
+			background-image: none;
+			box-shadow: none;
+			color: palette(silver, medium);
+			font: 500 12px/16px $font;
+			letter-spacing: -0.18px;
+			text-align: center;
+
+			&:focus,
+			&:hover,
+			&:active {
+				color: $white;
+			}
+		}
+
+		// ELEMENT: Steps.
+		.sui-box-steps {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			margin: 0 -5px;
+			padding: 0;
+			border: 0;
+
+			a,
+			span,
+			button {
+				overflow: hidden;
+				cursor: pointer;
+				display: block;
+				flex: 0 0 auto;
+				margin: 0 5px;
+				padding: 0;
+				border: 0;
+				background-color: palette(silver, soft);
+				white-space: nowrap;
+				text-overflow: clip;
+				color: transparent;
+
+				&.sui-current {
+					background-color: $blue;
+				}
+
+				&:disabled,
+				&[disabled],
+				&.sui-disabled {
+					cursor: not-allowed;
+					pointer-events: none;
+				}
+			}
+
+			@each $name, $size in $modal-steps {
+
+				&.sui-#{$name} {
+					padding: #{(30px - $size) / 2} 0;
+
+					a,
+					span,
+					button {
+						width: $size;
+						height: $size;
+						border-radius: #{$size * 2};
+					}
+				}
+			}
+		}
+
+		@each $name, $size in $modal-size {
+
+			&.sui-modal-#{$name} {
+
+				.sui-modal-content {
+					max-width: #{$size + ($sui-gutter * 2)};
+
+					@include media(max-width, md) {
+						max-width: #{$size + ($sui-gutter-md * 2)};
+					}
+				}
+			}
+		}
+
+		// STATE: Hidden.
+		&.sui-active {
+			display: flex;
+		}
+
+		@include media(max-width, md) {
+			width: 100%;
+			left: 0;
+			padding: $sui-gutter-md 0;
+		}
+	}
+
+	// NOTE: Support old legacy code for modals.
 	.sui-dialog {
+		overflow: auto;
+		display: flex;
+		align-items: center;
 		position: fixed;
 		z-index: 13;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 160px;
-		display: flex;
-		align-items: center;
-		overflow: auto;
 		background-color: $modal-overlay-bg-color;
 
 		&, * {
@@ -814,19 +1495,27 @@
 		}
 	}
 
-	// Folded sidebar
+	// VAR: Folded sidebar.
 	&.wp-admin.folded {
+
+		.sui-modal {
+
+			@include media(min-width, md) {
+				width: calc(100% - #{map-get($wordpress, adminmenu-sm)});
+				left: map-get($wordpress, adminmenu-sm);
+			}
+		}
 
 		.sui-dialog {
 			left: 36px;
 
-			@media (max-width: 782px) {
-				left: 0;
-			}
-		}
+			.sui-dialog-overlay {
+				left: 36px;
 
-		.sui-dialog-overlay {
-			left: 36px;
+				@media (max-width: 782px) {
+					left: 0;
+				}
+			}
 
 			@media (max-width: 782px) {
 				left: 0;
@@ -835,6 +1524,7 @@
 	}
 }
 
+html.sui-has-modal,
 html.sui-has-overlay {
 	overflow: hidden;
 }
