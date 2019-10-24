@@ -14406,23 +14406,40 @@ p:first-of-type {
 	* The ID of the element serving as the modal container.
 	*
 	* @param focusAfterClosed
-	* Either the DOM node or the ID of the DOM node to focus when the
-	* modal closes.
+	* This is a required and important paramether. You can use the following
+	* values:
+	* - this, when you click on a button or any element to open the modal it
+	*     will find this same element to focus it when modal closes.
+	* - unique-id, when you want to focus an element outside modal when
+	*     it closes.
 	*
-	* @param focusWhenOpen
-	* Optional parameter containing either the DOM node or the ID of the
-	* DOM node to focus when the module opens. If not specified, the
-	* first focusable element in the module will receive focus.
+	* @param focusWhenOpen (optional)
+	* Use `element-unique-id` that's inside modal for screenreader to
+	* focus it when modal opens. You can set it to `undefined` if you
+	* don't want/need this function and modal will automatically find
+	* the first focusable element.
 	*
-	* @param hasOverlayMask
-	* Optional boolean parameter that when is set to "true" will enable
-	* a clickable overlay mask. This mask will fire close modal function
-	* when you click on it.
+	* @param hasOverlayMask (optional)
+	* When is set to `true` modal overlay mask can be clicked and will
+	* fire close modal function.
 	*
 	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask );
 	*/
 	$( 'button' ).on( 'click', function() {
-		SUI.openModal( 'modal-unique-id', this, 'element-unique-id', false );
+
+		const modalId        = 'modal-unique-id',
+			focusAfterClosed = this,
+			focusWhenOpen    = undefined,
+			hasOverlayMask   = false
+			;
+
+		SUI.openModal(
+			modalId,
+			focusAfterClosed,
+			focusWhenOpen,
+			hasOverlayMask
+		);
+
 	});
 
 	/**
