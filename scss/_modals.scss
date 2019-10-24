@@ -435,7 +435,7 @@
 						}
 					}
 
-					// SPACING: Left (30px).
+					// SPACING: Left.
 					&.sui-spacing-left--#{$name} {
 						padding-left: nth($spacing, 1);
 
@@ -548,7 +548,7 @@
 						padding-bottom: nth($spacing, 1);
 					}
 
-					// SPACING: Left (30px).
+					// SPACING: Left.
 					&.sui-spacing-left--#{$name} {
 						padding-left: nth($spacing, 1);
 
@@ -615,7 +615,6 @@
 			span,
 			button {
 				overflow: hidden;
-				cursor: pointer;
 				display: block;
 				flex: 0 0 auto;
 				margin: 0 5px;
@@ -636,6 +635,12 @@
 					cursor: not-allowed;
 					pointer-events: none;
 				}
+			}
+
+			a,
+			button,
+			span[role="button"] {
+				cursor: pointer;
 			}
 
 			@each $name, $size in $modal-steps {
