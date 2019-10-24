@@ -331,7 +331,6 @@
 
 		this.addListeners();
 		aria.OpenDialogList.push( this );
-		this.clearDialog();
 		this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
 		this.dialogNode.classList.remove( 'sui-content-fade-out' );
 
@@ -344,16 +343,6 @@
 		this.lastFocus = document.activeElement;
 
 	}; // end Dialog constructor.
-
-	aria.Dialog.prototype.clearDialog = function() {
-
-		Array.prototype.map.call(
-			this.dialogNode.querySelectorAll( 'input' ),
-			function( input ) {
-				input.value = '';
-			}
-		);
-	};
 
 	/**
 	 * @desc Hides the current top dialog, removes listeners of the top dialog,
