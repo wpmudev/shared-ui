@@ -14721,7 +14721,7 @@ p:first-of-type {
 										<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-modal&quot;&gt;
+&lt;div class=&quot;sui-modal sui-modal-md&quot;&gt;
 
 	&lt;div
 		role=&quot;dialog&quot;
@@ -14729,7 +14729,27 @@ p:first-of-type {
 		class=&quot;sui-modal-content&quot;
 		aria-live=&quot;polite&quot;
 		aria-modal=&quot;true&quot;
+		aria-labelledby=&quot;&quot;
 	&gt;
+
+		&lt;div
+			id=&quot;slide-unique-id&quot;
+			class=&quot;sui-modal-slide sui-active&quot;
+			data-modal-size=&quot;md&quot;
+		&gt;&lt;/div&gt;
+
+		&lt;!--
+			NOTE:
+			Notice the attribute "data-modal-size", it is important when
+			you have slides of different sizes. Also, make sure modal size
+			when opening has the same value of the first slide.
+		--&gt;
+		&lt;div
+			id=&quot;slide-unique-id&quot;
+			class=&quot;sui-modal-slide sui-active&quot;
+			data-modal-size=&quot;sm&quot;
+		&gt;&lt;/div&gt;
+
 	&lt;/div&gt;
 
 &lt;/div&gt;
@@ -15433,8 +15453,9 @@ p:first-of-type {
 																<p><code>{position}</code> accepts the following variables:</p>
 
 																<ul>
-																	<li><code>center</code> to center align content while using stacked elements (block display).</li>
-																	<li><code>center-inline</code> to center align content while keeping flexbox row display.</li>
+																	<li><code>center</code> to center align content element.</li>
+																	<li><code>right</code> to align content to the right.</li>
+																	<li><code>separated</code> to align elements to each of the sides.</li>
 																</ul>
 
 															</div>
@@ -15625,14 +15646,14 @@ p:first-of-type {
 
 													</figure>
 
-													<h3 id="demo-dialog--sample-hubspot-contact-title" class="sui-box-title sui-lg">Create Contact</h3>
-
-													<p id="demo-dialog--sample-hubspot-contact-desc" class="sui-description" style="margin-bottom: 0;">Let's start with choosing the HubSpot list and matching up your form fields with the default HubSpot contact fields to make sure we’re sending data to the right place.</p>
-
 													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
 														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Close this modal</span>
 													</button>
+
+													<h3 id="demo-dialog--sample-hubspot-contact-title" class="sui-box-title sui-lg">Create Contact</h3>
+
+													<p id="demo-dialog--sample-hubspot-contact-desc" class="sui-description">Let's start with choosing the HubSpot list and matching up your form fields with the default HubSpot contact fields to make sure we’re sending data to the right place.</p>
 
 												</div>
 
@@ -15759,19 +15780,19 @@ p:first-of-type {
 
 													</figure>
 
-													<h3 id="demo-dialog--sample-hubspot-ticket-title" class="sui-box-title sui-lg">Create Ticket</h3>
-
-													<p id="demo-dialog--sample-hubspot-ticket-desc" class="sui-description" style="margin-bottom: 0;">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
+													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text">Close this modal</span>
+													</button>
 
 													<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-hubspot-contact" data-modal-replace-mask="true">
 														<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Go back to create contact</span>
 													</button>
 
-													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
-														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-														<span class="sui-screen-reader-text">Close this modal</span>
-													</button>
+													<h3 id="demo-dialog--sample-hubspot-ticket-title" class="sui-box-title sui-lg">Create Ticket</h3>
+
+													<p id="demo-dialog--sample-hubspot-ticket-desc" class="sui-description">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
 
 												</div>
 
@@ -15915,14 +15936,14 @@ p:first-of-type {
 
 											<div class="sui-box">
 
+												<button class="sui-screen-reader-text" data-modal-close="">Skip</button>
+
 												<div class="sui-box-header">
 
 													<h3 id="demo-dialog--sample-hummingbird-title" class="sui-box-title">Get Started</h3>
 
-													<div class="sui-actions-right">
-
+													<div class="sui-actions-right" aria-hidden="true">
 														<button class="sui-button sui-button-ghost" data-modal-close="">Skip</button>
-
 													</div>
 
 												</div>
@@ -16023,14 +16044,14 @@ p:first-of-type {
 
 													<div class="sui-box-header sui-content-center sui-spacing-top--60 sui-flatten">
 
-														<h3 class="sui-box-title sui-lg">Choose Content Type</h3>
-
-														<p class="sui-description">Let's start by choosing an appropriate content type based on your goal.</p>
-
 														<button class="sui-button-icon sui-button-float--right" data-modal-close="">
 															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 															<span class="sui-screen-reader-text">Close this modal</span>
 														</button>
+
+														<h3 class="sui-box-title sui-lg">Choose Content Type</h3>
+
+														<p class="sui-description">Let's start by choosing an appropriate content type based on your goal.</p>
 
 													</div>
 
@@ -16098,9 +16119,10 @@ p:first-of-type {
 
 													<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-														<h3 class="sui-box-title sui-lg">Create Popup</h3>
-
-														<p class="sui-description" style="margin-bottom: 0;">Let's give your new popup a name. What would you like to name it?</p>
+														<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+															<span class="sui-screen-reader-text">Close this dialog</span>
+														</button>
 
 														<button
 															id="demo-dialog--sample-hustle-create-slide-back"
@@ -16113,10 +16135,9 @@ p:first-of-type {
 															<span class="sui-screen-reader-text">Back to "Choose Content Type"</span>
 														</button>
 
-														<button class="sui-button-icon sui-button-float--right" data-modal-close="">
-															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-															<span class="sui-screen-reader-text">Close this dialog</span>
-														</button>
+														<h3 class="sui-box-title sui-lg">Create Popup</h3>
+
+														<p class="sui-description">Let's give your new popup a name. What would you like to name it?</p>
 
 													</div>
 
@@ -16197,14 +16218,14 @@ p:first-of-type {
 
 												<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 
-													<h3 id="demo-dialog--sample-hustle-import-title" class="sui-box-title sui-lg">Import Pop-up</h3>
-
-													<p id="demo-dialog--sample-hustle-import-desc" class="sui-description" style="margin-bottom: 0;">Choose the popup configuration file and hit import to import your popup.</p>
-
 													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
 														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Close this dialog.</span>
 													</button>
+
+													<h3 id="demo-dialog--sample-hustle-import-title" class="sui-box-title sui-lg">Import Pop-up</h3>
+
+													<p id="demo-dialog--sample-hustle-import-desc" class="sui-description">Choose the popup configuration file and hit import to import your popup.</p>
 
 												</div>
 
@@ -16359,14 +16380,14 @@ p:first-of-type {
 															/>
 														</figure>
 
-														<h3 class="sui-box-title sui-lg">Welcome to Beehive Pro</h3>
-
-														<p class="sui-description" style="margin-bottom: 0;">Andy, welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data. If you only want to enable tracking without reports, you can paste your analytics code via the link below.</p>
-
 														<button class="sui-button-icon sui-button-float--right demo-dialog--sample-beehive-onboard-reset">
 															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 															<span class="sui-screen-reader-text">Close this dialog.</span>
 														</button>
+
+														<h3 class="sui-box-title sui-lg">Welcome to Beehive Pro</h3>
+
+														<p class="sui-description" style="margin-bottom: 0;">Andy, welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data. If you only want to enable tracking without reports, you can paste your analytics code via the link below.</p>
 
 													</div>
 
@@ -16528,14 +16549,14 @@ p:first-of-type {
 															/>
 														</figure>
 
-														<h3 class="sui-box-title sui-lg">Set up your account</h3>
-
-														<p class="sui-description" style="margin-bottom: 0;">We have successfully connected your Google account. The next step is to choose your Analytics Profile to get data feeding.</p>
-
 														<button class="sui-button-icon sui-button-float--right demo-dialog--sample-beehive-onboard-reset">
 															<i class="sui-icon-close sui-md" aria-hidden="true"></i>
 															<span class="sui-screen-reader-text">Close this dialog.</span>
 														</button>
+
+														<h3 class="sui-box-title sui-lg">Set up your account</h3>
+
+														<p class="sui-description">We have successfully connected your Google account. The next step is to choose your Analytics Profile to get data feeding.</p>
 
 													</div>
 
@@ -16672,19 +16693,19 @@ p:first-of-type {
 														/>
 													</figure>
 
-													<h3 id="demo-dialog--sample-beehive-tracking-title" class="sui-box-title sui-lg">Add Tracking Code</h3>
-
-													<p id="demo-dialog--sample-beehive-tracking-subtitle" class="sui-description" style="margin-bottom: 0;">Paste your Google Analytics tracking ID in the field below to enable analytics tracking. You can get your ID <a href="https://analytics.google.com/analytics/" target="_blank" rel="nofollow">here</a>.</p>
+													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
+														<span class="sui-screen-reader-text"></span>
+													</button>
 
 													<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-beehive-onboard">
 														<i class="sui-icon-chevron-left sui-md" aria-hidden="true"></i>
 														<span class="sui-screen-reader-text">Go back to previous screen</span>
 													</button>
 
-													<button class="sui-button-icon sui-button-float--right" data-modal-close="">
-														<i class="sui-icon-close sui-md" aria-hidden="true"></i>
-														<span class="sui-screen-reader-text"></span>
-													</button>
+													<h3 id="demo-dialog--sample-beehive-tracking-title" class="sui-box-title sui-lg">Add Tracking Code</h3>
+
+													<p id="demo-dialog--sample-beehive-tracking-subtitle" class="sui-description" style="margin-bottom: 0;">Paste your Google Analytics tracking ID in the field below to enable analytics tracking. You can get your ID <a href="https://analytics.google.com/analytics/" target="_blank" rel="nofollow">here</a>.</p>
 
 												</div>
 
