@@ -8,10 +8,10 @@
 		window.SUI = {};
 	}
 
-	SUI.sliderBack = function( el ) {
+	SUI.modalBack = function( el ) {
 
 		var slider = $( el ),
-			dialog = slider.closest( '.sui-dialog' ),
+			dialog = slider.closest( '.sui-modal' ),
 			slides = slider.find( '.sui-slider-content > li' )
 			;
 
@@ -21,7 +21,7 @@
 			btnNext    = navigation.find( '.sui-next' )
 			;
 
-		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) ) {
+		if ( ! dialog.hasClass( 'sui-modal-onboard' ) ) {
 			return;
 		}
 
@@ -90,10 +90,10 @@
 		return this;
 	};
 
-	SUI.sliderNext = function( el ) {
+	SUI.modalNext = function( el ) {
 
 		var slider = $( el ),
-			dialog = slider.closest( '.sui-dialog' ),
+			dialog = slider.closest( '.sui-modal' ),
 			slides = slider.find( '.sui-slider-content > li' )
 			;
 
@@ -103,7 +103,7 @@
 			btnNext    = navigation.find( '.sui-next' )
 			;
 
-		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) ) {
+		if ( ! dialog.hasClass( 'sui-modal-onboard' ) ) {
 			return;
 		}
 
@@ -174,10 +174,10 @@
 		return this;
 	};
 
-	SUI.sliderStep = function( el ) {
+	SUI.modalStep = function( el ) {
 
 		var slider = $( el ),
-			dialog = slider.closest( '.sui-dialog' )
+			dialog = slider.closest( '.sui-modal' )
 			;
 
 		var slides = slider.find( '.sui-slider-content' ),
@@ -195,7 +195,7 @@
 			navNext    = navigation.find( '.sui-next' )
 			;
 
-		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) && ! steps.hasClass( 'sui-clickable' ) ) {
+		if ( ! dialog.hasClass( 'sui-modal-onboard' ) && ! steps.hasClass( 'sui-clickable' ) ) {
 			return;
 		}
 
@@ -280,18 +280,18 @@
 		return this;
 	};
 
-	SUI.dialogSlider = function( el ) {
+	SUI.modalSlider = function( el ) {
 
 		var slider   = $( el ),
-			dialog   = slider.closest( '.sui-dialog' ),
+			dialog   = slider.closest( '.sui-modal' ),
 			btnBack  = slider.find( '.sui-slider-navigation .sui-prev' ),
 			btnNext  = slider.find( '.sui-slider-navigation .sui-next' ),
-			tourBack = slider.find( '*[data-a11y-dialog-tour-back]' ),
-			tourNext = slider.find( '*[data-a11y-dialog-tour-next]' ),
+			tourBack = slider.find( '*[data-tour="back"]' ),
+			tourNext = slider.find( '*[data-tour="next"]' ),
 			steps    = slider.find( '.sui-slider-steps' )
 			;
 
-		if ( ! dialog.hasClass( 'sui-dialog-onboard' ) || slider.hasClass( 'sui-slider-off' ) ) {
+		if ( ! dialog.hasClass( 'sui-modal-onboard' ) || slider.hasClass( 'sui-slider-off' ) ) {
 			return;
 		}
 
@@ -301,7 +301,7 @@
 
 				btnBack.on( 'click', function( e ) {
 
-					SUI.sliderBack( slider );
+					SUI.modalBack( slider );
 
 					e.preventDefault();
 
@@ -312,7 +312,7 @@
 
 				tourBack.on( 'click', function( e ) {
 
-					SUI.sliderBack( slider );
+					SUI.modalBack( slider );
 
 					e.preventDefault();
 
@@ -323,7 +323,7 @@
 
 				btnNext.on( 'click', function( e ) {
 
-					SUI.sliderNext( slider );
+					SUI.modalNext( slider );
 
 					e.preventDefault();
 
@@ -334,7 +334,7 @@
 
 				tourNext.on( 'click', function( e ) {
 
-					SUI.sliderNext( slider );
+					SUI.modalNext( slider );
 
 					e.preventDefault();
 
@@ -342,7 +342,7 @@
 			}
 
 			if ( steps.length ) {
-				SUI.sliderStep( slider );
+				SUI.modalStep( slider );
 			}
 		}
 
@@ -352,7 +352,7 @@
 	};
 
 	$( '.sui-2-5-0 .sui-slider' ).each( function() {
-		SUI.dialogSlider( this );
+		SUI.modalSlider( this );
 	});
 
 }( jQuery ) );
