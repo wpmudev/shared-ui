@@ -1,3 +1,10 @@
+v2.5.0
+- [New] Modals: Accessible modal markup and functions.
+- [New] Buttons: Loading buttons with helper text.
+- [Fix] Sticky Box: Shadow is visible when not sticky after changing tab.
+- [Fix] Upsell Items: Remove unnecessary gap between sections.
+
+
 v2.4.1
 - [Fix] Tabs: Undefined object error on console.
 
