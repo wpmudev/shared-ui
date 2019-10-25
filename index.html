@@ -8,6 +8,8 @@
 
 	<title>Shared UI Showcase</title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 	<!-- Do not edit query string versions - updated via release scripts - href should be last attribute for regex -->
 	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/shared-ui.min.css?ver=2.5.0">
 	<link rel="stylesheet" type="text/css" media="all" href="showcase-assets/build/showcase.min.css?ver=2.5.0">
@@ -10741,6 +10743,17 @@ $( '.sui-date .sui-form-control' ).datepicker({
 							<input type="text" id="calendar" class="sui-form-control" placeholder="19 Jan 1989">
 							<i class="sui-icon-calendar" aria-hidden="true"></i>
 						</div>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Label</label>
+
+							<div class="sui-date-range">
+								<i class="sui-icon-calendar" aria-hidden="true"></i>
+								<input placeholder="Pick date range" id="reportrange" class="sui-form-control" />
+							</div>
+
+						</div>
 					</div>
 				</div>
 
@@ -17620,6 +17633,8 @@ $cross-sell-3: 'smartcrawl';
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="showcase-assets/build/Chart.min.js?ver=2.5.0"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js"></script>
