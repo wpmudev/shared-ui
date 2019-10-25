@@ -1,5 +1,9 @@
 v2.5.0
 - [New] Modals: Accessible modal markup and functions.
+			Dev Notes: We still support old markup and functions but it is important
+			for all projects to move into the new modals. For more detailed information
+			go to https://wpmudev.github.io/shared-ui/#modals. If something isn't clear
+			or need some help, ping @Leigh on #sui-plugins channel.
 - [New] Buttons: Loading buttons with helper text.
 - [Fix] Sticky Box: Shadow is visible when not sticky after changing tab.
 - [Fix] Upsell Items: Remove unnecessary gap between sections.
