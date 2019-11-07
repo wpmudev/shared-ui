@@ -1,0 +1,575 @@
+---
+layout: default
+title: Select
+permalink: /select/
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="designs">Designs</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="sizes">Sizes</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Designs -->
+	<div class="sui-box" data-tab="designs">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Designs</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-design-default" class="active" role="tab">Default</div>
+					<div id="tab-design-icons" role="tab">With Icons</div>
+					<div id="tab-design-colors" role="tab">With Colors</div>
+					<div id="tab-design-search" role="tab">With Search</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-design-default">
+
+						<div class="sui-form-field">
+
+							<label for="option-default" id="label-option-default" class="sui-label">Simple list of beverages</label>
+
+							<select id="option-default" aria-labelledby="label-option-default" aria-describedby="description-option-default">
+								<option>Water</option>
+								<option>Coffee</option>
+								<option>Juice</option>
+								<option>Smoothie</option>
+							</select>
+
+							<span id="description-option-default" class="sui-description">This is a description for select field.</span>
+
+						</div>
+
+						<span class="sui-label">Markup</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+						<div class="sui-form-field">
+
+							<label for="optgroup-default" id="label-optgroup-default" class="sui-label">Grouped list of beverages</label>
+
+							<select id="optgroup-default" aria-labelledby="label-optgroup-default" aria-describedby="description-optgroup-default">
+								<optgroup label="Coffee Based">
+									<option>Black Coffee</option>
+									<option>Espresso</option>
+									<option>Moccacino</option>
+									<option>Capuccino</option>
+									<option>Espresso Pana</option>
+								</optgroup>
+								<optgroup label="Fruit Juices">
+									<option>Peach</option>
+									<option>Orange</option>
+									<option>Pineapple</option>
+								</optgroup>
+							</select>
+
+							<span id="description-optgroup-default" class="sui-description">This is a description for select field.</span>
+
+						</div>
+
+						<span class="sui-label">Markup</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
+
+		&lt;optgroup label=&quot;Option Group&quot;&gt;
+			&lt;option&gt;Option name&lt;/option&gt;
+			&lt;option&gt;Option name&lt;/option&gt;
+			&lt;option&gt;Option name&lt;/option&gt;
+		&lt;/optgroup&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: With Icons -->
+					<div role="tabpanel" aria-labelledby="tab-design-icons">
+
+						<div class="sui-form-field">
+
+							<label for="option-icons" id="label-option-icons" class="sui-label">List of WPMU DEV plugins</label>
+
+							<select id="option-icons" aria-labelledby="label-option-icons" aria-describedby="description-option-icons">
+								<option data-icon="defender">Defender</option>
+								<option data-icon="smush">Smush</option>
+								<option data-icon="hummingbird">Hummingbird</option>
+								<option data-icon="uptime">Uptime</option>
+								<option data-icon="smart-crawl">SmartCrawl</option>
+								<option data-icon="forminator">Forminator</option>
+								<option data-icon="shipper-anchor">Shipper</option>
+								<option data-icon="snapshot">Snapshot</option>
+								<option data-icon="hustle">Hustle</option>
+							</select>
+
+							<span id="description-option-icons" class="sui-description">This is a description for select field.</span>
+
+						</div>
+
+						<span class="sui-label">Markup</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
+
+		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
+		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
+		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: With Colors -->
+					<div role="tabpanel" aria-labelledby="tab-design-colors">
+
+						<div class="sui-form-field">
+
+							<label for="option-colors" id="label-option-colors" class="sui-label">List of basic colors</label>
+
+							<select id="option-colors" class="sui-select-colors" aria-labelledby="label-option-colors" aria-describedby="description-option-colors">
+								<option data-color="white">White</option>
+								<option data-color="yellow">Yellow</option>
+								<option data-color="red">Red</option>
+								<option data-color="blue">Blue</option>
+								<option data-color="black">Black</option>
+							</select>
+
+							<span id="description-option-colors" class="sui-description">This is a description for select field.</span>
+
+						</div>
+
+						<span class="sui-label">Markup</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-colors&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
+
+		&lt;option data-color=&quot;#FFFFFF&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color HEX --&gt;
+		&lt;option data-color=&quot;white&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color name --&gt;
+		&lt;option data-color=&quot;rgba(255,255,255,0.5)&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color RGB or RGBA --&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: With Search -->
+					<div role="tabpanel" aria-labelledby="tab-design-search">
+
+						<div class="sui-form-field">
+
+							<label for="option-search" id="label-option-search" class="sui-label">List of fruits</label>
+
+							<select id="option-search" class="sui-select" aria-labelledby="label-option-search" aria-describedby="description-option-search">
+								<option value="apple">Apple</option>
+								<option value="orange">Orange</option>
+								<option value="banana">Banana</option>
+								<option value="grapes">Grapes</option>
+								<option value="coconut">Coconut</option>
+								<option value="pineapple">Pineapple</option>
+								<option value="cherries">Cherries</option>
+								<option value="cucumbers">Cucumbers</option>
+								<option value="blackberry">Blackberry</option>
+								<option value="blueblerry">Blueberry</option>
+								<option value="cranberry">Cranberry</option>
+								<option value="cherimoya">Cherimoya</option>
+								<option value="lime">Lime</option>
+								<option value="lemon">Lemon</option>
+								<option value="kiwi">Kiwi</option>
+								<option value="mango">Mango</option>
+								<option value="papaya">Papaya</option>
+								<option value="peach">Peach</option>
+								<option value="raspberry">Raspberry</option>
+								<option value="star-fruit">Star Fruit</option>
+								<option value="strawberry">Strawberry</option>
+								<option value="tamarind">Tamarind</option>
+							</select>
+
+							<span id="description-option-search" class="sui-description">This is a description for select field.</span>
+
+						</div>
+
+						<div class="sui-notice sui-notice-warning">
+							<p>jQuery based selector powered with a search field commonly used with long list of options. E.g. Countries list.</p>
+						</div>
+
+						<span class="sui-label">Markup</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+						<span class="sui-label">Event Data</span>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+$( '#unique-id' ).on( 'select2:select', function() {
+
+	let select = $( this ),
+		value  = select.SUIselect2( 'val' )
+		;
+
+	console.log( value );
+
+});
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Sizes -->
+	<div class="sui-box" data-tab="sizes" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Sizes</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Width Variation -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Width Variation</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-tabs sui-side-tabs">
+
+						<div role="tablist" data-tabs>
+							<div id="tab-width-default" class="active" role="tab">Default</div>
+							<div id="tab-width-medium" role="tab">240 pixels</div>
+							<div id="tab-width-small" role="tab">80 pixels</div>
+						</div>
+
+						<div class="sui-tabs-content-lg" data-panes>
+
+							<!-- TAB: Default -->
+							<div class="active" role="tabpanel" aria-labelledby="tab-width-default">
+
+								<div class="sui-form-field">
+
+									<label for="width-default" id="label-width-default" class="sui-label">Select label</label>
+
+									<select id="width-default" aria-labelledby="label-width-default">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: 240 pixels -->
+							<div role="tabpanel" aria-labelledby="tab-width-medium">
+
+								<div class="sui-form-field sui-input-md">
+
+									<label for="width-medium" id="label-width-medium" class="sui-label">Select label</label>
+
+									<select id="width-medium" aria-labelledby="label-width-medium">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-input-md&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: 80 pixels -->
+							<div role="tabpanel" aria-labelledby="tab-width-small">
+
+								<div class="sui-form-field sui-input-sm">
+
+									<label for="width-small" id="label-width-small" class="sui-label">Select label</label>
+
+									<select id="width-small" aria-labelledby="label-width-small">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-input-sm&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Height Variation -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Height Variation</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-tabs sui-side-tabs">
+
+						<div role="tablist" data-tabs>
+							<div id="tab-height-default" class="active" role="tab">40 pixels</div>
+							<div id="tab-height-small" role="tab">28 pixels</div>
+						</div>
+
+						<div class="sui-tabs-content-lg" data-panes>
+
+							<!-- TAB: 40 pixels -->
+							<div class="active" role="tabpanel" aria-labelledby="tab-height-default">
+
+								<div class="sui-form-field">
+
+									<label for="height-default" id="label-height-default" class="sui-label">Select label</label>
+
+									<select id="height-default" aria-labelledby="label-height-default">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: 28 pixels -->
+							<div role="tabpanel" aria-labelledby="tab-height-small">
+
+								<div class="sui-form-field">
+
+									<label for="height-small" id="label-height-small" class="sui-label">Select label</label>
+
+									<select id="height-small" class="sui-select-sm" aria-labelledby="label-height-small">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+
+								</div>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-sm&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,171 @@
+---
+layout: default
+title: Insert Variables
+permalink: /insert-variables/
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="select">suiSelect</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="select2">Select2</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Select -->
+	<div class="sui-box" data-tab="select">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Insert Variables with <span style="text-decoration: underline;">SUI.suiSelect()</span></h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Email Subject</label>
+
+				<div class="sui-insert-variables">
+
+					<input type="text" class="sui-form-control" placeholder="New enquiry from {first-name}" />
+
+					<select>
+						<option value="{address}" data-content="{address}">Address</option>
+						<option value="{email-address}" data-content="{email-address}">Email Address</option>
+						<option value="{first-name}" data-content="{first-name}">First Name</option>
+						<option value="{last-name}" data-content="{last-name}">Last Name</option>
+						<option value="{mobile}" data-content="{mobile}">Mobile</option>
+						<option value="{telephone}" data-content="{telephone}">Telephone</option>
+						<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
+					</select>
+
+				</div>
+
+			</div>
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Email Message</label>
+
+				<div class="sui-insert-variables">
+
+					<textarea class="sui-form-control" placeholder="New enquiry from {first-name}"></textarea>
+
+					<select>
+						<option value="{address}" data-content="{address}">Address</option>
+						<option value="{email-address}" data-content="{email-address}">Email Address</option>
+						<option value="{first-name}" data-content="{first-name}">First Name</option>
+						<option value="{last-name}" data-content="{last-name}">Last Name</option>
+						<option value="{mobile}" data-content="{mobile}">Mobile</option>
+						<option value="{telephone}" data-content="{telephone}">Telephone</option>
+						<option value="{work-phone}" data-content="{work-phone}">Work Phone</option>
+					</select>
+
+				</div>
+
+			</div>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-insert-variables&quot;&gt;
+
+		&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot; placeholder=&quot;New inquiry from {first-name}&quot; /&gt;
+
+		&lt;select&gt;
+			&lt;option value=&quot;variable-1&quot; data-content=&quot;{variable-1}&quot;&gt;Variable 1&lt;/option&gt;
+			&lt;option value=&quot;variable-2&quot; data-content=&quot;{variable-2}&quot;&gt;Variable 2&lt;/option&gt;
+			&lt;option value=&quot;variable-3&quot; data-content=&quot;{variable-3}&quot;&gt;Variable 3&lt;/option&gt;
+			&lt;option value=&quot;variable-4&quot; data-content=&quot;{variable-4}&quot;&gt;Variable 4&lt;/option&gt;
+			&lt;option value=&quot;variable-5&quot; data-content=&quot;{variable-5}&quot;&gt;Variable 5&lt;/option&gt;
+		&lt;/select&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Select2 -->
+	<div class="sui-box" data-tab="select2" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Insert Variables with <span style="text-decoration: underline;">Select2()</span></h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Email Subject</label>
+
+				<div class="sui-insert-variables">
+
+					<input type="text" class="sui-form-control" value="New enquiry from {first-name}" />
+
+					<select class="sui-variables">
+						<option value="{address}">Address</option>
+						<option value="{email-address}">Email Address</option>
+						<option value="{first-name}">First Name</option>
+						<option value="{last-name}">Last Name</option>
+						<option value="{mobile}">Mobile</option>
+						<option value="{telephone}">Telephone</option>
+						<option value="{work-phone}">Work Phone</option>
+					</select>
+
+				</div>
+
+			</div>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-insert-variables&quot;&gt;
+
+		&lt;input type=&quot;text&quot; class=&quot;sui-form-control&quot; placeholder=&quot;New inquiry from {first-name}&quot; /&gt;
+
+		&lt;select class=&quot;sui-variables&quot;&gt;
+			&lt;option value=&quot;variable-1&quot;&gt;Variable 1&lt;/option&gt;
+			&lt;option value=&quot;variable-2&quot;&gt;Variable 2&lt;/option&gt;
+			&lt;option value=&quot;variable-3&quot;&gt;Variable 3&lt;/option&gt;
+			&lt;option value=&quot;variable-4&quot;&gt;Variable 4&lt;/option&gt;
+			&lt;option value=&quot;variable-5&quot;&gt;Variable 5&lt;/option&gt;
+		&lt;/select&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

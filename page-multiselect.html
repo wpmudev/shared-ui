@@ -1,0 +1,129 @@
+---
+layout: default
+title: Multi Select
+permalink: /multiselect/
+is_searchable: true
+---
+
+<section class="sui-box">
+
+	<div class="sui-box-body">
+
+		<div class="sui-notice sui-notice-info">
+			<p>Powered by <strong>Select2</strong>. This element is commonly used to allow user to select more than one option from a list, and to even include new options.</p>
+		</div>
+
+		<div class="sui-tabs sui-side-tabs">
+
+			<div role="tablist" data-tabs>
+				<div id="tab-size-default" class="active" role="tab">Default</div>
+				<div id="tab-size-large" role="tab">Large</div>
+			</div>
+
+			<div class="sui-tabs-content-lg" data-panes>
+
+				<!-- TAB: Default -->
+				<div class="active" role="tabpanel" aria-labelledby="tab-size-default">
+
+					<div class="sui-form-field">
+
+						<label for="option-default" id="label-option-default" class="sui-label">List of fruits</label>
+
+						<select id="option-default" class="sui-select" aria-labelledby="label-option-default" aria-describedby="description-option-default" multiple>
+							<option>Apple</option>
+							<option>Orange</option>
+							<option>Cherry</option>
+							<option>Grapes</option>
+							<option>Peach</option>
+							<option>Papaya</option>
+							<option>Pineapple</option>
+							<option>Blueberry</option>
+							<option>Blackberry</option>
+						</select>
+
+						<span id="description-option-default" class="sui-description">Pick as many options as you want to.</span>
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot; multiselect&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+				<!-- TAB: Large -->
+				<div role="tabpanel" aria-labelledby="tab-size-large">
+
+					<div class="sui-form-field">
+
+						<label for="option-default" id="label-option-default" class="sui-label">List of fruits</label>
+
+						<select id="option-default" class="sui-select sui-select-lg" aria-labelledby="label-option-default" aria-describedby="description-option-default" multiple>
+							<option>Apple</option>
+							<option>Orange</option>
+							<option>Cherry</option>
+							<option>Grapes</option>
+							<option>Peach</option>
+							<option>Papaya</option>
+							<option>Pineapple</option>
+							<option>Blueberry</option>
+							<option>Blackberry</option>
+						</select>
+
+						<span id="description-option-default" class="sui-description">Pick as many options as you want to.</span>
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select sui-select-lg&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot; multiselect&gt;
+
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+		&lt;option&gt;Option name&lt;/option&gt;
+
+	&lt;/select&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+					<div class="sui-notice sui-notice-warning">
+						<p>To make select area larger, it's necessary to add <code>sui-select-lg</code> as an extra class for <strong>select</strong> element.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

@@ -1,0 +1,43 @@
+---
+layout: default
+title: Calendar
+permalink: /calendar/
+id: calendar
+is_searchable: true
+---
+
+<article class="sui-box">
+
+	<div class="sui-box-body">
+
+		<p>The <strong>Shared UI</strong> library supports styling of the <a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a> but doesn't include the library so you will need to include that in your plugin yourself. To use the styles you will need to add the class <code>sui-calendar</code> to your datepicker element.</p>
+
+		<p>See code snippet below the sample to see how it was done in this showcase.</p>
+
+		<div class="sui-form-field">
+
+			<label for="calendar" class="sui-label">Select a day</label>
+
+			<div class="sui-date">
+				<input type="text" id="calendar" class="sui-form-control" placeholder="19 Jan 1989" />
+				<i class="sui-icon-calendar" aria-hidden="true"></i>
+			</div>
+
+		</div>
+
+		<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '.sui-date input' ).datepicker({
+	beforeShow: function( input, inst ) {
+		$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
+	},
+	'dateFormat': 'd MM yy'
+});
+</pre>
+
+		</div>
+
+	</div>
+
+</article>

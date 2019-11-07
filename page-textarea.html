@@ -1,0 +1,117 @@
+---
+layout: default
+title: Textarea
+permalink: /textarea/
+is_searchable: true
+---
+
+<section class="sui-box">
+
+	<div class="sui-box-body">
+
+		<div class="sui-tabs sui-side-tabs">
+
+			<div role="tablist" data-tabs>
+				<div id="tab-state-default" class="active" role="tab">Default State</div>
+				<div id="tab-state-error" role="tab">Error State</div>
+			</div>
+
+			<div class="sui-tabs-content-lg" data-panes>
+
+				<!-- TAB: Default State -->
+				<div class="active" role="tabpanel" aria-labelledby="tab-state-default">
+
+					<div class="sui-form-field">
+
+						<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+
+						<textarea placeholder="" id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-message textarea-default-description"></textarea>
+
+						<span id="textarea-default-message" class="sui-error-message" style="display: none;"></span>
+
+						<span id="textarea-default-description" class="sui-description">This is textarea field description.</span>
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;!--
+	NOTE:
+	Notice error message element it is empty. This because content should be printed
+	when error happens and not before to avoid screenreaders confusing users.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+				<!-- TAB: Error State -->
+				<div role="tabpanel" aria-labelledby="tab-state-error">
+
+					<div class="sui-form-field sui-form-field-error">
+
+						<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
+
+						<textarea id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
+
+						<span id="textarea-error-message" class="sui-error-message">This is an error message.</span>
+
+						<span id="textarea-error-description" class="sui-description">This is textarea field description.</span>
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;textarea
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;!--
+	NOTE:
+	When field gets error state you should print error message on element below
+	and also make sure to focus input with JS in case inline error message is in use.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot;&gt;Enter error message here.&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

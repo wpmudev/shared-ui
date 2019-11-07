@@ -1,0 +1,630 @@
+---
+layout: default
+title: Tabs
+permalink: /tabs/
+is_searchable: true
+---
+
+<section>
+
+	<div class="sui-notice sui-notice-warning">
+		<p>1. If you are using individual js components, <code>tabs.js</code> is required.</p>
+	</div>
+
+	<div class="sui-row-with-sidenav">
+
+		<!-- Navigation -->
+		<div class="sui-sidenav">
+
+			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+				<li class="sui-vertical-tab current">
+					<a href="#" data-tab="demo-tabs">Tabs</a>
+				</li>
+				<li class="sui-vertical-tab">
+					<a href="#" data-tab="demo-side-tabs">Side Tabs</a>
+				</li>
+				<li class="sui-vertical-tab">
+					<a href="#" data-tab="demo-tabs-doc">Documentation</a>
+				</li>
+			</ul>
+
+		</div>
+
+		<!-- SECTION: Tabs -->
+		<div class="sui-box" data-tab="demo-tabs">
+
+			<div class="sui-box-header">
+				<h3 class="sui-box-title">Tabs</h3>
+			</div>
+
+			<div class="sui-box-body">
+
+				<p>Tabs can be used to add multiple content boxes into a smaller screen space.</p>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Default</span>
+						<span class="sui-description">The standard state for any tabs where they are already in a padded container.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="sample-tab-1" class="sui-tab-item active" aria-controls="sample-tab-content-1" aria-selected="true">Tab 1</button>
+								<button type="button" role="tab" id="sample-tab-2" class="sui-tab-item" aria-controls="sample-tab-content-2" aria-selected="false" tabindex="-1">Tab 2</button>
+								<button type="button" role="tab" id="sample-tab-3" class="sui-tab-item" aria-controls="sample-tab-content-3" aria-selected="false" tabindex="-1">Tab 3</button>
+								<button type="button" role="tab" id="sample-tab-4" class="sui-tab-item" aria-controls="sample-tab-content-4" aria-selected="false" tabindex="-1">Tab 4</button>
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-1" class="sui-tab-content active" aria-labelledby="sample-tab-1"><p>Content. Tab 1.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-2" class="sui-tab-content" aria-labelledby="sample-tab-2" hidden><p>Content. Tab 2.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-3" class="sui-tab-content" aria-labelledby="sample-tab-3" hidden><p>Content. Tab 3.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-4" class="sui-tab-content" aria-labelledby="sample-tab-4" hidden><p>Content. Tab 4.</p></div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Flush</span>
+						<span class="sui-description">For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<table class="sui-table sui-accordion">
+
+							<tr class="sui-accordion-item">
+								<td class="sui-table-item-title">Item #1 <span class="sui-accordion-open-indicator"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+							</tr>
+
+							<tr class="sui-accordion-item-content">
+								<td><div class="sui-box">
+									<div class="sui-box-body">
+
+										<div class="sui-tabs sui-tabs-flushed">
+
+											<div role="tablist" class="sui-tabs-menu">
+												<button type="button" role="tab" id="sample-tab-21" class="sui-tab-item active" aria-controls="sample-tab-content-21" aria-selected="true">Tab 1</button>
+												<button type="button" role="tab" id="sample-tab-22" class="sui-tab-item" aria-controls="sample-tab-content-22" aria-selected="false" tabindex="-1">Tab 2</button>
+												<button type="button" role="tab" id="sample-tab-23" class="sui-tab-item" aria-controls="sample-tab-content-23" aria-selected="false" tabindex="-1">Tab 3</button>
+												<button type="button" role="tab" id="sample-tab-24" class="sui-tab-item" aria-controls="sample-tab-content-24" aria-selected="false" tabindex="-1">Tab 4</button>
+											</div>
+
+											<div class="sui-tabs-content">
+
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-21" class="sui-tab-content active" aria-labelledby="sample-tab-21"><p>Content. Tab 1.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-22" class="sui-tab-content" aria-labelledby="sample-tab-22" hidden><p>Content. Tab 2.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-23" class="sui-tab-content" aria-labelledby="sample-tab-23" hidden><p>Content. Tab 3.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-24" class="sui-tab-content" aria-labelledby="sample-tab-24" hidden><p>Content. Tab 4.</p></div>
+
+											</div>
+
+										</div>
+
+									</div>
+								</div></td>
+							</tr>
+
+							<tr class="sui-accordion-item">
+								<td class="sui-table-item-title">Item #2 <span class="sui-accordion-open-indicator"><i class="sui-icon-chevron-down" aria-hidden="true"></i></span></td>
+							</tr>
+
+							<tr class="sui-accordion-item-content">
+								<td><div class="sui-box">
+									<div class="sui-box-body">
+
+										<div class="sui-tabs sui-tabs-flushed">
+
+											<div role="tablist" class="sui-tabs-menu">
+												<button type="button" role="tab" id="sample-tab-31" class="sui-tab-item active" aria-controls="sample-tab-content-31" aria-selected="true">Tab 1</button>
+												<button type="button" role="tab" id="sample-tab-32" class="sui-tab-item" aria-controls="sample-tab-content-32" aria-selected="false" tabindex="-1">Tab 2</button>
+												<button type="button" role="tab" id="sample-tab-33" class="sui-tab-item" aria-controls="sample-tab-content-33" aria-selected="false" tabindex="-1">Tab 3</button>
+												<button type="button" role="tab" id="sample-tab-34" class="sui-tab-item" aria-controls="sample-tab-content-34" aria-selected="false" tabindex="-1">Tab 4</button>
+											</div>
+
+											<div class="sui-tabs-content">
+
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-31" class="sui-tab-content active" aria-labelledby="sample-tab-31"><p>Content. Tab 1.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-32" class="sui-tab-content" aria-labelledby="sample-tab-32" hidden><p>Content. Tab 2.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-33" class="sui-tab-content" aria-labelledby="sample-tab-33" hidden><p>Content. Tab 3.</p></div>
+												<div role="tabpanel" tabindex="0" id="sample-tab-content-34" class="sui-tab-content" aria-labelledby="sample-tab-34" hidden><p>Content. Tab 4.</p></div>
+
+											</div>
+
+										</div>
+
+									</div>
+								</div></td>
+							</tr>
+
+						</table>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Overflow</span>
+						<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs sui-tabs-overflow">
+
+							<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
+
+								<button type="button" class="sui-button-icon sui-tabs-navigation--left">
+									<i class="sui-icon-chevron-left"></i>
+								</button>
+
+								<button type="button" class="sui-button-icon sui-tabs-navigation--right">
+									<i class="sui-icon-chevron-right"></i>
+								</button>
+
+							</div>
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="sample-tab-41" class="sui-tab-item active" aria-controls="sample-tab-content-41" aria-selected="true">Admin Area</button>
+								<button type="button" role="tab" id="sample-tab-42" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Emails</button>
+								<button type="button" role="tab" id="sample-tab-43" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Front-End</button>
+								<button type="button" role="tab" id="sample-tab-44" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Settings</button>
+								<button type="button" role="tab" id="sample-tab-45" class="sui-tab-item" aria-controls="sample-tab-content-41" aria-selected="false" tabindex="-1">Utilites</button>
+								<button type="button" role="tab" id="sample-tab-46" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Widgets</button>
+								<button type="button" role="tab" id="sample-tab-47" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Users</button>
+								<button type="button" role="tab" id="sample-tab-48" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Extras</button>
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-41" class="sui-tab-content active" aria-labelledby="sample-tab-41"><p>Content. Tab 1.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-42" class="sui-tab-content" aria-labelledby="sample-tab-42" hidden><p>Content. Tab 2.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-43" class="sui-tab-content" aria-labelledby="sample-tab-43" hidden><p>Content. Tab 3.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-44" class="sui-tab-content" aria-labelledby="sample-tab-44" hidden><p>Content. Tab 4.</p></div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: Side Tabs -->
+		<div class="sui-box" data-tab="demo-side-tabs" style="display: none;">
+
+			<div class="sui-box-header">
+				<h3 class="sui-box-title">Side Tabs</h3>
+			</div>
+
+			<div class="sui-box-body">
+
+				<div class="sui-notice sui-notice-warning">
+					<p>If you are using or want to use side tabs for radio input options after DOM has loaded, you can initialise them by calling <code>SUI.sideTabs( this );</code> for each <code>.sui-side-tabs label.sui-tab-item input</code> element.</p>
+				</div>
+
+				<p>Side tabs are used more like a selector. They can used for yes/no, or more usually for choosing which option out of 2+ to choose from and then showing content for that choice.</p>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Default</span>
+						<span class="sui-description">Default tabs state, with no content - just a plain selector.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+							<div class="sui-side-tabs">
+
+									<div class="sui-tabs-menu">
+
+										<label id="hustle-feature-image-left-label" for="hustle-feature-image-left" class="sui-tab-item active">
+											<input type="radio" name="feature_image_position" value="left" data-attribute="feature_image_position" id="hustle-feature-image-left" checked="checked">
+											Yes					</label>
+
+
+										<label id="hustle-feature-image-right-label" for="hustle-feature-image-right" class="sui-tab-item">
+											<input type="radio" name="feature_image_position" value="right" data-attribute="feature_image_position" id="hustle-feature-image-right">
+											No					</label>
+
+									</div>
+
+								</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">With Content</span>
+						<span class="sui-description">This example shows how the selection made can show a block based on their selection.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<label class="sui-label">Each tab has its own content</label>
+
+						<div class="sui-side-tabs" style="margin-top: 10px;">
+
+							<div class="sui-tabs-menu">
+
+								<label for="hustle-feature-image-cover-1" class="sui-tab-item active">
+									<input type="radio" name="feature_image_fit-1" value="cover" id="hustle-feature-image-cover-1" data-tab-menu="get-tab-cover" checked="checked">Cover
+								</label>
+
+								<label for="hustle-feature-image-fill-1" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit-1" value="fill" id="hustle-feature-image-fill-1" data-tab-menu="get-tab-fill">Fill
+								</label>
+
+								<label for="hustle-feature-image-contain-1" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit-1" value="contain" id="hustle-feature-image-contain-1" data-tab-menu="get-tab-contain">Contain
+								</label>
+
+								<label for="hustle-feature-image-none-1" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit-1" value="none" id="hustle-feature-image-none-1" data-tab-menu="get-tab-none">None
+								</label>
+
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-tab-cover">
+									<p>Content for "Cover" tab.</p>
+								</div>
+
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-fill">
+										<p>Content for "Fill" tab.</p>
+								</div>
+
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-contain">
+										<p>Content for "Contain" tab.</p>
+								</div>
+
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-none">
+										<p>Content for "None" tab.</p>
+								</div>
+
+							</div>
+
+						</div>
+
+						<label class="sui-label">Tabs can share same content</label>
+
+						<div class="sui-side-tabs" style="margin-top: 10px;">
+
+							<div class="sui-tabs-menu">
+
+								<label for="hustle-feature-image-cover" class="sui-tab-item active">
+									<input type="radio" name="feature_image_fit" value="cover" id="hustle-feature-image-cover" data-tab-menu="hustle-focus-image" checked="checked">Cover
+								</label>
+
+								<label for="hustle-feature-image-fill" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit" value="fill" id="hustle-feature-image-fill">Fill
+								</label>
+
+								<label for="hustle-feature-image-contain" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit" value="contain" id="hustle-feature-image-contain" data-tab-menu="hustle-focus-image">Contain
+								</label>
+
+								<label for="hustle-feature-image-none" class="sui-tab-item">
+									<input type="radio" name="feature_image_fit" value="none" id="hustle-feature-image-none">None
+								</label>
+
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="hustle-focus-image">
+									<p>Content for tabs "Cover" and "Contain".</p>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: Documentation -->
+		<div class="sui-box" data-tab="demo-tabs-doc" style="display: none;">
+
+			<div class="sui-box-header">
+				<h3 class="sui-box-title">Documentation</h3>
+			</div>
+
+			<div class="sui-box-body">
+
+				<div class="sui-notice sui-notice-info">
+					<p>If you add some tabs after the DOM has loaded you can initialise them by calling <code>SUI.tabs();</code></p>
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Default</span>
+						<span class="sui-description">This is the markup required for standard tabs.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-notice sui-notice-warning">
+							<p><strong>Tabs markup changed to follow WAI-ARIA best practices</strong>. We still support old legacy code but we strongly recommend to update your project <strong>as soon as possible</strong> to prevent any problems in the future.</p>
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs&quot;&gt;
+
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;!--
+		NOTE(S):
+
+		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
+		problems when submitting the form.
+
+		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
+
+		3. Unique IDs are a must for button tab and its content.
+		--&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;tab-unique-id&quot;
+			class=&quot;sui-tab-item active&quot;
+			aria-controls=&quot;tab-content-unique-id&quot;
+			aria-selected=&quot;true&quot;
+		&gt;
+			Active Tab
+		&lt;/button&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;tab-unique-id&quot;
+			class=&quot;sui-tab-item&quot;
+			aria-controls=&quot;tab-content-unique-id&quot;
+			aria-selected=&quot;false&quot;
+			tabindex=&quot;-1&quot;
+		&gt;
+			Inactive Tab
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			tabindex=&quot;0&quot;
+			id=&quot;tab-content-unique-id&quot;
+			class=&quot;sui-tab-content active&quot;
+			aria-labelledby=&quot;tab-unique-id&quot;
+		&gt;
+			&lt;p&gt;Content. Active Tab.&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			tabindex=&quot;0&quot;
+			id=&quot;tab-content-unique-id&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;tab-unique-id&quot;
+			hidden
+		&gt;
+			&lt;p&gt;Content. Inactive Tab.&lt;/p&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Flushed</span>
+						<span class="sui-description">For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class="sui-tabs sui-tabs-flushed"&gt;
+
+	...
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+
+						<span class="sui-settings-label">Overflow Tabs</span>
+
+						<span class="sui-description">When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation.</span>
+
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs sui-tabs-overflow&quot;&gt;
+
+	&lt;div
+		tabindex=&quot;-1&quot;
+		class=&quot;sui-tabs-navigation&quot;
+		aria-hidden=&quot;true&quot;
+	&gt;
+		&lt;button
+			type=&quot;button&quot;
+			class=&quot;sui-button-icon sui-tabs-navigation--left&quot;
+		&gt;
+			&lt;i class=&quot;sui-icon-chevron-left&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button
+			type=&quot;button&quot;
+			class=&quot;sui-button-icon sui-tabs-navigation--right&quot;
+		&gt;
+			&lt;i class=&quot;sui-icon-chevron-right&quot;&gt;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+		...
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+		...
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+						<p>You will need to include the navigation html directly before the [data-tabs]</p>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Side Tabs</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-side-tabs sui-tabs&quot;&gt;
+
+	&lt;div data-tabs&gt;
+		&lt;div class="active"&gt;Tab 1&lt;/div&gt;
+		&lt;div&gt;Tab 2&lt;/div&gt;
+		&lt;div&gt;Tab 3&lt;/div&gt;
+		&lt;div&gt;Tab 4&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div data-panes&gt;
+		&lt;div class="sui-tab-boxed active"&gt;&lt;p&gt;Content. Tab 1.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
+		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Advanced Usage</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+SUI.suiTabs({
+	tabGroup: '[data-tabs]',
+	paneGroup: '[data-panes]',
+	tabActive: 'active',
+	paneActive: 'active',
+	callback: function(tab, pane) {
+		console.log(tab);
+		console.log(pane);
+	}
+});
+</pre>
+
+						</div>
+
+						<p><code>tabGroup</code> and <code>paneGroup</code></p>
+						<ul>
+							<li><code>tabGroup</code> is the selector of the direct parent of the tabs.</li>
+							<li><code>paneGroup</code> is the selector of the direct parent of the panes.</li>
+						</ul>
+						<p><code>tabActive</code> and <code>paneActive</code></p>
+						<ul>
+							<li><code>tabActive</code> is the classname that will be set when the tab is active.</li>
+							<li><code>paneActive</code> is the classname that will be set when the pane is active.</li>
+						</ul>
+						<p><code>callback</code></p>
+						<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>pane</code>.</p>
+						<p>To get all tabs within the group you can do this inside the anonymous function:</p>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+console.log(tab.parentNode.children);
+console.log(pane.parentNode.children);
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
