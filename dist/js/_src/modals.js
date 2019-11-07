@@ -9,18 +9,19 @@
 	}
 
 	document.addEventListener( 'DOMContentLoaded', function() {
+
 		var mainEl = $( '.sui-wrap' );
+
 		if ( undefined === SUI.dialogs ) {
 			SUI.dialogs = {};
 		}
 
-		// Init the dialog elements.
-		$( '.sui-2-3-30 .sui-dialog' ).each( function() {
+		$( '.sui-2-5-0 .sui-dialog' ).each( function() {
+
 			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
 				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
 			}
 		});
-
 	});
 
 }( jQuery ) );

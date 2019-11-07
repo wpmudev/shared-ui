@@ -156,38 +156,29 @@
 		&.sui-upsell-items {
 
 			.sui-box-settings-row {
-				margin-top: 0;
+				margin: 0;
 				padding-top: #{$sui-gutter-md + 1px};
 				padding-right: $sui-gutter-md;
 				padding-left: $sui-gutter-md;
 				border-bottom: none;
 
-				&:before {
+				&:after {
 					content: '';
 					height: 1px;
 					clear: both;
 					display: block;
 					position: absolute;
-					top: 0;
-					right: 30px;
-					left: 30px;
+					right: 0;
+					bottom: 0;
+					left: 0;
 					background-color: palette(silver, soft);
-				}
-
-				&:first-child,
-				&:first-of-type {
-					margin-top: 0;
-
-					&:before {
-						content: unset;
-					}
 				}
 
 				&:last-child,
 				&:last-of-type {
 					padding-bottom: 30px;
 
-					&:before {
+					&:after {
 						content: unset;
 					}
 

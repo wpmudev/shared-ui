@@ -193,9 +193,10 @@
         });
 	};
 
-	SUI.tabs = function() {
+	SUI.tabs = function( config ) {
 
 		var tablist = $( '.sui-tabs > div[role="tablist"]' );
+		var data    = config;
 
 		// For easy reference.
 		var keys = {
@@ -311,10 +312,33 @@
 			}
 		}
 
+		// Callback function.
+		function setCallback( currentTab ) {
+
+			var tab      = $( currentTab ),
+				controls = tab.attr( 'aria-controls' ),
+				panel    = $( '#' + controls )
+				;
+
+			if ( 'function' === typeof data.callback ) {
+				data.callback( tab, panel );
+			}
+		}
+
 		// When a tab is clicked, activateTab is fired to activate it.
 		function clickEventListener( event ) {
+
 			var tab = event.target;
+
 			activateTab( tab );
+
+			if ( undefined !== data && 'undefined' !== data ) {
+				setCallback( tab );
+			}
+
+			event.preventDefault();
+			event.stopPropagation();
+
 		}
 
 		function keydownEventListener( event, index, tablist ) {
@@ -376,12 +400,11 @@
 			// when having child tabs.
 			tabgroup.each( function() {
 
-				var tabs, panels, index;
+				var tabs, index;
 
 				tabgroup = $( this );
 				tablist  = tabgroup.find( '> [role="tablist"]' );
 				tabs     = tablist.find( '> [role="tab"]' );
-				panels   = tabgroup.find( '> .sui-tabs-content > [role="tabpanel"]' );
 
 				// Trigger events on click.
 				tabs.on( 'click', function( e ) {
@@ -396,7 +419,6 @@
 				}).keyup( function( e ) {
 					index = $( this ).index();
 					keyupEventListener( e, index, tablist );
-
 				});
 			});
 		}
@@ -407,7 +429,7 @@
 
 	};
 
-    if ( 0 !== $( '.sui-2-3-30 .sui-tabs' ).length ) {
+    if ( 0 !== $( '.sui-2-5-0 .sui-tabs' ).length ) {
 
 		// Support tabs new markup.
 		SUI.tabs();
@@ -415,7 +437,7 @@
 		// Support legacy tabs.
 		SUI.suiTabs();
 
-		$( '.sui-2-3-30 .sui-tabs-navigation' ).each( function() {
+		$( '.sui-2-5-0 .sui-tabs-navigation' ).each( function() {
 			SUI.tabsOverflow( $( this ) );
 		});
     }

@@ -1,7 +1,6 @@
 @include body-class(true) {
 
 	.sui-tag {
-		min-width: 40px;
 		height: 26px;
 		cursor: default;
 		display: inline-block;
@@ -65,7 +64,6 @@
 
 		&.sui-tag-pro,
 		&.sui-tag-beta {
-			min-width: auto;
 			height: 12px;
 			padding: 2px 8px 1px;
 			border: 0;
@@ -86,6 +84,15 @@
 		&.sui-tag-beta {
 			background-color: $tag--beta-background;
 			color: $tag--beta-color;
+		}
+
+		// SIZE: Small
+		&.sui-tag-sm {
+			height: 18px;
+			padding: 2px 10px 3px;
+			font-size: 10px;
+			line-height: 12px;
+			font-weight: bold;
 		}
 
 		// GHOST TAGS

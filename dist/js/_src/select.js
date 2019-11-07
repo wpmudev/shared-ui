@@ -35,7 +35,7 @@
 
 			handle = $( '<span class="dropdown-handle" aria-hidden="true"><i class="sui-icon-chevron-down"></i></span>' ).prependTo( wrap );
 			list = $( '<div class="select-list-container"></div>' ).appendTo( wrap );
-			value = $( '<button class="list-value" aria-haspopup="listbox">&nbsp;</button>' ).appendTo( list );
+			value = $( '<button type="button" class="list-value" aria-haspopup="listbox">&nbsp;</button>' ).appendTo( list );
 			items = $( '<ul tabindex="-1" role="listbox" class="list-results"></ul>' ).appendTo( list );
 
 			wrap.addClass( jq.attr( 'class' ) );
@@ -250,7 +250,7 @@
 	};
 
 	// Convert all select lists to fancy sui Select lists.
-	$( '.sui-2-3-30 select:not([multiple])' ).each( function() {
+	$( '.sui-2-5-0 select:not([multiple])' ).each( function() {
 		SUI.suiSelect( this );
 	});
 
