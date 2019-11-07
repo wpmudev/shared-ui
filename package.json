@@ -1,66 +1,92 @@
 {
-  "name": "@wpmudev/shared-ui",
-  "version": "2.5.0",
-  "description": "For internal use in WPMU DEV plugins",
-  "author": "WPMU DEV",
-  "license": "GPL-2.0",
-  "homepage": "https://wpmudev.github.io/shared-ui/",
-  "browserslist": [
-    "> 1%",
-    "Last 2 versions",
-    "not ie <= 8"
-  ],
-  "eslintConfig": {
-    "extends": "wordpress"
-  },
-  "eslintIgnore": [
-    "a11y-dialog.js",
-    "modal-dialog.js",
-    "clipboard.js",
-    "gulpfile.js",
-    "select2.full.js",
-    "ace.js",
-    "mode-css.js",
-    "sticky-box.js",
-    "mode-html.js",
-    "worker-css.js"
-  ],
-  "files": [
-    "dist/",
-    "js/",
-    "scss/"
-  ],
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "chalk": "^2.4.1",
-    "eslint-config-wordpress": "^2.0.0",
-    "fs": "0.0.1-security",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-eslint": "^5.0.0",
-    "gulp-header": "^2.0.5",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
-    "gulp-watch": "^5.0.1",
-    "pump": "^3.0.0",
-    "natives": "^1.1.6"
-  },
-  "style": "dist/css/shared-ui.css",
-  "sass": "scss/shared-ui.scss",
-  "main": "dist/js/shared-ui",
-  "scripts": {
-    "dev": "gulp dev",
-    "release:patch": "npm version patch --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "release:minor": "npm version minor --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "release:major": "npm version major --no-git-tag-version && gulp update-versions:build && git add -A && git commit -m \":package:\" && npm publish",
-    "changelog": " ./changelog.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/wpmudev/shared-ui.git"
-  }
+	"name": "@wpmudev/shared-ui",
+	"version": "2.5.0",
+	"description": "For internal use in WPMU DEV plugins",
+	"private": true,
+	"author": "WPMU DEV",
+	"contributors": [
+		{
+			"name": "Leighton Sapir",
+			"email": "leigh@incsub.com",
+			"url": "https://iamleigh.com/"
+		}
+	],
+	"homepage": "https://wpmudev.github.io/shared-ui/",
+	"license": "GPL-2.0",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/wpmudev/shared-ui.git"
+	},
+	"devDependencies": {
+		"@babel/core": "7.4.3",
+		"@babel/preset-env": "7.4.3",
+		"babel-loader": "8.0.5",
+		"chalk": "^2.4.1",
+		"chart.js": "^2.9.1",
+		"eslint-config-wordpress": "2.0.0",
+		"fs": "0.0.1-security",
+		"gh-pages": "^2.1.1",
+		"gulp": "3.9.1",
+		"gulp-autoprefixer": "6.0.0",
+		"gulp-babel": "8.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-clean-css": "3.10.0",
+		"gulp-concat": "2.6.1",
+		"gulp-eslint": "5.0.0",
+		"gulp-header": "^2.0.9",
+		"gulp-notify": "^3.2.0",
+		"gulp-rename": "1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "4.0.2",
+		"gulp-uglify": "3.0.1",
+		"gulp-uglify-es": "1.0.4",
+		"gulp-watch": "^5.0.1",
+		"jquery": "^3.4.1",
+		"lodash.template": "^4.5.0",
+		"lunr": "0.7.2",
+		"pump": "^3.0.0"
+	},
+	"eslintConfig": {
+		"extends": "wordpress",
+		"parserOptions": {
+			"sourceType": "module",
+			"ecmaVersion": 2018
+		},
+		"env": {
+			"es6": true
+		}
+	},
+	"eslintIgnore": [
+		"ace.js",
+		"mode-css.js",
+		"mode-html.js",
+		"clipboard.js",
+		"*.min.js",
+		"*.full.js",
+		"assets/js/shared-ui/"
+	],
+	"files": [
+		"dist/",
+		"js/",
+		"scss/"
+	],
+	"style": "dist/css/shared-ui.css",
+	"sass": "scss/shared-ui.scss",
+	"main": "dist/js/shared-ui",
+	"scripts": {
+		"clean:modules": "rm -rf ./node_modules/ && rm -rf ./package-lock.json",
+		"clean:ghpages": "rm -rf node_modules/gh-pages/.cache",
+		"build:sui": "gulp sui:styles && gulp sui:scripts",
+		"build:dev": "gulp dev:styles && gulp dev:jsCopies && gulp dev:scripts",
+		"build:files": "gulp update-version && npm run build:sui && npm run build:dev && gulp copy-files",
+		"watch:assets": "npm run build:sui && npm run build:dev && gulp watch",
+		"watch:showcase": "bundler exec jekyll serve --watch",
+		"publish:npm": "cd _dist/library/ && npm install",
+		"publish:sui": "npm run clean:ghpages && gulp publish:sui",
+		"publish:dev": "npm run clean:ghpages && gulp publish:dev",
+		"release:same": "npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm",
+		"release:patch": "npm version patch --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm",
+		"release:minor": "npm version minor --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm",
+		"release:major": "npm version major --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm"
+	}
 }
