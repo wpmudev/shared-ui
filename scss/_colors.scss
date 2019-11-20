@@ -1,0 +1,543 @@
+// Colors
+$palettes: (
+	mono: (
+		default: #000000,
+		black:   #000000,
+		white:   #FFFFFF,
+	),
+	gray: (
+		default: #666666,
+		lighter: #DDDDDD,
+		light:   #888888,
+		dark:    #333333,
+	),
+	silver: (
+		default: #F2F2F2,
+		light:   #F8F8F8,
+		soft:    #E6E6E6,
+		medium:  #AAAAAA,
+	),
+	blue: (
+		default: #17A8E3,
+		light:   #E1F6FF,
+	),
+	red: (
+		default: #FF6D6D,
+		light:   #FFE5E9,
+	),
+	yellow: (
+		default: #FECF2F,
+		light:   #FFF5D5,
+	),
+	green: (
+		default: #1ABC9C,
+		light:   #D1F1EA,
+	),
+	orange: (
+		default: #FF7E41,
+		light:   #FFE5D9,
+	),
+	purple: (
+		default: #8D00B1,
+		light:   #F9E1FF,
+	)
+) !default;
+
+$success:                               palette(green)                !default;
+$warning:                               palette(yellow)               !default;
+$error:                                 palette(red)                  !default;
+$info:                                  palette(blue)                 !default;
+
+// Primary Colors
+$white:                                 palette(mono, white)          !default;
+$black:                                 palette(mono, black)          !default;
+$gray:                                  palette(gray)                 !default;
+$gray-alt:                              palette(gray, dark)           !default;
+$blue:                                  palette(blue)                 !default;
+$red:                                   palette(red)                  !default;
+$green:                                 palette(green)                !default;
+$silver:                                palette(silver)               !default;
+
+// Boxes Colors (_boxes.scss)
+$box-bg-color:                          palette(mono, white)          !default;
+$box-box-shadow-color:                  palette(silver, soft)          !default;
+$box-header-border-color:               palette(silver, soft)          !default;
+$box-footer-border-color:               palette(silver, soft)          !default;
+$box-settings-box-border-color:         palette(silver, soft)         !default;
+$box-settings-label-color:              palette(gray, dark)           !default;
+$box-upsell-p-color:                    palette(gray, dark)           !default;
+$box-upsell-border-color:               palette(purple)                !default;
+
+// ============================================================
+// Buttons Colors (_buttons.scss)
+
+$button-colors: blue green red orange yellow purple;
+
+$button-border: (
+	default: palette(gray, lighter),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
+
+$button-background: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-text-color: (
+	default: palette(mono, white),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+$button-disabled--background: palette(silver, soft);
+$button-disabled--color:      palette(silver, medium);
+
+// Upsell Button
+$button-upsell--border-static: palette(green, light)   !default;
+$button-upsell--border-active: palette(green, default) !default;
+$button-upsell--color-static:  palette(green, default) !default;
+$button-upsell--color-active:  palette(mono, white)    !default;
+
+// Dashed Button
+$button-dashed--border:        palette(silver, medium) !default;
+$button-dashed--background:    transparent               !default;
+$button-dashed--color:         palette(gray, light)    !default;
+
+// ============================================================
+// Icon Buttons Colors (_buttons.scss)
+
+$button-icon--border: (
+	default: palette(gray, lighter),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
+
+$button-icon--background: (
+	default: palette(silver, default),
+	blue:    palette(blue, light),
+	green:   palette(green, light),
+	red:     palette(red, light),
+	orange:  palette(orange, light),
+	yellow:  palette(yellow, light),
+	purple:  palette(purple, light)
+) !default;
+
+$button-icon--background-hover: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--background-filled: (
+	default: palette(silver, soft),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--color: (
+	default: palette(gray, light),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--color-hover: (
+	default: palette(gray, dark),
+	blue:    palette(blue, default),
+	green:   palette(green, default),
+	red:     palette(red, default),
+	orange:  palette(orange, default),
+	yellow:  palette(yellow, default),
+	purple:  palette(purple, default)
+) !default;
+
+$button-icon--alt: (
+	default: palette(mono, white),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+$button-icon--color-filled: (
+	default: palette(silver, medium),
+	blue:    palette(mono, white),
+	green:   palette(mono, white),
+	red:     palette(mono, white),
+	orange:  palette(mono, white),
+	yellow:  palette(gray, dark),
+	purple:  palette(mono, white)
+) !default;
+
+// ============================================================
+// Toggles Colors (_toggles.scss)
+$toggle-slider-bg-color:                palette(silver, medium)       !default;
+$toggle-slider-bg-hover-color:          palette(silver)               !default;
+$toggle-slider-active-bg-hover-color:   palette(blue, light)          !default;
+$toggle-slider-before-bg-color:         $white                        !default;
+$toggle-slider-before-checked-bg-color: palette(blue)                 !default;
+$toggle-active-disabled-bg-color:       palette(gray, lighter)        !default;
+$toggle-active-before-disabled-color:   palette(silver, lighter)        !default;
+
+// Typography Colors (_typography.scss)
+$headings-color:                        palette(gray, dark)           !default;
+$font-color:                            $gray !default;
+$p-small-color:                         palette(gray, light)          !default;
+$a-color:                               palette(blue)                 !default;
+$a-action-color:                        darken($a-color, 10%)         !default;
+$a-disabled-color:                      palette(gray, light)          !default;
+$code-bg-color:                         palette(silver, light)        !default;
+$code-border-color:                     palette(silver, soft)         !default;
+$dfn-border-color:                      palette(gray, light)          !default;
+$pre-color:                             palette(gray, dark)           !default;
+
+// Notifications Colors (_notifications.scss)
+$notice-font-color:                     palette(gray, dark)           !default;
+$notice-default-bg-color:               $white                        !default;
+$notice-default-icon-color:             palette(gray, light)          !default;
+$notice-warning-icon-color:             $warning                      !default;
+$notice-success-icon-color:             $success                      !default;
+$notice-error-icon-color:               $error                        !default;
+$notice-info-icon-color:                palette(blue)                 !default;
+
+// Tooltips (_tooltips.scss)
+$tooltips-color:                        palette(gray, dark)           !default;
+
+// ============================================================
+// Box Selectors (_box-selectors.scss)
+
+// Container
+$box-selectors--background: palette(silver, light) !default;
+
+// Item
+$box-selector--border-color: rgba(230, 230, 230, 0.5) !default;
+$box-selector--background: $white !default;
+$box-selector--color: palette(gray, light) !default;
+$box-selector--box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.05) !default;
+
+$box-selector--active-background: palette(blue, light) !default;
+$box-selector--active-color: palette(blue, default) !default;
+$box-selector--active-box-shadow:  0 0 0 4px rgba(0, 0, 0, 0.02), 0 4px 15px 0 rgba(0, 0, 0, 0.05);
+
+// Item icon
+$box-selector--icon-color: palette(silver, medium) !default;
+
+// Item ribbon
+// Used as blue triangle on top-right corner when item is selected
+$box-selector--ribbon-color: $white !default;
+$box-selector--ribbon-background: palette(blue, default) !default;
+
+// ============================================================
+// Box Builder (_box-builder.scss)
+
+// Main container
+$box-builder--background:   $white !default;
+$box-builder--border-color: palette(silver, soft) !default;
+
+// Body
+$box-builder--body-background: palette(silver, light) !default;
+$box-builder--body-message:    palette(gray, light) !default;
+
+// Fields
+$box-builder--field-background: $white                   !default;
+$box-builder--field-color:      palette(gray, dark)    !default;
+$box-builder--field-move-color: palette(gray, lighter) !default;
+$box-builder--field-move-color-hover: palette(gray, light) !default;
+$box-builder--field-border:     palette(silver, soft)  !default;
+
+// Field – Notice
+$box-builder--notice-background: palette(silver, default) !default;
+$box-builder--notice-color:      $blue !default;
+
+// ============================================================
+// Select (_select.scss)
+
+// Container
+$select-container--border-color:        palette(gray, lighter)  !default;
+$select-container--background:          #FAFAFA                 !default;
+$select-container--background-active:   $white                    !default;
+
+// List value
+$select-value--color:                   palette(gray, dark)     !default;
+
+// List results
+$select-results--border-color:          palette(gray, lighter)  !default;
+$select-results--background:            $white                    !default;
+$select-results--color:                 palette(gray, light)    !default;
+$select-results--background-hover:      rgba(51, 51, 51, 0.05)  !default;
+$select-results--color-hover:           palette(gray, default)  !default;
+$select-results--background-current:    palette(gray, light)    !default;
+$select-results--color-current:         $white                    !default;
+$select-results--optgroup-color:        palette(silver, medium) !default;
+
+// Search results
+$select-search--border-color:           palette(gray, lighter)  !default;
+$select-search--background:             #FAFAFA                 !default;
+$select-search--background-focus:       $white                    !default;
+$select-search--color:                  palette(gray, dark)     !default;
+$select-search--placeholder:            palette(silver, medium) !default;
+$select-search--result:                 palette(gray, light)    !default;
+
+// Mobile select
+$select-mobile-nav-handle-color:        palette(gray, lighter)  !default;
+$select-mobile-nav-handle-hover-color:  palette(gray, light)    !default;
+
+// ============================================================
+// Sidebar (_sidebar.scss)
+$sidenav-tab-color:                     palette(gray)                 !default;
+$sidenav-tab-color-hover:               palette(gray, dark)           !default;
+$sidenav-tab-active-color:              palette(gray, dark)           !default;
+$sidenav-tab-active-bg-color:           palette(silver, soft)         !default;
+$sidenav-tab-icon-color:                palette(green)                !default;
+
+// ============================================================
+// Summary (_summary.scss)
+$summary-details--color:     palette(gray, dark)   !default;
+$summary-details--sub-color: palette(gray, light)  !default;
+
+$summary-list--border-color: palette(silver, soft) !default;
+$summary-list--color:        palette(gray,light)   !default;
+$summary-list--label:        palette(gray, dark)   !default;
+
+// ============================================================
+// Tags (_tags.scss)
+
+// Default tags
+$tag--default-background: palette(silver) !default;
+$tag--default-color: palette(gray, dark) !default;
+
+// Red tags
+$tag--red-border-color: palette(red, light) !default;
+$tag--red-background: $error !default;
+$tag--red-color: $white !default;
+
+// Yellow tags
+$tag--yellow-border-color: palette(yellow, light) !default;
+$tag--yellow-background: $warning !default;
+$tag--yellow-color: palette(gray, dark) !default;
+
+// Green tags
+$tag--green-border-color: palette(green, light) !default;
+$tag--green-background: $success !default;
+$tag--green-color: $white !default;
+
+// Blue tags
+$tag--blue-border-color: palette(blue, light) !default;
+$tag--blue-background: palette(blue) !default;
+$tag--blue-color: $white !default;
+
+// Purple tags
+$tag--purple-border-color: palette(purple, light) !default;
+$tag--purple-background: palette(purple) !default;
+$tag--purple-color: $white;
+
+// Disabled tags
+$tag--disabled-background: palette(silver) !default;
+$tag--disabled-color: palette(silver, medium) !default;
+
+// Pro tags
+$tag--pro-background: palette(purple) !default;
+$tag--pro-color: $white !default;
+
+// Beta tags
+$tag--beta-background: palette(orange) !default;
+$tag--beta-color: $white !default;
+
+// Forms (_forms.scss)
+$form--input-border-color:				palette(gray, lighter)			!default;
+$form--input-bg-color:					#FAFAFA							!default;
+$form--input-color:						palette(gray, dark)				!default;
+$form--input--disabled:					palette(silver, default)		!default;
+$form--input-color-disabled:			palette(silver, medium)			!default;
+$form--input-icon:						palette(silver, medium)			!default;
+$form--input-icon-right:				palette(gray, light)			!default;
+$form--description-color:				palette(gray, light)			!default;
+$form--input-color-focus:				palette(gray, dark)				!default;
+$form--input-bg-color-focus:			palette(mono, white)			!default;
+$form--input-border-color-hover:		palette(gray, lighter)			!default;
+$form--input-border-color-error:        $error                        !default;
+$form--input-error-color:               $error                        !default;
+$form--input-icon-color:                palette(gray, light)          !default;
+$form--input-placeholder-color:         palette(silver, medium)       !default;
+$form--label-color:                     palette(gray, light)          !default;
+
+// ============================================================
+// Radio & Checkbox (_radio-checkbox.scss)
+$radio-checkbox--background:            #FAFAFA                !default;
+$radio-checkbox--border-color:          palette(gray, lighter) !default;
+$radio-checkbox--color:                 palette(gray)          !default;
+$radio-checkbox--checked-border-color:  $blue                    !default;
+$radio-checkbox--checked-background:    $blue                    !default;
+$radio-checkbox--disabled-border-color: palette(silver)        !default;
+$radio-checkbox--disabled-background:   palette(silver)        !default;
+
+$radio-checkbox--check-color:          $white                    !default;
+$radio-checkbox--disabled-check-color: palette(silver, medium) !default;
+
+// ============================================================
+// Upload (_upload.scss)
+
+// Image container
+$file-upload--image-border-color:       palette(silver, soft)   !default;
+$file-upload--image-mask-background:    palette(gray, lighter)  !default;
+$file-upload--image-preview-background: rgba(0, 0, 0, 0.5)      !default;
+
+// Button: Add
+$file-upload--add-border-color:         palette(gray, lighter)  !default;
+$file-upload--add-background:           transparent               !default;
+$file-upload--add-color:                palette(silver, medium) !default;
+
+// File name
+$file-upload--file-border-color:        palette(gray, lighter)  !default;
+$file-upload--file-background:          $white                    !default;
+$file-upload--file-color:               palette(gray, dark)     !default;
+$file-upload--file-hover-background:    #FAFAFA                 !default;
+
+// ============================================================
+// Color Pickers (_colorpickers.scss)
+
+// Value
+$colorpicker--border-color:                    palette(gray, lighter) !default;
+$colorpicker--background:                      #FAFAFA                !default;
+$colorpicker--color:                           palette(gray, dark)    !default;
+
+// Preview
+$colorpicker--preview-background:              palette(gray, lighter) !default;
+
+// Iris
+$colorpicker--iris-border-color:               palette(gray, lighter) !default;
+$colorpicker--iris-background:                 $white                   !default;
+$colorpicker--iris-palette-border-color:       palette(silver, soft)  !default;
+$colorpicker--iris-square-handle-border-color: $white                   !default;
+$colorpicker--iris-slider-handle-border-color: $white                   !default;
+
+// ============================================================
+// Tabs Colors (_tabs.scss)
+$tabs-label-color:                      palette(gray, light)   !default;
+$tabs-label-checked-color:              palette(gray, light)   !default;
+$tabs-label-active-color:               palette(gray, dark)    !default;
+$tabs-label-active-border-color:        palette(gray, dark)    !default;
+$tabs-content-border-color:             palette(silver, soft)  !default;
+$side-tabs--label-color:                palette(gray, default) !default;
+$side-tabs--label-background:           palette(silver, light) !default;
+$side-tabs--label-active-color:         palette(blue, default) !default;
+$side-tabs--label-active-background:    palette(blue, light)   !default;
+
+// Modals (_modals.scss)
+$modal-overlay-bg-color:                rgba(51, 51, 51, 0.95)        !default;
+$modal-box-shadow-color:                rgba(0, 0, 0, 0.2)            !default;
+$modal-close-color:                     palette(silver, medium)       !default;
+$modal-close-action-color:              palette(gray, light)          !default;
+
+// Dropdowns (_dropdowns.scss)
+$dropdown-anchor-color:                 palette(gray, light)          !default;
+$dropdown-ul-border-color:              palette(gray, lighter)        !default;
+$dropdown-label-border-color:           palette(silver, soft)         !default;
+$dropdown-ul-before-border-color:       palette(silver, soft)         !default;
+
+// Scores (_scores.scss)
+$circle-score-success-color:            $success                      !default;
+$circle-score-warning-color:            $warning                      !default;
+$circle-score-error-color:              $error                        !default;
+$circle-score-disabled-color:           palette(silver, medium)       !default;
+$circle-score-bg-color:                 $silver                       !default;
+$circle-score-default-dial-color:       $success                      !default;
+
+// Footer (_footer.scss)
+$footer-color:                          palette(silver, medium)       !default;
+$footer-color-hover:                    palette(gray, default)        !default;
+$footer-cross-sell-border-color:        palette(silver, soft)         !default;
+$footer-cross-sell-icon-color:          palette(gray, light)          !default;
+$footer-cross-sell-p-color:             palette(gray, light)          !default;
+
+// ============================================================
+// Progress Bars (_progress-bars.scss)
+$progress-block--background:   $white;
+$progress-block--border-color: palette(silver, soft);
+
+$progress-text--color:         palette(gray, light);
+$progress-status--color:       palette(gray, light);
+
+$progress-bar--background:     palette(silver, soft);
+$progress-bar--loading-color:  $blue;
+
+// ============================================================
+// Tables (_tables.scss)
+$table--border-color:                   palette(silver, soft)       !default;
+$table--th-color:                       $headings-color               !default;
+$table--text-color:                     $font-color                   !default;
+$table--field-list-title-color:         $headings-color               !default;
+$table--title-color:                    $headings-color               !default;
+
+// ============================================================
+// Accordions (_accordions.scss)
+$accordion--content-bg-color:           palette(silver,light)         !default;
+$accordion--open-indicator-color:       palette(gray,light)           !default;
+$accordion--disabled-color:             palette(silver, medium)       !default;
+$accordion--disabled-icon:              palette(gray, lighter)        !default;
+
+$accordion--block-background:           $white                          !default;
+$accordion--block-shadow:               palette(silver, soft)         !default;
+$accordion--block-color:                palette(gray, light)          !default;
+
+// ============================================================
+// Icons (_icons.scss)
+$icon-color:                            palette(gray,light)           !default;
+
+// Lists (_list.scss)
+$list-detail-color:                     palette(gray,light)           !default;
+
+// Pagination (_pagination.scss)
+$pagination-border:                     palette(silver, soft)         !default;
+$pagination-background:                 palette(mono, white)          !default;
+$pagination-item-color-static:          palette(gray, light)          !default;
+$pagination-item-color-hover:           palette(blue, default)        !default;
+$pagination-item-color-active:          palette(gray, dark)           !default;
+$pagination-item-color-disabled:        palette(gray, lighter)        !default;
+$pagination-item-bg-active:             palette(silver, light)        !default;
+$pagination-filter-border:              palette(silver, soft)         !default;
+$pagination-results:                    palette(gray, light)          !default;
+
+// ACE Editor (_ace-editor.scss)
+$ace-selector-background:       palette(gray, default) !default;
+$ace-selector-background-hover: palette(gray, dark)    !default;
+$ace-selector-color:            $white                   !default;
+
+// Recipient (_recipient.scss)
+$recipient-border-color:       palette(silver, soft) !default;
+
+// Color Accessibility (_color-accessibility.scss)
+$accessible-light:     $white;
+$accessible-dark:      $black;
+$accessible-dark-alt:  #555555;

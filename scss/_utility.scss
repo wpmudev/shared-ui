@@ -1,0 +1,181 @@
+@include body-class(true) {
+
+	.sui-hidden {
+		display: none;
+	}
+
+	.sui-hidden-important {
+		display: none !important;
+	}
+
+	.sui-block-content-center {
+		text-align: center;
+	}
+
+	.sui-image {
+		display: block;
+		height: auto;
+		max-width: 100%;
+	}
+
+	.sui-image-center {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.sui-actions-left {
+		display: flex;
+		align-items: center;
+		margin-left: 10px;
+		margin-right: auto;
+	}
+
+	.sui-actions-right {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		margin-right: 0;
+	}
+
+	// Flex alignment
+	.sui-space-between {
+		justify-content: space-between;
+	}
+	.sui-align-start {
+		justify-content: flex-start;
+	}
+	.sui-align-end {
+		justify-content: flex-end;
+	}
+
+	.sui-success {
+		color: $success;
+	}
+
+	.sui-warning {
+		color: $warning;
+	}
+
+	.sui-error {
+		color: $error;
+	}
+
+	.sui-info {
+		color: $info;
+	}
+
+	.sui-no-margin {
+		margin: 0 !important;
+	}
+
+	.sui-no-margin-top {
+		margin-top: 0 !important;
+	}
+
+	.sui-no-margin-bottom {
+		margin-bottom: 0 !important;
+	}
+
+	.sui-no-margin-left {
+		margin-left: 0 !important;
+	}
+
+	.sui-no-margin-right {
+		margin-right: 0 !important;
+	}
+
+	.sui-no-padding {
+		padding: 0 !important;
+	}
+
+	.sui-no-padding-top {
+		padding-top: 0 !important;
+	}
+
+	.sui-no-padding-bottom {
+		padding-bottom: 0 !important;
+	}
+
+	.sui-no-padding-left {
+		padding-left: 0 !important;
+	}
+
+	.sui-no-padding-right {
+		padding-right: 0 !important;
+	}
+
+	.sui-margin {
+		margin: $default-margin !important;
+	}
+
+	.sui-margin-top {
+		margin-top: $default-margin !important;
+	}
+
+	.sui-margin-bottom {
+		margin-bottom: $default-margin !important;
+	}
+
+	.sui-margin-left {
+		margin-left: $default-margin !important;
+	}
+
+	.sui-margin-right {
+		margin-right: $default-margin !important;
+	}
+
+	.sui-padding {
+		padding: $default-padding !important;
+	}
+
+	.sui-padding-top {
+		padding-top: $default-padding !important;
+	}
+
+	.sui-padding-bottom {
+		padding-bottom: $default-padding !important;
+	}
+
+	.sui-padding-left {
+		padding-left: $default-padding !important;
+	}
+
+	.sui-padding-right {
+		padding-right: $default-padding !important;
+	}
+}
+
+// Loop through breakpoints & generate hidden utility classes.
+@for $i from 1 through length($sui-breakpoints) {
+	$size: nth(nth($sui-breakpoints, $i), 1);
+	$screen-width-min: nth(nth($sui-breakpoints, $i), 2);
+
+	// If lowest breakpoint in map.
+	@if ($i == 1) {
+		$screen-width-max: nth(nth($sui-breakpoints, ($i + 1)), 2) - 1px;
+		@media (max-width: $screen-width-max) {
+			.sui-hidden-#{$size} {
+				display: none !important;
+			}
+		}
+	}
+
+	// If highest breakpoint in map.
+	@else if ($i == length($sui-breakpoints)) {
+		@media (min-width: $screen-width-min) {
+			.sui-hidden-#{$size} {
+				display: none !important;
+			}
+		}
+	}
+
+	// If breakpoint falls inbetween.
+	@else {
+		$screen-width-max: nth(nth($sui-breakpoints, ($i + 1)), 2) - 1px;
+			@media (min-width: $screen-width-min) and (max-width: $screen-width-max) {
+			.sui-hidden-#{$size} {
+				display: none !important;
+			}
+		}
+	}
+}

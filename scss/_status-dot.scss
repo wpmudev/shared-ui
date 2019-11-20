@@ -1,0 +1,39 @@
+@include body-class {
+
+	.sui-status-dot {
+		width: 30px;
+		height: 30px;
+		cursor: help;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: $border-radius;
+		transition: $transition;
+
+		span {
+			width: 10px;
+			height: 10px;
+			display: block;
+			border-radius: 20px;
+		}
+
+		&,
+		&.sui-draft {
+
+			span {
+				background-color: #E6E6E6;
+			}
+		}
+
+		&.sui-published {
+
+			&:hover {
+				background-color: #F2F2F2;
+			}
+
+			span {
+				background-color: $blue;
+			}
+		}
+	}
+}

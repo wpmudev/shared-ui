@@ -1,0 +1,211 @@
+@include body-class(true) {
+
+	.sui-box-selectors {
+		background-color: $box-selectors--background;
+
+		ul, li {
+			list-style: none;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 0;
+			margin-right: -#{$box-selectors--spacing / 2};
+			margin-bottom: 0;
+			margin-left: -#{$box-selectors--spacing / 2};
+			padding: 0;
+			border: 0;
+
+			li {
+				margin: 0;
+				padding: #{$box-selectors--spacing / 2};
+				border: 0;
+			}
+
+			&.sui-spacing-slim {
+
+				li {
+					padding: #{$box-selectors--spacing / 4};
+				}
+			}
+		}
+
+		&[class*="sui-box-selectors-col-"] {
+
+			ul li {
+				flex: 0 0 auto;
+			}
+		}
+
+		&:not([class*="sui-box-selectors-col-"]) {
+
+			ul li {
+				flex: 1;
+			}
+		}
+
+		@each $column, $size in $box-selectors--columns {
+
+			&.sui-box-selectors-#{$column} {
+
+				ul li {
+
+					@include media(max-width, md) {
+						min-width: 100%;
+						flex-basis: 100%;
+					}
+					
+					@include media(min-width, md) {
+						min-width: $size;
+						flex-basis: $size;
+					}
+				}
+			}
+		}
+
+		@include media(max-width, md) {
+			padding: #{$sui-gutter-md - ($box-selectors--spacing / 2)} $sui-gutter-md;
+		}
+
+		@include media(min-width, md) {
+			padding: #{$sui-gutter - ($box-selectors--spacing / 2)} $sui-gutter;
+		}
+	}
+
+	.sui-box-selector {
+		overflow: hidden;
+		display: block;
+		border-radius: $border-radius;
+		background-color: $box-selector--background;
+		box-shadow: $box-selector--box-shadow;
+		color: $box-selector--color;
+		font-family: $font;
+		letter-spacing: $font--letter-spacing;
+		transition: $transition;
+
+		input {
+			@extend %sui-screen-reader-text;
+
+			~ span {
+				display: block;
+				padding-right: #{$box-selector--padding * 3};
+				padding-left: #{$box-selector--padding * 2};
+				transition: $transition;
+			}
+
+			+ span {
+				display: flex;
+				align-items: center;
+				padding-top: #{($box-selector--height - $box-selector--line-height) / 2};
+				padding-bottom: #{($box-selector--height - $box-selector--line-height) / 2};
+				font-size: $box-selector--font-size;
+				line-height: $box-selector--line-height;
+				font-weight: $font--medium;
+	
+				[class*="sui-icon"] {
+					width: $box-selector--icon-width;
+					flex: 0 0 $box-selector--icon-width;
+					align-self: flex-start;
+					margin: 0 5px 0 0;
+					font-size: $box-selector--icon-size;
+					text-align: center;
+	
+					&:before {
+						display: block;
+						color: $box-selector--icon-color;
+						line-height: $box-selector--line-height;
+						transition: $transition;
+					}
+				}
+
+				img {
+					max-width: $box-selector--image-width;
+					height: auto;
+					display: block;
+					margin: 0 5px 0 0;
+				}
+
+				~ span {
+					padding-top: #{$box-selector--padding * 2};
+					padding-bottom: #{$box-selector--padding * 2};
+					border-top: 1px solid $box-selector--border-color;
+					font-size: $box-selector--font-size-lg;
+					line-height: $box-selector--line-height-lg;
+				}
+			}
+
+			&:checked {
+
+				+ span {
+					overflow: hidden;
+					position: relative;
+					background-color: $box-selector--active-background;
+					color: $box-selector--active-color;
+	
+					@include icon(before, check-tick) {
+						position: absolute;
+						z-index: 1;
+						top: 5px;
+						right: 5px;
+						color: $box-selector--ribbon-color;
+						font-size: 12px;
+					}
+	
+					&:after {
+						content: " ";
+						position: absolute;
+						top: 0;
+						right: 0;
+						border-top: #{$box-selector--ribbon-height / 2} solid $box-selector--ribbon-background;
+						border-left: #{$box-selector--ribbon-height / 2} solid transparent;
+					}
+
+					[class*="sui-icon"]:before {
+						color: $box-selector--active-color;
+					}
+
+					~ span {
+						border-top-color: $box-selector--active-background;
+					}
+				}
+			}
+		}
+
+		&:hover {
+			box-shadow: $box-selector--active-box-shadow;
+		}
+
+		// VARIATION: Vertical
+		&.sui-box-selector-vertical {
+
+			input {
+
+				~ span {
+					text-align: center;
+				}
+
+				+ span {
+					display: block;
+					padding-top: $box-selector-vertical--padding-bottom;
+					padding-right: $box-selector--padding;
+					padding-bottom: $box-selector-vertical--padding-top;
+					padding-left: $box-selector--padding;
+					
+					[class*="sui-icon"] {
+						display: block;
+						margin: 0 auto $box-selector-vertical--icon-spacing;
+	
+						&:before {
+							line-height: $box-selector--icon-size;
+						}
+					}
+
+					img {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,822 @@
+@include body-class(true) {
+
+	.sui-box-builder {
+		display: block;
+		margin: 0;
+		border: 1px solid $box-builder--border-color;
+		border-radius: $border-radius;
+		background-color: $box-builder--background;
+
+		// ELEMENT: Field
+		.sui-builder-field {
+
+			.sui-button,
+			.sui-button-icon {
+				margin: 0;
+
+				&.sui-align_top {
+					align-self: flex-start;
+					margin-top: 5px;
+					margin-bottom: 5px;
+				}
+			}
+
+			.sui-builder-field-label {
+				min-width: 0;
+				display: flex;
+				flex: 1 1 auto;
+				align-items: center;
+				color: $box-builder--field-color;
+				font: $font--medium 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+
+				> [class*="sui-icon-"] {
+					flex: 0 0 $box-builder--field-icon-size;
+					font-size: 16px;
+					text-align: center;
+
+					&:before {
+						display: block;
+					}
+
+					+ span {
+						margin-left: 5px;
+					}
+
+					+ .sui-builder-field-image {
+						margin-left: 10px;
+					}
+				}
+
+				.sui-builder-field-image {
+					width: 40px;
+					height: 40px;
+					flex: 0 0 40px;
+					border: 1px solid palette(silver, soft);
+					background-color: palette(gray, lighter);
+					background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+					background-size: 12px 12px;
+					background-position: 0 0, 6px 6px;
+					border-radius: $border-radius;
+
+					span {
+						width: 38px;
+						height: 38px;
+						display: block;
+						border: 1px solid $white;
+						border-radius: #{$border-radius - 1px};
+						background-repeat: no-repeat;
+						background-size: cover;
+						background-position: center;
+					}
+
+					+ span {
+						margin-left: 10px;
+					}
+				}
+
+				> span {
+					display: block;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+
+				+ .sui-button,
+				+ .sui-dropdown,
+				+ .sui-button-icon {
+					margin-left: #{$box-builder--field-spacing / 2};
+				}
+			}
+
+			.sui-builder-field-form {
+				display: block;
+				flex: 1 1 auto;
+
+				.sui-form-field-row {
+					display: flex;
+					margin: 0 0 #{$sui-gutter-md / 2};
+					align-items: center;
+
+					.sui-form-field {
+						flex: 1;
+						margin: 0 #{$sui-gutter-md / 2};
+
+						&:first-child {
+							margin-left: 0;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						&.sui-auto {
+							flex: 0 1 auto;
+						}
+					}
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.sui-builder-field-border {
+				width: 1px;
+				height: 20px;
+				background-color: $box-builder--field-border;
+
+				&:not(:last-child) {
+					margin-right: #{$box-builder--field-spacing / 2};
+				}
+
+				&:not(:first-child) {
+					margin-left: #{$box-builder--field-spacing / 2};
+				}
+
+				// FIX: Dropdown
+				+ .sui-dropdown {
+					margin-left: 0;
+				}
+			}
+
+			.sui-builder-field-notice {
+				width: $box-builder--field-icon-size;
+				height: $box-builder--field-icon-size;
+				cursor: help;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: $border-radius;
+				background-color: transparent;
+				color: $box-builder--notice-color;
+				transition: $transition;
+
+				[class*="sui-icon-"] {
+					font-size: 12px;
+
+					&:before {
+						display: block;
+						color: inherit;
+					}
+				}
+
+				&:hover {
+					background-color: $box-builder--notice-background;
+				}
+			}
+
+			.sui-accordion-open-indicator {
+
+				[class*="sui-icon-"] {
+					transition: 0.2s linear;
+				}
+			}
+
+			&,
+			&.sui-react .sui-field-info,
+			.sui-accordion-item-header {
+
+				> .sui-icon-drag {
+					width: $box-builder--field-icon-size;
+					flex: 0 0 $box-builder--field-icon-size;
+					color: $box-builder--field-move-color;
+					font-size: 16px;
+					text-align: center;
+					transition: $transition;
+
+					&:before {
+						display: block;
+						color: inherit;
+					}
+
+					&.sui-align_top {
+						align-self: flex-start;
+						margin-top: 12px;
+						margin-bottom: 12px;
+					}
+				}
+
+				> .sui-button,
+				> .sui-dropdown,
+				> .sui-button-icon {
+					flex: 0 0 auto;
+				}
+			}
+
+			// VARIATION: Simple field
+			&:not(.sui-accordion-item):not(.sui-react) {
+				display: flex;
+				align-items: center;
+				padding-right: $box-builder--field-spacing;
+				padding-left: $box-builder--field-spacing;
+
+				// CURSOR: Can Move
+				&.sui-can_move,
+				&.sui-can-move {
+					cursor: move;
+				}
+
+				// CURSOR: Can Open
+				&.sui-can_open {
+					cursor: pointer;
+				}
+
+				@include media(max-width, md) {
+					min-height: $box-builder--field-height-md;
+					padding-top: #{$sui-gutter-md / 2};
+					padding-bottom: #{$sui-gutter-md / 2};
+				}
+
+				@include media(min-width, md) {
+					min-height: $box-builder--field-height;
+					padding-top: #{$sui-gutter / 2};
+					padding-bottom: #{$sui-gutter / 2};
+				}
+			}
+
+			// VARIATION: Accordion field
+			&.sui-accordion-item {
+
+				.sui-accordion-item-header {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					padding-right: $box-builder--field-spacing;
+					padding-left: $box-builder--field-spacing;
+
+					@include media(max-width, md) {
+						min-height: $box-builder--field-height-md;
+						padding-top: #{$sui-gutter-md / 2};
+						padding-bottom: #{$sui-gutter-md / 2};
+					}
+
+					@include media(min-width, md) {
+						min-height: $box-builder--field-height;
+						padding-top: #{$sui-gutter / 2};
+						padding-bottom: #{$sui-gutter / 2};
+					}
+				}
+
+				.sui-accordion-item-body {
+					display: none;
+					border-top: 1px solid palette(silver, soft);
+
+					@include media(max-width, md) {
+						padding: $sui-gutter-md;
+					}
+
+					@include media(min-width, md) {
+						padding: $sui-gutter;
+					}
+				}
+
+				// CURSOR: Can Move
+				&.sui-can_move,
+				&.sui-can-move {
+
+					.sui-accordion-item-header {
+						cursor: move;
+					}
+				}
+
+				// CURSOR: Can Open
+				&.sui-can_open {
+
+					.sui-accordion-item-header {
+						cursor: pointer;
+					}
+				}
+
+				// VARIATION: Open accordion
+				&.sui-accordion-item--open {
+
+					.sui-accordion-item-header {
+
+						.sui-accordion-open-indicator {
+
+							[class*="sui-icon-"] {
+								transform: rotate(180deg);
+							}
+						}
+					}
+
+					.sui-accordion-item-body {
+						display: block;
+					}
+				}
+			}
+
+			// VARIATION: React field
+			&.sui-react {
+				display: flex;
+				align-items: center;
+
+				.sui-field-info {
+					overflow: hidden;
+					display: flex;
+					flex: 1;
+					align-items: center;
+
+					&:not(:last-child) {
+						padding-left: $box-builder--field-spacing;
+					}
+
+					&:not(:first-child) {
+						padding-right: $box-builder--field-spacing;
+					}
+
+					@include media(max-width, md) {
+						min-height: $box-builder--field-height-md;
+						padding-top: #{$sui-gutter-md / 2};
+						padding-bottom: #{$sui-gutter-md / 2};
+					}
+
+					@include media(min-width, md) {
+						min-height: $box-builder--field-height;
+						padding-top: #{$sui-gutter / 2};
+						padding-bottom: #{$sui-gutter / 2};
+					}
+
+					+ .sui-field-actions {
+						margin-left: 5px;
+					}
+				}
+
+				.sui-field-actions {
+					flex: 0 0 auto;
+
+					&:first-child {
+						margin-left: $box-builder--field-spacing;
+					}
+
+					&:last-child {
+						margin-right: $box-builder--field-spacing;
+					}
+
+					&.sui-align_top {
+						align-self: flex-start;
+
+						.sui-button,
+						.sui-button-icon {
+							margin-top: 5px;
+							margin-bottom: 5px;
+						}
+
+						@include media(max-width, md) {
+							padding-top: #{$sui-gutter-md / 2};
+							padding-bottom: #{$sui-gutter-md / 2};
+						}
+
+						@include media(min-width, md) {
+							padding-top: #{$sui-gutter / 2};
+							padding-bottom: #{$sui-gutter / 2};
+						}
+					}
+				}
+
+				// CURSOR: Can Move
+				&.sui-can_move,
+				&.sui-can-move {
+					cursor: move;
+				}
+
+				// CURSOR: Can Open
+				&.sui-can_open {
+					cursor: pointer;
+				}
+			}
+		}
+
+		// ELEMENT: Header
+		.sui-box-builder-header {
+			display: block;
+
+			.sui-builder-text {
+				display: block;
+				color: palette(gray, light);
+				font: 400 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+			}
+
+			.sui-builder-options,
+			.sui-builder-conditions {
+
+				&:not(:first-child) {
+					border-top: 1px solid palette(silver, soft);
+
+					@include media(max-width, md) {
+						margin-top: #{$sui-gutter-md / 2};
+						margin-right: -#{$sui-gutter-md};
+						margin-left: -#{$sui-gutter-md};
+						padding: #{$sui-gutter-md / 2} $sui-gutter-md 0;
+					}
+
+					@include media(min-width, md) {
+						margin-top: #{$sui-gutter / 2};
+						margin-right: -#{$sui-gutter};
+						margin-left: -#{$sui-gutter};
+						padding: #{$sui-gutter / 2} $sui-gutter 0;
+					}
+				}
+			}
+
+			.sui-builder-options {
+
+				&.sui-options-inline {
+
+					.sui-radio,
+					.sui-checkbox,
+					.sui-builder-text {
+
+						&:not(:last-child) {
+
+							@include media(max-width, md) {
+								margin-bottom: 10px;
+							}
+
+							@include media(min-width, md) {
+								margin-right: 10px;
+							}
+						}
+					}
+
+					@include media(min-width, md) {
+						display: flex;
+					}
+				}
+
+				&:not(.sui-options-inline) {
+
+					.sui-builder-text {
+
+						&:not(:last-child) {
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+
+			.sui-builder-conditions {
+				display: flex;
+
+				.sui-builder-conditions-rule {
+					flex: 1;
+
+					span {
+
+						&:first-child {
+
+							@include media(min-width, md) {
+								margin-left: 0;
+							}
+						}
+
+						&:last-child {
+
+							@include media(min-width, md) {
+								margin-right: 0;
+							}
+						}
+
+						@include media(min-width, md) {
+							flex: 0 1 auto;
+							margin: 0 5px;
+						}
+					}
+
+					.select-container {
+
+						&:first-child {
+
+							@include media(min-width, md) {
+								margin-left: 0;
+							}
+						}
+
+						&:last-child {
+
+							@include media(min-width, md) {
+								margin-right: 0;
+							}
+						}
+
+						@include media(min-width, md) {
+							width: auto;
+							min-width: 75px;
+							max-width: unset;
+							flex: 0 0 auto;
+							margin: 0 5px;
+						}
+					}
+
+					+ * {
+
+						@include media(max-width, md) {
+							margin-left: #{$sui-gutter-md / 2};
+						}
+
+						@include media(min-width, md) {
+							margin-left: #{$sui-gutter / 2};
+						}
+					}
+
+					@include media(min-width, md) {
+						display: flex;
+						align-items: center;
+					}
+				}
+
+				.sui-builder-conditions-actions {
+					flex: 0 0 auto;
+				}
+			}
+
+			&:not(:only-child):not(:last-child) {
+				border-bottom: 1px solid $box-builder--border-color;
+			}
+
+			@include media(max-width, md) {
+				padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				padding: #{$sui-gutter / 2} $sui-gutter;
+			}
+		}
+
+		// ELEMENT: Body
+		.sui-box-builder-body {
+			background-color: $box-builder--body-background;
+
+			.sui-builder-field {
+				margin: 0 0 $box-builder--field-spacing;
+				border-radius: $border-radius;
+				background-color: $box-builder--field-background;
+				box-shadow: $box-builder--field-shadow;
+				transition: $transition;
+
+				&,
+				&.sui-react .sui-field-info,
+				.sui-accordion-item-header {
+
+					> .sui-icon-drag {
+						margin-left: -10px;
+					}
+				}
+
+				&.ui-sortable-handle {
+					transition: unset;
+				}
+
+				.sui-builder-field-label {
+
+					&:first-child {
+
+						> [class*="sui-icon-"] {
+							margin-left: -10px;
+						}
+					}
+				}
+
+				.sui-builder-field-border {
+					transition: $transition;
+				}
+
+				.sui-hover-show {
+					opacity: 0;
+				}
+
+				&:hover {
+
+					.sui-hover-show {
+						opacity: 1;
+					}
+				}
+
+				&:hover,
+				&:active {
+					box-shadow: $box-builder--field-shadow-hover;
+
+					&,
+					&.sui-react .sui-field-info,
+					.sui-accordion-item-header {
+
+						> .sui-icon-drag {
+							color: $box-builder--field-move-color-hover;
+						}
+					}
+				}
+			}
+
+			.sui-button-dashed {
+
+				+ .sui-box-builder-message {
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+
+					@include media(min-width, md) {
+						margin-top: $sui-gutter;
+					}
+				}
+			}
+
+			.sui-box-builder-message {
+				display: block;
+				color: $box-builder--body-message;
+				font: 400 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+			}
+
+			.sui-builder-empty-message {
+
+				&:not(:first-child) {
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+
+					@include media(min-width, md) {
+						margin-top: $sui-gutter;
+					}
+				}
+
+				&:last-child {
+
+					@include media(max-width, md) {
+						margin-bottom: -#{$sui-gutter-md};
+					}
+
+					@include media(min-width, md) {
+						margin-bottom: -#{$sui-gutter};
+					}
+				}
+			}
+
+			.sui-box-builder-message-block {
+
+				.sui-box-builder-message {
+					text-align: center;
+				}
+
+				.sui-image {
+
+					&:not(:first-child) {
+
+						@include media(max-width, md) {
+							margin-top: $sui-gutter-md;
+						}
+
+						@include media(min-width, md) {
+							margin-top: $sui-gutter;
+						}
+					}
+
+					&:last-child {
+
+						@include media(max-width, md) {
+							margin-bottom: -#{$sui-gutter-md};
+						}
+
+						@include media(min-width, md) {
+							margin-bottom: -#{$sui-gutter};
+						}
+					}
+				}
+
+				&:not(:first-child) {
+
+					@include media(max-width, md) {
+						margin-top: $sui-gutter-md;
+					}
+
+					@include media(min-width, md) {
+						margin-top: $sui-gutter;
+					}
+				}
+			}
+
+			&:last-child {
+				border-bottom-right-radius: #{$border-radius - 1px};
+				border-bottom-left-radius: #{$border-radius - 1px};
+			}
+
+			@include media(max-width, md) {
+				padding: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				padding: $sui-gutter;
+			}
+		}
+
+		// ELEMENT: Footer
+		.sui-box-builder-footer {
+
+			.sui-hidden {
+				display: none !important;
+			}
+
+			&.sui-fields-boxed {
+
+				.sui-builder-field {
+					border: 1px solid $box-builder--border-color;
+					border-radius: $border-radius;
+
+					&:not(:last-child) {
+
+						@include media(max-width, md) {
+							margin-bottom: $sui-gutter-md;
+						}
+
+						@include media(min-width, md) {
+							margin-bottom: $sui-gutter;
+						}
+					}
+				}
+
+				@include media(max-width, md) {
+					padding: $sui-gutter-md;
+				}
+
+				@include media(min-width, md) {
+					padding: $sui-gutter;
+				}
+			}
+
+			&:not(.sui-fields-boxed) {
+
+				.sui-builder-field {
+
+					&:not(:only-child):not(:last-child) {
+						border-bottom: 1px solid $box-builder--border-color;
+					}
+				}
+			}
+
+			&:not(:only-child):not(:first-child) {
+				border-top: 1px solid $box-builder--border-color;
+			}
+		}
+
+		// VARIATION: Flushed
+		&.sui-flushed {
+			border-width: 0;
+			border-radius: 0;
+
+			.sui-builder-field {
+
+				// VARIATION: Simple field
+				&:not(.sui-accordion-item):not(.sui-react) {
+
+					@include media(min-width, md) {
+						height: 70px;
+					}
+				}
+
+				// VARIATION: Accordion field
+				&.sui-accordion-item {
+
+					.sui-accordion-item-header {
+
+						@include media(min-width, md) {
+							height: 70px;
+						}
+					}
+				}
+
+				// VARIATION: React field
+				&.sui-react {
+
+					.sui-field-info {
+
+						@include media(min-width, md) {
+							min-height: 70px;
+						}
+					}
+				}
+			}
+
+			@include media(max-width, md) {
+				margin: -#{$sui-gutter-md};
+			}
+
+			@include media(min-width, md) {
+				margin: -#{$sui-gutter};
+			}
+		}
+
+		&:not(:last-child) {
+
+			@include media(max-width, md) {
+				margin-bottom: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-bottom: $sui-gutter;
+			}
+		}
+	}
+}

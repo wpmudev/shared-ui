@@ -1,0 +1,357 @@
+@include body-class(true) {
+
+	.sui-colorpicker-wrap {
+		display: block;
+
+		.sui-colorpicker {
+			display: flex;
+			align-items: center;
+
+			.sui-colorpicker-value {
+				display: block;
+				position: relative;
+
+				span[role=button],
+				input,
+				button {
+					display: block;
+					margin: 0;
+					border: $colorpicker--border-width solid $colorpicker--border-color;
+					border-radius: $border-radius;
+
+					&,
+					&:hover,
+					&:focus {
+						outline: none;
+						box-shadow: none;
+					}
+				}
+
+				span[role=button],
+				button {
+					width: $colorpicker--button-size;
+					height: $colorpicker--button-size;
+					cursor: pointer;
+					position: absolute;
+					top: 0;
+					padding: 0;
+				}
+
+				input,
+				button {
+					background-color: $colorpicker--background;
+				}
+
+				// Color preview
+				span[role=button] {
+					left: 0;
+					background-color: $colorpicker--preview-background;
+					background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
+					background-size: 12px 12px;
+					background-position: 0 0, 6px 6px;
+
+					span {
+						width: #{$colorpicker--button-size - 4px};
+						height: #{$colorpicker--button-size - 4px};
+						display: block;
+						position: absolute;
+						top: 1px;
+						left: 1px;
+						border-radius: #{$border-radius - 2px};
+					}
+
+					&,
+					&:hover,
+					&:focus {
+						box-shadow: inset 0 0 0 1px $white;
+					}
+				}
+
+				// Color value
+				input {
+					width: 100%;
+					height: $colorpicker--input-height;
+					padding: #{($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)) / 2} #{$colorpicker--button-size + 10px};
+					color: $colorpicker--color;
+					font: $font--medium #{$colorpicker--input-font-size}/#{$colorpicker--input-line-height} $font;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				// Color clear
+				button {
+					right: 0;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+
+					[class*="sui-icon-"] {
+						font-size: 12px;
+					}
+				}
+			}
+
+			.sui-button {
+				margin-left: 5px;
+			}
+
+			&.sui-colorpicker-hex {
+
+				.sui-colorpicker-value {
+					flex: 0 1 $colorpicker--hex-width;
+				}
+			}
+
+			&.sui-colorpicker-rgba {
+
+				.sui-colorpicker-value {
+					flex: 0 1 $colorpicker--rgba-width;
+				}
+			}
+		}
+
+		.wp-picker-container {
+			display: none;
+			margin: 5px 0 0;
+			padding: 9px;
+			border: $colorpicker--border-width solid $colorpicker--iris-border-color;
+			border-radius: $border-radius;
+			background-color: $colorpicker--iris-background;
+			box-shadow: 0 3px 7px 0 rgba(0,0,0,0.07);
+
+			.button {
+				@extend %sui-screen-reader-text;
+			}
+
+			.wp-picker-input-wrap {
+				display: block;
+
+				span,
+				label,
+				.sui-colorpicker-input {
+					display: block;
+				}
+
+				.sui-colorpicker-input {
+					width: 100% !important;
+					height: $colorpicker--input-height;
+					margin: 0;
+					padding: #{($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)) / 2} 11px;
+					border: $colorpicker--border-width solid $colorpicker--border-color;
+					border-radius: $border-radius;
+					background-color: $colorpicker--background;
+					color: $colorpicker--color;
+					font: $font--medium #{$colorpicker--input-font-size}/#{$colorpicker--input-line-height} $font;
+					letter-spacing: $font--letter-spacing;
+
+					&,
+					&:hover,
+					&:focus {
+						outline: none;
+						box-shadow: none;
+					}
+				}
+			}
+
+			.wp-picker-holder {
+
+				.iris-picker {
+					width: auto !important;
+					height: auto !important;
+					position: relative;
+					margin: 10px 0 0;
+					padding: 0 !important;
+					border: 0;
+
+					.iris-picker-inner {
+						display: flex;
+						position: unset;
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							position: relative;
+							display: block;
+						}
+					}
+
+					.iris-palette-container {
+						display: flex;
+						left: 0;
+						bottom: 0;
+
+						@include media(max-width, md) {
+							position: relative;
+							margin-top: 10px;
+							justify-content: space-between;
+						}
+
+						@include media(min-width, md) {
+							width: $colorpicker--iris-square-size;
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							margin-left: 10px;
+						}
+					}
+
+					.iris-square,
+					.iris-slider,
+					.iris-palette {
+						float: none;
+						box-shadow: none;
+					}
+
+					// ELEMENT: Rainbow
+					// A square full of colors for user to pick.
+					.iris-square {
+						width: auto !important;
+						height: auto !important;
+						margin-right: 0;
+						border-radius: $border-radius;
+
+						@include media(min-width, md) {
+							margin-bottom: #{$colorpicker--iris-slider-size - $colorpicker--iris-square-size};
+						}
+
+						&-inner {
+							box-shadow: none;
+
+							&.iris-square-horiz {
+								position: unset;
+								display: block;
+
+								@include media(max-width, md) {
+									width: $colorpicker--iris-square-size-sm;
+									height: $colorpicker--iris-square-size-sm;
+								}
+
+								@include media(min-width, md) {
+									width: $colorpicker--iris-square-size;
+									height: $colorpicker--iris-square-size;
+								}
+
+								@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+									position: relative;
+								}
+							}
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							display: inline-block;
+						}
+					}
+
+					// ELEMENT: Slider
+					// Vertical rectangles that allow user to adjust
+					// color opacity.
+					.iris-slider {
+						width: $colorpicker--iris-palette-size !important;
+						margin-left: 10px !important;
+						border-radius: #{$border-radius / 2};
+
+						@include media(max-width, md) {
+							height: $colorpicker--iris-square-size-sm !important;
+						}
+
+						@include media(min-width, md) {
+							height: $colorpicker--iris-slider-size !important;
+						}
+
+						@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+							display: inline-block;
+						}
+					}
+
+					// ELEMENT: Slider offset
+					.iris-slider-offset {
+						top: $colorpicker--iris-slider-handle-size;
+						bottom: 0;
+					}
+
+					// ELEMENT: Slider handle
+					// A visual element that allow user to find the
+					// desired opacity or tone for the color.
+					.ui-slider-handle {
+						height: $colorpicker--iris-slider-handle-size;
+						opacity: 1;
+						right: -#{$colorpicker--iris-slider-handle-border-width};
+						left: -#{$colorpicker--iris-slider-handle-border-width};
+						border-width: $colorpicker--iris-slider-handle-border-width;
+						border-color: $colorpicker--iris-slider-handle-border-color;
+						border-radius: #{$colorpicker--iris-slider-handle-border-width * 2};
+						box-shadow: 0 1px 3px 1px rgba(0,0,0,0.3);
+
+						&:before {
+							content: unset;
+						}
+					}
+
+					// ELEMENT: Palette
+					// Predefined colors for user to quick-select.
+					.iris-palette {
+						width: auto !important;
+						min-width: $colorpicker--iris-palette-size;
+						max-width: $colorpicker--iris-palette-size;
+						height: $colorpicker--iris-palette-size !important;
+						display: block;
+						flex: 0 0 $colorpicker--iris-palette-size;
+						border: 1px solid $colorpicker--iris-palette-border-color;
+
+						&:first-child {
+							margin-left: 0 !important;
+						}
+
+						&:nth-child(n+8) {
+							display: none;
+							margin-left: 0 !important;
+						}
+
+						@include media(max-width, md) {
+							margin-left: #{($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)) / 6} !important;
+						}
+
+						@include media(min-width, md) {
+							margin-left: #{($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)) / 6} !important;
+						}
+					}
+
+					// ELEMENT: Rainbow value
+					// A hidden element that gets the correct value
+					// from the rainbow.
+					.iris-square-value {
+						width: $colorpicker--iris-square-value-size;
+						height: $colorpicker--iris-square-value-size;
+					}
+
+					// ELEMENT: Rainbow donut
+					// A visual element that allow user to find the
+					// desired color from rainbow.
+					.iris-square-handle {
+						width: $colorpicker--iris-square-handle-size;
+						height: $colorpicker--iris-square-handle-size;
+						opacity: 1;
+						top: -#{($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size) / 2};
+						left: -#{($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size) / 2};
+						border-width: $colorpicker--iris-square-handle-border-width;
+						border-color: $colorpicker--iris-square-handle-border-color;
+						border-radius: 100%;
+						box-shadow: 0 1px 5px 0 rgba(0,0,0,0.3);
+
+						&:after {
+							content: unset;
+						}
+					}
+				}
+			}
+
+			// STATUS: Iris open
+			&.wp-picker-active {
+				display: inline-flex;
+				flex-direction: column;
+
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					width: 262px;
+					position: relative;
+					display: block;
+				}
+			}
+		}
+	}
+}

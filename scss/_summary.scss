@@ -1,0 +1,426 @@
+@include body-class(true) {
+
+	.sui-summary {
+		padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+
+		.sui-summary-image-space,
+		.sui-summary-segment {
+			padding: #{$sui-gutter-md / 2} 0;
+
+			@include media(min-width, md) {
+				padding: 0 #{$sui-gutter / 2};
+			}
+		}
+
+		// ELEMENT: Image
+		.sui-summary-image-space {
+			display: none;
+
+			@include media(min-width, md) {
+				min-width: #{$summary-image--width + $sui-gutter};
+				min-height: $summary-size;
+				flex: 0 0 #{$summary-image--width + $sui-gutter};
+			}
+		}
+
+		// ELEMENT: Content
+		.sui-summary-segment {
+			display: block;
+
+			.sui-list {
+
+				@include media(min-width, md) {
+					padding-right: #{$sui-gutter / 2};
+					padding-left: #{$sui-gutter / 2};
+				}
+			}
+
+			.sui-summary-details {
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+					padding-left: $sui-gutter;
+				}
+			}
+
+			&:first-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-left: 0;
+					}
+				}
+			}
+
+			&:last-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-right: 0;
+					}
+				}
+			}
+
+			@include media(min-width, md) {
+				overflow: hidden;
+				flex: 1;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+
+		// ELEMENT: Summary details
+		.sui-summary-details {
+			color: $summary-details--color;
+			font-size: 13px;
+			line-height: 22px;
+			font-family: $font;
+			letter-spacing: $font--letter-spacing;
+			text-align: center;
+
+			span {
+				display: inline-block;
+			}
+
+			.sui-summary-sub {
+				display: block;
+				margin-top: 0;
+				margin-bottom: 5px;
+				color: $summary-details--sub-color;
+
+				&:last-child {
+					margin-bottom: 0;
+
+					@include media(min-width, md) {
+						margin-bottom: 0;
+					}
+				}
+
+				@include media(min-width, md) {
+					margin-bottom: 24px;
+					white-space: normal;
+				}
+			}
+
+			.sui-summary-percent {
+				margin-left: -5px;
+			}
+
+			.sui-summary-large {
+				font-size: 50px;
+				line-height: 55px;
+
+				+ .sui-summary-sub {
+
+					@include media(min-width, md) {
+						margin-top: -1px;
+					}
+				}
+			}
+
+			.sui-summary-detail {
+				display: block;
+				font-size: 15px;
+				font-weight: 500;
+
+				img {
+					position: relative;
+					vertical-align: middle;
+					top: -1px;
+					margin-right: 6px;
+
+					@include media(min-width, md) {
+						float: left;
+						vertical-align: unset;
+						top: 1px;
+					}
+				}
+
+				+ .sui-summary-sub {
+					margin-top: 5px;
+				}
+
+				@include media(min-width, md) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			[class*="sui-icon-"] {
+				position: relative;
+				top: -22px;
+				left: 5px;
+				font-size: 16px;
+
+				+ .sui-summary-percent {
+					margin-left: -20px;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-top: $sui-gutter;
+				padding-bottom: $sui-gutter;
+				text-align: left;
+			}
+		}
+
+		// ELEMENT: List of data
+		.sui-list {
+
+			li span {
+				white-space: normal;
+			}
+
+			@include media(min-width, md) {
+				padding-top: $sui-gutter;
+				padding-bottom: $sui-gutter;
+			}
+		}
+
+		// SIZE: Small
+		&.sui-summary-sm {
+
+			// ELEMENT: Image
+			.sui-summary-image-space {
+
+				@include media(min-width, md) {
+					min-width: #{$summary-image-sm--width + $sui-gutter};
+					min-height: $summary-size-sm;
+					flex: 0 0 #{$summary-image-sm--width + $sui-gutter};
+				}
+			}
+		}
+
+		// VARIATION: Branded
+		// When box is using white labelling settings from WPMU DEV Dashboard.
+		&:not(.sui-unbranded) {
+
+			// SIZE: Regular
+			&:not(.sui-summary-sm) {
+
+				// ELEMENT: Image
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image) {
+
+							@if $summary-image != '' {
+								display: block;
+							}
+						}
+					}
+				}
+
+				// FIX:
+				// This fil will allow us to add the correct margins
+				// in case summary-image variable doesn't exist or
+				// variable is empty.
+				@if variable-exists(summary-image) {
+
+					@if $summary-image == '' {
+
+						.sui-summary-image-space {
+
+							&:first-child + .sui-summary-segment {
+
+								.sui-list,
+								.sui-summary-details {
+
+									@include media(min-width, md) {
+										padding-left: 0;
+									}
+								}
+							}
+						}
+					}
+				} @else {
+
+					.sui-summary-image-space {
+
+						&:first-child + .sui-summary-segment {
+
+							.sui-list,
+							.sui-summary-details {
+
+								@include media(min-width, md) {
+									padding-left: 0;
+								}
+							}
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image) {
+						background-image: url($summary-image);
+						background-size: $summary-image--width $summary-image--height;
+						background-position: $summary-image--position;
+						background-repeat: no-repeat;
+					}
+				}
+			}
+
+			// SIZE: Small
+			&.sui-summary-sm {
+
+				// ELEMENT: Image
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image-sm) {
+
+							@if $summary-image-sm != '' {
+								display: block;
+							}
+						}
+					}
+				}
+
+				// FIX:
+				// This fil will allow us to add the correct margins
+				// in case summary-image-sm variable doesn't exist or
+				// variable is empty.
+				@if variable-exists(summary-image-sm) {
+
+					@if $summary-image-sm == '' {
+
+						.sui-summary-image-space {
+
+							&:first-child + .sui-summary-segment {
+
+								.sui-list,
+								.sui-summary-details {
+
+									@include media(min-width, md) {
+										padding-left: 0;
+									}
+								}
+							}
+						}
+					}
+				} @else {
+
+					.sui-summary-image-space {
+
+						&:first-child + .sui-summary-segment {
+
+							.sui-list,
+							.sui-summary-details {
+
+								@include media(min-width, md) {
+									padding-left: 0;
+								}
+							}
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-image: url($summary-image-sm);
+						background-size: $summary-image-sm--width $summary-image-sm--height;
+						background-position: $summary-image-sm--position;
+						background-repeat: no-repeat;
+					}
+				}
+			}
+		}
+
+		// VARIATION: Unbranded
+		// When box is using white labelling settings from WPMU DEV Dashboard
+		// but no image has been added.
+		&.sui-unbranded {
+
+			.sui-summary-image-space {
+
+				&:first-child + .sui-summary-segment {
+
+					.sui-list,
+					.sui-summary-details {
+
+						@include media(min-width, md) {
+							padding-left: 0;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image) {
+
+						@if $summary-image != '' {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		// VARIATION: Rebranded
+		// When box is using white labelling settings from WPMU DEV Dashboard
+		// and an image has been assigned by user.
+		&.sui-rebranded {
+
+			// SIZE: Regular
+			&:not(.sui-summary-sm) {
+
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image) {
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-image: unset !important;
+					}
+				}
+			}
+
+			// SIZE: Small
+			&.sui-summary-sm {
+
+				.sui-summary-image-space {
+
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image-sm) {
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-image: unset !important;
+					}
+				}
+			}
+		}
+
+		@include media(min-width, md) {
+			display: flex;
+			align-items: center;
+			padding: 0 #{$sui-gutter / 2};
+		}
+	}
+}

@@ -1,0 +1,94 @@
+@include body-class(true) {
+
+	.sui-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
+		margin-bottom: $sui-gutter;
+		line-height: 1;
+
+		h1 {
+			text-transform: uppercase;
+
+			@include media(max-width, md) {
+				flex: 0 0 100%;
+			}
+		}
+
+		.sui-actions-right {
+
+			@include media(max-width, md) {
+				margin-top: 10px;
+				margin-right: auto;
+				margin-left: 0;
+			}
+		}
+
+		.sui-actions-left {
+
+			@include media(max-width, md) {
+				margin-top: 10px;
+				margin-right: 0;
+				margin-left: 0;
+			}
+		}
+
+		&.sui-header-inline {
+			
+			h1 {
+
+				+ * {
+
+					@include media(max-width, md) {
+						margin-left: 10px;
+					}
+				}
+
+				@include media(max-width, md) {
+					flex: 1;
+				}
+			}
+
+			.sui-actions-right,
+			.sui-actions-left {
+
+				@include media(max-width, md) {
+					flex: 0 0 auto;
+					margin-top: 0;
+					margin-right: 0;
+				}
+			}
+		}
+
+		&.sui-with-floating-input {
+
+			h1 {
+
+				@include media(min-width, lg) {
+					padding-right: 260px;
+				}
+			}
+
+			@include media(max-width, md) {
+				margin-bottom: #{$sui-gutter / 2};
+			}
+		}
+
+		@include media(max-width, md) {
+			margin-bottom: $sui-gutter-md;
+		}
+	}
+
+	.sui-header-title {
+		color: $headings-color;
+		margin: 0;
+		text-align: left;
+		text-transform: uppercase;
+		font-weight: bold;
+		max-width: none;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}

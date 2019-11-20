@@ -1,0 +1,72 @@
+// Generates the required versioned body class.
+@mixin body-class($wrap: false) {
+	$formatted-version: str-replace($sui-version, '.', '-');
+
+	@if ( $wrap and $sui-wrap-class  ) {
+		.sui-#{$formatted-version} .#{$sui-wrap-class} {
+			@content;
+		}
+	}
+	@else {
+		.sui-#{$formatted-version} {
+			@content;
+		}
+	}
+}
+
+// Prevent text such as titles from wrapping.
+@mixin text-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// Media queries.
+// Examples:
+//   @include media(min-width, lg) {}
+//   @include media(max-width, sm) {}
+//   @include media(between, sm, lg) {}
+//
+@mixin media($type, $breakpoint-name-1, $breakpoint-name-2: null) {
+	@if ($type == min-width) {
+		$min-breakpoint-width: #{map-get($sui-breakpoints, $breakpoint-name-1)};
+		@media (min-width: $min-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == max-width) {
+		$max-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-1) - 1px;
+		@media (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else if ($type == between) {
+		$min-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-1);
+		$max-breakpoint-width: map-get($sui-breakpoints, $breakpoint-name-2) - 1px;
+		@media (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+	@else {
+		@warn "Unfortunately, no type could be retrieved from `#{$type}`. "
+		+ "Use either `min-width`, `max-width`, or `between`.";
+	}
+}
+
+// High PPI display background
+@mixin background-2x($path, $ext: "png", $w: auto, $h: auto, $pos: left top, $repeat: no-repeat) {
+	$at1x_path: "#{$path}.#{$ext}";
+	$at2x_path: "#{$path}@2x.#{$ext}";
+
+	background: url("#{$at1x_path}") $repeat $pos;
+	background-size: $w $h;
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (-o-min-device-pixel-ratio: 2/1),
+	only screen and (min-device-pixel-ratio: 2),
+	only screen and (min-resolution: 192dpi),
+	only screen and (min-resolution: 2dppx) {
+		background-image: url("#{$at2x_path}");
+	}
+}

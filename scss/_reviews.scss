@@ -1,0 +1,54 @@
+@include body-class(true) {
+	.sui-reviews {
+		margin-left: 25px;
+		&__stars {
+			position: relative;
+			margin-right: 5px;
+			@include icon(before, quote-2);
+			&:before {
+				position: absolute;
+				top: -12px;
+				left: -25px;
+				color: palette(silver, medium);
+			}
+			i {
+				&:before{
+					color: palette(yellow);
+				}
+			}
+		}
+		&__rating {
+			color: palette(gray, light);
+			font-size: 13px;
+			line-height: 22px;
+			vertical-align: text-bottom;
+			display: inline-block;
+		}
+		a.sui-reviews__link {
+			display: block;
+			color: palette(gray, light);
+			font-size: 13px;
+			line-height: 22px;
+			font-weight: normal;
+			font-style: italic;
+			&:focus,
+			&:hover {
+				color: palette(gray);
+				i {
+					&:before {
+						color: palette(gray);
+					}
+				}
+			}
+			i {
+				margin-left: 5px;
+				font-size: 12px;
+				line-height: 22px;
+				vertical-align: middle;
+				&:before {
+					color: palette(gray, light);
+				}
+			}
+		}
+	}
+}

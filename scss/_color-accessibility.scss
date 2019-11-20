@@ -1,0 +1,710 @@
+@include body-class(true) {
+
+	&.sui-color-accessible {
+		color: $accessible-dark;
+
+		// Typography.
+		h1, h2, h3, h4, h5, h6, p, p small, li, code, pre {
+			color: $accessible-dark;
+		}
+		a {
+			color: lighten($accessible-dark, 10%) !important;
+			&:hover {
+				color: $accessible-dark !important;
+			}
+		}
+
+		pre,
+		code {
+			background: $accessible-light;
+		}
+
+		// Box Settings
+		.sui-settings-label,
+		.sui-description {
+			color: $accessible-dark;
+		}
+
+		// Forms.
+		.sui-form-control,
+		.sui-label,
+		.sui-error-message {
+			border-color: $accessible-dark;
+			color: $accessible-dark;
+			background-color: $accessible-light;
+			&::placeholder {
+				color: $accessible-dark-alt;
+			}
+		}
+
+		.sui-checkbox,
+		.sui-radio {
+			input + span {
+				border-color: $accessible-dark;
+				& + span {
+					color: $accessible-dark;
+				}
+			}
+		}
+
+		.sui-upload-button {
+			color: $accessible-dark;
+			background: $accessible-light;
+		}
+
+		.sui-upload-label {
+			&:hover {
+				.sui-upload-button {
+					color: $accessible-light;
+					background: $accessible-dark;
+				}
+			}
+		}
+
+		.select-container {
+			.select-list-container {
+				.list-value {
+					border-color: $accessible-dark;
+				}
+				.list-results {
+					li.sui-element-flex {
+						span + span {
+							color: $accessible-dark;
+						}
+					}
+				}
+			}
+
+		}
+		.sui-insert-variables {
+
+			.sui-variables + .select2 {
+
+				.select2-selection--single {
+					border-color: $accessible-dark;
+				}
+			}
+
+			textarea.sui-form-control + .select-container {
+				background-color: transparent;
+			}
+
+		}
+
+		// Recipient.
+		.sui-recipient {
+			span {
+				color: $accessible-dark;
+			}
+		}
+
+		// Summary.
+		.sui-summary {
+			.sui-summary-segment {
+				.sui-summary-details {
+					.sui-summary-sub {
+						color: $accessible-dark;
+					}
+				}
+
+				.sui-list {
+					.sui-list-label,
+					.sui-list-detail {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Sidenav.
+		.sui-row-with-sidenav {
+			.sui-sidenav {
+				.sui-vertical-tabs {
+					a {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Tabs.
+		.sui-tabs {
+			> [data-tabs],
+			> .sui-tabs-menu {
+				> *,
+				.sui-tab-item {
+					color: $accessible-dark;
+					&:hover {
+						color: $accessible-dark-alt;
+					}
+				}
+			}
+		}
+
+		// Toggle Tabs.
+		.sui-side-tabs {
+			> [data-tabs],
+			> .sui-tabs-menu {
+				> *,
+				.sui-tab-item {
+					color: $accessible-dark-alt;
+					&.active {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
+				}
+			}
+		}
+
+		// Tags.
+		.sui-tag {
+			background: $accessible-dark;
+			color: $accessible-light;
+			&.sui-tag-ghost {
+				background: $accessible-light;
+				color: $accessible-dark;
+				border-color: $accessible-dark;
+
+			}
+		}
+
+		// Notifications.
+		.sui-notice,
+		.sui-notice-top {
+			border-left-color: $accessible-dark;
+			.sui-notice-dismiss a,
+			p:first-of-type:before {
+				color: $accessible-dark;
+			}
+		}
+		.sui-upsell-row {
+			.sui-upsell-notice {
+				p {
+					border-left: 2px solid $accessible-dark;
+					&:first-of-type:before {
+						color: $accessible-dark;
+					}
+				}
+			}
+		}
+
+		// Icons.
+		[class*="sui-icon-"],
+		.sui-dialog-close {
+			&:before {
+				color: $accessible-dark !important;
+			}
+		}
+		.sui-tab-item {
+			&.active {
+				[class*="sui-icon-"] {
+					&:before {
+						color: $accessible-light !important;
+					}
+				}
+			}
+		}
+
+		// Progress bars.
+		.sui-progress-block {
+			.sui-progress {
+				.sui-progress-bar {
+					span {
+						background: $accessible-dark;
+					}
+				}
+				.sui-progress-text {
+					span {
+						color: $accessible-dark;
+					}
+				}
+			}
+		}
+		.sui-progress-state {
+			span {
+				color: $accessible-dark;
+			}
+		}
+
+		// ELEMENT: Tables
+		.sui-table {
+			border-color: $accessible-dark;
+
+			th, td {
+				color: $accessible-dark;
+			}
+
+			thead, tbody, tfoot {
+
+				> tr > {
+
+					th,
+					.sui-table-item-title,
+					.sui-accordion-item-title {
+						color: $accessible-dark;
+					}
+
+					th, td {
+						border-bottom-color: $accessible-dark;
+					}
+				}
+			}
+
+			tbody {
+
+				tr.sui-error,
+				tr.sui-warning,
+				tr.sui-success {
+
+					th,
+					.sui-table-item-title,
+					.sui-accordion-item-title {
+						color: $accessible-dark;
+					}
+
+					td {
+						color: $accessible-dark;
+					}
+				}
+
+				// STATUS: All
+				tr.sui-default,
+				tr.sui-error,
+				tr.sui-warning,
+				tr.sui-success {
+					box-shadow: none;
+				}
+			}
+
+			&-title {
+				color: $accessible-dark;
+			}
+		}
+
+		// ELEMENT: Accordions
+		.sui-accordion {
+
+			// DESIGN: Table (Flexbox)
+			&:not(.sui-table):not(.sui-accordion-block):not(.sui-builder-fields) {
+				border-color: $accessible-dark;
+
+				.sui-accordion-header {
+					border-bottom-color: $accessible-dark;
+
+					> div {
+						color: $accessible-dark;
+					}
+				}
+
+				.sui-accordion-item {
+					border-bottom-color: $accessible-dark;
+
+					.sui-accordion-item-header {
+						color: $accessible-dark;
+
+						.sui-accordion-item-title {
+							color: $accessible-dark;
+						}
+					}
+
+					// STATUS: All
+					&.sui-default,
+					&.sui-error,
+					&.sui-warning,
+					&.sui-success {
+
+						> .sui-accordion-item-header,
+						> .sui-accordion-item-body {
+							box-shadow: none;
+						}
+					}
+
+					// When item is disabled
+					&.sui-accordion-item--disabled {
+
+						.sui-accordion-item-header {
+
+							&, .sui-accordion-item-title {
+								color: $accessible-dark-alt;
+							}
+						}
+					}
+				}
+			}
+
+			// DESIGN: Table
+			// Must use in conjunction with .sui-table on the <table> element.
+			&.sui-table {
+
+				> tbody {
+
+					> .sui-accordion-item {
+
+						// STATUS: All
+						&.sui-default,
+						&.sui-error,
+						&.sui-warning,
+						&.sui-success {
+
+							+ .sui-accordion-item-content {
+								box-shadow: none;
+							}
+						}
+
+						// When item is disabled
+						&.sui-accordion-item--disabled {
+
+							th, td {
+								color: $accessible-dark-alt;
+							}
+
+							&.sui-error,
+							&.sui-warning,
+							&.sui-success {
+								box-shadow: none;
+							}
+						}
+					}
+				}
+			}
+
+			// DESIGN: Blocks (Flexbox)
+			&-block {
+
+				.sui-accordion-item {
+					background-color: $accessible-light;
+
+					.sui-accordion-item-header {
+						color: $accessible-dark;
+
+						strong {
+							color: inherit;
+						}
+
+						.sui-accordion-item-title {
+							color: $accessible-dark;
+						}
+					}
+
+					.sui-accordion-item-body {
+
+						.sui-accordion-item-data {
+
+							li strong {
+								color: inherit;
+							}
+
+							// Loading data animation when accordion opens
+							&.sui-onload {
+
+								li > * {
+									color: transparent !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Scores.
+		.sui-grade-a,
+		.sui-grade-b,
+		.sui-grade-c,
+		.sui-grade-d,
+		.sui-grade-e,
+		.sui-grade-f  {
+			svg circle:last-child {
+				stroke: $accessible-dark;
+			}
+		}
+
+		// Dropdowns.
+		.sui-dropdown {
+			ul {
+				li {
+					color: $accessible-dark;
+					&:hover {
+						color: $accessible-dark;
+					}
+				}
+			}
+
+		}
+
+		// Buttons.
+		.sui-button-icon:not(.sui-button),
+		.sui-button {
+			color: $accessible-light !important;
+			background: $accessible-dark !important;
+			&:hover {
+				color: $accessible-light !important;
+			}
+			i {
+				&:before {
+					color: $accessible-light !important;
+				}
+			}
+			&.sui-button-ghost {
+				padding: 7px 16px;
+				border: 0;
+			}
+			&.sui-button-upsell {
+				background: $accessible-light !important;
+				color: $accessible-dark !important;
+				border-color: $accessible-dark;
+				&:hover {
+					border-color: $accessible-dark;
+				}
+
+			}
+
+		}
+
+		// Lists.
+		.sui-list {
+			.sui-list-label,
+			.sui-list-detail {
+				color: $accessible-dark;
+			}
+		}
+
+		// Toggles.
+		.sui-toggle {
+			input[type=checkbox] + .sui-toggle-slider {
+				&:hover {
+					box-shadow: none;
+				}
+			}
+			input[type=checkbox]:checked + .sui-toggle-slider {
+				background-color: $accessible-dark;
+				&:hover {
+					box-shadow: none;
+				}
+			}
+		}
+
+		// Checkbox and Radio.
+		.sui-checkbox,
+		.sui-radio {
+			input:checked+span {
+				border-color: $accessible-dark;
+				background-color: $accessible-dark;
+			}
+		}
+
+		// Status dot.
+		.sui-status-dot {
+			span {
+				background-color: $accessible-light;
+				border: 1px solid $accessible-dark;
+			}
+			&.sui-published {
+				span {
+					background-color: $accessible-dark;
+					border: none;
+				}
+			}
+		}
+
+		// WP Editor.
+		.wp-editor-wrap {
+			&.tmce-active {
+				.wp-editor-tabs {
+					.switch-tmce {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
+				}
+			}
+			&.html-active {
+				.wp-editor-tabs {
+					.switch-html {
+						color: $accessible-light;
+						background-color: $accessible-dark;
+					}
+				}
+			}
+			.wp-media-buttons {
+				.insert-media {
+					background-color: $accessible-dark !important;
+				}
+			}
+		}
+
+		// Ace editor selectors.
+		.sui-ace-selectors {
+			a.sui-selector {
+				background-color: $accessible-dark;
+				color: $accessible-light !important;
+			}
+		}
+
+		// ACE editor elements.
+		.ace-sui {
+			.ace_gutter {
+				background: $accessible-dark;
+			}
+			.ace_text-layer {
+				color: $accessible-dark;
+			}
+			.ace_content {
+				background-color: $accessible-light;
+			}
+			.ace_line {
+				filter: brightness(0%);
+			}
+		}
+
+		// Pagination filters.
+		.sui-pagination-wrap {
+			.sui-pagination-filter {
+				.sui-active-filter,
+				.sui-active-filter-remove,
+				.sui-active-filter-remove:hover {
+					background-color: $accessible-dark;
+				}
+			}
+		}
+
+		// SUI box.
+		.sui-box {
+			.sui-box-title {
+				color: $accessible-dark !important;
+			}
+		}
+
+		// SUI selector box.
+		.sui-box-selector {
+			input + span {
+				color: $accessible-dark-alt;
+				~span {
+					color: $accessible-dark-alt;
+				}
+			}
+			input:checked+span {
+				background-color: $accessible-light !important;
+				color: $accessible-dark;
+				&:after {
+					border-top: 40px solid $accessible-dark;
+				}
+				~span {
+					border-top-color: $accessible-dark-alt;
+				}
+			}
+			input:checked+span [class*=sui-icon]:before {
+				color: $accessible-dark;
+			}
+		}
+
+		// SUI status box.
+		.sui-box-status {
+			.sui-status {
+				.sui-status-changes,
+				.sui-status-module {
+					color: $accessible-dark-alt;
+				}
+			}
+		}
+
+		// Sidenav.
+		.sui-row-with-sidenav {
+			.sui-sidenav {
+				.sui-vertical-tabs {
+					.sui-vertical-tab.current {
+						box-shadow: 0 0 0 1px $accessible-dark;
+						background-color: transparent;
+					}
+				}
+			}
+		}
+
+		// Select & Select2.
+		.select-container {
+			border-color: $accessible-dark;
+			background-color: $accessible-light;
+			.select-list-container {
+				.list-results {
+					border-color: $accessible-dark;
+					li {
+						color: $accessible-dark;
+						&.current {
+							background-color: $accessible-dark;
+							color: $accessible-light;
+						}
+					}
+				}
+			}
+		}
+
+		select.sui-select + .select2-container {
+			.select2-selection--single {
+				border-color: $accessible-dark;
+				background-color: $accessible-light;
+				.select2-selection__arrow::before {
+					color: $accessible-dark;
+				}
+				.select2-selection__rendered {
+					color: $accessible-dark;
+				}
+			}
+
+			.select2-selection--multiple {
+				border-color: $accessible-dark;
+				background-color: $accessible-light;
+				.select2-selection__rendered {
+					.select2-selection__choice {
+						background-color: $accessible-dark;
+					}
+				}
+			}
+		}
+
+		// Footer.
+		.sui-footer {
+			color: $accessible-dark;
+		}
+	}
+}
+
+// Loaded outside of sui-wrap.
+@include body-class() {
+	// Select2.
+	.sui-select-dropdown {
+		&.sui-color-accessible {
+			border-color: $accessible-dark;
+			.select2-results {
+				.select2-results__group,
+				.select2-results__option {
+					color: $accessible-dark;
+				}
+				> .select2-results__options {
+					.select2-results__option {
+						color: $accessible-dark;
+						&[aria-selected=true] {
+							background-color: $accessible-dark;
+							color: $accessible-light;
+
+						}
+					}
+					.select2-results__option--highlighted:not([aria-selected=true]) {
+						color: $accessible-dark;
+					}
+				}
+			}
+			.select2-search--dropdown {
+				.select2-search__field {
+					border-color: $accessible-dark;
+				}
+			}
+			.select2-results__message {
+				color: $accessible-dark;
+			}
+			.select2-search--dropdown:after {
+				color: $accessible-dark;
+			}
+		}
+	}
+}

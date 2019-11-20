@@ -1,0 +1,14 @@
+/**
+WP Admin Notices
+
+This is used to give admin notices that are loaded outside of the .wrap but inside .sui-*-*-* the proper styles
+
+ */
+@include body-class {
+	#wpbody-content > .notice {
+		margin: 10px 30px 15px 10px;
+		@include media( max-width, md ) {
+			margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
+		}
+	}
+}

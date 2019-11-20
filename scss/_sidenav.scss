@@ -1,0 +1,184 @@
+@include body-class(true) {
+	position: relative;
+
+	.sui-row-with-sidenav {
+		width: 100%;
+		display: table;
+		table-layout: fixed;
+		clear: both;
+		margin-bottom: 30px;
+
+		.sui-sidenav {
+			vertical-align: top;
+
+			.sui-vertical-tabs {
+				margin: 15px 0 0;
+				padding: 0;
+				border: 0;
+				list-style: none;
+
+				.sui-vertical-tab {
+					height: 30px;
+					position: relative;
+					margin: 0 0 6px;
+					padding: 5px 15px;
+					line-height: 1.5em;
+					list-style: none;
+
+					&.current {
+						background-color: $sidenav-tab-active-bg-color;
+						border-radius: 20px;
+
+						a {
+							color: $sidenav-tab-active-color;
+						}
+					}
+
+					i,
+					.sui-tag {
+						position: absolute;
+						top: 2px;
+						right: 3px;
+					}
+
+					[class*="sui-icon-"] {
+						top: 6px;
+						right: 7px;
+
+						&:before {
+							font-size: 16px;
+						}
+					}
+				}
+
+				a {
+					display: block;
+					color: $sidenav-tab-color;
+					font-weight: 500;
+					transition: 0.3s ease;
+
+					&:hover,
+					&:focus {
+						color: $sidenav-tab-color-hover;
+					}
+				}
+
+				&.sui-alt-design {
+
+					.sui-vertical-tab {
+						height: auto;
+						padding: 0;
+						background-color: transparent;
+						line-height: auto;
+
+						a {
+							padding: 5px 15px;
+							border-radius: 20px;
+							background-color: transparent;
+
+							&.current {
+								background-color: $sidenav-tab-active-bg-color;
+								color: $sidenav-tab-active-color;
+							}
+						}
+					}
+				}
+
+				@include media(max-width, lg) {
+					margin-bottom: 15px;
+				}
+
+				@include media(min-width, lg) {
+					margin-bottom: 30px;
+				}
+			}
+
+			.sui-with-floating-input {
+
+				@include media(max-width, lg) {
+					left: 0 !important;
+				}
+
+				@include media(min-width, lg) {
+					width: 240px;
+					position: absolute;
+					top: 0;
+					left: #{$sidenav-width + 10px};
+					margin: 0;
+				}
+			}
+
+			.sui-sidenav-settings {
+
+				.sui-form-field {
+					margin: 0 0 10px;
+
+					.sui-mobile-nav {
+						margin-bottom: 0;
+					}
+
+					&:last-child {
+						margin: 0;
+					}
+				}
+
+				@include media(max-width, lg) {
+					margin-bottom: $sui-gutter-md;
+				}
+
+				@include media(min-width, lg) {
+					padding-left: 15px;
+				}
+			}
+
+			// FIX:
+			// Hide elements on large screens (only)
+			.sui-sidenav-hide-md {
+
+				@include media(max-width, lg) {
+					display: none;
+				}
+			}
+
+			// FIX:
+			// Show elements on large screens (only)
+			.sui-sidenav-hide-lg {
+
+				@include media(min-width, lg) {
+					display: none;
+				}
+			}
+
+			@include media(max-width, lg) {
+				width: 100%;
+				display: block;
+			}
+
+			@include media(min-width, lg) {
+				width: $sidenav-width;
+				display: table-cell;
+				padding-right: $sui-gutter;
+			}
+		}
+
+		.sui-sidenav-sticky {
+
+			@include media(min-width, lg) {
+				position: sticky !important;
+				top: #{32px + 15px};
+				z-index: 11;
+			}
+		}
+
+		> div:not(.sui-sidenav) {
+			display: block;
+			position: relative;
+			vertical-align: top;
+			margin-bottom: 0; // FIX: To prevent double margins at bottom
+		}
+
+		@media (max-width: 1100px) {
+			display: block;
+		}
+	}
+}

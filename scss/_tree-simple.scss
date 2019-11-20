@@ -1,0 +1,633 @@
+$tree--file-type: (
+	default:     'page',
+	page:        'page',
+	folder:      'folder',
+	pdf:         'page-pdf',
+	zip:         'zip',
+	lock:        'lock',
+	image:       'photo-picture',
+	img:         'photo-picture',
+	png:         'photo-picture',
+	jpg:         'photo-picture',
+	jpeg:        'photo-picture',
+	wpmudev:     'wpmudev',
+	defender:    'defender',
+	smush:       'smush',
+	hummingbird: 'hummingbird',
+	uptime:      'uptime',
+	smartcrawl:  'smart-crawl',
+	forminator:  'forminator',
+	shipper:     'shipper-anchor',
+	snapshot:    'snapshot',
+	hustle:      'hustle',
+	performance: 'performance',
+);
+
+@include body-class(true) {
+
+	.sui-tree {
+
+		&, ul, li {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			list-style: none;
+		}
+
+		li[role="treeitem"],
+		span[role="contentinfo"] {
+
+			button[data-button],
+			span[role="button"] {
+				cursor: pointer;
+				display: block;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+				background-color: transparent;
+				background-image: none;
+
+				span[aria-hidden] {
+					pointer-events: initial;
+					position: relative;
+					font-family: $font;
+				}
+
+				&,
+				&:focus,
+				&:hover,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+
+			span[role="button"],
+			button[data-button] span[aria-hidden] {
+				width: 22px;
+				height: 22px;
+				display: block;
+				color: palette(gray, light);
+				text-align: center;
+
+				@include icon(before, false, true) {
+					width: 22px;
+					height: 22px;
+					display: block;
+					margin: 0 auto;
+					color: inherit;
+					font-size: 12px;
+					line-height: 22px;
+					transition: 250ms linear; // Match with slideToggle() timing
+				}
+
+				// TYPE: Add
+				&[data-button="add"] {
+					@include icon(before, plus, false);
+				}
+
+				// TYPE: Remove
+				&[data-button="remove"] {
+					@include icon(before, close, false);
+				}
+
+				// TYPE: Trash
+				&[data-button="trash"] {
+					@include icon(before, trash, false);
+				}
+			}
+
+			&,
+			&:focus,
+			&:hover,
+			&:active {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+		li[role="treeitem"] {
+			display: block;
+
+			> .sui-tree-node {
+				display: flex;
+
+				> span {
+					display: block;
+					flex: 0 1 auto;
+				}
+
+				> .sui-node-checkbox[role="checkbox"],
+				> label.sui-node-checkbox {
+					width: 16px;
+					height: 16px;
+				}
+
+				> .sui-node-checkbox[role="checkbox"] {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border: 1px solid palette(gray, lighter);
+					border-radius: $border-radius;
+					background-color: #FAFAFA;
+
+					@include icon(before, element-checkbox, true) {
+						opacity: 0;
+						display: block;
+						color: $blue;
+						font-size: 16px;
+					}
+				}
+
+				> label.sui-node-checkbox {
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+
+					input,
+					span:not([aria-hidden]) {
+						@extend %sui-screen-reader-text;
+					}
+
+					span[aria-hidden] {
+						width: 16px;
+						height: 16px;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border: 1px solid palette(gray, lighter);
+						border-radius: $border-radius;
+						background-color: #FAFAFA;
+
+						@include icon(before, element-checkbox, true) {
+							opacity: 0;
+							display: block;
+							color: $blue;
+							font-size: 16px;
+						}
+					}
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						outline: none;
+						box-shadow: none;
+					}
+				}
+
+				> span[aria-hidden] {
+					width: 16px;
+					height: 16px;
+					pointer-events: none;
+					display: block;
+					color: palette(silver, medium);
+					text-align: center;
+
+					@include icon(before, false, true) {
+						display: block;
+						color: inherit;
+						font-size: 16px;
+						line-height: 16px;
+					}
+				}
+
+				> span.sui-node-text {
+					display: block;
+					color: palette(gray, default);
+					font-size: 13px;
+					font-family: $font;
+					font-weight: 500;
+					letter-spacing: $font--letter-spacing;
+				}
+			}
+
+			ul[role="group"] {
+				display: none;
+			}
+
+			&[aria-expanded] {
+
+				> .sui-tree-node {
+
+					> span.sui-node-text {
+						cursor: pointer;
+					}
+				}
+			}
+
+			// STATUS: Selected
+			&[aria-selected="true"] {
+
+				> .sui-tree-node {
+
+					> .sui-node-checkbox[role="checkbox"],
+					> label.sui-node-checkbox span {
+						border-color: $blue;
+
+						&:before {
+							opacity: 1;
+						}
+					}
+				}
+
+				// STATUS: Disabled
+				&[aria-disabled="true"] {
+
+					> .sui-tree-node {
+
+						> .sui-node-checkbox[role="checkbox"],
+						> label.sui-node-checkbox span {
+							border-color: palette(silver, default);
+							background-color: palette(silver, medium);
+
+							&:before {
+								color: palette(silver, default);
+							}
+						}
+					}
+				}
+			}
+
+			// STATUS: Disabled
+			&[aria-disabled="true"] {
+
+				> .sui-tree-node {
+					cursor: not-allowed;
+
+					* {
+						pointer-events: none;
+					}
+
+					> .sui-node-checkbox[role="checkbox"],
+					> label.sui-node-checkbox span {
+						border-color: palette(silver, default);
+						background-color: palette(silver, default);
+					}
+
+					> span.sui-node-text {
+						color: palette(silver, medium);
+					}
+				}
+			}
+		}
+
+		div[role="contentinfo"],
+		span[role="contentinfo"] {
+			display: none;
+			align-items: center;
+			margin: 0 0 5px;
+			padding: 5px 10px;
+			border-radius: $border-radius;
+			background-color: palette(silver, light);
+
+			span[role="form"] {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				margin: 0;
+				padding: 0;
+				border: 0;
+
+				input:not([type="radio"]):not([type="checkbox"]) {
+					width: auto;
+					min-width: 180px;
+					max-width: 100%;
+					height: 30px;
+					flex: 0 0 auto;
+					margin: 0;
+					padding: 6px 11px;
+					border: 1px solid palette(gray, lighter);
+					border-radius: $border-radius;
+					background-color: $white;
+					color: palette(gray, dark);
+					font: 500 12px/16px $font;
+					letter-spacing: $font--letter-spacing;
+
+					&,
+					&:focus,
+					&:hover {
+						outline: none;
+					}
+				}
+
+				button,
+				span[role="button"] {
+					width: 24px;
+					height: 22px;
+					cursor: pointer;
+					display: flex;
+					flex: 0 0 24px;
+					align-items: center;
+					justify-content: center;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					border-radius: $border-radius;
+					background-color: $blue;
+					background-image: none;
+					color: $white;
+					transition: $transition;
+
+					span[aria-hidden] {
+						pointer-events: initial;
+						position: relative;
+						font-family: $font;
+					}
+
+					@include icon(before, check, true) {
+						height: 12px;
+						display: block;
+						color: inherit;
+						font-size: 12px;
+						line-height: 12px;
+					}
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						outline: none;
+						box-shadow: none;
+					}
+
+					&:hover,
+					&:active {
+						background-color: darken($blue, 10%);
+					}
+
+					&:not(:first-child) {
+						margin-left: 5px;
+					}
+				}
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&.sui-show {
+				display: flex;
+			}
+		}
+
+		// VARIATION: Icons
+		li[role="treeitem"] {
+
+			&[aria-expanded="true"] {
+
+				> .sui-tree-node {
+
+					> span[aria-hidden] {
+
+						@each $type, $icon in $tree--file-type {
+
+							@if 'default' != $type {
+
+								&[data-type="#{$type}"] {
+									@include icon(before, $icon, false);
+								}
+							}
+
+							@else {
+								@include icon(before, folder-open, false);
+							}
+						}
+					}
+				}
+			}
+
+			&[aria-expanded="false"] {
+
+				> .sui-tree-node {
+
+					> span[aria-hidden] {
+
+						@each $type, $icon in $tree--file-type {
+
+							@if 'default' != $type {
+
+								&[data-type="#{$type}"] {
+									@include icon(before, $icon, false);
+								}
+							}
+
+							@else {
+								@include icon(before, folder, false);
+							}
+						}
+					}
+				}
+			}
+
+			&:not([aria-expanded]) {
+
+				> .sui-tree-node {
+
+					> span[aria-hidden] {
+
+						@each $type, $icon in $tree--file-type {
+
+							@if 'default' == $type {
+								@include icon(before, $icon, false);
+							}
+
+							@else {
+
+								&[data-type="#{$type}"] {
+									@include icon(before, $icon, false);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// TREE: Selector
+		&[data-tree="selector"] {
+
+			li[role="treeitem"] {
+				margin: 0 0 10px;
+
+				&:last-child {
+					margin: 0;
+				}
+
+				> .sui-tree-node {
+
+					> .sui-node-checkbox {
+						margin: 3px 0;
+
+						+ span {
+							margin-left: 10px;
+						}
+					}
+
+					> span.sui-node-text {
+						line-height: 22px;
+					}
+
+					> span[data-button="expander"],
+					> button[data-button="expander"] span[aria-hidden] {
+						@include icon(before, chevron-down, false);
+					}
+				}
+
+				ul[role="group"] {
+					margin: 10px 0 0;
+					padding-left: 26px;
+				}
+
+				// STATUS: Expanded
+				&[aria-expanded="true"] {
+
+					> .sui-tree-node {
+
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
+
+							&:before {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// TREE: Directory Browser
+		&[data-tree="directory"] {
+
+			li[role="treeitem"] {
+				margin: 0 0 5px;
+
+				&:last-child {
+					margin: 0;
+				}
+
+				> .sui-tree-node {
+					padding: 5px 20px;
+					border-radius: $border-radius;
+
+					> span[role="button"],
+					> button[data-button] span[aria-hidden] {
+						width: 30px;
+						height: 30px;
+
+						&:first-child {
+							margin-left: -10px;
+						}
+
+						&:last-child {
+							margin-right: -9px;
+						}
+
+						&:before {
+							height: 30px;
+							line-height: 30px;
+						}
+					}
+
+					// TYPE: Expander
+					> span[role="button"][data-button="expander"],
+					> button[data-button="expander"] span[aria-hidden] {
+						@include icon(before, chevron-right, false);
+					}
+
+					> .sui-node-checkbox {
+						margin: 7px 0;
+					}
+
+					> span[aria-hidden] {
+						margin: 7px 5px 7px 10px;
+					}
+
+					> span.sui-node-text {
+						flex: 1;
+						margin: 6px 0 4px;
+						line-height: 20px;
+					}
+				}
+
+				ul[role="group"] {
+					margin: 5px 0 0;
+					padding-left: 20px;
+				}
+
+				// STATUS: Expanded
+				&[aria-expanded="true"] {
+
+					> .sui-tree-node {
+						background-color: palette(silver, default);
+
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
+
+							&:before {
+								transform: rotate(90deg);
+							}
+						}
+					}
+				}
+
+				// STATUS: Selected
+				&[aria-selected="true"] {
+
+					> .sui-tree-node {
+						background-color: palette(blue, light);
+
+						> span[data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
+
+							&:before {
+								color: $blue;
+							}
+						}
+
+						> span[aria-hidden] {
+							color: $blue;
+						}
+
+						> span.sui-node-text {
+							color: $blue;
+						}
+					}
+				}
+
+				// STATUS: Disabled
+				&[aria-disabled="true"] {
+
+					> .sui-tree-node {
+
+						> span[role="button"],
+						> button[data-button] span[aria-hidden] {
+
+							&:before {
+								color: palette(gray, lighter);
+							}
+						}
+
+						// TYPE: Expander
+						> span[role="button"][data-button="expander"],
+						> button[data-button="expander"] span[aria-hidden] {
+							@include icon(before, lock, false);
+						}
+
+						> span[aria-hidden] {
+
+							&:before {
+								color: palette(gray, lighter);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

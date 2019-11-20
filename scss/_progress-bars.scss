@@ -1,0 +1,111 @@
+@include body-class(true) {
+
+	.sui-progress {
+		display: flex;
+		align-items: center;
+
+		.sui-progress-icon {
+			width: 26px;
+			text-align: center;
+
+			[class*="sui-icon-"] {
+				display: block;
+				font-size: 16px;
+
+				&:before {
+					display: block;
+				}
+			}
+
+			+ .sui-progress-text {
+				margin-left: 0;
+			}
+
+			+ .sui-progress-bar {
+				margin-left: 5px;
+			}
+		}
+
+		.sui-progress-text {
+			min-width: 40px;
+			flex: 0 0 auto;
+			color: $progress-text--color;
+			font: bold 12px/20px $font;
+			letter-spacing: $font--letter-spacing;
+			text-align: center;
+
+			span {
+				display: block;
+			}
+
+			+ .sui-progress-bar {
+				margin-left: 5px;
+			}
+		}
+
+		.sui-progress-bar {
+			height: $progress-bar--size;
+			overflow: hidden;
+			flex: 1;
+			border-radius: #{$progress-bar--size / 2};
+			background-color: $progress-bar--background;
+
+			span {
+				height: 100%;
+				display: block;
+				background-color: $progress-bar--loading-color;
+			}
+		}
+	}
+
+	.sui-progress-block {
+		width: 100%;
+		max-width: 100%;
+		min-height: $progress-block--size;
+		display: flex;
+		align-items: center;
+		padding: #{($progress-block--size - 32px) / 2} 14px;
+		border: 1px solid $progress-block--border-color;
+		border-radius: $border-radius;
+		background-color: $progress-block--background;
+
+		.sui-progress {
+			flex: 1;
+
+			+ .sui-button,
+			+ .sui-button-icon {
+				margin-left: 10px;
+			}
+		}
+
+		.sui-button,
+		.sui-button-icon {
+			flex: 0 0 auto;
+		}
+
+		.sui-button-icon,
+		a.sui-button-icon,
+		button.sui-button-icon {
+
+			[class*="sui-icon-"] {
+				font-size: 16px;
+			}
+		}
+
+		+ .sui-progress-state {
+			margin-top: 10px;
+		}
+	}
+
+	.sui-progress-state {
+		display: block;
+		color: $progress-status--color;
+		font: 400 13px/22px $font;
+		letter-spacing: $font--letter-spacing;
+		text-align: center;
+
+		span {
+			display: block;
+		}
+	}
+}

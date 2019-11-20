@@ -1,0 +1,335 @@
+// HELPER: Radio
+%radio-checkbox {
+	user-select: none;
+	align-items: flex-start;
+
+	input {
+		@extend %sui-screen-reader-text;
+
+		+ span {
+			width: $radio-checkbox--size;
+			height: $radio-checkbox--size;
+			cursor: pointer;
+			display: block;
+			flex-shrink: 0;
+			position: relative;
+			margin: #{($radio-checkbox--line-height - $radio-checkbox--size) / 2} 0;
+			border: 1px solid $radio-checkbox--border-color;
+			border-radius: $border-radius;
+			background-color: $radio-checkbox--background;
+			transition: 0.3s ease;
+
+			&:before {
+				opacity: 0;
+				transition: 0.3s ease;
+			}
+
+			+ span,
+			+ .sui-description {
+				cursor: pointer;
+				margin: 0 0 0 10px;
+				color: $radio-checkbox--color;
+				font-size: $radio-checkbox--font-size;
+				line-height: $radio-checkbox--line-height;
+				font-weight: $font--medium;
+
+				&.sui-description-sm {
+					font-size: $radio-checkbox--font-size-sm;
+				}
+			}
+
+			~ .sui-tag {
+				margin-top: auto;
+				margin-bottom: auto;
+				margin-left: 10px;
+			}
+		}
+
+		&:checked {
+
+			+ span {
+				border-color: $radio-checkbox--checked-border-color;
+				background-color: $radio-checkbox--checked-background;
+
+				&:before {
+					opacity: 1;
+				}
+			}
+		}
+
+		&:disabled,
+		&[disabled],
+		&.sui-disabled {
+
+			+ span {
+				cursor: not-allowed;
+				border-color: $radio-checkbox--disabled-border-color;
+				background-color: $radio-checkbox--disabled-background;
+
+				+ span,
+				+ .sui-description {
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+
+	&:last-child {
+
+		@include media(max-width, md) {
+			margin-bottom: 0;
+		}
+
+		@include media(min-width, md) {
+			margin-right: 0;
+		}
+	}
+
+	@include media(max-width, md) {
+		display: flex;
+		margin: 0 0 #{$sui-gutter-md / 2};
+	}
+
+	@include media(min-width, md) {
+		display: inline-flex;
+		margin: 0 #{$sui-gutter / 2} 0 0;
+	}
+}
+
+@include body-class(true) {
+
+	// ============================================================
+	// ELEMENT: Radio
+	.sui-radio {
+		@extend %radio-checkbox;
+
+		input {
+
+			+ span {
+				position: relative;
+				border-radius: 50%;
+
+				&:before {
+					content: " ";
+					width: $radio-checkbox--check-size;
+					height: $radio-checkbox--check-size;
+					display: block;
+					position: absolute;
+					top: #{(($radio-checkbox--size - $radio-checkbox--check-size) / 2) - 1px};
+					left: #{(($radio-checkbox--size - $radio-checkbox--check-size) / 2) - 1px};
+					border-radius: $radio-checkbox--size;
+					background-color: $radio-checkbox--check-color;
+				}
+			}
+
+			&:disabled,
+			&[disabled],
+			&.sui-disabled {
+
+				+ span:before {
+					background-color: $radio-checkbox--disabled-check-color;
+				}
+			}
+		}
+
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-radio-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+				margin: 0 0 #{$sui-gutter-md / 2};
+			}
+		}
+
+		// VARIATION: Small
+		// This variation will affect label (text) only.
+		&.sui-radio-sm {
+
+			input + span {
+
+				+ span,
+				+ .sui-description {
+					font-size: $radio-checkbox--font-size-sm;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// ELEMENT: Radio Image
+	.sui-radio-image {
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+
+			+ .sui-radio {
+				margin-top: 15px;
+			}
+		}
+
+		+ * {
+
+			@include media(max-width, md) {
+				margin-top: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-left: $sui-gutter-md;
+			}
+		}
+
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-radio-stacked {
+
+			+ * {
+	
+				@include media(min-width, md) {
+					margin-top: $sui-gutter;
+					margin-left: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: inline-flex;
+			}
+		}
+
+		@include media(max-width, md) {
+			display: flex;
+		}
+
+		@include media(min-width, md) {
+			display: inline-flex;
+		}
+	}
+
+	// ============================================================
+	// ELEMENT: Checkbox
+	.sui-checkbox {
+		@extend %radio-checkbox;
+
+		input {
+
+			+ span {
+
+				@include icon(before, check) {
+					width: #{$radio-checkbox--size - 2px};
+					height: #{$radio-checkbox--size - 2px};
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: $radio-checkbox--check-color;
+					font-size: $radio-checkbox--icon-size;
+					text-align: center;
+				}
+			}
+
+			&:disabled,
+			&[disabled],
+			&.sui-disabled {
+
+				+ span:before {
+					color: $radio-checkbox--disabled-check-color;
+				}
+			}
+		}
+
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-checkbox-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+				margin: 0 0 #{$sui-gutter-md / 2};
+			}
+		}
+
+		// VARIATION: Small
+		// This variation will affect label (text) only.
+		&.sui-checkbox-sm {
+
+			input + span {
+
+				+ span,
+				+ .sui-description {
+					font-size: $radio-checkbox--font-size-sm;
+				}
+			}
+		}
+	}
+
+	// ============================================================
+	// ELEMENT: Checkbox Image
+	.sui-checkbox-image {
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			display: block;
+			margin: 0;
+			padding: 0;
+			border: 0;
+
+			+ .sui-checkbox {
+				margin-top: 15px;
+			}
+		}
+
+		+ * {
+
+			@include media(max-width, md) {
+				margin-top: $sui-gutter-md;
+			}
+
+			@include media(min-width, md) {
+				margin-left: $sui-gutter-md;
+			}
+		}
+
+		// VARIATION: Stacked
+		// To pile one element per-line
+		&.sui-checkbox-stacked {
+
+			+ * {
+	
+				@include media(min-width, md) {
+					margin-top: $sui-gutter;
+					margin-left: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: inline-flex;
+			}
+		}
+
+		@include media(max-width, md) {
+			display: flex;
+		}
+
+		@include media(min-width, md) {
+			display: inline-flex;
+		}
+	}
+}

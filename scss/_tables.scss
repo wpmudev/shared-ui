@@ -1,0 +1,240 @@
+@include body-class(true) {
+
+	.sui-table {
+		width: 100%;
+		table-layout: fixed;
+		margin: $sui-gutter-md 0;
+		border-collapse: unset;
+		border-spacing: unset;
+		border: 1px solid $table--border-color;
+		border-radius: $border-radius;
+		color: $table--text-color;
+		font-size: $table--text-font-size;
+		line-height: $table--text-line-height;
+		letter-spacing: $font--letter-spacing;
+
+		thead, tbody, tfoot {
+
+			> tr > {
+
+				th,
+				.sui-table-item-title,
+				.sui-accordion-item-title {
+					color: $table--th-color;
+					text-align: left;
+				}
+			
+				th, td {
+					height: 40px;
+					vertical-align: middle;
+					padding: 5px #{($sui-gutter-md / 2) - $table--border-width};
+					border: 0;
+					border-bottom: $table--border-width $table--border-style $table--border-color;
+
+					&:first-child {
+						padding-left: #{$sui-gutter-md - $table--border-width};
+
+						@include media(min-width, md) {
+							padding-left: #{$sui-gutter - $table--border-width};
+						}
+					}
+
+					&:last-child {
+						padding-right: #{$sui-gutter-md - $table--border-width};
+
+						@include media(min-width, md) {
+							padding-right: #{$sui-gutter - $table--border-width};
+						}
+					}
+	
+					@include media(min-width, md) {
+						height: 60px;
+						padding-right: #{($sui-gutter / 2) - $table--border-width};
+						padding-left: #{($sui-gutter / 2) - $table--border-width};
+					}
+				}
+			}
+
+			&:last-child > tr:last-child > {
+
+				th, td {
+					border-bottom: 0;
+				}
+			}
+		}
+
+		thead {
+
+			tr th {
+				font-weight: bold;
+				white-space: nowrap;
+			}
+		}
+
+		tbody {
+
+			tr th,
+			tr td {
+
+				.sui-toggle {
+					vertical-align: text-top;
+				}
+
+				> [class*="sui-icon-"] {
+					margin-right: 10px;
+					font-size: 10px;
+
+					&.sui-icon-right {
+						margin-right: 0;
+						margin-left: 10px;
+					}
+				}
+			}
+
+			tr th,
+			tr .sui-table-item-title,
+			tr .sui-accordion-item-title {
+				font-weight: 500;
+			}
+
+			tr .sui-table-item-title,
+			tr .sui-accordion-item-title {
+
+				> [class*="sui-icon-"] {
+					margin-right: 10px;
+					font-size: 16px;
+					vertical-align: middle;
+
+					&:before {
+						display: inline-block;
+						line-height: 22px;
+					}
+
+					&.sui-icon-right {
+						margin-right: 0;
+						margin-left: 10px;
+					}
+				}
+			}
+
+			tr.sui-error,
+			tr.sui-warning,
+			tr.sui-success {
+
+				th,
+				.sui-table-item-title,
+				.sui-accordion-item-title {
+					color: $table--th-color;
+				}
+
+				td {
+					color: $table--text-color;
+				}
+			}
+
+			tr.sui-default {
+				box-shadow: inset 3px 0 0 $gray;
+			}
+
+
+			tr.sui-error {
+				box-shadow: inset 3px 0 0 $error;
+			}
+
+			tr.sui-warning {
+				box-shadow: inset 3px 0 0 $warning;
+			}
+
+			tr.sui-success {
+				box-shadow: inset 3px 0 0 $success;
+			}
+		}
+
+		&:first-child,
+		&.sui-table-with-title {
+			margin-top: 0;
+
+			@include media(min-width, md) {
+				margin-top: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+
+			@include media(min-width, md) {
+				margin-bottom: 0;
+			}
+		}
+
+		// Flushed table
+		&.sui-table-flushed {
+			margin: 0;
+			border: 0;
+			border-radius: 0;
+			border-collapse: collapse;
+		}
+
+		@include media(min-width, md) {
+			margin: $sui-gutter 0;
+		}
+	}
+
+	.sui-table-title {
+		margin: 5px 0;
+		color: $table--title-color;
+		font: bold 13px/22px $font;
+		letter-spacing: 0;
+	}
+
+	// Flushed table
+	// Remove top padding from thead when table is placed after .sui-box-body
+	.sui-box-body + .sui-table.sui-table-flushed {
+
+		> thead,
+		> tbody,
+		> tfoot {
+
+			&:first-child > tr:first-child > {
+
+				th, td {
+					height: auto;
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	// Field list
+	// An alternative table based on flex-box
+	.sui-field-list {
+		border: $table--border-width $table--border-style $table--border-color;
+		border-radius: $border-radius;
+
+		&-header {
+			padding: 20px 30px;
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			padding: 15px 30px;
+			border-top: $table--border-width $table--border-style $table--border-color;
+		}
+
+		&-item-label {
+			margin-right: auto;
+			margin-left: 0;
+		}
+
+		&-title {
+			margin: 0;
+			color: $table--field-list-title-color;
+			font-size: $table--text-font-size;
+			line-height: 30px;
+			font-family: $font;
+			font-weight: 500;
+			text-transform: capitalize;
+		}
+	}
+}

@@ -1,0 +1,308 @@
+%sui-icons {
+	font-family: 'wpmudev-plugin-icons' !important; // Use !important to prevent issues with browser extensions that change fonts.
+	speak: none;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-rendering: auto;
+	display: inline-block;
+	color: $icon-color;
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon($position: before, $icon: false, $styles: true) {
+	@if $position == both {
+		$position: 'before, &:after';
+	}
+	// Either a :before or :after pseudo-element, or both, defaulting to :before.
+	&:#{$position} {
+		@if $icon {
+			// A particular icon has been specified.
+			content: "#{map-get($icons, $icon)}";
+		}
+		@if $styles {
+			@extend %sui-icons;
+		}
+		// Include any extra rules supplied for the pseudo-element.
+		@content;
+	}
+}
+
+// Map icon names to font unicode characters.
+$icons: (
+		check: "\28",
+		close: "\29",
+		check-tick: "\5f",
+		cross-close: "\2b",
+		plus-circle: "\40",
+		warning-alert: "\21",
+		info: "\49",
+		question: "\3f",
+		trash: "\51",
+		pencil: "\2f",
+		unlock: "\30",
+		lock: "\39",
+		key: "\25ca",
+		plus: "\3d",
+		magnifying-glass-search: "\ba",
+		more: "\2026",
+		wrench-tool: "\2044",
+		widget-settings-config: "\78",
+		settings-slider-control: "\153",
+		loader: "\4e",
+		calendar: "\220f",
+		clock: "\2c",
+		speed-optimize: "\f8",
+		stopwatch: "\56",
+		filter: "\7a",
+		bookmark: "\221a",
+		chevron-up: "\2dd",
+		chevron-right: "\2dc",
+		chevron-down: "\131",
+		chevron-left: "\d3",
+		arrow-up: "\d4",
+		arrow-right: "\af",
+		arrow-down: "\c2",
+		arrow-left: "\f8ff",
+		arrow-skip-back: "\7b",
+		arrow-skip-forward: "\7d",
+		arrow-skip-start: "\3a",
+		arrow-skip-end: "\22",
+		play: "\b4",
+		pause: "\2020",
+		arrows-out: "\2da",
+		arrows-in: "\2264",
+		arrows-expand: "\ac",
+		arrows-compress: "\2265",
+		refresh2: "\c1",
+		zip: "\61",
+		combine: "\6f",
+		defer: "\70",
+		inlinecss: "\63",
+		movefooter: "\75",
+		popup: "\31",
+		slide-in: "\32",
+		embed: "\33",
+		list: "\60",
+		layout-grid: "\221e",
+		layout: "\a9",
+		thumbnails: "\47",
+		drag: "\201e",
+		align-left: "\25",
+		align-center: "\5e",
+		align-right: "\26",
+		align-justify: "\23",
+		indent-more: "\2019",
+		indent-less: "\201d",
+		blog: "\59",
+		list-number: "\37",
+		list-bullet: "\38",
+		bold: "\42",
+		quote-2: "\27",
+		style-type: "\3c",
+		wand-magic: "\5a",
+		link: "\35",
+		unlink: "\36",
+		paperclip: "\41",
+		code: "\3b",
+		color-pick-eyedropper: "\a5",
+		crop: "\43",
+		paint-bucket: "\222b",
+		camera: "\d8",
+		photo-picture: "\44",
+		animation-video: "\46",
+		home: "\4a",
+		mail: "\6d",
+		send: "\201c",
+		phone: "\3e",
+		pin: "\152",
+		post-pin: "\2c7",
+		calculator: "\a8",
+		element-checkbox: "\c5",
+		element-radio: "\cd",
+		element-select: "\cf",
+		element-number: "\da",
+		recaptcha: "\2013",
+		folder: "\2d8",
+		folder-open: "\bb",
+		archive: "\62",
+		book: "\2206",
+		page-multiple: "\e7",
+		layers: "\e6",
+		copy: "\34",
+		graph-bar: "\c7",
+		graph-bar-2: "\2db",
+		graph-line: "\a1",
+		tracking-disabled: "\20ac",
+		page: "\d2",
+		clipboard-notes: "\bf",
+		page-pdf: "\c6",
+		heart: "\4b",
+		star: "\53",
+		plugin-2: "\4f",
+		brush: "\7e",
+		plug-connected: "\52",
+		plug-disconnected: "\2e",
+		power-on-off: "\5b",
+		target: "\2260",
+		upload-cloud: "\a2",
+		download-cloud: "\a3",
+		cloud: "\2122",
+		cloud-migration: "\6c",
+		unpublish: "\2c6",
+		download: "\58",
+		save: "\df",
+		lightbulb: "\4c",
+		sitemap: "\b8",
+		storage-server-data: "\ce",
+		user-reputation-points: "\45",
+		tablet-portrait: "\5d",
+		laptop: "\ab",
+		monitor: "\24",
+		eye: "\65",
+		eye-hide: "\71",
+		update: "\ae",
+		refresh: "\48",
+		undo: "\2030",
+		web-globe-world: "\57",
+		flag: "\7c",
+		academy: "\3c0",
+		profile-male: "\b5",
+		community-people: "\2018",
+		help-support: "\4d",
+		gdpr: "\2211",
+		like: "\6a",
+		dislike: "\6b",
+		finger-point: "\2248",
+		open-new-window: "\6e",
+		reply: "\72",
+		share: "\73",
+		wordpress: "\77",
+		social-facebook: "\66",
+		social-twitter: "\74",
+		social-linkedin: "\69",
+		social-dropbox: "\64",
+		social-drive: "\76",
+		social-google-plus: "\67",
+		social-youtube: "\79",
+		instagram: "\2d",
+		cloudflare: "\d0",
+		social-github: "\68",
+		wpmudev-logo: "\2039",
+		defender: "\b7",
+		smush: "\2021",
+		upfront: "\201a",
+		hummingbird: "\b0",
+		uptime: "\b1",
+		smart-crawl: "\2202",
+		forminator: "\50",
+		shipper-anchor: "\54",
+		snapshot: "\fb01",
+		hustle: "\2014",
+		performance: "\55",
+		hub: "\fb02",
+		automate: "\2d9",
+		align-y-center: "\2a",
+		align-y-top: "\a7",
+		align-y-bottom: "\b6",
+		align-x-center: "\192",
+		align-x-right: "\2022",
+		align-x-left: "\e5",
+		logout: "\203a",
+);
+
+
+@font-face {
+	font-family: 'wpmudev-plugin-icons';
+	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot?#{$sui-version}');
+	src: url('#{$sui-font-path}wpmudev-plugin-icons.eot?#{$sui-version}') format('embedded-opentype'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.ttf?#{$sui-version}') format('truetype'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.woff?#{$sui-version}') format('woff'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.woff2?#{$sui-version}') format('woff2'),
+	url('#{$sui-font-path}wpmudev-plugin-icons.svg?#{$sui-version}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@include body-class(true) {
+
+	.sui-loading:before {
+		animation: spin 1.3s linear infinite;
+	}
+
+	// Set the required styles on all icons.
+	[class*="sui-icon-"] {
+		display: inline-block;
+		@include icon(both);
+	}
+
+	// Icon sizes.
+	[class*="sui-icon-"].sui-xl {
+		&:before {
+			font-size: 30px;
+		}
+	}
+
+	[class*="sui-icon-"].sui-lg {
+		&:before {
+			font-size: 20px;
+		}
+	}
+
+	[class*="sui-icon-"].sui-md {
+		&:before {
+			font-size: 16px;
+		}
+	}
+
+	[class*="sui-icon-"].sui-sm {
+		&:before {
+			font-size: 12px;
+		}
+	}
+
+	// Colors.
+	[class*="sui-icon-"].sui-success {
+		&:before {
+			color: inherit;
+		}
+	}
+
+	[class*="sui-icon-"].sui-error {
+		&:before {
+			color: inherit;
+		}
+	}
+
+	[class*="sui-icon-"].sui-warning {
+		&:before {
+			color: inherit;
+		}
+	}
+
+	[class*="sui-icon-"].sui-info {
+		&:before {
+			color: inherit;
+		}
+	}
+
+	// Fixed width icons.
+	[class*="sui-icon-"].sui-fw {
+		width: 1.8em;
+		text-align: center;
+		min-height: 1em;
+	}
+
+	// Setup a class name for each icon.
+	@each $name, $char in $icons {
+		.sui-icon-#{$name}:before {
+			content: $char;
+		}
+	}
+}

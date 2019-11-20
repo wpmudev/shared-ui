@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+$summary-image-default-url: '';
+
+@import "functions";
+@import "colors";
+@import "variables";
+@import "mixins";
+
+// VAR: Basics
+$sui--editor-border-width:      1px;
+$sui--editor-border-color:      palette(gray, lighter);
+$sui--editor-border-radius:     $border-radius;
+$sui--editor-background:        #FAFAFA;
+$sui--editor-color:             palette(gray, dark);
+
+// VAR: Tabs
+$sui--tabs-static-background:   palette(silver, light);
+$sui--tabs-static-color:        palette(gray, default);
+$sui--tabs-active-background:   palette(blue, light);
+$sui--tabs-active-color:        palette(blue, default);
+
+// VAR: Top Bar
+$sui--topbar-border-color:      palette(silver, soft);
+$sui--topbar-background:        $white;
+
+// VAR: Toolbar Buttons
+$sui--toolbtn-icon-size:         16px;
+$sui--toolbtn-static-background: transparent;
+$sui--toolbtn-static-color:      palette(gray, default);
+$sui--toolbtn-hover-background:  palette(blue, light);
+$sui--toolbtn-hover-color:       palette(blue, default);
+
+// VAR: Media Button
+$sui--media-button-height:      30px;
+$sui--media-button-background:  palette(gray, light);
+$sui--media-button-font-size:   12px;
+$sui--media-button-line-height: 16px;
+$sui--media-button-font-weight: 500;
+
+@include body-class(true) {
+
+	.sui-label-editor {
+		margin-bottom: 0;
+		line-height: $sui--media-button-height;
+
+		+ .wp-editor-wrap {
+			margin-top: -#{$sui-gutter};
+		}
+	}
+
+	.wp-editor-wrap {
+
+		// ELEMENT: Tabs
+		.wp-editor-tabs {
+			float: none;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			margin-bottom: 5px;
+
+			.wp-switch-editor {
+				height: $sui--media-button-height;
+				flex: 0 0 auto;
+				margin: 0 0 0 1px;
+				padding: 4px 16px;
+				border: 0;
+				border-radius: 0;
+				background-color: $sui--tabs-static-background;
+				color: $sui--tabs-static-color;
+				font: 500 13px/22px $font;
+				letter-spacing: $font--letter-spacing;
+
+				&:first-child {
+					margin: 0;
+					border-radius: $border-radius 0 0 $border-radius;
+				}
+
+				&:last-child {
+					border-radius: 0 $border-radius $border-radius 0;
+				}
+			}
+		}
+
+		// ELEMENT: Container
+		.wp-editor-container {
+			border: 1px solid $sui--editor-border-color;
+			border-radius: $sui--editor-border-radius;
+			background-color: $sui--editor-background;
+			box-shadow: none;
+		}
+
+		// ELEMENT: Media Buttons
+		.wp-media-buttons {
+
+			.button {
+				height: 30px;
+				margin: 0 10px 0 0;
+				padding: 7px 16px;
+				border-width: 0;
+				background-color: palette(gray, light);
+				color: $white;
+				font: 500 12px/16px $font;
+				letter-spacing: $font--letter-spacing;
+
+				span.wp-media-buttons-icon {
+					vertical-align: middle;
+					margin-top: -1px;
+
+					&:before {
+						color: inherit;
+					}
+				}
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+
+			@media (max-width: 465px) {
+				float: none;
+				margin-bottom: 5px;
+			}
+		}
+
+		// ELEMENT: Panel top bar
+		.mce-top-part {
+
+			&:before {
+				content: unset;
+			}
+
+			.mce-container-body {
+				border-radius: #{$sui--editor-border-radius - ($sui--editor-border-width * 2)} #{$sui--editor-border-radius - ($sui--editor-border-width * 2)} 0 0;
+				background-color: $white;
+			}
+
+			.mce-toolbar-grp {
+				border-bottom: 1px solid $sui--topbar-border-color;
+				background-color: transparent;
+			}
+		}
+
+		// ELEMENT: Panel status bar
+		.mce-statusbar {
+			border-top-width: 0;
+			border-top-style: none;
+			border-top-color: transparent;
+			border-radius: 0 0 #{$sui--editor-border-radius - ($sui--editor-border-width * 2)} #{$sui--editor-border-radius - ($sui--editor-border-width * 2)};
+			background: transparent;
+			background-color: $sui--editor-background;
+		}
+
+		// ELEMENT: Toolbar buttons
+		.mce-toolbar {
+
+			.mce-btn-group .mce-btn {
+				border: 0;
+				border-radius: $sui--editor-border-radius;
+				background-color: $sui--toolbtn-static-background;
+
+				button {
+					padding: 5px;
+				}
+
+				i.mce-ico {
+					color: $sui--toolbtn-static-color;
+					font-size: $sui--toolbtn-icon-size;
+				}
+
+				&:hover {
+					background-color: $sui--toolbtn-hover-background;
+					box-shadow: none;
+
+					i.mce-ico {
+						color: $sui--toolbtn-hover-color;
+					}
+				}
+			}
+		}
+
+		// ELEMENT: Toolbar quicktags
+		.quicktags-toolbar {
+			padding: 3px 8px;
+			border-bottom: 1px solid $sui--topbar-border-color;
+			background-color: $sui--topbar-background;
+
+			input.button.button-small {
+				border: 0;
+				border-radius: $sui--editor-border-radius;
+				background-color: $sui--toolbtn-static-background;
+				box-shadow: none;
+				color: $sui--toolbtn-static-color;
+				font-weight: 500;
+				transition: 0.3s ease;
+
+				&:hover,
+				&:active {
+					background-color: $sui--toolbtn-hover-background;
+					color: $sui--toolbtn-hover-color;
+				}
+
+				@media screen and (min-width: 782px) {
+					height: $sui--media-button-height;
+					line-height: $sui--media-button-height;
+				}
+			}
+		}
+
+		// ELEMENT: Editor area (textarea)
+		textarea {
+			width: 100%;
+			height: auto !important;
+			min-height: 210px;
+			resize: none;
+			display: block;
+			margin: 0;
+			padding: 10px;
+			border: 0;
+			background-color: $sui--editor-background;
+
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				box-shadow: none;
+				outline: none;
+			}
+		}
+
+		// ELEMENT: Tabs && STATUS: Active
+		&.html-active .switch-html,
+		&.tmce-active .switch-tmce {
+			background-color: $sui--tabs-active-background;
+			color: $sui--tabs-active-color;
+		}
+	}
+}
+
+// ELEMENT: Editor area (iframe)
+.mce-content-body {
+	margin: 0;
+	padding: 10px 15px;
+	border: 0;
+	background-color: $sui--editor-background;
+	color: $sui--editor-color;
+	font-size: 15px;
+	line-height: 20px;
+	font-family: $font;
+	letter-spacing: $font--letter-spacing;
+
+	* {
+		box-sizing: border-box;
+		font-variant-ligatures: none;
+		-webkit-font-variant-ligatures: none;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
+		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, ol, ul {
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		b, strong {
+			font-weight: 500;
+		}
+	}
+
+	h1, h2 {
+		line-height: 2.2em;
+	}
+
+	h3, h4, h5, h6 {
+		line-height: 1.4em;
+	}
+
+	a {
+
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&:visited {
+			outline: none;
+			box-shadow: none;
+			color: $blue;
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,226 @@
+@include body-class(true) {
+
+	.sui-dropdown {
+		position: relative;
+		display: inline-block;
+		margin: 0 10px;
+
+		ul {
+			min-width: 170px;
+			display: none;
+			position: absolute;
+			z-index: 10;
+			top: 100%;
+			right: -10px;
+			left: auto;
+			margin: 15px 0 0;
+			padding: 10px 0;
+			border: 1px solid palette(gray, lighter);
+			border-radius: $border-radius;
+			background-color: $white;
+			box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
+			transition: 0.3s ease;
+
+			&:before,
+			&:after {
+				content: " ";
+				width: 0;
+				position: absolute;
+				right: 15px;
+				border-width: 0 8px 10px;
+				border-style: solid;
+				border-top-color: palette(gray, lighter);
+			}
+
+			&:before {
+				z-index: 10;
+				top: -10px;
+				border-color: palette(gray, lighter) transparent;
+			}
+
+			&:after {
+				z-index: 11;
+				top: -8px;
+				border-color: $white transparent;
+			}
+
+			&, li {
+				list-style: none;
+			}
+
+			li {
+				display: block;
+				margin: 0;
+				border: 0;
+
+				a, button, > span {
+
+					&,
+					&:focus,
+					&:hover,
+					&:active {
+						margin: 0;
+						padding: 0 8px;
+						border: 0;
+						outline: none;
+						box-shadow: none;
+					}
+				}
+
+				a, button {
+					width: 100%;
+					cursor: pointer;
+					display: block;
+					font: 500 13px/30px $font;
+					text-align: left;
+					transition: 0.3s ease;
+
+					&,
+					&:focus,
+					&:visited {
+						background-color: transparent;
+						color: palette(gray, light);
+					}
+
+					&:hover,
+					&:active {
+						background-color: $silver;
+						color: palette(gray, dark);
+
+						[class*="sui-icon-"]:before {
+							color: palette(gray, dark);
+						}
+					}
+
+					&.sui-option-red {
+
+						&,
+						&:focus,
+						&:visited {
+							background-color: transparent;
+							color: palette(red, default);
+						}
+
+						&:hover,
+						&:active {
+							background-color: palette(red, light);
+						}
+
+						[class*="sui-icon-"]:before {
+							color: inherit;
+						}
+					}
+				}
+
+				[class*="sui-icon-"] {
+					width: 24px;
+					margin-right: 4px;
+					font-size: 12px;
+					text-align: center;
+
+					&:before {
+						display: block;
+						color: palette(gray, light);
+						transition: 0.3s ease;
+					}
+				}
+
+				&.active,
+				&.current {
+					background-color: $silver;
+					color: palette(gray, dark);
+
+					[class*="sui-icon-"]:before {
+						color: palette(gray, dark);
+					}
+				}
+
+				&.sui-dropdown-label {
+					border-bottom: 1px solid $dropdown-label-border-color;
+					line-height: 30px;
+					cursor: default;
+					color: $gray;
+				}
+
+				// FIX:
+				// In some cases, there are buttons that are wrapped inside a form
+				// to execute special actions.
+				form {
+					display: block;
+					margin: 0;
+					padding: 0;
+					border: 0;
+				}
+			}
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		// POSITION: Right
+		&.sui-dropdown-right {
+
+			ul {
+				right: unset;
+				left: -10px;
+
+				&:before,
+				&:after {
+					right: unset;
+					left: 15px;
+				}
+			}
+		}
+
+		// POSITION: Center
+		&.sui-dropdown-center {
+
+			ul {
+				right: unset;
+				left: 50%;
+				transform: translateX(-50%);
+
+				&:before,
+				&:after {
+					right: unset;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+		}
+
+		// Extra fixes
+		&.wds-item-loading {
+			font-size: 18px;
+
+			.sui-dropdown-anchor {
+				visibility: hidden;
+			}
+		}
+
+		// When menu is open
+		&.open {
+
+			.sui-dropdown-anchor {
+
+				&,
+				&:hover,
+				&:focus,
+				&:active,
+				&:visited {
+					background-color: $silver;
+					color: palette( gray, dark );
+				}
+			}
+
+			ul {
+				display: block;
+			}
+		}
+	}
+}

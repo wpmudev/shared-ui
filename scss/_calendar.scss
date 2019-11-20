@@ -1,0 +1,163 @@
+@include body-class {
+
+	.sui-calendar {
+		margin: 5px 0 0;
+		padding: $sui-gutter/2;
+		border: 1px solid palette(gray, lighter);
+		border-radius: $border-radius;
+		background-color: $white;
+		box-shadow: 0 3px 7px 0 rgba(0,0,0,0.07);
+
+		.ui-datepicker-header {
+			display: block;
+			position: relative;
+			
+			.ui-corner-all {
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top: 0;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: $border-radius;
+				background-color: transparent;
+				transition: 0.3s ease;
+
+				&:before {
+					display: block;
+					color: palette(gray, light);
+				}
+
+				&:hover,
+				&:active {
+					background-color: palette(silver, default);
+
+					&:before {
+						color: palette(gray, dark);
+					}
+				}
+
+				span {
+					display: none;
+				}
+
+				&.ui-datepicker-prev {
+					@include icon( before, chevron-left, true);
+					left: 0;
+				}
+
+				&.ui-datepicker-next {
+					@include icon( before, chevron-right, true);
+					right: 0;
+				}
+			}
+
+			.ui-datepicker-title {
+				display: block;
+				padding: 0 40px;
+				color: palette(gray, dark);
+				font: 600 12px/30px $font;
+				text-align: center;
+			}
+		}
+
+		.ui-datepicker-calendar {
+			margin: #{$sui-gutter/2} 0 0;
+			border-collapse: collapse;
+
+			thead tr,
+			tbody tr {
+
+				th, td {
+					margin: 0;
+					padding: 2.5px;
+					border: 0;
+					text-align: center;
+
+					a, span {
+						width: 28px;
+						height: 24px;
+						display: block;
+						margin: 0;
+						padding: 0;
+						border: 0;
+					}
+				}
+			}
+
+			thead {
+
+				tr {
+
+					th {
+						color: palette(gray, dark);
+						font: bold 12px/24px $font;
+					}
+				}
+			}
+
+			tbody {
+
+				tr {
+
+					td {
+
+						a, span {
+							border-radius: $border-radius;
+							background-color: transparent;
+							color: palette(gray, light);
+							font: 400 12px/24px $font;
+							transition: 0.3s ease;
+
+							&:hover,
+							&:active,
+							&.ui-state-hover,
+							&.ui-state-active {
+								background-color: palette(silver, light);
+								color: palette(gray, dark);
+							}
+						}
+
+						&.ui-datepicker-current-day {
+							pointer-events: none;
+
+							a, span {
+								background-color: palette(blue, light);
+								color: palette(blue, default);
+							}
+						}
+
+						&.ui-datepicker-today {
+
+							a, span {
+								background-color: palette(yellow, light);
+								color: palette(gray, default);
+
+								&:hover,
+								&:active,
+								&.ui-state-hover,
+								&.ui-state-active {
+									background-color: palette(yellow, default);
+								}
+							}
+
+							&.ui-datepicker-current-day {
+
+								a, span {
+									background-color: palette(blue, light);
+									color: palette(blue, default);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

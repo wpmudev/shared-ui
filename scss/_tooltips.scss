@@ -1,0 +1,398 @@
+@include body-class(true) {
+
+	.sui-tooltip {
+		position: relative;
+
+		&:before,
+		&:after {
+			content: " ";
+			opacity: 0;
+			backface-visibility: hidden;
+			pointer-events: none;
+			position: absolute;
+			z-index: 1;
+			transition: 0.2s;
+		}
+
+		&:before {
+			left: 50%;
+			bottom: 100%;
+			border: 5px solid transparent;
+			border-top-color: $tooltips-color;
+			transform: translateX(-50%);
+		}
+
+		&:after {
+			content: attr(data-tooltip);
+			min-width: var(--tooltip-width, 40px);
+			left: 50%;
+			bottom: 100%;
+			margin-bottom: 10px;
+			padding: 12px;
+			border-radius: $border-radius;
+			background-color: $tooltips-color;
+			box-sizing: border-box;
+			transform: translateX(-50%);
+			color: $white;
+			font: 500 12px/18px $font;
+			letter-spacing: $font--letter-spacing;
+			text-transform: none;
+			text-align: var(--tooltip-text-align, center);
+
+			@include media(min-width, md) {
+				white-space: nowrap;
+			}
+		}
+
+		// VARIATION: Constrained tooltip
+		&.sui-tooltip-constrained {
+
+			&:after {
+				min-width: var(--tooltip-width, 240px);
+				white-space: normal;
+			}
+		}
+
+		// POSITION: Top
+		&.sui-tooltip-top {
+
+			// POSITION: Left
+			&-left {
+
+				&:after {
+					left: 0;
+					transform: translateX(0);
+				}
+			}
+
+			// POSITION: Right
+			&-right {
+
+				&:after {
+					right: 0;
+					left: unset;
+					transform: translateX(0);
+				}
+			}
+		}
+
+		// POSITION: Bottom
+		&.sui-tooltip-bottom {
+
+			&,
+			&-left,
+			&-right {
+
+				&:before {
+					top: 100%;
+					bottom: unset;
+					border-top-color: transparent;
+					border-bottom-color: $tooltips-color;
+				}
+	
+				&:after {
+					top: 100%;
+					bottom: unset;
+					margin-top: 10px;
+					margin-bottom: 0;
+				}
+			}
+
+			// POSITION: Left
+			&-left {
+
+				&:after {
+					left: 0;
+					transform: translate(0);
+				}
+			}
+
+			// POSITION: Right
+			&-right {
+
+				&:after {
+					left: unset;
+					right: 0;
+					transform: translate(0);
+				}
+			}
+		}
+
+		// POSITION: Left
+		&.sui-tooltip-left {
+
+			&:before {
+				top: 50%;
+				right: 100%;
+				bottom: unset;
+				left: unset;
+				border-top-color: transparent;
+				border-left-color: $tooltips-color;
+				transform: translateY(-50%);
+			}
+
+			&:after {
+				top: 50%;
+				right: 100%;
+				bottom: unset;
+				left: unset;
+				margin-right: 10px;
+				margin-bottom: 0;
+				transform: translateY(-50%);
+			}
+		}
+
+		// POSITION: Right
+		&.sui-tooltip-right {
+
+			&:before {
+				top: 50%;
+				bottom: unset;
+				left: 100%;
+				border-top-color: transparent;
+				border-right-color: $tooltips-color;
+				transform: translateY(-50%);
+			}
+
+			&:after {
+				top: 50%;
+				bottom: unset;
+				left: 100%;
+				margin-left: 10px;
+				margin-bottom: 0;
+				transform: translateY(-50%);
+			}
+		}
+
+		// VARIATION: Mobile
+		&.sui-tooltip {
+
+			// VARIATION: Constrained tooltip
+			// Use this variation in case you need to keep tooltip position but
+			// constrain its content.
+			&-mobile {
+
+				&:after {
+
+					@include media(max-width, md) {
+						min-width: var(--tooltip-width-mobile, 120px);
+						white-space: normal;
+					}
+				}
+			}
+
+			// POSITION: Top
+			&-top {
+
+				&-mobile,
+				&-left-mobile,
+				&-right-mobile {
+
+					&:before {
+
+						@include media(max-width, md) {
+							top: unset;
+							bottom: 100%;
+							left: 50%;
+							right: unset;
+							border-top-color: $tooltips-color;
+							border-right-color: transparent;
+							border-bottom-color: transparent;
+							border-left-color: transparent;
+							transform: translateX(-50%);
+						}
+					}
+
+					&:after {
+
+						@include media(max-width, md) {
+							min-width: var(--tooltip-width-mobile, 120px);
+							top: unset;
+							bottom: 100%;
+							margin-top: 0;
+							margin-right: 0;
+							margin-bottom: 10px;
+							margin-left: 0;
+							white-space: normal;
+						}
+					}
+				}
+
+				&-mobile:after {
+
+					@include media(max-width, md) {
+						right: unset;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+
+				&-left-mobile:after {
+
+					@include media(max-width, md) {
+						right: unset;
+						left: 0;
+						transform: translateX(0);
+					}
+				}
+
+				&-right-mobile:after {
+
+					@include media(max-width, md) {
+						right: 0;
+						left: unset;
+						transform: translateX(0);
+					}
+				}
+			}
+
+			// POSITION: Bottom
+			&-bottom {
+
+				&-mobile,
+				&-left-mobile,
+				&-right-mobile {
+
+					&:before {
+
+						@include media(max-width, md) {
+							top: 100%;
+							bottom: unset;
+							left: 50%;
+							right: unset;
+							border-top-color: transparent;
+							border-right-color: transparent;
+							border-bottom-color: $tooltips-color;
+							border-left-color: transparent;
+							transform: translateX(-50%);
+						}
+					}
+
+					&:after {
+
+						@include media(max-width, md) {
+							min-width: var(--tooltip-width-mobile, 120px);
+							top: 100%;
+							bottom: unset;
+							margin-top: 10px;
+							margin-right: 0;
+							margin-bottom: 0;
+							margin-left: 0;
+							white-space: normal;
+						}
+					}
+				}
+
+				&-mobile:after {
+
+					@include media(max-width, md) {
+						right: unset;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+
+				&-left-mobile:after {
+
+					@include media(max-width, md) {
+						right: unset;
+						left: 0;
+						transform: translateX(0);
+					}
+				}
+
+				&-right-mobile:after {
+
+					@include media(max-width, md) {
+						right: 0;
+						left: unset;
+						transform: translateX(0);
+					}
+				}
+			}
+
+			// POSITION: Left
+			&-left-mobile {
+
+				&:before {
+
+					@include media(max-width, md) {
+						top: 50%;
+						right: 100%;
+						bottom: unset;
+						left: unset;
+						border-top-color: transparent;
+						border-right-color: transparent;
+						border-bottom-color: transparent;
+						border-left-color: $tooltips-color;
+						transform: translateY(-50%);
+					}
+				}
+
+				&:after {
+
+					@include media(max-width, md) {
+						min-width: var(--tooltip-width-mobile, 120px);
+						top: 50%;
+						right: 100%;
+						bottom: unset;
+						left: unset;
+						margin-top: 0;
+						margin-right: 10px;
+						margin-bottom: 0;
+						margin-left: 0;
+						transform: translateY(-50%);
+						white-space: normal;
+					}
+				}
+			}
+
+			// POSITION: Right
+			&-right-mobile {
+
+				&:before {
+
+					@include media(max-width, md) {
+						top: 50%;
+						right: unset;
+						bottom: unset;
+						left: 100%;
+						border-top-color: transparent;
+						border-right-color: $tooltips-color;
+						border-bottom-color: transparent;
+						border-left-color: transparent;
+						transform: translateY(-50%);
+					}
+				}
+
+				&:after {
+
+					@include media(max-width, md) {
+						min-width: var(--tooltip-width-mobile, 120px);
+						top: 50%;
+						right: unset;
+						bottom: unset;
+						left: 100%;
+						margin-top: 0;
+						margin-right: 0;
+						margin-bottom: 0;
+						margin-left: 10px;
+						transform: translateY(-50%);
+						white-space: normal;
+					}
+				}
+			}
+		}
+
+		// STATE: Hover
+		// Show tooltips when user hovers on it.
+		&:hover {
+
+			&:before,
+			&:after {
+				opacity: 1;
+				backface-visibility: visible;
+			}
+		}
+	}
+}

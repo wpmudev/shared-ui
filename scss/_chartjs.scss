@@ -1,0 +1,132 @@
+@include body-class(true) {
+
+	.sui-chartjs {
+		position: relative;
+
+		.sui-chartjs-message {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 5px $sui-gutter-md;
+			background-color: rgba(255, 255, 255, 0.7);
+			text-align: center;
+
+			p {
+				color: palette(gray, light);
+				font: 500 12px/22px $font;
+				letter-spacing: $font--letter-spacing;
+
+				[class*="sui-icon-"] {
+					vertical-align: text-bottom;
+					margin-right: 8px;
+					font-size: 16px;
+
+					&:before {
+						display: block;
+						color: palette(gray, light);
+					}
+				}
+			}
+
+			&.sui-chartjs-message--empty,
+			&.sui-chartjs-message--loading {
+
+				@if variable-exists(chartjs-image--loading) {
+
+					@if $chartjs-image--loading != null {
+						background-image: url($chartjs-image--loading);
+						background-size: cover;
+						background-position: center bottom;
+						background-repeat: no-repeat;
+					}
+				}
+			}
+		}
+
+		.sui-chartjs-canvas {
+			height: 120px;
+	
+			@include media(min-width, md) {
+				height: 170px;
+			}
+		}
+
+		&.sui-chartjs-animated {
+
+			.sui-chartjs-message {
+				opacity: 0;
+				visibility: hidden;
+				transition: 0.25s ease;
+
+				&.sui-chartjs-message--loading {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			.sui-chartjs-canvas {
+				visibility: hidden;
+				transition: 0.2s ease;
+			}
+
+			&.sui-chartjs-loaded {
+
+				.sui-chartjs-message {
+					opacity: 1;
+					visibility: visible;
+
+					&.sui-chartjs-message--loading {
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				.sui-chartjs-canvas {
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	// Chart inside accordion block
+	.sui-accordion-block {
+
+		.sui-accordion-item-body {
+
+			.sui-chartjs {
+				margin-right: -#{$sui-gutter-md};
+				margin-left: -#{$sui-gutter-md};
+				padding-top: $sui-gutter-md;
+
+				&:not(:first-child) {
+					padding-top: $sui-gutter-md;
+
+					@include media(min-width, md) {
+						padding-top: $sui-gutter;
+					}
+				}
+
+				&:last-child {
+					overflow: hidden;
+					margin-bottom: -#{$sui-gutter-md};
+					border-bottom-right-radius: $border-radius;
+					border-bottom-left-radius: $border-radius;
+
+					@include media(min-width, md) {
+						margin-bottom: -#{$sui-gutter};
+					}
+				}
+
+				@include media(min-width, md) {
+					margin-right: -#{$sui-gutter};
+					margin-left: -#{$sui-gutter};
+				}
+			}
+		}
+	}
+}

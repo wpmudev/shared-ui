@@ -1,0 +1,406 @@
+@include body-class(true) {
+
+	.sui-tree-fancy {
+
+		ul.ui-fancytree {
+			display: block;
+			margin: 0;
+
+			&, li {
+				display: block;
+				padding: 0;
+				border: 0;
+				list-style: none;
+			}
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+
+				> span.fancytree-node {
+
+					// ELEMENT: Expander
+					> span.fancytree-expander {
+						width: 30px;
+						height: 12px;
+						cursor: pointer;
+						display: block;
+						color: palette(gray, light);
+						text-align: center;
+
+						@include icon(before, false, true) {
+							width: 12px;
+							height: 12px;
+							display: block;
+							margin: 0 auto;
+							color: inherit;
+							font-size: 12px;
+							line-height: 12px;
+						}
+					}
+
+					// ELEMENT: Checkbox
+					> span.fancytree-checkbox {
+						width: 16px;
+						height: 16px;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin: 3px 0;
+						border: 1px solid palette(gray, lighter);
+						border-radius: $border-radius;
+						background-color: #FAFAFA;
+
+						@include icon(before, element-checkbox, true) {
+							opacity: 0;
+							display: block;
+							color: $blue;
+							font-size: 16px;
+						}
+					}
+
+					// ELEMENT: Title
+					> span.fancytree-title {
+						display: block;
+						color: palette(gray, default);
+						font: 500 13px/22px $font;
+						letter-spacing: $font--letter-spacing;
+					}
+				}
+
+				// VARIATION: File (not expandable)
+				&:not([aria-expanded]) {
+
+					> span.fancytree-node {
+
+						// ELEMENT: Expander
+						> span.fancytree-expander {
+							display: none;
+						}
+					}
+				}
+
+				// STATUS: Selected
+				&[aria-selected="true"] {
+
+					> span.fancytree-node {
+
+						// ELEMENT: Checkbox
+						> span.fancytree-checkbox {
+							border-color: $blue;
+
+							&:before {
+								opacity: 1;
+							}
+						}
+
+						// STATUS: Disaled
+						&.fancytree-unselectable {
+
+							// ELEMENT: Checkbox
+							> span.fancytree-checkbox {
+								border-color: palette(silver, default);
+								background-color: palette(silver, medium);
+
+								&:before {
+									color: palette(silver, default);
+								}
+							}
+						}
+					}
+				}
+
+				// STATUS: Disabled
+				> span.fancytree-node {
+
+					&.fancytree-unselectable {
+
+						&, * {
+							pointer-events: none;
+						}
+
+						// ELEMENT: Checkbox
+						> span.fancytree-checkbox {
+							border-color: palette(silver, default);
+							background-color: palette(silver, default);
+						}
+
+						// ELEMENT: Title
+						> span.fancytree-title {
+							color: palette(silver, medium);
+						}
+					}
+				}
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.sui-tree-fancy[data-tree="selector"] {
+
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+				display: flex;
+				flex-wrap: wrap;
+				margin: 0 0 10px;
+
+				&:last-child {
+					margin: 0;
+				}
+
+				> span.fancytree-node {
+					max-width: 100%;
+					display: inline-flex;
+					flex: 0 1 auto;
+					position: relative;
+					padding-right: 30px;
+
+					// ELEMENT: Expander
+					> span.fancytree-expander {
+						position: absolute;
+						top: 5px;
+						right: 0;
+
+						@include icon(before, chevron-down, false);
+					}
+
+					// ELEMENT: Checkbox
+					> span.fancytree-checkbox {
+
+						~ span.fancytree-title {
+							margin-left: 10px;
+						}
+					}
+
+					// ELEMENT: Icons
+					> span.fancytree-icon,
+					> span.fancytree-custom-icon {
+						display: none;
+					}
+				}
+
+				// VARIATION: Child items
+				ul[role="group"] {
+					display: block;
+					flex: 0 0 100%;
+					margin: 10px 0 0;
+					padding: 0;
+					padding-left: 26px;
+					border: 0;
+				}
+
+				// VARIATION: File (not expandable)
+				&:not([aria-expanded]) {
+
+					> span.fancytree-node {
+						padding-right: 0;
+					}
+				}
+
+				// STATUS: Expanded
+				&[aria-expanded="true"] {
+
+					> span.fancytree-node {
+
+						// ELEMENT: Expander
+						> span.fancytree-expander {
+
+							&:before {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sui-tree-fancy[data-tree="directory"] {
+
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+				margin: 0 0 5px;
+
+				&:last-child {
+					margin: 0;
+				}
+
+				> span.fancytree-node {
+					display: flex;
+					padding: 11px 20px;
+					border-radius: $border-radius;
+
+					// ELEMENT: Expander
+					> span.fancytree-expander {
+						margin: 3px 0 3px -10px;
+
+						@include icon(before, chevron-right, false);
+					}
+
+					// ELEMENT: Checkbox
+					> span.fancytree-checkbox {
+						margin: 1px 0;
+					}
+
+					// ELEMENT: Title
+					> span.fancytree-title {
+						line-height: 18px;
+					}
+
+					// ELEMENT: Icons
+					> span.fancytree-icon,
+					> span.fancytree-custom-icon {
+						width: 30px;
+						height: 16px;
+						pointer-events: none;
+						display: block;
+						margin: 1px 0;
+						color: palette(silver, medium);
+						text-align: center;
+					}
+
+					// ELEMENT: Icons (default)
+					> span.fancytree-icon {
+
+						@include icon(before, false, true) {
+							display: block;
+							color: inherit;
+							font-size: 16px;
+							line-height: 16px;
+						}
+					}
+
+					// ELEMENT: Icons (custom)
+					> span.fancytree-custom-icon {
+
+						&:before {
+							display: block;
+							color: inherit;
+							font-size: 16px;
+							line-height: 16px;
+						}
+					}
+				}
+
+				// VARIATION: Child items
+				ul[role="group"] {
+					margin: 5px 0;
+					padding: 0;
+					padding-left: 20px;
+					border: 0;
+				}
+
+				// VARIATION: Icons
+				> span.fancytree-node {
+
+					// ELEMENT: File icon
+					&.fancytree-ico-c {
+
+						span.fancytree-icon {
+							@include icon(before, page, false);
+						}
+					}
+
+					// ELEMENT: Folder icon (compressed)
+					&.fancytree-ico-cf {
+
+						span.fancytree-icon {
+							@include icon(before, folder, false);
+						}
+					}
+
+					// ELEMENT: Folder icon (expanded)
+					&.fancytree-ico-ef {
+
+						span.fancytree-icon {
+							@include icon(before, folder-open, false);
+						}
+					}
+				}
+
+				// STATUS: Expanded
+				&[aria-expanded="true"] {
+
+					> span.fancytree-node {
+						background-color: palette(silver, light);
+
+						// ELEMENT: Expander
+						> span.fancytree-expander {
+
+							&:before {
+								transform: rotate(90deg);
+							}
+						}
+
+						// ELEMENT: Icons (custom)
+						> span.fancytree-custom-icon {
+
+							&.sui-icon-folder {
+								@include icon(before, folder-open, false);
+							}
+						}
+					}
+				}
+
+				// STATUS: Selected
+				&[aria-selected="true"] {
+
+					> span.fancytree-node {
+						background-color: palette(blue, light);
+
+						// ELEMENT: Expander
+						> span.fancytree-expander {
+
+							&:before {
+								color: $blue;
+							}
+						}
+
+						// ELEMENT: Icons
+						> span.fancytree-icon,
+						> span.fancytree-custom-icon {
+							color: $blue;
+						}
+
+						// ELEMENT: Title
+						> span.fancytree-title {
+							color: $blue;
+						}
+					}
+				}
+
+				// STATUS: Disabled
+				> span.fancytree-node {
+
+					&.fancytree-unselectable {
+
+						&, * {
+							pointer-events: none;
+						}
+
+						// ELEMENT: Expander
+						> span.fancytree-expander {
+							color: palette(gray, lighter);
+
+							@include icon(before, lock, false);
+						}
+
+						// ELEMENT: Icons
+						> span.fancytree-icon,
+						> span.fancytree-custom-icon {
+							color: palette(gray, lighter);
+						}
+					}
+				}
+			}
+		}
+	}
+}
