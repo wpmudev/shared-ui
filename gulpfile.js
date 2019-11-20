@@ -402,7 +402,7 @@ gulp.task( 'publish:sui', () => {
 		repo: 'https://github.com/iamleigh/sui-showcase-jekyll-test.git',
 		dest: '',
 		dotfiles: true,
-		message: 'New version released.'
+		message: ':package: Shared UI v' + getVersion()
 	});
 });
 
@@ -414,6 +414,6 @@ gulp.task( 'publish:dev', () => {
 		repo: 'https://github.com/iamleigh/sui-showcase-jekyll-test.git',
 		dest: '',
 		dotfiles: true,
-		message: 'Update showcase with latest SUI changes.'
+		message: ':package: Shared UI Showcase with SUI v' + getVersion()
 	});
 });
