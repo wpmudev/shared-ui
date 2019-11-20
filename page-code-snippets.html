@@ -1,0 +1,167 @@
+---
+layout: default
+title: Code Snippets
+permalink: /code-snippets/
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="default">Default</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="no-copy">No-Copy Button</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Default -->
+	<div class="sui-box" data-tab="default">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Default</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>This element is meant to be used to display code. By default, it will place a copy button on top right of the container, that way users can easily copy snippet content to clipboard.</p>
+
+<pre class="sui-code-snippet">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+</pre>
+
+			<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet&quot;&gt;
+... content goes here ...
+&lt;/pre&gt;
+</pre>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: No-Copy Button -->
+	<div class="sui-box" data-tab="no-copy" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Default</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>There are cases when you gonna need to get rid off the copy button. For those cases, you can add <code>sui-no-copy</code> class.</p>
+
+<pre class="sui-code-snippet sui-no-copy">
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+</pre>
+
+			<div class="demo-code-block" style="margin-top: 15px;">
+<pre class="sui-code-snippet html">
+&lt;pre class=&quot;sui-code-snippet sui-no-copy&quot;&gt;
+... content goes here ...
+&lt;/pre&gt;
+</pre>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-body">
+
+			<!-- ROW: JS Instantiation -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">JS Instantiation</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+// Initiate all sui-code-snippet
+SUI.suiCodeSnippet();
+
+// Initiate single sui-code-snippet
+$( '.my-selector' ).SUICodeSnippet();
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: JS API -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">JS API</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+// Initiate with custom copy text
+$( '.my-selector' ).SUICodeSnippet({
+	'copyText': 'Copy .htaccess', // button text
+	'copiedText': '.htaccess copied', // tooltip text when copied
+});
+
+// Get Clipboard.JS inistance
+const clipboard = $( '.my-selector' ).data( 'SUICodeSnippet' ).getClipboardJs();
+clipboard.on( 'success', function( e ) {
+	alert( 'Copied!' );
+});
+
+// Destroy instance
+$( '.my-selector' ).data( 'SUICodeSnippet' ).destroy();
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

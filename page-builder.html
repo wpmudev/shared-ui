@@ -1,0 +1,1251 @@
+---
+layout: default
+title: Builder
+permalink: /builder/
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="container">Container</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="header">Header</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="fields">Fields</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="footer">Footer</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="empty-message">Empty Message</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Container -->
+	<div data-tab="container">
+
+		<!-- SECTION: Default Builder -->
+		<div class="sui-box">
+
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Default Builder</h2>
+			</div>
+
+			<div class="sui-box-body">
+
+				<div class="sui-box-builder">
+
+					<div class="sui-box-builder-header">
+
+						<button class="sui-button sui-button-purple">
+							<i class="sui-icon-plus" aria-hidden="true"></i>
+							Insert Button
+						</button>
+
+					</div>
+
+					<div class="sui-box-builder-body">
+
+						<div class="sui-builder-fields">
+
+							<div class="sui-builder-field">
+
+								<div class="sui-builder-field-label">
+									<span>Sample Field</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<button class="sui-button sui-button-dashed">
+							<i class="sui-icon-plus" aria-hidden="true"></i>
+							Insert Button
+						</button>
+
+					</div>
+
+					<div class="sui-box-builder-footer">
+
+						<div class="sui-builder-field">
+
+							<div class="sui-builder-field-label">
+								<i class="sui-icon-mail" aria-hidden="true"></i>
+								<span>Static Field</span>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: Flushed Builder -->
+		<div class="sui-box">
+
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Flushed Builder</h2>
+			</div>
+
+			<div class="sui-box-body">
+
+				<div class="sui-box-builder sui-flushed">
+
+					<div class="sui-box-builder-header">
+
+						<button class="sui-button sui-button-purple">
+							<i class="sui-icon-plus" aria-hidden="true"></i>
+							Insert Button
+						</button>
+
+					</div>
+
+					<div class="sui-box-builder-body">
+
+						<div class="sui-builder-fields">
+
+							<div class="sui-builder-field">
+
+								<div class="sui-builder-field-label">
+									<span>Sample Field</span>
+								</div>
+
+							</div>
+
+						</div>
+
+						<button class="sui-button sui-button-dashed">
+							<i class="sui-icon-plus" aria-hidden="true"></i>
+							Insert Button
+						</button>
+
+					</div>
+
+					<div class="sui-box-builder-footer">
+
+						<div class="sui-builder-field">
+
+							<div class="sui-builder-field-label">
+								<i class="sui-icon-mail" aria-hidden="true"></i>
+								<span>Static Field</span>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Header -->
+	<div class="sui-box" data-tab="header" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Builder Header</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- SECTION: Simple Header -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Simple Header</span>
+					<span class="sui-description">This header just contains a call to action button.</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+									<div class="sui-builder-field-label">Sample field</div>
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Complex Header -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Complex Header</span>
+					<span class="sui-description">Some projects require extra settings on box builder fields, for those cases you are going to find useful this element variation.</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<div class="sui-builder-conditions">
+
+								<div class="sui-builder-conditions-rule">
+
+									<span class="sui-builder-text">Show element if</span>
+
+									<select class="sui-select-sm">
+										<option>all</option>
+										<option>any</option>
+										<option>none</option>
+									</select>
+
+									<span class="sui-builder-text">of the following conditions are met.</span>
+
+								</div>
+
+								<div class="sui-builder-conditions-actions">
+									<button class="sui-button-icon sui-button-red">
+										<i class="sui-icon-trash" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Delete Condition</span>
+									</button>
+								</div>
+
+							</div>
+
+							<div class="sui-builder-options sui-options-inline">
+
+
+								<span class="sui-builder-text">Apply on</span>
+
+								<label for="sample-apply-on-inline-content" class="sui-checkbox sui-checkbox-sm">
+									<input type="checkbox" id="sample-apply-on-inline-content" />
+									<span aria-hidden="true"></span>
+									<span>Inline Content</span>
+								</label>
+
+								<label for="sample-apply-on-widget" class="sui-checkbox sui-checkbox-sm">
+									<input type="checkbox" id="sample-apply-on-widget" />
+									<span aria-hidden="true"></span>
+									<span>Widget</span>
+								</label>
+
+							</div>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields sui-accordion">
+
+								<div class="sui-builder-field">
+									<div class="sui-builder-field-label">Sample field</div>
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+							<span class="sui-box-builder-message" style="display: none;">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Fields -->
+	<div class="sui-box" data-tab="fields" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Builder Fields</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- SECTION: Field Label -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Field Label</span>
+					<span class="sui-description">Labels can go alone (just text), or can be accompanied by an icon or an small image.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+									<div class="sui-builder-field-label">
+										<span>Text only</span>
+									</div>
+								</div>
+
+								<div class="sui-builder-field">
+									<div class="sui-builder-field-label">
+										<i class="sui-icon-mail" aria-hidden="true"></i>
+										<span>Text with icon</span>
+									</div>
+								</div>
+
+								<div class="sui-builder-field">
+									<div class="sui-builder-field-label">
+										<div class="sui-builder-field-image" aria-hidden="true">
+											<span style="background-image: url('assets/images/plugins-forminator.jpg');"></span>
+										</div>
+										<span>Text with image</span>
+									</div>
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Single Action Field -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Single Action Field</span>
+					<span class="sui-description">Along with the basic field variations, you can add an action to your field. E.g. delete button.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<!-- SAMPLE: Field with delete button -->
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Field with delete button</span>
+									</div>
+
+									<button class="sui-button-icon sui-button-red">
+										<i class="sui-icon-trash" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Remove field</span>
+									</button>
+
+								</div>
+
+								<!-- SAMPLE: Field with informative tooltip -->
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Field with informative tooltip</span>
+									</div>
+
+									<span
+										class="sui-builder-field-notice sui-tooltip"
+										data-tooltip="Information about the field"
+									>
+										<i class="sui-icon-info" aria-hidden="true"></i>
+									</span>
+
+								</div>
+
+								<!-- SAMPLE: Field with dropdown list -->
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Field with dropdown list</span>
+									</div>
+
+									<div class="sui-dropdown">
+
+										<button class="sui-button-icon sui-dropdown-anchor">
+											<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Open field settings</span>
+										</button>
+
+										<ul>
+											<li><button>Action button #1</button></li>
+											<li><button>Action button #2</button></li>
+											<li><button>Action button #3</button></li>
+										</ul>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Multi Actions Field -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Multi Actions Field</span>
+					<span class="sui-description">Some times you need to include two or more actions to your field. E.g. clone and delete buttons.</span>
+					<span class="sui-description">Actions should always be separated by a border. For that you need to use the separator element.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Sample Field</span>
+									</div>
+
+									<button class="sui-button-icon">
+										<i class="sui-icon-copy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Clone field</span>
+									</button>
+
+									<span class="sui-builder-field-border" aria-hidden="true"></span>
+
+									<button class="sui-button-icon sui-button-red">
+										<i class="sui-icon-trash" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Remove field</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Hidden Actions -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Hidden Actions</span>
+					<span class="sui-description">There are some actions that will be visually hidden, but will appear once user hovers on the field.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Sample Field</span>
+									</div>
+
+									<button class="sui-button-icon sui-hover-show">
+										<i class="sui-icon-copy" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Clone field</span>
+									</button>
+
+									<span class="sui-builder-field-border  sui-hover-show" aria-hidden="true"></span>
+
+									<button class="sui-button-icon sui-button-red">
+										<i class="sui-icon-trash" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Remove field</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Draggable Field -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Draggable Field</span>
+					<span class="sui-description">Some fields need to be re-organized, for those cases you can use a drag-and-drop icon and move cursor for field. To enable move cursor you need to add <code>sui-can_move</code> class to field.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field sui-can_move">
+									<i class="sui-icon-drag" aria-hidden="true"></i>
+									<div class="sui-builder-field-label">
+										<i class="sui-icon-mail" aria-hidden="true"></i>
+										<span>Sample Field</span>
+									</div>
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Clickable Field -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Clickable Field</span>
+					<span class="sui-description">Some fields have extra settings on dialogs or external elements that appear after clicking on the field. For this case you need a pointer cursor that can be achieve adding <code>sui-can_open</code> class to field.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field sui-can_open">
+									<div class="sui-builder-field-label">
+										<i class="sui-icon-mail" aria-hidden="true"></i>
+										<span>Sample Field</span>
+									</div>
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Accordion Field -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Accordion Field</span>
+					<span class="sui-description">Some fields have extra settings on the same element that appear after clicking on it. For this case we use a mix of builder field and <a href="/page-accordions.html">accordions</a> element.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields sui-accordion">
+
+								<div class="sui-builder-field sui-accordion-item">
+
+									<div class="sui-accordion-item-header">
+
+										<div class="sui-builder-field-label">
+											<i class="sui-icon-mail" aria-hidden="true"></i>
+											<span>Sample Field</span>
+										</div>
+
+										<button class="sui-button-icon sui-button-red">
+											<i class="sui-icon-trash" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Remove field</span>
+										</button>
+
+										<span class="sui-builder-field-border" aria-hidden="true"></span>
+
+										<button class="sui-button-icon sui-accordion-open-indicator">
+											<i class="sui-icon-chevron-down" aria-hidden="true"></i>
+											<span class="sui-screen-reader-text">Open settings</span>
+										</button>
+
+									</div>
+
+									<div class="sui-accordion-item-body">
+
+										Extra settings go here...
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+							<span class="sui-box-builder-message" style="display: none;">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Footer -->
+	<div class="sui-box" data-tab="footer" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Builder Footer</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Some times you gonna need to add static fields that user won't be able to remove or re-organize. For those cases we will show you two examples: single element on footer and multiple elements on footer.</p>
+
+			<!-- SECTION: Single Element -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Single Element</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Sample Field</span>
+									</div>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-footer">
+
+							<div class="sui-builder-field">
+
+								<div class="sui-builder-field-label">
+									<i class="sui-icon-mail" aria-hidden="true"></i>
+									<span>Static Field</span>
+								</div>
+
+								<div class="sui-dropdown">
+									<button class="sui-button-icon sui-dropdown-anchor">
+										<i class="sui-icon-widget-settings-config" aria-hidden="true"></i>
+										<span class="sui-screen-reader-text">Open field settings</span>
+									</button>
+									<ul>
+										<li><button>Edit field</button></li>
+										<li><button>Clone field</button></li>
+										<li><button>Remove field</button></li>
+									</ul>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Multiple Elements -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Multiple Elements</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields">
+
+								<div class="sui-builder-field">
+
+									<div class="sui-builder-field-label">
+										<span>Sample Field</span>
+									</div>
+
+								</div>
+
+							</div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-footer">
+
+							<div class="sui-builder-field">
+
+								<div class="sui-builder-field-label">
+									<i class="sui-icon-send" aria-hidden="true"></i>
+									<span>Static Field – Can't be removed</span>
+								</div>
+
+							</div>
+
+							<div class="sui-builder-field">
+
+								<div class="sui-builder-field-label">
+									<i class="sui-icon-mail" aria-hidden="true"></i>
+									<span>Static Field</span>
+								</div>
+
+								<button class="sui-button-icon sui-button-red">
+									<i class="sui-icon-trash" aria-hidden="true"></i>
+									<span class="sui-screen-reader-text">Remove field</span>
+								</button>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Empty Message -->
+	<div class="sui-box" data-tab="empty-message" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Empty Message</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- SECTION: Message Only -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Message Only</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields"></div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+							<span class="sui-box-builder-message">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Message with Image -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label sui-dark">Message with Image</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields"></div>
+
+							<button class="sui-button sui-button-dashed">
+								<i class="sui-icon-plus" aria-hidden="true"></i>
+								Insert Button
+							</button>
+
+							<div class="sui-box-builder-message-block">
+
+								<span class="sui-box-builder-message">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+
+								<img src="assets/images/hummingbird-upsell-minify.png" srcset="assets/images/hummingbird-upsell-minify.png 1x, assets/images/hummingbird-upsell-minify@2x.png 2x" class="sui-image sui-image-center" aria-hidden="true" />
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Base Structure</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-box-builder&quot;&gt;
+
+	&lt;!-- Header --&gt;
+	&lt;div class=&quot;sui-box-builder-header&quot;&gt;
+
+		&lt;button class=&quot;sui-button sui-button-purple&quot;&gt;
+			&lt;i class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			Insert Button
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- Body / Content --&gt;
+	&lt;div class=&quot;sui-box-builder-body&quot;&gt;
+
+		&lt;div class=&quot;sui-builder-fields&quot;&gt;
+
+			&lt;!-- Insert builder field(s) here --&gt;
+
+		&lt;/div&gt;
+
+		&lt;button class=&quot;sui-button sui-button-dashed&quot;&gt;
+			&lt;i class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			Insert Button
+		&lt;/button&gt;
+
+		&lt;span class=&quot;sui-box-builder-message&quot;&gt;Builder message&lt;/span&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- Footer --&gt;
+	&lt;div class=&quot;sui-box-builder-footer&quot;&gt;
+
+		&lt;!-- Inser static field(s) here --&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Base Field</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-builder-field&quot;&gt;
+
+	&lt;div class=&quot;sui-builder-field-label&quot;&gt;
+
+		&lt;i class=&quot;sui-icon-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+
+		&lt;span&gt;Element&lt;/span&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- Include here field element(s) --&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Field Elements</span>
+					<span class="sui-description">You can include different elements to builder fields, from buttons to border separators.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-notice sui-notice-info">
+						<p>Make use of <code>sui-hover-show</code> class on an element if you need to show it <strong>only</strong> when user hovers on <code>sui-builder-field</code>.</p>
+					</div>
+
+					<div class="sui-settings-label sui-dark">Icon button</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;button class=&quot;sui-button-icon&quot;&gt;
+	&lt;i class=&quot;sui-icon-widget-settings-config&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open settings&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+					</div>
+
+					<div class="sui-settings-label sui-dark">Dropdown button</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-dropdown&quot;&gt;
+	&lt;button class=&quot;sui-button-icon sui-dropdown-anchor&quot;&gt;
+		&lt;i class=&quot;sui-icon-widget-settings-config&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+		&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Open settings&lt;/span&gt;
+	&lt;/button&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;button&gt;Edit field&lt;/button&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;button&gt;Clone field&lt;/button&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;button&gt;Remove field&lt;/button&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+					<div class="sui-settings-label sui-dark">Field notice</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div
+	class=&quot;sui-builder-field-notice&quot;
+	data-tooltip=&quot;Field information goes here&quot;
+&gt;
+	&lt;i class=&quot;sui-icon-info&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+					<div class="sui-settings-label sui-dark">Field elements separator</div>
+					<span class="sui-description" style="margin: 0 0 5px;">A simple border that's gonna keep content properly separated.</span>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-builder-field-border&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Drag and drop</span>
+					<span class="sui-description">Some times builders allow to re-organize fields.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-notice sui-notice-info">
+						<p>Include the following class <code>sui-can-move</code> next to <strong>sui-builder-field</strong> to make sure it uses <strong>move</strong> pointer.</p>
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-builder-field&quot;&gt;
+
+	&lt;i class=&quot;sui-icon-drag&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+
+	&lt;div class=&quot;sui-builder-field-label&quot;&gt;
+
+		&lt;i class=&quot;sui-icon-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+
+		&lt;span&gt;Element&lt;/span&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- Include here field element(s) --&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

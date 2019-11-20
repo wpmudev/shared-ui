@@ -1,0 +1,282 @@
+---
+layout: default
+title: Layout
+permalink: /layout/
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="basics">Basics</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="column-controls">Column Controls</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="examples">Examples</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="ordering">Ordering</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="visibility">Visibility</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Basics -->
+	<div class="sui-box" data-tab="basics">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Basics</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>The grid system should be used to layout boxes & forms. The grid requires a minimum of 2 components, the columns, and the row that wraps the columns.</p>
+
+			<p>For equally spaced columns that stay inline at all breakpoints, you can use the basic <code>.sui-col</code>:</p>
+
+			<div class="sui-row">
+
+				<div class="sui-col">
+					<div class="demo-col">sui-col</div>
+				</div>
+
+				<div class="sui-col">
+					<div class="demo-col">sui-col</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Column Controls -->
+	<div class="sui-box" data-tab="column-controls" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Column Controls</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>For more control over column behavior for different breakpoints, there is a 12 column grid similar to Bootstrap 3 naming conventions & behavior but powered by flexbox instead of floats:</p>
+
+			<div class="sui-row">
+
+				<div class="sui-col-md-3">
+					<div class="demo-col">sui-col-md-3</div>
+				</div>
+
+				<div class="sui-col-md-6">
+					<div class="demo-col">sui-col-md-6</div>
+				</div>
+
+				<div class="sui-col-md-3">
+					<div class="demo-col">sui-col-md-3</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Examples -->
+	<div class="sui-box" data-tab="examples" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Examples</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-row">
+
+				<div class="sui-col-lg-3">
+					<div class="demo-col">sui-col-lg-3</div>
+				</div>
+
+				<div class="sui-col-lg-3">
+					<div class="demo-col">sui-col-lg-3</div>
+				</div>
+
+				<div class="sui-col-lg-3">
+					<div class="demo-col">sui-col-lg-3</div>
+				</div>
+
+				<div class="sui-col-lg-3">
+					<div class="demo-col">sui-col-lg-3</div>
+				</div>
+
+			</div>
+
+			<div class="sui-row">
+
+				<div class="sui-col-sm-9">
+					<div class="demo-col">sui-col-sm-9</div>
+				</div>
+
+				<div class="sui-col-sm-3">
+					<div class="demo-col">sui-col-sm-3</div>
+				</div>
+
+			</div>
+
+			<div class="sui-row">
+
+				<div class="sui-col-lg-4">
+					<div class="demo-col">sui-col-lg-4</div>
+				</div>
+
+				<div class="sui-col-lg-4 sui-col-lg-offset-4">
+					<div class="demo-col">sui-col-lg-4 sui-col-lg-offset-4</div>
+				</div>
+
+			</div>
+
+			<div class="sui-row">
+
+				<div class="sui-col-sm-8 sui-col-sm-offset-4">
+					<div class="demo-col">sui-col-sm-8 sui-col-sm-offset-4</div>
+				</div>
+
+			</div>
+
+			<div class="sui-row">
+
+				<div class="sui-col-sm-7 sui-col-sm-offset-5">
+					<div class="demo-col">sui-col-sm-7 sui-col-sm-offset-5</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Ordering -->
+	<div class="sui-box" data-tab="ordering" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Ordering</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>You can reverse the order of the columns by adding the class <code>.sui-reverse</code> to the <code>.sui-row</code> element.</p>
+
+			<div class="sui-row sui-reverse">
+
+				<div class="sui-col">
+					<div class="demo-col">1</div>
+				</div>
+
+				<div class="sui-col">
+					<div class="demo-col">2</div>
+				</div>
+
+				<div class="sui-col">
+					<div class="demo-col">3</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Visibility -->
+	<div class="sui-box" data-tab="visibility" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Visibility</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Use a single or combination of the available classes for toggling content across viewport breakpoints.</p>
+
+			<table class="sui-table">
+
+				<thead>
+
+					<tr>
+						<th colspan="2">Class</th>
+						<th>Mobiles</th>
+						<th>Tablet</th>
+						<th>Desktop</th>
+						<th>Large Screens</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<th colspan="2">.sui-hidden-xs</th>
+						<td><span class="sui-tag">Hidden</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+					</tr>
+
+					<tr>
+						<th colspan="2">.sui-hidden-sm</th>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag">Hidden</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+					</tr>
+
+					<tr>
+						<th colspan="2">.sui-hidden-md</th>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag">Hidden</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+					</tr>
+
+					<tr>
+						<th colspan="2">.sui-hidden-lg</th>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag sui-tag-green">Visible</span></td>
+						<td><span class="sui-tag">Hidden</span></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<div class="sui-row">
+
+				<div class="sui-col">
+					<div class="demo-col">sui-col</div>
+				</div>
+
+				<div class="sui-col">
+					<div class="demo-col">sui-col</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

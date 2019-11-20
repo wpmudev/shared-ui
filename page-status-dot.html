@@ -1,0 +1,96 @@
+---
+layout: default
+title: Status Dot
+permalink: /status-dot/
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="samples">Samples</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Samples -->
+	<div class="sui-box" data-tab="samples">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Samples</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>This element is commonly used on <strong>Dashboard</strong> or <strong>Listings</strong> pages to let users know if a module is active or not.</p>
+
+			<table class="sui-table">
+
+				<tbody>
+
+					<tr><td class="sui-table-item-title">
+						<span class="sui-status-dot sui-published sui-tooltip" data-tooltip="Published" style="margin-left: -10px;">
+							<span aria-hidden="true"></span>
+						</span>
+						<span style="margin-left: 10px;">Module 1</span>
+					</td></tr>
+
+					<tr><td class="sui-table-item-title">
+						<span class="sui-status-dot sui-tooltip" data-tooltip="Draft" style="margin-left: -10px;">
+							<span aria-hidden="true"></span>
+						</span>
+						<span style="margin-left: 10px;">Module 2</span>
+					</td></tr>
+
+					<tr><td class="sui-table-item-title">
+						<span class="sui-status-dot sui-tooltip" data-tooltip="Draft" style="margin-left: -10px;">
+							<span aria-hidden="true"></span>
+						</span>
+						<span style="margin-left: 10px;">Module 3</span>
+					</td></tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>To show <strong>published</strong> status with blue dot, you have to add <code>sui-published</code> class to <code>sui-status-dot</code>, also do not forget to change tooltip text from "Draft" to "Published".</p>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;span class=&quot;sui-status-dot sui-tooltip&quot; data-tooltip=&quot;Draft&quot;&gt;
+	&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

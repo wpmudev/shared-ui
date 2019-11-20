@@ -1,0 +1,154 @@
+---
+layout: default
+title: Side Navigation
+permalink: /sidenav/
+is_searchable: true
+---
+
+<section>
+
+	<div class="sui-row-with-sidenav">
+
+		<!-- Navigation -->
+		<div class="sui-sidenav" role="navigation">
+
+			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+
+				<li class="sui-vertical-tab current">
+					<a href="#" role="button" data-tab="section-1">Section 1</a>
+				</li>
+
+				<li class="sui-vertical-tab">
+					<a href="#" role="button" data-tab="section-2">Section 2</a>
+					<span class="sui-tag sui-tag-warning">4</span>
+				</li>
+
+				<li class="sui-vertical-tab">
+					<a href="#" role="button" data-tab="section-3">Section 3</a>
+					<i class="sui-icon-check-tick" aria-hidden="true"></i>
+				</li>
+
+			</ul>
+
+			<div class="sui-sidenav-settings">
+
+				<div class="sui-form-field sui-with-floating-input" style="top: 0;">
+					<input type="text" placeholder="Name your form" class="sui-form-control" value="" />
+				</div>
+
+				<div class="sui-form-field sui-sidenav-hide-lg">
+
+					<label class="sui-label">Navigate</label>
+
+					<select class="sui-mobile-nav sui-styled">
+						<option value="#section-1">Section 1</option>
+						<option value="#section-2">Section 2</option>
+						<option value="#section-3">Section 3</option>
+					</select>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: 1 -->
+		<div class="sui-box" data-tab="section-1">
+
+			<div class="sui-box-header">
+				<h1 class="sui-box-title">Section 1</h1>
+			</div>
+
+			<div class="sui-box-body">
+
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: 2 -->
+		<div class="sui-box" data-tab="section-2" style="display: none;">
+
+			<div class="sui-box-header">
+				<h1 class="sui-box-title">Section 2</h1>
+			</div>
+
+			<div class="sui-box-body">
+
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: 3 -->
+		<div class="sui-box" data-tab="section-3" style="display: none;">
+
+			<div class="sui-box-header">
+				<h1 class="sui-box-title">Section 3</h1>
+			</div>
+
+			<div class="sui-box-body">
+
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;section class=&quot;sui-row-with-sidenav&quot;&gt;
+
+	&lt;!-- Navigation --&gt;
+	&lt;div role=&quot;navigation&quot; class=&quot;sui-sidenav&quot;&gt;
+
+		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
+
+			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
+			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
+			&lt;/li&gt;
+
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
+			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
+			&lt;/li&gt;
+
+			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
+			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
+			&lt;li class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+
+		&lt;div class=&quot;sui-sidenav-hide-lg&quot;&gt;
+
+			&lt;select class=&quot;sui-mobile-nav&quot; style=&quot;display: none;&quot;&gt;
+				&lt;option value=&quot;tab-1&quot; selected=&quot;selected&quot;&gt;Tab 1&lt;/option&gt;
+				&lt;option value=&quot;tab-2&quot;&gt;Tab 2&lt;/option&gt;
+				&lt;option value=&quot;tab-3&quot;&gt;Tab 3&lt;/option&gt;
+			&lt;/select&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 1 (Current) --&gt;
+	&lt;div class=&quot;sui-box&quot;&gt;...&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 2 --&gt;
+	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+
+	&lt;!-- SECTION: Tab 3 --&gt;
+	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+
+&lt;/section&gt;
+</pre>
+
+	</div>
+
+</section>
