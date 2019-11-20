@@ -399,7 +399,7 @@ gulp.task( 'publish:sui', () => {
 
 	ghpages.publish( '_dist/library/', {
 		branch: 'master',
-		repo: 'https://github.com/iamleigh/sui-showcase-jekyll-test.git',
+		repo: 'https://github.com/wpmudev/shared-ui.git',
 		dest: '',
 		dotfiles: true,
 		message: ':package: Shared UI v' + getVersion()
@@ -411,7 +411,7 @@ gulp.task( 'publish:dev', () => {
 
 	ghpages.publish( '_dist/showcase/', {
 		branch: 'gh-pages',
-		repo: 'https://github.com/iamleigh/sui-showcase-jekyll-test.git',
+		repo: 'https://github.com/wpmudev/shared-ui.git',
 		dest: '',
 		dotfiles: true,
 		message: ':package: Shared UI Showcase with SUI v' + getVersion()
