@@ -1,0 +1,148 @@
+title: WPMU DEV Shared UI
+baseurl: "/shared-ui" # the subpath of your site, e.g. /blog
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+suiver: '2.5.0'
+suiclass: 'sui-2-5-0'
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# WordPress Admin Menu
+adminmenu:
+  - name: Setup
+    url: /setup/
+    children:
+      - name: Installation
+        url: /installation/
+      - name: Requirements
+        url: /requirements/
+  - name: Basics
+    url: /basics/
+    children:
+      - name: Heading
+        url: /heading/
+      - name: Upgrade Page
+        url: /upgrade/
+      - name: Footer
+        url: /footer/
+      - name: Layout
+        url: /layout/
+      - name: Typography
+        url: /typography/
+      - name: Icons
+        url: /icons/
+  - name: Containers
+    url: /box-basics/
+    children:
+      - name: Basic Box
+        url: /box-basics/
+      - name: Settings Box
+        url: /box-settings/
+      - name: Status Box
+        url: /box-status/
+      - name: Search Box
+        url: /box-search/
+      - name: Message Box
+        url: /box-message/
+      - name: Upsells Box
+        url: /box-upsells/
+  - name: Form Elements
+    url: /labels/
+    children:
+      - name: Labels
+        url: /labels/
+      - name: Inputs
+        url: /inputs/
+      - name: Password
+        url: /password/
+      - name: Textarea
+        url: /textarea/
+      - name: Radios
+        url: /radios/
+      - name: Checkbox
+        url: /checkbox/
+      - name: Toggles
+        url: /toggles/
+      - name: Select
+        url: /select/
+      - name: Multi Select
+        url: /multiselect/
+      - name: Search
+        url: /search/
+      - name: File Uploads
+        url: /file-uploads/
+      - name: Image Uploads
+        url: /image-uploads/
+      - name: Insert Variables
+        url: /insert-variables/
+      - name: Calendar
+        url: /calendar/
+      - name: Buttons
+        url: /buttons/
+      - name: Icon Buttons
+        url: /icon-buttons/
+      - name: WP Editor
+        url: /wp-editor/
+  - name: Simple Elements
+    url: /notifications/
+    children:
+      - name: Notifications
+        url: /notifications/
+      - name: Tags
+        url: /tags/
+      - name: Tooltips
+        url: /tooltips/
+      - name: Status Dot
+        url: /status-dot/
+      - name: Tables
+        url: /tables/
+      - name: Scores
+        url: /scores/
+      - name: Progress Bar
+        url: /progress-bar/
+      - name: Code Snippets
+        url: /code-snippets/
+      - name: Code Editor
+        url: /code-editor/
+      - name: Dropdowns
+        url: /dropdowns/
+      - name: Field List
+        url: /field-list/
+      - name: Tree Selectors
+        url: /trees/
+      - name: Pagination
+        url: /pagination/
+      - name: Recipient
+        url: /recipient/
+  - name: Composite Elements
+    url: /tabs/
+    children:
+      - name: Tabs
+        url: /tabs/
+      - name: Selectors
+        url: /selectors/
+      - name: Builder
+        url: /builder/
+      - name: Accordions
+        url: /accordions/
+      - name: Side Navigation
+        url: /sidenav/
+      - name: Modals
+        url: /modals/
+      - name: Summary
+        url: /summary/
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

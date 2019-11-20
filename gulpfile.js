@@ -1,40 +1,70 @@
 'use strict';
 
-const autoprefixer = require( 'gulp-autoprefixer' );
-const browserSync  = require( 'browser-sync' ).create();
+// Import `src` and `dest` from gulp for use in the task.
+const { src, dest } = require( 'gulp' );
+
+/**
+ * Supported Packages
+ * List here all dependencies necessary to run required tasks.
+ *
+ * @since 1.0.0
+ */
+const fs           = require( 'fs' );
+const pump         = require( 'pump' );
+const gulp         = require( 'gulp' );
 const chalk        = require( 'chalk' );
+const autoprefixer = require( 'gulp-autoprefixer' );
+const clean        = require( 'gulp-clean' );
 const cleanCSS     = require( 'gulp-clean-css' );
 const concat       = require( 'gulp-concat' );
 const eslint       = require( 'gulp-eslint' );
-const fs           = require( 'fs' );
-const gulp         = require( 'gulp' );
 const header       = require( 'gulp-header' );
-const pump         = require( 'pump' );
 const rename       = require( 'gulp-rename' );
 const replace      = require( 'gulp-replace' );
 const sass         = require( 'gulp-sass' );
-const uglify       = require( 'gulp-uglify' );
+const uglify       = require( 'gulp-uglify-es' ).default;
+const babel        = require( 'gulp-babel' );
 const watch        = require( 'gulp-watch' );
-
-const banner = ['/*!',
-	' * WPMU DEV Shared UI',
-	' * Copyright 2018 Incsub (https://incsub.com)',
-	' * Licensed under GPL v2 (http://www.gnu.org/licenses/gpl-2.0.html)',
-	' */',
-	''].join('\n');
+const notify       = require( 'gulp-notify' );
+const ghpages      = require( 'gh-pages' );
 
 /**
+ * Get Package File
+ *
+ * @since 1.0.0
+ */
+
+const pckg = JSON.parse( fs.readFileSync( './package.json' ) );
+
+/**
+ * WPMU DEV Banner
+ * Print this on SUI scripts.
+ *
+ * @since 1.0.0
+ */
+
+const banner = [
+	'/*!',
+	' * WPMU DEV Shared UI',
+	' * Copyright 2018 - 2019 Incsub (https://incsub.com)',
+	' * Licensed under GPL v2 (http://www.gnu.org/licenses/gpl-2.0.html)',
+	' */',
+	''
+].join( '\n' );
+
+/**
+ * SUI Version
  * Get the latest project version from package.json.
  *
  * @return {string} version
  */
 function getVersion() {
 	const json = JSON.parse( fs.readFileSync( './package.json' ) );
-
 	return json.version;
 }
 
 /**
+ * SUI Version (Class)
  * Get the latest project version from package.json in the form of a CSS class.
  *
  * @param {boolean} selector - prepends a `.` to the body class
@@ -43,195 +73,347 @@ function getVersion() {
 function getBodyClass( selector = true ) {
 	let v = getVersion();
 	let p = selector ? '.' : '';
-
 	return `${p}sui-${v.replace( /\./g, '-' ) }`;
 }
 
-// Build the Shared UI styles.
-gulp.task( 'styles:sui', function() {
-	gulp.src( './scss/**/*.scss')
+/**
+ * List of Supported Browsers
+ *
+ * @since 1.0.0
+ */
+
+const browsersList = [
+	'last 2 version',
+	'> 1%'
+];
+
+/**
+ * Uglify options.
+ *
+ * @since 1.0.0
+ */
+const uglifyOptions = {
+	compress: {
+		// eslint-disable-next-line camelcase
+		drop_console: true
+	}
+};
+
+/**
+ * Development Paths & Files
+ *
+ * @since 2.0.0
+ */
+
+const library = {
+	source: {},
+	output: {},
+	watch: {}
+};
+
+library.source.styles = './assets/scss/shared-ui/';
+library.output.styles = './_dist/library/dist/css/';
+
+library.watch.styles = [
+	library.source.styles + '**/**/*.scss'
+];
+
+library.source.scripts = './assets/js/shared-ui/';
+library.output.scripts = './_dist/library/dist/js/';
+
+library.watch.scripts = [
+	library.source.scripts + '**/**/*.js'
+];
+
+const showcase = {
+	source: {},
+	output: {},
+	watch: {}
+};
+
+showcase.source.styles = './assets/scss/showcase/';
+showcase.output.styles = './assets/css/';
+
+showcase.watch.styles = [
+	showcase.source.styles + '**/*.scss'
+];
+
+showcase.source.scripts = './assets/js/showcase/';
+showcase.output.scripts = './assets/js/';
+
+showcase.watch.scripts = [
+	showcase.source.scripts + '**/**/*.js'
+];
+
+/**
+ * Development Tasks.
+ *
+ * @since 2.0.0
+ */
+
+// SUI styles.
+gulp.task( 'sui:styles', () => {
+
+	gulp.src( library.watch.styles )
 		.pipe( sass({ outputStyle: 'expanded' }).on( 'error', sass.logError ) )
-		.pipe( autoprefixer())
+		.pipe( autoprefixer( browsersList ) )
 		.pipe( header( banner ) )
-		.pipe( gulp.dest( './dist/css' ) )
+		.pipe( gulp.dest( library.output.styles ) )
 		.pipe( cleanCSS() )
 		.pipe( rename({ suffix: '.min' }) )
-		.pipe( gulp.dest( './dist/css') )
-		.pipe( browserSync.stream() );
+		.pipe( gulp.dest( library.output.styles ) )
+		;
 });
 
-// Build the Shared UI scripts.
-gulp.task( 'scripts:sui', function( cb ) {
-	pump(
-		[
-			gulp.src( './js/**/*.js' ),
-			replace( 'SUI_BODY_CLASS', getBodyClass() ),
-			eslint(),
-			eslint.format(),
-			eslint.failAfterError(),
-            gulp.dest( './dist/js/_src' ),
-			concat( 'shared-ui.js'),
-			header( banner ),
-			gulp.dest( './dist/js/' ),
-			uglify(),
-			rename({ suffix: '.min' }),
-			header( banner ),
-			gulp.dest( './dist/js/' ),
-			browserSync.stream()
-		],
-		cb
-	);
-});
+// SUI scripts.
+gulp.task( 'sui:scripts', ( cb ) => {
 
-// Build the showcase styles.
-gulp.task( 'styles:showcase', function() {
-	gulp.src( './showcase-assets/**/*.scss' )
-		.pipe( sass({ outputStyle: 'expanded' }).on( 'error', sass.logError ) )
-		.pipe( autoprefixer( 'last 2 version', '> 1%' ) )
-		.pipe( cleanCSS() )
-		.pipe( rename({ suffix: '.min' }) )
-		.pipe( gulp.dest( './showcase-assets/build/' ) )
-		.pipe( browserSync.stream() );
-});
-
-// Build the showcase scripts.
-gulp.task( 'scripts:showcase', function( cb ) {
 	pump([
-			gulp.src( ['./showcase-assets/*.js'] ),
-			eslint(),
-			eslint.format(),
-			eslint.failAfterError(),
-			uglify(),
-			rename({ suffix: '.min' }),
-			gulp.dest( './showcase-assets/build/' ),
-			browserSync.stream()
-		],
-		cb
-	);
+		gulp.src( library.watch.scripts ),
+		replace( 'SUI_BODY_CLASS', getBodyClass() ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		gulp.dest( library.output.scripts + '_src' ),
+		concat( 'shared-ui.js' ),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		uglify( uglifyOptions ),
+		rename({ suffix: '.min' }),
+		header( banner ),
+		gulp.dest( library.output.scripts ),
+		gulp.dest( showcase.output.scripts )
+	], cb, err => {
+		if ( err ) {
+			notify().write( err );
+		}
+		cb();
+	});
 });
 
-// Initialize BrowserSync server.
-gulp.task( 'browser-sync', function() {
-	browserSync.init({
-		server: {
-			baseDir: './'
+// Showcase copies.
+gulp.task( 'dev:jsCopies', () => {
+
+	gulp.src([
+		'./node_modules/lunr/lunr.min.js',
+		'./node_modules/chart.js/dist/Chart.min.js',
+		'./node_modules/jquery/dist/jquery.min.js'
+	])
+		.pipe( gulp.dest( showcase.output.scripts ) )
+		;
+});
+
+// Showcase styles.
+gulp.task( 'dev:styles', () => {
+
+	gulp.src( showcase.watch.styles )
+		.pipe( sass({ outputStyle: 'expanded' }).on( 'error', sass.logError ) )
+		.pipe( autoprefixer( browsersList ) )
+		.pipe( header( banner ) )
+		.pipe( gulp.dest( showcase.output.styles ) )
+		.pipe( cleanCSS() )
+		.pipe( rename({ suffix: '.min' }) )
+		.pipe( gulp.dest( showcase.output.styles ) )
+		;
+});
+
+// Showcase scripts.
+gulp.task( 'dev:scripts', ( cb ) => {
+
+	pump([
+		gulp.src( showcase.watch.scripts ),
+		eslint(),
+		eslint.format(),
+		eslint.failAfterError(),
+		babel({
+			presets: [
+				[ '@babel/env', {
+					modules: false
+				} ]
+			]
+		}),
+		concat( 'showcase.js' ),
+		uglify( uglifyOptions ),
+		rename({
+			suffix: '.min'
+		}),
+		gulp.dest( showcase.output.scripts )
+	], cb, err => {
+		if ( err ) {
+			notify().write( err );
 		}
+		cb();
 	});
 });
 
 // Watch for changes across project.
-gulp.task( 'watch', function() {
+gulp.task( 'watch', () => {
 
 	// Watch for SUI styling changes.
-	gulp.watch( 'scss/**/*.scss', ['styles:sui'] );
+	gulp.watch(
+		library.watch.styles,
+		[ 'sui:styles' ]
+	);
 
 	// Watch for showcase styling changes.
-	gulp.watch( ['showcase-assets/*.scss', 'scss/**/*.scss'], ['styles:showcase'] );
+	gulp.watch(
+		[
+			library.source.styles + '**/**/*.scss',
+			showcase.source.styles + '**/*.scss'
+		],
+		[ 'dev:styles' ]
+	);
 
 	// Watch for SUI js changes.
-	gulp.watch( 'js/**/*.js', ['scripts:sui'] );
+	gulp.watch(
+		library.watch.scripts,
+		[ 'sui:scripts' ]
+	);
 
 	// Watch for showcase js changes.
-	gulp.watch( 'showcase-assets/*.js', ['scripts:showcase'] );
-
-	// Watch for package.json changes.
-	gulp.watch( 'package.json', ['build'] );
-
-	// Watch for HTML changes.
-	gulp.watch( '*.html' ).on( 'change', browserSync.reload );
-
+	gulp.watch(
+		[
+			library.source.scripts + '**/**/*.js',
+			showcase.source.scripts + '**/**/*.js'
+		],
+		[ 'dev:scripts' ]
+	);
 });
 
-// Increase version numbers used in project based off of current package.json.
-gulp.task( 'update-versions', function( cb ) {
+/**
+ * Update version and copy elements to
+ * _dist folder.
+ *
+ * @since 2.0.0
+ */
+
+// Update SUI version.
+gulp.task( 'update-version', () => {
+
 	const version   = getVersion();
 	const bodyClass = getBodyClass( false );
 
-	// Update project SCSS version.
-	gulp.src( './scss/_variables.scss' )
+	gulp.src( './_config.yml' )
+		.pipe( replace( /(suiver: ').*(')/gm, function( match, p1, p2 ) {
 
-		// Update SCSS version.
-		.pipe( replace(/^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
+			console.log( chalk.magentaBright( './_config.yml:' ) );
+			console.log( `Update SUI version to ${chalk.green( `suiver: ${version}` )}\n` );
+
+			return `${p1}${version}${p2}`;
+		}) )
+		.pipe( replace( /(suiclass: ').*(')/gm, function( match, p1, p2 ) {
+
+			console.log( chalk.magentaBright( './_config.yml:' ) );
+			console.log( `Update SUI class to ${chalk.green( bodyClass )}\n` );
+
+			return `${p1}${bodyClass}${p2}`;
+		}) )
+		.pipe( gulp.dest( './' ) )
+		;
+
+	gulp.src( library.source.styles + '_variables.scss' )
+		.pipe( replace( /^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
 			console.log( `$sui-version has been updated to ${chalk.green( version )}\n` );
 
 			return `${p1}${version}${p2}`;
-		}))
-
-		.pipe( gulp.dest( './scss/' ) );
-
-	// Update showcase HTML versions.
-	gulp.src( './index.html' )
-
-		// Update body class version.
-		.pipe( replace(/^(<body class=").*(">)$/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Demo body class has been updated to ${chalk.green( bodyClass )}\n` );
-
-			return `${p1}${bodyClass}${p2}`;
-		}))
-
-		// Update php code example body class.
-		.pipe( replace(/(\$classes \.= ').*(';)/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Demo php body class code example has been updated to ${chalk.green( bodyClass )}\n` );
-
-			return `${p1}${bodyClass}${p2}`;
-		}))
-
-		// Update asset query string versions.
-		.pipe( replace(/(\?ver=).*(">)/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Asset query string has been updated to ${chalk.green( `?ver=${version}` )}\n` );
-
-			return `${p1}${version}${p2}`;
-		}))
-
-		// Update asset query string versions.
-		.pipe( replace(/(<p class="demo-sui-version">Version ).*(<\/p>)/gm, function( match, p1, p2 ) {
-
-			console.log( chalk.magentaBright( './index.html:' ) );
-			console.log( `Adminbar version has been updated to ${chalk.green( `?ver=${version}` )}\n` );
-
-			return `${p1}${version}${p2}`;
-		}))
-
-		.pipe( gulp.dest( './' ) );
-
+		}) )
+		.pipe( gulp.dest( library.source.styles ) )
+		;
 });
 
-// Build all Shared UI files with new verions.
-gulp.task( 'update-versions:build', [
-	'update-versions',
-	'build'
-]);
+// Copy SUI files to "_dist" folder.
+gulp.task( 'copy-files', () => {
 
-// Build all Shared UI files.
-gulp.task( 'build:sui', [
-	'styles:sui',
-	'scripts:sui'
-]);
+	// README and other main files.
+	gulp.src([ './LICENSE', './README.md', './CHANGELOG.md', '.gitignore', 'package.json' ])
+		.pipe( gulp.dest( './_dist/library/' ) )
+		;
 
-// Build all Showcase files.
-gulp.task( 'build:showcase', [
-	'styles:showcase',
-	'scripts:showcase'
-]);
+	// Icon fonts.
+	gulp.src( './assets/fonts/*' )
+		.pipe( gulp.dest( './_dist/library/dist/fonts/' ) )
+		.pipe( gulp.dest( './_dist/showcase/assets/fonts/' ) )
+		;
 
-// Build everything.
-gulp.task( 'build', [
-	'build:sui',
-	'build:showcase'
-]);
+	// Images.
+	gulp.src( './assets/images/*' )
+		.pipe( gulp.dest( './_dist/library/dist/images/' ) )
+		.pipe( gulp.dest( './_dist/showcase/assets/images/' ) )
+		;
 
-// Start development environment.
-gulp.task( 'dev', [
-	'build:sui',
-	'build:showcase',
-	'browser-sync',
-	'watch'
-]);
+	// Library pre-built styles.
+	gulp.src( library.watch.styles )
+		.pipe( gulp.dest( './_dist/library/scss/' ) )
+		;
+
+	// Library pre-built scripts.
+	gulp.src( library.watch.scripts )
+		.pipe( gulp.dest( './_dist/library/js/' ) )
+		;
+
+	// Showcase stylesheets.
+	gulp.src( './assets/css/*' )
+		.pipe( gulp.dest( './_dist/showcase/assets/css/' ) )
+		;
+
+	// Showcase scripts.
+	gulp.src( './assets/js/*.js' )
+		.pipe( gulp.dest( './_dist/showcase/assets/js/' ) )
+		;
+
+	// Showcase pages.
+	gulp.src([ './*.html', '_config.yml', '.gitignore' ])
+		.pipe( gulp.dest( './_dist/showcase/' ) )
+		;
+
+	// Showcase layouts.
+	gulp.src( './_layouts/*' )
+		.pipe( gulp.dest( './_dist/showcase/_layouts/' ) )
+		;
+
+	// Showcase components.
+	gulp.src( './_includes/*' )
+		.pipe( gulp.dest( './_dist/showcase/_includes/' ) )
+		;
+});
+
+/**
+ * Publishing tasks.
+ * Release library and showcase files to
+ * its correct branches.
+ *
+ * @since 2.0.0
+ */
+
+// Release library.
+gulp.task( 'publish:sui', () => {
+
+	ghpages.publish( '_dist/library/', {
+		branch: 'master',
+		repo: 'https://github.com/wpmudev/shared-ui.git',
+		dest: '',
+		dotfiles: true,
+		message: ':package: Shared UI v' + getVersion()
+	});
+});
+
+// Release showcase.
+gulp.task( 'publish:dev', () => {
+
+	ghpages.publish( '_dist/showcase/', {
+		branch: 'gh-pages',
+		repo: 'https://github.com/wpmudev/shared-ui.git',
+		dest: '',
+		dotfiles: true,
+		message: ':package: Shared UI Showcase with SUI v' + getVersion()
+	});
+});

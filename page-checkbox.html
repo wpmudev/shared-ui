@@ -1,0 +1,647 @@
+---
+layout: default
+title: Checkbox
+permalink: /checkbox/
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="design">Design</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="alignment">Alignment</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="sizes">Sizes</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Design -->
+	<div class="sui-box" data-tab="design">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Design</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>We have 2 different designs for checkboxes: text only and text with image. You can get text only design using <code>sui-checkbox</code> class but if you need to add an image is better to use <code>sui-checkbox-image</code> class.</p>
+
+			<p>Below you can find both designs. Click on the tabs to get a visual example and demo code.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-checkbox-default" class="active" role="tab">Text only (Default)</div>
+					<div id="tab-checkbox-image" role="tab">Text with image</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default (only text) -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-checkbox-default">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-default-one" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-default-one"
+									aria-labelledby="checkbox-label-default-one"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-default-one">Unchecked</span>
+
+							</label>
+
+							<label for="checkbox-default-two" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-default-two"
+									aria-labelledby="checkbox-label-default-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-default-two">Unchecked</span>
+
+							</label>
+
+							<label for="checkbox-default-three" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-default-three"
+									aria-labelledby="checkbox-label-default-three"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-default-three">Checked</span>
+
+							</label>
+
+							<label for="checkbox-default-four" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-default-four"
+									aria-labelledby="checkbox-label-default-four"
+									disabled
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-default-four">Disabled (Unchecked)</span>
+
+							</label>
+
+							<label for="checkbox-default-five" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-default-five"
+									aria-labelledby="checkbox-label-default-five"
+									checked="checked"
+									disabled
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-default-five">Disabled (Checked)</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;!--
+	START:
+	Checkbox element
+	--&gt;
+	&lt;label for=&quot;unique-id&quot; class=&quot;sui-checkbox&quot;&gt;
+
+		&lt;input
+			type=&quot;checkbox&quot;
+			id=&quot;unique-id&quot;
+			aria-labelledby=&quot;label-unique-id&quot;
+		/&gt;
+
+		&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+		&lt;span id=&quot;label-unique-id&quot;&gt;Option name&lt;/span&gt;
+
+	&lt;/label&gt;
+	&lt;!--
+	END:
+	Checkbox element
+	--&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Radio with image -->
+					<div role="tabpanel" aria-labelledby="tab-checkbox-image">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-image-one" class="sui-checkbox-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon@2x.png 2x"
+									alt="SmartCrawl plugin character in a red circular background"
+								/>
+
+								<span class="sui-checkbox">
+
+									<input
+										type="checkbox"
+										id="checkbox-image-one"
+										aria-labelledby="checkbox-label-image-one"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="checkbox-label-image-one">Unchecked</span>
+
+								</span>
+
+							</label>
+
+							<label for="checkbox-image-two" class="sui-checkbox-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-defender-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-defender-icon@2x.png 2x"
+									alt="Defender plugin character in a black circular background"
+								/>
+
+								<span class="sui-checkbox">
+
+									<input
+										type="checkbox"
+										id="checkbox-image-two"
+										aria-labelledby="checkbox-label-image-two"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="checkbox-label-image-two">Unchecked</span>
+
+								</span>
+
+							</label>
+
+							<label for="checkbox-image-three" class="sui-checkbox-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smush-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smush-icon@2x.png 2x"
+									alt="Smush plugin character in a green circular background"
+								/>
+
+								<span class="sui-checkbox">
+
+									<input
+										type="checkbox"
+										id="checkbox-image-three"
+										aria-labelledby="checkbox-label-image-three"
+										checked="checked"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="checkbox-label-image-three">Checked</span>
+
+								</span>
+
+							</label>
+
+							<label for="checkbox-image-four" class="sui-checkbox-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon@2x.png 2x"
+									alt="SmartCrawl plugin character in a red circular background"
+								/>
+
+								<span class="sui-checkbox">
+
+									<input
+										type="checkbox"
+										id="checkbox-image-four"
+										aria-labelledby="checkbox-label-image-four"
+										disabled
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="checkbox-label-image-four">Disabled (Unchecked)</span>
+
+								</span>
+
+							</label>
+
+							<label for="checkbox-image-five" class="sui-checkbox-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-defender-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-defender-icon@2x.png 2x"
+									alt="Defender plugin character in a black circular background"
+								/>
+
+								<span class="sui-checkbox">
+
+									<input
+										type="checkbox"
+										id="checkbox-image-five"
+										aria-labelledby="checkbox-label-image-five"
+										checked="checked"
+										disabled
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="checkbox-label-image-five">Disabled (Checked)</span>
+
+								</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot; role=&quot;radiogroup&quot;&gt;
+
+	&lt;!--
+	START:
+	Checkbox element
+	--&gt;
+	&lt;label for=&quot;unique-id&quot; class=&quot;sui-checkbox-image&quot;&gt;
+
+		&lt;img
+			src=&quot;./assets/images/image.png&quot;
+			srcset=&quot;./assets/images/image.png 1x, ./assets/images/image@2x.png 2x&quot;
+			alt=&quot;Descriptive text regarding image&quot;
+		/&gt;
+
+		&lt;span class=&quot;sui-checkbox&quot;&gt;
+
+		&lt;input
+			type=&quot;checkbox&quot;
+			id=&quot;unique-id&quot;
+			aria-labelledby=&quot;label-unique-id&quot;
+		/&gt;
+
+		&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+			&lt;span id=&quot;label-unique-id&quot;&gt;Option name&lt;/span&gt;
+
+		&lt;/span&gt;
+
+	&lt;/label&gt;
+	&lt;!--
+	END:
+	Checkbox element
+	--&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Alignment -->
+	<div class="sui-box" data-tab="alignment" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Alignment</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Checkboxes can be aligned in two different ways: inline and stacked. By default these are aligned one next to another as inline elements, but you can also pile them one on top of another as stacked elements adding <code>sui-checkbox-stacked</code> class to <code>sui-checkbox</code> element.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-checkbox-inline" class="active" role="tab">Inline (Default)</div>
+					<div id="tab-checkbox-stacked" role="tab">Stacked</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Inline (Default) -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-checkbox-inline">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-inline-one" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-inline-one"
+									aria-labelledby="checkbox-label-inline-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-inline-one">Option 1</span>
+
+							</label>
+
+							<label for="checkbox-inline-two" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-inline-two"
+									aria-labelledby="checkbox-label-inline-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-inline-two">Option 2</span>
+
+							</label>
+
+							<label for="checkbox-inline-three" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-inline-three"
+									aria-labelledby="checkbox-label-inline-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-inline-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-checkbox&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Stacked -->
+					<div role="tabpanel" aria-labelledby="tab-checkbox-stacked">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-stacked-one" class="sui-checkbox sui-checkbox-stacked">
+
+								<input
+									type="checkbox"
+									id="checkbox-stacked-one"
+									aria-labelledby="checkbox-label-stacked-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-stacked-one">Option 1</span>
+
+							</label>
+
+							<label for="checkbox-stacked-two" class="sui-checkbox sui-checkbox-stacked">
+
+								<input
+									type="checkbox"
+									id="checkbox-stacked-two"
+									aria-labelledby="checkbox-label-stacked-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-stacked-two">Option 2</span>
+
+							</label>
+
+							<label for="checkbox-stacked-three" class="sui-checkbox sui-checkbox-stacked">
+
+								<input
+									type="checkbox"
+									id="checkbox-stacked-three"
+									aria-labelledby="checkbox-label-stacked-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-stacked-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-checkbox sui-checkbox-stacked&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Sizes -->
+	<div class="sui-box" data-tab="sizes" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Sizes</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Checkboxes have two font size variations: <strong>default</strong> which has 15px font size, and <strong>small</strong> which has 13px font size. To have smaller font size you just need to add <code>sui-checkbox-sm</code> class to <code>sui-checkbox</code> element.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-checkbox-normal" class="active" role="tab">Font 15px (Default)</div>
+					<div id="tab-checkbox-small" role="tab">Font 13px (Small)</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-checkbox-normal">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-normal-one" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-normal-one"
+									aria-labelledby="checkbox-label-normal-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-normal-one">Option 1</span>
+
+							</label>
+
+							<label for="checkbox-normal-two" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-normal-two"
+									aria-labelledby="checkbox-label-normal-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-normal-two">Option 2</span>
+
+							</label>
+
+							<label for="checkbox-normal-three" class="sui-checkbox">
+
+								<input
+									type="checkbox"
+									id="checkbox-normal-three"
+									aria-labelledby="checkbox-label-normal-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-normal-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-checkbox&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Small -->
+					<div role="tabpanel" aria-labelledby="tab-checkbox-small">
+
+						<div class="sui-form-field">
+
+							<label for="checkbox-small-one" class="sui-checkbox sui-checkbox-sm">
+
+								<input
+									type="checkbox"
+									id="checkbox-small-one"
+									aria-labelledby="checkbox-label-small-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-small-one">Option 1</span>
+
+							</label>
+
+							<label for="checkbox-small-two" class="sui-checkbox sui-checkbox-sm">
+
+								<input
+									type="checkbox"
+									id="checkbox-small-two"
+									aria-labelledby="checkbox-label-small-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-small-two">Option 2</span>
+
+							</label>
+
+							<label for="checkbox-small-three" class="sui-checkbox sui-checkbox-sm">
+
+								<input
+									type="checkbox"
+									id="checkbox-small-three"
+									aria-labelledby="checkbox-label-small-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="checkbox-label-small-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-checkbox sui-checkbox-sm&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

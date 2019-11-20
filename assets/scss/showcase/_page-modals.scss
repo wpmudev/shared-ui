@@ -1,0 +1,120 @@
+.demo-modal {
+
+	&-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 19px 20px;
+		background-color: #F8F8F8;
+
+		.sui-toggle-label {
+			font-size: 13px;
+			line-height: 22px;
+		}
+	}
+
+	&-performance {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		p {
+			min-width: 1px;
+			flex: 1;
+			margin-right: 30px;
+			margin-bottom: 0 !important;
+		}
+
+		button {
+			margin: 0 !important;
+			flex: 0 0 auto;
+		}
+	}
+
+	&-input-with-button {
+		display: flex;
+		align-items: center;
+
+		input {
+			border-right-width: 0 !important;
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+
+		button {
+			cursor: pointer;
+			display: block;
+			padding: 12px 17px 11px;
+			border: 0;
+			border-radius: 0 4px 4px 0;
+			background-color: #17A8E3;
+			color: #FFF;
+
+			[class*="sui-icon-"] {
+				display: block;
+
+				&:before {
+					color: inherit !important;
+				}
+			}
+		}
+	}
+
+	&-footer-link {
+		cursor: pointer;
+		display: block;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		color: #666;
+		font: 500 12px/16px 'Roboto';
+		letter-spacing: -0.2px;
+		text-decoration: underline;
+		transition: 0.25s ease;
+
+		&:hover, &:focus {
+			color: #333;
+		}
+	}
+
+	&-button-google {
+		width: auto;
+		min-width: 1px;
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		margin: 0 0 20px;
+		padding: 9px 16px;
+		border: 0;
+		border-radius: 4px;
+		background-color: #FFF;
+		box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+		color: #333;
+		font: 500 12px/16px 'Roboto';
+		letter-spacing: -0.25px;
+		transition: 0.25s ease;
+
+		.sui-icon-google-connect {
+			width: 12px;
+			height: 12px;
+			margin-right: 5px;
+			background-image: url('../images/google-connect.png');
+			background-size: 12px 12px;
+			background-repeat: no-repeat;
+			transition: 0.25s ease;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: #17A8E3;
+			color: #FFF;
+
+			.sui-icon-google-connect {
+				background-image: url('../images/google-connect-white.png');
+			}
+		}
+	}
+}

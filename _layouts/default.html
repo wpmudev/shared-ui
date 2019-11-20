@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+	{% include head.html %}
+
+	<!-- Do not edit body tag (updated via release scripts) -->
+	<body {% if page.id %}id="showcase-page-{{ page.id }}"{% endif %} class="{{ site.suiclass }}">
+
+		<div id="wpwrap">
+
+			{% include wp-adminmenu.html %}
+
+			<div id="wpcontent">
+
+				{% include wp-adminbar.html %}
+
+				<div role="main" id="wpbody">
+
+					<div id="wpbody-content">
+
+						<main class="sui-wrap">
+
+							{% include page-title.html %}
+
+							{{ content }}
+
+						</main>
+
+					</div><!-- END: #wpbody-content -->
+
+					<div class="clear"></div>
+
+				</div><!-- END: #wpbody -->
+
+				<div class="clear"></div>
+
+			</div><!-- END: #wpcontent -->
+
+		</div><!-- END: #wpwrap -->
+
+	</body>
+
+	{% include footer.html %}
+
+</html>

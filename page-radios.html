@@ -1,0 +1,671 @@
+---
+layout: default
+title: Radios
+permalink: /radios/
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="design">Design</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="alignment">Alignment</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="sizes">Sizes</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Design -->
+	<div class="sui-box" data-tab="design">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Design</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>We have 2 different designs for radio buttons: text only and text with image. You can get text only design using <code>sui-radio</code> class but if you need to add an image is better to use <code>sui-radio-image</code> class.</p>
+
+			<p>Below you can find both designs. Click on the tabs to get a visual example and demo code.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-radio-default" class="active" role="tab">Text only (Default)</div>
+					<div id="tab-radio-image" role="tab">Radio with image</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default (only text) -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-radio-default">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-default-one" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-default"
+									id="radio-default-one"
+									aria-labelledby="radio-label-default-one"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-default-one">Unchecked</span>
+
+							</label>
+
+							<label for="radio-default-two" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-default"
+									id="radio-default-two"
+									aria-labelledby="radio-label-default-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-default-two">Unchecked</span>
+
+							</label>
+
+							<label for="radio-default-three" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-default"
+									id="radio-default-three"
+									aria-labelledby="radio-label-default-three"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-default-three">Checked</span>
+
+							</label>
+
+							<label for="radio-default-four" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-default"
+									id="radio-default-four"
+									aria-labelledby="radio-label-default-four"
+									disabled
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-default-four">Disabled (Unchecked)</span>
+
+							</label>
+
+							<label for="radio-default-five" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-default-other"
+									id="radio-default-five"
+									aria-labelledby="radio-label-default-five"
+									checked="checked"
+									disabled
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-default-five">Disabled (Checked)</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot; role=&quot;radiogroup&quot;&gt;
+
+	&lt;!--
+	START:
+	Radio option element
+	--&gt;
+	&lt;label for=&quot;unique-id&quot; class=&quot;sui-radio&quot;&gt;
+
+		&lt;input
+			type=&quot;radio&quot;
+			name=&quot;unique-group-name&quot;
+			id=&quot;unique-id&quot;
+			aria-labelledby=&quot;label-unique-id&quot;
+		/&gt;
+
+		&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+		&lt;span id=&quot;label-unique-id&quot;&gt;Option name&lt;/span&gt;
+
+	&lt;/label&gt;
+	&lt;!--
+	END:
+	Radio option element
+	--&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Radio with image -->
+					<div role="tabpanel" aria-labelledby="tab-radio-image">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-image-one" class="sui-radio-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon@2x.png 2x"
+									alt="SmartCrawl plugin character in a red circular background"
+								/>
+
+								<span class="sui-radio">
+
+									<input
+										type="radio"
+										name="radio-image"
+										id="radio-image-one"
+										aria-labelledby="radio-label-image-one"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="radio-label-image-one">Unchecked</span>
+
+								</span>
+
+							</label>
+
+							<label for="radio-image-two" class="sui-radio-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-defender-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-defender-icon@2x.png 2x"
+									alt="Defender plugin character in a black circular background"
+								/>
+
+								<span class="sui-radio">
+
+									<input
+										type="radio"
+										name="radio-image"
+										id="radio-image-two"
+										aria-labelledby="radio-label-image-two"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="radio-label-image-two">Unchecked</span>
+
+								</span>
+
+							</label>
+
+							<label for="radio-image-three" class="sui-radio-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smush-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smush-icon@2x.png 2x"
+									alt="Smush plugin character in a green circular background"
+								/>
+
+								<span class="sui-radio">
+
+									<input
+										type="radio"
+										name="radio-image"
+										id="radio-image-three"
+										aria-labelledby="radio-label-image-three"
+										checked="checked"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="radio-label-image-three">Checked</span>
+
+								</span>
+
+							</label>
+
+							<label for="radio-image-four" class="sui-radio-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-smartcrawl-icon@2x.png 2x"
+									alt="SmartCrawl plugin character in a red circular background"
+								/>
+
+								<span class="sui-radio">
+
+									<input
+										type="radio"
+										name="radio-image"
+										id="radio-image-four"
+										aria-labelledby="radio-label-image-four"
+										disabled
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="radio-label-image-four">Disabled (Unchecked)</span>
+
+								</span>
+
+							</label>
+
+							<label for="radio-image-five" class="sui-radio-image">
+
+								<img
+									src="{{ site.baseurl }}/assets/images/plugins-defender-icon.png"
+									srcset="{{ site.baseurl }}/assets/images/plugins-defender-icon@2x.png 2x"
+									alt="Defender plugin character in a black circular background"
+								/>
+
+								<span class="sui-radio">
+
+									<input
+										type="radio"
+										name="radio-image-other"
+										id="radio-image-five"
+										aria-labelledby="radio-label-image-five"
+										checked="checked"
+										disabled
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="radio-label-image-five">Disabled (Checked)</span>
+
+								</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot; role=&quot;radiogroup&quot;&gt;
+
+	&lt;!--
+	START:
+	Radio option element
+	--&gt;
+	&lt;label for=&quot;unique-id&quot; class=&quot;sui-radio-image&quot;&gt;
+
+		&lt;img
+			src=&quot;./assets/images/image.png&quot;
+			srcset=&quot;./assets/images/image.png 1x, ./assets/images/image@2x.png 2x&quot;
+			alt=&quot;Descriptive text regarding image&quot;
+		/&gt;
+
+		&lt;span class=&quot;sui-radio&quot;&gt;
+
+			&lt;input
+				type=&quot;radio&quot;
+				name=&quot;unique-group-name&quot;
+				id=&quot;unique-id&quot;
+				aria-labelledby=&quot;label-unique-id&quot;
+			/&gt;
+
+			&lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+			&lt;span id=&quot;label-unique-id&quot;&gt;Option name&lt;/span&gt;
+
+		&lt;/span&gt;
+
+	&lt;/label&gt;
+	&lt;!--
+	END:
+	Radio option element
+	--&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Alignment -->
+	<div class="sui-box" data-tab="alignment" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Alignment</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>There are two ways to align radio buttons: inline and stacked. By default radio buttons are aligned one next to another as inline elements, but you can pile them one on top of another as stacked elements adding <code>sui-radio-stacked</code> class to <code>sui-radio</code> element.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-radio-inline" class="active" role="tab">Inline (Default)</div>
+					<div id="tab-radio-stacked" role="tab">Stacked</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Inline (Default) -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-radio-inline">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-inline-one" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-inline"
+									id="radio-inline-one"
+									aria-labelledby="radio-label-inline-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-inline-one">Option 1</span>
+
+							</label>
+
+							<label for="radio-inline-two" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-inline"
+									id="radio-inline-two"
+									aria-labelledby="radio-label-inline-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-inline-two">Option 2</span>
+
+							</label>
+
+							<label for="radio-inline-three" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-inline"
+									id="radio-inline-three"
+									aria-labelledby="radio-label-inline-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-inline-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-radio&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Stacked -->
+					<div role="tabpanel" aria-labelledby="tab-radio-stacked">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-stacked-one" class="sui-radio sui-radio-stacked">
+
+								<input
+									type="radio"
+									name="radio-stacked"
+									id="radio-stacked-one"
+									aria-labelledby="radio-label-stacked-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-stacked-one">Option 1</span>
+
+							</label>
+
+							<label for="radio-stacked-two" class="sui-radio sui-radio-stacked">
+
+								<input
+									type="radio"
+									name="radio-stacked"
+									id="radio-stacked-two"
+									aria-labelledby="radio-label-stacked-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-stacked-two">Option 2</span>
+
+							</label>
+
+							<label for="radio-stacked-three" class="sui-radio sui-radio-stacked">
+
+								<input
+									type="radio"
+									name="radio-stacked"
+									id="radio-stacked-three"
+									aria-labelledby="radio-label-stacked-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-stacked-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-radio sui-radio-stacked&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Sizes -->
+	<div class="sui-box" data-tab="sizes" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Sizes</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Radio options have 2 font size variations: <strong>default</strong> that has 15px font size, and <strong>small</strong> that has 13px font size. To have smaller font size you just need to add <code>sui-radio-sm</code> class to <code>sui-radio</code> element.</p>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" data-tabs>
+					<div id="tab-radio-normal" class="active" role="tab">Font 15px (Default)</div>
+					<div id="tab-radio-small" role="tab">Font 13px (Small)</div>
+				</div>
+
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-radio-normal">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-normal-one" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-normal"
+									id="radio-normal-one"
+									aria-labelledby="radio-label-normal-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-normal-one">Option 1</span>
+
+							</label>
+
+							<label for="radio-normal-two" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-normal"
+									id="radio-normal-two"
+									aria-labelledby="radio-label-normal-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-normal-two">Option 2</span>
+
+							</label>
+
+							<label for="radio-normal-three" class="sui-radio">
+
+								<input
+									type="radio"
+									name="radio-normal"
+									id="radio-normal-three"
+									aria-labelledby="radio-label-normal-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-normal-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-radio&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Small -->
+					<div role="tabpanel" aria-labelledby="tab-radio-small">
+
+						<div class="sui-form-field" role="radiogroup">
+
+							<label for="radio-small-one" class="sui-radio sui-radio-sm">
+
+								<input
+									type="radio"
+									name="radio-small"
+									id="radio-small-one"
+									aria-labelledby="radio-label-small-one"
+									checked="checked"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-small-one">Option 1</span>
+
+							</label>
+
+							<label for="radio-small-two" class="sui-radio sui-radio-sm">
+
+								<input
+									type="radio"
+									name="radio-small"
+									id="radio-small-two"
+									aria-labelledby="radio-label-small-two"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-small-two">Option 2</span>
+
+							</label>
+
+							<label for="radio-small-three" class="sui-radio sui-radio-sm">
+
+								<input
+									type="radio"
+									name="radio-small"
+									id="radio-small-three"
+									aria-labelledby="radio-label-small-three"
+								/>
+
+								<span aria-hidden="true"></span>
+
+								<span id="radio-label-small-three">Option 3</span>
+
+							</label>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;label class=&quot;sui-radio sui-radio-sm&quot;&gt;&lt;/label&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

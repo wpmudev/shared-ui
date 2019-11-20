@@ -1,0 +1,574 @@
+---
+layout: default
+title: Image Uploads
+permalink: /image-uploads/
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="default">Single Image</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="multiple">Multiple Images</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Single Image -->
+	<div class="sui-box" data-tab="default">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Single Image</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Click on the tabs below to preview how field should look like on different states:</p>
+
+			<div class="sui-tabs">
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-default"
+						class="sui-tab-item active"
+						aria-controls="tab-content-default"
+						aria-selected="true"
+					>
+						Default
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-error"
+						class="sui-tab-item"
+						aria-controls="tab-content-error"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Error
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-uploaded"
+						class="sui-tab-item"
+						aria-controls="tab-content-uploaded"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Uploaded
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-default"
+						class="sui-tab-content active"
+						aria-labelledby="tab-default"
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload">
+
+								<input
+									type="file"
+									value=""
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span></span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-error"
+						class="sui-tab-content"
+						aria-labelledby="tab-error"
+						hidden
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload">
+
+								<input
+									type="file"
+									value=""
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+							</div>
+
+							<div class="sui-notice sui-notice-error">
+								<p>Whoops, there was a problem with the image you chose.</p>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-uploaded"
+						class="sui-tab-content"
+						aria-labelledby="tab-uploaded"
+						hidden
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload sui-has_file">
+
+								<input
+									type="file"
+									value="filename.jpg"
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span>filename.jpg</span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Multiple Images -->
+	<div class="sui-box" data-tab="multiple" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Multiple Images</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>To let users upload multiple images can be done one-by-one. The idea is user can upload one image, then new option will appear to upload another image and so on.</p>
+
+			<p>Click on the tabs below to preview how field should look like on different states:</p>
+
+			<div class="sui-tabs">
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-multi-default"
+						class="sui-tab-item active"
+						aria-controls="tab-content-multi-default"
+						aria-selected="true"
+					>
+						Default
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-multi-uploaded"
+						class="sui-tab-item"
+						aria-controls="tab-content-multi-uploaded"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Uploaded
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-multi-error"
+						class="sui-tab-item"
+						aria-controls="tab-content-multi-error"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Error
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-multi-default"
+						class="sui-tab-content active"
+						aria-labelledby="tab-multi-default"
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload">
+
+								<input
+									type="file"
+									value=""
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span></span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-multi-uploaded"
+						class="sui-tab-content"
+						aria-labelledby="tab-multi-uploaded"
+						hidden
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload sui-has_file">
+
+								<input
+									type="file"
+									value="filename.jpg"
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span>filename.jpg</span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+							<div class="sui-upload">
+
+								<input
+									type="file"
+									value=""
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span></span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-multi-error"
+						class="sui-tab-content"
+						aria-labelledby="tab-multi-error"
+						hidden
+					>
+
+						<div class="sui-form-field">
+
+							<label class="sui-label">Featured image</label>
+
+							<div class="sui-upload sui-has_file">
+
+								<input
+									type="file"
+									value="filename.jpg"
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+								<div class="sui-upload-file">
+
+									<span>filename.jpg</span>
+
+									<button class="sui-upload-button--remove"
+										aria-label="Remove file">
+										<i class="sui-icon-close" aria-hidden="true"></i>
+									</button>
+
+								</div>
+
+							</div>
+
+							<div class="sui-upload">
+
+								<input
+									type="file"
+									value=""
+									readonly="readonly"
+								/>
+
+								<div class="sui-upload-image" aria-hidden="true">
+									<div class="sui-image-mask"></div>
+									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								</div>
+
+								<button class="sui-upload-button">
+									<i class="sui-icon-upload-cloud" aria-hidden="true"></i> Upload image
+								</button>
+
+							</div>
+
+							<div class="sui-notice sui-notice-error">
+								<p>Whoops, there was a problem with the image you chose.</p>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Markup -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Markup</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-upload&quot;&gt;
+
+		&lt;input
+			type=&quot;file&quot;
+			value=&quot;filename.png&quot;
+			readonly=&quot;readonly&quot;
+		/&gt;
+
+		&lt;div class=&quot;sui-upload-image&quot; aria-hidden=&quot;true&quot;&gt;
+			&lt;div class=&quot;sui-image-mask&quot;&gt;&lt;/div&gt;
+			&lt;div role=&quot;button&quot;
+				class=&quot;sui-image-preview&quot;
+				style=&quot;background-image: url('path-to-image/filename.png');&quot;&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;button class=&quot;sui-upload-button&quot;&gt;
+			&lt;i class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Upload file
+		&lt;/button&gt;
+
+		&lt;div class=&quot;sui-upload-file&quot;&gt;
+
+			&lt;span&gt;filename.png&lt;/span&gt;
+
+			&lt;button aria-label=&quot;Remove file&quot;&gt;
+				&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+			&lt;/button&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;!-- Repeat "sui-upload" content for multiple files --&gt;
+
+	&lt;!-- Use "sui-notice" for error message. --&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Behavior -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Behavior</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<p>1. When clicking on <code>.sui-upload-button</code> element, we should open WordPress Media Library or browser files finder for user to select the desired file to be uploaded.</p>
+
+					<p>2. When clicking on <code>.sui-upload-file > button</code> we should remove / clear uploaded image.</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<style type="text/css">
+
+@media (max-width: 782px) {
+
+	#search-form-container {
+		margin: 0 !important;
+	}
+
+	#button-example-plugin,
+	#button-github-repository {
+		display: none;
+	}
+}
+
+@media (min-width: 783px) {
+
+	#search-box {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		-ms-align-items: center;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+	}
+
+	#search-form-container {
+		min-width: 1px !important;
+		flex: 1 !important;
+		-ms-flex: 1 !important;
+		-moz-flex: 1 !important;
+		-webkit-flex: 1 !important;
+		margin: 0 5px 0 0 !important;
+	}
+
+	#button-example-plugin,
+	#button-github-repository {
+		flex: 0 0 auto;
+		-ms-flex: 0 0 auto;
+		-moz-flex: 0 0 auto;
+		-webkit-flex: 0 0 auto;
+		margin: 0 5px !important;
+	}
+}
+</style>
+
+<div class="sui-box sui-box-sticky">
+
+	<div id="search-box" class="sui-box-search">
+
+		<form action="{{ '/search.html' | relative_url }}" method="get" id="search-form-container" class="sui-form-field">
+			<label for="search_box" class="sui-screen-reader-text">Search</label>
+			<div class="sui-with-button sui-with-button-inside">
+				<input type="text" name="query" id="search_box" class="sui-form-control" placeholder="Search for an element">
+				<button type="submit" class="sui-button">Search</button>
+			</div>
+		</form>
+
+		<div id="button-example-plugin" class="sui-tooltip" data-tooltip="Example Plugin">
+			<a href="https://bitbucket.org/incsub/shared-ui-example-plugin" target="_blank" class="sui-button-icon sui-button-outlined sui-button-lg">
+				<i class="sui-icon-plugin-2" aria-hidden="true"></i>
+				<span class="sui-screen-reader-text">Click to open example plugin on a new tab.</span>
+			</a>
+		</div>
+
+		<div id="button-github-repository" class="sui-tooltip" data-tooltip="Github Repository">
+			<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="sui-button-icon sui-button-outlined sui-button-lg">
+				<i class="sui-icon-social-github" aria-hidden="true"></i>
+				<span class="sui-screen-reader-text">Click to open Github Repository on a new tab.</span>
+			</a>
+		</div>
+
+	</div>
+
+</div>
+
+{{ content }}

@@ -1,0 +1,52 @@
+<!-- LOAD: jQuery -->
+<script src="{{ 'assets/js/jquery.min.js' || relative_url }}"></script>
+
+{% if page.id == 'calendar' %}
+<!-- LOAD: jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endif %}
+
+<script src="{{ 'assets/js/Chart.min.js' || relative_url }}?ver={{ site.suiver }}"></script>
+<script src="{{ 'assets/js/lunr.min.js' || relative_url }}"></script>
+<script src="{{ 'assets/js/highlight.min.js' || relative_url }}"></script>
+
+<!-- SUI {{ site.suiver }} JS -->
+<script src="{{ 'assets/js/shared-ui.min.js' || relative_url }}?ver={{ site.suiver }}"></script>
+
+<!-- Showcase JS for SUI {{ site.suiver }} -->
+<script src="{{ 'assets/js/showcase.min.js' || relative_url }}?ver={{ site.suiver }}"></script>
+
+{% if page.id == 'trees' %}
+<!-- Fancy Tree -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.27.0/jquery.fancytree-all-deps.js"></script>
+{% endif %}
+
+{% if page.id == 'code-editor' %}
+<!-- Embed ACE -->
+<script>
+
+	var editor = ace.edit( "sui-ace-editor" );
+
+	editor.getSession().setUseWorker( false );
+	editor.setShowPrintMargin( false );
+
+	editor.setTheme( "ace/theme/sui" );
+	editor.getSession().setMode( "ace/mode/css" );
+
+	editor.session.setTabSize(4);
+
+	var insertSelector = function(e) {
+		e.preventDefault();
+
+		var $el = $( e.target ),
+			$selector = $el.data( "selector" ) + " {}"
+			;
+
+		editor.insert( $selector );
+		editor.navigateLeft( 1 );
+		editor.focus();
+	};
+
+	jQuery( ".sui-ace-selectors .sui-selector" ).on( 'click', insertSelector );
+</script>
+{% endif %}

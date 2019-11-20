@@ -1,0 +1,330 @@
+---
+layout: default
+title: Progress Bar
+permalink: /progress-bar/
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="container">Container</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="elements">Elements</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Container -->
+	<div class="sui-box" data-tab="container">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Container</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Progress bar has two different visual containers: default, which is the main container for progress bar and all the other elements; and boxed, which adds a border around progress bar to visually highlight it.</p>
+
+			<!-- SECTION: Default -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Default</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress">
+
+						<span class="sui-progress-icon" aria-hidden="true">
+							<i class="sui-icon-loader sui-loading"></i>
+						</span>
+
+						<span class="sui-progress-text">50%</span>
+
+						<div class="sui-progress-bar" aria-hidden="true">
+							<span style="width: 50%"></span>
+						</div>
+
+						<button
+							class="sui-button-icon sui-tooltip"
+							data-tooltip="Cancel"
+						>
+							<i class="sui-icon-close" aria-hidden="true"></i>
+						</button>
+
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-progress&quot;&gt;
+	&lt;!-- Place progress elements here --&gt;
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Boxed -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Boxed</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress-block">
+
+						<div class="sui-progress">
+
+							<span class="sui-progress-icon" aria-hidden="true">
+								<i class="sui-icon-loader sui-loading"></i>
+							</span>
+
+							<span class="sui-progress-text">50%</span>
+
+							<div class="sui-progress-bar" aria-hidden="true">
+								<span style="width: 50%"></span>
+							</div>
+
+							<button
+								class="sui-button-icon sui-tooltip"
+								data-tooltip="Cancel"
+							>
+								<i class="sui-icon-close" aria-hidden="true"></i>
+							</button>
+
+						</div>
+
+					</div>
+
+					<div class="sui-progress-state">
+						<span>Status...</span>
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-progress-block&quot;&gt;
+
+	&lt;div class=&quot;sui-progress&quot;&gt;
+		&lt;!-- Place progress elements here --&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Elements -->
+	<div class="sui-box" data-tab="elements" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Elements</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>Progress bar consists of 5 elements: loading wheel, percentage text, loading bar, cancel button and status text. You can modify the element depending on the design you need to replicate.</p>
+
+			<!-- SECTION: Loading Wheel -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Loading Wheel</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress">
+
+						<span class="sui-progress-icon" aria-hidden="true">
+							<i class="sui-icon-loader sui-loading"></i>
+						</span>
+
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;span class=&quot;sui-progress-icon&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;i class=&quot;sui-icon-loader sui-loading&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Percentage Text -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Percentage Text</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress">
+
+						<span class="sui-progress-text">50%</span>
+
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;span class=&quot;sui-progress-text&quot;&gt;50%&lt;/span&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Loading Bar -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Loading Bar</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress">
+
+						<div class="sui-progress-bar" aria-hidden="true">
+							<span style="width: 50%"></span>
+						</div>
+
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-progress-bar&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;span style=&quot;width: 50%&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Cancel Button -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Cancel Button</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress">
+
+						<button
+							class="sui-button-icon sui-tooltip"
+							data-tooltip="Cancel"
+						>
+							<i class="sui-icon-close" aria-hidden="true"></i>
+						</button>
+
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button
+	class=&quot;sui-button-icon sui-tooltip&quot;
+	data-tooltip=&quot;Cancel&quot;
+&gt;
+	&lt;i class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Legend Text -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Legend Text</span>
+					<span class="sui-description">This element works with <code>sui-progress-state</code> and should be placed only after this.</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-progress-block">
+
+						<div class="sui-progress">
+
+							<div class="sui-progress-bar" aria-hidden="true">
+								<span style="width: 50%"></span>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="sui-progress-state">
+						<span>Status...</span>
+					</div>
+
+					<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-progress-block&quot;&gt; ... &lt;/div&gt;
+
+&lt;!-- Place after &quot;sui-progress-block&quot; element --&gt;
+&lt;div class=&quot;sui-progress-state&quot;&gt;
+	&lt;span&gt;Status...&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
