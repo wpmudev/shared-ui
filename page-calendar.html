@@ -6,29 +6,187 @@ id: calendar
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<p>The <strong>Shared UI</strong> library supports styling of the <a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a> but doesn't include the library so you will need to include that in your plugin yourself. To use the styles you will need to add the class <code>sui-calendar</code> to your datepicker element.</p>
+		<ul class="sui-vertical-tabs">
 
-		<p>See code snippet below the sample to see how it was done in this showcase.</p>
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="single">Single Datepicker</a>
+			</li>
 
-		<div class="sui-form-field">
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="range">Range Datepicker</a>
+			</li>
 
-			<label for="calendar" class="sui-label">Select a day</label>
+		</ul>
 
-			<div class="sui-date">
-				<input type="text" id="calendar" class="sui-form-control" placeholder="Pick a date" />
-				<i class="sui-icon-calendar" aria-hidden="true"></i>
-			</div>
+	</div>
 
+	<!-- TAB: Single Datepicker -->
+	<div class="sui-box" data-tab="single">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Single Datepicker</h2>
 		</div>
 
-		<div class="demo-code-block">
+		<div class="sui-box-body">
+
+			<div class="sui-notice sui-notice-warning">
+				<p>The <strong>Shared UI Library</strong> supports styling for the calendar, but to make it work you will need to include <a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a>.</p>
+			</div>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-single-default"
+						class="sui-tab-item active"
+						aria-controls="tab-content-single-default"
+						aria-selected="true"
+					>
+						Default State
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-single-error"
+						class="sui-tab-item"
+						aria-controls="tab-content-single-error"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Error State
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content sui-tabs-content-lg">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-single-default"
+						class="sui-tab-content active"
+						aria-labelledby="tab-single-default"
+					>
+
+						<div class="sui-form-field">
+
+							<label for="date-simple-default" id="date-simple-default--label" class="sui-label">Expiration Date</label>
+
+							<div class="sui-date">
+								<input
+									type="text"
+									placeholder="Pick a date"
+									id="date-simple-default"
+									class="sui-form-control"
+									aria-labelledby="date-simple-default--label"
+									aria-describedby="date-simple-default--message date-simple-default--error"
+								/>
+								<i class="sui-icon-calendar" aria-hidden="true"></i>
+							</div>
+
+							<span id="date-simple-default--error" class="sui-error-message"></span>
+
+							<span id="date-simple-default--message" class="sui-description">Set an expiration date for your module.</span>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-single-error"
+						class="sui-tab-content"
+						aria-labelledby="tab-single-error"
+						hidden
+					>
+
+						<div class="sui-form-field sui-form-field-error">
+
+							<label for="date-simple-error" id="date-simple-error--label" class="sui-label">Expiration Date</label>
+
+							<div class="sui-date">
+								<input
+									type="text"
+									placeholder="Pick a date"
+									id="date-simple-error"
+									class="sui-form-control"
+									aria-labelledby="date-simple-error--label"
+									aria-describedby="date-simple-error--message date-simple-error--error"
+								/>
+								<i class="sui-icon-calendar" aria-hidden="true"></i>
+							</div>
+
+							<span id="date-simple-error--error" class="sui-error-message">Expiration date is empty or date inserted is not valid.</span>
+
+							<span id="date-simple-error--message" class="sui-description">Set an expiration date for your module.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">HTML Markup</h3>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;unique-id--label&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-date&quot;&gt;
+		&lt;input
+			type=&quot;text&quot;
+			placeholder=&quot;Placeholder&quot;
+			id=&quot;unique-id&quot;
+			class=&quot;sui-form-control&quot;
+			aria-labelledby=&quot;unique-id--label&quot;
+			aria-describedby=&quot;unique-id--message unique-id--error&quot;
+		/&gt;
+		&lt;i class=&quot;sui-icon-calendar&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;/div&gt;
+
+	&lt;!-- NOTE: Print error message when error occurs --&gt;
+	&lt;span id=&quot;unique-id--error&quot; class=&quot;sui-error-message&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;unique-id--message&quot; class=&quot;sui-description&quot;&gt;Field message goes here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Sample JS</h3>
+
+					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-$( '.sui-date input' ).datepicker({
+$( '#unique-id' ).datepicker({
 	beforeShow: function( input, inst ) {
 		$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 	},
@@ -36,8 +194,247 @@ $( '.sui-date input' ).datepicker({
 });
 </pre>
 
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
 
-</article>
+	<!-- TAB: Range Datepicker -->
+	<div class="sui-box" data-tab="range" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Range Datepicker</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-notice sui-notice-warning">
+				<p>For <strong>Range Datepicker</strong> our library supports styles but you will need to include latest <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" target="_blank">Moment.js</a> and <a href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" target="_blank">Date Range Picker Library</a>.</p>
+			</div>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-range-default"
+						class="sui-tab-item active"
+						aria-controls="tab-content-range-default"
+						aria-selected="true"
+					>
+						Default State
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-range-error"
+						class="sui-tab-item"
+						aria-controls="tab-content-range-error"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Error State
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content sui-tabs-content-lg">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-range-default"
+						class="sui-tab-content active"
+						aria-labelledby="tab-range-default"
+					>
+
+						<div class="sui-form-field">
+
+							<label for="date-range-default" id="date-range-default--label" class="sui-label">Automated Email</label>
+
+							<div class="sui-date">
+								<input
+									type="text"
+									placeholder="Pick a date"
+									id="date-range-default"
+									class="sui-form-control"
+									aria-labelledby="date-range-default--label"
+									aria-describedby="date-range-default--message date-range-default--error"
+								/>
+								<i class="sui-icon-calendar" aria-hidden="true"></i>
+							</div>
+
+							<span id="date-range-default--error" class="sui-error-message"></span>
+
+							<span id="date-range-default--message" class="sui-description">Choose a date range to dynamically send your email.</span>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-range-error"
+						class="sui-tab-content"
+						aria-labelledby="tab-range-error"
+						hidden
+					>
+
+						<div class="sui-form-field sui-form-field-error">
+
+							<label for="date-range-error" id="date-range-error--label" class="sui-label">Automated Email</label>
+
+							<div class="sui-date">
+								<input
+									type="text"
+									placeholder="Pick a date"
+									id="date-range-error"
+									class="sui-form-control"
+									aria-labelledby="date-range-error--label"
+									aria-describedby="date-range-error--message date-range-error--error"
+								/>
+								<i class="sui-icon-calendar" aria-hidden="true"></i>
+							</div>
+
+							<span id="date-range-error--error" class="sui-error-message">Filling up automated email is required.</span>
+
+							<span id="date-range-error--message" class="sui-description">Choose a date range to dynamically send your email.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">HTML Markup</h3>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;unique-id--label&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-date&quot;&gt;
+		&lt;input
+			type=&quot;text&quot;
+			placeholder=&quot;Placeholder&quot;
+			id=&quot;unique-id&quot;
+			class=&quot;sui-form-control&quot;
+			aria-labelledby=&quot;unique-id--label&quot;
+			aria-describedby=&quot;unique-id--message unique-id--error&quot;
+		/&gt;
+		&lt;i class=&quot;sui-icon-calendar&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+	&lt;/div&gt;
+
+	&lt;!-- NOTE: Print error message when error occurs --&gt;
+	&lt;span id=&quot;unique-id--error&quot; class=&quot;sui-error-message&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;unique-id--message&quot; class=&quot;sui-description&quot;&gt;Field message goes here.&lt;/span&gt;
+
+&lt;/div&gt;
+
+&lt;!-- Call: Moment.js --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/momentjs/latest/moment.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Call: Date Range Picker --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Sample JS</h3>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+( function( $ ) {
+
+	$( 'body' ).ready( function() {
+
+		let element = $( '#unique-id' ),
+			start   = moment().subtract( 29, 'days' ),
+			end     = moment();
+
+		element.daterangepicker({
+			'autoApply': true,
+			ranges: {
+				'Today': [ moment(), moment() ],
+				'Tomorrow': [ moment().add( 1, 'days' ), moment().add( 1, 'days' ) ],
+				'1 week': [ moment().startOf( 'week' ), moment().endOf( 'week' ) ],
+				'30 days': [ moment().startOf( 'month' ), moment().endOf( 'month' ) ]
+			},
+			'locale': {
+				'format': 'MMMM DD, YYYY',
+				'separator': ' - ',
+				'customRangeLabel': 'Custom',
+				'daysOfWeek': [
+					'Su',
+					'Mo',
+					'Tu',
+					'We',
+					'Th',
+					'Fr',
+					'Sa'
+				],
+				'monthNames': [
+					'January',
+					'February',
+					'March',
+					'April',
+					'May',
+					'June',
+					'July',
+					'August',
+					'September',
+					'October',
+					'November',
+					'December'
+				]
+			},
+			'alwaysShowCalendars': true,
+			'startDate': start,
+			'endDate': end
+		}, function( start, end, label ) {
+			console.log( 'New date range selected: ' + start.format( 'YYYY-MM-DD' ) + ' to ' + end.format( 'YYYY-MM-DD' ) + ' (predefined range: ' + label + ')' );
+		});
+
+	});
+
+}( jQuery ) );
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
