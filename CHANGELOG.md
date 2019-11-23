@@ -1,3 +1,7 @@
+v2.6.0
+- [Fix] Page title don't need to be all caps.
+
+
 v2.5.0
 - [New] Modals: Accessible modal markup and functions.
 			Dev Notes: We still support old markup and functions but it is important
