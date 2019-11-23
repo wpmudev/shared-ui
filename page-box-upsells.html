@@ -53,7 +53,7 @@ is_searchable: true
 
 			<div class="sui-box-settings-row sui-disabled">
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Super-compress my files <span class="sui-tag sui-tag-pro">Pro</span></span>
+					<span class="sui-settings-label-with-tag">Super-compress my files <span class="sui-tag sui-tag-pro">Pro</span></span>
 					<span id="super-compression" class="sui-description">Compress your files up to 2x more than regular optimization and reduce your page load speed even further.</span>
 				</div>
 				<div class="sui-box-settings-col-2">
@@ -67,7 +67,7 @@ is_searchable: true
 
 			<div class="sui-box-settings-row sui-disabled">
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Enable WPMU DEV CDN <span class="sui-tag sui-tag-pro">Pro</span></span>
+					<span class="sui-settings-label-with-tag">Enable WPMU DEV CDN <span class="sui-tag sui-tag-pro">Pro</span></span>
 					<span id="cdn" class="sui-description">By default your files are hosted on your own server. With this setting enabled we will host your files on WPMU DEV’s secure and hyper fast CDN.</span>
 				</div>
 				<div class="sui-box-settings-col-2">
@@ -111,7 +111,9 @@ is_searchable: true
 
 		&lt;h2 class=&quot;sui-box-title&quot;&gt;Options&lt;/h2&gt;
 
-		&lt;a class=&quot;sui-button sui-button-upsell sui-tooltip sui-tooltip-top-left&quot; type=&quot;button&quot; data-tooltip=&quot;Unlock this as part of a WPMU DEV Membership&quot; href=&quot;#sui-upgrade-membership-modal&quot; rel=&quot;dialog&quot;&gt;Pro Feature&lt;/a&gt;
+		&lt;div class=&quot;sui-actions-left&quot;&gt;
+			&lt;span class=&quot;sui-tag sui-tag-pro&quot;&gt;Pro&lt;/span&gt;
+		&lt;/div&gt;
 
 	&lt;/div&gt;
 
@@ -123,16 +125,14 @@ is_searchable: true
 
 				&lt;span class=&quot;sui-settings-label&quot;&gt;Reset to defaults&lt;/span&gt;
 
-				&lt;span class=&quot;sui-description&quot;&gt;If your frontend has fallen apart or you just want to go back to the default settings you can use this button to do so. It will clear all your settings and run a new file check.&lt;/span&gt;
+				&lt;span id=&quot;reset-settings&quot; class=&quot;sui-description&quot;&gt;If your frontend has fallen apart or you just want to go back to the default settings you can use this button to do so. It will clear all your settings and run a new file check.&lt;/span&gt;
 
 			&lt;/div&gt;
 
 			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
 
 				&lt;div class=&quot;sui-form-field&quot;&gt;
-
-					&lt;button class=&quot;sui-button sui-button-ghost&quot;&gt;Reset&lt;/button&gt;
-
+					&lt;button aria-describedby=&quot;reset-settings&quot; class=&quot;sui-button sui-button-ghost&quot;&gt;Reset&lt;/button&gt;
 				&lt;/div&gt;
 
 			&lt;/div&gt;
@@ -143,17 +143,17 @@ is_searchable: true
 
 			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
 
-				&lt;span class=&quot;sui-settings-label&quot;&gt;Super-compress my files&lt;/span&gt;
+				&lt;span class=&quot;sui-settings-label-with-tag&quot;&gt;Super-compress my files &lt;span class=&quot;sui-tag sui-tag-pro&quot;&gt;Pro&lt;/span&gt;&lt;/span&gt;
 
-				&lt;span class=&quot;sui-description&quot;&gt;Compress your files up to 2x more than regular optimization and reduce your page load speed even further.&lt;/span&gt;
+				&lt;span id=&quot;super-compression&quot; class=&quot;sui-description&quot;&gt;Compress your files up to 2x more than regular optimization and reduce your page load speed even further.&lt;/span&gt;
 
 			&lt;/div&gt;
 
 			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
 
 				&lt;label class=&quot;sui-toggle&quot;&gt;
-					&lt;input type=&quot;checkbox&quot;&gt;
-					&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+					&lt;input type=&quot;checkbox&quot; aria-describedby=&quot;super-compression&quot;&gt;
+					&lt;span aria-hidden=&quot;true&quot; class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
 				&lt;/label&gt;
 
 				&lt;label class=&quot;sui-toggle-label&quot;&gt;Enable super-compression&lt;/label&gt;
@@ -165,21 +165,21 @@ is_searchable: true
 		&lt;div class=&quot;sui-box-settings-row sui-disabled&quot;&gt;
 
 			&lt;div class=&quot;sui-box-settings-col-1&quot;&gt;
-				&lt;span class=&quot;sui-settings-label&quot;&gt;Enable WPMU DEV CDN&lt;/span&gt;
-				&lt;span class=&quot;sui-description&quot;&gt;By default your files are hosted on your own server. With this setting enabled we will host your files on WPMU DEV’s secure and hyper fast CDN.&lt;/span&gt;
+
+				&lt;span class=&quot;sui-settings-label-with-tag&quot;&gt;Enable WPMU DEV CDN &lt;span class=&quot;sui-tag sui-tag-pro&quot;&gt;Pro&lt;/span&gt;&lt;/span&gt;
+
+				&lt;span id=&quot;cdn&quot; class=&quot;sui-description&quot;&gt;By default your files are hosted on your own server. With this setting enabled we will host your files on WPMU DEV’s secure and hyper fast CDN.&lt;/span&gt;
+
 			&lt;/div&gt;
 
 			&lt;div class=&quot;sui-box-settings-col-2&quot;&gt;
 
 				&lt;div class=&quot;sui-form-field&quot;&gt;
-
 					&lt;label class=&quot;sui-toggle&quot;&gt;
-						&lt;input type=&quot;checkbox&quot;&gt;
-						&lt;span class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
+						&lt;input type=&quot;checkbox&quot; aria-describedby=&quot;cdn&quot;&gt;
+						&lt;span aria-hidden=&quot;true&quot; class=&quot;sui-toggle-slider&quot;&gt;&lt;/span&gt;
 					&lt;/label&gt;
-
 					&lt;label class=&quot;sui-toggle-label&quot;&gt;Host my files on the WPMU DEV CDN&lt;/label&gt;
-
 				&lt;/div&gt;
 
 			&lt;/div&gt;
@@ -188,10 +188,13 @@ is_searchable: true
 
 		&lt;div class=&quot;sui-box-settings-row sui-upsell-row&quot;&gt;
 
-			&lt;img class=&quot;sui-image sui-upsell-image&quot; src=&quot;dist/images/hummingbird-upsell-minify.png&quot; srcset=&quot;dist/images/hummingbird-upsell-minify@2x.png 2x&quot; alt=&quot;WP Smush free installed&quot;&gt;
+			&lt;img class=&quot;sui-image sui-upsell-image&quot; src=&quot;{{ site.baseurl }}/assets/images/hummingbird-upsell-minify.png&quot; srcset=&quot;{{ site.baseurl }}/assets/images/hummingbird-upsell-minify@2x.png 2x&quot; alt=&quot;&quot;&gt;
 
 			&lt;div class=&quot;sui-upsell-notice&quot;&gt;
-				&lt;p&gt;With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.  &lt;a href=&quot;#wphb-upgrade-membership-modal&quot; rel=&quot;dialog&quot;&gt;Try Pro for FREE today!&lt;/a&gt;&lt;/p&gt;
+
+				&lt;p&gt;With our pro version of Hummingbird you can super-compress your files and then host them on our blazing fast CDN. You'll get Hummingbird Pro plus 100+ WPMU DEV plugins, themes &amp; 24/7 WP support.&lt;br /&gt;
+				&lt;button class=&quot;sui-button sui-button-purple&quot; style=&quot;margin-top: 10px;&quot;&gt;Try Pro for Free today&lt;/button&gt;&lt;/p&gt;
+
 			&lt;/div&gt;
 
 		&lt;/div&gt;
