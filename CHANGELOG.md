@@ -1,5 +1,8 @@
 v2.6.0
 - [Fix] Toggles: Vertical alignment between toggle button and label is not correct.
+			Dev Notes: The markup for toggle element was improved for a better accessibility
+			along with more accurate styles. Old method was not affect, but would be important
+			to upgrade into this new markup.
 - [Fix] Toggles: Highlight toggle slider when input is being focused.
 
 
