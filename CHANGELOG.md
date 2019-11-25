@@ -1,3 +1,8 @@
+v2.6.0
+- [Fix] Toggles: Vertical alignment between toggle button and label is not correct.
+- [Fix] Toggles: Highlight toggle slider when input is being focused.
+
+
 v2.5.0
 - [New] Modals: Accessible modal markup and functions.
 			Dev Notes: We still support old markup and functions but it is important
