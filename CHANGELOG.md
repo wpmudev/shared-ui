@@ -1,3 +1,7 @@
+v2.6.0
+- [Fix] Select: Remove extra padding added by user agent stylesheet.
+
+
 v2.5.2
 - [Fix] Modals: Broken overlay for screens smaller than 920px.
 
