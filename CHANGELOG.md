@@ -1,3 +1,8 @@
+v2.6.0
+- [Fix]     Tags: Allow multi-line text by default.
+- [Enhance] Tags: Include a truncated text variation.
+
+
 v2.5.0
 - [New] Modals: Accessible modal markup and functions.
 			Dev Notes: We still support old markup and functions but it is important
