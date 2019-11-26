@@ -9,121 +9,200 @@ is_searchable: true
 
 	<div class="sui-box-body">
 
+		<p>Tags are used to highlight specific bits of information and warnings.</p>
+
+		<!-- ROW: Default -->
 		<div class="sui-box-settings-row">
 
 			<div class="sui-box-settings-col-2">
 
-				<p>Tags are used to highlight specific bits of information and warnings.</p>
+				<h3 class="sui-settings-label sui-dark">Default</h3>
 
-				<h3>Default</h3>
+				<p class="sui-description">By default tags have 22px height and have a filled background.</p>
 
-				<div class="sui-form-field">
-
+				<p>
 					<span class="sui-tag">Default</span>
-					<span class="sui-tag sui-tag-error">Red</span>
-					<span class="sui-tag sui-tag-warning">Yellow</span>
-					<span class="sui-tag sui-tag-success">Green</span>
-					<span class="sui-tag sui-tag-branded">Blue</span>
+					<span class="sui-tag sui-tag-red">Red</span>
+					<span class="sui-tag sui-tag-yellow">Yellow</span>
+					<span class="sui-tag sui-tag-green">Green</span>
+					<span class="sui-tag sui-tag-blue">Blue</span>
 					<span class="sui-tag sui-tag-purple">Purple</span>
 					<span class="sui-tag sui-tag-disabled">Disabled</span>
+				</p>
+
+				<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;span class=&quot;sui-tag&quot;&gt;Default&lt;/span&gt;
+
+&lt;span class=&quot;sui-tag sui-tag-red&quot;&gt;Red&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-yellow&quot;&gt;Yellow&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-green&quot;&gt;Green&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-blue&quot;&gt;Blue&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-purple&quot;&gt;Purple&lt;/span&gt;
+
+&lt;span class=&quot;sui-tag sui-tag-disabled&quot;&gt;Disabled&lt;/span&gt;
+</pre>
 
 				</div>
 
-				<h3>Small</h3>
+			</div>
 
-				<div class="sui-form-field">
+		</div>
 
+		<!-- ROW: Small -->
+		<div class="sui-box-settings-row">
+
+			<div class="sui-box-settings-col-2">
+
+				<h3 class="sui-settings-label sui-dark">Small</h3>
+
+				<p class="sui-description">When you need an 18px height tag, you can make use of <code>sui-tag-sm</code> extra class.</p>
+
+				<p>
 					<span class="sui-tag sui-tag-sm">Default</span>
-					<span class="sui-tag sui-tag-sm sui-tag-error">Red</span>
-					<span class="sui-tag sui-tag-sm sui-tag-warning">Yellow</span>
-					<span class="sui-tag sui-tag-sm sui-tag-success">Green</span>
-					<span class="sui-tag sui-tag-sm sui-tag-branded">Blue</span>
-					<span class="sui-tag sui-tag-sm sui-tag-purple">Purple</span>
-					<span class="sui-tag sui-tag-sm sui-tag-disabled">Disabled</span>
+					<span class="sui-tag sui-tag-red sui-tag-sm">Red</span>
+					<span class="sui-tag sui-tag-yellow sui-tag-sm">Yellow</span>
+					<span class="sui-tag sui-tag-green sui-tag-sm">Green</span>
+					<span class="sui-tag sui-tag-blue sui-tag-sm">Blue</span>
+					<span class="sui-tag sui-tag-purple sui-tag-sm">Purple</span>
+					<span class="sui-tag sui-tag-disabled sui-tag-sm">Disabled</span>
+				</p>
+
+				<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;span class=&quot;sui-tag sui-tag-sm&quot;&gt;Default&lt;/span&gt;
+
+&lt;span class=&quot;sui-tag sui-tag-red sui-tag-sm&quot;&gt;Red&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-yellow sui-tag-sm&quot;&gt;Yellow&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-green sui-tag-sm&quot;&gt;Green&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-blue sui-tag-sm&quot;&gt;Blue&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-purple sui-tag-sm&quot;&gt;Purple&lt;/span&gt;
+
+&lt;span class=&quot;sui-tag sui-tag-disabled sui-tag-sm&quot;&gt;Disabled&lt;/span&gt;
+</pre>
 
 				</div>
 
-				<h3>Mini</h3>
+			</div>
 
-				<div class="sui-form-field">
+		</div>
 
+		<!-- ROW: Mini -->
+		<div class="sui-box-settings-row">
+
+			<div class="sui-box-settings-col-2">
+
+				<h3 class="sui-settings-label sui-dark">Mini</h3>
+
+				<p class="sui-description">Mini sized tags are reserved for <strong>pro</strong> and <strong>beta</strong> tags, commonly used to highlight special features on a plugin.</p>
+
+				<p>
 					<span class="sui-tag sui-tag-pro">Pro</span>
 					<span class="sui-tag sui-tag-beta">Beta</span>
+				</p>
+
+				<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;span class=&quot;sui-tag sui-tag-pro&quot;&gt;Pro&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-beta&quot;&gt;Beta&lt;/span&gt;
+</pre>
 
 				</div>
 
-				<h3>Ghosts</h3>
+			</div>
 
-				<div class="sui-form-field">
+		</div>
 
+		<!-- ROW: Ghost -->
+		<div class="sui-box-settings-row">
+
+			<div class="sui-box-settings-col-2">
+
+				<h3 class="sui-settings-label sui-dark">Ghost</h3>
+
+				<p class="sui-description">Some designs will require outlined tags, for those cases you just need to include <code>sui-tag-ghost</code> extra class.</p>
+
+				<p>
 					<span class="sui-tag sui-tag-red sui-tag-ghost">Red</span>
 					<span class="sui-tag sui-tag-yellow sui-tag-ghost">Yellow</span>
 					<span class="sui-tag sui-tag-green sui-tag-ghost">Green</span>
 					<span class="sui-tag sui-tag-blue sui-tag-ghost">Blue</span>
 					<span class="sui-tag sui-tag-purple sui-tag-ghost">Purple</span>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="sui-box-settings-row">
-
-			<div class="sui-box-settings-col-2">
-
-				<h3>Uppercase</h3>
-
-				<p>You can use the class <code>sui-tag-uppercase</code> to transform the tag text to uppercase.</p>
-
-				<div class="sui-form-field">
-
-					<span class="sui-tag sui-tag-uppercase">Default</span>
-					<span class="sui-tag sui-tag-purple sui-tag-ghost sui-tag-uppercase">Purple</span>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="sui-box-settings-row">
-
-			<div class="sui-box-settings-col-2">
+				</p>
 
 				<div class="demo-code-block">
 
-<pre class="sui-code-snippet html">
-&lt;span class="sui-tag"&gt;Default&lt;/span&gt;
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;span class=&quot;sui-tag sui-tag-red sui-tag-ghost&quot;&gt;Red&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-yellow sui-tag-ghost&quot;&gt;Yellow&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-green sui-tag-ghost&quot;&gt;Green&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-blue sui-tag-ghost&quot;&gt;Blue&lt;/span&gt;
+&lt;span class=&quot;sui-tag sui-tag-purple sui-tag-ghost&quot;&gt;Purple&lt;/span&gt;
+</pre>
 
-&lt;span class="sui-tag sui-tag-red"&gt;Red&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-error"&gt;Red&lt;/span&gt;
+				</div>
 
-&lt;span class="sui-tag sui-tag-yellow"&gt;Yellow&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-warning"&gt;Yellow&lt;/span&gt;
+			</div>
 
-&lt;span class="sui-tag sui-tag-green"&gt;Green&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-success"&gt;Green&lt;/span&gt;
+		</div>
 
-&lt;span class="sui-tag sui-tag-blue"&gt;Blue&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-branded"&gt;Blue&lt;/span&gt;
+		<!-- ROW: Uppercase -->
+		<div class="sui-box-settings-row">
 
-&lt;span class="sui-tag sui-tag-purple"&gt;Purple&lt;/span&gt;
+			<div class="sui-box-settings-col-2">
 
-&lt;span class="sui-tag sui-tag-disabled"&gt;Disabled&lt;/span&gt;
+				<h3 class="sui-settings-label sui-dark">Uppercase</h3>
 
-&lt;!-- Small Tags --&gt;
-&lt;span class="sui-tag sui-tag-red sui-tag-sm"&gt;Red Small Tag&lt;/span&gt;
+				<p class="sui-description">Some tags require to have uppercase text, just include <code>sui-tag-uppercase</code> extra class.</p>
 
-&lt;!-- Ghost Tags --&gt;
-&lt;span class="sui-tag sui-tag-red sui-tag-ghost"&gt;Red Ghost Tag&lt;/span&gt;
+				<p>
+					<span class="sui-tag sui-tag-blue sui-tag-uppercase">Blue</span>
+					<span class="sui-tag sui-tag-ghost sui-tag-blue sui-tag-uppercase">Blue</span>
+					<span class="sui-tag sui-tag-blue sui-tag-sm sui-tag-uppercase">Blue</span>
+					<span class="sui-tag sui-tag-blue sui-tag-sm sui-tag-ghost sui-tag-uppercase">Blue</span>
+				</p>
 
-&lt;!-- Mini Tags --&gt;
-&lt;span class="sui-tag sui-tag-pro"&gt;Pro&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-beta"&gt;Beta&lt;/span&gt;
+				<div class="demo-code-block">
 
-&lt;!-- Uppercase Tags --&gt;
-&lt;span class="sui-tag sui-tag-uppercase"&gt;Uppercase&lt;/span&gt;
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;span class=&quot;sui-tag sui-tag-uppercase&quot;&gt;Default&lt;/span&gt;
+</pre>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- ROW: Truncated Text -->
+		<div class="sui-box-settings-row">
+
+			<div class="sui-box-settings-col-2">
+
+				<h3 class="sui-settings-label sui-dark">Truncated Text</h3>
+
+				<p class="sui-description">By default tags are multi-line, this mean height of the tag will adjust depending on the amount of text and its width. But there are times when you will need to truncate text inside tag instead using multi-line text, for those cases include <code>sui-tag-truncated</code> extra class.</p>
+
+				<p>
+					<span class="sui-tag" style="max-width: 100px;">Multiple line tag</span>
+					<span class="sui-tag sui-tag-truncated" style="max-width: 100px;">
+						<span>Truncated tag</span>
+					</span>
+				</p>
+
+				<div class="demo-code-block">
+
+<pre class="sui-code-snippet html sui-no-copy">
+&lt;!-- Multi line tag --&gt;
+&lt;span class=&quot;sui-tag&quot;&gt;Default&lt;/span&gt;
+
+&lt;!-- Truncated tag --&gt;
+&lt;span class=&quot;sui-tag sui-tag-truncated&quot;&gt;
+	&lt;span&gt;Default&lt;/span&gt;
+&lt;/span&gt;
 </pre>
 
 				</div>
@@ -135,106 +214,3 @@ is_searchable: true
 	</div>
 
 </article>
-
-<!-- <article class="sui-box">
-
-	<div class="sui-box-body">
-
-		<p>Tags are used to highlight specific bits of information and warnings.</p>
-
-		<h3>Default</h3>
-
-		<div class="sui-form-field">
-
-			<span class="sui-tag">Default</span>
-			<span class="sui-tag sui-tag-error">Red</span>
-			<span class="sui-tag sui-tag-warning">Yellow</span>
-			<span class="sui-tag sui-tag-success">Green</span>
-			<span class="sui-tag sui-tag-branded">Blue</span>
-			<span class="sui-tag sui-tag-purple">Purple</span>
-			<span class="sui-tag sui-tag-disabled">Disabled</span>
-
-		</div>
-
-		<h3>Small</h3>
-
-		<div class="sui-form-field">
-
-			<span class="sui-tag sui-tag-sm">Default</span>
-			<span class="sui-tag sui-tag-sm sui-tag-error">Red</span>
-			<span class="sui-tag sui-tag-sm sui-tag-warning">Yellow</span>
-			<span class="sui-tag sui-tag-sm sui-tag-success">Green</span>
-			<span class="sui-tag sui-tag-sm sui-tag-branded">Blue</span>
-			<span class="sui-tag sui-tag-sm sui-tag-purple">Purple</span>
-			<span class="sui-tag sui-tag-sm sui-tag-disabled">Disabled</span>
-
-		</div>
-
-		<h3>Mini</h3>
-
-		<div class="sui-form-field">
-
-			<span class="sui-tag sui-tag-pro">Pro</span>
-			<span class="sui-tag sui-tag-beta">Beta</span>
-
-		</div>
-
-		<h3>Ghosts</h3>
-
-		<div class="sui-form-field">
-
-			<span class="sui-tag sui-tag-red sui-tag-ghost">Red</span>
-			<span class="sui-tag sui-tag-yellow sui-tag-ghost">Yellow</span>
-			<span class="sui-tag sui-tag-green sui-tag-ghost">Green</span>
-			<span class="sui-tag sui-tag-blue sui-tag-ghost">Blue</span>
-			<span class="sui-tag sui-tag-purple sui-tag-ghost">Purple</span>
-
-		</div>
-
-		<h3>Uppercase</h3>
-		<p>You can use the class <code>sui-tag-uppercase</code> to transform the tag text to uppercase.</p>
-
-		<div class="sui-form-field">
-
-			<span class="sui-tag sui-tag-uppercase">Default</span>
-			<span class="sui-tag sui-tag-purple sui-tag-ghost sui-tag-uppercase">Purple</span>
-
-		</div>
-
-		<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;span class="sui-tag"&gt;Default&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-red"&gt;Red&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-error"&gt;Red&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-yellow"&gt;Yellow&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-warning"&gt;Yellow&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-green"&gt;Green&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-success"&gt;Green&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-blue"&gt;Blue&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-branded"&gt;Blue&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-purple"&gt;Purple&lt;/span&gt;
-
-&lt;span class="sui-tag sui-tag-disabled"&gt;Disabled&lt;/span&gt;
-
-&lt;!-- Ghost Tags --&gt;
-&lt;span class="sui-tag sui-tag-red sui-tag-ghost"&gt;Red Ghost Tag&lt;/span&gt;
-
-&lt;!-- Mini Tags --&gt;
-&lt;span class="sui-tag sui-tag-pro"&gt;Pro&lt;/span&gt;
-&lt;span class="sui-tag sui-tag-beta"&gt;Beta&lt;/span&gt;
-
-&lt;!-- Uppercase Tags --&gt;
-&lt;span class="sui-tag sui-tag-uppercase"&gt;Uppercase&lt;/span&gt;
-</pre>
-
-		</div>
-
-	</div>
-
-</article> -->
