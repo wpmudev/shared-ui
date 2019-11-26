@@ -1,3 +1,7 @@
+v2.5.1
+- [Fix] Modals: Broken overlay for screens smaller than 920px.
+
+
 v2.5.0
 - [New] Modals: Accessible modal markup and functions.
 			Dev Notes: We still support old markup and functions but it is important

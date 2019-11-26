@@ -1,27 +1,24 @@
-( function( $ ) {
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-	// Enable strict mode.
-	'use strict';
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global SUI object if it doesn't exist.
 
-	// Define global SUI object if it doesn't exist.
-	if ( 'object' !== typeof window.SUI ) {
-		window.SUI = {};
-	}
+  if ('object' !== _typeof(window.SUI)) {
+    window.SUI = {};
+  }
 
-	document.addEventListener( 'DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
+    var mainEl = $('.sui-wrap');
 
-		var mainEl = $( '.sui-wrap' );
+    if (undefined === SUI.dialogs) {
+      SUI.dialogs = {};
+    }
 
-		if ( undefined === SUI.dialogs ) {
-			SUI.dialogs = {};
-		}
-
-		$( '.sui-2-5-0 .sui-dialog' ).each( function() {
-
-			if ( ! SUI.dialogs.hasOwnProperty( this.id ) ) {
-				SUI.dialogs[this.id] = new A11yDialog( this, mainEl );
-			}
-		});
-	});
-
-}( jQuery ) );
+    $('.sui-2-5-1 .sui-dialog').each(function () {
+      if (!SUI.dialogs.hasOwnProperty(this.id)) {
+        SUI.dialogs[this.id] = new A11yDialog(this, mainEl);
+      }
+    });
+  });
+})(jQuery);
