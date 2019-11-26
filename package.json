@@ -81,12 +81,11 @@
 		"build:files": "gulp update-version && npm run build:sui && npm run build:dev && gulp copy-files",
 		"watch:assets": "npm run build:sui && npm run build:dev && gulp watch",
 		"watch:showcase": "bundler exec jekyll serve --watch",
-		"publish:npm": "cd _dist/library/ && npm publish",
 		"publish:sui": "npm run clean:ghpages && gulp publish:sui",
 		"publish:dev": "npm run clean:ghpages && gulp publish:dev",
 		"release:showcase": "npm run build:files && npm run publish:dev",
-		"release:patch": "npm version patch --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm",
-		"release:minor": "npm version minor --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm",
-		"release:major": "npm version major --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui && npm run publish:npm"
+		"release:patch": "npm version patch --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui",
+		"release:minor": "npm version minor --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui",
+		"release:major": "npm version major --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui"
 	}
 }
