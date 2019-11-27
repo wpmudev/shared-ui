@@ -81,7 +81,7 @@
 				}
 			}
 
-			.list-results {
+			ul.list-results {
 				width: 0;
 				max-height: 200px;
 				overflow-y: auto;
@@ -101,6 +101,7 @@
 				transition-duration: 0.3s;
 
 				&, ul, li {
+					padding-inline-start: 0; // Overwrite styles from "user agent stylesheet"
 					list-style: none;
 				}
 

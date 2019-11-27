@@ -8,6 +8,7 @@ v2.6.0
 		https://wpmudev.github.io/shared-ui/calendar/
 - [Fix]     Simple Datepicker: Calendar icon isn't clickable to pull up datepicker.
 - [Fix]     Upsell Box: Section title with tags need vertical alignment.
+- [Fix]     Select: Remove extra padding added by user agent stylesheet.
 - [Enhance] Tags: Include a truncated text variation.
 - [Enhance] Multi Select: Allow element to show placeholder text.
 
