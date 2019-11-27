@@ -1,4 +1,5 @@
 v2.6.0
+- [Fix]     Tabs: Letter spacing isn't default.
 - [New]     Range Datepicker.
 		Dev Notes: We will only support styles but you need to install required JS files
 		on your plugin to make it work. Please, read documentation on:
