@@ -2,6 +2,7 @@ v2.6.0
 - [Fix]     Tags: Allow multi-line text by default.
 - [Fix]     Page title don't need to be all caps.
 - [Fix]     Tabs: Letter spacing isn't default.
+- [Fix]     Insert Variables: Select2 not rendering dropdown options.
 - [New]     Range Datepicker.
 		Dev Notes: We will only support styles but you need to install required JS files
 		on your plugin to make it work. Please, read documentation on:

@@ -15,10 +15,10 @@
 			minimumInputLength: 2,
 			maximumSelectionLength: 1,
             dropdownCssClass: 'sui-search-dropdown sui-color-accessible'
-        });
-        $( '.sui-variables' ).SUIselect2({
+		});
+		$( '.sui-variables' ).SUIselect2({
             dropdownCssClass: 'sui-variables-dropdown sui-color-accessible'
-        });
+		});
     } else {
         $( '.sui-select' ).SUIselect2({
 			placeholder: function() {
@@ -33,10 +33,10 @@
 			minimumInputLength: 2,
 			maximumSelectionLength: 1,
             dropdownCssClass: 'sui-search-dropdown'
-        });
-        $( '.sui-variables' ).SUIselect2({
+		});
+		$( '.sui-variables' ).SUIselect2({
             dropdownCssClass: 'sui-variables-dropdown'
-        });
+		});
     }
 
 }( jQuery ) );
