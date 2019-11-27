@@ -4,6 +4,7 @@ v2.6.0
 		on your plugin to make it work. Please, read documentation on:
 		https://wpmudev.github.io/shared-ui/calendar/
 - [Fix] Simple Datepicker: Calendar icon isn't clickable to pull up datepicker.
+- [Fix] Upsell Box: Section title with tags need vertical alignment.
 
 
 v2.5.2
