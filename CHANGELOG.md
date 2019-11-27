@@ -1,3 +1,7 @@
+v2.6.0
+- [Fix] Box Message: Leave "large" as the only box message option available.
+
+
 v2.5.2
 - [Fix] Modals: Broken overlay for screens smaller than 920px.
 
