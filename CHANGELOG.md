@@ -1,5 +1,18 @@
 v2.6.0
-- [Fix] Box Message: Leave "large" as the only box message option available.
+- [Fix]     Page title don't need to be all caps.
+- [Fix]     Tags: Allow multi-line text by default.
+- [Fix]     Tabs: Letter spacing isn't default.
+- [Fix]     Box Message: Leave "large" as the only box message option available.
+- [Fix]     Insert Variables: Select2 not rendering dropdown options.
+- [New]     Range Datepicker.
+		Dev Notes: We will only support styles but you need to install required JS files
+		on your plugin to make it work. Please, read documentation on:
+		https://wpmudev.github.io/shared-ui/calendar/
+- [Fix]     Simple Datepicker: Calendar icon isn't clickable to pull up datepicker.
+- [Fix]     Upsell Box: Section title with tags need vertical alignment.
+- [Fix]     Select: Remove extra padding added by user agent stylesheet.
+- [Enhance] Tags: Include a truncated text variation.
+- [Enhance] Multi Select: Allow element to show placeholder text.
 
 
 v2.5.2
