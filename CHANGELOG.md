@@ -1,5 +1,15 @@
 v2.6.0
+- [New]     Range Datepicker.
+		Dev Notes: We will only support styles but you need to install required JS files
+		on your plugin to make it work. Please, read documentation on:
+		https://wpmudev.github.io/shared-ui/calendar/
+- [Fix]     Simple Datepicker: Calendar icon isn't clickable to pull up datepicker.
+- [Fix]     Upsell Box: Section title with tags need vertical alignment.
 - [Enhance] Multi Select: Allow element to show placeholder text.
+
+
+v2.5.2
+- [Fix] Modals: Broken overlay for screens smaller than 920px.
 
 
 v2.5.0

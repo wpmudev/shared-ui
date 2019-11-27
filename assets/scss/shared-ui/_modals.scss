@@ -1527,6 +1527,25 @@
 			}
 		}
 	}
+
+	&.wp-admin {
+
+		&.auto-fold {
+
+			.sui-modal {
+
+				@media only screen and (max-width: 960px) {
+					width: calc(100% - #{map-get($wordpress, adminmenu-sm)});
+					left: map-get($wordpress, adminmenu-sm);
+				}
+
+				@media only screen and (max-width: 782px) {
+					width: 100%;
+					left: 0;
+				}
+			}
+		}
+	}
 }
 
 html.sui-has-modal,
