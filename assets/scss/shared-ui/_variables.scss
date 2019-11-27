@@ -1,4 +1,4 @@
-$sui-version: '2.5.0';
+$sui-version: '2.5.2';
 $sui-wrap-class: 'sui-wrap';
 
 // Import Google Fonts
@@ -287,3 +287,86 @@ $onboard: (
 	button:    40px,
 	button-md: 30px,
 ) !default;
+
+// ============================================================
+// NEW VARIABLES
+// Re-organize and clean-up variables
+
+
+// ************************************************************
+// Datepicker – Calendar Styles.
+
+$calendar: (
+	padding:       #{($sui-gutter / 2) - 1px},
+	border-width:  1px,
+	border-style:  solid,
+	border-color:  palette(gray, lighter),
+	border-radius: $border-radius,
+	background:    $white,
+	shadow:        0 3px 7px 0 rgba(0,0,0,0.07),
+	cell-size:     30px,
+);
+
+$calendar-padding:        map-get($calendar, padding)       !default;
+$calendar-border--width:  map-get($calendar, border-width)  !default;
+$calendar-border--style:  map-get($calendar, border-style)  !default;
+$calendar-border--color:  map-get($calendar, border-color)  !default;
+$calendar-border--radius: map-get($calendar, border-radius) !default;
+$calendar-background:     map-get($calendar, background)    !default;
+$calendar-shadow:         map-get($calendar, shadow)        !default;
+$calendar-cell:           map-get($calendar, cell-size)     !default;
+
+$month: (
+	color:          palette(gray, dark),
+	font-size:      12px,
+	line-height:    map-get($calendar, cell-size),
+	font-family:    $font,
+	font-weight:    bold,
+	letter-spacing: $font--letter-spacing,
+	text-align:     center,
+);
+
+$month-color:   map-get($month, color)          !default;
+$month-size:    map-get($month, font-size)      !default;
+$month-height:  map-get($month, line-height)    !default;
+$month-family:  map-get($month, font-family)    !default;
+$month-weight:  map-get($month, font-weight)    !default;
+$month-spacing: map-get($month, letter-spacing) !default;
+$month-align:   map-get($month, text-align)     !default;
+
+$day: (
+	font-size:           12px,
+	line-height:         map-get($calendar, cell-size),
+	font-family:         $font,
+	font-weight:         400,
+	letter-spacing:      $font--letter-spacing,
+	text-align:          center,
+	default-color:       palette(gray, light),
+	default-background:  $white,
+	hover-color:         palette(gray, dark),
+	hover-background:    palette(silver, light),
+	active-color:        $blue,
+	active-background:   palette(blue, light),
+	inactive-color:      palette(gray, lighter),
+	inactive-background: $white,
+	today-color:         palette(gray, default),
+	today-background:    palette(yellow, light),
+);
+
+$day-size:    map-get($day, font-size)      !default;
+$day-height:  map-get($day, line-height)    !default;
+$day-family:  map-get($day, font-family)    !default;
+$day-weight:  map-get($day, font-weight)    !default;
+$day-spacing: map-get($day, letter-spacing) !default;
+$day-align:   map-get($day, text-align)     !default;
+
+$day-default--color:       map-get($day, default-color)       !default;
+$day-default--background:  map-get($day, default-background)  !default;
+$day-hover--color:         map-get($day, hover-color)         !default;
+$day-hover--background:    map-get($day, hover-background)    !default;
+$day-active--color:        map-get($day, active-color)        !default;
+$day-active--background:   map-get($day, active-background)   !default;
+$day-inactive--color:      map-get($day, inactive-color)      !default;
+$day-inactive--background: map-get($day, inactive-background) !default;
+$day-today--color:         map-get($day, today-color)         !default;
+$day-today--background:    map-get($day, today-background)    !default;
