@@ -1,3 +1,7 @@
+v2.6.0
+- [Fix] Insert Variables: Select2 not rendering dropdown options.
+
+
 v2.5.2
 - [Fix] Modals: Broken overlay for screens smaller than 920px.
 
