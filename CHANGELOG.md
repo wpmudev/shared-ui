@@ -11,8 +11,8 @@ v2.6.0
 - [Fix] Insert Variables: Select2 not rendering dropdown options.
 - [New] Range Datepicker.
 			Dev Notes: We will only support styles but you need to install required JS files
-		on your plugin to make it work. Please, read documentation on:
-		https://wpmudev.github.io/shared-ui/calendar/
+			on your plugin to make it work. Please, read documentation on:
+			https://wpmudev.github.io/shared-ui/calendar/
 - [Fix] Simple Datepicker: Calendar icon isn't clickable to pull up datepicker.
 - [Fix] Upsell Box: Section title with tags need vertical alignment.
 - [Fix] Select: Remove extra padding added by user agent stylesheet.
