@@ -1,6 +1,6 @@
 {
 	"name": "@wpmudev/shared-ui",
-	"version": "2.5.2",
+	"version": "2.6.0",
 	"description": "For internal use in WPMU DEV plugins",
 	"private": true,
 	"author": "WPMU DEV",
@@ -76,16 +76,15 @@
 	"scripts": {
 		"clean:modules": "rm -rf ./node_modules/ && rm -rf ./package-lock.json",
 		"clean:ghpages": "rm -rf node_modules/gh-pages/.cache",
-		"build:sui": "gulp sui:styles && gulp sui:scripts",
-		"build:dev": "gulp dev:styles && gulp dev:jsCopies && gulp dev:scripts",
-		"build:files": "gulp update-version && npm run build:sui && npm run build:dev && gulp copy-files",
-		"watch:assets": "npm run build:sui && npm run build:dev && gulp watch",
+		"build:library": "gulp sui:styles && gulp sui:scripts",
+		"build:showcase": "gulp dev:styles && gulp dev:jsCopies && gulp dev:scripts",
+		"build:all": "gulp update-version && npm run build:library && npm run build:showcase && gulp copy-files",
+		"watch:assets": "npm run build:library && npm run build:showcase && gulp watch",
 		"watch:showcase": "bundler exec jekyll serve --watch",
-		"publish:sui": "npm run clean:ghpages && gulp publish:sui",
-		"publish:dev": "npm run clean:ghpages && gulp publish:dev",
-		"release:showcase": "npm run build:files && npm run publish:dev",
-		"release:patch": "npm version patch --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui",
-		"release:minor": "npm version minor --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui",
-		"release:major": "npm version major --no-git-tag-version && npm run build:files && npm run publish:dev && npm run publish:sui"
+		"publish:library": "npm run clean:ghpages && gulp publish:sui",
+		"publish:showcase": "npm run clean:ghpages && gulp publish:dev",
+		"release:patch": "npm version patch --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
+		"release:minor": "npm version minor --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
+		"release:major": "npm version major --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library"
 	}
 }

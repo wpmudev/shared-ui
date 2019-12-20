@@ -20,7 +20,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return;
     }
 
-    if (jq.closest('.select-container').length || jq.data('select2') || jq.is('.sui-select') || jq.is('.none-sui')) {
+    if (jq.closest('.select-container').length || jq.data('select2') || jq.is('.sui-select') || jq.is('.sui-search') || jq.is('.sui-variables') || jq.is('.none-sui')) {
       return;
     } // Add the DOM elements to style the select list.
 
@@ -229,7 +229,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-5-2 select:not([multiple])').each(function () {
+  $('.sui-2-6-0 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);

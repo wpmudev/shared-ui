@@ -563,8 +563,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-5-2 .sui-accordion').length) {
-    $('.sui-2-5-2 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-6-0 .sui-accordion').length) {
+    $('.sui-2-6-0 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -1709,7 +1709,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-5-2 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-6-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -1985,7 +1985,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-5-2 .sui-slider').each(function () {
+  $('.sui-2-6-0 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -2001,7 +2001,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-5-2 .sui-dropdown');
+      var $dropdowns = $('.sui-2-6-0 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -2022,7 +2022,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-5-2 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-6-0 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -3169,7 +3169,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-5-2 .sui-slider').each(function () {
+  $('.sui-2-6-0 .sui-slider').each(function () {
     SUI.modalSlider(this);
   });
 })(jQuery);
@@ -3190,7 +3190,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       SUI.dialogs = {};
     }
 
-    $('.sui-2-5-2 .sui-dialog').each(function () {
+    $('.sui-2-6-0 .sui-dialog').each(function () {
       if (!SUI.dialogs.hasOwnProperty(this.id)) {
         SUI.dialogs[this.id] = new A11yDialog(this, mainEl);
       }
@@ -3199,8 +3199,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 })(jQuery);
 (function ($) {
   // This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-  $('.sui-2-5-2 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)').delay(3000).slideUp('slow');
-  $('.sui-2-5-2 .sui-notice-dismiss').click(function (e) {
+  $('.sui-2-6-0 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)').delay(3000).slideUp('slow');
+  $('.sui-2-6-0 .sui-notice-dismiss').click(function (e) {
     e.preventDefault();
     $(this).parent().stop().slideUp('slow');
     return false;
@@ -3217,7 +3217,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-5-2 .sui-form-field').each(function () {
+    $('.sui-2-6-0 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -3245,7 +3245,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-5-2 .sui-reviews').each(function () {
+  $('.sui-2-6-0 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -3283,7 +3283,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-5-2 .sui-circle-score').each(function () {
+  $('.sui-2-6-0 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -3309,7 +3309,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       return;
     }
 
-    if (jq.closest('.select-container').length || jq.data('select2') || jq.is('.sui-select') || jq.is('.none-sui')) {
+    if (jq.closest('.select-container').length || jq.data('select2') || jq.is('.sui-select') || jq.is('.sui-search') || jq.is('.sui-variables') || jq.is('.none-sui')) {
       return;
     } // Add the DOM elements to style the select list.
 
@@ -3518,7 +3518,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-5-2 select:not([multiple])').each(function () {
+  $('.sui-2-6-0 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);
@@ -9153,6 +9153,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   // Convert all select lists to fancy sui Select lists.
   if ($('.sui-color-accessible')[0]) {
     $('.sui-select').SUIselect2({
+      placeholder: function placeholder() {
+        $(this).data('placeholder');
+      },
       dropdownCssClass: 'sui-select-dropdown sui-color-accessible'
     });
     $('.sui-search').SUIselect2({
@@ -9168,6 +9171,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   } else {
     $('.sui-select').SUIselect2({
+      placeholder: function placeholder() {
+        $(this).data('placeholder');
+      },
       dropdownCssClass: 'sui-select-dropdown'
     });
     $('.sui-search').SUIselect2({
@@ -9215,7 +9221,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-5-2 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-6-0 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -9654,12 +9660,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-5-2 .sui-tabs').length) {
+  if (0 !== $('.sui-2-6-0 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-5-2 .sui-tabs-navigation').each(function () {
+    $('.sui-2-6-0 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9979,8 +9985,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-5-2 .sui-tree').length) {
-    $('.sui-2-5-2 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-6-0 .sui-tree').length) {
+    $('.sui-2-6-0 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9996,7 +10002,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-5-2 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-6-0 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

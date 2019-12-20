@@ -1,0 +1,281 @@
+@include body-class {
+
+	// Range Datepicker.
+	.daterangepicker {
+		width: auto;
+		max-width: 100%;
+		direction: ltr;
+		display: none;
+		position: absolute;
+		margin: 0;
+		padding: $calendar-padding;
+		border-width: $calendar-border--width;
+		border-style: $calendar-border--style;
+		border-color: $calendar-border--color;
+		border-radius: $calendar-border--radius;
+		background-color: $calendar-background;
+		box-shadow: $calendar-shadow;
+		text-align: left;
+
+		* {
+			box-sizing: border-box;
+			font-variant-ligatures: none;
+			-webkit-font-variant-ligatures: none;
+			text-rendering: optimizeLegibility;
+			-moz-osx-font-smoothing: grayscale;
+			font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased;
+			text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+		}
+
+		.ranges {
+			display: none;
+		}
+
+		.drp-calendar {
+			display: block;
+
+			&.left {
+				float: left;
+			}
+
+			&.right {
+				float: right;
+			}
+
+			.table-condensed {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-spacing: 0;
+				border-collapse: collapse;
+
+				thead tr,
+				tbody tr {
+
+					th, td {
+						width: $calendar-cell;
+						height: $calendar-cell;
+						margin: 0;
+						padding: 0;
+						border: 0;
+						border-radius: $border-radius;
+						text-align: center;
+					}
+				}
+
+				thead tr {
+
+					th {
+						height: calc(#{$calendar-padding} + 5px);
+						padding-bottom: 5px;
+						color: $month-color;
+						font-size: $month-size;
+						line-height: $month-height;
+						font-family: $month-family;
+						font-weight: $month-weight;
+						letter-spacing: $month-spacing;
+					}
+
+					th.prev,
+					th.next {
+
+						span {
+							width: $calendar-cell;
+							height: $calendar-cell;
+							cursor: pointer;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-radius: $border-radius;
+
+							&:hover,
+							&:focus {
+								background-color: palette(silver, default);
+
+								&:before {
+									color: palette(gray, dark);
+								}
+							}
+
+							@include icon(before, '', true) {
+								display: block;
+								color: palette(gray, light);
+							}
+						}
+
+						&:not(.available) {
+							pointer-events: none;
+							display: none;
+						}
+					}
+
+					th.prev span {
+						@include icon(before, chevron-left, false);
+					}
+
+					th.next span {
+						@include icon(before, chevron-right, false);
+					}
+				}
+
+				tbody tr {
+
+					td {
+						border-radius: $border-radius;
+						background-color: $day-default--background;
+						color: $day-default--color;
+						font-size: $day-size;
+						line-height: $day-height;
+						font-family: $day-family;
+						font-weight: $day-weight;
+						letter-spacing: $day-spacing;
+						transition: $transition;
+
+						// STATE: Hover.
+						&:hover {
+							background-color: $day-hover--background;
+							color: $day-hover--color;
+						}
+
+						// STATE: Available.
+						&.available:not(.off) {
+							cursor: pointer;
+
+							&.today {
+								background-color: $day-today--background;
+								color: $day-today--color;
+							}
+
+							&.start-date,
+							&.end-date {
+								color: $white;
+								background-color: $blue;
+							}
+
+							&.in-range:not(.end-date) {
+								color: $day-active--color;
+								background-color: $day-active--background;
+							}
+
+							&.start-date:not(.end-date) {
+								border-top-right-radius: 0;
+								border-bottom-right-radius: 0;
+							}
+
+							&.end-date:not(.start-date) {
+								border-top-left-radius: 0;
+								border-bottom-left-radius: 0;
+							}
+
+							&.in-range:not(.start-date):not(.end-date) {
+								border-radius: 0;
+
+								&:first-child {
+									border-top-left-radius: $border-radius;
+									border-bottom-left-radius: $border-radius;
+								}
+
+								&:last-child {
+									border-top-right-radius: $border-radius;
+									border-bottom-right-radius: $border-radius;
+								}
+							}
+						}
+
+						// STATE: Disabled.
+						&.off,
+						&.disabled {
+							pointer-events: none;
+							background-color: $day-inactive--background;
+							color: $day-inactive--color;
+						}
+
+						&.disabled {
+							text-decoration: line-through;
+						}
+					}
+				}
+			}
+
+			+ .drp-calendar {
+				margin-left: 10px;
+				padding-left: 10px;
+				border-left: 1px solid palette(silver, soft);
+			}
+		}
+
+		// VARIATION: Show ranges.
+		&.show-ranges {
+			padding-top: #{($sui-gutter-md - 1px) + ($sui-gutter / 2) + 18px};
+
+			.ranges {
+				display: block;
+				flex: 0 0 auto;
+				position: absolute;
+				top: $sui-gutter-md;
+				right: 0;
+				left: 0;
+
+				ul {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: center;
+					margin: 0;
+					padding: 0;
+					border: 0;
+
+					&, li {
+						list-style: none;
+					}
+
+					li {
+						cursor: pointer;
+						display: block;
+						margin: 0 5px;
+						padding: 3px 10px;
+						border: 0;
+						border-radius: 10px;
+						background-color: palette(silver, default);
+						color: palette(gray, dark);
+						font: bold 10px/12px $font;
+						letter-spacing: $font--letter-spacing;
+						text-align: center;
+
+						&:hover,
+						&:focus {
+							background-color: palette(blue, light);
+						}
+
+						&.active {
+							background-color: $blue;
+							color: $white;
+						}
+
+						&:first-child {
+							margin-left: 0;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+
+		// VARIATION: Auto-apply.
+		// When this option is enabled, selected option(s) by user will be applied
+		// immediately after click making no sense to show apply buttons.
+		&.auto-apply {
+
+			.drp-buttons {
+				display: none;
+				visibility: hidden;
+				pointer-events: none;
+			}
+		}
+	}
+}
