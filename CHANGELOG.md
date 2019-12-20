@@ -1,3 +1,7 @@
+v2.7.0
+- [Enhance] Selectors: Disabled selector item with pro tag.
+
+
 v2.6.0
 - [Fix] Page title don't need to be all caps.
 - [Fix] Tags: Allow multi-line text by default.
