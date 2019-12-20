@@ -2,6 +2,7 @@
 layout: default
 title: Insert Variables
 permalink: /insert-variables/
+id: insert-variables
 is_searchable: true
 ---
 
@@ -35,13 +36,13 @@ is_searchable: true
 
 			<div class="sui-form-field">
 
-				<label class="sui-label">Email Subject</label>
+				<label for="demo-select-input" id="demo-select-input-label" class="sui-label">Email Subject</label>
 
 				<div class="sui-insert-variables">
 
-					<input type="text" class="sui-form-control" placeholder="New enquiry from {first-name}" />
+					<input type="text" placeholder="New enquiry from {first-name}" id="demo-select-input" class="sui-form-control" aria-labelledby="demo-select-input-label" />
 
-					<select>
+					<select id="demo-select-input-options" aria-labelledby="demo-select-input-label">
 						<option value="{address}" data-content="{address}">Address</option>
 						<option value="{email-address}" data-content="{email-address}">Email Address</option>
 						<option value="{first-name}" data-content="{first-name}">First Name</option>
@@ -57,13 +58,13 @@ is_searchable: true
 
 			<div class="sui-form-field">
 
-				<label class="sui-label">Email Message</label>
+				<label for="demo-select-textarea" id="demo-select-textarea-label" class="sui-label">Email Message</label>
 
 				<div class="sui-insert-variables">
 
-					<textarea class="sui-form-control" placeholder="New enquiry from {first-name}"></textarea>
+					<textarea placeholder="New enquiry from {first-name}" id="demo-select-textarea" class="sui-form-control" aria-labelledby="demo-select-textarea-label"></textarea>
 
-					<select>
+					<select id="demo-select-textarea-options">
 						<option value="{address}" data-content="{address}">Address</option>
 						<option value="{email-address}" data-content="{email-address}">Email Address</option>
 						<option value="{first-name}" data-content="{first-name}">First Name</option>
@@ -118,13 +119,13 @@ is_searchable: true
 
 			<div class="sui-form-field">
 
-				<label class="sui-label">Email Subject</label>
+				<label for="demo-select2-input" id="demo-select2-input-label" class="sui-label">Email Subject</label>
 
 				<div class="sui-insert-variables">
 
-					<input type="text" class="sui-form-control" value="New enquiry from {first-name}" />
+					<input type="text" value="New enquiry from {first-name}" id="demo-select2-input" class="sui-form-control" aria-labelledby="demo-select2-input-label" />
 
-					<select class="sui-variables">
+					<select id="demo-select2-options" class="sui-variables" aria-labelledby="demo-select2-input-label">
 						<option value="{address}">Address</option>
 						<option value="{email-address}">Email Address</option>
 						<option value="{first-name}">First Name</option>
