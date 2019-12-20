@@ -23,6 +23,6 @@ Please read through our [contributing guidelines](https://github.com/wpmudev/sha
 5. Run `git tag v2.6.0` to replace the version number with the new version.
 6. Push the new tag running `git push --tags`.
 7. You will need to be added to the npm packages as a contributor before the next step.
-8. Run `npm run publish`.
+8. Run `npm publish`.
 
 DONE :)
