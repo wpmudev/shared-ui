@@ -16,12 +16,13 @@ Please read through our [contributing guidelines](https://github.com/wpmudev/sha
 
 
 ## Releasing a new version
-1. Update CHANGELOG.md and update the commits to be logical and nice adding DEV NOTES where applicable.
-2. Run either `npm run release:patch`, `npm run release:minor` or `npm run release:major` based on the version you want.
-3. Add a git tag `git tag v2.3.0` replace the version number with the new version.
-4. Push the tag `git push --tags`.
-5. You will need to be added to the npm package as a contributor before the next step.
-6. Go to `_dist/library/` folder.
-7. Run `npm run publish`.
+1. Go to `development` branch.
+2. Update CHANGELOG.md and update the commits to be logical and nice adding DEV NOTES where applicable.
+3. Run either `npm run release:patch`, `npm run release:minor` or `npm run release:major` based on the version you want.
+4. Go to `master` branch (without pushing commits and make sure there are no residual folders nor files from `development` branch).
+5. Run `git tag v2.6.0` to replace the version number with the new version.
+6. Push the new tag running `git push --tags`.
+7. You will need to be added to the npm packages as a contributor before the next step.
+8. Run `npm run publish`.
 
 DONE :)
