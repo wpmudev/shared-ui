@@ -1,111 +1,129 @@
 @include body-class(true) {
 
 	.sui-notice {
-		display: flex;
-		align-items: flex-start;
 		margin: 0 0 $sui-gutter;
-		padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
-		border-radius: $border-radius;
-		background-color: $white;
-		box-shadow: inset 2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
-
-		p {
-			margin-top: 0;
-			margin-bottom: #{$sui-gutter-md / 2};
-			padding-left: #{$sui-gutter - 4px};
-			color: palette(gray, dark);
-			font-size: 13px;
-			line-height: 22px;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		.sui-notice-icon  {
-			width: 30px;
-			display: block;
-			color: palette(gray, light);
-			text-align: center;
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-		}
 
 		.sui-notice-content {
-			flex: 1;
-			position: relative;
-			padding: 5px 0 3px;
+			display: flex;
+			align-items: flex-start;
+			padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
+			border-radius: $border-radius;
+			background-color: $white;
+			box-shadow: inset 2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				position: absolute;
-				top: 8px;
-				left: -7px;
+			p {
+				margin-top: 0;
+				margin-bottom: #{$sui-gutter-md / 2};
+				padding-left: #{$sui-gutter - 4px};
+				color: palette(gray, dark);
+				font-size: 13px;
+				line-height: 22px;
 
-				&.sui-sm {
-					top: 9px;
-				}
-
-				&.sui-md {
-					top: 7px;
-				}
-
-				&.sui-lg {
-					top: 5px;
+				&:last-child {
+					margin-bottom: 0;
 				}
 			}
-		}
 
-		.sui-notice-actions {
-			flex: 0 0 auto;
-			margin-right: -#{($sui-gutter-md / 2) - 1px};
-			margin-left: #{$sui-gutter-md / 2};
+			.sui-notice-icon {
+				width: 30px;
+				display: block;
+				color: palette(gray, light);
+				text-align: center;
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
+
+			.sui-notice-message {
+				flex: 1;
+				position: relative;
+				padding: 5px 0 3px;
+
+				.sui-notice-icon {
+					position: absolute;
+					top: 8px;
+					left: -7px;
+
+					&.sui-sm {
+						top: 9px;
+					}
+
+					&.sui-md {
+						top: 7px;
+					}
+
+					&.sui-lg {
+						top: 5px;
+					}
+				}
+
+				+ .sui-notice-actions {
+					flex: 0 0 auto;
+					margin-right: -#{($sui-gutter-md / 2) - 1px};
+					margin-left: #{$sui-gutter-md / 2};
+				}
+			}
 		}
 
 		&.sui-notice-blue,
 		&.sui-notice-info {
-			box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				color: $blue;
+			.sui-notice-content {
+				box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-notice-icon {
+					color: $blue;
+				}
 			}
 		}
 
 		&.sui-notice-green,
 		&.sui-notice-success {
-			box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				color: $green;
+			.sui-notice-content {
+				box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-notice-icon {
+					color: $green;
+				}
 			}
 		}
 
 		&.sui-notice-yellow,
 		&.sui-notice-warning {
-			box-shadow: inset 2px 0 0 0 palette(yellow, default), inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				color: palette(yellow, default);
+			.sui-notice-content {
+				box-shadow: inset 2px 0 0 0 palette(yellow, default), inset 0 0 0 1px palette(silver, soft);
+
+				.sui-notice-icon {
+					color: palette(yellow, default);
+				}
 			}
 		}
 
 		&.sui-notice-red,
 		&.sui-notice-error {
-			box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				color: $red;
+			.sui-notice-content {
+				box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-notice-icon {
+					color: $red;
+				}
 			}
 		}
 
 		&.sui-notice-purple,
 		&.sui-notice-upsell {
-			box-shadow: inset 2px 0 0 0 palette(purple, default), inset 0 0 0 1px palette(silver, soft);
 
-			.sui-notice-icon {
-				color: palette(purple, default);
+			.sui-notice-content {
+				box-shadow: inset 2px 0 0 0 palette(purple, default), inset 0 0 0 1px palette(silver, soft);
+
+				.sui-notice-icon {
+					color: palette(purple, default);
+				}
 			}
 		}
 
@@ -130,23 +148,31 @@
 			display: none;
 			z-index: 1;
 			margin: 0 auto #{$sui-gutter-md / 2};
-			box-shadow: 0 5px 25px 0 rgba(0,0,0,0.15), inset 2px 0 0 0 palette(silver, medium);
-
-			.sui-notice-actions {
-				display: none;
-			}
-
-			&.sui-active {
-				display: flex;
-
-				.sui-notice-actions {
-					display: block;
-				}
-			}
+			border-radius: $border-radius;
+			box-shadow: 0 5px 25px 0 rgba(0,0,0,0.15);
 
 			&:last-child {
 				margin-bottom: 0;
 			}
 		}
 	}
+
+	// .sui-floating-notices {
+
+	// 	.sui-notice {
+	// 		box-shadow: 0 5px 25px 0 rgba(0,0,0,0.15), inset 2px 0 0 0 palette(silver, medium);
+
+	// 		.sui-notice-actions {
+	// 			display: none;
+	// 		}
+
+	// 		&.sui-active {
+	// 			display: flex;
+
+	// 			.sui-notice-actions {
+	// 				display: block;
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
