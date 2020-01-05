@@ -18,49 +18,44 @@
 			return;
 		}
 
-		function noticeHide( el ) {
-
-			$( el ).slideUp( 'slow' );
-
+		function getRandom( items ) {
+			return items[ Math.floor( Math.random() * items.length ) ];
 		}
 
-		function noticeShow( el ) {
+		function randomColor( element ) {
 
-			var delay       = 1000,
-				noticeCur   = $( el ),
-				noticeTop   = $( '.sui-notice-top' ),
-				noticeFloat = $( '.sui-notice-floating' ),
-				noticeAll   = $( '.sui-notice-top, .sui-notice-floating' )
-				;
+			element.on( 'click', function() {
 
-			if ( ! noticeTop.is( ':visible' ) && ! noticeFloat.is( ':visible' ) ) {
-				delay = 0;
-			}
+				const button = $( this ),
+					notice = button.closest( '.sui-notice' ),
+					colors = [
+						'default',
+						'blue',
+						'green',
+						'yellow',
+						'purple',
+						'red'
+					];
 
-			noticeHide( noticeAll );
+				const randomColor = getRandom( colors );
 
-			setTimeout( function() {
-				noticeCur.slideDown( 'slow' );
-			}, delay );
+				// Remove all color classes for notices.
+				notice.removeClass();
+
+				// Print notice new class.
+				notice.addClass( 'sui-notice sui-notice-' + randomColor );
+
+				// Remove all classes.
+				button.removeClass();
+
+				// Print new class.
+				button.addClass( 'sui-button sui-button-' + randomColor );
+
+			});
 		}
 
 		function init() {
-
-			var btnNoticeTop   = $( '#show-notice-top' ),
-				btnNoticeFloat = $( '#show-notice-float' )
-				;
-
-			var noticeTop   = $( '.sui-notice-top' ),
-				noticeFloat = $( '.sui-notice-floating' )
-				;
-
-			btnNoticeTop.on( 'click', function() {
-				noticeShow( noticeTop );
-			});
-
-			btnNoticeFloat.on( 'click', function() {
-				noticeShow( noticeFloat );
-			});
+			randomColor( $( '#demo-multiline-random-button' ) );
 		}
 
 		init();
