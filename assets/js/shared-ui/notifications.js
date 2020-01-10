@@ -76,11 +76,15 @@
 
 			// Auto-close after some time.
 			if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
-				setTimeout( () => noticeNode.slideUp( 300 ), 3300 );
+				setTimeout( () => noticeNode.slideUp( 300, function() {
+					noticeNode.find( '.sui-notice-message' ).empty();
+				}), 3300 );
 			} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
 				// Do nothing.
 			} else {
-				setTimeout( () => noticeNode.slideUp( 300 ), ( parseInt( noticeAutoClose ) + 300 ) );
+				setTimeout( () => noticeNode.slideUp( 300, function() {
+					noticeNode.find( '.sui-notice-message' ).empty();
+				}), ( parseInt( noticeAutoClose ) + 300 ) );
 			}
 		}
 
@@ -90,7 +94,9 @@
 			noticeNode.fadeIn( 300 );
 
 			if ( null !== typeof noticeAutoClose || 'undefined' !== typeof noticeAutoClose || '' !== noticeAutoClose ) {
-				setTimeout( () => noticeNode.fadeOut( 300 ), ( parseInt( noticeAutoClose ) + 300 ) );
+				setTimeout( () => noticeNode.fadeOut( 300, function() {
+					noticeNode.find( '.sui-notice-message' ).empty();
+				}), ( parseInt( noticeAutoClose ) + 300 ) );
 			}
 		}
 
