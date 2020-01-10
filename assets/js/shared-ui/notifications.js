@@ -117,14 +117,15 @@
 
 	};
 
-	SUI.closeNotice = function( noticeId, noticeClear = true ) {
+	SUI.closeNotice = function( element ) {
 
-		const noticeNode  = $( '#' + noticeId );
+		const self        = $( element );
+		const noticeNode  = self.closest( '.sui-notice' );
 		const nodeWrapper = noticeNode.parent();
 
-		// Check if element ID exists.
-		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
-			throw new Error( 'No element found with id="' + noticeId + '".' );
+		// Check if parent element is a notice.
+		if ( ! noticeNode ) {
+			throw new Error( 'No parent element found with "sui-notice" class.' );
 		}
 
 		function init() {
@@ -132,18 +133,11 @@
 			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
 
 				noticeNode.slideUp( 300, function() {
-
-					if ( true === noticeClear || 'true' === noticeClear ) {
-						noticeNode.find( '.sui-notice-message' ).empty();
-					}
+					noticeNode.find( '.sui-notice-message' ).empty();
 				});
 			} else {
-
 				noticeNode.fadeOut( 300, function() {
-
-					if ( true === noticeClear || 'true' === noticeClear ) {
-						noticeNode.find( '.sui-notice-message' ).empty();
-					}
+					noticeNode.find( '.sui-notice-message' ).empty();
 				});
 			}
 		}
@@ -175,14 +169,7 @@
 		function closeNotice( button ) {
 
 			button.on( 'click', function() {
-
-				let button      = $( this ),
-					noticeId    = button.attr( 'data-notice-close' ),
-					noticeClear = button.attr( 'data-notice-clear' )
-					;
-
-				SUI.closeNotice( noticeId, noticeClear );
-
+				SUI.closeNotice( this );
 			});
 		}
 
