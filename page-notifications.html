@@ -6,6 +6,25 @@ id: notifications
 is_searchable: true
 ---
 
+<div class="sui-floating-notices">
+
+	<div role="alert" id="float-example-1" class="sui-notice" aria-live="assertive"></div>
+
+	<div role="alert" id="float-example-2" class="sui-notice sui-notice-dismiss" aria-live="assertive">
+
+		<div class="sui-notice-actions">
+
+			<button class="sui-button-icon" data-notice-close="float-example-2">
+				<i class="sui-icon-check" aria-hidden="true"></i>
+				<span class="sui-screen-reader-text">Close this notice</span>
+			</button>
+
+		</div>
+
+	</div>
+
+</div>
+
 <div class="sui-row-with-sidenav">
 
 	<!-- Navigation -->
@@ -146,7 +165,7 @@ is_searchable: true
 
 			</div>
 
-			<div role="alert" id="demo-notice-inline-dismiss-float" class="sui-notice" aria-live="assertive">
+			<div role="alert" id="demo-notice-inline-dismiss-tooltip" class="sui-notice" aria-live="assertive">
 
 				<div class="sui-notice-content">
 
@@ -159,7 +178,7 @@ is_searchable: true
 
 						<div class="sui-tooltip" data-tooltip="Dismiss">
 
-							<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss-float">
+							<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss-tooltip">
 								<i class="sui-icon-check" aria-hidden="true"></i>
 								<span class="sui-screen-reader-text">Close this notice</span>
 							</button>
