@@ -36,6 +36,10 @@
 				noticeIconClass = 'info';
 			}
 
+			if ( 'loader' === noticeIconClass ) {
+				noticeIconClass = noticeIconClass + ' sui-loading'
+			}
+
 			let icon    = '<i class="sui-icon-' + noticeIconClass + ' sui-md sui-notice-icon" aria-hidden="true"></i>',
 				content = '<p>' + noticeMessage + '</p>'
 				;
