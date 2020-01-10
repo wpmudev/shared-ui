@@ -1,3 +1,9 @@
+v2.7.0
+- [Enhance] Notifications: apply element new styles.
+- [Enhance] Notifications: revamp markup to be more accessible.
+- [Enhance] Notifications: create new functions to handle show/hide behave for this element.
+
+
 v2.6.0
 - [Fix] Page title don't need to be all caps.
 - [Fix] Tags: Allow multi-line text by default.
