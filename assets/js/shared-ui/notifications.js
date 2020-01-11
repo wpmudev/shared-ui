@@ -8,7 +8,7 @@
 		window.SUI = {};
 	}
 
-	SUI.openNotice = function( noticeId, noticeMessage, noticeIconClass = 'info', noticeAutoClose ) {
+	SUI.openNotice = function( noticeId, noticeMessage, noticeIconClass = 'info', noticeAutoClose, noticeDismiss = false, noticeDismissTooltip ) {
 
 		const noticeNode       = $( '#' + noticeId );
 		const noticeContent    = noticeNode.find( '.sui-notice-content' );
@@ -41,32 +41,57 @@
 			}
 
 			let icon    = '<i class="sui-icon-' + noticeIconClass + ' sui-md sui-notice-icon" aria-hidden="true"></i>',
-				content = '<p>' + noticeMessage + '</p>'
+				content = '<p>' + noticeMessage + '</p>',
+				dismiss = ''
 				;
 
-			// Check if notice is empty.
-			if ( noticeNode.is( ':empty' ) ) {
+			// Check if dismiss notice is enabled.
+			if ( true === noticeDismiss || 'true' === noticeDismiss ) {
 
-				noticeNode.html(
-					'<div class="sui-notice-content">' +
-						'<div class="sui-notice-message">' + icon + content + '</div>' +
-					'</div>'
-				);
-			} else {
+				noticeNode.addClass( 'sui-notice-dismiss' );
 
-				if ( ! noticeContent.length ) {
-					noticeNode.find( '> *' ).wrapAll( '<div class="sui-notice-content"></div>' );
-				}
+				if ( null === typeof noticeDismissTooltip || undefined === typeof noticeDismissTooltip || 'undefined' === typeof noticeDismissTooltip ) {
 
-				if ( noticeBoxMessage.length ) {
-					noticeBoxMessage.empty();
-					noticeBoxMessage.html( icon + content );
+					dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
+						'<button class="sui-button-icon">' +
+							'<i class="sui-icon-check" aria-hidden="true"></i>' +
+							'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
+						'</button>' +
+					'</div>';
 				} else {
-					noticeNode.find( '.sui-notice-content' ).prepend(
-						'<div class="sui-notice-message">' + icon + content + '</div>'
-					);
+
+					if ( '' !== noticeDismissTooltip ) {
+
+						dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
+							'<div class="sui-tooltip" data-tooltip="' + noticeDismissTooltip + '">' +
+								'<button class="sui-button-icon">' +
+									'<i class="sui-icon-check" aria-hidden="true"></i>' +
+									'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
+								'</button>' +
+							'</div>' +
+						'</div>';
+					} else {
+
+						dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
+							'<button class="sui-button-icon">' +
+								'<i class="sui-icon-check" aria-hidden="true"></i>' +
+								'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
+							'</button>' +
+						'</div>';
+					}
 				}
 			}
+
+			// Clean-up notice node.
+			noticeNode.removeClass( 'sui-notice-dismiss' ).empty();
+
+			// Print notice content.
+			noticeNode.html(
+				'<div class="sui-notice-content">' +
+					'<div class="sui-notice-message">' + icon + content + '</div>' +
+					dismiss +
+				'</div>'
+			);
 		}
 
 		function floatNotice() {
@@ -74,16 +99,21 @@
 			// Show notice.
 			noticeNode.slideDown( 300 );
 
+			// Dismiss notice.
+			noticeNode.find( '[data-notice-close]' ).on( 'click', function(){
+				SUI.closeNotice( this );
+			} );
+
 			// Auto-close after some time.
 			if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
 				setTimeout( () => noticeNode.slideUp( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).empty();
+					noticeNode.empty();
 				}), 3300 );
 			} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
 				// Do nothing.
 			} else {
 				setTimeout( () => noticeNode.slideUp( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).empty();
+					noticeNode.empty();
 				}), ( parseInt( noticeAutoClose ) + 300 ) );
 			}
 		}
@@ -143,11 +173,11 @@
 			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
 
 				noticeNode.slideUp( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).empty();
+					noticeNode.find( '.sui-notice-message' ).removeClass( 'sui-notice-dismiss' ).empty();
 				});
 			} else {
 				noticeNode.fadeOut( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).empty();
+					noticeNode.find( '.sui-notice-message' ).removeClass( 'sui-notice-dismiss' ).empty();
 				});
 			}
 		}
@@ -168,10 +198,12 @@
 					noticeId        = button.attr( 'data-notice-open' ),
 					noticeMessage   = button.attr( 'data-notice-message' ),
 					noticeIcon      = button.attr( 'data-notice-icon' ),
-					noticeAutoClose = button.attr( 'data-notice-autoclose' )
+					noticeAutoClose = button.attr( 'data-notice-autoclose' ),
+					noticeDismiss   = button.attr( 'data-notice-dismiss' ),
+					noticeTooltip   = button.attr( 'data-notice-dismiss-tooltip' )
 					;
 
-				SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
+				SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose, noticeDismiss, noticeTooltip );
 
 			});
 		}
