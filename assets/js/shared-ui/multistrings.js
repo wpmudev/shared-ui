@@ -27,6 +27,23 @@
 			}
 		}
 
+		function buildItem( itemName ) {
+
+			let html = '';
+
+			html += '<li title="' + itemName + '">';
+				html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
+				html += itemName;
+				html += '<button>';
+					html += '<i class="sui-icon-close" aria-hidden="true"></i>';
+					html += '<span class="sui-screen-reader-text">Delete</span>';
+				html += '</button>';
+			html += '</li>';
+
+			return html;
+
+		}
+
 		function buildElement( element ) {
 
 			// Define HTML content.
@@ -45,14 +62,7 @@
 
 					for ( let i = 0; i < lines.length; i++ ) {
 						let title = lines[i];
-						html += '<li title="' + title + '">';
-							html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
-							html += title;
-							html += '<button>';
-								html += '<i class="sui-icon-close" aria-hidden="true"></i>';
-								html += '<span class="sui-screen-reader-text">Delete</span>';
-							html += '</button>';
-						html += '</li>';
+						html += buildItem( title );
 					}
 				}
 
@@ -70,37 +80,43 @@
 			input = list.find( '.sui-multistrings-input input' );
 
 			insertString( input, element );
+			removeString( input, element );
 
 		}
 
 		function insertString( input, element ) {
+			stringInput( input, element );
+			stringTextarea( input, element );
+		}
 
-			let last, curValue, newValue, curTrim, newTrim;
+		function stringInput( input, element ) {
 
-			// Get last item from list.
-			last = input.parent( 'li' );
+			let itemMarkup, curValue, curTrim, newValue, newTrim, lastItem;
 
+			/**
+			 * Insert a new string via input.
+			 */
 			input.on( 'keyup', function( e ) {
 
+				input = $( this );
+
+				lastItem = input.parent( 'li' );
+				curValue = element.val();
+				newValue = input.val();
+
+				// Remove "comma" or "space" when inserted.
+				if ( 32 === e.keyCode || 188 === e.keyCode ) {
+					newValue = input.val().slice( 0, -1 );
+					window.alert( e.keyCode );
+				}
+
+				curTrim = curValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+				newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+
 				/**
-				 * Detect if clicked on special key to insert content.
-				 *
-				 *  13: enter
-				 *  32: space
-				 * 188: comma
+				 * Detect if clicked on "enter" key to insert content.
 				 */
-				if ( 13 === e.keyCode || 32 === e.keyCode || 188 === e.keyCode ) {
-
-					curValue = element.val();
-					newValue = input.val();
-
-					// Remove "comma" or "space" when inserted.
-					if ( 32 === e.keyCode || 188 === e.keyCode ) {
-						newValue = input.val().slice( 0, -1 );
-					}
-
-					curTrim = curValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
-					newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+				if ( 13 === e.keyCode ) {
 
 					// Check on empty spaces.
 					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
@@ -109,23 +125,68 @@
 						element.val( curTrim + ',' + newTrim );
 
 						// Print new value on the list.
-						$( '<li title="' + newValue + '">' +
-							'<i class="sui-icon-page sui-sm" aria-hidden="true"></i>' +
-							newValue +
-							'<button>' +
-								'<i class="sui-icon-close" aria-hidden="true"></i>' +
-								'<span class="sui-screen-reader-text">Delete</span>' +
-							'</button>' +
-						'</li>' ).insertBefore( last );
+						$( itemMarkup ).insertBefore( lastItem );
 
 						// Clear input value.
 						input.val( '' );
+
 					} else {
 
 						// Empty input value when isolated "comma" or "space" has been inserted.
 						if ( 32 === e.keyCode || 188 === e.keyCode ) {
 							input.val( '' );
 						}
+					}
+				}
+			});
+		}
+
+		function stringTextarea( input, element ) {
+
+			let itemMarkup, newValue, trimValue, lastItem;
+
+			element.on( 'keyup', function( e ) {
+
+				element   = $( this );
+				newValue  = element.val();
+				trimValue = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+
+				/**
+				 * Detect if clicked on "enter" key to insert content.
+				 */
+				if ( 13 === e.keyCode ) {
+					window.alert( trimValue ); // TESTING...
+				}
+			});
+		}
+
+		function removeString( input, element ) {
+
+			/**
+			 * Detect if clicked on "backspace" key and input
+			 * is empty, if that's the case remove previous item.
+			 */
+			input.on( 'keydown', function( e ) {
+
+				input = $( this );
+
+				let value  = input.val(),
+					parent = input.parent(),
+					item   = parent.prev( 'li' )
+					;
+
+				if ( 8 === e.keyCode ) {
+
+					if ( 0 === value.replace( /^\s+|\s+$/g, '' ).length ) {
+
+						// Add last item added value to input.
+						input.val( item.attr( 'title' ) );
+
+						// Remove last item added value from textarea.
+						element.val( element.val().replace( item.attr( 'title' ), '' ) );
+
+						// Remove last item added from list.
+						item.remove();
 					}
 				}
 			});
