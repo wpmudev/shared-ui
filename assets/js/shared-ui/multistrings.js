@@ -44,10 +44,7 @@
 			}
 
 			// Wrap textarea.
-			textarea
-				.wrap( '<div class="sui-multistrings-wrap" />' )
-				.attr( 'aria-hidden', true )
-				;
+			textarea.wrap( '<div class="sui-multistrings-wrap" />' );
 
 			// Build textarea description.
 			if ( hasDescription ) {
@@ -78,11 +75,15 @@
 
 			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
 				ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
+				textarea.attr( 'aria-labelledby', uniqid + '-label' );
 			} else {
 
 				if ( textarea.closest( '.sui-form-field' ).find( '.sui-label' ).length ) {
 					ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
 				}
+
+				textarea.attr( 'aria-labelledby', uniqid + '-label' );
+
 			}
 
 			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
@@ -171,19 +172,18 @@
 				newValue = input.val();
 
 				const isEnter = ( 13 === e.keyCode );
-				const isComma = ( 32 === e.keyCode );
-				const isSpace = ( 188 === e.keyCode );
+				const isSpace = ( 32 === e.keyCode );
+				const isComma = ( 188 === e.keyCode );
 
 				// Remove "comma" or "space" when inserted.
 				if ( isComma || isSpace ) {
-					newValue = newValue.slice( 0, -1 );
+					newValue = input.val().slice( 0, -1 );
 				}
 
 				oldTrim = oldValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
 				newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
 
-				// Detect if clicked on "comma", "space" or "enter" key to insert content.
-				if ( isComma || isSpace || isEnter ) {
+				if ( isEnter ) {
 
 					// Check on empty spaces.
 					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
@@ -200,13 +200,84 @@
 
 					}
 				}
-			}).on( 'keydown', function( e ) {
+			}).on( 'keyup', function( e ) {
+
+				input = $( this );
+				newValue = input.val();
+
+				const isSpace = ( 32 === e.keyCode );
+				const isComma = ( 188 === e.keyCode );
+
+				if ( isComma ) {
+
+					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+						input.val( newValue.replace( /,/g, '' ) );
+					}
+				}
+
+				if ( isSpace ) {
+
+					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+						input.val( '' );
+					} else {
+						input.val( newValue.replace( / /g, '' ) );
+					}
+				}
+			});
+
+			textarea.on( 'keydown', function( e ) {
+
+				textarea = $( this );
+				newValue = textarea.val().substr( textarea.val().lastIndexOf( '\n' ) + 1 );
 
 				const isEnter = ( 13 === e.keyCode );
-				const isComma = ( 32 === e.keyCode );
-				const isSpace = ( 188 === e.keyCode );
 
-				if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {}
+				if ( isEnter ) {
+
+					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+
+						// Print new value on the list.
+						html = buildItem( newValue );
+						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+					}
+				}
+			}).on( 'keyup', function( e ) {
+
+				textarea = $( this );
+				newValue = textarea.val();
+
+				const isSpace     = ( 32 === e.keyCode );
+				const isComma     = ( 188 === e.keyCode );
+				const isBackspace = ( 8 === e.keyCode );
+
+				if ( isComma ) {
+
+					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+						textarea.val( newValue.replace( /,/g, '' ) );
+					}
+				}
+
+				if ( isSpace ) {
+
+					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+						textarea.val( '' );
+					} else {
+						textarea.val( newValue.replace( / /g, '' ) );
+					}
+				}
+
+				if ( isBackspace ) {
+
+					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+
+						// Remove all strings from list if textarea has been emptied.
+						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+					} else {
+
+						// When cursor is placed on the same line as
+						window.alert( newValue.substr( 0, textarea.selectionStart ).split( '\n' ).length );
+					}
+				}
 			});
 		}
 
