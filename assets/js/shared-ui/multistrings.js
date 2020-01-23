@@ -134,6 +134,9 @@
 			const removeSpaces    = value.replace( /^\s*[\r\n]/gm, '' ).trim();
 			const splitStrings    = removeSpaces.split( /[\r\n,\s]+/gm );
 
+			// Clean-up textarea value.
+			textarea.val( splitStrings );
+
 			html += '<ul class="sui-multistrings-list">';
 
 				// Add currently available strings.
@@ -153,7 +156,59 @@
 
 		}
 
-		function insertStringOnInput() {}
+		function insertStringOnInput( textarea, uniqid ) {
+
+			let html, oldValue, newValue, oldTrim, newTrim;
+
+			let parent = textarea.closest( '.sui-multistrings-wrap' ),
+				input  = parent.find( '.sui-multistrings-input input' )
+				;
+
+			input.on( 'keydown', function( e ) {
+
+				input    = $( this );
+				oldValue = textarea.val();
+				newValue = input.val();
+
+				const isEnter = ( 13 === e.keyCode );
+				const isComma = ( 32 === e.keyCode );
+				const isSpace = ( 188 === e.keyCode );
+
+				// Remove "comma" or "space" when inserted.
+				if ( isComma || isSpace ) {
+					newValue = newValue.slice( 0, -1 );
+				}
+
+				oldTrim = oldValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+				newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+
+				// Detect if clicked on "comma", "space" or "enter" key to insert content.
+				if ( isComma || isSpace || isEnter ) {
+
+					// Check on empty spaces.
+					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+
+						// Print new value on textarea.
+						textarea.val( oldTrim + ',' + newTrim );
+
+						// Print new value on the list.
+						html = buildItem( newValue );
+						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+
+						// Clear input value.
+						input.val( '' );
+
+					}
+				}
+			}).on( 'keydown', function( e ) {
+
+				const isEnter = ( 13 === e.keyCode );
+				const isComma = ( 32 === e.keyCode );
+				const isSpace = ( 188 === e.keyCode );
+
+				if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {}
+			});
+		}
 
 		function init() {
 
@@ -182,7 +237,7 @@
 
 					buildWrapper( multistrings, uniqueId );
 					insertStringOnLoad( multistrings, uniqueId );
-					insertStringOnInput();
+					insertStringOnInput( multistrings );
 
 				});
 			}
