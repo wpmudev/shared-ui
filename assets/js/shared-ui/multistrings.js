@@ -239,6 +239,7 @@
 						// Print new value on the list.
 						html = buildItem( newValue );
 						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+
 					}
 				}
 			}).on( 'keyup', function( e ) {
@@ -246,9 +247,9 @@
 				textarea = $( this );
 				newValue = textarea.val();
 
+				const isBackspace = ( 8 === e.keyCode );
 				const isSpace     = ( 32 === e.keyCode );
 				const isComma     = ( 188 === e.keyCode );
-				const isBackspace = ( 8 === e.keyCode );
 
 				if ( isComma ) {
 
@@ -272,10 +273,6 @@
 
 						// Remove all strings from list if textarea has been emptied.
 						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
-					} else {
-
-						// When cursor is placed on the same line as
-						window.alert( newValue.substr( 0, textarea.selectionStart ).split( '\n' ).length );
 					}
 				}
 			});
