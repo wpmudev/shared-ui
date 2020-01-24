@@ -132,7 +132,7 @@
 				;
 
 			const isTextareaEmpty = value.replace( /^\s+|\s+$/g, '' );
-			const removeSpaces    = value.replace( /^\s*[\r\n]/gm, '' ).trim();
+			const removeSpaces    = value.replace( /[ ,]+/gm, '' );
 			const splitStrings    = removeSpaces.split( /[\r\n,\s]+/gm );
 
 			// Clean-up textarea value.
@@ -164,8 +164,6 @@
 			let parent = textarea.closest( '.sui-multistrings-wrap' ),
 				input  = parent.find( '.sui-multistrings-input input' )
 				;
-
-			textarea.val( textarea.val().replace( /[\r\n,\s]+/gm, '' ) );
 
 			input.on( 'keydown', function( e ) {
 
