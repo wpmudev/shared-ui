@@ -171,7 +171,15 @@
 				oldValue = textarea.val();
 				newValue = input.val();
 
-				const isEnter = ( 13 === e.keyCode );
+				const isEnter = ( 13 === e.keyCode ),
+					isSpace   = ( 32 === e.keyCode ),
+					isComma   = ( 188 === e.keyCode );
+
+				// Do nothing on space or comma.
+				if ( isSpace || isComma ) {
+					e.preventDefault();
+					return;
+				}
 
 				// Get rid of empty spaces, new lines, and commas from the newly entered value.
 				newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
