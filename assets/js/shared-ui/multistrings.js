@@ -165,6 +165,8 @@
 				input  = parent.find( '.sui-multistrings-input input' )
 				;
 
+			textarea.val( textarea.val().replace( /[\r\n,\s]+/gm, '' ) );
+
 			input.on( 'keydown', function( e ) {
 
 				input    = $( this );
@@ -211,49 +213,43 @@
 
 			textarea.on( 'keydown', function( e ) {
 
-				textarea = $( this );
-				newValue = textarea.val().substr( textarea.val().lastIndexOf( '\n' ) + 1 );
+				const isEnter = ( 13 === e.keyCode ),
+					isSpace   = ( 32 === e.keyCode ),
+					isComma   = ( 188 === e.keyCode );
 
-				const isEnter = ( 13 === e.keyCode );
+				// Do nothing on space or comma.
+				if ( isSpace || isComma ) {
+					e.preventDefault();
+					return;
+				}
 
 				if ( isEnter ) {
 
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					const caretPosition = textarea[0].selectionStart,
+						textboxVal = textarea.val(),
+						stringBeforeCaret = textboxVal.substring( 0, caretPosition );
 
-						// Print new value on the list.
-						html = buildItem( newValue );
-						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+					newValue = stringBeforeCaret.substring( stringBeforeCaret.lastIndexOf( '\n' ) + 1 );
+					newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
 
+					if ( 0 === newTrim.length ) {
+						e.preventDefault();
+						return;
 					}
+
+					// Print new value on the list.
+					html = buildItem( newTrim );
+					$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+
 				}
+
 			}).on( 'keyup', function( e ) {
 
-				textarea = $( this );
-				newValue = textarea.val();
+				if ( 8 === e.keyCode ) {
 
-				const isBackspace = ( 8 === e.keyCode );
-				const isSpace     = ( 32 === e.keyCode );
-				const isComma     = ( 188 === e.keyCode );
+					const textboxVal = textarea.val();
 
-				if ( isComma ) {
-
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						textarea.val( newValue.replace( /,/g, '' ) );
-					}
-				}
-
-				if ( isSpace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						textarea.val( '' );
-					} else {
-						textarea.val( newValue.replace( / /g, '' ) );
-					}
-				}
-
-				if ( isBackspace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					if ( 0 === textboxVal.replace( /[\r\n,\s]+/gm, '' ).length ) {
 
 						// Remove all strings from list if textarea has been emptied.
 						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
