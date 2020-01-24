@@ -159,7 +159,7 @@
 
 		function insertStringOnInput( textarea, uniqid ) {
 
-			let html, oldValue, newValue, oldTrim, newTrim;
+			let html, oldValue, newValue, newTrim;
 
 			let parent = textarea.closest( '.sui-multistrings-wrap' ),
 				input  = parent.find( '.sui-multistrings-input input' )
@@ -172,57 +172,33 @@
 				newValue = input.val();
 
 				const isEnter = ( 13 === e.keyCode );
-				const isSpace = ( 32 === e.keyCode );
-				const isComma = ( 188 === e.keyCode );
 
-				// Remove "comma" or "space" when inserted.
-				if ( isComma || isSpace ) {
-					newValue = input.val().slice( 0, -1 );
-				}
+				// Get rid of empty spaces, new lines, and commas from the newly entered value.
+				newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
 
-				oldTrim = oldValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
-				newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+				// If there's no value to add, don't insert any new value.
+				if ( 0 !== newTrim.length ) {
 
-				if ( isEnter ) {
-
-					// Check on empty spaces.
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					if ( isEnter ) {
 
 						// Print new value on textarea.
-						textarea.val( oldTrim + ',' + newTrim );
+						textarea.val( `${ oldValue }\n${ newTrim }` );
 
 						// Print new value on the list.
-						html = buildItem( newValue );
+						html = buildItem( newTrim );
 						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
 
 						// Clear input value.
 						input.val( '' );
 
-					}
-				}
-			}).on( 'keyup', function( e ) {
-
-				input = $( this );
-				newValue = input.val();
-
-				const isSpace = ( 32 === e.keyCode );
-				const isComma = ( 188 === e.keyCode );
-
-				if ( isComma ) {
-
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						input.val( newValue.replace( /,/g, '' ) );
-					}
-				}
-
-				if ( isSpace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						input.val( '' );
 					} else {
-						input.val( newValue.replace( / /g, '' ) );
+						input.val( newTrim );
 					}
+
+				} else {
+					input.val( '' );
 				}
+
 			});
 
 			textarea.on( 'keydown', function( e ) {
