@@ -235,14 +235,29 @@
 						return;
 					}
 
-					// Print new value on the list.
-					html = buildItem( newTrim );
-					$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tagsTitles = [];
+
+					for ( let tag of tags ) {
+						tagsTitles.push( $( tag ).attr( 'title' ) );
+					}
+
+					const areEqual = compareArrays( textboxValues, tagsTitles );
+
+					// Avoid inserting new values when none was added.
+					if ( ! areEqual ) {
+
+						// Print new value on the list.
+						html = buildItem( newTrim );
+						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+					}
 
 				}
 
 			}).on( 'keyup', function( e ) {
 
+				// Is Backspace.
 				if ( 8 === e.keyCode ) {
 
 					const textboxVal = textarea.val();
@@ -252,7 +267,51 @@
 						// Remove all strings from list if textarea has been emptied.
 						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 					}
+
+				} else if ( 13 === e.keyCode ) { // Is Enter.
+
+					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tagsTitles = [];
+
+					for ( let tag of tags ) {
+						tagsTitles.push( $( tag ).attr( 'title' ) );
+					}
+
+					const areEqual = compareArrays( textboxValues, tagsTitles );
+
+					// The existing elements changed, update the existing tags.
+					if ( ! areEqual ) {
+
+						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+
+						for ( let value of textboxValues ) {
+
+							if ( value.length ) {
+
+								// Print new value on the list.
+								html = buildItem( value );
+								$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+							}
+						}
+					}
+					window.alert( areEqual );
 				}
+			});
+		}
+
+		function compareArrays( firstArray, secondArray ) {
+
+			if ( ! Array.isArray( firstArray ) || ! Array.isArray( secondArray ) ) {
+				return false;
+			}
+
+			if ( firstArray.length !== secondArray.length ) {
+				return false;
+			}
+
+			return firstArray.every( ( value, index ) => {
+				return value === secondArray[ index ];
 			});
 		}
 
