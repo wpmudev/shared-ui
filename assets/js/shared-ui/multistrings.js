@@ -132,7 +132,7 @@
 				;
 
 			const isTextareaEmpty = value.replace( /^\s+|\s+$/g, '' );
-			const removeSpaces    = value.replace( /^\s*[\r\n]/gm, '' ).trim();
+			const removeSpaces    = value.replace( /[ ,]+/gm, '' );
 			const splitStrings    = removeSpaces.split( /[\r\n,\s]+/gm );
 
 			// Clean-up textarea value.
@@ -159,7 +159,7 @@
 
 		function insertStringOnInput( textarea, uniqid ) {
 
-			let html, oldValue, newValue, oldTrim, newTrim;
+			let html, oldValue, newValue, newTrim;
 
 			let parent = textarea.closest( '.sui-multistrings-wrap' ),
 				input  = parent.find( '.sui-multistrings-input input' )
@@ -171,109 +171,131 @@
 				oldValue = textarea.val();
 				newValue = input.val();
 
-				const isEnter = ( 13 === e.keyCode );
-				const isSpace = ( 32 === e.keyCode );
-				const isComma = ( 188 === e.keyCode );
+				const isEnter = ( 13 === e.keyCode ),
+					isSpace   = ( 32 === e.keyCode ),
+					isComma   = ( 188 === e.keyCode );
 
-				// Remove "comma" or "space" when inserted.
-				if ( isComma || isSpace ) {
-					newValue = input.val().slice( 0, -1 );
+				// Do nothing on space or comma.
+				if ( isSpace || isComma ) {
+					e.preventDefault();
+					return;
 				}
 
-				oldTrim = oldValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
-				newTrim = newValue.replace( /^\s*[\r\n]/gm, '' ).trim().split( /[\r\n,\s]+/gm );
+				// Get rid of empty spaces, new lines, and commas from the newly entered value.
+				newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
 
-				if ( isEnter ) {
+				// If there's no value to add, don't insert any new value.
+				if ( 0 !== newTrim.length ) {
 
-					// Check on empty spaces.
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					if ( isEnter ) {
 
 						// Print new value on textarea.
-						textarea.val( oldTrim + ',' + newTrim );
+						textarea.val( `${ oldValue }\n${ newTrim }` );
 
 						// Print new value on the list.
-						html = buildItem( newValue );
+						html = buildItem( newTrim );
 						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
 
 						// Clear input value.
 						input.val( '' );
 
-					}
-				}
-			}).on( 'keyup', function( e ) {
-
-				input = $( this );
-				newValue = input.val();
-
-				const isSpace = ( 32 === e.keyCode );
-				const isComma = ( 188 === e.keyCode );
-
-				if ( isComma ) {
-
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						input.val( newValue.replace( /,/g, '' ) );
-					}
-				}
-
-				if ( isSpace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						input.val( '' );
 					} else {
-						input.val( newValue.replace( / /g, '' ) );
+						input.val( newTrim );
 					}
+
+				} else {
+					input.val( '' );
 				}
+
 			});
 
 			textarea.on( 'keydown', function( e ) {
 
-				textarea = $( this );
-				newValue = textarea.val().substr( textarea.val().lastIndexOf( '\n' ) + 1 );
+				const isEnter = ( 13 === e.keyCode ),
+					isSpace   = ( 32 === e.keyCode ),
+					isComma   = ( 188 === e.keyCode );
 
-				const isEnter = ( 13 === e.keyCode );
+				// Do nothing on space or comma.
+				if ( isSpace || isComma ) {
+					e.preventDefault();
+					return;
+				}
 
 				if ( isEnter ) {
 
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					const caretPosition = textarea[0].selectionStart,
+						textboxVal = textarea.val(),
+						stringBeforeCaret = textboxVal.substring( 0, caretPosition );
+
+					newValue = stringBeforeCaret.substring( stringBeforeCaret.lastIndexOf( '\n' ) + 1 );
+					newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
+
+					if ( 0 === newTrim.length ) {
+						e.preventDefault();
+						return;
+					}
+
+					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tagsTitles = [];
+
+					for ( let tag of tags ) {
+						tagsTitles.push( $( tag ).attr( 'title' ) );
+					}
+
+					const areEqual = compareArrays( textboxValues, tagsTitles );
+
+					// Avoid inserting new values when none was added.
+					if ( ! areEqual ) {
 
 						// Print new value on the list.
-						html = buildItem( newValue );
+						html = buildItem( newTrim );
 						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
-
 					}
+
 				}
+
 			}).on( 'keyup', function( e ) {
 
-				textarea = $( this );
-				newValue = textarea.val();
+				// Is Backspace.
+				if ( 8 === e.keyCode ) {
 
-				const isBackspace = ( 8 === e.keyCode );
-				const isSpace     = ( 32 === e.keyCode );
-				const isComma     = ( 188 === e.keyCode );
+					const textboxVal = textarea.val();
 
-				if ( isComma ) {
-
-					if ( 0 !== newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						textarea.val( newValue.replace( /,/g, '' ) );
-					}
-				}
-
-				if ( isSpace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
-						textarea.val( '' );
-					} else {
-						textarea.val( newValue.replace( / /g, '' ) );
-					}
-				}
-
-				if ( isBackspace ) {
-
-					if ( 0 === newValue.replace( /^\s+|\s+$/g, '' ).length ) {
+					if ( 0 === textboxVal.replace( /[\r\n,\s]+/gm, '' ).length ) {
 
 						// Remove all strings from list if textarea has been emptied.
 						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 					}
+
+				} else if ( 13 === e.keyCode ) { // Is Enter.
+
+					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tagsTitles = [];
+
+					for ( let tag of tags ) {
+						tagsTitles.push( $( tag ).attr( 'title' ) );
+					}
+
+					const areEqual = compareArrays( textboxValues, tagsTitles );
+
+					// The existing elements changed, update the existing tags.
+					if ( ! areEqual ) {
+
+						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+
+						for ( let value of textboxValues ) {
+
+							if ( value.length ) {
+
+								// Print new value on the list.
+								html = buildItem( value );
+								$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+							}
+						}
+					}
+					window.alert( areEqual );
 				}
 			});
 		}
