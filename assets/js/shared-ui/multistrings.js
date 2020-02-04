@@ -300,18 +300,34 @@
 			});
 		}
 
-		function compareArrays( firstArray, secondArray ) {
+		function deleteString( textarea ) {
 
-			if ( ! Array.isArray( firstArray ) || ! Array.isArray( secondArray ) ) {
-				return false;
-			}
+			let parent = textarea.closest( '.sui-multistrings-wrap' ),
+				item   = parent.find( 'li' ),
+				button = item.find( 'button' )
+				;
 
-			if ( firstArray.length !== secondArray.length ) {
-				return false;
-			}
+			button.each( function() {
 
-			return firstArray.every( ( value, index ) => {
-				return value === secondArray[ index ];
+				button = $( this );
+
+				button.on( 'click', function( e ) {
+
+					button = $( this );
+					item   = button.parent( 'li' );
+
+					let itemName = item.attr( 'title' );
+
+					// Remove item from list.
+					item.remove();
+
+					// Remove item from textarea.
+					textarea.val().replace( itemName, '' );
+
+					e.preventDefault();
+					e.stopPropagation();
+
+				});
 			});
 		}
 
@@ -343,6 +359,7 @@
 					buildWrapper( multistrings, uniqueId );
 					insertStringOnLoad( multistrings, uniqueId );
 					insertStringOnInput( multistrings );
+					deleteString( multistrings );
 
 				});
 			}
@@ -357,57 +374,6 @@
 	// SUI.multistrings = function() {
 
 	// 	let multistrings = $( '[data-multistrings]' );
-
-	// 	function hideTextarea( element ) {
-
-	// 		element
-	// 			.addClass( 'sui-screen-reader-text' ) // Hide element for sighted users, but allow screenreader to interact with it.
-	// 			.css({ display: '' }) // Remove hidden styles (if exists).
-	// 			;
-	// 	}
-
-	// 	function wrapTextarea( element ) {
-
-	// 		if ( ! element.parent().hasClass( 'sui-form-field' ) ) {
-	// 			element.wrap( '<div class="sui-form-field"></div>' );
-	// 		}
-	// 	}
-
-	// 	function buildItem( itemName ) {
-
-	// 		let html = '';
-
-	// 		html += '<li title="' + itemName + '">';
-	// 			html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
-	// 			html += itemName;
-	// 			html += '<button>';
-	// 				html += '<i class="sui-icon-close" aria-hidden="true"></i>';
-	// 				html += '<span class="sui-screen-reader-text">Delete</span>';
-	// 			html += '</button>';
-	// 		html += '</li>';
-
-	// 		return html;
-
-	// 	}
-
-	// 	function buildInput( textarea ) {
-
-	// 		let html, uniqueid;
-
-	// 		html = '';
-
-	// 		if ( 'undefined' !== typeof textarea.attr( 'id' ) || '' !== textarea.attr( 'id' ) ) {
-	// 			uniqueid = textarea.attr( 'id' ) + '-input';
-	// 		}
-
-	// 		html += '<li class="sui-multistrings-input">';
-	// 			html += '<label for="' + uniqueid + '" id="' + uniqueid + '-label" class="sui-screen-reader-text">Enter string value</label>';
-	// 			html += '<input id="' + uniqueid + '" type="text" autocomplete="off" aria-labelledby="' + uniqueid + '-label" />';
-	// 		html += '</li>';
-
-	// 		return html;
-
-	// 	}
 
 	// 	function buildElement( element ) {
 
