@@ -35,15 +35,17 @@ is_searchable: true
 
 			<div class="sui-form-field">
 
-				<label class="sui-label">Global file exclusions</label>
+				<label for="exclude-files" id="exclude-files-label" class="sui-label">Global file exclusions</label>
 
 				<textarea
 					placeholder="Enter a new value"
-					id="file-exclusions"
+					id="exclude-files"
 					class="sui-multistrings"
+					aria-labelledby="exclude-files-label"
+					aria-describedby="exclude-files-description"
 				>value1,value2</textarea>
 
-				<p class="sui-description">Use relative paths to the file or folder. For example <strong style="color: #333;">/wp-content/custom-folder/</strong> or <strong style="color: #333;">/file.php</strong>. Press enter to add each exclusion.</p>
+				<p id="exclude-files-description" class="sui-description">Use relative paths to the file or folder. For example <strong style="color: #333;">/wp-content/custom-folder/</strong> or <strong style="color: #333;">/file.php</strong>. Press enter to add each exclusion.</p>
 
 			</div>
 

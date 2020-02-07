@@ -12,54 +12,105 @@
 
 		function buildWrapper( textarea, uniqid ) {
 
-			let parent = textarea.parent();
+			let parent      = textarea.parent(),
+				label       = parent.find( '> .sui-label' ),
+				description = parent.find( '> .sui-description' )
+				;
 
-			let hasParent      = parent.hasClass( 'sui-form-field' );
-			let hasLabel       = 'undefined' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' );
-			let hasDescription = 'undefined' !== typeof textarea.attr( 'data-field-description' ) && '' !== textarea.attr( 'data-field-description' );
+			/**
+			 * Build ARIA-ready element.
+			 */
 
-			// Build main wrapper.
-			if ( ! hasParent ) {
-				textarea.wrap( '<div class="sui-form-field" />' );
-			}
+			// Hide field.
+			parent
+				.addClass( 'sui-multistrings-aria' )
+				.removeClass( 'sui-form-field' )
+				;
 
-			// Get new parent.
-			parent = textarea.parent();
+			/**
+			 * Build visual-ready element.
+			 */
 
-			// Build textarea label.
-			if ( hasLabel ) {
-				parent.prepend(
-					'<label for="' + uniqid + '" id="' + uniqid + '-label" class="sui-label">' + textarea.attr( 'data-field-label' ) + '</label>'
-				);
-			} else {
+			// Build a new field.
+			$( '<div class="sui-form-field sui-multistrings" aria-hidden="true" />' ).insertAfter( parent );
 
-				hasLabel = parent.find( '.sui-label' );
+			let newParent = parent.next( '.sui-multistrings' );
 
-				if ( hasLabel.length ) {
-					hasLabel
-						.attr( 'for', uniqid )
-						.attr( 'id', uniqid + '-label' )
-						;
+			if ( label.length ) {
+
+				newParent.append( label.clone() );
+
+				if ( '' !== newParent.find( '.sui-label' ).attr( 'for' ) ) {
+					newParent.find( '.sui-label' ).attr( 'for', newParent.find( '.sui-label' ).attr( 'for' ) + '-input-multistrings' );
+				}
+
+				if ( '' !== newParent.find( '.sui-label' ).attr( 'id' ) ) {
+					newParent.find( '.sui-label' ).attr( 'id', newParent.find( '.sui-label' ).attr( 'id' ) + '-input-multistrings' );
 				}
 			}
 
-			// Wrap textarea.
-			textarea.wrap( '<div class="sui-multistrings-wrap" />' );
+			newParent.append( '<ul class="sui-multistrings-list" />' );
 
-			// Build textarea description.
-			if ( hasDescription ) {
-				parent.append(
-					'<p id="' + uniqid + '-description" class="sui-description">' + textarea.attr( 'data-field-description' ) + '</p>'
-				);
-			} else {
+			if ( description.length ) {
 
-				hasDescription = parent.find( '.sui-description' );
+				newParent.append( description.clone() );
 
-				if ( hasDescription.length ) {
-					hasDescription.attr( 'id', uniqid + '-description' );
+				if ( '' !== newParent.find( '.sui-description' ).attr( 'id' ) ) {
+					newParent.find( '.sui-description' ).attr( 'id', newParent.find( '.sui-description' ).attr( 'id' ) + '-input-multistrings' );
 				}
 			}
 		}
+
+		// function buildWrapper( textarea, uniqid ) {
+
+		// 	let parent = textarea.parent();
+
+		// 	let hasParent      = parent.hasClass( 'sui-form-field' );
+		// 	let hasLabel       = 'undefined' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' );
+		// 	let hasDescription = 'undefined' !== typeof textarea.attr( 'data-field-description' ) && '' !== textarea.attr( 'data-field-description' );
+
+		// 	// Build main wrapper.
+		// 	if ( ! hasParent ) {
+		// 		textarea.wrap( '<div class="sui-form-field" />' );
+		// 	}
+
+		// 	// Get new parent.
+		// 	parent = textarea.parent();
+
+		// 	// Build textarea label.
+		// 	if ( hasLabel ) {
+		// 		parent.prepend(
+		// 			'<label for="' + uniqid + '" id="' + uniqid + '-label" class="sui-label">' + textarea.attr( 'data-field-label' ) + '</label>'
+		// 		);
+		// 	} else {
+
+		// 		hasLabel = parent.find( '.sui-label' );
+
+		// 		if ( hasLabel.length ) {
+		// 			hasLabel
+		// 				.attr( 'for', uniqid )
+		// 				.attr( 'id', uniqid + '-label' )
+		// 				;
+		// 		}
+		// 	}
+
+		// 	// Wrap textarea.
+		// 	textarea.wrap( '<div class="sui-multistrings-wrap" />' );
+
+		// 	// Build textarea description.
+		// 	if ( hasDescription ) {
+		// 		parent.append(
+		// 			'<p id="' + uniqid + '-description" class="sui-description">' + textarea.attr( 'data-field-description' ) + '</p>'
+		// 		);
+		// 	} else {
+
+		// 		hasDescription = parent.find( '.sui-description' );
+
+		// 		if ( hasDescription.length ) {
+		// 			hasDescription.attr( 'id', uniqid + '-description' );
+		// 		}
+		// 	}
+		// }
 
 		function buildInput( textarea, uniqid ) {
 
@@ -329,6 +380,7 @@
 
 					const hasUniqueId = 'undefined' !== typeof multistrings.attr( 'id' ) && '' !== multistrings.attr( 'id' );
 					const isTextarea  = multistrings.is( 'textarea' );
+					const isWrapped   = multistrings.parent().hasClass( 'sui-form-field' );
 
 					if ( ! hasUniqueId ) {
 						throw new Error( 'Multistrings field require an ID attribute.' );
@@ -338,6 +390,10 @@
 
 					if ( ! isTextarea ) {
 						throw new Error( 'Multistrings field with id="' + multistrings.attr( 'id' ) + '" needs to be "textarea".' );
+					}
+
+					if ( ! isWrapped ) {
+						throw new Error( 'Multistrings field needs to be wrapped inside "sui-form-field" div.' );
 					}
 
 					buildWrapper( multistrings, uniqueId );
