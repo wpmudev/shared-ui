@@ -17,6 +17,12 @@
 				description = parent.find( '> .sui-description' )
 				;
 
+
+			/**
+			 * Build main wrapper for the whole multistring element.
+			 */
+			parent.wrap( '<div class="sui-multistrings-wrap"></div>' );
+
 			/**
 			 * Build ARIA-ready element.
 			 */
@@ -55,8 +61,11 @@
 
 				newParent.append( description.clone() );
 
-				if ( '' !== newParent.find( '.sui-description' ).attr( 'id' ) ) {
-					newParent.find( '.sui-description' ).attr( 'id', newParent.find( '.sui-description' ).attr( 'id' ) + '-input-multistrings' );
+				const $childDescription = newParent.find( '.sui-description' );
+
+				if ( '' !== $childDescription.attr( 'id' ) ) {
+					const newId = $childDescription.attr( 'id' ) + '-input-multistrings';
+					$childDescription.attr( 'id', newId );
 				}
 			}
 		}
@@ -178,7 +187,8 @@
 		function insertStringOnLoad( textarea, uniqid ) {
 
 			let html   = '',
-				parent = textarea.closest( '.sui-multistrings-wrap' ),
+				$mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
+				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
 				value  = textarea.val()
 				;
 
@@ -189,22 +199,18 @@
 			// Clean-up textarea value.
 			textarea.val( splitStrings );
 
-			html += '<ul class="sui-multistrings-list">';
+			// Add currently available strings.
+			if ( 0 !== isTextareaEmpty.length ) {
 
-				// Add currently available strings.
-				if ( 0 !== isTextareaEmpty.length ) {
-
-					for ( let i = 0; i < splitStrings.length; i++ ) {
-						html += buildItem( splitStrings[i]);
-					}
+				for ( let i = 0; i < splitStrings.length; i++ ) {
+					html += buildItem( splitStrings[i]);
 				}
+			}
 
-				// Build input to insert strings.
-				html += buildInput( textarea, uniqid );
+			// Build input to insert strings.
+			html += buildInput( textarea, uniqid );
 
-			html += '</ul>';
-
-			parent.append( html );
+			$entriesList.append( html );
 
 		}
 
