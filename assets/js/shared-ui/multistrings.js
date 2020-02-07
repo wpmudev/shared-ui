@@ -192,15 +192,14 @@
 				value  = textarea.val()
 				;
 
-			const isTextareaEmpty = value.replace( /^\s+|\s+$/g, '' );
-			const removeSpaces    = value.replace( /[ ,]+/gm, '' );
-			const splitStrings    = removeSpaces.split( /[\r\n,\s]+/gm );
+			const removeForbidden = value.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm, '' );
+			const splitStrings    = removeForbidden.split( /[\r\n]/gm );
 
 			// Clean-up textarea value.
-			textarea.val( splitStrings );
+			textarea.val( removeForbidden );
 
 			// Add currently available strings.
-			if ( 0 !== isTextareaEmpty.length ) {
+			if ( 0 !== removeForbidden.length ) {
 
 				for ( let i = 0; i < splitStrings.length; i++ ) {
 					html += buildItem( splitStrings[i]);
