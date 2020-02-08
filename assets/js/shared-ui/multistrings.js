@@ -293,7 +293,7 @@
 					return;
 				}
 
-			}).on( 'keyup', function( e ) {
+			}).on( 'keyup change', function( e ) {
 
 				if ( delayTimer ) {
 					clearTimeout( delayTimer );
@@ -385,6 +385,7 @@
 
 			// Remove the string from the hidden textarea.
 			$hiddenTextarea.val( newTextareaValue );
+			$hiddenTextarea.trigger( 'change' );
 
 			// Remove the tag the close button belongs to.
 			$tag.remove();
