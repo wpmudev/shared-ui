@@ -371,16 +371,14 @@
 
 		function removeTag( e ) {
 
-			// TODO: watch out for tags with the same value.
-			// TODO: escape the value early to be used for regex.
-
 			const $removeButton = $( e.currentTarget ),
 				$tag = $removeButton.closest( 'li' );
 
 			const $hiddenTextarea = $removeButton.closest( '.sui-multistrings-wrap' ).find( 'textarea.sui-multistrings' ),
 				textareaValue = $hiddenTextarea.val(),
 				removedTag = $tag.attr( 'title' ),
-				regex = new RegExp( `^${ removedTag }\\s|^${ removedTag }$`, 'm' ),
+				escapedRemovedTag = removedTag.replace( /[-\/\\^$*+?.()|[\]{}]/g, '\\$&' ),
+				regex = new RegExp( `^${ escapedRemovedTag }\\s|^${ escapedRemovedTag }$`, 'm' ),
 				newTextareaValue = textareaValue.replace( regex, '' );
 
 			// Remove the string from the hidden textarea.
