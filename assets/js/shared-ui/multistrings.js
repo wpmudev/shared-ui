@@ -173,7 +173,7 @@
 
 				html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
 				html += itemName;
-				html += '<button>';
+				html += '<button class="sui-button-close">';
 					html += '<i class="sui-icon-close" aria-hidden="true"></i>';
 					html += '<span class="sui-screen-reader-text">Delete</span>';
 				html += '</button>';
@@ -182,6 +182,12 @@
 
 			return html;
 
+		}
+
+		function bindRemoveTag( $mainWrapper ) {
+
+			const $removeButtons = $mainWrapper.find( '.sui-multistrings-list .sui-button-close' );
+			$removeButtons.off( 'click' ).on( 'click', removeTag );
 		}
 
 		function insertStringOnLoad( textarea, uniqid ) {
@@ -211,14 +217,15 @@
 
 			$entriesList.append( html );
 
+			bindRemoveTag( $mainWrapper );
 		}
 
 		function insertStringOnInput( textarea, uniqid ) {
 
 			let html, oldValue, newValue, newTrim;
 
-			let parent = textarea.closest( '.sui-multistrings-wrap' ),
-				input  = parent.find( '.sui-multistrings-input input' )
+			let $mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
+				input  = $mainWrapper.find( '.sui-multistrings-input input' )
 				;
 
 			input.on( 'keydown', function( e ) {
@@ -252,10 +259,13 @@
 
 						// Print new value on the list.
 						html = buildItem( newTrim );
-						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+						$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
 
 						// Clear input value.
 						input.val( '' );
+
+						// Bid the event to remove the tags.
+						bindRemoveTag( $mainWrapper );
 
 					} else {
 						input.val( newTrim );
@@ -267,6 +277,7 @@
 
 			});
 
+			// TODO: handle on focus out as well
 			textarea.on( 'keydown', function( e ) {
 
 				const isEnter = ( 13 === e.keyCode ),
@@ -294,7 +305,7 @@
 					}
 
 					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
-						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
 						tagsTitles = [];
 
 					for ( let tag of tags ) {
@@ -308,7 +319,10 @@
 
 						// Print new value on the list.
 						html = buildItem( newTrim );
-						$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+						$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
+
+						// Bid the event to remove the tags.
+						bindRemoveTag( $mainWrapper );
 					}
 
 				}
@@ -323,13 +337,13 @@
 					if ( 0 === textboxVal.replace( /[\r\n,\s]+/gm, '' ).length ) {
 
 						// Remove all strings from list if textarea has been emptied.
-						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+						$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 					}
 
 				} else if ( 13 === e.keyCode ) { // Is Enter.
 
 					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
-						tags = parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
 						tagsTitles = [];
 
 					for ( let tag of tags ) {
@@ -341,7 +355,7 @@
 					// The existing elements changed, update the existing tags.
 					if ( ! areEqual ) {
 
-						parent.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+						$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 
 						for ( let value of textboxValues ) {
 
@@ -349,9 +363,12 @@
 
 								// Print new value on the list.
 								html = buildItem( value );
-								$( html ).insertBefore( parent.find( '.sui-multistrings-input' ) );
+								$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
 							}
 						}
+
+						// Bid the event to remove the tags.
+						bindRemoveTag( $mainWrapper );
 					}
 					window.alert( areEqual );
 				}
@@ -371,6 +388,27 @@
 			return firstArray.every( ( value, index ) => {
 				return value === secondArray[ index ];
 			});
+		}
+
+		function removeTag( e ) {
+
+			// TODO: watch out for tags with the same value.
+			// TODO: escape the value early to be used for regex.
+
+			const $removeButton = $( e.currentTarget ),
+				$tag = $removeButton.closest( 'li' );
+
+			const $hiddenTextarea = $removeButton.closest( '.sui-multistrings-wrap' ).find( 'textarea.sui-multistrings' ),
+				textareaValue = $hiddenTextarea.val(),
+				removedTag = $tag.attr( 'title' ),
+				regex = new RegExp( `^${ removedTag }\\s|^${ removedTag }$`, 'm' ),
+				newTextareaValue = textareaValue.replace( regex, '' );
+
+			// Remove the string from the hidden textarea.
+			$hiddenTextarea.val( newTextareaValue );
+
+			// Remove the tag the close button belongs to.
+			$tag.remove();
 		}
 
 		function init() {
