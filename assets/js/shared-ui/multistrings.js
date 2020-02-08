@@ -279,13 +279,12 @@
 
 			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
 
-			let newTrim, newValue, html;
+			let oldValue = textarea.val(),
+				delayTimer;
 
-			// TODO: handle on focus out as well
 			textarea.on( 'keydown', function( e ) {
 
-				const isEnter = ( 13 === e.keyCode ),
-					isSpace   = ( 32 === e.keyCode ),
+				const isSpace   = ( 32 === e.keyCode ),
 					isComma   = ( 188 === e.keyCode );
 
 				// Do nothing on space or comma.
@@ -294,57 +293,23 @@
 					return;
 				}
 
-				if ( isEnter ) {
+			}).on( 'keyup', function( e ) {
 
-					const caretPosition = textarea[0].selectionStart,
-						textboxVal = textarea.val(),
-						stringBeforeCaret = textboxVal.substring( 0, caretPosition );
+				if ( delayTimer ) {
+					clearTimeout( delayTimer );
+				}
 
-					newValue = stringBeforeCaret.substring( stringBeforeCaret.lastIndexOf( '\n' ) + 1 );
-					newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
+				// Don't process the input right away. Wait until the user stopped typing (1 sec).
+				delayTimer = setTimeout( function() {
+					const currentValue = textarea.val();
 
-					if ( 0 === newTrim.length ) {
-						e.preventDefault();
+					// Nothing has changed, do nothing.
+					if ( currentValue === oldValue ) {
 						return;
 					}
 
-					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
-						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
-						tagsTitles = [];
-
-					for ( let tag of tags ) {
-						tagsTitles.push( $( tag ).attr( 'title' ) );
-					}
-
-					const areEqual = compareArrays( textboxValues, tagsTitles );
-
-					// Avoid inserting new values when none was added.
-					if ( ! areEqual ) {
-
-						// Print new value on the list.
-						html = buildItem( newTrim );
-						$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
-
-						// Bid the event to remove the tags.
-						bindRemoveTag( $mainWrapper );
-					}
-
-				}
-
-			}).on( 'keyup', function( e ) {
-
-				// Is Backspace.
-				if ( 8 === e.keyCode ) {
-
-					const textboxVal = textarea.val();
-
-					if ( 0 === textboxVal.replace( /[\r\n,\s]+/gm, '' ).length ) {
-
-						// Remove all strings from list if textarea has been emptied.
-						$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
-					}
-
-				} else if ( 13 === e.keyCode ) { // Is Enter.
+					// Set the current value as the old one for future iterations.
+					oldValue = currentValue;
 
 					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
 						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
@@ -366,16 +331,17 @@
 							if ( value.length ) {
 
 								// Print new value on the list.
-								html = buildItem( value );
+								const html = buildItem( value );
 								$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
 							}
 						}
 
-						// Bid the event to remove the tags.
+						// Bind the event to remove the tags.
 						bindRemoveTag( $mainWrapper );
 					}
-					window.alert( areEqual );
-				}
+
+				}, 1000 );
+
 			});
 		}
 
