@@ -245,8 +245,10 @@
 
 					if ( isEnter ) {
 
+						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
+
 						// Print new value on textarea.
-						textarea.val( `${ oldValue }\n${ newTrim }` );
+						textarea.val( newTextareaValue );
 
 						// Print new value on the list.
 						html = buildItem( newTrim );
