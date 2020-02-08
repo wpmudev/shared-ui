@@ -198,7 +198,7 @@
 				value  = textarea.val()
 				;
 
-			const removeForbidden = value.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm, '' );
+			const removeForbidden = cleanTextarea( value );
 			const splitStrings    = removeForbidden.split( /[\r\n]/gm );
 
 			// Clean-up textarea value.
@@ -308,8 +308,12 @@
 						return;
 					}
 
+					// Clear up the content.
+					const cleanedCurrentValue = cleanTextarea( currentValue );
+
 					// Set the current value as the old one for future iterations.
-					oldValue = currentValue;
+					textarea.val( cleanedCurrentValue );
+					oldValue = cleanedCurrentValue;
 
 					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
 						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
@@ -358,6 +362,11 @@
 			return firstArray.every( ( value, index ) => {
 				return value === secondArray[ index ];
 			});
+		}
+
+		function cleanTextarea( string ) {
+			const clearedString = string.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm, '' );
+			return clearedString;
 		}
 
 		function removeTag( e ) {
