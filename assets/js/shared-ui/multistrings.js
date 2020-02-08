@@ -220,21 +220,14 @@
 			bindRemoveTag( $mainWrapper );
 		}
 
-		function insertStringOnInput( textarea, uniqid ) {
+		function handleInsertTags( $mainWrapper ) {
 
-			let html, oldValue, newValue, newTrim;
+			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' );
 
-			let $mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
-				input  = $mainWrapper.find( '.sui-multistrings-input input' )
-				;
+			$tagInput.on( 'keydown', function( e ) {
 
-			input.on( 'keydown', function( e ) {
-
-				input    = $( this );
-				oldValue = textarea.val();
-				newValue = input.val();
-
-				const isEnter = ( 13 === e.keyCode ),
+				const textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
+					isEnter   = ( 13 === e.keyCode ),
 					isSpace   = ( 32 === e.keyCode ),
 					isComma   = ( 188 === e.keyCode );
 
@@ -244,8 +237,12 @@
 					return;
 				}
 
+				let input    = $( this ),
+					oldValue = textarea.val(),
+					newValue = input.val();
+
 				// Get rid of empty spaces, new lines, and commas from the newly entered value.
-				newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
+				const newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
 
 				// If there's no value to add, don't insert any new value.
 				if ( 0 !== newTrim.length ) {
@@ -258,7 +255,7 @@
 						textarea.val( newTextareaValue );
 
 						// Print new value on the list.
-						html = buildItem( newTrim );
+						const html = buildItem( newTrim );
 						$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
 
 						// Clear input value.
@@ -276,6 +273,13 @@
 				}
 
 			});
+		}
+
+		function handleTextareaChange( $mainWrapper ) {
+
+			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
+
+			let newTrim, newValue, html;
 
 			// TODO: handle on focus out as well
 			textarea.on( 'keydown', function( e ) {
@@ -443,7 +447,10 @@
 
 					buildWrapper( multistrings, uniqueId );
 					insertStringOnLoad( multistrings, uniqueId );
-					insertStringOnInput( multistrings );
+
+					const $mainWrapper = multistrings.closest( '.sui-multistrings-wrap' );
+					handleInsertTags( $mainWrapper );
+					handleTextareaChange( $mainWrapper );
 
 				});
 			}
