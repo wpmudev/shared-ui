@@ -365,7 +365,14 @@
 		}
 
 		function cleanTextarea( string ) {
-			const clearedString = string.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm, '' );
+
+			let clearedString = string.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|^\s*$/gm, '' );
+
+			// Avoid removing the last newline if it existed.
+			const endsInNewline = string.match( /\n$/ );
+			if ( endsInNewline ) {
+				clearedString += '\n';
+			}
 			return clearedString;
 		}
 
