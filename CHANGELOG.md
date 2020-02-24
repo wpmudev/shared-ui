@@ -3,6 +3,7 @@ v2.7.0
 - [Enhance] Notifications: revamp markup to be more accessible.
 - [Enhance] Notifications: create new functions to handle show/hide behave for this element.
 - [Enhance] Tooltips: Styling is too padded.
+- [Enhance] Modals: Support prefer-reduced-motion feature.
 
 
 v2.6.0
