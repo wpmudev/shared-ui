@@ -303,56 +303,48 @@
 
 			}).on( 'keyup change', function( e ) {
 
-				if ( delayTimer ) {
-					clearTimeout( delayTimer );
+				const currentValue = textarea.val();
+
+				// Nothing has changed, do nothing.
+				if ( currentValue === oldValue ) {
+					return;
 				}
 
-				// Don't process the input right away. Wait until the user stopped typing (1 sec).
-				delayTimer = setTimeout( function() {
-					const currentValue = textarea.val();
+				// Clear up the content.
+				const cleanedCurrentValue = cleanTextarea( currentValue );
 
-					// Nothing has changed, do nothing.
-					if ( currentValue === oldValue ) {
-						return;
-					}
+				// Set the current value as the old one for future iterations.
+				textarea.val( cleanedCurrentValue );
+				oldValue = cleanedCurrentValue;
 
-					// Clear up the content.
-					const cleanedCurrentValue = cleanTextarea( currentValue );
+				let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+					tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
+					tagsTitles = [];
 
-					// Set the current value as the old one for future iterations.
-					textarea.val( cleanedCurrentValue );
-					oldValue = cleanedCurrentValue;
+				for ( let tag of tags ) {
+					tagsTitles.push( $( tag ).attr( 'title' ) );
+				}
 
-					let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
-						tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
-						tagsTitles = [];
+				const areEqual = compareArrays( textboxValues, tagsTitles );
 
-					for ( let tag of tags ) {
-						tagsTitles.push( $( tag ).attr( 'title' ) );
-					}
+				// The existing elements changed, update the existing tags.
+				if ( ! areEqual ) {
 
-					const areEqual = compareArrays( textboxValues, tagsTitles );
+					$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 
-					// The existing elements changed, update the existing tags.
-					if ( ! areEqual ) {
+					for ( let value of textboxValues ) {
 
-						$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
+						if ( value.length ) {
 
-						for ( let value of textboxValues ) {
-
-							if ( value.length ) {
-
-								// Print new value on the list.
-								const html = buildItem( value );
-								$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
-							}
+							// Print new value on the list.
+							const html = buildItem( value );
+							$( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
 						}
-
-						// Bind the event to remove the tags.
-						bindRemoveTag( $mainWrapper );
 					}
 
-				}, 1000 );
+					// Bind the event to remove the tags.
+					bindRemoveTag( $mainWrapper );
+				}
 
 			});
 		}
