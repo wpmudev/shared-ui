@@ -198,8 +198,16 @@
 				value  = textarea.val()
 				;
 
-			const removeForbidden = cleanTextarea( value );
-			const splitStrings    = removeForbidden.split( /[\r\n]/gm );
+			let valueToClear = '';
+
+			// Convert default commas into new lines.
+			if ( value.includes( ',' ) ) {
+				valueToClear = value.replace( /(?!^),/gm, '\n' );
+			}
+
+			const removeForbidden = cleanTextarea( valueToClear, true );
+
+			const splitStrings = removeForbidden.split( /[\r\n]/gm );
 
 			// Clean-up textarea value.
 			textarea.val( removeForbidden );
@@ -364,14 +372,17 @@
 			});
 		}
 
-		function cleanTextarea( string ) {
+		function cleanTextarea( string, isLoad = false ) {
 
 			let clearedString = string.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|^\s*$/gm, '' );
 
-			// Avoid removing the last newline if it existed.
-			const endsInNewline = string.match( /\n$/ );
-			if ( endsInNewline ) {
-				clearedString += '\n';
+			if ( ! isLoad ) {
+
+				// Avoid removing the last newline if it existed.
+				const endsInNewline = string.match( /\n$/ );
+				if ( endsInNewline ) {
+					clearedString += '\n';
+				}
 			}
 			return clearedString;
 		}
