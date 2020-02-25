@@ -1,4 +1,9 @@
 v2.7.0
+- [Enhance] Notifications: apply element new styles.
+- [Enhance] Notifications: revamp markup to be more accessible.
+- [Enhance] Notifications: create new functions to handle show/hide behave for this element.
+- [Enhance] Tooltips: Styling is too padded.
+- [Enhance] Modals: Support prefer-reduced-motion feature.
 - [Enhance] Selectors: Disabled selector item with pro tag.
 
 
