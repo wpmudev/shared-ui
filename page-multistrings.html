@@ -17,7 +17,7 @@ is_searchable: true
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="sample">Documentation</a>
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
 			</li>
 
 		</ul>
@@ -57,7 +57,73 @@ is_searchable: true
 	<div class="sui-box" data-tab="documentation" style="display: none;">
 
 		<div class="sui-box-header">
-			<h1 class="sui-box-title">Documentation</h1>
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Markup. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Element Markup</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;unique-id-label&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;textarea
+		placeholder=&quot;Enter a new value&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-multistrings&quot;
+		aria-labelledby=&quot;unique-id-label&quot;
+		aria-describedby=&quot;unique-id-description&quot;
+	&gt;&lt;/textarea&gt;
+
+	&lt;p id=&quot;unique-id-description&quot; class=&quot;sui-description&quot;&gt;Field description&lt;/p&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: JS Function. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">JS Function</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-notice sui-notice-info">
+						<p>If you're importing single files, make sure to get <strong>multistrings.js</strong> from SUI.</p>
+					</div>
+
+					<p>In case you initiate this alement after DOM, you must call it again like this:</p>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js sui-no-copy">
+SUI.multistrings();
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
