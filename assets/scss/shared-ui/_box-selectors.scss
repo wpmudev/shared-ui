@@ -55,7 +55,7 @@
 						min-width: 100%;
 						flex-basis: 100%;
 					}
-					
+
 					@include media(min-width, md) {
 						min-width: $size;
 						flex-basis: $size;
@@ -89,20 +89,33 @@
 
 			~ span {
 				display: block;
-				padding-right: #{$box-selector--padding * 3};
-				padding-left: #{$box-selector--padding * 2};
+				padding-right: #{($box-selector--padding * 3) - 1px};
+				padding-left: #{($box-selector--padding * 2) - 1px};
+				border: 1px dashed transparent;
+				border-radius: $border-radius;
 				transition: $transition;
+
+				&:not(:last-child) {
+					border-bottom-color: transparent !important;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				&:last-child {
+					border-top-left-radius: 0;
+					border-top-right-radius: 0;
+				}
 			}
 
 			+ span {
 				display: flex;
 				align-items: center;
-				padding-top: #{($box-selector--height - $box-selector--line-height) / 2};
-				padding-bottom: #{($box-selector--height - $box-selector--line-height) / 2};
+				padding-top: #{(($box-selector--height - $box-selector--line-height) / 2) - 1px};
+				padding-bottom: #{(($box-selector--height - $box-selector--line-height) / 2) - 1px};
 				font-size: $box-selector--font-size;
 				line-height: $box-selector--line-height;
 				font-weight: $font--medium;
-	
+
 				[class*="sui-icon"] {
 					width: $box-selector--icon-width;
 					flex: 0 0 $box-selector--icon-width;
@@ -110,7 +123,7 @@
 					margin: 0 5px 0 0;
 					font-size: $box-selector--icon-size;
 					text-align: center;
-	
+
 					&:before {
 						display: block;
 						color: $box-selector--icon-color;
@@ -138,11 +151,10 @@
 			&:checked {
 
 				+ span {
-					overflow: hidden;
 					position: relative;
 					background-color: $box-selector--active-background;
 					color: $box-selector--active-color;
-	
+
 					@include icon(before, check-tick) {
 						position: absolute;
 						z-index: 1;
@@ -151,12 +163,12 @@
 						color: $box-selector--ribbon-color;
 						font-size: 12px;
 					}
-	
+
 					&:after {
 						content: " ";
 						position: absolute;
-						top: 0;
-						right: 0;
+						top: -1px;
+						right: -1px;
 						border-top: #{$box-selector--ribbon-height / 2} solid $box-selector--ribbon-background;
 						border-left: #{$box-selector--ribbon-height / 2} solid transparent;
 					}
@@ -176,6 +188,37 @@
 			box-shadow: $box-selector--active-box-shadow;
 		}
 
+		&.sui-disabled {
+			pointer-events: none;
+			position: relative;
+			background-color: transparent;
+			box-shadow: none;
+
+			input {
+
+				+ span {
+					border-color: palette(silver, medium);
+
+					.sui-tag-pro,
+					.sui-tag-beta {
+						position: absolute;
+						top: 5px;
+						right: 5px;
+					}
+
+					~ span {
+						border-color: palette(silver, medium);
+						border-top-style: dashed;
+						border-top-color: palette(gray, lighter);
+					}
+				}
+			}
+
+			&:hover {
+				box-shadow: none;
+			}
+		}
+
 		// VARIATION: Vertical
 		&.sui-box-selector-vertical {
 
@@ -191,11 +234,11 @@
 					padding-right: $box-selector--padding;
 					padding-bottom: $box-selector-vertical--padding-top;
 					padding-left: $box-selector--padding;
-					
+
 					[class*="sui-icon"] {
 						display: block;
 						margin: 0 auto $box-selector-vertical--icon-spacing;
-	
+
 						&:before {
 							line-height: $box-selector--icon-size;
 						}
