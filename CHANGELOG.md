@@ -1,3 +1,9 @@
+v2.8.0
+- [Enhance] Summary: Improve element styles for RTL direction.
+- [Enhance] Summary: Position correctly hero image on RTL direction.
+- [Enhance] List: Improve element styles for RTL direction.
+
+
 v2.7.0
 - [Enhance] Notifications: apply element new styles.
 - [Enhance] Notifications: revamp markup to be more accessible.
