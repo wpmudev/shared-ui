@@ -72,16 +72,36 @@
 
 		function bindFocus( $mainWrapper ) {
 
-			const $stringList = $mainWrapper.find( '.sui-multistrings' );
+			const $listWrapper = $mainWrapper.find( '.sui-multistrings' );
 
-			$stringList.on( 'click', function( e ) {
+			$listWrapper.on( 'click', function( e ) {
 				const $this = $( e.target );
 
 				if ( 'sui-multistrings-list' !== $this.attr( 'class' ) ) {
 					return;
 				}
 
-				$stringList.find( '.sui-multistrings-input input' ).focus();
+				$listWrapper.find( '.sui-multistrings-input input' ).focus();
+			});
+
+			const $input = $listWrapper.find( '.sui-multistrings-input input' ),
+				$stringList = $mainWrapper.find( '.sui-multistrings-list' );
+
+			$input.on( 'focus', function() {
+
+				$stringList.addClass( 'sui-focus' );
+				$input.off( 'blur' ).on( 'blur', function() {
+					$stringList.removeClass( 'sui-focus' );
+				});
+			});
+
+			const $textarea = $mainWrapper.find( 'textarea' );
+			$textarea.on( 'focus', function() {
+
+				$stringList.addClass( 'sui-focus' );
+				$textarea.off( 'blur' ).on( 'blur', function() {
+					$stringList.removeClass( 'sui-focus' );
+				});
 			});
 		}
 
