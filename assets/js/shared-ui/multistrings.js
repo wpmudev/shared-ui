@@ -70,6 +70,21 @@
 			}
 		}
 
+		function bindFocus( $mainWrapper ) {
+
+			const $stringList = $mainWrapper.find( '.sui-multistrings' );
+
+			$stringList.on( 'click', function( e ) {
+				const $this = $( e.target );
+
+				if ( 'sui-multistrings-list' !== $this.attr( 'class' ) ) {
+					return;
+				}
+
+				$stringList.find( '.sui-multistrings-input input' ).focus();
+			});
+		}
+
 		// function buildWrapper( textarea, uniqid ) {
 
 		// 	let parent = textarea.parent();
@@ -435,6 +450,7 @@
 					const $mainWrapper = multistrings.closest( '.sui-multistrings-wrap' );
 					handleInsertTags( $mainWrapper );
 					handleTextareaChange( $mainWrapper );
+					bindFocus( $mainWrapper );
 
 				});
 			}
