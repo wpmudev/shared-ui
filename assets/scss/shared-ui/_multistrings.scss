@@ -92,11 +92,24 @@
 				margin: 0;
 				padding: 7px 0;
 				border: 0;
-				background-color: #FAFAFA;
-				color: $form--input-color;
 				font: $form--input-font-weight #{$font--size}/#{$form--input-line-height - 7px} $font;
 				letter-spacing: $font--letter-spacing;
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+					background-color: transparent;
+					color: $form--input-color;
+				}
 			}
+		}
+
+		&.sui-hover,
+		&.sui-focus {
+			background-color: $white;
 		}
 	}
 }
