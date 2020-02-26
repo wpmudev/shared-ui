@@ -105,57 +105,6 @@
 			});
 		}
 
-		// function buildWrapper( textarea, uniqid ) {
-
-		// 	let parent = textarea.parent();
-
-		// 	let hasParent      = parent.hasClass( 'sui-form-field' );
-		// 	let hasLabel       = 'undefined' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' );
-		// 	let hasDescription = 'undefined' !== typeof textarea.attr( 'data-field-description' ) && '' !== textarea.attr( 'data-field-description' );
-
-		// 	// Build main wrapper.
-		// 	if ( ! hasParent ) {
-		// 		textarea.wrap( '<div class="sui-form-field" />' );
-		// 	}
-
-		// 	// Get new parent.
-		// 	parent = textarea.parent();
-
-		// 	// Build textarea label.
-		// 	if ( hasLabel ) {
-		// 		parent.prepend(
-		// 			'<label for="' + uniqid + '" id="' + uniqid + '-label" class="sui-label">' + textarea.attr( 'data-field-label' ) + '</label>'
-		// 		);
-		// 	} else {
-
-		// 		hasLabel = parent.find( '.sui-label' );
-
-		// 		if ( hasLabel.length ) {
-		// 			hasLabel
-		// 				.attr( 'for', uniqid )
-		// 				.attr( 'id', uniqid + '-label' )
-		// 				;
-		// 		}
-		// 	}
-
-		// 	// Wrap textarea.
-		// 	textarea.wrap( '<div class="sui-multistrings-wrap" />' );
-
-		// 	// Build textarea description.
-		// 	if ( hasDescription ) {
-		// 		parent.append(
-		// 			'<p id="' + uniqid + '-description" class="sui-description">' + textarea.attr( 'data-field-description' ) + '</p>'
-		// 		);
-		// 	} else {
-
-		// 		hasDescription = parent.find( '.sui-description' );
-
-		// 		if ( hasDescription.length ) {
-		// 			hasDescription.attr( 'id', uniqid + '-description' );
-		// 		}
-		// 	}
-		// }
-
 		function buildInput( textarea, uniqid ) {
 
 			let html            = '',
