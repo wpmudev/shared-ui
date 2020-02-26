@@ -38,7 +38,7 @@
 			 */
 
 			// Build a new field.
-			$( '<div class="sui-form-field sui-multistrings" aria-hidden="true" />' ).insertAfter( parent );
+			$( '<div class="sui-form-field sui-multistrings" tabindex="-1" aria-hidden="true" />' ).insertAfter( parent );
 
 			let newParent = parent.next( '.sui-multistrings' );
 
