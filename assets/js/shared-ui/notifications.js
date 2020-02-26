@@ -104,17 +104,21 @@
 				SUI.closeNotice( this );
 			} );
 
-			// Auto-close after some time.
-			if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
-				setTimeout( () => noticeNode.slideUp( 300, function() {
-					noticeNode.empty();
-				}), 3300 );
-			} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
-				// Do nothing.
-			} else {
-				setTimeout( () => noticeNode.slideUp( 300, function() {
-					noticeNode.empty();
-				}), ( parseInt( noticeAutoClose ) + 300 ) );
+			// Make sure only non-dismissible notices can auto-close.
+			if ( false === noticeDismiss ) {
+
+				// Auto-close after some time.
+				if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
+					setTimeout( () => noticeNode.slideUp( 300, function() {
+						noticeNode.empty();
+					}), 3300 );
+				} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
+					// Do nothing.
+				} else {
+					setTimeout( () => noticeNode.slideUp( 300, function() {
+						noticeNode.empty();
+					}), ( parseInt( noticeAutoClose ) + 300 ) );
+				}
 			}
 		}
 
