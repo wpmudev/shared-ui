@@ -3,7 +3,7 @@
 1. Install node. It's recommended to instal `nvm` to switch between node versions.
 2. Execute npm in root project folder. `npm install` will install all needed packages in `node_modules` folder.
 3. --- STEPS TO INSTALL JEKYLL ---
-4. Execute `npm run watch:showcase` to initialize Jekyll locally. Open (http://127.0.0.1:4000/sui-showcase-jekyll-test/)[http://127.0.0.1:4000/sui-showcase-jekyll-test/] on your browser to visualize the showcase.
+4. Execute `npm run watch:showcase` to initialize Jekyll locally. Open http://127.0.0.1:4000/shared-ui/ on your browser to visualize the showcase.
 5. Execute `npm run watch:assets` to build and start watching SCSS and JS files changes.
 
 ## Workflow
