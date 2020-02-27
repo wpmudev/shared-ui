@@ -96,8 +96,23 @@
 
 		function floatNotice() {
 
-			// Show notice.
-			noticeNode.slideDown( 300 );
+			let timeout = 300;
+
+			// Check if element is visible.
+			if ( noticeNode.is( ':visible' ) ) {
+
+				// Close notice.
+				noticeNode.slideToggle( timeout );
+
+				// Show notice.
+				noticeNode.slideDown( timeout );
+
+			// Check if element is hidden.
+			} else {
+
+				// Show notice.
+				noticeNode.slideDown( timeout );
+			}
 
 			// Dismiss notice.
 			noticeNode.find( '[data-notice-close]' ).on( 'click', function(){
@@ -105,19 +120,19 @@
 			} );
 
 			// Make sure only non-dismissible notices can auto-close.
-			if ( false === noticeDismiss ) {
+			if ( false === noticeDismiss || 'false' === noticeDismiss ) {
 
 				// Auto-close after some time.
 				if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
-					setTimeout( () => noticeNode.slideUp( 300, function() {
+					setTimeout( () => noticeNode.slideUp( timeout, function() {
 						noticeNode.empty();
-					}), 3300 );
+					}), ( 3000 + timeout ) );
 				} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
 					// Do nothing.
 				} else {
-					setTimeout( () => noticeNode.slideUp( 300, function() {
+					setTimeout( () => noticeNode.slideUp( timeout, function() {
 						noticeNode.empty();
-					}), ( parseInt( noticeAutoClose ) + 300 ) );
+					}), ( parseInt( noticeAutoClose ) + timeout ) );
 				}
 			}
 		}
