@@ -8,12 +8,17 @@
 		window.SUI = {};
 	}
 
-	SUI.openNotice = function( noticeId, noticeMessage, noticeIconClass = 'info', noticeAutoClose, noticeDismiss = false, noticeDismissTooltip ) {
+	/**
+	 * @desc Notifications function to show when alert.
+	 *
+	 * @param noticeId
+	 *
+	 * @param noticeOptions
+	 */
+	SUI.openNotice = ( noticeId, noticeMessage, noticeOptions ) => {
 
-		const noticeNode       = $( '#' + noticeId );
-		const noticeContent    = noticeNode.find( '.sui-notice-content' );
-		const noticeBoxMessage = noticeNode.find( '.sui-notice-message' );
-		const nodeWrapper      = noticeNode.parent();
+		// Get notification node by ID.
+		const noticeNode = $( '#' + noticeId );
 
 		// Check if element ID exists.
 		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
@@ -30,145 +35,221 @@
 			throw new Error( 'Notice requires a message to print.' );
 		}
 
-		function printContent() {
+		let utils = utils || {};
 
-			if ( 'undefined' === typeof noticeIconClass || '' === noticeIconClass ) {
-				noticeIconClass = 'info';
+		/**
+		 * @desc Declare default styling options for notifications.
+		 */
+		utils.options = [{}];
+
+		utils.options[0].type             = 'default';
+		utils.options[0].icon             = 'info';
+		utils.options[0].dismiss          = false;
+		utils.options[0].dismissLabel     = 'Close this notice';
+		utils.options[0].dismissTooltip   = '';
+		utils.options[0].autoclose        = false;
+		utils.options[0].autocloseTimeout = 0;
+
+		/**
+		 * @desc Verify if property is an array.
+		 */
+		utils.isArray = ( obj ) => {
+
+			if ( ( null !== obj || '' !== obj ) && $.isArray( obj ) ) {
+				return true;
 			}
 
-			if ( 'loader' === noticeIconClass ) {
-				noticeIconClass = noticeIconClass + ' sui-loading'
+			return false;
+
+		};
+
+		/**
+		 * @desc Verify if property exists.
+		 */
+		utils.propExists = ( arr, prop ) => {
+
+			if ( ( null !== typeof prop || 'undefined' !== typeof prop ) && arr.hasOwnProperty( prop ) ) {
+				return true;
 			}
 
-			let icon    = '<i class="sui-icon-' + noticeIconClass + ' sui-md sui-notice-icon" aria-hidden="true"></i>',
-				content = '<p>' + noticeMessage + '</p>',
-				dismiss = ''
-				;
+			return false;
 
-			// Check if dismiss notice is enabled.
-			if ( true === noticeDismiss || 'true' === noticeDismiss ) {
+		};
 
-				noticeNode.addClass( 'sui-notice-dismiss' );
+		/**
+		 * @desc Grab property from object.
+		 */
+		utils.getProperty = ( prop ) => {
 
-				if ( null === typeof noticeDismissTooltip || undefined === typeof noticeDismissTooltip || 'undefined' === typeof noticeDismissTooltip ) {
+			const defOptions = utils.options;
+			const newOptions = noticeOptions;
 
-					dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
-						'<button class="sui-button-icon">' +
-							'<i class="sui-icon-check" aria-hidden="true"></i>' +
-							'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
-						'</button>' +
-					'</div>';
-				} else {
+			// Check if default option exists.
+			if ( true === utils.propExists( defOptions[0], prop ) ) {
 
-					if ( '' !== noticeDismissTooltip ) {
+				// Check if new options exist in array to overwrite default one.
+				if ( true === utils.isArray( newOptions ) ) {
 
-						dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
-							'<div class="sui-tooltip" data-tooltip="' + noticeDismissTooltip + '">' +
-								'<button class="sui-button-icon">' +
-									'<i class="sui-icon-check" aria-hidden="true"></i>' +
-									'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
-								'</button>' +
-							'</div>' +
-						'</div>';
-					} else {
-
-						dismiss = '<div class="sui-notice-actions" data-notice-close="">' +
-							'<button class="sui-button-icon">' +
-								'<i class="sui-icon-check" aria-hidden="true"></i>' +
-								'<span class="sui-screen-reader-text">Dismiss this notice</span>' +
-							'</button>' +
-						'</div>';
+					// Check if default option property can be overwritten.
+					if ( true === utils.propExists( newOptions[0], prop ) && true === utils.propExists( defOptions[0], prop ) ) {
+						defOptions[0][prop] = newOptions[0][prop];
 					}
 				}
+
+				return defOptions[0][prop];
+
+			}
+		};
+
+		/**
+		 * @desc Build notice dismiss.
+		 */
+		utils.buildDismiss = () => {
+
+			let html = '';
+
+			if ( true === utils.getProperty( 'dismiss' ) ) {
+
+				html += '<div class="sui-notice-actions">';
+
+					if ( '' !== utils.getProperty( 'dismissTooltip' ) ) {
+						html += '<div class="sui-tooltip" data-tooltip="' + utils.getProperty( 'dismissTooltip' ) + '">';
+					}
+
+						html += '<button class="sui-button-icon">';
+
+							html += '<i class="sui-icon-check" aria-hidden="true"></i>';
+
+							if ( '' !== utils.getProperty( 'dismissLabel' ) ) {
+								html += '<span class="sui-screen-reader-text">' + utils.getProperty( 'dismissLabel' ) + '</span>';
+							}
+
+						html += '</button>';
+
+					if ( '' !== utils.getProperty( 'dismissTooltip' ) ) {
+						html += '</div>';
+					}
+
+				html += '</div>';
+
 			}
 
-			// Clean-up notice node.
-			noticeNode.removeClass( 'sui-notice-dismiss' ).empty();
+			return html;
+		};
 
-			// Print notice content.
-			noticeNode.html(
-				'<div class="sui-notice-content">' +
-					'<div class="sui-notice-message">' + icon + content + '</div>' +
-					dismiss +
-				'</div>'
-			);
-		}
+		/**
+		 * @desc Build notice icon.
+		 */
+		utils.buildIcon = () => {
 
-		function floatNotice() {
+			let html = '';
+			let load = '';
 
-			let timeout = 300;
+			if ( null !== typeof utils.getProperty( 'icon' ) || '' !== utils.getProperty( 'icon' ) ) {
 
-			// Check if element is visible.
+				if ( 'loader' === utils.getProperty( 'icon' ) ) {
+					load = ' sui-loading';
+				}
+
+				html += '<i class="sui-notice-icon sui-icon-' + utils.getProperty( 'icon' ) + ' sui-md' + load + '" aria-hidden="true"></i>';
+
+			}
+
+			return html;
+
+		};
+
+		/**
+		 * @desc Build notice message.
+		 */
+		utils.buildMessage = () => {
+
+			let html = '';
+
+			html += '<div class="sui-notice-message">';
+
+				html += utils.buildIcon();
+				html += noticeMessage;
+
+			html += '</div>';
+
+			return html;
+
+		};
+
+		/**
+		 * @desc Build notice markup.
+		 */
+		utils.buildNotice = () => {
+
+			let html = '';
+
+			html += '<div class="sui-notice-content">';
+				html += utils.buildMessage();
+				html += utils.buildDismiss();
+			html += '</div>';
+
+			return html;
+
+		};
+
+		/**
+		 * @desc Show floating notice.
+		 */
+		utils.float = ( timeout = 300 ) => {
+
+			noticeNode.removeAttr( 'tabindex' );
+
+			// Check if element is already visible.
 			if ( noticeNode.is( ':visible' ) ) {
 
 				// Close notice.
-				noticeNode.slideToggle( timeout );
+				noticeNode.slideUp( timeout );
 
 				// Show notice.
 				noticeNode.slideDown( timeout );
 
-			// Check if element is hidden.
 			} else {
 
 				// Show notice.
 				noticeNode.slideDown( timeout );
+
 			}
 
-			// Dismiss notice.
-			noticeNode.find( '[data-notice-close]' ).on( 'click', function(){
-				SUI.closeNotice( this );
-			} );
+			// Load after notice show animation stops.
+			setTimeout( () => {
 
-			// Make sure only non-dismissible notices can auto-close.
-			if ( false === noticeDismiss || 'false' === noticeDismiss ) {
+				// Check if notice can dismiss.
+				if ( true === utils.getProperty( 'dismiss' ) ) {
 
-				// Auto-close after some time.
-				if ( null === typeof noticeAutoClose || 'undefined' === typeof noticeAutoClose || '' === noticeAutoClose ) {
-					setTimeout( () => noticeNode.slideUp( timeout, function() {
-						noticeNode.empty();
-					}), ( 3000 + timeout ) );
-				} else if ( 'off' === noticeAutoClose || 'false' === noticeAutoClose ) {
-					// Do nothing.
-				} else {
-					setTimeout( () => noticeNode.slideUp( timeout, function() {
-						noticeNode.empty();
-					}), ( parseInt( noticeAutoClose ) + timeout ) );
+					// Focus dismiss button.
+					noticeNode.find( '.sui-notice-actions button' ).focus();
+
+					// Dismiss button.
 				}
-			}
-		}
 
-		function inlineNotice() {
+				// Autoclose non-dimissible notices.
+				if ( true !== utils.getProperty( 'dismiss' ) ) {
 
-			// Show notice.
-			noticeNode.fadeIn( 300 );
+					// Check if autoclose is enabled.
+					if ( true === utils.getProperty( 'autoclose' ) ) {} else {}
+				}
+			}, timeout );
+		};
 
-			if ( null !== typeof noticeAutoClose || 'undefined' !== typeof noticeAutoClose || '' !== noticeAutoClose ) {
-				setTimeout( () => noticeNode.fadeOut( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).empty();
-				}), ( parseInt( noticeAutoClose ) + 300 ) );
-			}
-		}
+		 /**
+		  * @desc Show inline notice.
+		  */
+		utils.inline = ( timeout = 300 ) => {};
 
-		function init() {
+		/**
+		 * @desc Initialize function.
+		 */
+		let init = () => {
 
-			/**
-			 * Print notice content.
-			 */
-			printContent();
+			noticeNode.html( utils.buildNotice() );
 
-			/**
-			 * When notice should float, it needs to be wrapped inside:
-			 * <div class="sui-floating-notices"></div>
-			 *
-			 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
-			 * and after modals markup.
-			 */
-			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
-				floatNotice();
-			} else {
-				inlineNotice();
-			}
-		}
+		};
 
 		init();
 
@@ -176,81 +257,9 @@
 
 	};
 
-	SUI.closeNotice = function( element ) {
+	SUI.closeNotice = () => {};
 
-		const self        = $( element );
-		const noticeNode  = self.closest( '.sui-notice' );
-		const nodeWrapper = noticeNode.parent();
-
-		// Check if parent element is a notice.
-		if ( ! noticeNode ) {
-			throw new Error( 'No parent element found with "sui-notice" class.' );
-		}
-
-		function init() {
-
-			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
-
-				noticeNode.slideUp( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).removeClass( 'sui-notice-dismiss' ).empty();
-				});
-			} else {
-				noticeNode.fadeOut( 300, function() {
-					noticeNode.find( '.sui-notice-message' ).removeClass( 'sui-notice-dismiss' ).empty();
-				});
-			}
-		}
-
-		init();
-
-		return this;
-
-	};
-
-	SUI.notice = function() {
-
-		function openNotice( button ) {
-
-			button.on( 'click', function() {
-
-				let button          = $( this ),
-					noticeId        = button.attr( 'data-notice-open' ),
-					noticeMessage   = button.attr( 'data-notice-message' ),
-					noticeIcon      = button.attr( 'data-notice-icon' ),
-					noticeAutoClose = button.attr( 'data-notice-autoclose' ),
-					noticeDismiss   = button.attr( 'data-notice-dismiss' ),
-					noticeTooltip   = button.attr( 'data-notice-dismiss-tooltip' )
-					;
-
-				SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose, noticeDismiss, noticeTooltip );
-
-			});
-		}
-
-		function closeNotice( button ) {
-
-			button.on( 'click', function() {
-				SUI.closeNotice( this );
-			});
-		}
-
-		function init() {
-
-			// Click an element to open a notice.
-			const buttonOpen = $( '[data-notice-open]' );
-			openNotice( buttonOpen );
-
-			// Click an element to close notice.
-			const buttonClose = $( '[data-notice-close]' );
-			closeNotice( buttonClose );
-
-		}
-
-		init();
-
-		return this;
-
-	};
+	SUI.notice = () => {};
 
 	SUI.notice();
 
