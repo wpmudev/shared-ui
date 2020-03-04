@@ -183,27 +183,30 @@
 
 			if ( true === dismiss.show ) {
 
-				html += '<div class="sui-notice-actions">';
+				html = document.createElement( 'div' );
+				html.className = 'sui-notice-actions';
+
+					let innerHTML = '';
 
 					if ( '' !== dismiss.tooltip ) {
-						html += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
+						innerHTML += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
 					}
 
-						html += '<button class="sui-button-icon">';
+						innerHTML += '<button class="sui-button-icon">';
 
-							html += '<i class="sui-icon-check" aria-hidden="true"></i>';
+							innerHTML += '<i class="sui-icon-check" aria-hidden="true"></i>';
 
 							if ( '' !== dismiss.label ) {
-								html += '<span class="sui-screen-reader-text">' + dismiss.label + '</span>';
+								innerHTML += '<span class="sui-screen-reader-text">' + dismiss.label + '</span>';
 							}
 
-						html += '</button>';
+						innerHTML += '</button>';
 
 					if ( '' !== dismiss.tooltip ) {
-						html += '</div>';
+						innerHTML += '</div>';
 					}
 
-				html += '</div>';
+				html.innerHTML = innerHTML;
 
 			}
 
@@ -239,17 +242,14 @@
 		 */
 		utils.buildMessage = () => {
 
-			let html = '';
+			const html = document.createElement( 'div' );
 
-			html += '<div class="sui-notice-message">';
+			html.className = 'sui-notice-message';
 
-				html += utils.buildIcon();
-				html += noticeMessage;
-
-			html += '</div>';
+			html.innerHTML = noticeMessage;
+			html.prepend( utils.buildIcon() );
 
 			return html;
-
 		};
 
 		/**
@@ -257,12 +257,10 @@
 		 */
 		utils.buildNotice = () => {
 
-			let html = '';
+			const html = document.createElement( 'div' );
+			html.className = 'sui-notice-content';
 
-			html += '<div class="sui-notice-content">';
-				html += utils.buildMessage();
-				html += utils.buildDismiss();
-			html += '</div>';
+			html.append( utils.buildMessage(), utils.buildDismiss() );
 
 			return html;
 
@@ -328,7 +326,8 @@
 			/**
 			 * Create notification content.
 			 */
-			noticeNode.html( utils.buildNotice() );
+			//noticeNode.html( utils.buildNotice() );
+			noticeNode.append( utils.buildNotice() );
 
 			/**
 			 * When notice should float, it needs to be wrapped inside:
