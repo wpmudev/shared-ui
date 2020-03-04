@@ -13,6 +13,8 @@
 	 *
 	 * @param noticeId
 	 *
+	 * @param noticeMessage
+	 *
 	 * @param noticeOptions
 	 */
 	SUI.openNotice = ( noticeId, noticeMessage, noticeOptions ) => {
@@ -55,7 +57,20 @@
 		 */
 		utils.isArray = ( obj ) => {
 
-			if ( ( null !== obj || '' !== obj ) && $.isArray( obj ) ) {
+			if ( ( null !== obj || 'undefined' !== obj ) && $.isArray( obj ) ) {
+				return true;
+			}
+
+			return false;
+
+		};
+
+		/**
+		 * @desc Verify if property is an array.
+		 */
+		utils.isObject = ( obj ) => {
+
+			if ( ( null !== obj || 'undefined' !== obj ) && $.isPlainObject( obj ) ) {
 				return true;
 			}
 
@@ -226,13 +241,16 @@
 					noticeNode.find( '.sui-notice-actions button' ).focus();
 
 					// Dismiss button.
+					// TODO: Add here function that will trigger closing action after clicking on dismiss button.
 				}
 
 				// Autoclose non-dimissible notices.
 				if ( true !== utils.getProperty( 'dismiss' ) ) {
 
 					// Check if autoclose is enabled.
-					if ( true === utils.getProperty( 'autoclose' ) ) {} else {}
+					if ( true === utils.getProperty( 'autoclose' ) ) {
+						// TODO: Add here function that will trigger closing action after specific amount of time.
+					}
 				}
 			}, timeout );
 		};
