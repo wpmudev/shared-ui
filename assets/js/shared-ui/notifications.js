@@ -47,9 +47,10 @@
 
 		utils.options[0].type             = 'default';
 		utils.options[0].icon             = 'info';
-		utils.options[0].dismiss          = false;
-		utils.options[0].dismissLabel     = 'Close this notice';
-		utils.options[0].dismissTooltip   = '';
+		utils.options[0].dismiss          = {};
+		utils.options[0].dismiss.show     = false;
+		utils.options[0].dismiss.label    = 'Close this notice';
+		utils.options[0].dismiss.tooltip  = '';
 		utils.options[0].autoclose        = false;
 		utils.options[0].autocloseTimeout = 0;
 
@@ -124,25 +125,27 @@
 
 			let html = '';
 
-			if ( true === utils.getProperty( 'dismiss' ) ) {
+			const dismiss = utils.getProperty( 'dismiss' );
+
+			if ( true === dismiss.show ) {
 
 				html += '<div class="sui-notice-actions">';
 
-					if ( '' !== utils.getProperty( 'dismissTooltip' ) ) {
-						html += '<div class="sui-tooltip" data-tooltip="' + utils.getProperty( 'dismissTooltip' ) + '">';
+					if ( '' !== dismiss.tooltip ) {
+						html += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
 					}
 
 						html += '<button class="sui-button-icon">';
 
 							html += '<i class="sui-icon-check" aria-hidden="true"></i>';
 
-							if ( '' !== utils.getProperty( 'dismissLabel' ) ) {
-								html += '<span class="sui-screen-reader-text">' + utils.getProperty( 'dismissLabel' ) + '</span>';
+							if ( '' !== dismiss.label ) {
+								html += '<span class="sui-screen-reader-text">' + dismiss.label + '</span>';
 							}
 
 						html += '</button>';
 
-					if ( '' !== utils.getProperty( 'dismissTooltip' ) ) {
+					if ( '' !== dismiss.tooltip ) {
 						html += '</div>';
 					}
 
