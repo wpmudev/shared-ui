@@ -41,25 +41,11 @@
 		let utils = utils || {};
 
 		/**
-		 * @desc Declare default styling options for notifications.
-		 */
-		utils.options = [{}];
-
-		utils.options[0].type             = 'default';
-		utils.options[0].icon             = 'info';
-		utils.options[0].dismiss          = {};
-		utils.options[0].dismiss.show     = false;
-		utils.options[0].dismiss.label    = 'Close this notice';
-		utils.options[0].dismiss.tooltip  = '';
-		utils.options[0].autoclose        = false;
-		utils.options[0].autocloseTimeout = 0;
-
-		/**
 		 * @desc Verify if property is an array.
 		 */
-		utils.isArray = ( obj ) => {
+		utils.isObject = ( obj ) => {
 
-			if ( ( null !== obj || 'undefined' !== obj ) && $.isArray( obj ) ) {
+			if ( ( null !== obj || 'undefined' !== obj ) && $.isPlainObject( obj ) ) {
 				return true;
 			}
 
@@ -68,11 +54,79 @@
 		};
 
 		/**
+		 * @desc Deep merge two objects.
+		 * Watch out for infinite recursion on circular references.
+		 */
+		utils.deepMerge = ( target, ...sources ) => {
+			if ( ! sources.length ) {
+				return target;
+			}
+
+			const source = sources.shift();
+
+			if ( utils.isObject( target ) && utils.isObject( source ) ) {
+
+				for ( const key in source ) {
+
+					if ( utils.isObject( source[ key ]) ) {
+
+						if ( ! target[ key ]) {
+							Object.assign( target, { [key]: {} });
+						}
+						utils.deepMerge( target[key], source[ key ]);
+
+					} else {
+						Object.assign( target, { [key]: source[ key ] });
+					}
+				}
+			}
+
+			return utils.deepMerge( target, ...sources );
+		};
+
+		/**
+		 * @desc Declare default styling options for notifications.
+		 */
+		utils.setProperties = ( incomingOptions = {}) => {
+
+			utils.options = [];
+
+			const defaults = {
+				type: 'default',
+				icon: 'info',
+				dismiss: {
+					show: false,
+					label: 'Close this notice',
+					tooltip: ''
+				},
+				autoclose: false,
+				autocloseTimeout: 0
+			};
+
+			utils.options[0] = utils.deepMerge( defaults, incomingOptions );
+		};
+
+		utils.setProperties( noticeOptions );
+
+		/**
+		 * @desc Declare default styling options for notifications.
+		 */
+		//utils.options = [{}];
+
+		//utils.options[0].type             = 'default';
+		//utils.options[0].icon             = 'info';
+		//utils.options[0].dismiss.show     = false;
+		//utils.options[0].dismiss.label    = 'Close this notice';
+		//utils.options[0].dismiss.tooltip  = '';
+		//utils.options[0].autoclose        = false;
+		//utils.options[0].autocloseTimeout = 0;
+
+		/**
 		 * @desc Verify if property is an array.
 		 */
-		utils.isObject = ( obj ) => {
+		utils.isArray = ( obj ) => {
 
-			if ( ( null !== obj || 'undefined' !== obj ) && $.isPlainObject( obj ) ) {
+			if ( ( null !== obj || 'undefined' !== obj ) && $.isArray( obj ) ) {
 				return true;
 			}
 
