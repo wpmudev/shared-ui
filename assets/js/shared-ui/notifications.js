@@ -159,16 +159,16 @@
 		utils.buildIcon = () => {
 
 			let html = '';
-			let load = '';
 
-			if ( null !== typeof utils.getProperty( 'icon' ) || '' !== utils.getProperty( 'icon' ) ) {
+			if ( '' !== utils.getProperty( 'icon' ) ) {
+
+				html = document.createElement( 'span' );
+				html.classList.add( 'sui-notice-icon sui-md sui-icon-' + utils.getProperty( 'icon' ) );
+				html.setAttribute( 'aria-hidden', true );
 
 				if ( 'loader' === utils.getProperty( 'icon' ) ) {
-					load = ' sui-loading';
+					html.classList.add( 'sui-loading' );
 				}
-
-				html += '<i class="sui-notice-icon sui-icon-' + utils.getProperty( 'icon' ) + ' sui-md' + load + '" aria-hidden="true"></i>';
-
 			}
 
 			return html;
@@ -283,7 +283,6 @@
 			} else {
 				utils.inline();
 			}
-
 		};
 
 		init();
