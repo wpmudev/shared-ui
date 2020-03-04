@@ -20,7 +20,8 @@
 	SUI.openNotice = ( noticeId, noticeMessage, noticeOptions ) => {
 
 		// Get notification node by ID.
-		const noticeNode = $( '#' + noticeId );
+		const noticeNode  = $( '#' + noticeId );
+		const nodeWrapper = noticeNode.parent();
 
 		// Check if element ID exists.
 		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
@@ -265,7 +266,23 @@
 		 */
 		let init = () => {
 
+			/**
+			 * Create notification content.
+			 */
 			noticeNode.html( utils.buildNotice() );
+
+			/**
+			 * When notice should float, it needs to be wrapped inside:
+			 * <div class="sui-floating-notices"></div>
+			 *
+			 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+			 * and after modals markup.
+			 */
+			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+				utils.float();
+			} else {
+				utils.inline();
+			}
 
 		};
 
