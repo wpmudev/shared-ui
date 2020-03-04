@@ -160,13 +160,15 @@
 
 			let html = '';
 
-			if ( '' !== utils.getProperty( 'icon' ) ) {
+			const icon = utils.getProperty( 'icon' );
+
+			if ( '' !== icon ) {
 
 				html = document.createElement( 'span' );
-				html.classList.add( 'sui-notice-icon sui-md sui-icon-' + utils.getProperty( 'icon' ) );
+				html.className += 'sui-notice-icon sui-icon-' + icon + ' sui-md';
 				html.setAttribute( 'aria-hidden', true );
 
-				if ( 'loader' === utils.getProperty( 'icon' ) ) {
+				if ( 'loader' === icon ) {
 					html.classList.add( 'sui-loading' );
 				}
 			}
