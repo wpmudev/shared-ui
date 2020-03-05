@@ -6,15 +6,17 @@
 		.sui-notice-content {
 			display: flex;
 			align-items: flex-start;
+			margin: 0;
 			padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
+			border: 0;
 			border-radius: $border-radius;
 			background-color: $white;
 			box-shadow: inset 2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
 
 			p {
-				margin-top: 0;
-				margin-bottom: #{$sui-gutter-md / 2};
-				padding-left: #{$sui-gutter - 4px};
+				margin: 0 0 #{$sui-gutter-md / 2};
+				padding: 0;
+				border: 0;
 				color: palette(gray, dark);
 				font-size: 13px;
 				line-height: 22px;
@@ -33,6 +35,10 @@
 				&:before {
 					display: block;
 					color: inherit;
+				}
+
+				~ *:not(.sui-notice-icon) {
+					padding-left: #{$sui-gutter - 4px};
 				}
 			}
 
@@ -65,6 +71,11 @@
 					margin-left: #{$sui-gutter-md / 2};
 				}
 			}
+		}
+
+		&[role="alert"],
+		&[aria-live="assertive"] {
+			display: none;
 		}
 
 		&.sui-notice-blue,
@@ -145,7 +156,6 @@
 		.sui-notice {
 			width: 600px;
 			pointer-events: initial;
-			display: none;
 			z-index: 1;
 			margin: 0 auto #{$sui-gutter-md / 2};
 

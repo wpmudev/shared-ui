@@ -1,13 +1,14 @@
 v2.7.0
+- [New] Multi Strings: Element to allow users add a list of strings.
 - [Fix] Modals: Closing with the "ESC" key not working.
 - [Fix] Modals: Using autocomplete in the modal closes the modal.
-- [New] Multi Strings: element to allow users add a list of strings.
-- [Enhance] Notifications: apply element new styles.
-- [Enhance] Notifications: revamp markup to be more accessible.
-- [Enhance] Notifications: create new functions to handle show/hide behave for this element.
+- [Enhance] Notifications: Apply element new styles.
+- [Enhance] Notifications: Revamp markup to be more accessible.
+- [Enhance] Notifications: Create new functions to handle show/hide behave for this element.
 - [Enhance] Tooltips: Styling is too padded.
 - [Enhance] Modals: Support prefer-reduced-motion feature.
 - [Enhance] Selectors: Disabled selector item with pro tag.
+- [Enhance] Buttons: Include focus state changes.
 
 
 v2.6.0
