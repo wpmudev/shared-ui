@@ -315,9 +315,9 @@
 			}, timeout );
 		};
 
-		 /**
-		  * @desc Show inline notice.
-		  */
+		/**
+		 * @desc Show inline notice animation.
+		 */
 		utils.inline = ( timeout = 300 ) => {};
 
 		/**
@@ -326,9 +326,9 @@
 		let init = () => {
 
 			/**
-			 * Create notification content.
+			 * Create notification content and print it inside element.
 			 */
-			//noticeNode.html( utils.buildNotice() );
+			noticeNode.empty();
 			noticeNode.append( utils.buildNotice() );
 
 			/**
