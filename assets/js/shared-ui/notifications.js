@@ -11,11 +11,17 @@
 	/**
 	 * @desc Notifications function to show when alert.
 	 *
+	 * Assumptions: The element serving as the alert container is present in the
+	 * DOM and hidden. The alert container has role='alert'.
+	 *
 	 * @param noticeId
+	 * The ID of the element serving as the alert container.
 	 *
 	 * @param noticeMessage
+	 * The content to be printed when the alert shows up. It accepts HTML.
 	 *
 	 * @param noticeOptions
+	 * An object with different paramethers to modify the alert appearance.
 	 */
 	SUI.openNotice = ( noticeId, noticeMessage, noticeOptions ) => {
 
@@ -377,9 +383,13 @@
 	};
 
 	/**
-	 * @desc
+	 * @desc Close and clear the alert.
+	 *
+	 * Assumptions: The element that will trigger this function is part of alert content.
 	 *
 	 * @param noticeId
+	 * The ID of the element serving as the alert container.
+	 *
 	 */
 	SUI.closeNotice = ( noticeId ) => {
 
@@ -477,7 +487,10 @@
 	};
 
 	/**
-	 * @desc
+	 * @desc Trigger open and close alert notification functions through element attributes.
+	 *
+	 * Assumptions: Elements in charge of triggering the actions will be a button or a non-hyperlink element.
+	 *
 	 */
 	SUI.notice = () => {
 
