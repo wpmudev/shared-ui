@@ -269,25 +269,47 @@
 		};
 
 		/**
-		 * @desc Show floating notice animation.
+		 * @desc Show notification message.
 		 */
-		utils.float = ( timeout = 300 ) => {
+		utils.showNotice = ( animation, timeout ) => {
 
+			// Remove tabindex.
 			noticeNode.removeAttr( 'tabindex' );
+
+			// Print notification message.
+			noticeNode.append( utils.buildNotice() );
+
+			// Show animation.
+			if ( 'slide' === animation ) {
+				noticeNode.slideDown( timeout );
+			} else if ( 'fade' === animation ) {
+				noticeNode.fadeIn( timeout );
+			} else {
+				noticeNode.show( timeout );
+			}
+		};
+
+		/**
+		 * @desc Open notification message.
+		 */
+		utils.openNotice = ( animation, timeout = 300 ) => {
+
+			const dismiss   = utils.getProperty( 'dismiss' );
+			const autoclose = utils.getProperty( 'autoclose' );
 
 			// Check if element is already visible.
 			if ( noticeNode.is( ':visible' ) ) {
 
 				// Close notice.
-				noticeNode.slideUp( timeout );
+				SUI.closeNotice( noticeId );
 
 				// Show notice.
-				noticeNode.slideDown( timeout );
+				utils.showNotice( animation, timeout );
 
 			} else {
 
 				// Show notice.
-				noticeNode.slideDown( timeout );
+				utils.showNotice( animation, timeout );
 
 			}
 
@@ -295,41 +317,27 @@
 			setTimeout( () => {
 
 				// Check if notice can dismiss.
-				if ( true === utils.getProperty( 'dismiss' ) ) {
+				if ( true === dismiss.show ) {
 
 					// Focus dismiss button.
 					noticeNode.find( '.sui-notice-actions button' ).focus();
 
 					// Dismiss button.
-					// TODO: Add here function that will trigger closing action after clicking on dismiss button.
-				}
-
-				// Autoclose non-dimissible notices.
-				if ( true !== utils.getProperty( 'dismiss' ) ) {
+					noticeNode.find( '.sui-notice-actions button' ).on( 'click', SUI.closeNotice( noticeId ) );
+				} else {
 
 					// Check if autoclose is enabled.
-					if ( true === utils.getProperty( 'autoclose' ) ) {
-						// TODO: Add here function that will trigger closing action after specific amount of time.
+					if ( true === autoclose.show ) {
+						setTimeout( () => SUI.closeNotice( noticeId ), ( timeout + parseInt( autoclose.timeout ) ) );
 					}
 				}
-			}, timeout );
+			}, ( timeout ) );
 		};
-
-		/**
-		 * @desc Show inline notice animation.
-		 */
-		utils.inline = ( timeout = 300 ) => {};
 
 		/**
 		 * @desc Initialize function.
 		 */
 		let init = () => {
-
-			/**
-			 * Create notification content and print it inside element.
-			 */
-			noticeNode.empty();
-			noticeNode.append( utils.buildNotice() );
 
 			/**
 			 * When notice should float, it needs to be wrapped inside:
@@ -339,9 +347,9 @@
 			 * and after modals markup.
 			 */
 			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
-				utils.float();
+				utils.openNotice( 'slide' );
 			} else {
-				utils.inline();
+				utils.openNotice( 'fade' );
 			}
 		};
 
