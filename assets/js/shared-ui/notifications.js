@@ -111,19 +111,6 @@
 		utils.setProperties( noticeOptions );
 
 		/**
-		 * @desc Declare default styling options for notifications.
-		 */
-		//utils.options = [{}];
-
-		//utils.options[0].type             = 'default';
-		//utils.options[0].icon             = 'info';
-		//utils.options[0].dismiss.show     = false;
-		//utils.options[0].dismiss.label    = 'Close this notice';
-		//utils.options[0].dismiss.tooltip  = '';
-		//utils.options[0].autoclose        = false;
-		//utils.options[0].autocloseTimeout = 0;
-
-		/**
 		 * @desc Verify if property is an array.
 		 */
 		utils.isArray = ( obj ) => {
