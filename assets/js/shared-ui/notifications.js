@@ -479,7 +479,145 @@
 	/**
 	 * @desc
 	 */
-	SUI.notice = () => {};
+	SUI.notice = () => {
+
+		let notice = notice || {};
+
+		notice.Utils = notice.Utils || {};
+
+		/**
+		 * @desc Click an element to open a notification.
+		 */
+		notice.Utils.Open = ( element ) => {
+
+			element.on( 'click', function() {
+
+				self = $( this );
+
+				// Define main variables for open function.
+				let noticeId      = self.attr( 'data-notice-open' );
+				let noticeMessage = '';
+				let noticeOptions = {};
+
+				// Define index to use on for loops.
+				let i;
+
+				// Define maximum number of paragraphs.
+				let numbLines = 4;
+
+				// Check if `data-notice-message` exists.
+				if ( self.is( '[data-notice-message]' ) && '' !== self.attr( 'data-notice-message' ) ) {
+
+					noticeMessage += self.attr( 'data-notice-message' );
+
+				// If `data-notice-message` doesn't exists, look for `data-notice-paragraph-[i]` attributes.
+				} else {
+
+					for ( i = 0; i < numbLines; i++ ) {
+
+						let index = i + 1;
+						let paragraph = 'data-notice-paragraph-' + index;
+
+						if ( self.is( '[' + paragraph + ']' ) && '' !== self.attr( paragraph ) ) {
+							noticeMessage += '<p>' + self.attr( paragraph ) + '</p>';
+						}
+					}
+				}
+
+				// Check if `data-notice-type` exists.
+				if ( self.is( '[data-notice-type]' ) && '' !== self.attr( 'data-notice-dismiss-type' ) ) {
+					noticeOptions.type = self.attr( 'data-notice-type' );
+				}
+
+				// Check if `data-notice-icon` exists.
+				if ( self.is( '[data-notice-icon]' ) ) {
+					noticeOptions.icon = self.attr( 'data-notice-icon' );
+				}
+
+				// Check if `data-notice-dismiss` exists.
+				if ( self.is( '[data-notice-dismiss]' ) ) {
+
+					noticeOptions.dismiss = {};
+
+					if ( 'true' === self.attr( 'data-notice-dismiss' ) ) {
+						noticeOptions.dismiss.show = true;
+					} else if ( 'false' === self.attr( 'data-notice-dismiss' ) ) {
+						noticeOptions.dismiss.show = false;
+					}
+				}
+
+				// Check if `data-notice-dismiss-label` exists.
+				if ( self.is( '[data-notice-dismiss-label]' ) && '' !== self.attr( 'data-notice-dismiss-label' ) ) {
+					noticeOptions.dismiss.label = self.attr( 'data-notice-dismiss-label' );
+				}
+
+				// Check if `data-notice-dismiss-label` exists.
+				if ( self.is( '[data-notice-dismiss-tooltip]' ) && '' !== self.attr( 'data-notice-dismiss-tooltip' ) ) {
+					noticeOptions.dismiss.tooltip = self.attr( 'data-notice-dismiss-tooltip' );
+				}
+
+				// Check if `data-notice-autoclose` exists.
+				if ( self.is( '[data-notice-autoclose]' ) ) {
+
+					noticeOptions.autoclose = {};
+
+					if ( 'true' === self.attr( 'data-notice-autoclose' ) ) {
+						noticeOptions.autoclose.show = true;
+					} else if ( 'false' === self.attr( 'data-notice-autoclose' ) ) {
+						noticeOptions.autoclose.show = false;
+					}
+				}
+
+				// Check if `data-notice-autoclose-timeout` exists.
+				if ( self.is( '[data-notice-autoclose-timeout]' ) ) {
+
+					noticeOptions.autoclose = noticeOptions.autoclose || {};
+					noticeOptions.autoclose.timeout = parseInt( self.attr( 'data-notice-autoclose-timeout' ) );
+
+				}
+
+				SUI.openNotice( noticeId, noticeMessage, noticeOptions );
+
+			});
+		};
+
+		/**
+		 * @desc Close a notification.
+		 */
+		notice.Utils.Close = ( element ) => {
+
+			element.on( 'click', function() {
+
+				self = $( this );
+
+				let noticeId = self.closest( '.sui-notice' ).attr( 'id' );
+
+				if ( self.is( '[data-notice-close]' ) ) {
+					noticeId = self.attr( 'data-notice-close' );
+				}
+
+				SUI.closeNotice( noticeId );
+
+			});
+		};
+
+		let init = () => {
+
+			// Open a notification.
+			const btnOpen = $( '[data-notice-open]' );
+			notice.Utils.Open( btnOpen );
+
+			// Close a notification.
+			const btnClose = $( '[data-notice-close]' );
+			notice.Utils.Close( btnClose );
+
+		};
+
+		init();
+
+		return this;
+
+	};
 
 	SUI.notice();
 
