@@ -29,7 +29,7 @@
 
 			// Hide field.
 			parent
-				.addClass( 'sui-multistrings-aria' )
+				.addClass( 'sui-multistrings-ariaz' )
 				.removeClass( 'sui-form-field' )
 				;
 
@@ -85,24 +85,21 @@
 			});
 
 			const $input = $listWrapper.find( '.sui-multistrings-input input' ),
+				$textarea = $mainWrapper.find( 'textarea' ),
 				$stringList = $mainWrapper.find( '.sui-multistrings-list' );
 
-			$input.on( 'focus', function() {
+			const addSuiFocus = $element => {
 
-				$stringList.addClass( 'sui-focus' );
-				$input.off( 'blur' ).on( 'blur', function() {
-					$stringList.removeClass( 'sui-focus' );
+				$element.on( 'focus', () => {
+					$stringList.addClass( 'sui-focus' );
+					$element.off( 'blur' ).on( 'blur', function() {
+						$stringList.removeClass( 'sui-focus' );
+					});
 				});
-			});
+			};
 
-			const $textarea = $mainWrapper.find( 'textarea' );
-			$textarea.on( 'focus', function() {
-
-				$stringList.addClass( 'sui-focus' );
-				$textarea.off( 'blur' ).on( 'blur', function() {
-					$stringList.removeClass( 'sui-focus' );
-				});
-			});
+			addSuiFocus( $input );
+			addSuiFocus( $textarea );
 		}
 
 		function buildInput( textarea, uniqid ) {
