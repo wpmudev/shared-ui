@@ -258,21 +258,87 @@
 		/**
 		 * @desc Show notification message.
 		 */
-		utils.showNotice = ( animation, timeout ) => {
+		utils.showNotice = ( animation, timeout = 300 ) => {
+
+			const dismiss   = utils.options[0].dismiss;
+			const autoclose = utils.options[0].autoclose;
+
+			// Add active class.
+			noticeNode.addClass( 'sui-active' );
 
 			// Remove tabindex.
 			noticeNode.removeAttr( 'tabindex' );
 
 			// Print notification message.
-			noticeNode.append( utils.buildNotice() );
+			noticeNode.html( utils.buildNotice() );
 
 			// Show animation.
 			if ( 'slide' === animation ) {
-				noticeNode.slideDown( timeout );
+
+				noticeNode.slideDown( timeout, () => {
+
+					// Check if dismiss button enabled.
+					if ( true === dismiss.show ) {
+
+						// Focus dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).focus();
+
+						// Dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
+							SUI.closeNotice( noticeId );
+						});
+					} else {
+
+						// Check if notice auto-closes.
+						if ( true === autoclose.show ) {
+							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+						}
+					}
+				});
 			} else if ( 'fade' === animation ) {
-				noticeNode.fadeIn( timeout );
+
+				noticeNode.fadeIn( timeout, () => {
+
+					// Check if dismiss button enabled.
+					if ( true === dismiss.show ) {
+
+						// Focus dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).focus();
+
+						// Dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
+							SUI.closeNotice( noticeId );
+						});
+					} else {
+
+						// Check if notice auto-closes.
+						if ( true === autoclose.show ) {
+							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+						}
+					}
+				});
 			} else {
-				noticeNode.show( timeout );
+
+				noticeNode.show( timeout, () => {
+
+					// Check if dismiss button enabled.
+					if ( true === dismiss.show ) {
+
+						// Focus dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).focus();
+
+						// Dismiss button.
+						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
+							SUI.closeNotice( noticeId );
+						});
+					} else {
+
+						// Check if notice auto-closes.
+						if ( true === autoclose.show ) {
+							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+						}
+					}
+				});
 			}
 		};
 
@@ -281,44 +347,29 @@
 		 */
 		utils.openNotice = ( animation, timeout = 300 ) => {
 
-			const dismiss   = utils.getProperty( 'dismiss' );
-			const autoclose = utils.getProperty( 'autoclose' );
+			if ( noticeNode.hasClass( 'sui-active' ) ) {
 
-			// Check if element is already visible.
-			if ( noticeNode.is( ':visible' ) ) {
+				if ( 'slide' === animation ) {
 
-				// Close notice.
-				SUI.closeNotice( noticeId );
+					noticeNode.slideUp( timeout, () => {
+						utils.showNotice( 'slide', timeout );
+					});
+				} else if ( 'fade' === animation ) {
 
-				// Show notice.
-				utils.showNotice( animation, timeout );
+					noticeNode.fadeOut( timeout, () => {
+						utils.showNotice( 'fade', timeout );
+					});
+				} else {
 
+					noticeNode.hide( timeout, () => {
+						utils.showNotice( null, timeout );
+					});
+				}
 			} else {
 
 				// Show notice.
 				utils.showNotice( animation, timeout );
-
 			}
-
-			// Load after notice show animation stops.
-			setTimeout( () => {
-
-				// Check if notice can dismiss.
-				if ( true === dismiss.show ) {
-
-					// Focus dismiss button.
-					noticeNode.find( '.sui-notice-actions button' ).focus();
-
-					// Dismiss button.
-					noticeNode.find( '.sui-notice-actions button' ).on( 'click', SUI.closeNotice( noticeId ) );
-				} else {
-
-					// Check if autoclose is enabled.
-					if ( true === autoclose.show ) {
-						setTimeout( () => SUI.closeNotice( noticeId ), ( timeout + parseInt( autoclose.timeout ) ) );
-					}
-				}
-			}, ( timeout ) );
 		};
 
 		/**
@@ -346,8 +397,83 @@
 
 	};
 
-	SUI.closeNotice = () => {};
+	/**
+	 * @desc
+	 *
+	 * @param noticeId
+	 */
+	SUI.closeNotice = ( noticeId ) => {
 
+		// Get notification node by ID.
+		const noticeNode  = $( '#' + noticeId );
+		const nodeWrapper = noticeNode.parent();
+
+		// Check if element ID exists.
+		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
+			throw new Error( 'No element found with id="' + noticeId + '".' );
+		}
+
+		// Check if element has correct attribute.
+		if ( 'alert' !== noticeNode.attr( 'role' ) ) {
+			throw new Error( 'Notice requires a DOM element with ARIA role of alert.' );
+		}
+
+		let utils = utils || {};
+
+		/**
+		 * @desc Destroy notification.
+		 */
+		utils.hideNotice = () => {
+
+			noticeNode.removeClass( 'sui-active' );
+			noticeNode.attr( 'tabindex', '-1' );
+			noticeNode.empty();
+
+		};
+
+		/**
+		 * @desc Close notification message.
+		 */
+		utils.closeNotice = ( animation, timeout = 300 ) => {
+
+			// Close animation.
+			if ( 'slide' === animation ) {
+				noticeNode.slideUp( timeout, () => utils.hideNotice() );
+			} else if ( 'fade' === animation ) {
+				noticeNode.fadeOut( timeout, () => utils.hideNotice() );
+			} else {
+				noticeNode.hide( timeout, () => utils.hideNotice() );
+			}
+		};
+
+		/**
+		 * @desc Initialize function.
+		 */
+		let init = () => {
+
+			/**
+			 * When notice should float, it needs to be wrapped inside:
+			 * <div class="sui-floating-notices"></div>
+			 *
+			 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+			 * and after modals markup.
+			 */
+			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+				utils.closeNotice( 'slide' );
+			} else {
+				utils.closeNotice( 'fade' );
+			}
+		};
+
+		init();
+
+		return this;
+
+	};
+
+	/**
+	 * @desc
+	 */
 	SUI.notice = () => {};
 
 	SUI.notice();
