@@ -10,7 +10,7 @@
 .sui-2-6-0 .sui-wrap .sui-side-tabs > [data-tabs] .sui-tab-item input,
 .sui-2-6-0 .sui-wrap .sui-side-tabs > .sui-tabs-menu > * input,
 .sui-2-6-0 .sui-wrap .sui-side-tabs > .sui-tabs-menu .sui-tab-item input, .sui-2-6-0 .sui-wrap .sui-tree li[role="treeitem"] > .sui-tree-node > label.sui-node-checkbox input,
-.sui-2-6-0 .sui-wrap .sui-tree li[role="treeitem"] > .sui-tree-node > label.sui-node-checkbox span:not([aria-hidden]) {
+.sui-2-6-0 .sui-wrap .sui-tree li[role="treeitem"] > .sui-tree-node > label.sui-node-checkbox span:not([aria-hidden]), .sui-2-6-0 .sui-wrap .sui-multistrings-aria {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -29,9 +29,25 @@
           animation: fadeIn 0.3s ease-in forwards;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-fade-in {
+    opacity: 1;
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+
 .sui-2-6-0 .sui-wrap .sui-fade-out {
   -webkit-animation: fadeOut 0.3s ease-in forwards;
           animation: fadeOut 0.3s ease-in forwards;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-fade-out {
+    opacity: 0;
+    -webkit-animation: none;
+            animation: none;
+  }
 }
 
 .sui-2-6-0 .sui-wrap .sui-bounce-in {
@@ -39,9 +55,25 @@
           animation: bounceInJiggle 0.8s ease-in forwards;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-bounce-in {
+    opacity: 1;
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+
 .sui-2-6-0 .sui-wrap .sui-bounce-out {
   -webkit-animation: bounceOutJiggle 0.6s ease-out forwards;
           animation: bounceOutJiggle 0.6s ease-out forwards;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-bounce-out {
+    opacity: 0;
+    -webkit-animation: none;
+            animation: none;
+  }
 }
 
 .sui-2-6-0 .sui-wrap .sui-content-fade-in {
@@ -49,9 +81,25 @@
           animation: fadeScaleIn 0.5s ease-in forwards;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-content-fade-in {
+    opacity: 1;
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+
 .sui-2-6-0 .sui-wrap .sui-content-fade-out {
   -webkit-animation: fadeScaleOut 0.9s ease-in forwards;
           animation: fadeScaleOut 0.9s ease-in forwards;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-wrap .sui-content-fade-out {
+    opacity: 0;
+    -webkit-animation: none;
+            animation: none;
+  }
 }
 
 @-webkit-keyframes bounceInDown {
@@ -1674,10 +1722,12 @@
   margin-left: -7px;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button:hover, .sui-2-6-0 .sui-wrap .sui-button:active,
+.sui-2-6-0 .sui-wrap .sui-button:hover, .sui-2-6-0 .sui-wrap .sui-button:focus, .sui-2-6-0 .sui-wrap .sui-button:active,
 .sui-2-6-0 .sui-wrap a.sui-button:hover,
+.sui-2-6-0 .sui-wrap a.sui-button:focus,
 .sui-2-6-0 .sui-wrap a.sui-button:active,
 .sui-2-6-0 .sui-wrap button.sui-button:hover,
+.sui-2-6-0 .sui-wrap button.sui-button:focus,
 .sui-2-6-0 .sui-wrap button.sui-button:active {
   background-color: #6f6f6f;
 }
@@ -1711,10 +1761,12 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-blue:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-blue:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-blue:active {
   background-color: #1286b5;
 }
@@ -1741,10 +1793,12 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-green:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-green:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-green:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-green:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-green:active {
   background-color: #148f77;
 }
@@ -1771,10 +1825,12 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-red:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-red:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-red:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-red:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-red:active {
   background-color: #ff3a3a;
 }
@@ -1801,10 +1857,12 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-orange:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-orange:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-orange:active {
   background-color: #ff5b0e;
 }
@@ -1831,10 +1889,12 @@
   color: #333333;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-yellow:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-yellow:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-yellow:active {
   background-color: #f9c101;
 }
@@ -1861,10 +1921,12 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-purple:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-purple:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-purple:active {
   background-color: #64007e;
 }
@@ -1898,10 +1960,12 @@
   text-transform: none;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-upsell:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-upsell:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-upsell:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-upsell:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-upsell:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-upsell:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-upsell:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-upsell:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-upsell:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-upsell:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-upsell:active {
   opacity: 1;
   border-color: #1ABC9C;
@@ -1968,10 +2032,12 @@
   color: #888888;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost:active {
   border-color: #888888;
   background-color: #888888;
@@ -2001,10 +2067,12 @@
   color: #17A8E3;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-blue:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-blue:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-blue:active {
   border-color: #17A8E3;
   background-color: #17A8E3;
@@ -2032,10 +2100,12 @@
   color: #1ABC9C;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-green:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-green:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-green:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-green:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-green:active {
   border-color: #1ABC9C;
   background-color: #1ABC9C;
@@ -2063,10 +2133,12 @@
   color: #FF6D6D;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-red:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-red:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-red:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-red:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-red:active {
   border-color: #FF6D6D;
   background-color: #FF6D6D;
@@ -2094,10 +2166,12 @@
   color: #FF7E41;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-orange:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-orange:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-orange:active {
   border-color: #FF7E41;
   background-color: #FF7E41;
@@ -2125,10 +2199,12 @@
   color: #FECF2F;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-yellow:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-yellow:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-yellow:active {
   border-color: #FECF2F;
   background-color: #FECF2F;
@@ -2156,10 +2232,12 @@
   color: #8D00B1;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-purple:active,
+.sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-purple:focus, .sui-2-6-0 .sui-wrap .sui-button.sui-button-ghost.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap a.sui-button.sui-button-ghost.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap button.sui-button.sui-button-ghost.sui-button-purple:active {
   border-color: #8D00B1;
   background-color: #8D00B1;
@@ -2273,11 +2351,13 @@
   display: block;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon:hover, .sui-2-6-0 .sui-wrap .sui-button-icon:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon:hover, .sui-2-6-0 .sui-wrap .sui-button-icon:focus, .sui-2-6-0 .sui-wrap .sui-button-icon:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-active {
   background-color: #F2F2F2;
@@ -2305,11 +2385,13 @@
   color: #17A8E3;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-blue.sui-active {
   background-color: #E1F6FF;
@@ -2337,11 +2419,13 @@
   color: #1ABC9C;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-green:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-green:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-green.sui-active {
   background-color: #D1F1EA;
@@ -2369,11 +2453,13 @@
   color: #FF6D6D;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-red:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-red:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-red.sui-active {
   background-color: #FFE5E9;
@@ -2401,11 +2487,13 @@
   color: #FF7E41;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-orange.sui-active {
   background-color: #FFE5D9;
@@ -2433,11 +2521,13 @@
   color: #FECF2F;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-yellow.sui-active {
   background-color: #FFF5D5;
@@ -2465,11 +2555,13 @@
   color: #8D00B1;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-purple.sui-active {
   background-color: #F9E1FF;
@@ -2498,11 +2590,13 @@
   border-color: #DDDDDD;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-active {
   border-color: #888888;
@@ -2530,11 +2624,13 @@
   border-color: #E1F6FF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-blue.sui-active {
   border-color: #17A8E3;
@@ -2562,11 +2658,13 @@
   border-color: #D1F1EA;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-green:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-green:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-green.sui-active {
   border-color: #1ABC9C;
@@ -2594,11 +2692,13 @@
   border-color: #FFE5E9;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-red:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-red:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-red.sui-active {
   border-color: #FF6D6D;
@@ -2626,11 +2726,13 @@
   border-color: #FFE5D9;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-orange.sui-active {
   border-color: #FF7E41;
@@ -2658,11 +2760,13 @@
   border-color: #FFF5D5;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-yellow.sui-active {
   border-color: #FECF2F;
@@ -2690,11 +2794,13 @@
   border-color: #F9E1FF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-outlined.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-outlined.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-outlined.sui-button-purple.sui-active {
   border-color: #8D00B1;
@@ -2723,11 +2829,13 @@
   color: #AAAAAA;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-active {
   background-color: #d2d2d2;
@@ -2755,11 +2863,13 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-blue.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-blue:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-blue:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-blue:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-blue.sui-active {
   background-color: #1286b5;
@@ -2787,11 +2897,13 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-green:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-green.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-green:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-green:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-green:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-green.sui-active {
   background-color: #148f77;
@@ -2819,11 +2931,13 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-red:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-red.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-red:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-red:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-red:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-red.sui-active {
   background-color: #ff3a3a;
@@ -2851,11 +2965,13 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-orange.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-orange:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-orange:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-orange:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-orange.sui-active {
   background-color: #ff5b0e;
@@ -2883,11 +2999,13 @@
   color: #333333;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-yellow.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-yellow:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-yellow:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-yellow:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-yellow.sui-active {
   background-color: #f9c101;
@@ -2915,11 +3033,13 @@
   color: #FFFFFF;
 }
 
-.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple.sui-active,
+.sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple:hover, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple:focus, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple:active, .sui-2-6-0 .sui-wrap .sui-button-icon.sui-button-filled.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap a.sui-button-icon.sui-button-filled.sui-button-purple.sui-active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-purple:hover,
+.sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-purple:focus,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-purple:active,
 .sui-2-6-0 .sui-wrap button.sui-button-icon.sui-button-filled.sui-button-purple.sui-active {
   background-color: #64007e;
@@ -5610,7 +5730,9 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin: 0;
   padding: 11px 20px;
+  border: 0;
   border-radius: 4px;
   background-color: #FFFFFF;
   -webkit-box-shadow: inset 2px 0 0 0 #AAAAAA, inset 0 0 0 1px #E6E6E6;
@@ -5618,9 +5740,9 @@
 }
 
 .sui-2-6-0 .sui-wrap .sui-notice .sui-notice-content p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  padding-left: 26px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
   color: #333333;
   font-size: 13px;
   line-height: 22px;
@@ -5640,6 +5762,10 @@
 .sui-2-6-0 .sui-wrap .sui-notice .sui-notice-content .sui-notice-icon:before {
   display: block;
   color: inherit;
+}
+
+.sui-2-6-0 .sui-wrap .sui-notice .sui-notice-content .sui-notice-icon ~ *:not(.sui-notice-icon) {
+  padding-left: 26px;
 }
 
 .sui-2-6-0 .sui-wrap .sui-notice .sui-notice-content .sui-notice-message {
@@ -5674,6 +5800,10 @@
           flex: 0 0 auto;
   margin-right: -9px;
   margin-left: 10px;
+}
+
+.sui-2-6-0 .sui-wrap .sui-notice[role="alert"], .sui-2-6-0 .sui-wrap .sui-notice[aria-live="assertive"] {
+  display: none;
 }
 
 .sui-2-6-0 .sui-wrap .sui-notice.sui-notice-blue .sui-notice-content, .sui-2-6-0 .sui-wrap .sui-notice.sui-notice-info .sui-notice-content {
@@ -5739,7 +5869,6 @@
 .sui-2-6-0 .sui-wrap .sui-floating-notices .sui-notice {
   width: 600px;
   pointer-events: initial;
-  display: none;
   z-index: 1;
   margin: 0 auto 10px;
 }
@@ -12855,10 +12984,26 @@ fieldset[disabled] .sui-2-6-0 .sui-wrap .sui-multi-checkbox:hover {
           animation-name: fadeIn;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active.sui-fadein {
+    opacity: 1;
+    -webkit-animation-name: none;
+            animation-name: none;
+  }
+}
+
 .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active.sui-fadein-left {
   opacity: 1;
   -webkit-animation-name: fadeInLeft;
           animation-name: fadeInLeft;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active.sui-fadein-left {
+    opacity: 1;
+    -webkit-animation-name: none;
+            animation-name: none;
+  }
 }
 
 .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active.sui-fadein-right {
@@ -12867,10 +13012,18 @@ fieldset[disabled] .sui-2-6-0 .sui-wrap .sui-multi-checkbox:hover {
           animation-name: fadeInRight;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active {
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active.sui-fadein-right {
+    opacity: 1;
     -webkit-animation-name: none;
             animation-name: none;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sui-2-6-0 .sui-modal .sui-modal-slide.sui-active {
+    -webkit-animation-duration: 0.001ms;
+            animation-duration: 0.001ms;
   }
 }
 
@@ -19166,6 +19319,125 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
 
 .sui-2-6-0 .select2-container .sui-search-dropdown.sui-color-accessible ul.select2-results__options li.select2-results__option[role="treeitem"].select2-results__option--highlighted {
   background-color: #000000;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list {
+  min-height: 118px;
+  cursor: text;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list, .sui-2-6-0 .sui-wrap .sui-multistrings-list li {
+  list-style: none;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] {
+  min-width: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  margin: 2px;
+  padding: 7px 35px 7px 27px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #666666;
+  color: #FFFFFF;
+  font: 500 12px/16px "Roboto", Arial, sans-serif;
+  letter-spacing: -0.23px;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] [class*="sui-icon-"]:before {
+  color: inherit;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] [class*="sui-icon-"].sui-sm {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] [class*="sui-icon-"].sui-sm:before {
+  display: block;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  background-color: #5E5E5E;
+  color: #FFFFFF;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] button:hover, .sui-2-6-0 .sui-wrap .sui-multistrings-list li[title] button:focus {
+  background-color: #4D4D4D;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input {
+  min-width: 100px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 2px;
+  padding: 0;
+  border: 0;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input input {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+  margin: 0;
+  padding: 7px 0;
+  border: 0;
+  font: 500 15px/13px "Roboto", Arial, sans-serif;
+  letter-spacing: -0.25px;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input input, .sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input input:hover, .sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input input:focus, .sui-2-6-0 .sui-wrap .sui-multistrings-list li.sui-multistrings-input input:active {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+  color: #333333;
+}
+
+.sui-2-6-0 .sui-wrap .sui-multistrings-list:hover, .sui-2-6-0 .sui-wrap .sui-multistrings-list.sui-focus {
+  background-color: #FFFFFF;
 }
 
 /**
