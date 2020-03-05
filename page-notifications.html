@@ -340,7 +340,7 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy html">
-&lt;div role=&quot;alert&quot; class=&quot;sui-notice&quot; aria-live=&quot;assertive&quot;&gt;
+&lt;div role=&quot;alert&quot; id=&quot;unique-id&quot; class=&quot;sui-notice&quot; aria-live=&quot;assertive&quot;&gt;
 	...
 &lt;/div&gt;
 </pre>
@@ -365,9 +365,13 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- END: .sui-header --&gt;
+
 &lt;div class=&quot;sui-floating-notices&quot;&gt;
-	...
+	&lt;!-- Base markup goes here. --&gt;
 &lt;/div&gt;
+
+&lt;!-- START: .sui-row-with-sidenav (regular page content) --&gt;
 </pre>
 
 					</div>
@@ -414,12 +418,13 @@ is_searchable: true
 
 											<li style="margin-bottom: 20px;">
 												Use this attribute to type the message that's going to be displayed in the alert notice:<br />
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-message="Type message here"</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-paragraph-1="First paragraph message"</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
 												&nbsp;<br />
-												<strong>NOTE:</strong> You can also print HTML content inside as part of <strong>data-notice-message</strong> value, for example you can make some text bold:<br />
-												<code>"Message with &lt;strong&gt;bold text&lt;/strong&gt;"</code><br />
-												Or you can include a second paragraph by closing the one that's added by SUI and open a new one, like this:<br />
-												<code>"First paragraph&lt;/p&gt;&lt;p&gt;Second paragraph"</code>
+												<strong>NOTE:</strong> You must have in mind the following:<br />
+												<ul>
+													<li><strong>Paragraph Allowed:</strong> There are up until 4 paragraphs allowed, or if you need some special code you can replace the paragraphs attributes with a single one called <code>data-notice-message</code>.</li>
+													<li><strong>HTML Allowed:</strong> You can print HTML content inside of the attributes in case you have some links to show or want to make text bold, or simply need an special content inside.</li>
+												</ul>
 											</li>
 
 											<li style="margin-bottom: 20px;">
@@ -428,33 +433,29 @@ is_searchable: true
 												<strong>NOTE:</strong> Spin animation for "loader" icon will be applied automatically.
 											</li>
 
-											<li style="margin-bottom: 20px;">The following attribute will work differently depending on the type of alert notice you want to show: floating or inline.<br />
-
-												<ul>
-
-													<li><strong>Floating Notices:</strong><br />
-														These notices autoclose by default after 3000 milliseconds (3 seconds) but if you need to modify the timing use the following attribute:<br />
-														<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose="5000"</code><br />
-														If you need to turn off autoclose ability, simply use "off" or "false" text as this attribute value.
-													</li>
-
-													<li><strong>Inline Notices:</strong><br />
-														These notices don't have autoclose ability but if you need to enable this simply include the attribute and make sure the value entered is in milliseconds:<br />
-														<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose="5000"</code>
-													</li>
-
-												</ul>
-
-											</li>
-
 											<li style="margin-bottom: 20px;">
-												Some notices need a dismiss button, when this happen you can add the attribute below with <strong>"true"</strong> value:<br />
+												Some notices need a dismiss button, when this happens you can add the attribute below with <strong>true</strong> value on it:<br />
 												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss="true"</code>
 											</li>
 
 											<li>
 												This attribute is linked to the previous one, when you have dismiss button enabled you can add a tooltip to it:<br />
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss-tooltip="Dismiss"</code>
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss-tooltip="Click on the button to dismiss this alert"</code>
+											</li>
+
+											<li>
+												You can also change dismiss button label when you have it enabled:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss-label="Understood"</code>
+											</li>
+
+											<li style="margin-bottom: 20px;">
+												To turn on or off autoclose ability for notification, you can use the attribute below. Just use <strong>true</strong> or <strong>false</strong> as value depending the case:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose="false"</code>
+											</li>
+
+											<li>
+												To change the time notice will remain visible before auto-closing, you can use the following attribute:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose-timeout="5000"</code>
 											</li>
 
 										</ol>
@@ -462,12 +463,30 @@ is_searchable: true
 										<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
+&lt;!--
+	Notification using paragraph attributes and auto-close ability
+--&gt;
 &lt;button
 	data-notice-open=&quot;unique-id&quot;
-	data-notice-message=&quot;Type message here&quot;
+	data-notice-paragraph-1=&quot;I am a &lt;strong&gt;first&lt;/strong&gt; paragraph&quot;
+	data-notice-paragraph-2=&quot;I am a &lt;strong&gt;second&lt;/strong&gt; paragraph&quot;
 	data-notice-icon=&quot;info&quot;
-	data-notice-autoclose=&quot;off&quot;
+	data-notice-dismiss=&quot;false&quot;
+	data-notice-autoclose=&quot;true&quot;
+	data-notice-autoclose-timeout=&quot;5000&quot;
+&gt;
+	Open notice
+&lt;/button&gt;
+
+&lt;!--
+	Notification using message attribute (instead of paragraphs) and dismiss button
+--&gt;
+&lt;button
+	data-notice-open=&quot;unique-id&quot;
+	data-notice-message=&quot;&lt;h2&gt;Alert title&lt;/h2&gt;&lt;p&gt;I am a paragraph&lt;/p&gt;&quot;
+	data-notice-icon=&quot;info&quot;
 	data-notice-dismiss=&quot;true&quot;
+	data-notice-dismiss-label=&quot;Click to close&quot;
 	data-notice-dismiss-tooltip=&quot;Dismiss&quot;
 &gt;
 	Open notice
@@ -501,6 +520,8 @@ is_searchable: true
 									<div class="sui-box-body">
 
 										<p>To dismiss (close) an alert notice add <code>data-notice-close=""</code> attribute to an element inside the notice that's going to trigger the closing action.</p>
+
+										<p><strong>IMPORTANT:</strong> If the attribute value remains empty, it should be placed inside alert notice to trigger correctly the action or else value should be the unique ID from the notification to close.</p>
 
 										<div class="demo-code-block">
 
@@ -571,48 +592,73 @@ SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
 
 											<li style="margin-bottom: 20px;">
 												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeMessage</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
-												You only need to include here the text that's going to be displayed in the notice.<br />
+												Include here the message that's going to be displayed in the notice properly wrapped on <strong>p</strong> tag.<br />
 												&nbsp;<br />
-												<strong>NOTE:</strong> You can also print HTML content inside as part of the paramether value, for example you can make some text bold:<br />
-												<code>let noticeMessage = 'Message with &lt;strong&gt;bold text&lt;/strong&gt;';</code><br />
-												Or you can include a second paragraph by closing the one that's added by SUI and open a new one, like this:<br />
-												<code>let noticeMessage = 'First paragraph&lt;/p&gt;&lt;p&gt;Second paragraph&lt;/p&gt;';</code>
-											</li>
-
-											<li style="margin-bottom: 20px;">
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeIcon</code><br />
-												Use this paramether to replace default "info" icon on your alerts. You can set it to <strong>`null`</strong> or keep it empty if you don't want or need to use this variable:<br />
-												<strong>NOTE:</strong> Spin animation for "loader" icon will be applied automatically.
-											</li>
-
-											<li style="margin-bottom: 20px;">
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeAutoClose</code><br />
-												This paramether works differently depending if the alert notice floats or goes inline with the content.
-
-												<ul>
-
-													<li><strong>Floating Notice:</strong><br />
-														This kind of notice autoclose after 3000ms (3 seconds) by default but you can modify this by setting another value in milliseconds.<br />
-														If you need to turn off autoclose ability, use "off" or "false" value for the paramether.
-													</li>
-
-													<li><strong>Inline Notice:</strong><br />
-														This kind of notice never autoclose, but if you want it to have this ability simply include a value in milliseconds.
-														You can set it to <strong>`null`</strong> or keep it empty if you don't need to use this variable.
-													</li>
-
-												</ul>
-
-											</li>
-
-											<li style="margin-bottom: 20px;">
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeDismiss</code><br />
-												This paramether when its value is set to <strong>true</strong> will add a dismiss button to the notice.
+												<code>let noticeMessage = '&lt;p&gt;Message with &lt;strong&gt;bold text&lt;/strong&gt;&lt;/p&gt;';</code>
 											</li>
 
 											<li>
-												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeDismissTooltip</code><br />
-												This paramether works along with previous one. When dismiss button is enabled, you can add a tooltip that will appear when user hovers the dismiss button. Fill this paramether value with the text you want to display.
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeOptions</code><br />
+												This paramether will allow you to overwrite default settings and styles for the notice.
+
+												<div class="demo-code-block" style="margin-top: 5px;">
+<pre class="sui-code-snippet js">
+let noticeOptions = {};
+
+/**
+ * Overwrite type of notice.
+ *
+ * Allowed options:
+ * - blue
+ * - info
+ * - green
+ * - success
+ * - yellow
+ * - warning
+ * - red
+ * - error
+ * - purple
+ * - upsell
+ *
+ * Or leave it blank to get default (gray) notification.
+ */
+noticeOptions.type = 'info';
+
+/**
+ * Overwrite notice icon.
+ *
+ * Add the name of the icon without its prefix `sui-icon-`.
+ * The "loader" icon will also add `sui-loading` state to the icon.
+ */
+noticeOptions.icon = 'wordpress';
+
+/**
+ * Dismiss button options.
+ */
+noticeOptions.dismiss = {};
+
+// Set this option true if you want to display dismiss button.
+noticeOptions.dismiss.show = true;
+
+// If dismiss button is visible, you can change its label.
+noticeOptions.dismiss.label = 'A new label to dismiss';
+
+// If dismiss button is visible, you can also show a tooltip.
+noticeOptions.dismiss.tooltip = 'Dismiss tooltip';
+
+/**
+ * Autoclose options.
+ */
+noticeOptions.autoclose = {};
+
+// To disable this option, you just need to set it to false.
+noticeOptions.autoclose.show = false;
+
+// When autoclose is enabled but you want to change it's timing.
+noticeOptions.autoclose.timeout = 5000; // Closes 5 seconds after show animation ends.
+</pre>
+												</div>
+
 											</li>
 
 										</ol>
@@ -629,13 +675,14 @@ SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
 		let self                 = $( this ),
 			noticeId             = 'unique-id', // Do not include number sign.
 			noticeMessage        = 'Type message here',
-			noticeIcon           = 'loader',
-			noticeAutoClose      = 5000,
-			noticeDismiss        = true,
-			noticeDismissTooltip = 'Dismiss'
+			noticeOptions        = {}
 			;
 
-		SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose, noticeDismiss, noticeDismissTooltip );
+		// Disable autoclose.
+		noticeOptions.autoclose = {};
+		noticeOptions.autoclose.show = false;
+
+		SUI.openNotice( noticeId, noticeMessage, noticeOptions );
 
 	});
 }( jQuery ) );
@@ -667,12 +714,12 @@ SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
 
 									<div class="sui-box-body">
 
-										<p>To dismiss (close) an alert notice use the function below triggered by an element that must be inside notice element.</p>
+										<p>To dismiss (close) an alert notice use the function below being <strong>unique-id</strong> the ID of the notification you want to close.</p>
 
 										<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy js">
-SUI.closeNotice( this );
+SUI.closeNotice( 'unique-id' );
 </pre>
 
 										</div>
