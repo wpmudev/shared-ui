@@ -111,64 +111,13 @@
 		utils.setProperties( noticeOptions );
 
 		/**
-		 * @desc Verify if property is an array.
-		 */
-		utils.isArray = ( obj ) => {
-
-			if ( ( null !== obj || 'undefined' !== obj ) && $.isArray( obj ) ) {
-				return true;
-			}
-
-			return false;
-
-		};
-
-		/**
-		 * @desc Verify if property exists.
-		 */
-		utils.propExists = ( arr, prop ) => {
-
-			if ( ( null !== typeof prop || 'undefined' !== typeof prop ) && arr.hasOwnProperty( prop ) ) {
-				return true;
-			}
-
-			return false;
-
-		};
-
-		/**
-		 * @desc Grab property from object.
-		 */
-		utils.getProperty = ( prop ) => {
-
-			const defOptions = utils.options;
-			const newOptions = noticeOptions;
-
-			// Check if default option exists.
-			if ( true === utils.propExists( defOptions[0], prop ) ) {
-
-				// Check if new options exist in array to overwrite default one.
-				if ( true === utils.isArray( newOptions ) ) {
-
-					// Check if default option property can be overwritten.
-					if ( true === utils.propExists( newOptions[0], prop ) && true === utils.propExists( defOptions[0], prop ) ) {
-						defOptions[0][prop] = newOptions[0][prop];
-					}
-				}
-
-				return defOptions[0][prop];
-
-			}
-		};
-
-		/**
 		 * @desc Build notice dismiss.
 		 */
 		utils.buildDismiss = () => {
 
 			let html = '';
 
-			const dismiss = utils.getProperty( 'dismiss' );
+			const dismiss = utils.options[0].dismiss;
 
 			if ( true === dismiss.show ) {
 
@@ -209,9 +158,9 @@
 
 			let html = '';
 
-			const icon = utils.getProperty( 'icon' );
+			const icon = utils.options[0].icon;
 
-			if ( '' !== icon ) {
+			if ( '' !== icon || 'undefined' !== typeof icon || null !== typeof icon ) {
 
 				html = document.createElement( 'span' );
 				html.className += 'sui-notice-icon sui-icon-' + icon + ' sui-md';
