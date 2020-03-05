@@ -99,8 +99,10 @@
 					label: 'Close this notice',
 					tooltip: ''
 				},
-				autoclose: false,
-				autocloseTimeout: 0
+				autoclose: {
+					show: false,
+					timeout: 0
+				},
 			};
 
 			utils.options[0] = utils.deepMerge( defaults, incomingOptions );
