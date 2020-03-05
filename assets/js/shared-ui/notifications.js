@@ -269,7 +269,7 @@
 		};
 
 		/**
-		 * @desc Show floating notice.
+		 * @desc Show floating notice animation.
 		 */
 		utils.float = ( timeout = 300 ) => {
 
