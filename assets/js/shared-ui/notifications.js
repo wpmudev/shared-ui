@@ -143,7 +143,12 @@
 					let innerHTML = '';
 
 					if ( '' !== dismiss.tooltip ) {
-						innerHTML += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
+
+						if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+							innerHTML += '<div class="sui-tooltip sui-tooltip-bottom" data-tooltip="' + dismiss.tooltip + '">';
+						} else {
+							innerHTML += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
+						}
 					}
 
 						innerHTML += '<button class="sui-button-icon">';
