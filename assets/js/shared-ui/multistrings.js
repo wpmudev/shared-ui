@@ -29,7 +29,7 @@
 
 			// Hide field.
 			parent
-				.addClass( 'sui-multistrings-ariaz' )
+				.addClass( 'sui-multistrings-aria' )
 				.removeClass( 'sui-form-field' )
 				;
 
@@ -269,7 +269,10 @@
 			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
 
 			let oldValue = textarea.val(),
-				delayTimer;
+				isTabTrapped = true;
+
+			// Keep tab trapped when focusing on the textarea.
+			textarea.on( 'focus', () => isTabTrapped = true );
 
 			textarea.on( 'keydown', function( e ) {
 
@@ -280,6 +283,31 @@
 				if ( isSpace || isComma ) {
 					e.preventDefault();
 					return;
+				}
+
+				// If it's tab...
+				if ( 9 === e.keyCode ) {
+
+					// Add a new line if it's trapped.
+					if ( isTabTrapped ) {
+						e.preventDefault();
+
+						let start = this.selectionStart,
+							end = this.selectionEnd;
+
+						// Insert a new line where the caret is.
+						$( this ).val( $( this ).val().substring( 0, start ) +
+							'\n' +
+							$( this ).val().substring( end ) );
+
+						// Put caret at right position again.
+						this.selectionStart = start + 1;
+						this.selectionEnd = this.selectionStart;
+					}
+
+					// Release the tab.
+				} else if ( 27 === e.keyCode ) {
+					isTabTrapped = false;
 				}
 
 			}).on( 'keyup change', function( e ) {
