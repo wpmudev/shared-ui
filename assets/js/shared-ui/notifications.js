@@ -400,12 +400,38 @@
 		let utils = utils || {};
 
 		/**
+		 * @desc Allowed types for notification.
+		 */
+		utils.allowedNotices = [
+			'info',
+			'blue',
+			'green',
+			'success',
+			'yellow',
+			'warning',
+			'red',
+			'error',
+			'purple',
+			'upsell',
+		];
+
+		/**
 		 * @desc Destroy notification.
 		 */
 		utils.hideNotice = () => {
 
+			// Remove active class.
 			noticeNode.removeClass( 'sui-active' );
+
+			// Remove styling classes.
+			$.each( utils.allowedNotices, function( key, value ) {
+				noticeNode.removeClass( 'sui-notice-' + value );
+			});
+
+			// Prevent TAB key from accessing the element.
 			noticeNode.attr( 'tabindex', '-1' );
+
+			// Remove all content from notification.
 			noticeNode.empty();
 
 		};
