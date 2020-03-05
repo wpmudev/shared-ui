@@ -97,11 +97,11 @@
 				dismiss: {
 					show: false,
 					label: 'Close this notice',
-					tooltip: ''
+					tooltip: '',
 				},
 				autoclose: {
 					show: false,
-					timeout: 0
+					timeout: 3000,
 				},
 			};
 
