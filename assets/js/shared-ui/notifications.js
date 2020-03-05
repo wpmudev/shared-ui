@@ -100,7 +100,7 @@
 					tooltip: '',
 				},
 				autoclose: {
-					show: false,
+					show: true,
 					timeout: 3000,
 				},
 			};
