@@ -41,6 +41,22 @@
 		let utils = utils || {};
 
 		/**
+		 * @desc Allowed types for notification.
+		 */
+		utils.allowedNotices = [
+			'info',
+			'blue',
+			'green',
+			'success',
+			'yellow',
+			'warning',
+			'red',
+			'error',
+			'purple',
+			'upsell',
+		];
+
+		/**
 		 * @desc Verify if property is an array.
 		 */
 		utils.isObject = ( obj ) => {
@@ -209,11 +225,20 @@
 		 */
 		utils.showNotice = ( animation, timeout = 300 ) => {
 
+			const type      = utils.options[0].type;
 			const dismiss   = utils.options[0].dismiss;
 			const autoclose = utils.options[0].autoclose;
 
 			// Add active class.
 			noticeNode.addClass( 'sui-active' );
+
+			// Check for allowed notification types.
+			$.each( utils.allowedNotices, function( key, value ) {
+
+				if ( value === type ) {
+					noticeNode.addClass( 'sui-notice-' + value );
+				}
+			});
 
 			// Remove tabindex.
 			noticeNode.removeAttr( 'tabindex' );
