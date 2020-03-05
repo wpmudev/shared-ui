@@ -1,5 +1,7 @@
 v2.7.0
 - [New] Multi Strings: Element to allow users add a list of strings.
+- [Fix] Modals: Closing with the "ESC" key not working.
+- [Fix] Modals: Using autocomplete in the modal closes the modal.
 - [Enhance] Notifications: Apply element new styles.
 - [Enhance] Notifications: Revamp markup to be more accessible.
 - [Enhance] Notifications: Create new functions to handle show/hide behave for this element.

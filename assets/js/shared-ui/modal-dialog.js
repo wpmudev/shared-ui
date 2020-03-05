@@ -214,7 +214,7 @@
 
 		var key = event.which || event.keyCode;
 
-		if ( key === aria.Utils.ESC && aria.closeCurrentDialog() ) {
+		if ( key === aria.KeyCode.ESC && aria.closeCurrentDialog() ) {
 			event.stopPropagation();
 		}
 	};
