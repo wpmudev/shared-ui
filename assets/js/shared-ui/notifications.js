@@ -590,14 +590,19 @@
 
 				self = $( this );
 
-				let noticeId = self.closest( '.sui-notice' ).attr( 'id' );
+				let noticeId;
 
 				if ( self.is( '[data-notice-close]' ) ) {
-					noticeId = self.attr( 'data-notice-close' );
+
+					noticeId = self.closest( '.sui-notice' ).attr( 'id' );
+
+					if ( '' !== self.attr( '[data-notice-close]' ) ) {
+						noticeId = self.attr( 'data-notice-close' );
+					}
+
+					SUI.closeNotice( noticeId );
+
 				}
-
-				SUI.closeNotice( noticeId );
-
 			});
 		};
 
