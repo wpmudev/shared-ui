@@ -8,6 +8,43 @@
 		window.SUI = {};
 	}
 
+	const nodeWrapper = $( '.sui-floating-notices' ),
+		temporaryHandleFocus = () => {
+
+		// TODO: improve the way to retrieve focusable elements.
+		const focusable = nodeWrapper[0].querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' );
+
+		if ( ! focusable.length ) {
+			nodeWrapper.off( 'keydown' );
+			return;
+		}
+
+		const sequence = Object.values( focusable ),
+			first = sequence[0],
+			last = sequence[ sequence.length - 1 ];
+
+		first.focus();
+		nodeWrapper.off( 'keydown' ).on( 'keydown', e => {
+			if ( 9 !== e.keyCode ) {
+				return;
+			}
+
+			const backward = e.shiftKey;
+
+			if ( document.activeElement.isSameNode( first ) && backward ) {
+				last.focus();
+				e.preventDefault();
+				return;
+			}
+
+			if ( document.activeElement.isSameNode( last ) && ! backward ) {
+				first.focus();
+				e.preventDefault();
+				return;
+			}
+		});
+	};
+
 	/**
 	 * @desc Notifications function to show when alert.
 	 *
@@ -231,6 +268,10 @@
 
 		};
 
+		utils.handleFocus = () => {
+			temporaryHandleFocus();
+		};
+
 		/**
 		 * @desc Show notification message.
 		 */
@@ -355,6 +396,10 @@
 				// Show notice.
 				utils.showNotice( animation, timeout );
 			}
+
+			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+				utils.handleFocus();
+			}
 		};
 
 		/**
@@ -444,6 +489,9 @@
 			// Remove all content from notification.
 			noticeNode.empty();
 
+			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+				utils.handleFocus();
+			}
 		};
 
 		/**
@@ -459,6 +507,10 @@
 			} else {
 				noticeNode.hide( timeout, () => utils.hideNotice() );
 			}
+		};
+
+		utils.handleFocus = () => {
+			temporaryHandleFocus();
 		};
 
 		/**
