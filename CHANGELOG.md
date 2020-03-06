@@ -1,9 +1,16 @@
 v2.7.0
 - [New] Multi Strings: Element to allow users add a list of strings.
+			Dev Notes: Go to https://wpmudev.github.io/shared-ui/multistrings/ and
+			review documentation section for more details. If you have any doubts,
+			you can ping @Leigh or @Danae on #sui-plugins channel.
 - [Fix] Modals: Closing with the "ESC" key not working.
 - [Fix] Modals: Using autocomplete in the modal closes the modal.
+			Dev Notes: You can re-enable autocomplete on your forms inside modals.
 - [Enhance] Notifications: Apply element new styles.
 - [Enhance] Notifications: Revamp markup to be more accessible.
+			Dev Notes: Notifications have been revamped completely and old markup is NOT supported.
+			Please go to https://wpmudev.github.io/shared-ui/notifications/ and read documentation
+			section. Ping @Leigh if you have some doubts or need more details.
 - [Enhance] Notifications: Create new functions to handle show/hide behave for this element.
 - [Enhance] Tooltips: Styling is too padded.
 - [Enhance] Modals: Support prefer-reduced-motion feature.
