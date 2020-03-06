@@ -73,16 +73,35 @@
 				&.sui-fadein {
 					opacity: 1;
 					animation-name: fadeIn;
+
+					@media screen and (prefers-reduced-motion: reduce) {
+						opacity: 1;
+						animation-name: none;
+					}
 				}
 
 				&.sui-fadein-left {
 					opacity: 1;
 					animation-name: fadeInLeft;
+
+					@media screen and (prefers-reduced-motion: reduce) {
+						opacity: 1;
+						animation-name: none;
+					}
 				}
 
 				&.sui-fadein-right {
 					opacity: 1;
 					animation-name: fadeInRight;
+
+					@media screen and (prefers-reduced-motion: reduce) {
+						opacity: 1;
+						animation-name: none;
+					}
+				}
+
+				@media screen and (prefers-reduced-motion: reduce) {
+					animation-duration: 0.001ms;
 				}
 			}
 

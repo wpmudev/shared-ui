@@ -563,8 +563,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-6-0 .sui-accordion').length) {
-    $('.sui-2-6-0 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-7-0 .sui-accordion').length) {
+    $('.sui-2-7-0 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -1709,7 +1709,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-6-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-7-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -1985,7 +1985,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-6-0 .sui-slider').each(function () {
+  $('.sui-2-7-0 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -2001,7 +2001,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-6-0 .sui-dropdown');
+      var $dropdowns = $('.sui-2-7-0 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -2022,7 +2022,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-6-0 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-7-0 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2235,7 +2235,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   aria.handleEscape = function (event) {
     var key = event.which || event.keyCode;
 
-    if (key === aria.Utils.ESC && aria.closeCurrentDialog()) {
+    if (key === aria.KeyCode.ESC && aria.closeCurrentDialog()) {
       event.stopPropagation();
     }
   };
@@ -3169,7 +3169,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-6-0 .sui-slider').each(function () {
+  $('.sui-2-7-0 .sui-slider').each(function () {
     SUI.modalSlider(this);
   });
 })(jQuery);
@@ -3190,21 +3190,959 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       SUI.dialogs = {};
     }
 
-    $('.sui-2-6-0 .sui-dialog').each(function () {
+    $('.sui-2-7-0 .sui-dialog').each(function () {
       if (!SUI.dialogs.hasOwnProperty(this.id)) {
         SUI.dialogs[this.id] = new A11yDialog(this, mainEl);
       }
     });
   });
 })(jQuery);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 (function ($) {
-  // This will auto hide the top notice if the classes .sui-can-dismiss or .sui-cant-dismiss aren't present.
-  $('.sui-2-6-0 .sui-notice-top:not(.sui-can-dismiss, .sui-cant-dismiss)').delay(3000).slideUp('slow');
-  $('.sui-2-6-0 .sui-notice-dismiss').click(function (e) {
-    e.preventDefault();
-    $(this).parent().stop().slideUp('slow');
-    return false;
-  });
+  // Enable strict mode.
+  'use strict'; // Define global SUI object if it doesn't exists.
+
+  if ('object' !== _typeof(window.SUI)) {
+    window.SUI = {};
+  }
+
+  SUI.multistrings = function () {
+    function buildWrapper(textarea, uniqid) {
+      var parent = textarea.parent(),
+          label = parent.find('> .sui-label'),
+          description = parent.find('> .sui-description');
+      /**
+       * Build main wrapper for the whole multistring element.
+       */
+
+      parent.wrap('<div class="sui-multistrings-wrap"></div>');
+      /**
+       * Build ARIA-ready element.
+       */
+      // Hide field.
+
+      parent.addClass('sui-multistrings-aria').removeClass('sui-form-field');
+      /**
+       * Build visual-ready element.
+       */
+      // Build a new field.
+
+      $('<div class="sui-form-field sui-multistrings" tabindex="-1" aria-hidden="true" />').insertAfter(parent);
+      var newParent = parent.next('.sui-multistrings');
+
+      if (label.length) {
+        newParent.append(label.clone());
+
+        if ('' !== newParent.find('.sui-label').attr('for')) {
+          newParent.find('.sui-label').attr('for', newParent.find('.sui-label').attr('for') + '-input-multistrings');
+        }
+
+        if ('' !== newParent.find('.sui-label').attr('id')) {
+          newParent.find('.sui-label').attr('id', newParent.find('.sui-label').attr('id') + '-input-multistrings');
+        }
+      }
+
+      newParent.append('<ul class="sui-multistrings-list" />');
+
+      if (description.length) {
+        newParent.append(description.clone());
+        var $childDescription = newParent.find('.sui-description');
+
+        if ('' !== $childDescription.attr('id')) {
+          var newId = $childDescription.attr('id') + '-input-multistrings';
+          $childDescription.attr('id', newId);
+        }
+      }
+    }
+
+    function bindFocus($mainWrapper) {
+      var $listWrapper = $mainWrapper.find('.sui-multistrings');
+      $listWrapper.on('click', function (e) {
+        var $this = $(e.target);
+
+        if ('sui-multistrings-list' !== $this.attr('class')) {
+          return;
+        }
+
+        $listWrapper.find('.sui-multistrings-input input').focus();
+      });
+      var $input = $listWrapper.find('.sui-multistrings-input input'),
+          $stringList = $mainWrapper.find('.sui-multistrings-list');
+      $input.on('focus', function () {
+        $stringList.addClass('sui-focus');
+        $input.off('blur').on('blur', function () {
+          $stringList.removeClass('sui-focus');
+        });
+      });
+      var $textarea = $mainWrapper.find('textarea');
+      $textarea.on('focus', function () {
+        $stringList.addClass('sui-focus');
+        $textarea.off('blur').on('blur', function () {
+          $stringList.removeClass('sui-focus');
+        });
+      });
+    }
+
+    function buildInput(textarea, uniqid) {
+      var html = '',
+          placeholder = '',
+          ariaLabel = '',
+          ariaDescription = '';
+
+      if ('undefined' !== typeof textarea.attr('placeholder') && '' !== textarea.attr('placeholder')) {
+        placeholder = ' placeholder="' + textarea.attr('placeholder') + '"';
+      }
+
+      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+        ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
+        textarea.attr('aria-labelledby', uniqid + '-label');
+      } else {
+        if (textarea.closest('.sui-form-field').find('.sui-label').length) {
+          ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
+        }
+
+        textarea.attr('aria-labelledby', uniqid + '-label');
+      }
+
+      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+        ariaDescription = ' aria-describedby="' + uniqid + '-description"';
+      } else {
+        if (textarea.closest('.sui-form-field').find('.sui-label').length) {
+          ariaDescription = ' aria-ariaDescription="' + uniqid + '-description"';
+        }
+      }
+
+      html += '<li class="sui-multistrings-input">';
+      html += '<input type="text" autocomplete="off"' + placeholder + ' id="' + uniqid + '"' + ariaLabel + ariaDescription + ' aria-autocomplete="none" />';
+      html += '</li>';
+      return html;
+    }
+
+    function buildItem(itemName) {
+      var html = '';
+      html += '<li title="' + itemName + '">';
+      html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
+      html += itemName;
+      html += '<button class="sui-button-close">';
+      html += '<i class="sui-icon-close" aria-hidden="true"></i>';
+      html += '<span class="sui-screen-reader-text">Delete</span>';
+      html += '</button>';
+      html += '</li>';
+      return html;
+    }
+
+    function bindRemoveTag($mainWrapper) {
+      var $removeButtons = $mainWrapper.find('.sui-multistrings-list .sui-button-close');
+      $removeButtons.off('click').on('click', removeTag);
+    }
+
+    function insertStringOnLoad(textarea, uniqid) {
+      var html = '',
+          $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
+          $entriesList = $mainWrapper.find('.sui-multistrings-list'),
+          value = textarea.val();
+      var valueToClear = ''; // Convert default commas into new lines.
+
+      if (value.includes(',')) {
+        valueToClear = value.replace(/(?!^),/gm, '\n');
+      }
+
+      var removeForbidden = cleanTextarea(valueToClear, true);
+      var splitStrings = removeForbidden.split(/[\r\n]/gm); // Clean-up textarea value.
+
+      textarea.val(removeForbidden); // Add currently available strings.
+
+      if (0 !== removeForbidden.length) {
+        for (var i = 0; i < splitStrings.length; i++) {
+          html += buildItem(splitStrings[i]);
+        }
+      } // Build input to insert strings.
+
+
+      html += buildInput(textarea, uniqid);
+      $entriesList.append(html);
+      bindRemoveTag($mainWrapper);
+    }
+
+    function handleInsertTags($mainWrapper) {
+      var $tagInput = $mainWrapper.find('.sui-multistrings-input input');
+      $tagInput.on('keydown', function (e) {
+        var textarea = $mainWrapper.find('textarea.sui-multistrings'),
+            isEnter = 13 === e.keyCode,
+            isSpace = 32 === e.keyCode,
+            isComma = 188 === e.keyCode; // Do nothing on space or comma.
+
+        if (isSpace || isComma) {
+          e.preventDefault();
+          return;
+        }
+
+        var input = $(this),
+            oldValue = textarea.val(),
+            newValue = input.val(); // Get rid of empty spaces, new lines, and commas from the newly entered value.
+
+        var newTrim = newValue.replace(/[\r\n,\s]+/gm, ''); // If there's no value to add, don't insert any new value.
+
+        if (0 !== newTrim.length) {
+          if (isEnter) {
+            var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
+
+            textarea.val(newTextareaValue); // Print new value on the list.
+
+            var html = buildItem(newTrim);
+            $(html).insertBefore($mainWrapper.find('.sui-multistrings-input')); // Clear input value.
+
+            input.val(''); // Bid the event to remove the tags.
+
+            bindRemoveTag($mainWrapper);
+          } else {
+            input.val(newTrim);
+          }
+        } else {
+          input.val('');
+        }
+      });
+    }
+
+    function handleTextareaChange($mainWrapper) {
+      var textarea = $mainWrapper.find('textarea.sui-multistrings');
+      var oldValue = textarea.val(),
+          delayTimer;
+      textarea.on('keydown', function (e) {
+        var isSpace = 32 === e.keyCode,
+            isComma = 188 === e.keyCode; // Do nothing on space or comma.
+
+        if (isSpace || isComma) {
+          e.preventDefault();
+          return;
+        }
+      }).on('keyup change', function (e) {
+        var currentValue = textarea.val(); // Nothing has changed, do nothing.
+
+        if (currentValue === oldValue) {
+          return;
+        } // Clear up the content.
+
+
+        var cleanedCurrentValue = cleanTextarea(currentValue); // Set the current value as the old one for future iterations.
+
+        textarea.val(cleanedCurrentValue);
+        oldValue = cleanedCurrentValue;
+        var textboxValues = textarea.val().split(/[\r\n\s]+/gm).filter(function (el) {
+          return el.length;
+        }),
+            tags = $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)'),
+            tagsTitles = [];
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var tag = _step.value;
+            tagsTitles.push($(tag).attr('title'));
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+
+        var areEqual = compareArrays(textboxValues, tagsTitles); // The existing elements changed, update the existing tags.
+
+        if (!areEqual) {
+          $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)').remove();
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = textboxValues[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var value = _step2.value;
+
+              if (value.length) {
+                // Print new value on the list.
+                var html = buildItem(value);
+                $(html).insertBefore($mainWrapper.find('.sui-multistrings-input'));
+              }
+            } // Bind the event to remove the tags.
+
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+                _iterator2["return"]();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
+          }
+
+          bindRemoveTag($mainWrapper);
+        }
+      });
+    }
+
+    function compareArrays(firstArray, secondArray) {
+      if (!Array.isArray(firstArray) || !Array.isArray(secondArray)) {
+        return false;
+      }
+
+      if (firstArray.length !== secondArray.length) {
+        return false;
+      }
+
+      return firstArray.every(function (value, index) {
+        return value === secondArray[index];
+      });
+    }
+
+    function cleanTextarea(string) {
+      var isLoad = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var clearedString = string.replace(/[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|^\s*$/gm, '');
+
+      if (!isLoad) {
+        // Avoid removing the last newline if it existed.
+        var endsInNewline = string.match(/\n$/);
+
+        if (endsInNewline) {
+          clearedString += '\n';
+        }
+      }
+
+      return clearedString;
+    }
+
+    function removeTag(e) {
+      var $removeButton = $(e.currentTarget),
+          $tag = $removeButton.closest('li');
+      var $hiddenTextarea = $removeButton.closest('.sui-multistrings-wrap').find('textarea.sui-multistrings'),
+          textareaValue = $hiddenTextarea.val(),
+          removedTag = $tag.attr('title'),
+          escapedRemovedTag = removedTag.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'),
+          regex = new RegExp("^".concat(escapedRemovedTag, "\\s|^").concat(escapedRemovedTag, "$"), 'm'),
+          newTextareaValue = textareaValue.replace(regex, ''); // Remove the string from the hidden textarea.
+
+      $hiddenTextarea.val(newTextareaValue);
+      $hiddenTextarea.trigger('change'); // Remove the tag the close button belongs to.
+
+      $tag.remove();
+    }
+
+    function init() {
+      var multistrings = $('.sui-multistrings');
+
+      if (0 !== multistrings.length) {
+        multistrings.each(function () {
+          multistrings = $(this);
+          var uniqueId = '';
+          var hasUniqueId = 'undefined' !== typeof multistrings.attr('id') && '' !== multistrings.attr('id');
+          var isTextarea = multistrings.is('textarea');
+          var isWrapped = multistrings.parent().hasClass('sui-form-field');
+
+          if (!hasUniqueId) {
+            throw new Error('Multistrings field require an ID attribute.');
+          } else {
+            uniqueId = multistrings.attr('id') + '-strings';
+          }
+
+          if (!isTextarea) {
+            throw new Error('Multistrings field with id="' + multistrings.attr('id') + '" needs to be "textarea".');
+          }
+
+          if (!isWrapped) {
+            throw new Error('Multistrings field needs to be wrapped inside "sui-form-field" div.');
+          }
+
+          buildWrapper(multistrings, uniqueId);
+          insertStringOnLoad(multistrings, uniqueId);
+          var $mainWrapper = multistrings.closest('.sui-multistrings-wrap');
+          handleInsertTags($mainWrapper);
+          handleTextareaChange($mainWrapper);
+          bindFocus($mainWrapper);
+        });
+      }
+    }
+
+    init();
+    return this;
+  };
+
+  SUI.multistrings();
+})(jQuery);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global SUI object if it does not exist.
+
+  var _this = this;
+
+  if ('object' !== _typeof(window.SUI)) {
+    window.SUI = {};
+  }
+  /**
+   * @desc Notifications function to show when alert.
+   *
+   * Assumptions: The element serving as the alert container is present in the
+   * DOM and hidden. The alert container has role='alert'.
+   *
+   * @param noticeId
+   * The ID of the element serving as the alert container.
+   *
+   * @param noticeMessage
+   * The content to be printed when the alert shows up. It accepts HTML.
+   *
+   * @param noticeOptions
+   * An object with different paramethers to modify the alert appearance.
+   */
+
+
+  SUI.openNotice = function (noticeId, noticeMessage, noticeOptions) {
+    // Get notification node by ID.
+    var noticeNode = $('#' + noticeId);
+    var nodeWrapper = noticeNode.parent(); // Check if element ID exists.
+
+    if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
+      throw new Error('No element found with id="' + noticeId + '".');
+    } // Check if element has correct attribute.
+
+
+    if ('alert' !== noticeNode.attr('role')) {
+      throw new Error('Notice requires a DOM element with ARIA role of alert.');
+    } // Check if notice message is empty.
+
+
+    if (null === typeof noticeMessage || 'undefined' === typeof noticeMessage || '' === noticeMessage) {
+      throw new Error('Notice requires a message to print.');
+    }
+
+    var utils = utils || {};
+    /**
+     * @desc Allowed types for notification.
+     */
+
+    utils.allowedNotices = ['info', 'blue', 'green', 'success', 'yellow', 'warning', 'red', 'error', 'purple', 'upsell'];
+    /**
+     * @desc Verify if property is an array.
+     */
+
+    utils.isObject = function (obj) {
+      if ((null !== obj || 'undefined' !== obj) && $.isPlainObject(obj)) {
+        return true;
+      }
+
+      return false;
+    };
+    /**
+     * @desc Deep merge two objects.
+     * Watch out for infinite recursion on circular references.
+     */
+
+
+    utils.deepMerge = function (target) {
+      for (var _len = arguments.length, sources = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        sources[_key - 1] = arguments[_key];
+      }
+
+      if (!sources.length) {
+        return target;
+      }
+
+      var source = sources.shift();
+
+      if (utils.isObject(target) && utils.isObject(source)) {
+        for (var key in source) {
+          if (utils.isObject(source[key])) {
+            if (!target[key]) {
+              Object.assign(target, _defineProperty({}, key, {}));
+            }
+
+            utils.deepMerge(target[key], source[key]);
+          } else {
+            Object.assign(target, _defineProperty({}, key, source[key]));
+          }
+        }
+      }
+
+      return utils.deepMerge.apply(utils, [target].concat(sources));
+    };
+    /**
+     * @desc Declare default styling options for notifications.
+     */
+
+
+    utils.setProperties = function () {
+      var incomingOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      utils.options = [];
+      var defaults = {
+        type: 'default',
+        icon: 'info',
+        dismiss: {
+          show: false,
+          label: 'Close this notice',
+          tooltip: ''
+        },
+        autoclose: {
+          show: true,
+          timeout: 3000
+        }
+      };
+      utils.options[0] = utils.deepMerge(defaults, incomingOptions);
+    };
+
+    utils.setProperties(noticeOptions);
+    /**
+     * @desc Build notice dismiss.
+     */
+
+    utils.buildDismiss = function () {
+      var html = '';
+      var dismiss = utils.options[0].dismiss;
+
+      if (true === dismiss.show) {
+        html = document.createElement('div');
+        html.className = 'sui-notice-actions';
+        var innerHTML = '';
+
+        if ('' !== dismiss.tooltip) {
+          if (nodeWrapper.hasClass('sui-floating-notices')) {
+            innerHTML += '<div class="sui-tooltip sui-tooltip-bottom" data-tooltip="' + dismiss.tooltip + '">';
+          } else {
+            innerHTML += '<div class="sui-tooltip" data-tooltip="' + dismiss.tooltip + '">';
+          }
+        }
+
+        innerHTML += '<button class="sui-button-icon">';
+        innerHTML += '<i class="sui-icon-check" aria-hidden="true"></i>';
+
+        if ('' !== dismiss.label) {
+          innerHTML += '<span class="sui-screen-reader-text">' + dismiss.label + '</span>';
+        }
+
+        innerHTML += '</button>';
+
+        if ('' !== dismiss.tooltip) {
+          innerHTML += '</div>';
+        }
+
+        html.innerHTML = innerHTML;
+      }
+
+      return html;
+    };
+    /**
+     * @desc Build notice icon.
+     */
+
+
+    utils.buildIcon = function () {
+      var html = '';
+      var icon = utils.options[0].icon;
+
+      if ('' !== icon || 'undefined' !== typeof icon || null !== typeof icon) {
+        html = document.createElement('span');
+        html.className += 'sui-notice-icon sui-icon-' + icon + ' sui-md';
+        html.setAttribute('aria-hidden', true);
+
+        if ('loader' === icon) {
+          html.classList.add('sui-loading');
+        }
+      }
+
+      return html;
+    };
+    /**
+     * @desc Build notice message.
+     */
+
+
+    utils.buildMessage = function () {
+      var html = document.createElement('div');
+      html.className = 'sui-notice-message';
+      html.innerHTML = noticeMessage;
+      html.prepend(utils.buildIcon());
+      return html;
+    };
+    /**
+     * @desc Build notice markup.
+     */
+
+
+    utils.buildNotice = function () {
+      var html = document.createElement('div');
+      html.className = 'sui-notice-content';
+      html.append(utils.buildMessage(), utils.buildDismiss());
+      return html;
+    };
+    /**
+     * @desc Show notification message.
+     */
+
+
+    utils.showNotice = function (animation) {
+      var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
+      var type = utils.options[0].type;
+      var dismiss = utils.options[0].dismiss;
+      var autoclose = utils.options[0].autoclose; // Add active class.
+
+      noticeNode.addClass('sui-active'); // Check for allowed notification types.
+
+      $.each(utils.allowedNotices, function (key, value) {
+        if (value === type) {
+          noticeNode.addClass('sui-notice-' + value);
+        }
+      }); // Remove tabindex.
+
+      noticeNode.removeAttr('tabindex'); // Print notification message.
+
+      noticeNode.html(utils.buildNotice()); // Show animation.
+
+      if ('slide' === animation) {
+        noticeNode.slideDown(timeout, function () {
+          // Check if dismiss button enabled.
+          if (true === dismiss.show) {
+            // Focus dismiss button.
+            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+
+            noticeNode.find('.sui-notice-actions button').on('click', function () {
+              SUI.closeNotice(noticeId);
+            });
+          } else {
+            // Check if notice auto-closes.
+            if (true === autoclose.show) {
+              setTimeout(function () {
+                return SUI.closeNotice(noticeId);
+              }, parseInt(autoclose.timeout));
+            }
+          }
+        });
+      } else if ('fade' === animation) {
+        noticeNode.fadeIn(timeout, function () {
+          // Check if dismiss button enabled.
+          if (true === dismiss.show) {
+            // Focus dismiss button.
+            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+
+            noticeNode.find('.sui-notice-actions button').on('click', function () {
+              SUI.closeNotice(noticeId);
+            });
+          } else {
+            // Check if notice auto-closes.
+            if (true === autoclose.show) {
+              setTimeout(function () {
+                return SUI.closeNotice(noticeId);
+              }, parseInt(autoclose.timeout));
+            }
+          }
+        });
+      } else {
+        noticeNode.show(timeout, function () {
+          // Check if dismiss button enabled.
+          if (true === dismiss.show) {
+            // Focus dismiss button.
+            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+
+            noticeNode.find('.sui-notice-actions button').on('click', function () {
+              SUI.closeNotice(noticeId);
+            });
+          } else {
+            // Check if notice auto-closes.
+            if (true === autoclose.show) {
+              setTimeout(function () {
+                return SUI.closeNotice(noticeId);
+              }, parseInt(autoclose.timeout));
+            }
+          }
+        });
+      }
+    };
+    /**
+     * @desc Open notification message.
+     */
+
+
+    utils.openNotice = function (animation) {
+      var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
+
+      if (noticeNode.hasClass('sui-active')) {
+        if ('slide' === animation) {
+          noticeNode.slideUp(timeout, function () {
+            utils.showNotice('slide', timeout);
+          });
+        } else if ('fade' === animation) {
+          noticeNode.fadeOut(timeout, function () {
+            utils.showNotice('fade', timeout);
+          });
+        } else {
+          noticeNode.hide(timeout, function () {
+            utils.showNotice(null, timeout);
+          });
+        }
+      } else {
+        // Show notice.
+        utils.showNotice(animation, timeout);
+      }
+    };
+    /**
+     * @desc Initialize function.
+     */
+
+
+    var init = function init() {
+      /**
+       * When notice should float, it needs to be wrapped inside:
+       * <div class="sui-floating-notices"></div>
+       *
+       * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+       * and after modals markup.
+       */
+      if (nodeWrapper.hasClass('sui-floating-notices')) {
+        utils.openNotice('slide');
+      } else {
+        utils.openNotice('fade');
+      }
+    };
+
+    init();
+    return _this;
+  };
+  /**
+   * @desc Close and clear the alert.
+   *
+   * Assumptions: The element that will trigger this function is part of alert content.
+   *
+   * @param noticeId
+   * The ID of the element serving as the alert container.
+   *
+   */
+
+
+  SUI.closeNotice = function (noticeId) {
+    // Get notification node by ID.
+    var noticeNode = $('#' + noticeId);
+    var nodeWrapper = noticeNode.parent(); // Check if element ID exists.
+
+    if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
+      throw new Error('No element found with id="' + noticeId + '".');
+    } // Check if element has correct attribute.
+
+
+    if ('alert' !== noticeNode.attr('role')) {
+      throw new Error('Notice requires a DOM element with ARIA role of alert.');
+    }
+
+    var utils = utils || {};
+    /**
+     * @desc Allowed types for notification.
+     */
+
+    utils.allowedNotices = ['info', 'blue', 'green', 'success', 'yellow', 'warning', 'red', 'error', 'purple', 'upsell'];
+    /**
+     * @desc Destroy notification.
+     */
+
+    utils.hideNotice = function () {
+      // Remove active class.
+      noticeNode.removeClass('sui-active'); // Remove styling classes.
+
+      $.each(utils.allowedNotices, function (key, value) {
+        noticeNode.removeClass('sui-notice-' + value);
+      }); // Prevent TAB key from accessing the element.
+
+      noticeNode.attr('tabindex', '-1'); // Remove all content from notification.
+
+      noticeNode.empty();
+    };
+    /**
+     * @desc Close notification message.
+     */
+
+
+    utils.closeNotice = function (animation) {
+      var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
+
+      // Close animation.
+      if ('slide' === animation) {
+        noticeNode.slideUp(timeout, function () {
+          return utils.hideNotice();
+        });
+      } else if ('fade' === animation) {
+        noticeNode.fadeOut(timeout, function () {
+          return utils.hideNotice();
+        });
+      } else {
+        noticeNode.hide(timeout, function () {
+          return utils.hideNotice();
+        });
+      }
+    };
+    /**
+     * @desc Initialize function.
+     */
+
+
+    var init = function init() {
+      /**
+       * When notice should float, it needs to be wrapped inside:
+       * <div class="sui-floating-notices"></div>
+       *
+       * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+       * and after modals markup.
+       */
+      if (nodeWrapper.hasClass('sui-floating-notices')) {
+        utils.closeNotice('slide');
+      } else {
+        utils.closeNotice('fade');
+      }
+    };
+
+    init();
+    return _this;
+  };
+  /**
+   * @desc Trigger open and close alert notification functions through element attributes.
+   *
+   * Assumptions: Elements in charge of triggering the actions will be a button or a non-hyperlink element.
+   *
+   */
+
+
+  SUI.notice = function () {
+    var notice = notice || {};
+    notice.Utils = notice.Utils || {};
+    /**
+     * @desc Click an element to open a notification.
+     */
+
+    notice.Utils.Open = function (element) {
+      element.on('click', function () {
+        self = $(this); // Define main variables for open function.
+
+        var noticeId = self.attr('data-notice-open');
+        var noticeMessage = '';
+        var noticeOptions = {}; // Define index to use on for loops.
+
+        var i; // Define maximum number of paragraphs.
+
+        var numbLines = 4; // Check if `data-notice-message` exists.
+
+        if (self.is('[data-notice-message]') && '' !== self.attr('data-notice-message')) {
+          noticeMessage += self.attr('data-notice-message'); // If `data-notice-message` doesn't exists, look for `data-notice-paragraph-[i]` attributes.
+        } else {
+          for (i = 0; i < numbLines; i++) {
+            var index = i + 1;
+            var paragraph = 'data-notice-paragraph-' + index;
+
+            if (self.is('[' + paragraph + ']') && '' !== self.attr(paragraph)) {
+              noticeMessage += '<p>' + self.attr(paragraph) + '</p>';
+            }
+          }
+        } // Check if `data-notice-type` exists.
+
+
+        if (self.is('[data-notice-type]') && '' !== self.attr('data-notice-dismiss-type')) {
+          noticeOptions.type = self.attr('data-notice-type');
+        } // Check if `data-notice-icon` exists.
+
+
+        if (self.is('[data-notice-icon]')) {
+          noticeOptions.icon = self.attr('data-notice-icon');
+        } // Check if `data-notice-dismiss` exists.
+
+
+        if (self.is('[data-notice-dismiss]')) {
+          noticeOptions.dismiss = {};
+
+          if ('true' === self.attr('data-notice-dismiss')) {
+            noticeOptions.dismiss.show = true;
+          } else if ('false' === self.attr('data-notice-dismiss')) {
+            noticeOptions.dismiss.show = false;
+          }
+        } // Check if `data-notice-dismiss-label` exists.
+
+
+        if (self.is('[data-notice-dismiss-label]') && '' !== self.attr('data-notice-dismiss-label')) {
+          noticeOptions.dismiss.label = self.attr('data-notice-dismiss-label');
+        } // Check if `data-notice-dismiss-label` exists.
+
+
+        if (self.is('[data-notice-dismiss-tooltip]') && '' !== self.attr('data-notice-dismiss-tooltip')) {
+          noticeOptions.dismiss.tooltip = self.attr('data-notice-dismiss-tooltip');
+        } // Check if `data-notice-autoclose` exists.
+
+
+        if (self.is('[data-notice-autoclose]')) {
+          noticeOptions.autoclose = {};
+
+          if ('true' === self.attr('data-notice-autoclose')) {
+            noticeOptions.autoclose.show = true;
+          } else if ('false' === self.attr('data-notice-autoclose')) {
+            noticeOptions.autoclose.show = false;
+          }
+        } // Check if `data-notice-autoclose-timeout` exists.
+
+
+        if (self.is('[data-notice-autoclose-timeout]')) {
+          noticeOptions.autoclose = noticeOptions.autoclose || {};
+          noticeOptions.autoclose.timeout = parseInt(self.attr('data-notice-autoclose-timeout'));
+        }
+
+        SUI.openNotice(noticeId, noticeMessage, noticeOptions);
+      });
+    };
+    /**
+     * @desc Close a notification.
+     */
+
+
+    notice.Utils.Close = function (element) {
+      element.on('click', function () {
+        self = $(this);
+        var noticeId;
+
+        if (self.is('[data-notice-close]')) {
+          noticeId = self.closest('.sui-notice').attr('id');
+
+          if ('' !== self.attr('[data-notice-close]')) {
+            noticeId = self.attr('data-notice-close');
+          }
+
+          SUI.closeNotice(noticeId);
+        }
+      });
+    };
+
+    var init = function init() {
+      // Open a notification.
+      var btnOpen = $('[data-notice-open]');
+      notice.Utils.Open(btnOpen); // Close a notification.
+
+      var btnClose = $('[data-notice-close]');
+      notice.Utils.Close(btnClose);
+    };
+
+    init();
+    return _this;
+  };
+
+  SUI.notice();
 })(jQuery);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -3217,7 +4155,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-6-0 .sui-form-field').each(function () {
+    $('.sui-2-7-0 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -3245,7 +4183,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-6-0 .sui-reviews').each(function () {
+  $('.sui-2-7-0 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -3283,7 +4221,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-6-0 .sui-circle-score').each(function () {
+  $('.sui-2-7-0 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -3518,7 +4456,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-6-0 select:not([multiple])').each(function () {
+  $('.sui-2-7-0 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);
@@ -9221,7 +10159,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-6-0 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-7-0 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -9660,12 +10598,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-6-0 .sui-tabs').length) {
+  if (0 !== $('.sui-2-7-0 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-6-0 .sui-tabs-navigation').each(function () {
+    $('.sui-2-7-0 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9985,8 +10923,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-6-0 .sui-tree').length) {
-    $('.sui-2-6-0 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-7-0 .sui-tree').length) {
+    $('.sui-2-7-0 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -10002,7 +10940,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-6-0 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-7-0 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

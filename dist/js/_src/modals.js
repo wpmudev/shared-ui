@@ -15,7 +15,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       SUI.dialogs = {};
     }
 
-    $('.sui-2-6-0 .sui-dialog').each(function () {
+    $('.sui-2-7-0 .sui-dialog').each(function () {
       if (!SUI.dialogs.hasOwnProperty(this.id)) {
         SUI.dialogs[this.id] = new A11yDialog(this, mainEl);
       }

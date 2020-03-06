@@ -192,7 +192,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   aria.handleEscape = function (event) {
     var key = event.which || event.keyCode;
 
-    if (key === aria.Utils.ESC && aria.closeCurrentDialog()) {
+    if (key === aria.KeyCode.ESC && aria.closeCurrentDialog()) {
       event.stopPropagation();
     }
   };
