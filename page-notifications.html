@@ -6,6 +6,14 @@ id: notifications
 is_searchable: true
 ---
 
+<div class="sui-floating-notices">
+
+	<div role="alert" id="float-example-1" class="sui-notice" aria-live="assertive"></div>
+
+	<div role="alert" id="float-example-2" class="sui-notice" aria-live="assertive"></div>
+
+</div>
+
 <div class="sui-row-with-sidenav">
 
 	<!-- Navigation -->
@@ -14,11 +22,15 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
-				<a href="#" role="button" data-tab="float">Float Notifications</a>
+				<a href="#" role="button" data-tab="inline">Inline</a>
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="inline">Inline Notifications</a>
+				<a href="#" role="button" data-tab="float">Float</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="multiline">Multi-Line</a>
 			</li>
 
 			<li class="sui-vertical-tab">
@@ -29,52 +41,142 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Float Notifications -->
-	<div class="sui-box" data-tab="float">
+	<!-- SECTION: Inline -->
+	<div class="sui-box" data-tab="inline">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Float Notifications</h2>
+			<h2 class="sui-box-title">Inline</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<p>The top notifications have different styling than inline notifications and are fixed positioned in the screen. They use the class <code>sui-notice-top</code> or <code>sui-notice-floating</code> in the parent class instead of <code>sui-notice</code>.</p>
+			<label class="sui-label">Inline</label>
 
-			<p>Click on the buttons below to try both notifications:</p>
+			<div class="sui-notice" style="margin-bottom: 10px;">
 
-			<button id="show-notice-top" class="sui-button">
-				<i class="sui-icon-eye" aria-hidden="true"></i>
-				Top Notice
-			</button>
+				<div class="sui-notice-content">
 
-			<button id="show-notice-float" class="sui-button">
-				<i class="sui-icon-eye" aria-hidden="true"></i>
-				Float Notice
-			</button>
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Default</p>
+					</div>
 
-			<p>By default <code>sui-notice-top</code> notification will automatically hide after 3 seconds. If you prefer to let users hide the notification by themselves you can add <code>sui-can-dismiss</code> class to the parent <strong>div</strong> and add a dismiss button to the notice. If you don't want the notice dismissed at all you can add <code>sui-cant-dismiss</code> class to the parent <strong>div</strong>.</p>
+				</div>
 
-			<p>Below are code samples of both: <code>sui-notice-top</code> and <code>sui-notice-floating</code> (floating with button):</p>
+			</div>
 
-			<div class="demo-code-block">
+			<div class="sui-notice sui-notice-info" style="margin-bottom: 10px;">
 
-<pre class="sui-code-snippet html">
-&lt;!-- Top notice with button. --&gt;
-&lt;div class=&quot;sui-notice-top sui-notice-success sui-can-dismiss&quot;&gt;
-	&lt;p&gt;&lt;strong&gt;Notice success:&lt;/strong&gt; Page caching is currently active.&lt;/p&gt;
-	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
-		&lt;a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"&gt;&lt;/a&gt;
-	&lt;/span&gt;
-&lt;/div&gt;
+				<div class="sui-notice-content">
 
-&lt;!-- Floating notice with button. --&gt;
-&lt;div class=&quot;sui-notice-floating sui-notice-info&quot;&gt;
-	&lt;p&gt;You've made changes to your file structure&lt;/p&gt;
-	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
-		&lt;button href="#" class="sui-button sui-button-blue"&gt;&lt;i class="sui-icon-web-globe-world" aria-hidden="true"&gt;&lt;/i&gt;Publish&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Info</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-notice sui-notice-success" style="margin-bottom: 10px;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Success</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-notice sui-notice-warning" style="margin-bottom: 10px;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Warning</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-notice sui-notice-error" style="margin-bottom: 10px;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Error</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-notice sui-notice-upsell">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Upsell</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<label class="sui-label">Inline - Dismissable</label>
+
+			<div id="demo-notice-inline-dismiss" class="sui-notice">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>User can click to the tick button to dismiss</p>
+					</div>
+
+					<div class="sui-notice-actions">
+
+						<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss">
+							<i class="sui-icon-check" aria-hidden="true"></i>
+							<span class="sui-screen-reader-text">Close this notice</span>
+						</button>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="demo-notice-inline-dismiss-tooltip" class="sui-notice">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>User can click to the tick button to dismiss</p>
+					</div>
+
+					<div class="sui-notice-actions">
+
+						<div class="sui-tooltip" data-tooltip="Dismiss">
+
+							<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss-tooltip">
+								<i class="sui-icon-check" aria-hidden="true"></i>
+								<span class="sui-screen-reader-text">Close this notice</span>
+							</button>
+
+						</div>
+
+					</div>
+
+				</div>
 
 			</div>
 
@@ -82,70 +184,112 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Inline Notifications -->
-	<div class="sui-box" data-tab="inline" style="display: none;">
+	<!-- SECTION: Float -->
+	<div class="sui-box" data-tab="float" style="display: none;">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Inline Notifications</h2>
+			<h2 class="sui-box-title">Float</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<div class="sui-box-settings-row">
+			<label class="sui-label">Floating</label>
 
-				<div class="sui-box-settings-col-2">
+			<p style="margin-bottom: 30px;">
+				<button
+					class="sui-button sui-button-blue"
+					data-notice-open="float-example-1"
+					data-notice-paragraph-1="Floating notice dismisses itself after 3 seconds"
+					aria-label="Click to preview floating notice"
+				><i class="sui-icon-eye" aria-hidden="true"></i> Preview</button>
+			</p>
 
-					<label class="sui-settings-label sui-dark">Basic notifications</label>
+			<label class="sui-label">Floating - Dismissable</label>
 
-					<div class="sui-notice">
-						<p>Default notice.</p>
+			<p style="margin-bottom: 0;">
+				<button
+					class="sui-button sui-button-blue"
+					data-notice-open="float-example-2"
+					data-notice-paragraph-1="Floating notice stays visible until user clicks the tick button."
+					data-notice-dismiss="true"
+					aria-label="Click to preview floating notice with dismiss button"
+				><i class="sui-icon-eye" aria-hidden="true"></i> Preview</button>
+			</p>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Multi-Line -->
+	<div class="sui-box" data-tab="multiline" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Multi-Line</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<label class="sui-label">Multi-Line</label>
+
+			<div class="sui-notice" style="margin-bottom: 10px;">
+				<div class="sui-notice-content">
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacinia, augue sit amet ullamcorper lacinia, sapien justo malesuada orci, nec pretium orci erat at ante.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="sui-notice">
+				<div class="sui-notice-content">
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+						<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+					</div>
+				</div>
+			</div>
+
+			<label class="sui-label">Multi-Line Dismissible</label>
+
+			<div id="demo-multiline-dismiss-1" class="sui-notice" style="margin-bottom: 10px;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacinia, augue sit amet ullamcorper lacinia, sapien justo malesuada orci, nec pretium orci erat at ante.</p>
 					</div>
 
-					<div class="sui-notice sui-notice-success">
-						<p>Success notice.</p>
-					</div>
+					<div class="sui-notice-actions">
 
-					<div class="sui-notice sui-notice-warning">
-						<p>Warning notice.</p>
-					</div>
+						<button class="sui-button-icon" data-notice-close="demo-multiline-dismiss-1">
+							<i class="sui-icon-check" aria-hidden="true"></i>
+							<span class="sui-screen-reader-text">Close this notice</span>
+						</button>
 
-					<div class="sui-notice sui-notice-error">
-						<p>Error notice.</p>
-					</div>
-
-					<div class="sui-notice sui-notice-info">
-						<p>Informative notice.</p>
-					</div>
-
-					<div class="sui-notice sui-notice-purple">
-						<p>Purple notice.</p>
-					</div>
-
-					<div class="sui-notice sui-notice-orange">
-						<p>Orange notice.</p>
-					</div>
-
-					<div class="sui-notice sui-notice-loading">
-						<p>Loading content notice.</p>
 					</div>
 
 				</div>
 
 			</div>
 
-			<div class="sui-box-settings-row">
+			<div id="demo-multiline-dismiss-2" class="sui-notice">
 
-				<div class="sui-box-settings-col-2">
+				<div class="sui-notice-content">
 
-					<label class="sui-settings-label sui-dark">Dismissable Notification</label>
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+						<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+					</div>
 
-					<div class="sui-notice sui-notice-success">
+					<div class="sui-notice-actions">
 
-						<p>Success!</p>
-
-						<span class="sui-notice-dismiss">
-							<a role="button" href="#">Dismiss</a>
-						</span>
+						<button class="sui-button-icon" data-notice-close="demo-multiline-dismiss-2">
+							<i class="sui-icon-check" aria-hidden="true"></i>
+							<span class="sui-screen-reader-text">Close this notice</span>
+						</button>
 
 					</div>
 
@@ -153,21 +297,16 @@ is_searchable: true
 
 			</div>
 
-			<div class="sui-box-settings-row">
+			<label class="sui-label">Multi-Line with Action Button</label>
 
-				<div class="sui-box-settings-col-2">
+			<div class="sui-notice">
 
-					<label class="sui-settings-label sui-dark">CTA Notification</label>
+				<div class="sui-notice-content">
 
-					<div class="sui-notice sui-notice-error">
-
-						<p>The performance test didn't return any results. This probably means you're on a local website (which we can't scan) or something went wrong trying to access WPMU DEV. Try again and if this error continues to appear please open a ticket with our support heroes</p>
-
-						<div class="sui-notice-buttons">
-							<a href="#" class="sui-button">Try again</a>
-							<a href="#" class="sui-button">Support</a>
-						</div>
-
+					<div class="sui-notice-message">
+						<i class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></i>
+						<p>This is a notice with an action button.</p>
+						<p><button id="demo-multiline-random-button" class="sui-button">I can be any colour</button></p>
 					</div>
 
 				</div>
@@ -187,21 +326,22 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
-			<!-- Base Structure -->
+			<p><strong>Alert Notices</strong> are ARIA live regions that are known for not working on page load, but instead need the region to be updated after page has loaded.</p>
+
+			<!-- ROW: Base Markup. -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Base Structure</span>
-					<span class="sui-description">All notifications start with this structure but the use of this alone will show a gray notice.</span>
+					<h3 class="sui-settings-label">Base Markup</h3>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
 					<div class="demo-code-block">
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;div role=&quot;alert&quot; id=&quot;unique-id&quot; class=&quot;sui-notice&quot; aria-live=&quot;assertive&quot;&gt;
+	...
 &lt;/div&gt;
 </pre>
 
@@ -211,21 +351,27 @@ is_searchable: true
 
 			</div>
 
-			<!-- Success Notice -->
+			<!-- ROW: Floating Notices. -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Success Notice</span>
+					<h3 class="sui-settings-label">Floating Notices</h3>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
+					<p class="sui-description" style="margin-bottom: 10px;">For a notice to be floated it needs to be placed inside <code>sui-floating-notices</code> wrapper. For even better accessibility, add this wrapper after  <code>sui-header</code> element closing tag.</p>
+
 					<div class="demo-code-block">
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-success&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;!-- END: .sui-header --&gt;
+
+&lt;div class=&quot;sui-floating-notices&quot;&gt;
+	&lt;!-- Base markup goes here. --&gt;
 &lt;/div&gt;
+
+&lt;!-- START: .sui-row-with-sidenav (regular page content) --&gt;
 </pre>
 
 					</div>
@@ -234,22 +380,164 @@ is_searchable: true
 
 			</div>
 
-			<!-- Success Warning -->
+			<!-- ROW: HTML Actions. -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Warning Notice</span>
+					<h3 class="sui-settings-label">HTML Actions</h3>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<div class="demo-code-block">
+					<div class="sui-accordion">
+
+						<!-- ITEM: Open Notice. -->
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+								<div class="sui-accordion-item-title">
+									Open Notice
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<div class="sui-box">
+
+									<div class="sui-box-body">
+
+										<p>Place the following attributes on an element to trigger open notice function:</p>
+
+										<ol>
+
+											<li style="margin-bottom: 20px;">
+												This attribute will open the alert notice you assign:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-open="unique-id"</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span>
+											</li>
+
+											<li style="margin-bottom: 20px;">
+												Use this attribute to type the message that's going to be displayed in the alert notice:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-paragraph-1="First paragraph message"</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
+												&nbsp;<br />
+												<strong>NOTE:</strong> You must have in mind the following:<br />
+												<ul>
+													<li><strong>Paragraph Allowed:</strong> There are up until 4 paragraphs allowed, or if you need some special code you can replace the paragraphs attributes with a single one called <code>data-notice-message</code>.</li>
+													<li><strong>HTML Allowed:</strong> You can print HTML content inside of the attributes in case you have some links to show or want to make text bold, or simply need an special content inside.</li>
+												</ul>
+											</li>
+
+											<li style="margin-bottom: 20px;">
+												Use this attribute if you need to replace default "info" icon, but have in mind to not use full class name only what's after "sui-icon-":<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-icon="info"</code><br />
+												<strong>NOTE:</strong> Spin animation for "loader" icon will be applied automatically.
+											</li>
+
+											<li style="margin-bottom: 20px;">
+												Some notices need a dismiss button, when this happens you can add the attribute below with <strong>true</strong> value on it:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss="true"</code>
+											</li>
+
+											<li>
+												This attribute is linked to the previous one, when you have dismiss button enabled you can add a tooltip to it:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss-tooltip="Click on the button to dismiss this alert"</code>
+											</li>
+
+											<li>
+												You can also change dismiss button label when you have it enabled:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-dismiss-label="Understood"</code>
+											</li>
+
+											<li style="margin-bottom: 20px;">
+												To turn on or off autoclose ability for notification, you can use the attribute below. Just use <strong>true</strong> or <strong>false</strong> as value depending the case:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose="false"</code>
+											</li>
+
+											<li>
+												To change the time notice will remain visible before auto-closing, you can use the following attribute:<br />
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">data-notice-autoclose-timeout="5000"</code>
+											</li>
+
+										</ol>
+
+										<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-warning&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
+&lt;!--
+	Notification using paragraph attributes and auto-close ability
+--&gt;
+&lt;button
+	data-notice-open=&quot;unique-id&quot;
+	data-notice-paragraph-1=&quot;I am a &lt;strong&gt;first&lt;/strong&gt; paragraph&quot;
+	data-notice-paragraph-2=&quot;I am a &lt;strong&gt;second&lt;/strong&gt; paragraph&quot;
+	data-notice-icon=&quot;info&quot;
+	data-notice-dismiss=&quot;false&quot;
+	data-notice-autoclose=&quot;true&quot;
+	data-notice-autoclose-timeout=&quot;5000&quot;
+&gt;
+	Open notice
+&lt;/button&gt;
+
+&lt;!--
+	Notification using message attribute (instead of paragraphs) and dismiss button
+--&gt;
+&lt;button
+	data-notice-open=&quot;unique-id&quot;
+	data-notice-message=&quot;&lt;h2&gt;Alert title&lt;/h2&gt;&lt;p&gt;I am a paragraph&lt;/p&gt;&quot;
+	data-notice-icon=&quot;info&quot;
+	data-notice-dismiss=&quot;true&quot;
+	data-notice-dismiss-label=&quot;Click to close&quot;
+	data-notice-dismiss-tooltip=&quot;Dismiss&quot;
+&gt;
+	Open notice
+&lt;/button&gt;
 </pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- ITEM: Close Notice. -->
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+								<div class="sui-accordion-item-title">
+									Close Notice
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<div class="sui-box">
+
+									<div class="sui-box-body">
+
+										<p>To dismiss (close) an alert notice add <code>data-notice-close=""</code> attribute to an element inside the notice that's going to trigger the closing action.</p>
+
+										<p><strong>IMPORTANT:</strong> If the attribute value remains empty, it should be placed inside alert notice to trigger correctly the action or else value should be the unique ID from the notification to close.</p>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button data-notice-close=""&gt;Close this notice&lt;/button&gt;
+</pre>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					</div>
 
@@ -257,172 +545,192 @@ is_searchable: true
 
 			</div>
 
-			<!-- Error Notice -->
+			<!-- ROW: JS Actions. -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Error Notice</span>
+					<h3 class="sui-settings-label">JS Actions</h3>
+					<p class="sui-description"></p>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<div class="demo-code-block">
+					<div class="sui-accordion">
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
+						<!-- ITEM: Open Notice. -->
+						<div class="sui-accordion-item">
+
+							<div class="sui-accordion-item-header">
+								<div class="sui-accordion-item-title">
+									Open Notice
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<div class="sui-box">
+
+									<div class="sui-box-body">
+
+										<p>Trigger the function below when you need to notify a message to users:</p>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
 </pre>
 
-					</div>
+										</div>
 
-				</div>
+										<ol>
 
-			</div>
+											<li style="margin-bottom: 20px;">
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeId</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
+												The unique ID of the element serving as the alert notice container.<br />
+											</li>
 
-			<!-- Info Notice -->
-			<div class="sui-box-settings-row">
+											<li style="margin-bottom: 20px;">
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeMessage</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
+												Include here the message that's going to be displayed in the notice properly wrapped on <strong>p</strong> tag.<br />
+												&nbsp;<br />
+												<code>let noticeMessage = '&lt;p&gt;Message with &lt;strong&gt;bold text&lt;/strong&gt;&lt;/p&gt;';</code>
+											</li>
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Info Notice</span>
-				</div>
+											<li>
+												<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeOptions</code><br />
+												This paramether will allow you to overwrite default settings and styles for the notice.
 
-				<div class="sui-box-settings-col-2">
+												<div class="demo-code-block" style="margin-top: 5px;">
+<pre class="sui-code-snippet js">
+let noticeOptions = {};
 
-					<div class="demo-code-block">
+/**
+ * Overwrite type of notice.
+ *
+ * Allowed options:
+ * - blue
+ * - info
+ * - green
+ * - success
+ * - yellow
+ * - warning
+ * - red
+ * - error
+ * - purple
+ * - upsell
+ *
+ * Or leave it blank to get default (gray) notification.
+ */
+noticeOptions.type = 'info';
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-info&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
+/**
+ * Overwrite notice icon.
+ *
+ * Add the name of the icon without its prefix `sui-icon-`.
+ * The "loader" icon will also add `sui-loading` state to the icon.
+ */
+noticeOptions.icon = 'wordpress';
+
+/**
+ * Dismiss button options.
+ */
+noticeOptions.dismiss = {};
+
+// Set this option true if you want to display dismiss button.
+noticeOptions.dismiss.show = true;
+
+// If dismiss button is visible, you can change its label.
+noticeOptions.dismiss.label = 'A new label to dismiss';
+
+// If dismiss button is visible, you can also show a tooltip.
+noticeOptions.dismiss.tooltip = 'Dismiss tooltip';
+
+/**
+ * Autoclose options.
+ */
+noticeOptions.autoclose = {};
+
+// To disable this option, you just need to set it to false.
+noticeOptions.autoclose.show = false;
+
+// When autoclose is enabled but you want to change it's timing.
+noticeOptions.autoclose.timeout = 5000; // Closes 5 seconds after show animation ends.
+</pre>
+												</div>
+
+											</li>
+
+										</ol>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+( function( $ ) {
+
+	const button = $( 'button' );
+
+	button.on( 'click', function() {
+
+		let self                 = $( this ),
+			noticeId             = 'unique-id', // Do not include number sign.
+			noticeMessage        = 'Type message here',
+			noticeOptions        = {}
+			;
+
+		// Disable autoclose.
+		noticeOptions.autoclose = {};
+		noticeOptions.autoclose.show = false;
+
+		SUI.openNotice( noticeId, noticeMessage, noticeOptions );
+
+	});
+}( jQuery ) );
 </pre>
 
-					</div>
+										</div>
 
-				</div>
+									</div>
 
-			</div>
+								</div>
 
-			<!-- Purple Notice -->
-			<div class="sui-box-settings-row">
+							</div>
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Purple Notice</span>
-				</div>
+						</div>
 
-				<div class="sui-box-settings-col-2">
+						<!-- ITEM: Close Notice. -->
+						<div class="sui-accordion-item">
 
-					<div class="demo-code-block">
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-purple&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
+							<div class="sui-accordion-item-header">
+								<div class="sui-accordion-item-title">
+									Close Notice
+									<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+							<div class="sui-accordion-item-body">
+
+								<div class="sui-box">
+
+									<div class="sui-box-body">
+
+										<p>To dismiss (close) an alert notice use the function below being <strong>unique-id</strong> the ID of the notification you want to close.</p>
+
+										<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+SUI.closeNotice( 'unique-id' );
 </pre>
 
-					</div>
+										</div>
 
-				</div>
+									</div>
 
-			</div>
+								</div>
 
-			<!-- Orange Notice -->
-			<div class="sui-box-settings-row">
+							</div>
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Orange Notice</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-orange&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- Loading Notice -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Loading Notice</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-loading&quot;&gt;
-	&lt;p&gt; ... &lt;/p&gt;
-&lt;/div&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- Dismissable Notice -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Dismissable Notice</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice&quot;&gt;
-
-	&lt;p&gt; ... &lt;/p&gt;
-
-	&lt;span class=&quot;sui-notice-dismiss&quot;&gt;
-		&lt;a href=&quot;#&quot;&gt;Dismiss&lt;/a&gt;
-	&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- CTA Notice -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">CTA Notice</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-notice sui-notice-error&quot;&gt;
-
-	&lt;p&gt; ... &lt;/p&gt;
-
-	&lt;div class=&quot;sui-notice-buttons&quot;&gt;
-		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
-		&lt;a href=&quot;#&quot; class=&quot;sui-button&quot;&gt;Button&lt;/a&gt;
-	&lt;/div&gt;
-
-&lt;/div&gt;
-</pre>
+						</div>
 
 					</div>
 
@@ -434,20 +742,4 @@ is_searchable: true
 
 	</div>
 
-</div>
-
-<!-- SAMPLE: Top notice with button. -->
-<div class="sui-notice-top sui-notice-success sui-can-dismiss" style="display: none;" tabindex="-1">
-	<p><strong>Notice success:</strong> Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-	<span class="sui-notice-dismiss">
-		<a role="button" href="#" aria-label="Dismiss" class="sui-icon-check"></a>
-	</span>
-</div>
-
-<!-- SAMPLE: Floating notice with button. -->
-<div class="sui-notice-floating sui-notice-info" style="display: none;" tabindex="-1">
-	<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-	<div class="sui-notice-buttons">
-		<button href="#" class="sui-button sui-button-blue"><i class="sui-icon-web-globe-world" aria-hidden="true"></i>Publish</button>
-	</div>
 </div>
