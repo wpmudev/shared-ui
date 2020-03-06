@@ -150,11 +150,11 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		left: 160px;
 		padding: #{$sui-gutter-md / 2};
 
 		.sui-notice {
-			width: 600px;
+			width: 100%;
+			max-width: 600px;
 			pointer-events: initial;
 			z-index: 1;
 			margin: 0 auto #{$sui-gutter-md / 2};
@@ -205,6 +205,10 @@
 
 			&:last-child {
 				margin-bottom: 0;
+			}
+
+			@media only screen and (max-width: 640px) {
+				max-width: 100%;
 			}
 		}
 	}
@@ -267,7 +271,7 @@
 	}
 }
 
-// VARIATION: RTL Support.
+// RTL Support.
 @include body-class(true, true) {
 
 	.sui-notice {
@@ -439,6 +443,40 @@
 					.sui-notice-content {
 						box-shadow: 0 5px 25px 0 rgba(0,0,0,0.15), inset -2px 0 0 0 $black;
 					}
+				}
+			}
+		}
+	}
+}
+
+// WordPress Support.
+@include body-class {
+
+	&.wp-admin {
+
+		.sui-floating-notices {
+			left: map-get($wordpress, adminmenu);
+		}
+
+		// Folded sidebar.
+		&.folded {
+
+			.sui-floating-notices {
+				left: map-get($wordpress, adminmenu-sm);
+			}
+		}
+
+		// Auto-folded sidebar.
+		&.auto-fold {
+
+			.sui-floating-notices {
+
+				@media only screen and (max-width: 960px) {
+					left: map-get($wordpress, adminmenu-sm);
+				}
+
+				@media only screen and (max-width: 782px) {
+					left: 0;
 				}
 			}
 		}
