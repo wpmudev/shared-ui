@@ -1,15 +1,26 @@
 <div id="adminmenumain" role="navigation" aria-label="Main menu">
 
+	<a href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+
+	<a href="#wp-toolbar" class="screen-reader-shortcut">Skip to toolbar</a>
+
 	<div id="adminmenuback"></div>
 
 	<div id="adminmenuwrap">
 
 		<ul id="adminmenu">
 
-			<li class="{% if page.url == '/' %}current{% endif %}">
-				<a href="{{ '/' | relative_url }}" class="menu-top">
+			<li class="wp-first-item{% if page.url == '/' %} current{% endif %} wp-not-current-submenu menu-top menu-top-first">
+
+				<a
+					href="{{ '/' | relative_url }}"
+					class="wp-first-item{% if page.url == '/' %} current{% endif %} menu-top"
+					{% if page.url == '/' %}aria-current="page"{% endif %}
+				>
+					<div class="wp-menu-image dashicons-before dashicons-admin-dashboard"><br></div>
 					<div class="wp-menu-name">Home</div>
 				</a>
+
 			</li>
 
 			{% for parent in site.adminmenu %}
@@ -45,6 +56,15 @@
 				</li>
 
 			{% endfor %}
+
+			<li id="collapse-menu">
+
+				<button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true">
+					<span class="collapse-button-icon" aria-hidden="true"></span>
+					<span class="collapse-button-label">Collapse menu</span>
+				</button>
+
+			</li>
 
 		</ul>
 
