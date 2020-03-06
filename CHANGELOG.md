@@ -1,3 +1,7 @@
+v2.8.0
+- [Enhance] Modals: Remove legacy code support.
+
+
 v2.7.0
 - [New] Multi Strings: Element to allow users add a list of strings.
 			Dev Notes: Go to https://wpmudev.github.io/shared-ui/multistrings/ and
