@@ -15,6 +15,25 @@
 
 	aria.Utils = aria.Utils || {};
 
+	// Multiple notices can be open. Keep trakc of them with this object.
+	aria.OpenNoticeList = aria.OpenNoticeList || {};
+
+	/**
+	 * @returns the last opened dialog (the current dialog)
+	 */
+	aria.getNotice = function( noticeId ) {
+
+		if (
+			aria.OpenNoticeList &&
+			Object.keys( aria.OpenNoticeList ).length &&
+			'undefined' !== typeof aria.OpenNoticeList[ noticeId ]
+		) {
+			return aria.OpenNoticeList[ noticeId ];
+		}
+
+		return false;
+	};
+
 	/**
 	 * @desc Verify if property is an array.
 	 */
@@ -98,6 +117,7 @@
 
 	aria.Notice = function( noticeId, noticeMessage, noticeOptions ) {
 
+		this.noticeId = noticeId;
 		this.noticeNode = document.getElementById( noticeId );
 		this.nodeWrapper = this.noticeNode.parentNode;
 
@@ -116,6 +136,8 @@
 		if ( null === typeof noticeMessage || 'undefined' === typeof noticeMessage || '' === noticeMessage ) {
 			throw new Error( 'Notice requires a message to print.' );
 		}
+
+		aria.OpenNoticeList[ this.noticeId ] = this;
 
 		this.allowedNotices = [
 			'info',
@@ -245,10 +267,9 @@
 		 */
 		showNotice = ( animation, timeout = 300 ) => {
 
-			const type      = this.options[0].type;
-			const dismiss   = this.options[0].dismiss;
-			const autoclose = this.options[0].autoclose,
-				$noticeNode = $( this.noticeNode );
+			const self = this,
+				$noticeNode = $( this.noticeNode ),
+				{ autoclose, type, dismiss } = this.options[0];
 
 			// Add active class.
 			this.noticeNode.classList.add( 'sui-active' );
@@ -257,7 +278,7 @@
 			$.each( this.allowedNotices, function( key, value ) {
 
 				if ( value === type ) {
-					this.noticeNode.classList.add( 'sui-notice-' + value );
+					self.noticeNode.classList.add( 'sui-notice-' + value );
 				}
 			});
 
@@ -280,13 +301,13 @@
 
 						// Dismiss button.
 						$noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
-							SUI.closeNotice( noticeId );
+							self.close();
 						});
 					} else {
 
 						// Check if notice auto-closes.
 						if ( true === autoclose.show ) {
-							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+							setTimeout( () => self.close(), parseInt( autoclose.timeout ) );
 						}
 					}
 				});
@@ -302,13 +323,13 @@
 
 						// Dismiss button.
 						$noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
-							SUI.closeNotice( noticeId );
+							self.close();
 						});
 					} else {
 
 						// Check if notice auto-closes.
 						if ( true === autoclose.show ) {
-							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+							setTimeout( () => self.close(), parseInt( autoclose.timeout ) );
 						}
 					}
 				});
@@ -324,13 +345,13 @@
 
 						// Dismiss button.
 						$noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
-							SUI.closeNotice( noticeId );
+							self.close();
 						});
 					} else {
 
 						// Check if notice auto-closes.
 						if ( true === autoclose.show ) {
-							setTimeout( () => SUI.closeNotice( noticeId ), parseInt( autoclose.timeout ) );
+							setTimeout( () => self.close(), parseInt( autoclose.timeout ) );
 						}
 					}
 				});
@@ -388,6 +409,77 @@
 		};
 
 		init();
+	};
+
+	aria.Notice.prototype.close = function() {
+
+		const self = this;
+
+		delete aria.OpenNoticeList[ this.noticeId ];
+
+		/**
+		 * @desc Destroy notification.
+		 */
+		const hideNotice = () => {
+
+			// Remove active class.
+			this.noticeNode.classList.remove( 'sui-active' );
+
+			// Remove styling classes.
+			$.each( this.allowedNotices, function( key, value ) {
+				self.noticeNode.classList.remove( 'sui-notice-' + value );
+			});
+
+			// Prevent TAB key from accessing the element.
+			this.noticeNode.setAttribute( 'tabindex', '-1' );
+
+			// Remove all content from notification.
+			this.noticeNode.innerHTML = '';
+
+			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
+				aria.Utils.handleFocus( this.nodeWrapper );
+			}
+		},
+
+		/**
+		 * @desc Close notification message.
+		 */
+		closeNotice = ( animation, timeout = 300 ) => {
+
+			const $noticeNode = $( this.noticeNode );
+
+			// Close animation.
+			if ( 'slide' === animation ) {
+				$noticeNode.slideUp( timeout, () => hideNotice() );
+			} else if ( 'fade' === animation ) {
+				$noticeNode.fadeOut( timeout, () => hideNotice() );
+			} else {
+				$noticeNode.hide( timeout, () => hideNotice() );
+			}
+		},
+
+		/**
+		 * @desc Initialize function.
+		 */
+		init = () => {
+
+			/**
+			 * When notice should float, it needs to be wrapped inside:
+			 * <div class="sui-floating-notices"></div>
+			 *
+			 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+			 * and after modals markup.
+			 */
+			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
+				closeNotice( 'slide' );
+			} else {
+				closeNotice( 'fade' );
+			}
+		};
+
+		init();
+
+		return this;
 	};
 
 	/**
@@ -783,99 +875,107 @@
 	 */
 	SUI.closeNotice = ( noticeId ) => {
 
-		// Get notification node by ID.
-		const noticeNode  = $( '#' + noticeId );
-		const nodeWrapper = noticeNode.parent();
+		const Notice = aria.getNotice( noticeId );
 
 		// Check if element ID exists.
-		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
-			throw new Error( 'No element found with id="' + noticeId + '".' );
+		if ( ! Notice ) {
+			throw new Error( 'No open notice found with id="' + noticeId + '".' );
 		}
+		Notice.close();
 
-		// Check if element has correct attribute.
-		if ( 'alert' !== noticeNode.attr( 'role' ) ) {
-			throw new Error( 'Notice requires a DOM element with ARIA role of alert.' );
-		}
+		// Get notification node by ID.
+		//const noticeNode  = $( '#' + noticeId );
+		//const nodeWrapper = noticeNode.parent();
 
-		let utils = utils || {};
+		//// Check if element ID exists.
+		//if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
+		//	throw new Error( 'No element found with id="' + noticeId + '".' );
+		//}
 
-		/**
-		 * @desc Allowed types for notification.
-		 */
-		utils.allowedNotices = [
-			'info',
-			'blue',
-			'green',
-			'success',
-			'yellow',
-			'warning',
-			'red',
-			'error',
-			'purple',
-			'upsell',
-		];
+		//// Check if element has correct attribute.
+		//if ( 'alert' !== noticeNode.attr( 'role' ) ) {
+		//	throw new Error( 'Notice requires a DOM element with ARIA role of alert.' );
+		//}
 
-		/**
-		 * @desc Destroy notification.
-		 */
-		utils.hideNotice = () => {
+		//let utils = utils || {};
 
-			// Remove active class.
-			noticeNode.removeClass( 'sui-active' );
+		///**
+		// * @desc Allowed types for notification.
+		// */
+		//utils.allowedNotices = [
+		//	'info',
+		//	'blue',
+		//	'green',
+		//	'success',
+		//	'yellow',
+		//	'warning',
+		//	'red',
+		//	'error',
+		//	'purple',
+		//	'upsell',
+		//];
 
-			// Remove styling classes.
-			$.each( utils.allowedNotices, function( key, value ) {
-				noticeNode.removeClass( 'sui-notice-' + value );
-			});
+		///**
+		// * @desc Destroy notification.
+		// */
+		//utils.hideNotice = () => {
 
-			// Prevent TAB key from accessing the element.
-			noticeNode.attr( 'tabindex', '-1' );
+		//	// Remove active class.
+		//	noticeNode.removeClass( 'sui-active' );
 
-			// Remove all content from notification.
-			noticeNode.empty();
+		//	// Remove styling classes.
+		//	$.each( utils.allowedNotices, function( key, value ) {
+		//		noticeNode.removeClass( 'sui-notice-' + value );
+		//	});
 
-			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
-				aria.Utils.handleFocus( nodeWrapper );
-			}
-		};
+		//	// Prevent TAB key from accessing the element.
+		//	noticeNode.attr( 'tabindex', '-1' );
 
-		/**
-		 * @desc Close notification message.
-		 */
-		utils.closeNotice = ( animation, timeout = 300 ) => {
+		//	// Remove all content from notification.
+		//	noticeNode.empty();
 
-			// Close animation.
-			if ( 'slide' === animation ) {
-				noticeNode.slideUp( timeout, () => utils.hideNotice() );
-			} else if ( 'fade' === animation ) {
-				noticeNode.fadeOut( timeout, () => utils.hideNotice() );
-			} else {
-				noticeNode.hide( timeout, () => utils.hideNotice() );
-			}
-		};
+		//	if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+		//		aria.Utils.handleFocus( nodeWrapper );
+		//	}
+		//};
 
-		/**
-		 * @desc Initialize function.
-		 */
-		let init = () => {
+		///**
+		// * @desc Close notification message.
+		// */
+		//utils.closeNotice = ( animation, timeout = 300 ) => {
 
-			/**
-			 * When notice should float, it needs to be wrapped inside:
-			 * <div class="sui-floating-notices"></div>
-			 *
-			 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
-			 * and after modals markup.
-			 */
-			if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
-				utils.closeNotice( 'slide' );
-			} else {
-				utils.closeNotice( 'fade' );
-			}
-		};
+		//	// Close animation.
+		//	if ( 'slide' === animation ) {
+		//		noticeNode.slideUp( timeout, () => utils.hideNotice() );
+		//	} else if ( 'fade' === animation ) {
+		//		noticeNode.fadeOut( timeout, () => utils.hideNotice() );
+		//	} else {
+		//		noticeNode.hide( timeout, () => utils.hideNotice() );
+		//	}
+		//};
 
-		init();
+		///**
+		// * @desc Initialize function.
+		// */
+		//let init = () => {
 
-		return this;
+		//	/**
+		//	 * When notice should float, it needs to be wrapped inside:
+		//	 * <div class="sui-floating-notices"></div>
+		//	 *
+		//	 * IMPORTANT: This wrapper goes before "sui-wrap" closing tag
+		//	 * and after modals markup.
+		//	 */
+		//	if ( nodeWrapper.hasClass( 'sui-floating-notices' ) ) {
+		//		utils.closeNotice( 'slide' );
+		//	} else {
+		//		utils.closeNotice( 'fade' );
+		//	}
+		//};
+
+		//init();
+
+		//return this;
 
 	};
 
@@ -887,6 +987,9 @@
 	 */
 	SUI.notice = () => {
 
+
+
+		return this;
 		let notice = notice || {};
 
 		notice.Utils = notice.Utils || {};
