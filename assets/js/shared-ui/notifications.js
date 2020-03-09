@@ -78,43 +78,6 @@
 		return aria.Utils.deepMerge( target, ...sources );
 	};
 
-	aria.Utils.handleFocus = ( nodeWrapper ) => {
-
-		// TODO: improve the way to retrieve focusable elements.
-		const focusable = nodeWrapper.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' ),
-			$nodewrapper = $( nodeWrapper );
-
-		if ( ! focusable.length ) {
-			$nodewrapper.off( 'keydown' );
-			return;
-		}
-
-		const sequence = Object.values( focusable ),
-			first = sequence[0],
-			last = sequence[ sequence.length - 1 ];
-
-		first.focus();
-		$nodewrapper.off( 'keydown' ).on( 'keydown', e => {
-			if ( 9 !== e.keyCode ) {
-				return;
-			}
-
-			const backward = e.shiftKey;
-
-			if ( document.activeElement.isSameNode( first ) && backward ) {
-				last.focus();
-				e.preventDefault();
-				return;
-			}
-
-			if ( document.activeElement.isSameNode( last ) && ! backward ) {
-				first.focus();
-				e.preventDefault();
-				return;
-			}
-		});
-	};
-
 	aria.Notice = function( noticeId, noticeMessage, noticeOptions ) {
 
 		this.noticeId = noticeId;
@@ -138,6 +101,8 @@
 		}
 
 		aria.OpenNoticeList[ this.noticeId ] = this;
+
+		this.activeElementBeforeOpen = document.activeElement.className;
 
 		this.allowedNotices = [
 			'info',
@@ -388,7 +353,7 @@
 			}
 
 			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
-				aria.Utils.handleFocus( this.nodeWrapper );
+				this.handleFocus();
 			}
 		},
 
@@ -437,7 +402,7 @@
 			this.noticeNode.innerHTML = '';
 
 			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
-				aria.Utils.handleFocus( this.nodeWrapper );
+				this.handleFocus();
 			}
 		},
 
@@ -480,6 +445,43 @@
 		init();
 
 		return this;
+	};
+
+	aria.Notice.prototype.handleFocus = function() {
+
+		// TODO: improve the way to retrieve focusable elements.
+		const focusable = this.nodeWrapper.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' ),
+			$nodewrapper = $( this.nodeWrapper );
+
+		if ( ! focusable.length ) {
+			$nodewrapper.off( 'keydown' );
+			return;
+		}
+
+		const sequence = Object.values( focusable ),
+			first = sequence[0],
+			last = sequence[ sequence.length - 1 ];
+
+		first.focus();
+		$nodewrapper.off( 'keydown' ).on( 'keydown', e => {
+			if ( 9 !== e.keyCode ) {
+				return;
+			}
+
+			const backward = e.shiftKey;
+
+			if ( document.activeElement.isSameNode( first ) && backward ) {
+				last.focus();
+				e.preventDefault();
+				return;
+			}
+
+			if ( document.activeElement.isSameNode( last ) && ! backward ) {
+				first.focus();
+				e.preventDefault();
+				return;
+			}
+		});
 	};
 
 	/**
