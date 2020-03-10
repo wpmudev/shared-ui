@@ -18,6 +18,8 @@
 	// Multiple notices can be open. Keep trakc of them with this object.
 	aria.OpenNoticeList = aria.OpenNoticeList || {};
 
+	aria.Utils.activeElementBeforeOpen = false;
+
 	/**
 	 * @returns the last opened dialog (the current dialog)
 	 */
@@ -46,6 +48,92 @@
 		return false;
 
 	};
+
+	/**
+	 * @desc Set focus on descendant nodes until the first
+	 * focusable element is found.
+	 *
+	 * @param element
+	 * DOM node for which to find the first focusable descendant.
+	 *
+	 * @returns
+	 * true if a focusable element is found and focus is set.
+	 */
+	aria.Utils.focusFirstDescendant = function( element ) {
+
+		for ( let i = 0; i < element.childNodes.length; i++ ) {
+			let child = element.childNodes[i];
+
+			if ( aria.Utils.attemptFocus( child ) || aria.Utils.focusFirstDescendant( child ) ) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}; // end focusFirstDescendant
+
+	/**
+	 * Verify if element can receive focus.
+	 * @param {Element} element the element to attempt focus on.
+	 */
+	aria.Utils.isFocusable = function( element ) {
+
+		if (
+			0 < element.tabIndex ||
+			( 0 === element.tabIndex && null !== element.getAttribute( 'tabIndex' ) )
+		) {
+			return true;
+		}
+
+		if ( element.disabled ) {
+			return false;
+		}
+
+		switch ( element.nodeName ) {
+
+			case 'A' :
+				return !! element.href && element.rel != 'ignore';
+
+			case 'INPUT' :
+				return element.type != 'hidden' && element.type != 'file';
+
+			case 'BUTTON' :
+			case 'SELECT' :
+			case 'TEXTAREA' :
+				return true;
+
+			default :
+				return false;
+		}
+	};
+
+	/**
+	 * @desc Set Attempt to set focus on the current node.
+	 *
+	 * @param element
+	 * The node to attempt to focus on.
+	 *
+	 * @returns
+	 * true if element is focused.
+	 */
+	aria.Utils.attemptFocus = function( element ) {
+
+		if ( ! aria.Utils.isFocusable( element ) ) {
+			return false;
+		}
+
+		try {
+			element.focus();
+		} catch ( e ) {
+
+			// Done.
+		}
+
+		return (
+			document.activeElement === element
+		);
+	}; // end attemptFocus
 
 	/**
 	 * @desc Deep merge two objects.
@@ -89,7 +177,6 @@
 			throw new Error( 'No element found with id="' + noticeId + '".' );
 		}
 
-
 		// Check if element has correct attribute.
 		if ( 'alert' !== this.noticeNode.getAttribute( 'role' ) ) {
 			throw new Error( 'Notice requires a DOM element with ARIA role of alert.' );
@@ -102,7 +189,7 @@
 
 		aria.OpenNoticeList[ this.noticeId ] = this;
 
-		this.activeElementBeforeOpen = document.activeElement.className;
+		aria.Utils.activeElementBeforeOpen = aria.Utils.activeElementBeforeOpen || document.activeElement;
 
 		this.allowedNotices = [
 			'info',
@@ -353,7 +440,7 @@
 			}
 
 			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
-				this.handleFocus();
+				this.trapFocus();
 			}
 		},
 
@@ -402,7 +489,7 @@
 			this.noticeNode.innerHTML = '';
 
 			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
-				this.handleFocus();
+				this.trapFocus();
 			}
 		},
 
@@ -447,14 +534,29 @@
 		return this;
 	};
 
-	aria.Notice.prototype.handleFocus = function() {
+	aria.Notice.prototype.trapFocus = function() {
 
 		// TODO: improve the way to retrieve focusable elements.
 		const focusable = this.nodeWrapper.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' ),
 			$nodewrapper = $( this.nodeWrapper );
 
+		// All notices were closed. Get focus back to the page.
 		if ( ! focusable.length ) {
 			$nodewrapper.off( 'keydown' );
+
+			// If the notice was opened on load...
+			if ( 'BODY' === aria.Utils.activeElementBeforeOpen.tagName ) {
+
+				// Focus on the first element after the notices' wrapper.
+				aria.Utils.focusFirstDescendant( this.nodeWrapper.nextElementSibling );
+
+			} else {
+
+				// Focus on the last focused element.
+				aria.Utils.activeElementBeforeOpen.focus();
+			}
+
+			aria.Utils.activeElementBeforeOpen = false;
 			return;
 		}
 
