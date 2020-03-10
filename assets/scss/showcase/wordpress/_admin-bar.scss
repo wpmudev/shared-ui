@@ -1,0 +1,133 @@
+#wpadminbar {
+	width: 100%;
+	min-width: 600px;
+	height: 32px;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	background: palette(adminbar, background);
+	direction: ltr;
+	color: palette(adminbar, color);
+	font-size: 13px;
+	line-height: 2.46153846;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+
+	* {
+		width: auto;
+		height: auto;
+		position: static;
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		box-sizing: content-box;
+		transition: none;
+		font-size: 13px;
+		line-height: 2.46153846;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-weight: 400;
+		text-shadow: none;
+		text-transform: none;
+		letter-spacing: normal;
+		-moz-osx-font-smoothing: auto;
+		-webkit-font-smoothing: subpixel-antialiased;
+
+		@include device(max-width, tablet) {
+			font-size: 14px;
+			line-height: 2.28571428;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			font-weight: 400;
+		}
+	}
+
+	a {
+
+		&,
+		img,
+		&:hover,
+		img:hover {
+			border: none;
+			background: 0 0;
+			text-decoration: none;
+		}
+
+		&:focus {
+			outline-offset: -1px;
+		}
+	}
+
+	a:focus,
+	a:active,
+	div,
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="text"],
+	input[type="url"],
+	select,
+	textarea {
+		box-shadow: none;
+	}
+
+	.ab-top-menu,
+	.ab-top-secondary {
+
+		@include device(max-width, tablet) {
+			position: static;
+		}
+	}
+
+	.ab-top-secondary {
+		float: right;
+	}
+
+	.quicklinks ul {
+		text-align: left;
+	}
+
+	.ab-sub-wrapper,
+	ul,
+	ul li {
+		clear: none;
+		position: relative;
+		z-index: 99999;
+		margin: 0;
+		padding: 0;
+		background: 0 0;
+		list-style: none;
+		text-indent: 0;
+	}
+
+	.screen-reader-shortcut {
+		position: absolute;
+		top: -1000em;
+
+		&:focus {
+			width: auto;
+			height: auto;
+			display: block;
+			z-index: 100000;
+			top: 7px;
+			left: 6px;
+			padding: 15px 23px 14px;
+			background: palette(body, background);
+			box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+			color: palette(link, default);
+			font-size: 14px;
+			line-height: normal;
+			font-weight: 600;
+			text-decoration: none;
+		}
+	}
+
+	@include device(max-width, mobile) {
+		position: absolute;
+	}
+
+	@include device(max-width, tablet) {
+		min-width: 240px;
+		height: 46px;
+	}
+}
