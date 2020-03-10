@@ -136,6 +136,21 @@
 	}; // end attemptFocus
 
 	/**
+	 * Gets the focusable children of a node.
+	 * @param {Element} parentNode The parent node.
+	 */
+	aria.Utils.getFocusableElements = function( parentNode ) {
+
+		const focusableElements = [
+			...parentNode.querySelectorAll(
+				'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+			)
+		].filter( el => ! el.hasAttribute( 'disabled' ) );
+
+		return focusableElements;
+	};
+
+	/**
 	 * @desc Deep merge two objects.
 	 * Watch out for infinite recursion on circular references.
 	 */
@@ -536,8 +551,7 @@
 
 	aria.Notice.prototype.trapFocus = function() {
 
-		// TODO: improve the way to retrieve focusable elements.
-		const focusable = this.nodeWrapper.querySelectorAll( 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])' ),
+		const focusable = aria.Utils.getFocusableElements( this.nodeWrapper ),
 			$nodewrapper = $( this.nodeWrapper );
 
 		// All notices were closed. Get focus back to the page.
