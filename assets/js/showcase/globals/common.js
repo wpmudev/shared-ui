@@ -2,7 +2,7 @@
  * @output wp-admin/js/common.js
  */
 
-/* global setUserSetting, ajaxurl, commonL10n, alert, confirm, pagenow */
+/* global ajaxurl, alert, confirm, pagenow */
 /* global columns, screenMeta */
 
 /**
@@ -198,7 +198,7 @@ window.showNotice = {
 	 * @returns {boolean} Returns true if the message is confirmed.
 	 */
 	warn: function() {
-		let msg = commonL10n.warnDelete || '';
+		let msg = 'Are you sure you want to delete?' || '';
 		if ( confirm( msg ) ) {
 			return true;
 		}
@@ -537,22 +537,17 @@ $document.ready( function() {
 		if ( 960 > viewportWidth ) {
 			if ( $body.hasClass( 'auto-fold' ) ) {
 				$body.removeClass( 'auto-fold' ).removeClass( 'folded' );
-				setUserSetting( 'unfold', 1 );
-				setUserSetting( 'mfold', 'o' );
 				menuState = 'open';
 			} else {
 				$body.addClass( 'auto-fold' );
-				setUserSetting( 'unfold', 0 );
 				menuState = 'folded';
 			}
 		} else {
 			if ( $body.hasClass( 'folded' ) ) {
 				$body.removeClass( 'folded' );
-				setUserSetting( 'mfold', 'o' );
 				menuState = 'open';
 			} else {
 				$body.addClass( 'folded' );
-				setUserSetting( 'mfold', 'f' );
 				menuState = 'folded';
 			}
 		}
@@ -776,7 +771,7 @@ $document.ready( function() {
 		$( '.notice.is-dismissible' ).each( function() {
 			let $el = $( this ),
 				$button = $( '<button type="button" class="notice-dismiss"><span class="screen-reader-text"></span></button>' ),
-				btnText = commonL10n.dismiss || '';
+				btnText = 'Dismiss' || '';
 
 			// Ensure plain text
 			$button.find( '.screen-reader-text' ).text( btnText );
@@ -936,7 +931,6 @@ return checked;
 	});
 
 	$( '#default-password-nag-no' ).click( function() {
-		setUserSetting( 'default_password_nag', 'hide' );
 		$( 'div.default-password-nag' ).hide();
 		return false;
 	});
@@ -1609,11 +1603,11 @@ return;
 	$document.on( 'wp-menu-state-set wp-collapse-menu', function( event, eventData ) {
 		let $collapseButton = $( '#collapse-button' ),
 			ariaExpanded = 'true',
-			ariaLabelText = commonL10n.collapseMenu;
+			ariaLabelText = 'Collapse Main Menu';
 
 		if ( 'folded' === eventData.state ) {
 			ariaExpanded = 'false';
-			ariaLabelText = commonL10n.expandMenu;
+			ariaLabelText = 'Expand Main Menu';
 		}
 
 		$collapseButton.attr({
