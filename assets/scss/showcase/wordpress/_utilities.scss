@@ -1,0 +1,72 @@
+$device-breakpoints: (
+	mobile: 600px,
+	tablet: 782px,
+	laptop: 960px,
+);
+
+$palettes: (
+	body: (
+		background: #F1F1F1,
+		color: #444444,
+	),
+	link: (
+		default: #0073AA,
+		hover: #00A0D2,
+	),
+	adminbar: (
+		background: #23282D,
+		color: #CCCCCC,
+	),
+	adminmenu: (
+		background: #23282D,
+	),
+	adminmenu-li: (
+		background-default: #0073AA,
+		color-default: #FFFFFF,
+	),
+	collapse: (
+		default: #AAA,
+		hover: #00B9EB,
+		focus: #00B9EB,
+	),
+);
+
+@function palette($palette, $tone: 'default') {
+	@return map-get( map-get($palettes, $palette), $tone );
+}
+
+@mixin device($type, $breakpoint-name-1, $breakpoint-name-2: null) {
+
+	@if ($type == min-width) {
+
+		$min-breakpoint-width: map-get($device-breakpoints, $breakpoint-name-1) + 1px;
+
+		@media screen and (min-width: $min-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else if ($type == max-width) {
+
+		$max-breakpoint-width: map-get($device-breakpoints, $breakpoint-name-1);
+
+		@media screen and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else if ($type == between) {
+
+		$min-breakpoint-width: map-get($device-breakpoints, $breakpoint-name-1) + 1px;
+		$max-breakpoint-width: map-get($device-breakpoints, $breakpoint-name-2);
+
+		@media screen and (min-width: $min-breakpoint-width) and (max-width: $max-breakpoint-width) {
+			@content;
+		}
+	}
+
+	@else {
+		@warn "Unfortunately, no type could be retrieved from `#{$type}`. "
+		+ "Use either `min-width`, `max-width`, or `between`.";
+	}
+}
