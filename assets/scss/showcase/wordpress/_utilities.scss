@@ -27,8 +27,27 @@ $palettes: (
 	),
 );
 
+$menu-size: (
+	small: 36px,
+	default: 160px,
+	large: 190px,
+);
+
+$bar-size: (
+	default: 32px,
+	large: 46px,
+);
+
 @function palette($palette, $tone: 'default') {
 	@return map-get( map-get($palettes, $palette), $tone );
+}
+
+@function adminmenu($size) {
+	@return map-get($menu-size, $size);
+}
+
+@function adminbar($size) {
+	@return map-get($bar-size, $size);
 }
 
 @mixin device($type, $breakpoint-name-1, $breakpoint-name-2: null) {
