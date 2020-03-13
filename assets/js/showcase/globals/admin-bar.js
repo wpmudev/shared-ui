@@ -23,11 +23,13 @@
 				const isBodyActive   = ( 0 < $( 'body[dir]' ).length && 'rtl' === body.attr( 'dir' ) );
 
 				if ( isButtonActive && isBodyActive ) {
+					body.removeClass( 'rtl' );
 					body.removeAttr( 'dir' );
 					styles.attr( 'href', oldcss );
 					button.removeClass( 'active' );
 					button.attr( 'title', 'Activate right-to-left language support' );
 				} else {
+					body.addClass( 'rtl' );
 					body.attr( 'dir', 'rtl' );
 					styles.attr( 'href', newcss );
 					button.addClass( 'active' );
