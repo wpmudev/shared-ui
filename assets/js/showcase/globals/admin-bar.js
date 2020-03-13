@@ -4,45 +4,68 @@
 
 		let body     = $( 'body' ),
 			suiWrap   = body.find( '.sui-wrap' ),
-			btnRtl   = $( '#wp-lang-mode--rtl' ),
-			btnColor = $( '#wp-accessibility-mode--color' )
+			btnRtl   = $( '#wp-admin-bar-rtl-language a[role="button"]' ),
+			btnColor = $( '#wp-admin-bar-color-accessibility a[role="button"]' )
 			;
 
-		btnRtl.on( 'click', function() {
+		function activateRTL( element ) {
 
-			let button = $( this );
+			element.on( 'click', function( e ) {
 
-			if ( button.hasClass( 'active' ) ) {
+				let button  = $( this ),
+					styles  = $( '#wordpress-styles' ),
+					hrefcss = styles.attr( 'href' ),
+					newcss  = hrefcss.replace( 'wordpress', 'wordpress-rtl' ),
+					oldcss  = hrefcss.replace( 'wordpress-rtl', 'wordpress' )
+					;
 
-				button.removeClass( 'active' );
-				body.removeAttr( 'dir' );
+				const isButtonActive = button.hasClass( 'active' );
+				const isBodyActive   = ( 0 < $( 'body[dir]' ).length && 'rtl' === body.attr( 'dir' ) );
 
-			} else {
+				if ( isButtonActive && isBodyActive ) {
+					body.removeAttr( 'dir' );
+					styles.attr( 'href', oldcss );
+					button.removeClass( 'active' );
+					button.attr( 'title', 'Activate right-to-left language support' );
+				} else {
+					body.attr( 'dir', 'rtl' );
+					styles.attr( 'href', newcss );
+					button.addClass( 'active' );
+					button.attr( 'title', 'Deactivate right-to-left language support' );
+				}
 
-				button.addClass( 'active' );
-				body.attr( 'dir', 'rtl' );
+				e.preventDefault();
 
-			}
-		});
+			});
+		}
 
-		btnColor.on( 'click', function() {
+		activateRTL( btnRtl );
 
-			let button = $( this );
+		function activateColor( element ) {
 
-			if ( button.hasClass( 'active' ) ) {
+			element.on( 'click', function( e ) {
 
-				button.removeClass( 'active' );
-				suiWrap.removeClass( 'sui-color-accessible' );
+				let button = $( this );
 
-			} else {
+				const isButtonActive  = button.hasClass( 'active' );
+				const isWrapColorized = suiWrap.hasClass( 'sui-color-accessible' );
 
-				button.addClass( 'active' );
-
-				if ( 0 !== suiWrap.length ) {
+				if ( isButtonActive && isWrapColorized ) {
+					button.removeClass( 'active' );
+					button.attr( 'title', 'Activate color accessibility' );
+					suiWrap.removeClass( 'sui-color-accessible' );
+				} else {
+					button.addClass( 'active' );
+					button.attr( 'title', 'Deactivate color accessibility' );
 					suiWrap.addClass( 'sui-color-accessible' );
 				}
-			}
-		});
+
+				e.preventDefault();
+
+			});
+		}
+
+		activateColor( btnColor );
 
 	});
 
