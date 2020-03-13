@@ -29,6 +29,11 @@
 				{% assign parent_link = nil %}
 				{% assign parent_class = 'wp-has-submenu wp-not-current-submenu menu-top' %}
 				{% assign parent_link_class = 'wp-has-submenu wp-not-current-submenu menu-top' %}
+				{% assign parent_icon = 'admin-site' %}
+
+				{% if parent.icon and parent.icon != '' %}
+					{% assign parent_icon = parent.icon %}
+				{% endif %}
 
 				{% for child in parent.children %}
 					{% if forloop.first %}
@@ -44,7 +49,7 @@
 
 					<a href="{{ parent_link | relative_url }}" class="{{ parent_link_class }}">
 						<div class="wp-menu-arrow"><div></div></div>
-						<div class="wp-menu-image dashicons-before dashicons-admin-plugins"><br></div>
+						<div class="wp-menu-image dashicons-before dashicons-{{ parent_icon }}"><br></div>
 						<div class="wp-menu-name">{{ parent.name }}</div>
 					</a>
 
