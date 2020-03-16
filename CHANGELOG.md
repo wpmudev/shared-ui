@@ -1,5 +1,6 @@
 v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
+- [Enhance] Notifications: Improve documentation.
 
 
 v2.7.0
