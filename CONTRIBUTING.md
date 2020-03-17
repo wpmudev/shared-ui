@@ -6,16 +6,19 @@ permalink: /contributing/
 
 # Contributing
 
-## Install required packages.
+## Install Required Packages
 
 1. Install node. It's recommended to install `nvm` to switch between node versions.
 2. Go to project root folder. Run `npm install` to install all required packages for the project.
 
-## Install Jekyll.
+## Initialize Local Showcase
 
 1. Execute `npm run watch:assets` to build and start watching SCSS and JS files changes.
 2. Execute `npm run watch:showcase` to initialize Jekyll locally.
 3. Open <http://127.0.0.1:4000/shared-ui/> on your browser to visualize the showcase.
+
+**Did you experience any problem executing showcase?**
+Run `gem install bundler jekyll` to install missing [Jekyll](https://jekyllrb.com/) bundler, but also make sure you meet all [requirements](https://jekyllrb.com/docs/installation/#requirements).
 
 ## Workflow.
 
