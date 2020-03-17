@@ -1,8 +1,10 @@
 ---
-layout: default
+layout: untitled
 title: Contributing
 permalink: /contributing/
 ---
+
+# Contributing
 
 ## Install required packages.
 
@@ -13,7 +15,7 @@ permalink: /contributing/
 
 1. Execute `npm run watch:assets` to build and start watching SCSS and JS files changes.
 2. Execute `npm run watch:showcase` to initialize Jekyll locally.
-3. Open [http://127.0.0.1:4000/shared-ui/](http://127.0.0.1:4000/shared-ui/) on your browser to visualize the showcase.
+3. Open <http://127.0.0.1:4000/shared-ui/> on your browser to visualize the showcase.
 
 ## Workflow.
 
