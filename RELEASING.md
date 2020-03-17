@@ -1,8 +1,10 @@
 ---
-layout: default
+layout: untitled
 title: Releasing
 permalink: /releasing/
 ---
+
+# Releasing
 
 ## Prepare development branch.
 
@@ -14,13 +16,13 @@ permalink: /releasing/
 
 Run either `npm run release:patch`, `npm run release:minor` and `npm run release:major` based on the version you want.
 
-**Note:** Do not interact with any of the project's version numbers in a direct way. The following commands handle all aspects of releasing the next version. Once ran, they will auto update `package.json` and `_config.yml` with all the asset query strings with the next corresponding [semver](https://semver.org/) version. They will then build the new files, create a commit and push them to the repo.
+**Note:** Do not interact with any of the project's version numbers in a direct way. The following commands handle all aspects of releasing the next version. Once ran, they will auto update `package.json` and `_config.yml` with all the asset query strings with the next corresponding [semver](https://semver.org/){:target="_blank"} version. They will then build the new files, create a commit and push them to the repo.
 
 ## Updating the Shared UI Package.
 
 **Requirements:**
 
-+ Must be a developer member of the [WPMU DEV Organization](https://www.npmjs.com/org/wpmudev/team/developers#members) on npm.
++ Must be a developer member of the [WPMU DEV Organization](https://www.npmjs.com/package/@wpmudev/shared-ui/){:target="_blank"} on npm.
 + Must be on `master` branch with a clean working directory.
 
 1. Go to `master` branch (do not push commits directly to this branch and make sure there are no residual folders nor files form `development` branch).
