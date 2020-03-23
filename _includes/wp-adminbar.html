@@ -1,14 +1,49 @@
-<div id="wpadminbar">
+<div id="wpadminbar" class="nojq">
 
-	<div id="wp-toolbar" class="quicklinks" role="navigation" aria-label="Toolbar">
+	<div role="navigation" id="wp-toolbar" class="quicklinks" aria-label="Toolbar">
 
 		<ul id="wp-admin-bar-root-default" class="ab-top-menu">
-			<li><button id="wp-lang-mode--rtl" class="ab-item"><i aria-hidden="true"></i> RTL Support</button></li>
-			<li><button id="wp-accessibility-mode--color" class="ab-item"><i aria-hidden="true"></i> Color Accessibility</button></li>
+
+			<li id="wp-admin-bar-menu-toggle">
+
+				<a class="ab-item" href="#" aria-expanded="false">
+					<span class="ab-icon"></span>
+					<span class="screen-reader-text">Menu</span>
+				</a>
+
+			</li>
+
+			<li id="wp-admin-bar-rtl-language">
+
+				<a role="button" href="#" title="Activate right-to-left language support" class="ab-item">
+					<span class="ab-icon"></span>
+					<span class="ab-label">RTL Language</span>
+				</a>
+
+			</li>
+
+			<li id="wp-admin-bar-color-accessibility">
+
+				<a role="button" href="#" title="Activate color accessibility" class="ab-item">
+					<span class="ab-icon"></span>
+					<span class="ab-label">Monochrome</span>
+				</a>
+
+			</li>
+
 		</ul>
 
 		<ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
-			<li><span class="demo-sui-version">Version {{ site.suiver }}</span></li>
+
+			<li id="wp-admin-bar-version" class="menupop">
+
+				<a href="https://github.com/wpmudev/shared-ui" target="_blank" class="ab-item">
+					<span class="ab-icon"></span>
+					<span class="ab-label">Version {{ site.suiver }}</span>
+				</a>
+
+			</li>
+
 		</ul>
 
 	</div>
