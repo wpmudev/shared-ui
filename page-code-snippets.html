@@ -2,8 +2,15 @@
 layout: default
 title: Code Snippets
 permalink: /code-snippets/
+id: code-snippets
 is_searchable: true
 ---
+
+<div class="sui-floating-notices">
+
+	<div role="alert" id="library-warning" class="sui-notice" aria-live="assertive"></div>
+
+</div>
 
 <section class="sui-row-with-sidenav">
 
@@ -100,6 +107,54 @@ RewriteRule . /index.php [L]
 	<div class="sui-box" data-tab="documentation" style="display: none;">
 
 		<div class="sui-box-body">
+
+			<!-- ROW: Clipboard Library -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Clipboard Library</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-notice sui-notice-info">
+
+						<div class="sui-notice-content">
+
+							<div class="sui-notice-message">
+
+								<p>Code Snippets uses <a href="https://clipboardjs.com/" target="_blank" rel="noreferrer">clipboard.js</a> library that you will need to grab from its page and load it on your plugin but starting from <strong>WordPress v5.2</strong> this library is included in the WordPress installation.</p>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet php">
+global $wp_version;
+
+/**
+ * Queue clipboard.js from your plugin if WP's version is below 5.2.0
+ * since it's only included from 5.2.0 on.
+ */
+
+// Use 'clipboard' as the handle so it matches WordPress' handle for the script.
+if ( version_compare( $wp_version, '5.2', '<' ) ) {
+	wp_enqueue_script( 'clipboard', 'yourpath/clipboard.js', array(), $version, true );
+}
+
+// Here, include 'clipboard' as a dependency along with 'jquery'.
+wp_enqueue_script( 'shared-ui', 'yourpath/shared-ui.min.js', array( 'jquery', 'clipboard' ), $plugin_sui_version, true );
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
 
 			<!-- ROW: JS Instantiation -->
 			<div class="sui-box-settings-row">

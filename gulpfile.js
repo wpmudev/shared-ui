@@ -204,7 +204,8 @@ gulp.task( 'dev:jsCopies', () => {
 	gulp.src([
 		'./node_modules/lunr/lunr.min.js',
 		'./node_modules/chart.js/dist/Chart.min.js',
-		'./node_modules/jquery/dist/jquery.min.js'
+		'./node_modules/jquery/dist/jquery.min.js',
+		'./node_modules/clipboard/dist/clipboard.min.js'
 	])
 		.pipe( gulp.dest( showcase.output.scripts ) )
 		;
@@ -338,9 +339,26 @@ gulp.task( 'copy-files', () => {
 		.pipe( gulp.dest( './_dist/library/' ) )
 		;
 
-	// Icon fonts.
-	gulp.src( './assets/fonts/*' )
+	// SUI icons fonts.
+	gulp.src([
+		'./assets/fonts/wpmudev-plugin-icons.eot',
+		'./assets/fonts/wpmudev-plugin-icons.svg',
+		'./assets/fonts/wpmudev-plugin-icons.ttf',
+		'./assets/fonts/wpmudev-plugin-icons.woff',
+		'./assets/fonts/wpmudev-plugin-icons.woff2'
+	])
 		.pipe( gulp.dest( './_dist/library/dist/fonts/' ) )
+		.pipe( gulp.dest( './_dist/showcase/assets/fonts/' ) )
+		;
+
+	// Dashicons.
+	gulp.src([
+		'./assets/fonts/dashicons.eot',
+		'./assets/fonts/dashicons.svg',
+		'./assets/fonts/dashicons.ttf',
+		'./assets/fonts/dashicons.woff',
+		'./assets/fonts/dashicons.woff2'
+	])
 		.pipe( gulp.dest( './_dist/showcase/assets/fonts/' ) )
 		;
 

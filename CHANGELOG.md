@@ -1,4 +1,8 @@
 v2.8.0
+- [Fix] Icons: Branda icon is missing even when font supports it.
+- [Enhance] Buttons: Add white button color variation.
+- [Enhance] Icon Buttons: Add white icon button color variation.
+- [Enhance] Clipboard: Remove external library support.
 - [Enhance] Modals: Remove legacy code support.
 
 
