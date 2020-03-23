@@ -46,7 +46,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   aria.Utils.isFocusable = function (element) {
-    if (0 < element.tabIndex || element.tabIndex === 0 && null !== element.getAttribute('tabIndex')) {
+    if (0 < element.tabIndex || 0 === element.tabIndex && null !== element.getAttribute('tabIndex')) {
       return true;
     }
 
@@ -56,10 +56,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     switch (element.nodeName) {
       case 'A':
-        return !!element.href && element.rel != 'ignore';
+        return !!element.href && 'ignore' != element.rel;
 
       case 'INPUT':
-        return element.type != 'hidden' && element.type != 'file';
+        return 'hidden' != element.type && 'file' != element.type;
 
       case 'BUTTON':
       case 'SELECT':
@@ -127,7 +127,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   aria.Utils.focusLastDescendant = function (element) {
-    for (var i = element.childNodes.length - 1; i >= 0; i--) {
+    for (var i = element.childNodes.length - 1; 0 <= i; i--) {
       var child = element.childNodes[i];
 
       if (aria.Utils.attemptFocus(child) || aria.Utils.focusLastDescendant(child)) {
