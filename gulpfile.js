@@ -204,7 +204,8 @@ gulp.task( 'dev:jsCopies', () => {
 	gulp.src([
 		'./node_modules/lunr/lunr.min.js',
 		'./node_modules/chart.js/dist/Chart.min.js',
-		'./node_modules/jquery/dist/jquery.min.js'
+		'./node_modules/jquery/dist/jquery.min.js',
+		'./node_modules/clipboard/dist/clipboard.min.js'
 	])
 		.pipe( gulp.dest( showcase.output.scripts ) )
 		;
