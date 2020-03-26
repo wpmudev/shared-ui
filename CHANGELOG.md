@@ -1,3 +1,6 @@
+v2.9.0
+- [Enhance] Notifications: Trap focus within the opened floating notices.
+
 v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
 - [Enhance] Modals: Remove legacy code support.
