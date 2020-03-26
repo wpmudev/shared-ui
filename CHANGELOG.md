@@ -1,3 +1,7 @@
+v2.8.1
+- [Fix] Multi Strings: First tag being removed when adding a new one in Snapshot.
+- [Fix] Multi Strings: On load value not handled properly if not using comma as separator.
+
 v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
 - [Enhance] Modals: Remove legacy code support.
