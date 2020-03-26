@@ -1,9 +1,32 @@
+v2.8.0
+- [Fix] Icons: Branda icon is missing even when font supports it.
+- [Enhance] Modals: Remove legacy code support.
+			Dev Notes: a11y-dialog.js external library has been also removed from SUI.
+			In case you've been using it for something other than old dialog, you can
+			grab it here https://www.npmjs.com/package/a11y-dialog
+- [Enhance] Buttons: Add white button color variation.
+- [Enhance] Icon Buttons: Add white icon button color variation.
+			Dev Notes: On new modals there are some with colorized banner using white
+			close button. This color variation for buttons was added to achieve that design.
+- [Enhance] Code Snippets: Remove external library support.
+			Dev Notes: clipboard.js was removed from SUI but is still required for this element.
+			Go to https://wpmudev.github.io/shared-ui/code-snippets/ and open Documentation tab
+			for more information related. If you have any doubts, please ping @Leigh or @Danae.
+
+
 v2.7.0
 - [New] Multi Strings: Element to allow users add a list of strings.
+			Dev Notes: Go to https://wpmudev.github.io/shared-ui/multistrings/ and
+			review documentation section for more details. If you have any doubts,
+			you can ping @Leigh or @Danae on #sui-plugins channel.
 - [Fix] Modals: Closing with the "ESC" key not working.
 - [Fix] Modals: Using autocomplete in the modal closes the modal.
+			Dev Notes: You can re-enable autocomplete on your forms inside modals.
 - [Enhance] Notifications: Apply element new styles.
 - [Enhance] Notifications: Revamp markup to be more accessible.
+			Dev Notes: Notifications have been revamped completely and old markup is NOT supported.
+			Please go to https://wpmudev.github.io/shared-ui/notifications/ and read documentation
+			section. Ping @Leigh if you have some doubts or need more details.
 - [Enhance] Notifications: Create new functions to handle show/hide behave for this element.
 - [Enhance] Tooltips: Styling is too padded.
 - [Enhance] Modals: Support prefer-reduced-motion feature.
