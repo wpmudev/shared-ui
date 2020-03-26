@@ -1,4 +1,7 @@
 v2.8.0
+- [Enhance] Notifications: Allow the TAB key to insert a new string to the textarea list.
+
+v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
 - [Enhance] Modals: Remove legacy code support.
 			Dev Notes: a11y-dialog.js external library has been also removed from SUI.
