@@ -20,6 +20,8 @@
 
 	aria.Utils.activeElementBeforeOpen = false;
 
+	aria.Utils.isFocusTrapped = true;
+
 	/**
 	 * @returns the last opened dialog (the current dialog)
 	 */
@@ -455,6 +457,10 @@
 			}
 
 			if ( this.nodeWrapper.classList.contains( 'sui-floating-notices' ) ) {
+
+				// Trap focus again when a new floating notice is opened.
+				aria.Utils.isFocusTrapped = true;
+
 				this.trapFocus();
 			}
 		},
@@ -580,22 +586,28 @@
 
 		first.focus();
 		$nodewrapper.off( 'keydown' ).on( 'keydown', e => {
-			if ( 9 !== e.keyCode ) {
+
+			// Trapping focus is disabled. Nothing to do here.
+			if ( ! aria.Utils.isFocusTrapped ) {
 				return;
 			}
 
-			const backward = e.shiftKey;
+			if ( 9 === e.keyCode ) { // Tab.
+				const backward = e.shiftKey;
 
-			if ( document.activeElement.isSameNode( first ) && backward ) {
-				last.focus();
-				e.preventDefault();
-				return;
-			}
+				if ( document.activeElement.isSameNode( first ) && backward ) {
+					last.focus();
+					e.preventDefault();
+					return;
+				}
 
-			if ( document.activeElement.isSameNode( last ) && ! backward ) {
-				first.focus();
-				e.preventDefault();
-				return;
+				if ( document.activeElement.isSameNode( last ) && ! backward ) {
+					first.focus();
+					e.preventDefault();
+					return;
+				}
+			} else if ( 27 === e.keyCode ) { // Esc.
+				aria.Utils.isFocusTrapped = false;
 			}
 		});
 	};
