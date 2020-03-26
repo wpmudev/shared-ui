@@ -238,6 +238,8 @@
 				if ( 0 !== newTrim.length ) {
 
 					if ( isEnter ) {
+						e.preventDefault();
+						e.stopPropagation();
 
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
