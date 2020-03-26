@@ -310,7 +310,7 @@
 
 			html.innerHTML = noticeMessage;
 
-			//html.prepend( buildIcon() );
+			html.prepend( buildIcon() );
 
 			return html;
 		},
