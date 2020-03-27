@@ -174,24 +174,21 @@
 			$removeButtons.off( 'click' ).on( 'click', removeTag );
 		}
 
-		function insertStringOnLoad( textarea, uniqid ) {
+		function insertStringOnLoad( textarea, uniqid, disallowedCharsArray ) {
 
 			let html   = '',
 				$mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
 				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
-				value  = textarea.val()
+				valueToClear  = textarea.val().trim()
 				;
 
-			let valueToClear = '';
-
 			// Convert default commas into new lines.
-			if ( value.includes( ',' ) ) {
-				valueToClear = value.replace( /(?!^),/gm, '\n' );
+			if ( valueToClear.includes( ',' ) ) {
+				valueToClear = valueToClear.replace( /(?!^),/gm, '\n' );
 			}
 
-			const removeForbidden = cleanTextarea( valueToClear, true );
-
-			const splitStrings = removeForbidden.split( /[\r\n]/gm );
+			const removeForbidden = cleanTextarea( valueToClear, disallowedCharsArray, true ),
+				splitStrings = removeForbidden.split( /[\r\n]/gm );
 
 			// Clean-up textarea value.
 			textarea.val( removeForbidden );
@@ -212,13 +209,10 @@
 			bindRemoveTag( $mainWrapper );
 		}
 
-		function handleInsertTags( $mainWrapper ) {
-
-			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' ),
-				$textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
+		function getDisallowedChars( $mainWrapper ) {
+			const $textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
 				customDisallowedKeys = $textarea.data( 'disallowedKeys' ),
-				disallowedCharsArray = [ ',' ], // Commas are not allowed.
-				escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
+				disallowedCharsArray = [ ',' ]; // Commas are not allowed.
 
 			if ( customDisallowedKeys ) {
 
@@ -232,19 +226,35 @@
 
 					// And filter out any NaN.
 					if ( ! isNaN( intKey ) ) {
+
+						// Convert ascii code to character.
 						disallowedCharsArray.push( String.fromCharCode( intKey ) );
 					}
 				}
-
 			} else {
 
 				// Space is disallowed by default.
 				disallowedCharsArray.push( ' ' );
 			}
 
+			return disallowedCharsArray;
+		}
+
+		function getRegexPatternForDisallowedChars( disallowedCharsArray ) {
+
 			// Regex for removing the disallowed keys from the inserted strings.
-			const disallowedString = escapeRegExp( disallowedCharsArray.join( '' ) ),
-				regex = new RegExp( `[\r\m,${disallowedString}]`, 'gm' );
+			const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
+				disallowedPattern = escapeRegExp( disallowedCharsArray.join( '' ) );
+
+			return disallowedPattern;
+		}
+
+		function handleInsertTags( $mainWrapper, disallowedCharsArray ) {
+
+			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' ),
+				$textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
+				disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+				regex = new RegExp( `[\r\n,${disallowedString}]`, 'gm' );
 
 			// Sanitize the values on keydown.
 			$tagInput.on( 'keydown', function( e ) {
@@ -294,7 +304,7 @@
 			});
 		}
 
-		function handleTextareaChange( $mainWrapper ) {
+		function handleTextareaChange( $mainWrapper, disallowedCharsArray ) {
 
 			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
 
@@ -302,11 +312,8 @@
 
 			textarea.on( 'keydown', function( e ) {
 
-				const isSpace   = ( 32 === e.keyCode ),
-					isComma   = ( 188 === e.keyCode );
-
-				// Do nothing on space or comma.
-				if ( isSpace || isComma ) {
+				// Do nothing if the key is from the disallowed ones.
+				if ( disallowedCharsArray.includes( e.key ) ) {
 					e.preventDefault();
 					return;
 				}
@@ -321,7 +328,7 @@
 				}
 
 				// Clear up the content.
-				const cleanedCurrentValue = cleanTextarea( currentValue );
+				const cleanedCurrentValue = cleanTextarea( currentValue, disallowedCharsArray );
 
 				// Set the current value as the old one for future iterations.
 				textarea.val( cleanedCurrentValue );
@@ -374,9 +381,12 @@
 			});
 		}
 
-		function cleanTextarea( string, isLoad = false ) {
+		function cleanTextarea( string, disallowedCharsArray, isLoad = false ) {
 
-			let clearedString = string.replace( /[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|^\s*$/gm, '' );
+			const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+				regex = new RegExp( `[^\\S\\r\\n]+|[,]+|[${disallowedString}]+|((\\r\\n|\\n|\\r)\$)|^\\s*$`, 'gm' );
+
+			let clearedString = string.replace( regex, '' );
 
 			if ( ! isLoad ) {
 
@@ -386,6 +396,7 @@
 					clearedString += '\n';
 				}
 			}
+
 			return clearedString;
 		}
 
@@ -439,12 +450,16 @@
 						throw new Error( 'Multistrings field needs to be wrapped inside "sui-form-field" div.' );
 					}
 
-					buildWrapper( multistrings, uniqueId );
-					insertStringOnLoad( multistrings, uniqueId );
 
-					const $mainWrapper = multistrings.closest( '.sui-multistrings-wrap' );
-					handleInsertTags( $mainWrapper );
-					handleTextareaChange( $mainWrapper );
+					buildWrapper( multistrings, uniqueId );
+
+					const $mainWrapper = multistrings.closest( '.sui-multistrings-wrap' ),
+						disallowedCharsArray = getDisallowedChars( $mainWrapper );
+
+					insertStringOnLoad( multistrings, uniqueId, disallowedCharsArray );
+
+					handleInsertTags( $mainWrapper, disallowedCharsArray );
+					handleTextareaChange( $mainWrapper, disallowedCharsArray );
 					bindFocus( $mainWrapper );
 
 				});
