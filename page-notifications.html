@@ -37,6 +37,10 @@ is_searchable: true
 				<a href="#" role="button" data-tab="documentation">Documentation</a>
 			</li>
 
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="generator">Generator</a>
+			</li>
+
 		</ul>
 
 	</div>
@@ -317,8 +321,950 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Documentation (Old) -->
+	<!-- SECTION: Documentation -->
 	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Type of Notices. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Type of Notices</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<p style="padding: 5px 10px; border-radius: 4px; background-color: #FECF2F;"><i class="sui-icon-warning" aria-hidden="true"></i><strong style="color: #333;">Before you start adding notifications to your project, you need to learn the difference between both.</strong></p>
+
+					<p>There are two types of notifications for your plugins: alert and static. Click on tabs below to learn more about them:</p>
+
+					<div class="sui-tabs sui-side-tabs">
+
+						<div role="tablist" class="sui-tabs-menu">
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-alert"
+								class="sui-tab-item active"
+								aria-controls="tab-content-alert"
+								aria-selected="true"
+							>
+								Alert Notification
+							</button>
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-static"
+								class="sui-tab-item"
+								aria-controls="tab-content-static"
+								aria-selected="false"
+								tabindex="-1"
+							>
+								Static Notification
+							</button>
+
+						</div>
+
+						<div class="sui-tabs-content sui-tabs-content-lg">
+
+							<!-- TAB: Alert Notification. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-alert"
+								class="sui-tab-content active"
+								aria-labelledby="tab-alert"
+							>
+
+								<p><strong>Alert Notices</strong> are ARIA live regions are known for not working on page load, but instead need the region to be updated after page has loaded.</p>
+
+								<p>In other words, a change needs to happen for <strong>Alert Notices</strong> to be recognized and read by screen readers. During page load, this change needs to happen after page has finished loading, that's when you need to trigger the function that will open the alert notification.</p>
+
+								<h4>Float Notification</h4>
+
+								<p>A floating notice can be an alert notification because it appears to notify users about a change that happened, for example: when user successfully creates a new palette for Hustle plugin.</p>
+
+								<h4>Inline Notification</h4>
+
+								<p>Inline notifications can also be considered as alert notifications when is not visually part of the content but appears when user interacts with the interface, for example: when user tries to save a module without a title for it.</p>
+
+							</div>
+
+							<!-- TAB: Static Notification. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-static"
+								class="sui-tab-content"
+								aria-labelledby="tab-static"
+								hidden
+							>
+
+								<p><strong>Static Notices</strong> are not live regions but instead part of page regular content. This also means screen readers won't be able to read out loud its content when it appears, but instead user must reach to it when navigating through content.</p>
+
+								<p>In other words, <strong>Static Notices</strong> is simply some visually highlighted text. Does not matter if a change happens, screen reader won't be able to read it out loud because is not a live region. Instead, users will have to access the notice as they would with regular content.</p>
+
+								<h4>Float Notification</h4>
+
+								<p>A floating notice can be an static notification but is not recommended.</p>
+
+								<h4>Inline Notification</h4>
+
+								<p>Some times designers use notifications styles to highlight some text they need users to pay more attention to or just make a point. This notices won't need to appear after a user interaction, these will simply be there as part of the content.</p>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Required Markup. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Required Markup</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-tabs sui-side-tabs">
+
+						<div role="tablist" class="sui-tabs-menu">
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-alert-markup"
+								class="sui-tab-item active"
+								aria-controls="tab-content-alert-markup"
+								aria-selected="true"
+							>
+								Alert Notification
+							</button>
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-static-markup"
+								class="sui-tab-item"
+								aria-controls="tab-content-static-markup"
+								aria-selected="false"
+								tabindex="-1"
+							>
+								Static Notification
+							</button>
+
+						</div>
+
+						<div class="sui-tabs-content sui-tabs-content-lg">
+
+							<!-- TAB: Alert Markup. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-alert-markup"
+								class="sui-tab-content active"
+								aria-labelledby="tab-alert-markup"
+							>
+
+								<h4>Float Notification</h4>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;!-- END: .sui-header --&gt;
+
+&lt;div class=&quot;sui-floating-notices&quot;&gt;
+
+	&lt;div
+		role=&quot;alert&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-notice&quot;
+		aria-live=&quot;assertive&quot;
+	&gt;
+		&lt;!-- Nothing should be placed inside. --&gt;
+	&lt;/div&gt;
+
+	&lt;!--
+	Place the rest of floating notices here,
+	inside .sui-floating-notices div.
+	--&gt;
+
+&lt;/div&gt;
+
+&lt;!-- START: Regular page content --&gt;
+</pre>
+
+								</div>
+
+								<h4>Inline Notification</h4>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div
+	role=&quot;alert&quot;
+	id=&quot;unique-id&quot;
+	class=&quot;sui-notice&quot;
+	aria-live=&quot;assertive&quot;
+&gt;
+	&lt;!-- Nothing should be placed here --&gt;
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: Static Markup. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-static-markup"
+								class="sui-tab-content"
+								aria-labelledby="tab-static-markup"
+								hidden
+							>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div
+	role=&quot;alert&quot;
+	id=&quot;unique-id&quot;
+	class=&quot;sui-notice&quot;
+	aria-live=&quot;assertive&quot;
+&gt;
+
+	&lt;div class=&quot;sui-notice-content&quot;&gt;
+
+		&lt;div class=&quot;sui-notice-message&quot;&gt;
+
+			&lt;span class=&quot;sui-notice-icon sui-icon-info sui-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+			&lt;p&gt;Hello, I am a notification.&lt;/p&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Actions. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Actions</h3>
+					<p class="sui-description">These are required actions for <strong style="color: #333;">Alert Notifications</strong> to make them appear when needed.</p>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-tabs sui-side-tabs">
+
+						<div role="tablist" class="sui-tabs-menu">
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-js"
+								class="sui-tab-item active"
+								aria-controls="tab-content-js"
+								aria-selected="true"
+							>
+								JS Actions
+							</button>
+
+							<button
+								type="button"
+								role="tab"
+								id="tab-html"
+								class="sui-tab-item"
+								aria-controls="tab-content-html"
+								aria-selected="false"
+								tabindex="-1"
+							>
+								HTML Actions
+							</button>
+
+						</div>
+
+						<div class="sui-tabs-content sui-tabs-content-lg">
+
+							<!-- TAB: JS Actions. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-js"
+								class="sui-tab-content active"
+								aria-labelledby="tab-js"
+							>
+
+								<h4>Open Notice</h4>
+
+								<p>Below you can find the function to show users the message you want to notify them. You can also learn more about each of its paramethers by clicking on each section below.</p>
+
+								<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+SUI.openNotice( noticeId, noticeMessage, noticeOptions );
+</pre>
+
+								</div>
+
+								<div class="sui-accordion">
+
+									<!-- ITEM: noticeId. -->
+									<div class="sui-accordion-item">
+
+										<div class="sui-accordion-item-header">
+											<div class="sui-accordion-item-title">
+												noticeId <span class="sui-tag sui-tag-red" style="margin-left: 10px;">required</span>
+											</div>
+											<div class="sui-accordion-col">
+												<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+											</div>
+										</div>
+
+										<div class="sui-accordion-item-body">
+
+											<div class="sui-box">
+
+												<div class="sui-box-body">
+
+													<p>This is the unique ID of the element serving as the alert notice container.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+const noticeId = 'unique-id';
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<!-- ITEM: noticeMessage. -->
+									<div class="sui-accordion-item">
+
+										<div class="sui-accordion-item-header">
+											<div class="sui-accordion-item-title">
+												noticeMessage <span class="sui-tag sui-tag-red" style="margin-left: 10px;">required</span>
+											</div>
+											<div class="sui-accordion-col">
+												<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+											</div>
+										</div>
+
+										<div class="sui-accordion-item-body">
+
+											<div class="sui-box">
+
+												<div class="sui-box-body">
+
+													<p>In this paramether you must include the message would like to display in the notice. Remember it must be properly wrapped on it's tag.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+const noticeMessage = '&lt;p&gt;Hello, I am a notification.&lt;/p&gt;';
+</pre>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<!-- ITEM: noticeOptions. -->
+									<div class="sui-accordion-item">
+
+										<div class="sui-accordion-item-header">
+											<div class="sui-accordion-item-title">noticeOptions</div>
+											<div class="sui-accordion-col">
+												<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+											</div>
+										</div>
+
+										<div class="sui-accordion-item-body">
+
+											<div class="sui-box">
+
+												<div class="sui-box-body">
+
+													<p>This <strong>object</strong> paramether will allow you to overwrite default settings and styles for the notice. The allowed options are: type, icon, dismiss, and autoclose.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+// Declare this only once, the rest of the options
+// shown below will be attached to this variable.
+const noticeOptions = {};
+</pre>
+
+													</div>
+
+													<h5 style="font-size: 14px;">Type</h5>
+
+													<p>You can leave this option empty to get default (gray) notification or use: <code>info</code> for blue notification, <code>success</code> for green notification, <code>warning</code> for yellow notification, <code>error</code> for red notification or <code>upsell</code> for purple notification.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.type = 'success'; // To show a green (success) notification.
+</pre>
+
+													</div>
+
+													<h5 style="font-size: 14px;">Icon</h5>
+
+													<p>Add the name of the icon without its prefix <code>sui-icon-</code>. The "loader" icon will also add <code>sui-loading</code> state to the icon.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.type = 'wordpress'; // This will show WordPress icon from SUI icons font.
+</pre>
+
+													</div>
+
+													<h5 style="font-size: 14px;">Dismiss</h5>
+
+													<p>This is an object that will handle 3 different options for dismiss button: show (visibility), label and tooltip.</p>
+
+													<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.dismiss = {};
+</pre>
+
+													</div>
+
+													<div class="sui-border-frame">
+
+														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Dismiss Button Visibility</h6>
+
+														<p>Change this to show or hide the dismiss button.</p>
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.dismiss.show = true; // This will show WordPress icon from SUI icons font.
+</pre>
+
+														</div>
+
+														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Dismiss Button Label</h6>
+
+														<p>Dismiss button will always be an icon button but screen readers need a proper label to notify users what's the button about. This option will help you to overwrite button label.</p>
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.dismiss.label = 'Dismiss Label';
+</pre>
+
+														</div>
+
+														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Dismiss Button Tooltip</h6>
+
+														<p>There will be cases when you need a tooltip for dismiss button. Leave this option empty for no tooltip to show up.</p>
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.dismiss.tooltip = 'Dismiss Tooltip';
+</pre>
+
+														</div>
+
+													</div>
+
+													<h5 style="font-size: 14px;">Auto Close</h5>
+
+													<p>This is an object that will handle 2 different options: show (to enable or disable autoclose) and timeout.</p>
+
+													<div class="sui-border-frame">
+
+														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Auto Close Show</h6>
+
+														<p>This boolean variable will allow you to enable or disable autoclose ability for notices but when dismiss button is enabled this will stop working since all dismissible notices will never auto-close.</p>
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.autoclose.show = false; // This will disable auto-close.
+</pre>
+
+														</div>
+
+														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Auto Close Timeout</h6>
+
+														<p>This option will define how much time have to pass before notice closes. By default it will close after 5 seconds. Make sure to add the value in milliseconds.</p>
+
+														<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+noticeOptions.autoclose.timeout = 5000; // Closes 5 seconds after show animation ends.
+</pre>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: HTML Actions. -->
+							<div
+								role="tabpanel"
+								tabindex="0"
+								id="tab-content-html"
+								class="sui-tab-content"
+								aria-labelledby="tab-html"
+								hidden
+							>
+
+								<div class="sui-accordion">
+
+									<!-- ITEM: Open Notice. -->
+									<div class="sui-accordion-item">
+
+										<div class="sui-accordion-item-header">
+											<div class="sui-accordion-item-title">
+												Open Notice
+												<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+											</div>
+										</div>
+
+									</div>
+
+									<!-- ITEM: Close Notice. -->
+									<div class="sui-accordion-item">
+
+										<div class="sui-accordion-item-header">
+											<div class="sui-accordion-item-title">
+												Close Notice
+												<button class="sui-button-icon sui-accordion-open-indicator" aria-label="Open item"><i class="sui-icon-chevron-down" aria-hidden="true"></i></button>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Markup Generator -->
+	<div class="sui-box" data-tab="generator" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Markup Generator</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div role="form" class="sui-border-frame">
+
+				<div role="radiogroup" class="sui-form-field" aria-labelledby="generate-type-label" aria-required="true">
+
+					<label id="generate-type-label" class="sui-label">Notice Type</label>
+
+					<label for="generate-type--alert" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-type"
+							value="alert"
+							id="generate-type--alert"
+							aria-labelledby="generate-type--alert-label"
+							checked
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-type--alert-label">Alert Notification</span>
+
+					</label>
+
+					<label for="generate-type--static" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-type"
+							value="static"
+							id="generate-type--static"
+							aria-labelledby="generate-type--static-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-type--static-label">Static Notification</span>
+
+					</label>
+
+				</div>
+
+				<div role="radiogroup" class="sui-form-field" aria-labelledby="generate-style-label" aria-required="true">
+
+					<label id="generate-style-label" class="sui-label">Notice Style</label>
+
+					<label for="generate-style--inline" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-style"
+							value="inline"
+							id="generate-style--inline"
+							aria-labelledby="generate-style--inline-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-style--inline-label">Inline Notification</span>
+
+					</label>
+
+					<label for="generate-style--float" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-style"
+							value="float"
+							id="generate-style--float"
+							aria-labelledby="generate-style--float-label"
+							checked
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-style--float-label">Float Notification</span>
+
+					</label>
+
+				</div>
+
+				<div role="radiogroup" class="sui-form-field" aria-labelledby="generate-design-label" aria-required="true">
+
+					<label id="generate-design-label" class="sui-label">Notice Design (By Color)</label>
+
+					<label for="generate-design--default" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="default"
+							id="generate-design--default"
+							aria-labelledby="generate-design--default-label"
+							checked
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--default-label">Default</span>
+
+					</label>
+
+					<label for="generate-design--info" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="info"
+							id="generate-design--info"
+							aria-labelledby="generate-design--info-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--info-label">Info (Blue)</span>
+
+					</label>
+
+					<label for="generate-design--success" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="success"
+							id="generate-design--success"
+							aria-labelledby="generate-design--success-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--success-label">Success (Green)</span>
+
+					</label>
+
+					<label for="generate-design--warning" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="warning"
+							id="generate-design--warning"
+							aria-labelledby="generate-design--warning-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--warning-label">Warning (Yellow)</span>
+
+					</label>
+
+					<label for="generate-design--error" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="error"
+							id="generate-design--error"
+							aria-labelledby="generate-design--error-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--error-label">Error (Red)</span>
+
+					</label>
+
+					<label for="generate-design--upsell" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-design"
+							value="upsell"
+							id="generate-design--upsell"
+							aria-labelledby="generate-design--upsell-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-design--upsell-label">Upsell (Purple)</span>
+
+					</label>
+
+				</div>
+
+				<div role="radiogroup" class="sui-form-field" aria-labelledby="generate-dismiss-label" aria-required="true">
+
+					<label id="generate-dismiss-label" class="sui-label">Notice Dismiss</label>
+
+					<label for="generate-dismiss--true" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-dismiss"
+							value="1"
+							id="generate-dismiss--true"
+							aria-labelledby="generate-dismiss--true-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-dismiss--true-label">Enabled</span>
+
+					</label>
+
+					<label for="generate-dismiss--false" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-dismiss"
+							value="0"
+							id="generate-dismiss--false"
+							aria-labelledby="generate-dismiss--false-label"
+							checked
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-dismiss--false-label">Disabled</span>
+
+					</label>
+
+				</div>
+
+				<div role="radiogroup" class="sui-form-field" aria-labelledby="generate-autoclose-label" aria-required="true">
+
+					<label id="generate-autoclose-label" class="sui-label">Notice Auto Close</label>
+
+					<label for="generate-autoclose--true" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-autoclose"
+							value="1"
+							id="generate-autoclose--true"
+							aria-labelledby="generate-autoclose--true-label"
+							checked
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-autoclose--true-label">Enabled</span>
+
+					</label>
+
+					<label for="generate-autoclose--false" class="sui-radio">
+
+						<input
+							type="radio"
+							name="generate-autoclose"
+							value="0"
+							id="generate-autoclose--false"
+							aria-labelledby="generate-autoclose--false-label"
+						/>
+
+						<span aria-hidden="true"></span>
+
+						<span id="generate-autoclose--false-label">Disabled</span>
+
+					</label>
+
+				</div>
+
+				<div class="sui-form-field">
+
+					<label for="generate-timeout" id="generate-timeout-label" class="sui-label">Notice Auto Close Timeout</label>
+
+					<input
+						type="number"
+						value="3000"
+						id="generate-timeout"
+						class="sui-form-control sui-field-has-suffix"
+						aria-required="true"
+						aria-labelledby="generate-timeout-label"
+						aria-describedby="generate-timeout-description generate-timeout-error"
+					/>
+
+					<span class="sui-field-suffix" aria-hidden="true">ms</span>
+
+					<p id="generate-timeout-description" class="sui-screen-reader-text">Enter the value in milliseconds</p>
+
+					<p id="generate-timeout-error" class="sui-error-timeout"></p>
+
+				</div>
+
+				<div class="sui-form-field">
+
+					<label for="generate-message" id="generate-message-label" class="sui-label">Notice Message (HTML Allowed)</label>
+
+					<input
+						type="text"
+						value="<p>Hello, I am a notification.</p>"
+						id="generate-message"
+						class="sui-form-control"
+						aria-required="true"
+						aria-labelledby="generate-message-label"
+						aria-describedby="generate-message-error"
+					/>
+
+					<p id="generate-message-error" class="sui-error-message"></p>
+
+				</div>
+
+				<button class="sui-button sui-button-blue">
+					<span class="sui-loading-text">Generate Markup</span>
+					<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
+				</button>
+
+			</div>
+
+			<h4>Required Markup</h4>
+
+			<div id="generate-markup" class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-floating-notices&quot;&gt;
+	&lt;div role=&quot;alert&quot; id=&quot;unique-id&quot; class=&quot;sui-notice&quot; aria-live=&quot;assertive&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+			</div>
+
+			<h4>Trigger Action</h4>
+
+			<div id="generate-action" class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+( function( $ ) {
+
+	const noticeId = 'unique-id';
+	const noticeMessage = '&lt;p&gt;Hello, I am a notification.&lt;/p&gt;';
+	const noticeOptions = {};
+
+	// Load notification once page has loaded.
+	$( window ).on( 'load', function() {
+		SUI.openNotice( noticeId, noticeMessage, noticeOptions );
+	});
+}( jQuery ) );
+</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation-old" style="display: none;">
 
 		<div class="sui-box-header">
 			<h2 class="sui-box-title">Documentation</h2>
@@ -645,18 +1591,6 @@ SUI.openNotice( noticeId, noticeMessage, noticeIcon, noticeAutoClose );
 													</div>
 
 													<ol>
-
-														<li style="margin-bottom: 20px;">
-															<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeId</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
-															The unique ID of the element serving as the alert notice container.<br />
-														</li>
-
-														<li style="margin-bottom: 20px;">
-															<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeMessage</code> <span class="sui-tag sui-tag-sm sui-tag-red">required</span><br />
-															Include here the message that's going to be displayed in the notice properly wrapped on <strong>p</strong> tag.<br />
-															&nbsp;<br />
-															<code>let noticeMessage = '&lt;p&gt;Message with &lt;strong&gt;bold text&lt;/strong&gt;&lt;/p&gt;';</code>
-														</li>
 
 														<li>
 															<code style="border-color: #002f3e; background-color: #002f3e; color: #fff;">@param noticeOptions</code><br />
