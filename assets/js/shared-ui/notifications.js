@@ -402,11 +402,6 @@
 			throw new Error( 'No element found with id="' + noticeId + '".' );
 		}
 
-		// Check if element has correct attribute.
-		if ( 'alert' !== noticeNode.attr( 'role' ) ) {
-			throw new Error( 'Notice requires a DOM element with ARIA role of alert.' );
-		}
-
 		let utils = utils || {};
 
 		/**
