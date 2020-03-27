@@ -118,8 +118,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-0 .sui-accordion').length) {
-    $('.sui-2-8-0 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-8-1 .sui-accordion').length) {
+    $('.sui-2-8-1 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-8-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-8-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-8-0 .sui-slider').each(function () {
+  $('.sui-2-8-1 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-8-0 .sui-dropdown');
+      var $dropdowns = $('.sui-2-8-1 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-8-0 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-8-1 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2172,11 +2172,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
       throw new Error('No element found with id="' + noticeId + '".');
-    } // Check if element has correct attribute.
-
-
-    if ('alert' !== noticeNode.attr('role')) {
-      throw new Error('Notice requires a DOM element with ARIA role of alert.');
     }
 
     var utils = utils || {};
@@ -2386,7 +2381,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-8-0 .sui-form-field').each(function () {
+    $('.sui-2-8-1 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2414,7 +2409,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-8-0 .sui-reviews').each(function () {
+  $('.sui-2-8-1 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -2452,7 +2447,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-8-0 .sui-circle-score').each(function () {
+  $('.sui-2-8-1 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -2687,7 +2682,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-8-0 select:not([multiple])').each(function () {
+  $('.sui-2-8-1 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);
@@ -8390,7 +8385,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-8-0 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-8-1 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8829,12 +8824,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-0 .sui-tabs').length) {
+  if (0 !== $('.sui-2-8-1 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-8-0 .sui-tabs-navigation').each(function () {
+    $('.sui-2-8-1 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9154,8 +9149,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-0 .sui-tree').length) {
-    $('.sui-2-8-0 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-8-1 .sui-tree').length) {
+    $('.sui-2-8-1 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9171,7 +9166,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-8-0 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-8-1 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

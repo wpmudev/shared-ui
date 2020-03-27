@@ -10,7 +10,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-8-0 .sui-dropdown');
+      var $dropdowns = $('.sui-2-8-1 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -31,7 +31,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-8-0 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-8-1 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();

@@ -355,11 +355,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
       throw new Error('No element found with id="' + noticeId + '".');
-    } // Check if element has correct attribute.
-
-
-    if ('alert' !== noticeNode.attr('role')) {
-      throw new Error('Notice requires a DOM element with ARIA role of alert.');
     }
 
     var utils = utils || {};

@@ -113,8 +113,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-0 .sui-accordion').length) {
-    $('.sui-2-8-0 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-8-1 .sui-accordion').length) {
+    $('.sui-2-8-1 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }

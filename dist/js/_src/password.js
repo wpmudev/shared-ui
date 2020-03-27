@@ -9,7 +9,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-8-0 .sui-form-field').each(function () {
+    $('.sui-2-8-1 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
