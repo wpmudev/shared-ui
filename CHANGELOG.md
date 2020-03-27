@@ -1,5 +1,5 @@
 v2.8.1
-- [Fix] Notifications: Allow close function to dismiss static notices.
+- [Fix] Notifications: Console error when trying to dismiss static notice.
 
 
 v2.8.0
