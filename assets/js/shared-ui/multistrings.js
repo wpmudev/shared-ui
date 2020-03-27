@@ -214,27 +214,54 @@
 
 		function handleInsertTags( $mainWrapper ) {
 
-			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' );
+			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' ),
+				$textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
+				customDisallowedKeys = $textarea.data( 'disallowedKeys' ),
+				disallowedCharsArray = [ ',' ], // Commas are not allowed.
+				escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
 
+			if ( customDisallowedKeys ) {
+
+				// Make an array from the user defined keys.
+				const customKeysArray = customDisallowedKeys.split( ',' );
+
+				for ( let key of customKeysArray ) {
+
+					// Convert to integer.
+					const intKey = parseInt( key, 10 );
+
+					// And filter out any NaN.
+					if ( ! isNaN( intKey ) ) {
+						disallowedCharsArray.push( String.fromCharCode( intKey ) );
+					}
+				}
+
+			} else {
+
+				// Space is disallowed by default.
+				disallowedCharsArray.push( ' ' );
+			}
+
+			// Regex for removing the disallowed keys from the inserted strings.
+			const disallowedString = escapeRegExp( disallowedCharsArray.join( '' ) ),
+				regex = new RegExp( `[\r\m,${disallowedString}]`, 'gm' );
+
+			// Sanitize the values on keydown.
 			$tagInput.on( 'keydown', function( e ) {
 
-				const textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
-					isEnter   = ( 13 === e.keyCode ),
-					isSpace   = ( 32 === e.keyCode ),
-					isComma   = ( 188 === e.keyCode );
-
-				// Do nothing on space or comma.
-				if ( isSpace || isComma ) {
+				// Do nothing if the key is from the disallowed ones.
+				if ( disallowedCharsArray.includes( e.key ) ) {
 					e.preventDefault();
 					return;
 				}
 
 				let input    = $( this ),
-					oldValue = textarea.val(),
+					oldValue = $textarea.val(),
 					newValue = input.val();
 
-				// Get rid of empty spaces, new lines, and commas from the newly entered value.
-				const newTrim = newValue.replace( /[\r\n,\s]+/gm, '' );
+				// Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
+				const newTrim = newValue.replace( regex, '' ),
+					isEnter   = ( 13 === e.keyCode );
 
 				// If there's no value to add, don't insert any new value.
 				if ( 0 !== newTrim.length ) {
@@ -244,7 +271,7 @@
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
 						// Print new value on textarea.
-						textarea.val( newTextareaValue );
+						$textarea.val( newTextareaValue );
 
 						// Print new value on the list.
 						const html = buildItem( newTrim );
@@ -271,8 +298,7 @@
 
 			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
 
-			let oldValue = textarea.val(),
-				delayTimer;
+			let oldValue = textarea.val();
 
 			textarea.on( 'keydown', function( e ) {
 
