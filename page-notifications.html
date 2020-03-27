@@ -622,7 +622,7 @@ is_searchable: true
 
 								<h4>Open Notice</h4>
 
-								<p>Below you can find the function to show users the message you want to notify them. You can also learn more about each of its paramethers by clicking on each section below.</p>
+								<p>Below you can find the function to show users the message you want to notify them. You can also learn more about each of its parameters by clicking on each section below.</p>
 
 								<div class="demo-code-block">
 
@@ -688,7 +688,7 @@ const noticeId = 'unique-id';
 
 												<div class="sui-box-body">
 
-													<p>In this paramether you must include the message would like to display in the notice. Remember it must be properly wrapped on it's tag.</p>
+													<p>In this parameter you must include the message would like to display in the notice. Remember it must be properly wrapped on its tag.</p>
 
 													<div class="demo-code-block">
 
@@ -722,7 +722,7 @@ const noticeMessage = '&lt;p&gt;Hello, I am a notification.&lt;/p&gt;';
 
 												<div class="sui-box-body">
 
-													<p>This <strong>object</strong> paramether will allow you to overwrite default settings and styles for the notice. The allowed options are: type, icon, dismiss, and autoclose.</p>
+													<p>This <strong>object</strong> parameter will allow you to overwrite default settings and styles for the notice. The allowed options are: type, icon, dismiss, and autoclose.</p>
 
 													<div class="demo-code-block">
 
@@ -736,7 +736,7 @@ const noticeOptions = {};
 
 													<h5 style="font-size: 14px;">Type</h5>
 
-													<p>You can leave this option empty to get default (gray) notification or use: <code>info</code> for blue notification, <code>success</code> for green notification, <code>warning</code> for yellow notification, <code>error</code> for red notification or <code>upsell</code> for purple notification.</p>
+													<p>You can leave this option empty to get the default (gray) notification or use: <code>info</code> for blue notification, <code>success</code> for green notification, <code>warning</code> for yellow notification, <code>error</code> for red notification or <code>upsell</code> for purple notification.</p>
 
 													<div class="demo-code-block">
 
@@ -760,7 +760,7 @@ noticeOptions.type = 'wordpress'; // This will show WordPress icon from SUI icon
 
 													<h5 style="font-size: 14px;">Dismiss</h5>
 
-													<p>This is an object that will handle 3 different options for dismiss button: show (visibility), label and tooltip.</p>
+													<p>This is an object that will handle 3 different options for the dismiss button: show (visibility), label and tooltip.</p>
 
 													<div class="demo-code-block">
 
@@ -779,14 +779,14 @@ noticeOptions.dismiss = {};
 														<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy js">
-noticeOptions.dismiss.show = true; // This will show WordPress icon from SUI icons font.
+noticeOptions.dismiss.show = true; // This will show a dismiss button for the notice.
 </pre>
 
 														</div>
 
 														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Dismiss Button Label</h6>
 
-														<p>Dismiss button will always be an icon button but screen readers need a proper label to notify users what's the button about. This option will help you to overwrite button label.</p>
+														<p>The dismiss button will always be an icon button but screen readers need a proper label to notify users what's the button about. This option will help you to overwrite button label.</p>
 
 														<div class="demo-code-block">
 
@@ -798,7 +798,7 @@ noticeOptions.dismiss.label = 'Dismiss Label';
 
 														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Dismiss Button Tooltip</h6>
 
-														<p>There will be cases when you need a tooltip for dismiss button. Leave this option empty for no tooltip to show up.</p>
+														<p>There will be cases when you need a tooltip for the dismiss button. Leave this option empty for no tooltip to show up.</p>
 
 														<div class="demo-code-block">
 
@@ -818,7 +818,7 @@ noticeOptions.dismiss.tooltip = 'Dismiss Tooltip';
 
 														<h6 class="sui-settings-label sui-dark" style="font-size: 14px;">Auto Close Show</h6>
 
-														<p>This boolean variable will allow you to enable or disable autoclose ability for notices but when dismiss button is enabled this will stop working since all dismissible notices will never auto-close.</p>
+														<p>This boolean variable will allow you to enable or disable autoclose ability for notices but when the dismiss button is enabled this will stop working since all dismissible notices will never auto-close.</p>
 
 														<div class="demo-code-block">
 
@@ -854,7 +854,7 @@ noticeOptions.autoclose.timeout = 5000; // Closes 5 seconds after show animation
 
 								<h4>Close Notice</h4>
 
-								<p><strong>Open Notice</strong> action already includes auto-close or dismiss button with its proper actions, making this not necessary. If for some reason you need <strong>Close Notice</strong> action for your project, you can find it below.</p>
+								<p>The <strong>Open Notice</strong> action already includes auto-close or the dismiss button with its proper actions, making this not necessary. If for some reason you need a <strong>Close Notice</strong> action for your project, you can find it below.</p>
 
 								<div class="demo-code-block">
 
@@ -901,7 +901,7 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>This attribute will open the alert notice you assign:</p>
+													<p>This attribute will open the alert notice you assign.</p>
 
 													<div class="demo-code-block">
 
@@ -937,7 +937,7 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>Use this attribute to include the message you would like to display in the notice. Remember it must be properly wrapped with it's tag.</p>
+													<p>Use this attribute to include the message you would like to display in the notice. Remember it must be properly wrapped with its tag.</p>
 
 													<div class="demo-code-block">
 
@@ -971,9 +971,9 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>If you want to overwrite default <span class="sui-icon-info" aria-hidden="true"></span> (information) icon, use the following attribute. Have in min you need to add the name of the icon without its prefix <code>sui-icon-</code>.</p>
+													<p>If you want to overwrite the default <span class="sui-icon-info" aria-hidden="true"></span> (information) icon, use the following attribute. Have in mind you need to add the name of the icon without its prefix <code>sui-icon-</code>.</p>
 
-													<p>Add the name of the icon without its prefix sui-icon-. The "loader" icon will also add sui-loading state to the icon.</p>
+													<p>The "loader" icon will also add sui-loading state to the icon.</p>
 
 													<div class="demo-code-block">
 
@@ -1009,7 +1009,7 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>This attribute will allow you to enable dimiss button on notifications and will disable auto-close option.</p>
+													<p>This attribute will allow you to enable the dimiss button on notifications and will disable the auto-close option.</p>
 
 													<div class="demo-code-block">
 
@@ -1019,7 +1019,7 @@ SUI.closeNotice( 'unique-id' );
 
 													</div>
 
-													<p>When dismiss button is enabled, you will be able to overwrite dismiss button label and add a tooltip to it with the following attributes:</p>
+													<p>When the dismiss button is enabled, you will be able to overwrite the dismiss button label and add a tooltip to it with the following attributes.</p>
 
 													<div class="demo-code-block">
 
@@ -1054,7 +1054,7 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>Notices without dismiss button allowed will auto-close but you can disable this option if you want to, even when is not recommended. This attribute accepts boolean (true / false) value.</p>
+													<p>Notices without a dismiss button enabled will be auto-closed, but you can disable this option if you want to, even when it's not recommended. This attribute accepts a boolean (true / false) value.</p>
 
 													<div class="demo-code-block">
 
@@ -1064,7 +1064,7 @@ SUI.closeNotice( 'unique-id' );
 
 													</div>
 
-													<p>When auto-close is enabled for notifications, you can overwrite its timeout property for the notice to take more or less time to vanish. The timeout value need to be entered in milliseconds.</p>
+													<p>When auto-close is enabled for notifications, you can overwrite its timeout property for the notice to take more or less time to vanish. The timeout value needs to be entered in milliseconds.</p>
 
 													<div class="demo-code-block">
 
@@ -1089,7 +1089,7 @@ SUI.closeNotice( 'unique-id' );
 
 								<h4>Close Notice</h4>
 
-								<p>Even when there's no need to close a notification with external element, you can still do it with the attribute below:</p>
+								<p>Even when there's no need to close a notification with an external element, you can still do it with the attribute below.</p>
 
 								<div class="demo-code-block">
 
