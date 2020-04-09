@@ -220,8 +220,6 @@
 		}
 	};
 
-	document.addEventListener( 'keyup', aria.handleEscape );
-
 	/**
 	 * @constructor
 	 * @desc Dialog object providing modal focus management.
@@ -772,10 +770,28 @@
 
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
+
+		const isMaskCloser = 'boolean' === typeof hasOverlayMask && true === hasOverlayMask,
+			visualClosers = this.dialogNode.querySelectorAll( '[data-modal-close]' );
+
+		let areVisualClosers = false;
+
+		// Check they're not present and hidden.
+		if ( visualClosers.length ) {
+			for ( let element of visualClosers ) {
+				areVisualClosers = 'none' !== element.style.display && 'hidden' !== element.style.visibility;
+			}
+		}
+
+		// Only allow ESC to close the modal if the modal has visual closers.
+		if ( isMaskCloser || areVisualClosers ) {
+			this.dialogNode.addEventListener( 'keyup', aria.handleEscape );
+		}
 	}; // end addListeners.
 
 	aria.Dialog.prototype.removeListeners = function() {
 		document.removeEventListener( 'focus', this.trapFocus, true );
+		this.dialogNode.removeEventListener( 'keyup', aria.handleEscape );
 	}; // end removeListeners.
 
 	aria.Dialog.prototype.trapFocus = function( event ) {
