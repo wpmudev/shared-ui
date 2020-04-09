@@ -771,29 +771,34 @@
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
 
-		const isMaskCloser = 'boolean' === typeof hasOverlayMask && true === hasOverlayMask,
-			visualClosers = this.dialogNode.querySelectorAll( '[data-modal-close]' ),
-			headerCloseIcon = this.dialogNode.querySelector( '.sui-box-header .sui-button-icon:not([data-modal-close]) .sui-icon-close' ),
-			isVisible = element => 'none' !== element.style.display && 'hidden' !== element.style.visibility;
+		const isMaskCloser = 'boolean' === typeof hasOverlayMask && true === hasOverlayMask;
 
-		let areVisualClosers = false;
+		let areVisualClosers = isMaskCloser;
 
-		// Check they're not present and hidden.
-		if ( visualClosers.length ) {
-			for ( let element of visualClosers ) {
-				areVisualClosers = isVisible( element );
+		// Skip if the modal mask is a closer.
+		if ( ! areVisualClosers ) {
+
+			const visualClosers = this.dialogNode.querySelectorAll( '[data-modal-close]' ),
+				headerCloseIcon = this.dialogNode.querySelector( '.sui-box-header .sui-button-icon:not([data-modal-close]) .sui-icon-close' ),
+				isVisible = element => 'none' !== element.style.display && 'hidden' !== element.style.visibility;
+
+			// Check they're not present and hidden.
+			if ( visualClosers.length ) {
+				for ( let element of visualClosers ) {
+					areVisualClosers = isVisible( element );
+				}
+			}
+
+			// If no visual closers were found, check if there's a close icon in the header that
+			// doesn't have the 'data-modal-close' prop. It's also a clear indicator of a closer.
+			if ( ! areVisualClosers && headerCloseIcon ) {
+				const closeIconButton = headerCloseIcon.closest( '.sui-button-icon' );
+				areVisualClosers = isVisible( closeIconButton );
 			}
 		}
 
-		// If no visual closers were found, check if there's a close icon in the header that
-		// doesn't have the 'data-modal-close' prop. It's also a clear indicator of a closer.
-		if ( ! areVisualClosers && headerCloseIcon ) {
-			const closeIconButton = headerCloseIcon.closest( '.sui-button-icon' );
-			areVisualClosers = isVisible( closeIconButton );
-		}
-
 		// Only allow ESC to close the modal if the modal has visual closers.
-		if ( isMaskCloser || areVisualClosers ) {
+		if ( areVisualClosers ) {
 			this.dialogNode.addEventListener( 'keyup', aria.handleEscape );
 		}
 	}; // end addListeners.
