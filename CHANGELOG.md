@@ -1,3 +1,8 @@
+v2.9.0
+- [New] Modals: Trigger events when opening and closing the modals.
+		The new custom events are 'open', 'afteropen', 'close', 'afterclose'.
+
+
 v2.8.1
 - [Fix] Notifications: Console error when trying to dismiss static notice.
 
