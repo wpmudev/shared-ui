@@ -220,8 +220,6 @@
 		}
 	};
 
-	document.addEventListener( 'keyup', aria.handleEscape );
-
 	/**
 	 * @constructor
 	 * @desc Dialog object providing modal focus management.
@@ -246,7 +244,7 @@
 	 * a clickable overlay mask. This mask will fire close modal function
 	 * when you click on it.
 	 */
-	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask ) {
+	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
 		this.dialogNode = document.getElementById( dialogId );
 
@@ -269,6 +267,8 @@
 				'Dialog() requires a DOM element with ARIA role of dialog or alertdialog.'
 			);
 		}
+
+		this.isCloseOnEsc = isCloseOnEsc;
 
 		// Wrap in an individual backdrop element if one doesn't exist
 		// Native <dialog> elements use the ::backdrop pseudo-element, which
@@ -497,7 +497,7 @@
 	 * Optional boolean parameter that when is set to "true" will enable a clickable overlay
 	 * mask to the new opened dialog. This mask will fire close dialog function when you click it.
 	 */
-	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
+	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
 		let self = this;
 
@@ -613,7 +613,7 @@
 		}, 350 );
 
 		let focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-		let dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask );
+		let dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 
 	}; // end replace
 
@@ -772,6 +772,11 @@
 
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
+
+		if ( this.isCloseOnEsc ) {
+			this.dialogNode.addEventListener( 'keyup', aria.handleEscape );
+		}
+
 	}; // end addListeners.
 
 	aria.Dialog.prototype.removeListeners = function() {
@@ -800,8 +805,8 @@
 		}
 	}; // end trapFocus.
 
-	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay ) {
-		let dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay );
+	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc = true ) {
+		let dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc );
 	}; // end openModal.
 
 	SUI.closeModal = function() {
@@ -809,7 +814,7 @@
 		topDialog.close();
 	}; // end closeDialog.
 
-	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
+	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true  ) {
 
 		let topDialog = aria.getCurrentDialog();
 
@@ -821,7 +826,7 @@
 		 *
 		 * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
 		 */
-		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
+		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true  );
 
 	}; // end replaceModal.
 
@@ -864,6 +869,8 @@
 				newFocus    = button.attr( 'data-modal-open-focus' );
 				overlayMask = button.attr( 'data-modal-mask' );
 
+				let isCloseOnEsc = 'false' === button.attr( 'data-esc-close' ) ? false : true;
+
 				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
 					closeFocus = this;
 				}
@@ -879,7 +886,7 @@
 				}
 
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.openModal( modalId, closeFocus, newFocus, overlayMask );
+					SUI.openModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
 				}
 
 				e.preventDefault();
@@ -893,6 +900,8 @@
 				closeFocus  = button.attr( 'data-modal-close-focus' );
 				newFocus    = button.attr( 'data-modal-open-focus' );
 				overlayMask = button.attr( 'data-modal-replace-mask' );
+
+				let isCloseOnEsc = 'false' === button.attr( 'data-esc-close' ) ? false : true;
 
 				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
 					closeFocus = undefined;
@@ -909,7 +918,7 @@
 				}
 
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask );
+					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
 				}
 
 				e.preventDefault();
