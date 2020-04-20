@@ -1,3 +1,9 @@
+v2.9.0
+- [Enhance] Modals: Introduce a a parameter like hasOverlayMask to allow preventing
+			the ESC key from closing the modal.
+			Dev Notes: The default value for this parameter is "true", so the existing
+			modals will continue closing with ESC unless specified otherwise by this param.
+
 v2.8.1
 - [Fix] Notifications: Console error when trying to dismiss static notice.
 
