@@ -826,7 +826,7 @@
 		 *
 		 * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
 		 */
-		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true  );
+		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 
 	}; // end replaceModal.
 
