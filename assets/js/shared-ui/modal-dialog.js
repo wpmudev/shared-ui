@@ -243,6 +243,11 @@
 	 * Optional boolean parameter that when is set to "true" will enable
 	 * a clickable overlay mask. This mask will fire close modal function
 	 * when you click on it.
+	 *
+	 * @param isCloseOnEsc
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable closing the
+	 * dialog with the Esc key.
 	 */
 	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
@@ -496,6 +501,11 @@
 	 * @param hasOverlayMask
 	 * Optional boolean parameter that when is set to "true" will enable a clickable overlay
 	 * mask to the new opened dialog. This mask will fire close dialog function when you click it.
+	 *
+	 * @param isCloseOnEsc
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable closing the
+	 * dialog with the Esc key.
 	 */
 	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
