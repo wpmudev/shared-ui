@@ -349,7 +349,7 @@
 		this.lastFocus = document.activeElement;
 
 		// Trigger the 'afteropen' event at the end of the opening process.
-		const afterOpenEvent = new Event( 'afteropen' );
+		const afterOpenEvent = new Event( 'afterOpen' );
 		this.dialogNode.dispatchEvent( afterOpenEvent );
 
 	}; // end Dialog constructor.
@@ -492,7 +492,7 @@
 		}
 
 		// Trigger the 'afterclose' event at the end of the closing process.
-		const afterCloseEvent = new Event( 'afterclose' );
+		const afterCloseEvent = new Event( 'afterClose' );
 		this.dialogNode.dispatchEvent( afterCloseEvent );
 
 	}; // end close.
