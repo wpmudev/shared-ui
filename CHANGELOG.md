@@ -1,5 +1,6 @@
-v2.8.0
+v2.9.0
 - [Enhance] Notifications: Allow the TAB key to insert a new string to the textarea list.
+
 
 v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
