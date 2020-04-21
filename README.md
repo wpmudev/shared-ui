@@ -8,8 +8,8 @@ See [showcase](https://wpmudev.github.io/shared-ui/).
 
 ### Contributing
 
-Please read through our [contributing guidelines](https://wpmudev.github.io/shared-ui/contributing/).
+Please read through our [contributing guidelines](https://github.com/wpmudev/shared-ui/blob/development/CONTRIBUTING.md).
 
 ### Releasing a new version
 
-Please read through our [releasing guidelines](https://wpmudev.github.io/shared-ui/releasing/).
+Please read through our [releasing guidelines](https://github.com/wpmudev/shared-ui/blob/development/RELEASING.md).

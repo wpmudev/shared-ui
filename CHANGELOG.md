@@ -1,5 +1,12 @@
 v2.9.0
+- [New] Modals: Trigger events when opening and closing the modals.
+			Dev Notes: The new custom events are 'open', 'afteropen', 'close', 'afterclose'.
+      You can ping @Danae if something is not clear or need more information.
 - [Enhance] Notifications: Allow the TAB key to insert a new string to the textarea list.
+
+
+v2.8.1
+- [Fix] Notifications: Console error when trying to dismiss static notice.
 
 
 v2.8.0
