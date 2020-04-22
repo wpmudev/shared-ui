@@ -135,12 +135,20 @@ This attribute will allow overlay mask to fire close
 function when clicking on it.
 
 !! When not used, overlay mask will do nothing.
+
+5. data-esc-close
+true|false
+Default: true
+Handles whether the ESC key closes the modal.
+If 'true', pressing the ESC key closes the modal.
+If 'false', pressing the ESC key does nothing.
 --&gt;
 &lt;button
 	data-modal-open=&quot;unique-id&quot;
 	data-modal-open-focus=&quot;focused-element-id&quot;
 	data-modal-close-focus=&quot;focused-element-id&quot;
 	data-modal-mask=&quot;true&quot;
+	data-esc-close=&quot;true&quot;
 &gt;
 	Open Modal
 &lt;/button&gt;
@@ -193,21 +201,30 @@ You can use this attribute on an element that's placed "inside" modal.
 	* When is set to `true` modal overlay mask can be clicked and will
 	* fire close modal function.
 	*
-	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask );
+	* @param isCloseOnEsc (optional)
+	* boolean
+	* Default: true
+	* Handles whether the ESC key closes the modal.
+	* If 'true', pressing the ESC key closes the modal.
+	* If 'false', pressing the ESC key does nothing.
+	*
+	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask, isCloseOnEsc );
 	*/
 	$( 'button' ).on( 'click', function() {
 
 		const modalId        = 'modal-unique-id',
 			focusAfterClosed = this,
 			focusWhenOpen    = undefined,
-			hasOverlayMask   = false
+			hasOverlayMask   = false,
+			isCloseOnEsc     = true
 		;
 
 		SUI.openModal(
 			modalId,
 			focusAfterClosed,
 			focusWhenOpen,
-			hasOverlayMask
+			hasOverlayMask,
+			isCloseOnEsc
 		);
 
 	});
@@ -418,12 +435,20 @@ This attribute will allow new modal to have an overlay
 mask that fires close function when clicking on it.
 
 !! When not used, overlay mask will do nothing.
+
+5. data-esc-close
+true|false
+Default: true
+Handles whether the ESC key closes the modal.
+If 'true', pressing the ESC key closes the modal.
+If 'false', pressing the ESC key does nothing.
 --&gt;
 &lt;button
 	data-modal-replace=&quot;unique-id&quot;
 	data-modal-open-focus=&quot;element-unique-id&quot;
 	data-modal-close-focus=&quot;element-unique-id&quot;
 	data-modal-replace-mask=&quot;true&quot;
+	data-esc-close=&quot;true&quot;
 &gt;
 &lt;/button&gt;
 </pre>
@@ -457,7 +482,14 @@ mask that fires close function when clicking on it.
 * Optional boolean parameter that when is set to "true" will enable a clickable overlay
 * mask to the new opened modal. This mask will fire close modal function when you click it.
 *
-* SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
+* @param isCloseOnEsc (optional)
+* boolean
+* Default: true
+* Handles whether the ESC key closes the modal.
+* If 'true', pressing the ESC key closes the modal.
+* If 'false', pressing the ESC key does nothing.
+*
+* SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 */
 ( function( $ ) {
 
@@ -466,10 +498,11 @@ mask that fires close function when clicking on it.
 		const newModalId        = 'modal-unique-id',
 			newFocusAfterClosed = 'element-unique-id',
 			newFocusFirst       = 'element-unique-id',
-			hasOverlayMask      = true
+			hasOverlayMask      = true,
+			isCloseOnEsc        = true
 			;
 
-		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
+		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 
 	});
 
