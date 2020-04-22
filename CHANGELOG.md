@@ -22,6 +22,7 @@ v2.9.0
 v2.8.1
 - [Fix] Notifications: Console error when trying to dismiss static notice.
 
+
 v2.8.0
 - [Fix] Icons: Branda icon is missing even when font supports it.
 - [Enhance] Modals: Remove legacy code support.
