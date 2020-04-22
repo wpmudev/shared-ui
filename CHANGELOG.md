@@ -1,3 +1,9 @@
+v2.9.2
+- [Enhance] Modals: Introduce a a parameter like hasOverlayMask to allow preventing
+			the ESC key from closing the modal.
+			Dev Notes: The default value for this parameter is "true", so the existing
+			modals will continue closing with ESC unless specified otherwise by this param.
+
 v2.9.0
 - [New] Modals: Trigger events when opening and closing the modals.
 			Dev Notes: The new custom events are 'open', 'afterOpen', 'close', 'afterClose'.
@@ -5,10 +11,6 @@ v2.9.0
 - [Fix] Multi Strings: First tag being removed when adding a new one in Snapshot.
 - [Fix] Multi Strings: On load value not handled properly if not using comma as separator.
 - [Enhance] Notifications: Allow the TAB key to insert a new string to the textarea list.
-- [Enhance] Modals: Introduce a a parameter like hasOverlayMask to allow preventing
-			the ESC key from closing the modal.
-			Dev Notes: The default value for this parameter is "true", so the existing
-			modals will continue closing with ESC unless specified otherwise by this param.
 
 
 v2.8.1
