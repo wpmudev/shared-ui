@@ -85,24 +85,21 @@
 			});
 
 			const $input = $listWrapper.find( '.sui-multistrings-input input' ),
+				$textarea = $mainWrapper.find( 'textarea' ),
 				$stringList = $mainWrapper.find( '.sui-multistrings-list' );
 
-			$input.on( 'focus', function() {
+			const addSuiFocus = $element => {
 
-				$stringList.addClass( 'sui-focus' );
-				$input.off( 'blur' ).on( 'blur', function() {
-					$stringList.removeClass( 'sui-focus' );
+				$element.on( 'focus', () => {
+					$stringList.addClass( 'sui-focus' );
+					$element.off( 'blur' ).on( 'blur', function() {
+						$stringList.removeClass( 'sui-focus' );
+					});
 				});
-			});
+			};
 
-			const $textarea = $mainWrapper.find( 'textarea' );
-			$textarea.on( 'focus', function() {
-
-				$stringList.addClass( 'sui-focus' );
-				$textarea.off( 'blur' ).on( 'blur', function() {
-					$stringList.removeClass( 'sui-focus' );
-				});
-			});
+			addSuiFocus( $input );
+			addSuiFocus( $textarea );
 		}
 
 		function buildInput( textarea, uniqid ) {
@@ -277,6 +274,8 @@
 				if ( 0 !== newTrim.length ) {
 
 					if ( isEnter ) {
+						e.preventDefault();
+						e.stopPropagation();
 
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
@@ -308,7 +307,11 @@
 
 			const textarea = $mainWrapper.find( 'textarea.sui-multistrings' );
 
-			let oldValue = textarea.val();
+			let oldValue = textarea.val(),
+				isTabTrapped = true;
+
+			// Keep tab trapped when focusing on the textarea.
+			textarea.on( 'focus', () => isTabTrapped = true );
 
 			textarea.on( 'keydown', function( e ) {
 
@@ -316,6 +319,31 @@
 				if ( disallowedCharsArray.includes( e.key ) ) {
 					e.preventDefault();
 					return;
+				}
+
+				// If it's tab...
+				if ( 9 === e.keyCode ) {
+
+					// Add a new line if it's trapped.
+					if ( isTabTrapped ) {
+						e.preventDefault();
+
+						let start = this.selectionStart,
+							end = this.selectionEnd;
+
+						// Insert a new line where the caret is.
+						$( this ).val( $( this ).val().substring( 0, start ) +
+							'\n' +
+							$( this ).val().substring( end ) );
+
+						// Put caret at right position again.
+						this.selectionStart = start + 1;
+						this.selectionEnd = this.selectionStart;
+					}
+
+					// Release the tab.
+				} else if ( 27 === e.keyCode ) {
+					isTabTrapped = false;
 				}
 
 			}).on( 'keyup change', function( e ) {
