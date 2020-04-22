@@ -3,6 +3,10 @@ v2.9.2
 			the ESC key from closing the modal.
 			Dev Notes: The default value for this parameter is "true", so the existing
 			modals will continue closing with ESC unless specified otherwise by this param.
+      
+v2.9.1
+- [New] Multi Strings: Allow defining a set of characters that are not allowed in the strings.
+- [Fix] Multi Strings: Large strings overflow main container.
 
 v2.9.0
 - [New] Modals: Trigger events when opening and closing the modals.
