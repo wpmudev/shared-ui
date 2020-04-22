@@ -736,6 +736,45 @@
 	}
 }
 
+@include body-class(true, true) {
+
+	.sui-modal {
+		right: map-get($wordpress, adminmenu);
+		left: auto;
+	}
+
+	// VAR: Folded sidebar.
+	&.wp-admin.folded {
+
+		.sui-modal {
+
+			@include media(min-width, md) {
+				right: map-get($wordpress, adminmenu-sm);
+				left: auto;
+			}
+		}
+	}
+
+	&.wp-admin {
+
+		&.auto-fold {
+
+			.sui-modal {
+
+				@media only screen and (max-width: 960px) {
+					right: map-get($wordpress, adminmenu-sm);
+					left: auto;
+				}
+
+				@media only screen and (max-width: 782px) {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+}
+
 html.sui-has-modal,
 html.sui-has-overlay {
 	overflow: hidden;
