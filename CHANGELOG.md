@@ -1,7 +1,6 @@
 v2.9.2
 - [Fix] Modals: Lower part of the overlay not closing in long modals.
-- [Enhance] Modals: Introduce a a parameter like hasOverlayMask to allow preventing
-			the ESC key from closing the modal.
+- [Enhance] Modals: Introduce a parameter like hasOverlayMask to allow preventing ESC key from closing modal.
 			Dev Notes: The default value for this parameter is "true", so the existing
 			modals will continue closing with ESC unless specified otherwise by this param.
 
