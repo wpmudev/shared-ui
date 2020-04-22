@@ -47,7 +47,6 @@
 			min-height: 0;
 			flex: 0 0 auto;
 			position: relative;
-			// z-index: map-get($modal, z-index);
 			margin: auto;
 			padding: 0 $sui-gutter;
 
@@ -743,12 +742,25 @@
 	.sui-modal {
 		right: map-get($wordpress, adminmenu);
 		left: auto;
+
+		.sui-modal-overlay {
+			right: map-get($wordpress, adminmenu);
+			left: auto;
+		}
 	}
 
 	// VAR: Folded sidebar.
 	&.wp-admin.folded {
 
 		.sui-modal {
+
+			.sui-modal-overlay {
+
+				@include media(min-width, md) {
+					right: map-get($wordpress, adminmenu-sm);
+					left: auto;
+				}
+			}
 
 			@include media(min-width, md) {
 				right: map-get($wordpress, adminmenu-sm);
@@ -762,6 +774,19 @@
 		&.auto-fold {
 
 			.sui-modal {
+
+				.sui-modal-overlay {
+
+					@media only screen and (max-width: 960px) {
+						right: map-get($wordpress, adminmenu-sm);
+						left: auto;
+					}
+
+					@media only screen and (max-width: 782px) {
+						right: 0;
+						left: auto;
+					}
+				}
 
 				@media only screen and (max-width: 960px) {
 					right: map-get($wordpress, adminmenu-sm);
