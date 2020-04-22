@@ -138,7 +138,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $removeButtons.off('click').on('click', removeTag);
     }
 
-    function insertStringOnLoad(textarea, uniqid) {
+    function insertStringOnLoad(textarea, uniqid, disallowedCharsArray) {
       var html = '',
           $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
           $entriesList = $mainWrapper.find('.sui-multistrings-list'),
@@ -148,8 +148,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         valueToClear = valueToClear.replace(/(?!^),/gm, '\n');
       }
 
-      var removeForbidden = cleanTextarea(valueToClear, true);
-      var splitStrings = removeForbidden.split(/[\r\n]/gm); // Clean-up textarea value.
+      var removeForbidden = cleanTextarea(valueToClear, disallowedCharsArray, true),
+          splitStrings = removeForbidden.split(/[\r\n]/gm); // Clean-up textarea value.
 
       textarea.val(removeForbidden); // Add currently available strings.
 
@@ -165,24 +165,80 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       bindRemoveTag($mainWrapper);
     }
 
-    function handleInsertTags($mainWrapper) {
-      var $tagInput = $mainWrapper.find('.sui-multistrings-input input');
-      $tagInput.on('keydown', function (e) {
-        var textarea = $mainWrapper.find('textarea.sui-multistrings'),
-            isEnter = 13 === e.keyCode,
-            isSpace = 32 === e.keyCode,
-            isComma = 188 === e.keyCode; // Do nothing on space or comma.
+    function getDisallowedChars($mainWrapper) {
+      var $textarea = $mainWrapper.find('textarea.sui-multistrings'),
+          customDisallowedKeys = $textarea.data('disallowedKeys'),
+          disallowedCharsArray = [',']; // Commas are not allowed.
 
-        if (isSpace || isComma) {
+      if (customDisallowedKeys) {
+        // Make an array from the user defined keys.
+        var customKeysArray = customDisallowedKeys.split(',');
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = customKeysArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var key = _step.value;
+            // Convert to integer.
+            var intKey = parseInt(key, 10); // And filter out any NaN.
+
+            if (!isNaN(intKey)) {
+              // Convert ascii code to character.
+              disallowedCharsArray.push(String.fromCharCode(intKey));
+            }
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      } else {
+        // Space is disallowed by default.
+        disallowedCharsArray.push(' ');
+      }
+
+      return disallowedCharsArray;
+    }
+
+    function getRegexPatternForDisallowedChars(disallowedCharsArray) {
+      // Regex for removing the disallowed keys from the inserted strings.
+      var escapeRegExp = function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      },
+          disallowedPattern = escapeRegExp(disallowedCharsArray.join(''));
+
+      return disallowedPattern;
+    }
+
+    function handleInsertTags($mainWrapper, disallowedCharsArray) {
+      var $tagInput = $mainWrapper.find('.sui-multistrings-input input'),
+          $textarea = $mainWrapper.find('textarea.sui-multistrings'),
+          disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
+          regex = new RegExp("[\r\n,".concat(disallowedString, "]"), 'gm'); // Sanitize the values on keydown.
+
+      $tagInput.on('keydown', function (e) {
+        // Do nothing if the key is from the disallowed ones.
+        if (disallowedCharsArray.includes(e.key)) {
           e.preventDefault();
           return;
         }
 
         var input = $(this),
-            oldValue = textarea.val(),
-            newValue = input.val(); // Get rid of empty spaces, new lines, and commas from the newly entered value.
+            oldValue = $textarea.val(),
+            newValue = input.val(); // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
 
-        var newTrim = newValue.replace(/[\r\n,\s]+/gm, ''); // If there's no value to add, don't insert any new value.
+        var newTrim = newValue.replace(regex, ''),
+            isEnter = 13 === e.keyCode; // If there's no value to add, don't insert any new value.
 
         if (0 !== newTrim.length) {
           if (isEnter) {
@@ -190,7 +246,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             e.stopPropagation();
             var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
 
-            textarea.val(newTextareaValue); // Print new value on the list.
+            $textarea.val(newTextareaValue); // Print new value on the list.
 
             var html = buildItem(newTrim);
             $(html).insertBefore($mainWrapper.find('.sui-multistrings-input')); // Clear input value.
@@ -207,7 +263,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       });
     }
 
-    function handleTextareaChange($mainWrapper) {
+    function handleTextareaChange($mainWrapper, disallowedCharsArray) {
       var textarea = $mainWrapper.find('textarea.sui-multistrings');
       var oldValue = textarea.val(),
           isTabTrapped = true; // Keep tab trapped when focusing on the textarea.
@@ -216,10 +272,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return isTabTrapped = true;
       });
       textarea.on('keydown', function (e) {
-        var isSpace = 32 === e.keyCode,
-            isComma = 188 === e.keyCode; // Do nothing on space or comma.
-
-        if (isSpace || isComma) {
+        // Do nothing if the key is from the disallowed ones.
+        if (disallowedCharsArray.includes(e.key)) {
           e.preventDefault();
           return;
         } // If it's tab...
@@ -249,7 +303,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         } // Clear up the content.
 
 
-        var cleanedCurrentValue = cleanTextarea(currentValue); // Set the current value as the old one for future iterations.
+        var cleanedCurrentValue = cleanTextarea(currentValue, disallowedCharsArray); // Set the current value as the old one for future iterations.
 
         textarea.val(cleanedCurrentValue);
         oldValue = cleanedCurrentValue;
@@ -258,26 +312,26 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }),
             tags = $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)'),
             tagsTitles = [];
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
 
         try {
-          for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var tag = _step.value;
+          for (var _iterator2 = tags[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var tag = _step2.value;
             tagsTitles.push($(tag).attr('title'));
           }
         } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-              _iterator["return"]();
+            if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+              _iterator2["return"]();
             }
           } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
+            if (_didIteratorError2) {
+              throw _iteratorError2;
             }
           }
         }
@@ -286,13 +340,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (!areEqual) {
           $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)').remove();
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+          var _iteratorNormalCompletion3 = true;
+          var _didIteratorError3 = false;
+          var _iteratorError3 = undefined;
 
           try {
-            for (var _iterator2 = textboxValues[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var value = _step2.value;
+            for (var _iterator3 = textboxValues[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+              var value = _step3.value;
 
               if (value.length) {
                 // Print new value on the list.
@@ -302,16 +356,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             } // Bind the event to remove the tags.
 
           } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
+            _didIteratorError3 = true;
+            _iteratorError3 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-                _iterator2["return"]();
+              if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+                _iterator3["return"]();
               }
             } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
+              if (_didIteratorError3) {
+                throw _iteratorError3;
               }
             }
           }
@@ -335,9 +389,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       });
     }
 
-    function cleanTextarea(string) {
-      var isLoad = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var clearedString = string.replace(/[^\S\r\n]+|[,]+|((\r\n|\n|\r)$)|^\s*$/gm, '');
+    function cleanTextarea(string, disallowedCharsArray) {
+      var isLoad = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
+          regex = new RegExp("[^\\S\\r\\n]+|[,]+|[".concat(disallowedString, "]+|((\\r\\n|\\n|\\r)$)|^\\s*$"), 'gm');
+      var clearedString = string.replace(regex, '');
 
       if (!isLoad) {
         // Avoid removing the last newline if it existed.
@@ -393,10 +449,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           buildWrapper(multistrings, uniqueId);
-          insertStringOnLoad(multistrings, uniqueId);
-          var $mainWrapper = multistrings.closest('.sui-multistrings-wrap');
-          handleInsertTags($mainWrapper);
-          handleTextareaChange($mainWrapper);
+          var $mainWrapper = multistrings.closest('.sui-multistrings-wrap'),
+              disallowedCharsArray = getDisallowedChars($mainWrapper);
+          insertStringOnLoad(multistrings, uniqueId, disallowedCharsArray);
+          handleInsertTags($mainWrapper, disallowedCharsArray);
+          handleTextareaChange($mainWrapper, disallowedCharsArray);
           bindFocus($mainWrapper);
         });
       }
