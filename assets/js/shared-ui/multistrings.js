@@ -176,14 +176,12 @@
 			let html   = '',
 				$mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
 				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
-				value  = textarea.val()
+				valueToClear  = textarea.val().trim()
 				;
 
-			let valueToClear = '';
-
 			// Convert default commas into new lines.
-			if ( value.includes( ',' ) ) {
-				valueToClear = value.replace( /(?!^),/gm, '\n' );
+			if ( valueToClear.includes( ',' ) ) {
+				valueToClear = valueToClear.replace( /(?!^),/gm, '\n' );
 			}
 
 			const removeForbidden = cleanTextarea( valueToClear, true );
@@ -237,6 +235,8 @@
 				if ( 0 !== newTrim.length ) {
 
 					if ( isEnter ) {
+						e.preventDefault();
+						e.stopPropagation();
 
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
