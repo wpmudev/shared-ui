@@ -1,5 +1,6 @@
 v2.9.1
 - [New] Multi Strings: Allow defining a set of characters that are not allowed in the strings.
+- [Fix] Multi Strings: Large strings overflow main container.
 
 
 v2.9.0
