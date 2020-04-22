@@ -270,6 +270,11 @@
 			);
 		}
 
+		// Trigger the 'open' event at the beginning of the opening process.
+		// After validating the modal's attributes.
+		const openEvent = new Event( 'open' );
+		this.dialogNode.dispatchEvent( openEvent );
+
 		// Wrap in an individual backdrop element if one doesn't exist
 		// Native <dialog> elements use the ::backdrop pseudo-element, which
 		// works similarly.
@@ -343,6 +348,10 @@
 
 		this.lastFocus = document.activeElement;
 
+		// Trigger the 'afteropen' event at the end of the opening process.
+		const afterOpenEvent = new Event( 'afterOpen' );
+		this.dialogNode.dispatchEvent( afterOpenEvent );
+
 	}; // end Dialog constructor.
 
 	/**
@@ -353,6 +362,10 @@
 	aria.Dialog.prototype.close = function() {
 
 		let self = this;
+
+		// Trigger the 'close' event at the beginning of the closing process.
+		const closeEvent = new Event( 'close' );
+		this.dialogNode.dispatchEvent( closeEvent );
 
 		aria.OpenDialogList.pop();
 		this.removeListeners();
@@ -477,6 +490,11 @@
 		} else {
 			document.body.parentNode.classList.remove( aria.Utils.dialogOpenClass );
 		}
+
+		// Trigger the 'afterclose' event at the end of the closing process.
+		const afterCloseEvent = new Event( 'afterClose' );
+		this.dialogNode.dispatchEvent( afterCloseEvent );
+
 	}; // end close.
 
 	/**

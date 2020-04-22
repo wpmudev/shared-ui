@@ -118,8 +118,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-1 .sui-accordion').length) {
-    $('.sui-2-8-1 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-9-0 .sui-accordion').length) {
+    $('.sui-2-9-0 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-8-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-9-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-8-1 .sui-slider').each(function () {
+  $('.sui-2-9-0 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-8-1 .sui-dropdown');
+      var $dropdowns = $('.sui-2-9-0 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-8-1 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-9-0 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -806,10 +806,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     if (!isDialog) {
       throw new Error('Dialog() requires a DOM element with ARIA role of dialog or alertdialog.');
-    } // Wrap in an individual backdrop element if one doesn't exist
+    } // Trigger the 'open' event at the beginning of the opening process.
+    // After validating the modal's attributes.
+
+
+    var openEvent = new Event('open');
+    this.dialogNode.dispatchEvent(openEvent); // Wrap in an individual backdrop element if one doesn't exist
     // Native <dialog> elements use the ::backdrop pseudo-element, which
     // works similarly.
-
 
     var backdropClass = 'sui-modal';
 
@@ -879,7 +883,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       aria.Utils.focusFirstDescendant(this.dialogNode);
     }
 
-    this.lastFocus = document.activeElement;
+    this.lastFocus = document.activeElement; // Trigger the 'afteropen' event at the end of the opening process.
+
+    var afterOpenEvent = new Event('afterOpen');
+    this.dialogNode.dispatchEvent(afterOpenEvent);
   }; // end Dialog constructor.
 
   /**
@@ -890,7 +897,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   aria.Dialog.prototype.close = function () {
-    var self = this;
+    var self = this; // Trigger the 'close' event at the beginning of the closing process.
+
+    var closeEvent = new Event('close');
+    this.dialogNode.dispatchEvent(closeEvent);
     aria.OpenDialogList.pop();
     this.removeListeners();
     this.preNode.parentNode.removeChild(this.preNode);
@@ -995,7 +1005,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       aria.getCurrentDialog().addListeners();
     } else {
       document.body.parentNode.classList.remove(aria.Utils.dialogOpenClass);
-    }
+    } // Trigger the 'afterclose' event at the end of the closing process.
+
+
+    var afterCloseEvent = new Event('afterClose');
+    this.dialogNode.dispatchEvent(afterCloseEvent);
   }; // end close.
 
   /**
@@ -1499,20 +1513,20 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $listWrapper.find('.sui-multistrings-input input').focus();
       });
       var $input = $listWrapper.find('.sui-multistrings-input input'),
+          $textarea = $mainWrapper.find('textarea'),
           $stringList = $mainWrapper.find('.sui-multistrings-list');
-      $input.on('focus', function () {
-        $stringList.addClass('sui-focus');
-        $input.off('blur').on('blur', function () {
-          $stringList.removeClass('sui-focus');
+
+      var addSuiFocus = function addSuiFocus($element) {
+        $element.on('focus', function () {
+          $stringList.addClass('sui-focus');
+          $element.off('blur').on('blur', function () {
+            $stringList.removeClass('sui-focus');
+          });
         });
-      });
-      var $textarea = $mainWrapper.find('textarea');
-      $textarea.on('focus', function () {
-        $stringList.addClass('sui-focus');
-        $textarea.off('blur').on('blur', function () {
-          $stringList.removeClass('sui-focus');
-        });
-      });
+      };
+
+      addSuiFocus($input);
+      addSuiFocus($textarea);
     }
 
     function buildInput(textarea, uniqid) {
@@ -1572,11 +1586,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var html = '',
           $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
           $entriesList = $mainWrapper.find('.sui-multistrings-list'),
-          value = textarea.val();
-      var valueToClear = ''; // Convert default commas into new lines.
+          valueToClear = textarea.val().trim(); // Convert default commas into new lines.
 
-      if (value.includes(',')) {
-        valueToClear = value.replace(/(?!^),/gm, '\n');
+      if (valueToClear.includes(',')) {
+        valueToClear = valueToClear.replace(/(?!^),/gm, '\n');
       }
 
       var removeForbidden = cleanTextarea(valueToClear, true);
@@ -1617,6 +1630,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (0 !== newTrim.length) {
           if (isEnter) {
+            e.preventDefault();
+            e.stopPropagation();
             var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
 
             textarea.val(newTextareaValue); // Print new value on the list.
@@ -1639,7 +1654,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     function handleTextareaChange($mainWrapper) {
       var textarea = $mainWrapper.find('textarea.sui-multistrings');
       var oldValue = textarea.val(),
-          delayTimer;
+          isTabTrapped = true; // Keep tab trapped when focusing on the textarea.
+
+      textarea.on('focus', function () {
+        return isTabTrapped = true;
+      });
       textarea.on('keydown', function (e) {
         var isSpace = 32 === e.keyCode,
             isComma = 188 === e.keyCode; // Do nothing on space or comma.
@@ -1647,6 +1666,24 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         if (isSpace || isComma) {
           e.preventDefault();
           return;
+        } // If it's tab...
+
+
+        if (9 === e.keyCode) {
+          // Add a new line if it's trapped.
+          if (isTabTrapped) {
+            e.preventDefault();
+            var start = this.selectionStart,
+                end = this.selectionEnd; // Insert a new line where the caret is.
+
+            $(this).val($(this).val().substring(0, start) + '\n' + $(this).val().substring(end)); // Put caret at right position again.
+
+            this.selectionStart = start + 1;
+            this.selectionEnd = this.selectionStart;
+          } // Release the tab.
+
+        } else if (27 === e.keyCode) {
+          isTabTrapped = false;
         }
       }).on('keyup change', function (e) {
         var currentValue = textarea.val(); // Nothing has changed, do nothing.
@@ -2381,7 +2418,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-8-1 .sui-form-field').each(function () {
+    $('.sui-2-9-0 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2409,7 +2446,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-8-1 .sui-reviews').each(function () {
+  $('.sui-2-9-0 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -2447,7 +2484,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-8-1 .sui-circle-score').each(function () {
+  $('.sui-2-9-0 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -2682,7 +2719,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-8-1 select:not([multiple])').each(function () {
+  $('.sui-2-9-0 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);
@@ -8385,7 +8422,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-8-1 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-9-0 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8824,12 +8861,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-1 .sui-tabs').length) {
+  if (0 !== $('.sui-2-9-0 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-8-1 .sui-tabs-navigation').each(function () {
+    $('.sui-2-9-0 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9149,8 +9186,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-8-1 .sui-tree').length) {
-    $('.sui-2-8-1 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-9-0 .sui-tree').length) {
+    $('.sui-2-9-0 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9166,7 +9203,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-8-1 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-9-0 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

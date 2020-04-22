@@ -69,20 +69,20 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $listWrapper.find('.sui-multistrings-input input').focus();
       });
       var $input = $listWrapper.find('.sui-multistrings-input input'),
+          $textarea = $mainWrapper.find('textarea'),
           $stringList = $mainWrapper.find('.sui-multistrings-list');
-      $input.on('focus', function () {
-        $stringList.addClass('sui-focus');
-        $input.off('blur').on('blur', function () {
-          $stringList.removeClass('sui-focus');
+
+      var addSuiFocus = function addSuiFocus($element) {
+        $element.on('focus', function () {
+          $stringList.addClass('sui-focus');
+          $element.off('blur').on('blur', function () {
+            $stringList.removeClass('sui-focus');
+          });
         });
-      });
-      var $textarea = $mainWrapper.find('textarea');
-      $textarea.on('focus', function () {
-        $stringList.addClass('sui-focus');
-        $textarea.off('blur').on('blur', function () {
-          $stringList.removeClass('sui-focus');
-        });
-      });
+      };
+
+      addSuiFocus($input);
+      addSuiFocus($textarea);
     }
 
     function buildInput(textarea, uniqid) {
@@ -142,11 +142,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var html = '',
           $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
           $entriesList = $mainWrapper.find('.sui-multistrings-list'),
-          value = textarea.val();
-      var valueToClear = ''; // Convert default commas into new lines.
+          valueToClear = textarea.val().trim(); // Convert default commas into new lines.
 
-      if (value.includes(',')) {
-        valueToClear = value.replace(/(?!^),/gm, '\n');
+      if (valueToClear.includes(',')) {
+        valueToClear = valueToClear.replace(/(?!^),/gm, '\n');
       }
 
       var removeForbidden = cleanTextarea(valueToClear, true);
@@ -187,6 +186,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (0 !== newTrim.length) {
           if (isEnter) {
+            e.preventDefault();
+            e.stopPropagation();
             var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
 
             textarea.val(newTextareaValue); // Print new value on the list.
@@ -209,7 +210,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     function handleTextareaChange($mainWrapper) {
       var textarea = $mainWrapper.find('textarea.sui-multistrings');
       var oldValue = textarea.val(),
-          delayTimer;
+          isTabTrapped = true; // Keep tab trapped when focusing on the textarea.
+
+      textarea.on('focus', function () {
+        return isTabTrapped = true;
+      });
       textarea.on('keydown', function (e) {
         var isSpace = 32 === e.keyCode,
             isComma = 188 === e.keyCode; // Do nothing on space or comma.
@@ -217,6 +222,24 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         if (isSpace || isComma) {
           e.preventDefault();
           return;
+        } // If it's tab...
+
+
+        if (9 === e.keyCode) {
+          // Add a new line if it's trapped.
+          if (isTabTrapped) {
+            e.preventDefault();
+            var start = this.selectionStart,
+                end = this.selectionEnd; // Insert a new line where the caret is.
+
+            $(this).val($(this).val().substring(0, start) + '\n' + $(this).val().substring(end)); // Put caret at right position again.
+
+            this.selectionStart = start + 1;
+            this.selectionEnd = this.selectionStart;
+          } // Release the tab.
+
+        } else if (27 === e.keyCode) {
+          isTabTrapped = false;
         }
       }).on('keyup change', function (e) {
         var currentValue = textarea.val(); // Nothing has changed, do nothing.

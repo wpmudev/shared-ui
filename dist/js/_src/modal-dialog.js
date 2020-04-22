@@ -239,10 +239,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     if (!isDialog) {
       throw new Error('Dialog() requires a DOM element with ARIA role of dialog or alertdialog.');
-    } // Wrap in an individual backdrop element if one doesn't exist
+    } // Trigger the 'open' event at the beginning of the opening process.
+    // After validating the modal's attributes.
+
+
+    var openEvent = new Event('open');
+    this.dialogNode.dispatchEvent(openEvent); // Wrap in an individual backdrop element if one doesn't exist
     // Native <dialog> elements use the ::backdrop pseudo-element, which
     // works similarly.
-
 
     var backdropClass = 'sui-modal';
 
@@ -312,7 +316,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       aria.Utils.focusFirstDescendant(this.dialogNode);
     }
 
-    this.lastFocus = document.activeElement;
+    this.lastFocus = document.activeElement; // Trigger the 'afteropen' event at the end of the opening process.
+
+    var afterOpenEvent = new Event('afterOpen');
+    this.dialogNode.dispatchEvent(afterOpenEvent);
   }; // end Dialog constructor.
 
   /**
@@ -323,7 +330,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   aria.Dialog.prototype.close = function () {
-    var self = this;
+    var self = this; // Trigger the 'close' event at the beginning of the closing process.
+
+    var closeEvent = new Event('close');
+    this.dialogNode.dispatchEvent(closeEvent);
     aria.OpenDialogList.pop();
     this.removeListeners();
     this.preNode.parentNode.removeChild(this.preNode);
@@ -428,7 +438,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       aria.getCurrentDialog().addListeners();
     } else {
       document.body.parentNode.classList.remove(aria.Utils.dialogOpenClass);
-    }
+    } // Trigger the 'afterclose' event at the end of the closing process.
+
+
+    var afterCloseEvent = new Event('afterClose');
+    this.dialogNode.dispatchEvent(afterCloseEvent);
   }; // end close.
 
   /**
