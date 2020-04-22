@@ -1,9 +1,11 @@
 v2.9.2
+- [Fix] Modals: Lower part of the overlay not closing in long modals.
 - [Enhance] Modals: Introduce a a parameter like hasOverlayMask to allow preventing
 			the ESC key from closing the modal.
 			Dev Notes: The default value for this parameter is "true", so the existing
 			modals will continue closing with ESC unless specified otherwise by this param.
-      
+
+
 v2.9.1
 - [New] Multi Strings: Allow defining a set of characters that are not allowed in the strings.
 - [Fix] Multi Strings: Large strings overflow main container.
