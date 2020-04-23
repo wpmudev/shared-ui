@@ -196,8 +196,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       event.stopPropagation();
     }
   };
-
-  document.addEventListener('keyup', aria.handleEscape);
   /**
    * @constructor
    * @desc Dialog object providing modal focus management.
@@ -221,9 +219,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    * Optional boolean parameter that when is set to "true" will enable
    * a clickable overlay mask. This mask will fire close modal function
    * when you click on it.
+   *
+   * @param isCloseOnEsc
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable closing the
+   * dialog with the Esc key.
    */
 
+
   aria.Dialog = function (dialogId, focusAfterClosed, focusFirst, hasOverlayMask) {
+    var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
     this.dialogNode = document.getElementById(dialogId);
 
     if (null === this.dialogNode) {
@@ -239,9 +244,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     if (!isDialog) {
       throw new Error('Dialog() requires a DOM element with ARIA role of dialog or alertdialog.');
-    } // Trigger the 'open' event at the beginning of the opening process.
-    // After validating the modal's attributes.
+    }
 
+    this.isCloseOnEsc = isCloseOnEsc; // Trigger the 'open' event at the beginning of the opening process.
+    // After validating the modal's attributes.
 
     var openEvent = new Event('open');
     this.dialogNode.dispatchEvent(openEvent); // Wrap in an individual backdrop element if one doesn't exist
@@ -462,10 +468,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
    * @param hasOverlayMask
    * Optional boolean parameter that when is set to "true" will enable a clickable overlay
    * mask to the new opened dialog. This mask will fire close dialog function when you click it.
+   *
+   * @param isCloseOnEsc
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable closing the
+   * dialog with the Esc key.
    */
 
 
   aria.Dialog.prototype.replace = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
+    var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
     var self = this;
     aria.OpenDialogList.pop();
     this.removeListeners();
@@ -563,7 +575,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
     }, 350);
     var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask);
+    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
   }; // end replace
 
   /**
@@ -711,6 +723,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   aria.Dialog.prototype.addListeners = function () {
     document.addEventListener('focus', this.trapFocus, true);
+
+    if (this.isCloseOnEsc) {
+      this.dialogNode.addEventListener('keyup', aria.handleEscape);
+    }
   }; // end addListeners.
 
 
@@ -741,7 +757,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   SUI.openModal = function (dialogId, focusAfterClosed, focusFirst, dialogOverlay) {
-    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay);
+    var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc);
   }; // end openModal.
 
 
@@ -752,6 +769,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
   SUI.replaceModal = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
+    var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
     var topDialog = aria.getCurrentDialog();
     /**
      * BUG #1:
@@ -762,7 +780,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
      * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
      */
 
-    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask);
+    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
   }; // end replaceModal.
 
 
@@ -795,6 +813,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         closeFocus = button.attr('data-modal-close-focus');
         newFocus = button.attr('data-modal-open-focus');
         overlayMask = button.attr('data-modal-mask');
+        var isCloseOnEsc = 'false' === button.attr('data-esc-close') ? false : true;
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) === _typeof(closeFocus) || false === closeFocus || '' === closeFocus) {
           closeFocus = this;
@@ -811,7 +830,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.openModal(modalId, closeFocus, newFocus, overlayMask);
+          SUI.openModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
         }
 
         e.preventDefault();
@@ -822,6 +841,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         closeFocus = button.attr('data-modal-close-focus');
         newFocus = button.attr('data-modal-open-focus');
         overlayMask = button.attr('data-modal-replace-mask');
+        var isCloseOnEsc = 'false' === button.attr('data-esc-close') ? false : true;
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) === _typeof(closeFocus) || false === closeFocus || '' === closeFocus) {
           closeFocus = undefined;
@@ -838,7 +858,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask);
+          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
         }
 
         e.preventDefault();
