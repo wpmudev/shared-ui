@@ -1,3 +1,7 @@
+v2.9.3
+- [Fix] Multi Strings: Prevent default when pressing enter on empty tag's value.
+
+
 v2.9.2
 - [Fix] Modals: Mask not aligned correctly on RTL mode.
 - [Fix] Modals: Lower part of the overlay not closing in long modals.
