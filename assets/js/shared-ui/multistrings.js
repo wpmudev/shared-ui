@@ -267,16 +267,18 @@
 					newValue = input.val();
 
 				// Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
-				const newTrim = newValue.replace( regex, '' ),
+				const newTrim = newValue.replace( regex, '' ).trim(),
 					isEnter   = ( 13 === e.keyCode );
+
+				if ( isEnter ) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
 
 				// If there's no value to add, don't insert any new value.
 				if ( 0 !== newTrim.length ) {
 
 					if ( isEnter ) {
-						e.preventDefault();
-						e.stopPropagation();
-
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
 						// Print new value on textarea.
