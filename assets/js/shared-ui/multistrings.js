@@ -29,7 +29,7 @@
 
 			// Hide field.
 			parent
-				.addClass( 'sui-multistrings-aria' )
+				.addClass( 'sui-multistrings-ariaz' )
 				.removeClass( 'sui-form-field' )
 				;
 
@@ -176,27 +176,30 @@
 			let html   = '',
 				$mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
 				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
-				valueToClear  = textarea.val().trim()
-				;
+				forbiddenRemoved = cleanTextarea( textarea.val(), disallowedCharsArray, true );
 
 			// Convert default commas into new lines.
-			if ( valueToClear.includes( ',' ) ) {
-				valueToClear = valueToClear.replace( /(?!^),/gm, '\n' );
+			if ( forbiddenRemoved.includes( ',' ) ) {
+				forbiddenRemoved = forbiddenRemoved.replace( /(?!^),/gm, '\n' );
 			}
 
-			const removeForbidden = cleanTextarea( valueToClear, disallowedCharsArray, true ),
-				splitStrings = removeForbidden.split( /[\r\n]/gm );
+			// Split lines for inserting the tags and cleaning the new textarea value.
+			const splitStrings = forbiddenRemoved.split( /[\r\n]/gm ),
+				cleanStringsArray = [];
 
-			// Clean-up textarea value.
-			textarea.val( removeForbidden );
-
-			// Add currently available strings.
-			if ( 0 !== removeForbidden.length ) {
-
-				for ( let i = 0; i < splitStrings.length; i++ ) {
-					html += buildItem( splitStrings[i]);
+			// Insert the tags and add clean values to the cleanStringsArray.
+			for ( let i = 0; i < splitStrings.length; i++ ) {
+				const stringLine = splitStrings[i].trim();
+				if ( 0 === stringLine.length ) {
+					continue;
 				}
+				html += buildItem( stringLine );
+				cleanStringsArray.push( stringLine );
 			}
+
+			// Clean-up textarea value with the cleanStringsArray joined by newlines.
+			const newTextareaValue = cleanStringsArray.join( '\n' );
+			textarea.val( newTextareaValue );
 
 			// Build input to insert strings.
 			html += buildInput( textarea, uniqid );
@@ -414,7 +417,7 @@
 		function cleanTextarea( string, disallowedCharsArray, isLoad = false ) {
 
 			const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
-				regex = new RegExp( `[^\\S\\r\\n]+|[,]+|[${disallowedString}]+|((\\r\\n|\\n|\\r)\$)|^\\s*$`, 'gm' );
+				regex = new RegExp( `[${disallowedString}]+|((\\r\\n|\\n|\\r)\$)|^\\s*$`, 'gm' );
 
 			let clearedString = string.replace( regex, '' );
 
