@@ -178,11 +178,6 @@
 				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
 				forbiddenRemoved = cleanTextarea( textarea.val(), disallowedCharsArray, true );
 
-			// Convert default commas into new lines.
-			if ( forbiddenRemoved.includes( ',' ) ) {
-				forbiddenRemoved = forbiddenRemoved.replace( /(?!^),/gm, '\n' );
-			}
-
 			// Split lines for inserting the tags and cleaning the new textarea value.
 			const splitStrings = forbiddenRemoved.split( /[\r\n]/gm ),
 				cleanStringsArray = [];
@@ -212,7 +207,7 @@
 		function getDisallowedChars( $mainWrapper ) {
 			const $textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
 				customDisallowedKeys = $textarea.data( 'disallowedKeys' ),
-				disallowedCharsArray = [ ',' ]; // Commas are not allowed.
+				disallowedCharsArray = [];
 
 			if ( customDisallowedKeys ) {
 
