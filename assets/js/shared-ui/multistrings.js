@@ -267,7 +267,7 @@
 					newValue = input.val();
 
 				// Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
-				const newTrim = newValue.replace( regex, '' ).trim(),
+				const newTrim = newValue.replace( regex, '' ),
 					isEnter   = ( 13 === e.keyCode );
 
 				if ( isEnter ) {
@@ -276,7 +276,7 @@
 				}
 
 				// If there's no value to add, don't insert any new value.
-				if ( 0 !== newTrim.length ) {
+				if ( 0 !== newTrim.length && 0 !== newTrim.trim().length ) {
 
 					if ( isEnter ) {
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
