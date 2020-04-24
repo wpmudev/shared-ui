@@ -29,7 +29,7 @@
 
 			// Hide field.
 			parent
-				.addClass( 'sui-multistrings-ariaz' )
+				.addClass( 'sui-multistrings-aria' )
 				.removeClass( 'sui-form-field' )
 				;
 
@@ -362,7 +362,7 @@
 				textarea.val( cleanedCurrentValue );
 				oldValue = cleanedCurrentValue;
 
-				let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+				let textboxValuesArray = cleanedCurrentValue.split( /[\r\n]+/gm ),
 					tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
 					tagsTitles = [];
 
@@ -370,15 +370,15 @@
 					tagsTitles.push( $( tag ).attr( 'title' ) );
 				}
 
-				const areEqual = compareArrays( textboxValues, tagsTitles );
+				const areEqual = compareArrays( textboxValuesArray, tagsTitles );
 
 				// The existing elements changed, update the existing tags.
 				if ( ! areEqual ) {
 
 					$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 
-					for ( let value of textboxValues ) {
-
+					for ( let value of textboxValuesArray ) {
+						value = value.trim();
 						if ( value.length ) {
 
 							// Print new value on the list.
