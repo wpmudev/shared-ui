@@ -231,10 +231,6 @@
 						disallowedCharsArray.push( String.fromCharCode( intKey ) );
 					}
 				}
-			} else {
-
-				// Space is disallowed by default.
-				disallowedCharsArray.push( ' ' );
 			}
 
 			return disallowedCharsArray;
@@ -254,7 +250,7 @@
 			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' ),
 				$textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
 				disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
-				regex = new RegExp( `[\r\n,${disallowedString}]`, 'gm' );
+				regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
 
 			// Sanitize the values on keydown.
 			$tagInput.on( 'keydown', function( e ) {
