@@ -206,10 +206,15 @@
 
 		function getDisallowedChars( $mainWrapper ) {
 			const $textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
-				customDisallowedKeys = $textarea.data( 'disallowedKeys' ),
 				disallowedCharsArray = [];
 
+			let customDisallowedKeys = $textarea.data( 'disallowedKeys' );
+
 			if ( customDisallowedKeys ) {
+
+				if ( 'number' === typeof customDisallowedKeys ) {
+					customDisallowedKeys = customDisallowedKeys.toString();
+				}
 
 				// Make an array from the user defined keys.
 				const customKeysArray = customDisallowedKeys.split( ',' );
