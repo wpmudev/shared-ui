@@ -1,3 +1,7 @@
+v2.9.3
+- [Fix] Summary Box: Wrong variable for white-labelling.
+
+
 v2.9.2
 - [Fix] Modals: Mask not aligned correctly on RTL mode.
 - [Fix] Modals: Lower part of the overlay not closing in long modals.
