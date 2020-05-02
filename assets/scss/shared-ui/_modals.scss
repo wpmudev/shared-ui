@@ -23,19 +23,21 @@
 
 		// ELEMENT: Overlay mask.
 		.sui-modal-overlay {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			// z-index: map-get($modal, z-index);
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
+			width: calc(100% - #{map-get($wordpress, adminmenu)});
+			height: calc(100vh - #{map-get($wordpress, adminbar)});
+			position: fixed;
+			z-index: #{map-get($modal, z-index) - 1};
+			top: map-get($wordpress, adminbar);
+			left: map-get($wordpress, adminmenu);
 
 			&:hover {
 				cursor: pointer;
 				outline: none;
 				box-shadow: none;
+			}
+
+			+ .sui-modal-content {
+				z-index: map-get($modal, z-index);
 			}
 		}
 
@@ -45,7 +47,6 @@
 			min-height: 0;
 			flex: 0 0 auto;
 			position: relative;
-			// z-index: map-get($modal, z-index);
 			margin: auto;
 			padding: 0 $sui-gutter;
 
@@ -730,6 +731,71 @@
 				@media only screen and (max-width: 782px) {
 					width: 100%;
 					left: 0;
+				}
+			}
+		}
+	}
+}
+
+@include body-class(true, true) {
+
+	.sui-modal {
+		right: map-get($wordpress, adminmenu);
+		left: auto;
+
+		.sui-modal-overlay {
+			right: map-get($wordpress, adminmenu);
+			left: auto;
+		}
+	}
+
+	// VAR: Folded sidebar.
+	&.wp-admin.folded {
+
+		.sui-modal {
+
+			.sui-modal-overlay {
+
+				@include media(min-width, md) {
+					right: map-get($wordpress, adminmenu-sm);
+					left: auto;
+				}
+			}
+
+			@include media(min-width, md) {
+				right: map-get($wordpress, adminmenu-sm);
+				left: auto;
+			}
+		}
+	}
+
+	&.wp-admin {
+
+		&.auto-fold {
+
+			.sui-modal {
+
+				.sui-modal-overlay {
+
+					@media only screen and (max-width: 960px) {
+						right: map-get($wordpress, adminmenu-sm);
+						left: auto;
+					}
+
+					@media only screen and (max-width: 782px) {
+						right: 0;
+						left: auto;
+					}
+				}
+
+				@media only screen and (max-width: 960px) {
+					right: map-get($wordpress, adminmenu-sm);
+					left: auto;
+				}
+
+				@media only screen and (max-width: 782px) {
+					right: 0;
+					left: auto;
 				}
 			}
 		}

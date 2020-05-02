@@ -486,6 +486,11 @@
 
 	aria.Notice.prototype.close = function() {
 
+		// Check if element ID exists.
+		if ( null === typeof noticeNode || 'undefined' === typeof noticeNode ) {
+			throw new Error( 'No element found with id="' + noticeId + '".' );
+		}
+
 		const self = this;
 
 		delete aria.OpenNoticeList[ this.noticeId ];
