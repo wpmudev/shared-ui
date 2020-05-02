@@ -1,10 +1,13 @@
+v2.9.3
+- [Enhance] Notifications: Trap focus within the opened floating notices.
+
+
 v2.9.2
 - [Fix] Modals: Mask not aligned correctly on RTL mode.
 - [Fix] Modals: Lower part of the overlay not closing in long modals.
 - [Enhance] Modals: Introduce a parameter like hasOverlayMask to allow preventing ESC key from closing modal.
 			Dev Notes: The default value for this parameter is "true", so the existing
 			modals will continue closing with ESC unless specified otherwise by this param.
-- [Enhance] Notifications: Trap focus within the opened floating notices.
 
 
 v2.9.1
