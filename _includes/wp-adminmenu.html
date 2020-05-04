@@ -1,50 +1,90 @@
 <div id="adminmenumain" role="navigation" aria-label="Main menu">
 
+	<a href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+
 	<div id="adminmenuback"></div>
 
 	<div id="adminmenuwrap">
 
 		<ul id="adminmenu">
 
-			<li class="{% if page.url == '/' %}current{% endif %}">
-				<a href="{{ '/' | relative_url }}" class="menu-top">
+			<li class="wp-first-item{% if page.url == '/' %} current{% endif %} wp-not-current-submenu menu-top menu-top-first">
+
+				<a
+					href="{{ '/' | relative_url }}"
+					class="wp-first-item{% if page.url == '/' %} current{% endif %} menu-top"
+					{% if page.url == '/' %}aria-current="page"{% endif %}
+				>
+					<div class="wp-menu-arrow"><div></div></div>
+					<div class="wp-menu-image dashicons-before dashicons-admin-home"><br></div>
 					<div class="wp-menu-name">Home</div>
 				</a>
+
 			</li>
+
+			<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
 
 			{% for parent in site.adminmenu %}
 
-				{% assign parentlink = nil %}
-				{% assign parentclass = nil %}
+				{% assign parent_link = nil %}
+				{% assign parent_class = 'wp-has-submenu wp-not-current-submenu menu-top' %}
+				{% assign parent_link_class = 'wp-has-submenu wp-not-current-submenu menu-top' %}
+				{% assign parent_icon = 'admin-site' %}
+
+				{% if parent.icon and parent.icon != '' %}
+					{% assign parent_icon = parent.icon %}
+				{% endif %}
 
 				{% for child in parent.children %}
 					{% if forloop.first %}
-						{% assign parentlink = child.url %}
+						{% assign parent_link = child.url %}
 					{% endif %}
 					{% if page.url == child.url %}
-						{% assign parentclass = 'current' %}
+						{% assign parent_class = 'wp-has-submenu wp-has-current-submenu wp-menu-open menu-top' %}
+						{% assign parent_link_class = 'wp-has-submenu wp-has-current-submenu wp-menu-open menu-top' %}
 					{% endif %}
 				{% endfor %}
 
-				<li class="has-submenu {{ parentclass }}">
-					<a href="{{ parentlink | relative_url }}" class="menu-top">
+				<li class="{{ parent_class }}">
+
+					<a href="{{ parent_link | relative_url }}" class="{{ parent_link_class }}">
+						<div class="wp-menu-arrow"><div></div></div>
+						<div class="wp-menu-image dashicons-before dashicons-{{ parent_icon }}"><br></div>
 						<div class="wp-menu-name">{{ parent.name }}</div>
 					</a>
+
 					<ul class="wp-submenu wp-submenu-wrap">
+
 						{% for child in parent.children %}
-							{% assign childclass = nil %}
+							{% assign child_class = nil %}
 							{% if page.url == child.url %}
-								{% assign childclass = 'current' %}
+								{% assign child_class = 'current' %}
 							{% endif %}
 
-							<li class="{{ childclass }}">
-								<a href="{{ child.url | relative_url }}">{{ child.name }}</a>
+							<li class="{{ child_class }}">
+								<a
+									href="{{ child.url | relative_url }}" class="{{ child_class }}"
+									{% if page.url == child.url %}aria-current="page"{% endif %}
+								>{{ child.name }}</a>
 							</li>
 						{% endfor %}
+
 					</ul>
+
 				</li>
 
 			{% endfor %}
+
+			<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+
+			<li id="collapse-menu" class="hide-if-no-js">
+
+				<button type="button" id="collapse-button" aria-label="Collapse Main menu" aria-expanded="true">
+					<span class="collapse-button-icon" aria-hidden="true"></span>
+					<span class="collapse-button-label">Collapse menu</span>
+				</button>
+
+			</li>
 
 		</ul>
 

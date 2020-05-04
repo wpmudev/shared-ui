@@ -10,7 +10,7 @@
 	/**
 	 * @namespace aria
 	 */
-	var aria = aria || {};
+	let aria = aria || {};
 
 	// REF: Key codes.
 	aria.KeyCode = {
@@ -27,7 +27,7 @@
 		UP: 38,
 		RIGHT: 39,
 		DOWN: 40,
-		DELETE: 46,
+		DELETE: 46
 	};
 
 	aria.Utils = aria.Utils || {};
@@ -44,7 +44,7 @@
 			item.parentNode.removeChild &&
 			'function' === typeof item.parentNode.removeChild
 		) {
-			return item.parentNode.removeChild(item);
+			return item.parentNode.removeChild( item );
 		}
 
 		return false;
@@ -56,7 +56,7 @@
 
 		if (
 			0 < element.tabIndex ||
-			( element.tabIndex === 0 && null !== element.getAttribute( 'tabIndex' ) )
+			( 0 === element.tabIndex && null !== element.getAttribute( 'tabIndex' ) )
 		) {
 			return true;
 		}
@@ -68,10 +68,10 @@
 		switch ( element.nodeName ) {
 
 			case 'A' :
-				return !! element.href && element.rel != 'ignore';
+				return !! element.href && 'ignore' != element.rel;
 
 			case 'INPUT' :
-				return element.type != 'hidden' && element.type != 'file';
+				return 'hidden' != element.type && 'file' != element.type;
 
 			case 'BUTTON' :
 			case 'SELECT' :
@@ -91,14 +91,14 @@
 	aria.Utils.simulateClick = function( element ) {
 
 		// Create our event (with options)
-		var evt = new MouseEvent( 'click', {
+		let evt = new MouseEvent( 'click', {
 			bubbles: true,
 			cancelable: true,
 			view: window
 		});
 
 		// If cancelled, don't dispatch our event
-		var canceled = ! element.dispatchEvent( evt );
+		let canceled = ! element.dispatchEvent( evt );
 
 	};
 
@@ -119,8 +119,8 @@
 	 */
 	aria.Utils.focusFirstDescendant = function( element ) {
 
-		for ( var i = 0; i < element.childNodes.length; i++ ) {
-			var child = element.childNodes[i];
+		for ( let i = 0; i < element.childNodes.length; i++ ) {
+			let child = element.childNodes[i];
 
 			if ( aria.Utils.attemptFocus( child ) || aria.Utils.focusFirstDescendant( child ) ) {
 				return true;
@@ -142,9 +142,9 @@
 	 */
 	aria.Utils.focusLastDescendant = function( element ) {
 
-		for ( var i = element.childNodes.length - 1; i >= 0; i-- ) {
+		for ( let i = element.childNodes.length - 1; 0 <= i; i-- ) {
 
-			var child = element.childNodes[i];
+			let child = element.childNodes[i];
 
 			if ( aria.Utils.attemptFocus( child ) || aria.Utils.focusLastDescendant( child ) ) {
 				return true;
@@ -174,7 +174,8 @@
 
 		try {
 			element.focus();
-		} catch( e ) {
+		} catch ( e ) {
+
 			// Done.
 		}
 
@@ -186,7 +187,7 @@
 	}; // end attemptFocus
 
 	// Modals can open modals. Keep track of them with this array.
-	aria.OpenDialogList = aria.OpenDialogList || new Array(0);
+	aria.OpenDialogList = aria.OpenDialogList || new Array( 0 );
 
 	/**
 	 * @returns the last opened dialog (the current dialog)
@@ -200,7 +201,7 @@
 
 	aria.closeCurrentDialog = function() {
 
-		var currentDialog = aria.getCurrentDialog();
+		let currentDialog = aria.getCurrentDialog();
 
 		if ( currentDialog ) {
 			currentDialog.close();
@@ -212,14 +213,12 @@
 
 	aria.handleEscape = function( event ) {
 
-		var key = event.which || event.keyCode;
+		let key = event.which || event.keyCode;
 
-		if ( key === aria.Utils.ESC && aria.closeCurrentDialog() ) {
+		if ( key === aria.KeyCode.ESC && aria.closeCurrentDialog() ) {
 			event.stopPropagation();
 		}
 	};
-
-	document.addEventListener( 'keyup', aria.handleEscape );
 
 	/**
 	 * @constructor
@@ -244,8 +243,13 @@
 	 * Optional boolean parameter that when is set to "true" will enable
 	 * a clickable overlay mask. This mask will fire close modal function
 	 * when you click on it.
+	 *
+	 * @param isCloseOnEsc
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable closing the
+	 * dialog with the Esc key.
 	 */
-	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask ) {
+	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
 		this.dialogNode = document.getElementById( dialogId );
 
@@ -253,8 +257,8 @@
 			throw new Error( 'No element found with id="' + dialogId + '".' );
 		}
 
-		var validRoles = [ 'dialog', 'alertdialog' ];
-		var isDialog = ( this.dialogNode.getAttribute( 'role' ) || '' )
+		let validRoles = [ 'dialog', 'alertdialog' ];
+		let isDialog = ( this.dialogNode.getAttribute( 'role' ) || '' )
 			.trim()
 			.split( /\s+/g )
 			.some( function( token ) {
@@ -269,10 +273,17 @@
 			);
 		}
 
+		this.isCloseOnEsc = isCloseOnEsc;
+
+		// Trigger the 'open' event at the beginning of the opening process.
+		// After validating the modal's attributes.
+		const openEvent = new Event( 'open' );
+		this.dialogNode.dispatchEvent( openEvent );
+
 		// Wrap in an individual backdrop element if one doesn't exist
 		// Native <dialog> elements use the ::backdrop pseudo-element, which
 		// works similarly.
-		var backdropClass = 'sui-modal';
+		let backdropClass = 'sui-modal';
 
 		if ( this.dialogNode.parentNode.classList.contains( backdropClass ) ) {
 			this.backdropNode = this.dialogNode.parentNode;
@@ -308,7 +319,7 @@
 		// Bracket the dialog node with two invisible, focusable nodes.
 		// While this dialog is open, we use these to make sure that focus never
 		// leaves the document even if dialogNode is the first or last node.
-		var preDiv = document.createElement( 'div' );
+		let preDiv = document.createElement( 'div' );
 		this.preNode = this.dialogNode.parentNode.insertBefore( preDiv, this.dialogNode );
 		this.preNode.tabIndex = 0;
 
@@ -319,7 +330,7 @@
 			};
 		}
 
-		var postDiv = document.createElement( 'div' );
+		let postDiv = document.createElement( 'div' );
 		this.postNode = this.dialogNode.parentNode.insertBefore( postDiv, this.dialogNode.nextSibling );
 		this.postNode.tabIndex = 0;
 
@@ -342,6 +353,10 @@
 
 		this.lastFocus = document.activeElement;
 
+		// Trigger the 'afteropen' event at the end of the opening process.
+		const afterOpenEvent = new Event( 'afterOpen' );
+		this.dialogNode.dispatchEvent( afterOpenEvent );
+
 	}; // end Dialog constructor.
 
 	/**
@@ -351,7 +366,11 @@
 	 */
 	aria.Dialog.prototype.close = function() {
 
-		var self = this;
+		let self = this;
+
+		// Trigger the 'close' event at the beginning of the closing process.
+		const closeEvent = new Event( 'close' );
+		this.dialogNode.dispatchEvent( closeEvent );
 
 		aria.OpenDialogList.pop();
 		this.removeListeners();
@@ -370,12 +389,12 @@
 
 		setTimeout( function() {
 
-			var slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
+			let slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
 
 			if ( 0 < slides.length ) {
 
 				// Hide all slides.
-				for ( var i = 0; i < slides.length; i++ ) {
+				for ( let i = 0; i < slides.length; i++ ) {
 					slides[i].setAttribute( 'disabled', true );
 					slides[i].classList.remove( 'sui-loaded' );
 					slides[i].classList.remove( 'sui-active' );
@@ -386,9 +405,9 @@
 				// Change modal size.
 				if ( slides[0].hasAttribute( 'data-modal-size' ) ) {
 
-					var newDialogSize = slides[0].getAttribute( 'data-modal-size' );
+					let newDialogSize = slides[0].getAttribute( 'data-modal-size' );
 
-					switch( newDialogSize ) {
+					switch ( newDialogSize ) {
 						case 'sm':
 						case 'small':
 							newDialogSize = 'sm';
@@ -439,7 +458,7 @@
 				// Change modal label.
 				if ( slides[0].hasAttribute( 'data-modal-labelledby' ) ) {
 
-					var newDialogLabel, getDialogLabel;
+					let newDialogLabel, getDialogLabel;
 
 					newDialogLabel = '';
 					getDialogLabel = slides[0].getAttribute( 'data-modal-labelledby' );
@@ -455,7 +474,7 @@
 				// Change modal description.
 				if ( slides[0].hasAttribute( 'data-modal-describedby' ) ) {
 
-					var newDialogDesc, getDialogDesc;
+					let newDialogDesc, getDialogDesc;
 
 					newDialogDesc = '';
 					getDialogDesc = slides[0].getAttribute( 'data-modal-describedby' );
@@ -476,6 +495,11 @@
 		} else {
 			document.body.parentNode.classList.remove( aria.Utils.dialogOpenClass );
 		}
+
+		// Trigger the 'afterclose' event at the end of the closing process.
+		const afterCloseEvent = new Event( 'afterClose' );
+		this.dialogNode.dispatchEvent( afterCloseEvent );
+
 	}; // end close.
 
 	/**
@@ -495,10 +519,15 @@
 	 * @param hasOverlayMask
 	 * Optional boolean parameter that when is set to "true" will enable a clickable overlay
 	 * mask to the new opened dialog. This mask will fire close dialog function when you click it.
+	 *
+	 * @param isCloseOnEsc
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable closing the
+	 * dialog with the Esc key.
 	 */
-	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
+	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true ) {
 
-		var self = this;
+		let self = this;
 
 		aria.OpenDialogList.pop();
 		this.removeListeners();
@@ -511,12 +540,12 @@
 
 		setTimeout( function() {
 
-			var slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
+			let slides = self.dialogNode.querySelectorAll( '.sui-modal-slide' );
 
 			if ( 0 < slides.length ) {
 
 				// Hide all slides.
-				for ( var i = 0; i < slides.length; i++ ) {
+				for ( let i = 0; i < slides.length; i++ ) {
 					slides[i].setAttribute( 'disabled', true );
 					slides[i].classList.remove( 'sui-loaded' );
 					slides[i].classList.remove( 'sui-active' );
@@ -527,9 +556,9 @@
 				// Change modal size.
 				if ( slides[0].hasAttribute( 'data-modal-size' ) ) {
 
-					var newDialogSize = slides[0].getAttribute( 'data-modal-size' );
+					let newDialogSize = slides[0].getAttribute( 'data-modal-size' );
 
-					switch( newDialogSize ) {
+					switch ( newDialogSize ) {
 						case 'sm':
 						case 'small':
 							newDialogSize = 'sm';
@@ -580,7 +609,7 @@
 				// Change modal label.
 				if ( slides[0].hasAttribute( 'data-modal-labelledby' ) ) {
 
-					var newDialogLabel, getDialogLabel;
+					let newDialogLabel, getDialogLabel;
 
 					newDialogLabel = '';
 					getDialogLabel = slides[0].getAttribute( 'data-modal-labelledby' );
@@ -596,7 +625,7 @@
 				// Change modal description.
 				if ( slides[0].hasAttribute( 'data-modal-describedby' ) ) {
 
-					var newDialogDesc, getDialogDesc;
+					let newDialogDesc, getDialogDesc;
 
 					newDialogDesc = '';
 					getDialogDesc = slides[0].getAttribute( 'data-modal-describedby' );
@@ -611,8 +640,8 @@
 			}
 		}, 350 );
 
-		var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-		var dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask );
+		let focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
+		let dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 
 	}; // end replace
 
@@ -632,13 +661,13 @@
 	 */
 	aria.Dialog.prototype.slide = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
-		var animation     = 'sui-fadein',
+		let animation     = 'sui-fadein',
 			currentDialog = aria.getCurrentDialog(),
 			getAllSlides  = this.dialogNode.querySelectorAll( '.sui-modal-slide' ),
 			getNewSlide   = document.getElementById( newSlideId )
 			;
 
-		switch( newSlideEntrance ) {
+		switch ( newSlideEntrance ) {
 			case 'back':
 			case 'left':
 				animation = 'sui-fadein-left';
@@ -655,7 +684,7 @@
 		}
 
 		// Hide all slides.
-		for ( var i = 0; i < getAllSlides.length; i++ ) {
+		for ( let i = 0; i < getAllSlides.length; i++ ) {
 			getAllSlides[i].setAttribute( 'disabled', true );
 			getAllSlides[i].classList.remove( 'sui-loaded' );
 			getAllSlides[i].classList.remove( 'sui-active' );
@@ -666,9 +695,9 @@
 		// Change modal size.
 		if ( getNewSlide.hasAttribute( 'data-modal-size' ) ) {
 
-			var newDialogSize = getNewSlide.getAttribute( 'data-modal-size' );
+			let newDialogSize = getNewSlide.getAttribute( 'data-modal-size' );
 
-			switch( newDialogSize ) {
+			switch ( newDialogSize ) {
 				case 'sm':
 				case 'small':
 					newDialogSize = 'sm';
@@ -712,7 +741,7 @@
 		// Change modal label.
 		if ( getNewSlide.hasAttribute( 'data-modal-labelledby' ) ) {
 
-			var newDialogLabel, getDialogLabel;
+			let newDialogLabel, getDialogLabel;
 
 			newDialogLabel = '';
 			getDialogLabel = getNewSlide.getAttribute( 'data-modal-labelledby' );
@@ -728,7 +757,7 @@
 		// Change modal description.
 		if ( getNewSlide.hasAttribute( 'data-modal-describedby' ) ) {
 
-			var newDialogDesc, getDialogDesc;
+			let newDialogDesc, getDialogDesc;
 
 			newDialogDesc = '';
 			getDialogDesc = getNewSlide.getAttribute( 'data-modal-describedby' );
@@ -771,6 +800,11 @@
 
 	aria.Dialog.prototype.addListeners = function() {
 		document.addEventListener( 'focus', this.trapFocus, true );
+
+		if ( this.isCloseOnEsc ) {
+			this.dialogNode.addEventListener( 'keyup', aria.handleEscape );
+		}
+
 	}; // end addListeners.
 
 	aria.Dialog.prototype.removeListeners = function() {
@@ -783,7 +817,7 @@
 			return;
 		}
 
-		var currentDialog = aria.getCurrentDialog();
+		let currentDialog = aria.getCurrentDialog();
 
 		if ( currentDialog.dialogNode.contains( event.target ) ) {
 			currentDialog.lastFocus = event.target;
@@ -799,18 +833,18 @@
 		}
 	}; // end trapFocus.
 
-	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay ) {
-		var dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay );
+	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc = true ) {
+		let dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc );
 	}; // end openModal.
 
 	SUI.closeModal = function() {
-		var topDialog = aria.getCurrentDialog();
+		let topDialog = aria.getCurrentDialog();
 		topDialog.close();
 	}; // end closeDialog.
 
-	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask ) {
+	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true  ) {
 
-		var topDialog = aria.getCurrentDialog();
+		let topDialog = aria.getCurrentDialog();
 
 		/**
 		 * BUG #1:
@@ -820,13 +854,13 @@
 		 *
 		 * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
 		 */
-		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask );
+		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 
 	}; // end replaceModal.
 
 	SUI.slideModal = function( newSlideId, newSlideFocus, newSlideEntrance ) {
 
-		var topDialog = aria.getCurrentDialog();
+		let topDialog = aria.getCurrentDialog();
 
 		topDialog.slide( newSlideId, newSlideFocus, newSlideEntrance );
 
@@ -847,7 +881,7 @@
 
 		function init() {
 
-			var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
+			let button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
 
 			buttonOpen    = $( '[data-modal-open]' );
 			buttonClose   = $( '[data-modal-close]' );
@@ -862,6 +896,8 @@
 				closeFocus  = button.attr( 'data-modal-close-focus' );
 				newFocus    = button.attr( 'data-modal-open-focus' );
 				overlayMask = button.attr( 'data-modal-mask' );
+
+				let isCloseOnEsc = 'false' === button.attr( 'data-esc-close' ) ? false : true;
 
 				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
 					closeFocus = this;
@@ -878,7 +914,7 @@
 				}
 
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.openModal( modalId, closeFocus, newFocus, overlayMask );
+					SUI.openModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
 				}
 
 				e.preventDefault();
@@ -892,6 +928,8 @@
 				closeFocus  = button.attr( 'data-modal-close-focus' );
 				newFocus    = button.attr( 'data-modal-open-focus' );
 				overlayMask = button.attr( 'data-modal-replace-mask' );
+
+				let isCloseOnEsc = 'false' === button.attr( 'data-esc-close' ) ? false : true;
 
 				if ( typeof undefined === typeof closeFocus || false === closeFocus || '' === closeFocus ) {
 					closeFocus = undefined;
@@ -908,7 +946,7 @@
 				}
 
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask );
+					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
 				}
 
 				e.preventDefault();

@@ -1,16 +1,69 @@
+v2.9.3
+- [Fix] Summary Box: Wrong variable for white-labelling.
+- [Fix] Summary: Improve element styles for RTL direction.
+- [Fix] Summary: Position correctly hero image on RTL direction.
+- [Fix] Summary Lists: Improve element styles for RTL direction.
+
+
+v2.9.2
+- [Fix] Modals: Mask not aligned correctly on RTL mode.
+- [Fix] Modals: Lower part of the overlay not closing in long modals.
+- [Enhance] Modals: Introduce a parameter like hasOverlayMask to allow preventing ESC key from closing modal.
+			Dev Notes: The default value for this parameter is "true", so the existing
+			modals will continue closing with ESC unless specified otherwise by this param.
+
+
+v2.9.1
+- [New] Multi Strings: Allow defining a set of characters that are not allowed in the strings.
+- [Fix] Multi Strings: Large strings overflow main container.
+
+v2.9.0
+- [New] Modals: Trigger events when opening and closing the modals.
+			Dev Notes: The new custom events are 'open', 'afterOpen', 'close', 'afterClose'.
+			You can ping @Danae if something is not clear or need more information.
+- [Fix] Multi Strings: First tag being removed when adding a new one in Snapshot.
+- [Fix] Multi Strings: On load value not handled properly if not using comma as separator.
+- [Enhance] Notifications: Allow the TAB key to insert a new string to the textarea list.
+
+
+v2.8.1
+- [Fix] Notifications: Console error when trying to dismiss static notice.
+
+
 v2.8.0
-- [Enhance] Summary: Improve element styles for RTL direction.
-- [Enhance] Summary: Position correctly hero image on RTL direction.
-- [Enhance] List: Improve element styles for RTL direction.
+- [Fix] Icons: Branda icon is missing even when font supports it.
+- [Enhance] Modals: Remove legacy code support.
+			Dev Notes: a11y-dialog.js external library has been also removed from SUI.
+			In case you've been using it for something other than old dialog, you can
+			grab it here https://www.npmjs.com/package/a11y-dialog
+- [Enhance] Buttons: Add white button color variation.
+- [Enhance] Icon Buttons: Add white icon button color variation.
+			Dev Notes: On new modals there are some with colorized banner using white
+			close button. This color variation for buttons was added to achieve that design.
+- [Enhance] Code Snippets: Remove external library support.
+			Dev Notes: clipboard.js was removed from SUI but is still required for this element.
+			Go to https://wpmudev.github.io/shared-ui/code-snippets/ and open Documentation tab
+			for more information related. If you have any doubts, please ping @Leigh or @Danae.
 
 
 v2.7.0
-- [Enhance] Notifications: apply element new styles.
-- [Enhance] Notifications: revamp markup to be more accessible.
-- [Enhance] Notifications: create new functions to handle show/hide behave for this element.
+- [New] Multi Strings: Element to allow users add a list of strings.
+			Dev Notes: Go to https://wpmudev.github.io/shared-ui/multistrings/ and
+			review documentation section for more details. If you have any doubts,
+			you can ping @Leigh or @Danae on #sui-plugins channel.
+- [Fix] Modals: Closing with the "ESC" key not working.
+- [Fix] Modals: Using autocomplete in the modal closes the modal.
+			Dev Notes: You can re-enable autocomplete on your forms inside modals.
+- [Enhance] Notifications: Apply element new styles.
+- [Enhance] Notifications: Revamp markup to be more accessible.
+			Dev Notes: Notifications have been revamped completely and old markup is NOT supported.
+			Please go to https://wpmudev.github.io/shared-ui/notifications/ and read documentation
+			section. Ping @Leigh if you have some doubts or need more details.
+- [Enhance] Notifications: Create new functions to handle show/hide behave for this element.
 - [Enhance] Tooltips: Styling is too padded.
 - [Enhance] Modals: Support prefer-reduced-motion feature.
 - [Enhance] Selectors: Disabled selector item with pro tag.
+- [Enhance] Buttons: Include focus state changes.
 
 
 v2.6.0
