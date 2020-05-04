@@ -1,5 +1,8 @@
 v2.9.3
 - [Fix] Summary Box: Wrong variable for white-labelling.
+- [Fix] Summary: Improve element styles for RTL direction.
+- [Fix] Summary: Position correctly hero image on RTL direction.
+- [Fix] Summary Lists: Improve element styles for RTL direction.
 
 
 v2.9.2
