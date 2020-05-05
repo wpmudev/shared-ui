@@ -113,22 +113,22 @@ echo &quot;CHANGE WPMUDEV DEFAULT HERO IMAGE TO : &quot; . $custom_hero_image;
 }
 							</pre>
 
-							<p><i>Okay, I got the string. Now what?</i></p>
-
-							<p>
-								<label class="sui-settings-label">Rebranded!</label>
-								The image string <u>is not empty</u> and 'hide branding' <u>is true</u>:<br/>
-								1. Use the custom image you just retrieved as the background for the <code>.sui-summary-image-space</code> div. Yes, inline style is fine<br/>
-								2. Add <code>sui-rebranded</code> class to the <code>.sui-summary</code> div
-							</p>
-
-							<p>
-								<label class="sui-settings-label">Unbranded</label>
-								The image string <u>is empty</u> and 'hide branding' <u>is true</u>:<br/>
-								1. Add <code>sui-unbranded</code> class to the <code>.sui-summary</code> div
-							</p>
-
 						</div>
+
+						<p><i>Okay, I got the string. Now what?</i></p>
+
+						<p>
+							<label class="sui-settings-label">Rebranded!</label>
+							The image string <u>is not empty</u> and 'hide branding' <u>is true</u>:<br/>
+							1. Use the custom image you just retrieved as the background for the <code>.sui-summary-image-space</code> div. Yes, inline style is fine<br/>
+							2. Add <code>sui-rebranded</code> class to the <code>.sui-summary</code> div
+						</p>
+
+						<p>
+							<label class="sui-settings-label">Unbranded</label>
+							The image string <u>is empty</u> and 'hide branding' <u>is true</u>:<br/>
+							1. Add <code>sui-unbranded</code> class to the <code>.sui-summary</code> div
+						</p>
 
 					</div>
 
@@ -220,7 +220,19 @@ echo &quot;CHANGE WPMUDEV DEFAULT HERO IMAGE TO : &quot; . $custom_hero_image;
 
 		<div class="sui-box-body">
 
-			Hey
+			<p>This setting modifies the text to be displayed in the <a href="{{ site.baseurl }}/shared-ui/footer/" target="_blank">Footer element.</a></p>
+
+			<p>Retrieve the text defined by the user by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>string</code>. This is an optional field, the value can be empty.</p>
+
+			<div class="sui-code-snippet-wrapper">
+
+				<pre class="sui-code-snippet">
+&lt;?php
+$footer_text = apply_filters( 'wpmudev_branding_footer_text', 'Made with &lt;i&gt;love&lt;/i&gt; by WPMUDEV' );
+echo &quot;&lt;footer&gt;$footer_text&lt;/footer&gt;&quot;;
+				</pre>
+
+			</div>
 
 		</div>
 
@@ -234,7 +246,21 @@ echo &quot;CHANGE WPMUDEV DEFAULT HERO IMAGE TO : &quot; . $custom_hero_image;
 
 		<div class="sui-box-body">
 
-			Hey
+			<p>This setting defines whether to hide the elements that link to documentation. For example, the "View documentation" button at the top right corner of every page in Forminator.</p>
+
+			<p>Retrieve whether to hide the documentation links by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>boolean</code>. If true, hide the documentation. If false, display the documentation.</p>
+
+			<div class="sui-code-snippet-wrapper">
+
+				<pre class="sui-code-snippet">
+&lt;?php
+$hide_doc_link = apply_filters( 'wpmudev_branding_hide_doc_link', false );
+if ( ! $hide_doc_link) {
+	echo &quot;HIDE WPMUDEV DOCUMENTATION LINK&quot;;
+}
+				</pre>
+
+			</div>
 
 		</div>
 
