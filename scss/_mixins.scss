@@ -1,5 +1,11 @@
+// ==================================================
 // Generates the required versioned body class.
-@mixin body-class($wrap: false, $rtl: false) {
+//
+// $wrap: true
+// $rtl: false
+// $monochrome: false
+// ==================================================
+@mixin body-class($wrap: false, $rtl: false, $monochrome: false) {
 
 	$formatted-version: str-replace($sui-version, '.', '-');
 
@@ -10,7 +16,17 @@
 			.sui-#{$formatted-version}[dir="rtl"] {
 
 				.#{$sui-wrap-class} {
-					@content;
+
+					@if $monochrome {
+
+						&.sui-color-accessible {
+							@content;
+						}
+					}
+
+					@else {
+						@content;
+					}
 				}
 			}
 		}
@@ -18,7 +34,17 @@
 		@else {
 
 			.sui-#{$formatted-version} .#{$sui-wrap-class} {
-				@content;
+
+				@if $monochrome {
+
+					&.sui-color-accessible {
+						@content;
+					}
+				}
+
+				@else {
+					@content;
+				}
 			}
 		}
 	}
