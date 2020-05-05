@@ -73,9 +73,9 @@ is_searchable: true
 
 						<p>Retrieve whether the branding should be hidden by applying the filter <code>wpmudev_branding_hide_branding</code>. It returns a <code>boolean</code>.<br/>If true, hide the branding. If false, display the branding.</p>
 
-						<div class="sui-code-snippet-wrapper">
+						<div class="demo-code-block">
 
-							<pre class="sui-code-snippet">
+							<pre class="sui-code-snippet php">
 &lt;?php
 $hide_branding = apply_filters( 'wpmudev_branding_hide_branding', false );
 if ( ! $hide_branding) {
@@ -103,9 +103,9 @@ echo &quot;DISPLAY WPMUDEV DEFAULT HERO IMAGES&quot;;
 
 						<p>Retrieve the custom image defined by the user by applying the filter <code>wpmudev_branding_hero_image</code>. It returns a <code>string</code>.</br>This is an optional field so the value can be empty. This custom image is used within the <a href="{{ site.baseurl }}/shared-ui/summary/" target="_blank">Summary element</a>.</p>
 
-						<div class="sui-code-snippet-wrapper">
+						<div class="demo-code-block">
 
-							<pre class="sui-code-snippet">
+							<pre class="sui-code-snippet php">
 &lt;?php
 $custom_hero_image = apply_filters( 'wpmudev_branding_hero_image', '' );
 if ( ! empty( $custom_hero_image ) ) {
@@ -224,9 +224,9 @@ echo &quot;CHANGE WPMUDEV DEFAULT HERO IMAGE TO : &quot; . $custom_hero_image;
 
 			<p>Retrieve the text defined by the user by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>string</code>. This is an optional field, the value can be empty.</p>
 
-			<div class="sui-code-snippet-wrapper">
+			<div class="demo-code-block">
 
-				<pre class="sui-code-snippet">
+				<pre class="sui-code-snippet php">
 &lt;?php
 $footer_text = apply_filters( 'wpmudev_branding_footer_text', 'Made with &lt;i&gt;love&lt;/i&gt; by WPMUDEV' );
 echo &quot;&lt;footer&gt;$footer_text&lt;/footer&gt;&quot;;
@@ -250,9 +250,9 @@ echo &quot;&lt;footer&gt;$footer_text&lt;/footer&gt;&quot;;
 
 			<p>Retrieve whether to hide the documentation links by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>boolean</code>. If true, hide the documentation. If false, display the documentation.</p>
 
-			<div class="sui-code-snippet-wrapper">
+			<div class="demo-code-block">
 
-				<pre class="sui-code-snippet">
+				<pre class="sui-code-snippet php">
 &lt;?php
 $hide_doc_link = apply_filters( 'wpmudev_branding_hide_doc_link', false );
 if ( ! $hide_doc_link) {
