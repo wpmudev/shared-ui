@@ -213,7 +213,7 @@
 				display: block;
 				flex: 0 0 auto;
 				margin: 0 auto;
-				max-width: 400px;
+				max-width: calc((#{$calendar-cell} * 14) + 20px);
 
 				ul {
 					width: 100%;
@@ -260,6 +260,10 @@
 							margin-right: 0;
 						}
 					}
+				}
+
+				@include media(max-width, sm) {
+					max-width: calc(#{$calendar-cell} * 7);
 				}
 			}
 		}
