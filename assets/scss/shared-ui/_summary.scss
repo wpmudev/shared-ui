@@ -1,4 +1,6 @@
-@include body-class(true) {
+// Summary: Base styles.
+// $wrap: true | $rtl: false | $monochrome: false
+@include body-class(true, false) {
 
 	.sui-summary {
 		padding: #{$sui-gutter-md / 2} $sui-gutter-md;
@@ -256,13 +258,16 @@
 					}
 				}
 
-				@include media(min-width, md) {
+				&:not(.sui-rebranded) {
 
-					@if variable-exists(summary-image) {
-						background-image: url($summary-image);
-						background-size: $summary-image--width $summary-image--height;
-						background-position: $summary-image--position;
-						background-repeat: no-repeat;
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image) {
+							background-image: url($summary-image);
+							background-size: $summary-image--width $summary-image--height;
+							background-position: $summary-image--position;
+							background-repeat: no-repeat;
+						}
 					}
 				}
 			}
@@ -323,13 +328,16 @@
 					}
 				}
 
-				@include media(min-width, md) {
+				&:not(.sui-rebranded) {
 
-					@if variable-exists(summary-image-sm) {
-						background-image: url($summary-image-sm);
-						background-size: $summary-image-sm--width $summary-image-sm--height;
-						background-position: $summary-image-sm--position;
-						background-repeat: no-repeat;
+					@include media(min-width, md) {
+
+						@if variable-exists(summary-image-sm) {
+							background-image: url($summary-image-sm);
+							background-size: $summary-image-sm--width $summary-image-sm--height;
+							background-position: $summary-image-sm--position;
+							background-repeat: no-repeat;
+						}
 					}
 				}
 			}
@@ -384,13 +392,6 @@
 						}
 					}
 				}
-
-				@include media(min-width, md) {
-
-					@if variable-exists(summary-image-sm) {
-						background-image: unset !important;
-					}
-				}
 			}
 
 			// SIZE: Small
@@ -407,13 +408,6 @@
 						}
 					}
 				}
-
-				@include media(min-width, md) {
-
-					@if variable-exists(summary-image-sm) {
-						background-image: unset !important;
-					}
-				}
 			}
 		}
 
@@ -421,6 +415,104 @@
 			display: flex;
 			align-items: center;
 			padding: 0 #{$sui-gutter / 2};
+		}
+	}
+}
+
+// Summary: RTL styles.
+// $wrap: true | $rtl: true | $monochrome: false
+@include body-class(true, true) {
+
+	.sui-summary {
+
+		// ELEMENT: Content
+		.sui-summary-segment {
+
+			&:first-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-right: 0;
+						padding-left: #{$sui-gutter / 2};
+					}
+				}
+			}
+
+			&:last-child {
+
+				.sui-list,
+				.sui-summary-details {
+
+					@include media(min-width, md) {
+						padding-right: #{$sui-gutter / 2};
+						padding-left: 0;
+					}
+				}
+			}
+		}
+
+		// ELEMENT: Summary details
+		.sui-summary-details {
+			text-align: right;
+
+			.sui-summary-percent {
+				margin-right: -5px;
+				margin-left: 0;
+			}
+
+			[class*="sui-icon-"] {
+				left: 0;
+
+				+ .sui-summary-percent {
+					margin-right: -20px;
+					margin-left: 0;
+				}
+			}
+		}
+
+		// VARIATION: Branded
+		// When box is using white labelling settings from WPMU DEV Dashboard.
+		&:not(.sui-unbranded) {
+
+			// SIZE: Regular
+			&:not(.sui-summary-sm) {
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image) {
+						background-position: right $summary-image--position;
+					}
+				}
+			}
+
+			// SIZE: Small
+			&.sui-summary-sm {
+
+				@include media(min-width, md) {
+
+					@if variable-exists(summary-image-sm) {
+						background-position: right $summary-image-sm--position;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Summary: Monochrome styles for color accessibility.
+// $wrap: true | $rtl: false | $monochrome: true
+@include body-class(true, false, true) {
+
+	.sui-summary {
+
+		.sui-summary-details {
+			color: $accessible-dark;
+
+			.sui-summary-sub {
+				color: $accessible-dark;
+			}
 		}
 	}
 }
