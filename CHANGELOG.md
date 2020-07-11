@@ -1,3 +1,11 @@
+v2.9.4
+- [New] Showcase: Add whitelabel instructions.
+			Dev Notes: You can find whitelabel instructions on
+			https://wpmudev.github.io/shared-ui/whitelabel/
+			In case of any doubt, ping @Danae.
+- [Fix] Multi Strings: Prevent default when pressing enter on empty tag's value.
+
+
 v2.9.3
 - [Fix] Summary Box: Wrong variable for white-labelling.
 - [Fix] Summary: Improve element styles for RTL direction.

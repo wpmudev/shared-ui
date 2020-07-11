@@ -118,8 +118,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-9-3 .sui-accordion').length) {
-    $('.sui-2-9-3 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-9-4 .sui-accordion').length) {
+    $('.sui-2-9-4 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-9-3 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-9-4 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-9-3 .sui-slider').each(function () {
+  $('.sui-2-9-4 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-9-3 .sui-dropdown');
+      var $dropdowns = $('.sui-2-9-4 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-9-3 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-9-4 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -1606,23 +1606,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var html = '',
           $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
           $entriesList = $mainWrapper.find('.sui-multistrings-list'),
-          valueToClear = textarea.val().trim(); // Convert default commas into new lines.
+          forbiddenRemoved = cleanTextarea(textarea.val(), disallowedCharsArray, true); // Split lines for inserting the tags and cleaning the new textarea value.
 
-      if (valueToClear.includes(',')) {
-        valueToClear = valueToClear.replace(/(?!^),/gm, '\n');
-      }
+      var splitStrings = forbiddenRemoved.split(/[\r\n]/gm),
+          cleanStringsArray = []; // Insert the tags and add clean values to the cleanStringsArray.
 
-      var removeForbidden = cleanTextarea(valueToClear, disallowedCharsArray, true),
-          splitStrings = removeForbidden.split(/[\r\n]/gm); // Clean-up textarea value.
+      for (var i = 0; i < splitStrings.length; i++) {
+        var stringLine = splitStrings[i].trim();
 
-      textarea.val(removeForbidden); // Add currently available strings.
-
-      if (0 !== removeForbidden.length) {
-        for (var i = 0; i < splitStrings.length; i++) {
-          html += buildItem(splitStrings[i]);
+        if (0 === stringLine.length) {
+          continue;
         }
-      } // Build input to insert strings.
 
+        html += buildItem(stringLine);
+        cleanStringsArray.push(stringLine);
+      } // Clean-up textarea value with the cleanStringsArray joined by newlines.
+
+
+      var newTextareaValue = cleanStringsArray.join('\n');
+      textarea.val(newTextareaValue); // Build input to insert strings.
 
       html += buildInput(textarea, uniqid);
       $entriesList.append(html);
@@ -1631,11 +1633,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     function getDisallowedChars($mainWrapper) {
       var $textarea = $mainWrapper.find('textarea.sui-multistrings'),
-          customDisallowedKeys = $textarea.data('disallowedKeys'),
-          disallowedCharsArray = [',']; // Commas are not allowed.
+          disallowedCharsArray = [];
+      var customDisallowedKeys = $textarea.data('disallowedKeys');
 
       if (customDisallowedKeys) {
-        // Make an array from the user defined keys.
+        if ('number' === typeof customDisallowedKeys) {
+          customDisallowedKeys = customDisallowedKeys.toString();
+        } // Make an array from the user defined keys.
+
+
         var customKeysArray = customDisallowedKeys.split(',');
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -1666,9 +1672,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
           }
         }
-      } else {
-        // Space is disallowed by default.
-        disallowedCharsArray.push(' ');
       }
 
       return disallowedCharsArray;
@@ -1688,7 +1691,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var $tagInput = $mainWrapper.find('.sui-multistrings-input input'),
           $textarea = $mainWrapper.find('textarea.sui-multistrings'),
           disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
-          regex = new RegExp("[\r\n,".concat(disallowedString, "]"), 'gm'); // Sanitize the values on keydown.
+          regex = new RegExp("[\r\n".concat(disallowedString, "]"), 'gm'); // Sanitize the values on keydown.
 
       $tagInput.on('keydown', function (e) {
         // Do nothing if the key is from the disallowed ones.
@@ -1702,12 +1705,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             newValue = input.val(); // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
 
         var newTrim = newValue.replace(regex, ''),
-            isEnter = 13 === e.keyCode; // If there's no value to add, don't insert any new value.
+            isEnter = 13 === e.keyCode;
 
-        if (0 !== newTrim.length) {
+        if (isEnter) {
+          e.preventDefault();
+          e.stopPropagation();
+        } // If there's no value to add, don't insert any new value.
+
+
+        if (0 !== newTrim.length && 0 !== newTrim.trim().length) {
           if (isEnter) {
-            e.preventDefault();
-            e.stopPropagation();
             var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
 
             $textarea.val(newTextareaValue); // Print new value on the list.
@@ -1771,9 +1778,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         textarea.val(cleanedCurrentValue);
         oldValue = cleanedCurrentValue;
-        var textboxValues = textarea.val().split(/[\r\n\s]+/gm).filter(function (el) {
-          return el.length;
-        }),
+        var textboxValuesArray = cleanedCurrentValue.split(/[\r\n]+/gm),
             tags = $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)'),
             tagsTitles = [];
         var _iteratorNormalCompletion2 = true;
@@ -1800,7 +1805,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
         }
 
-        var areEqual = compareArrays(textboxValues, tagsTitles); // The existing elements changed, update the existing tags.
+        var areEqual = compareArrays(textboxValuesArray, tagsTitles); // The existing elements changed, update the existing tags.
 
         if (!areEqual) {
           $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)').remove();
@@ -1809,8 +1814,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var _iteratorError3 = undefined;
 
           try {
-            for (var _iterator3 = textboxValues[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            for (var _iterator3 = textboxValuesArray[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
               var value = _step3.value;
+              value = value.trim();
 
               if (value.length) {
                 // Print new value on the list.
@@ -1856,7 +1862,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     function cleanTextarea(string, disallowedCharsArray) {
       var isLoad = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
-          regex = new RegExp("[^\\S\\r\\n]+|[,]+|[".concat(disallowedString, "]+|((\\r\\n|\\n|\\r)$)|^\\s*$"), 'gm');
+          regex = new RegExp("[".concat(disallowedString, "]+|((\\r\\n|\\n|\\r)$)|^\\s*$"), 'gm');
       var clearedString = string.replace(regex, '');
 
       if (!isLoad) {
@@ -2495,7 +2501,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-9-3 .sui-form-field').each(function () {
+    $('.sui-2-9-4 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2523,7 +2529,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-9-3 .sui-reviews').each(function () {
+  $('.sui-2-9-4 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -2561,7 +2567,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-9-3 .sui-circle-score').each(function () {
+  $('.sui-2-9-4 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -2796,7 +2802,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-9-3 select:not([multiple])').each(function () {
+  $('.sui-2-9-4 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);
@@ -8499,7 +8505,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-9-3 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-9-4 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8938,12 +8944,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-9-3 .sui-tabs').length) {
+  if (0 !== $('.sui-2-9-4 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-9-3 .sui-tabs-navigation').each(function () {
+    $('.sui-2-9-4 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9263,8 +9269,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-9-3 .sui-tree').length) {
-    $('.sui-2-9-3 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-9-4 .sui-tree').length) {
+    $('.sui-2-9-4 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9280,7 +9286,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-9-3 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-9-4 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

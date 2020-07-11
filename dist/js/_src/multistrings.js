@@ -142,23 +142,25 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var html = '',
           $mainWrapper = textarea.closest('.sui-multistrings-wrap'),
           $entriesList = $mainWrapper.find('.sui-multistrings-list'),
-          valueToClear = textarea.val().trim(); // Convert default commas into new lines.
+          forbiddenRemoved = cleanTextarea(textarea.val(), disallowedCharsArray, true); // Split lines for inserting the tags and cleaning the new textarea value.
 
-      if (valueToClear.includes(',')) {
-        valueToClear = valueToClear.replace(/(?!^),/gm, '\n');
-      }
+      var splitStrings = forbiddenRemoved.split(/[\r\n]/gm),
+          cleanStringsArray = []; // Insert the tags and add clean values to the cleanStringsArray.
 
-      var removeForbidden = cleanTextarea(valueToClear, disallowedCharsArray, true),
-          splitStrings = removeForbidden.split(/[\r\n]/gm); // Clean-up textarea value.
+      for (var i = 0; i < splitStrings.length; i++) {
+        var stringLine = splitStrings[i].trim();
 
-      textarea.val(removeForbidden); // Add currently available strings.
-
-      if (0 !== removeForbidden.length) {
-        for (var i = 0; i < splitStrings.length; i++) {
-          html += buildItem(splitStrings[i]);
+        if (0 === stringLine.length) {
+          continue;
         }
-      } // Build input to insert strings.
 
+        html += buildItem(stringLine);
+        cleanStringsArray.push(stringLine);
+      } // Clean-up textarea value with the cleanStringsArray joined by newlines.
+
+
+      var newTextareaValue = cleanStringsArray.join('\n');
+      textarea.val(newTextareaValue); // Build input to insert strings.
 
       html += buildInput(textarea, uniqid);
       $entriesList.append(html);
@@ -167,11 +169,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
     function getDisallowedChars($mainWrapper) {
       var $textarea = $mainWrapper.find('textarea.sui-multistrings'),
-          customDisallowedKeys = $textarea.data('disallowedKeys'),
-          disallowedCharsArray = [',']; // Commas are not allowed.
+          disallowedCharsArray = [];
+      var customDisallowedKeys = $textarea.data('disallowedKeys');
 
       if (customDisallowedKeys) {
-        // Make an array from the user defined keys.
+        if ('number' === typeof customDisallowedKeys) {
+          customDisallowedKeys = customDisallowedKeys.toString();
+        } // Make an array from the user defined keys.
+
+
         var customKeysArray = customDisallowedKeys.split(',');
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -202,9 +208,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
           }
         }
-      } else {
-        // Space is disallowed by default.
-        disallowedCharsArray.push(' ');
       }
 
       return disallowedCharsArray;
@@ -224,7 +227,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var $tagInput = $mainWrapper.find('.sui-multistrings-input input'),
           $textarea = $mainWrapper.find('textarea.sui-multistrings'),
           disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
-          regex = new RegExp("[\r\n,".concat(disallowedString, "]"), 'gm'); // Sanitize the values on keydown.
+          regex = new RegExp("[\r\n".concat(disallowedString, "]"), 'gm'); // Sanitize the values on keydown.
 
       $tagInput.on('keydown', function (e) {
         // Do nothing if the key is from the disallowed ones.
@@ -238,12 +241,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             newValue = input.val(); // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
 
         var newTrim = newValue.replace(regex, ''),
-            isEnter = 13 === e.keyCode; // If there's no value to add, don't insert any new value.
+            isEnter = 13 === e.keyCode;
 
-        if (0 !== newTrim.length) {
+        if (isEnter) {
+          e.preventDefault();
+          e.stopPropagation();
+        } // If there's no value to add, don't insert any new value.
+
+
+        if (0 !== newTrim.length && 0 !== newTrim.trim().length) {
           if (isEnter) {
-            e.preventDefault();
-            e.stopPropagation();
             var newTextareaValue = oldValue.length ? "".concat(oldValue, "\n").concat(newTrim) : newTrim; // Print new value on textarea.
 
             $textarea.val(newTextareaValue); // Print new value on the list.
@@ -307,9 +314,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         textarea.val(cleanedCurrentValue);
         oldValue = cleanedCurrentValue;
-        var textboxValues = textarea.val().split(/[\r\n\s]+/gm).filter(function (el) {
-          return el.length;
-        }),
+        var textboxValuesArray = cleanedCurrentValue.split(/[\r\n]+/gm),
             tags = $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)'),
             tagsTitles = [];
         var _iteratorNormalCompletion2 = true;
@@ -336,7 +341,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
         }
 
-        var areEqual = compareArrays(textboxValues, tagsTitles); // The existing elements changed, update the existing tags.
+        var areEqual = compareArrays(textboxValuesArray, tagsTitles); // The existing elements changed, update the existing tags.
 
         if (!areEqual) {
           $mainWrapper.find('.sui-multistrings-list li:not(.sui-multistrings-input)').remove();
@@ -345,8 +350,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var _iteratorError3 = undefined;
 
           try {
-            for (var _iterator3 = textboxValues[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            for (var _iterator3 = textboxValuesArray[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
               var value = _step3.value;
+              value = value.trim();
 
               if (value.length) {
                 // Print new value on the list.
@@ -392,7 +398,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     function cleanTextarea(string, disallowedCharsArray) {
       var isLoad = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var disallowedString = getRegexPatternForDisallowedChars(disallowedCharsArray),
-          regex = new RegExp("[^\\S\\r\\n]+|[,]+|[".concat(disallowedString, "]+|((\\r\\n|\\n|\\r)$)|^\\s*$"), 'gm');
+          regex = new RegExp("[".concat(disallowedString, "]+|((\\r\\n|\\n|\\r)$)|^\\s*$"), 'gm');
       var clearedString = string.replace(regex, '');
 
       if (!isLoad) {

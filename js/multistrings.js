@@ -176,27 +176,25 @@
 			let html   = '',
 				$mainWrapper = textarea.closest( '.sui-multistrings-wrap' ),
 				$entriesList = $mainWrapper.find( '.sui-multistrings-list' ),
-				valueToClear  = textarea.val().trim()
-				;
+				forbiddenRemoved = cleanTextarea( textarea.val(), disallowedCharsArray, true );
 
-			// Convert default commas into new lines.
-			if ( valueToClear.includes( ',' ) ) {
-				valueToClear = valueToClear.replace( /(?!^),/gm, '\n' );
-			}
+			// Split lines for inserting the tags and cleaning the new textarea value.
+			const splitStrings = forbiddenRemoved.split( /[\r\n]/gm ),
+				cleanStringsArray = [];
 
-			const removeForbidden = cleanTextarea( valueToClear, disallowedCharsArray, true ),
-				splitStrings = removeForbidden.split( /[\r\n]/gm );
-
-			// Clean-up textarea value.
-			textarea.val( removeForbidden );
-
-			// Add currently available strings.
-			if ( 0 !== removeForbidden.length ) {
-
-				for ( let i = 0; i < splitStrings.length; i++ ) {
-					html += buildItem( splitStrings[i]);
+			// Insert the tags and add clean values to the cleanStringsArray.
+			for ( let i = 0; i < splitStrings.length; i++ ) {
+				const stringLine = splitStrings[i].trim();
+				if ( 0 === stringLine.length ) {
+					continue;
 				}
+				html += buildItem( stringLine );
+				cleanStringsArray.push( stringLine );
 			}
+
+			// Clean-up textarea value with the cleanStringsArray joined by newlines.
+			const newTextareaValue = cleanStringsArray.join( '\n' );
+			textarea.val( newTextareaValue );
 
 			// Build input to insert strings.
 			html += buildInput( textarea, uniqid );
@@ -208,10 +206,15 @@
 
 		function getDisallowedChars( $mainWrapper ) {
 			const $textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
-				customDisallowedKeys = $textarea.data( 'disallowedKeys' ),
-				disallowedCharsArray = [ ',' ]; // Commas are not allowed.
+				disallowedCharsArray = [];
+
+			let customDisallowedKeys = $textarea.data( 'disallowedKeys' );
 
 			if ( customDisallowedKeys ) {
+
+				if ( 'number' === typeof customDisallowedKeys ) {
+					customDisallowedKeys = customDisallowedKeys.toString();
+				}
 
 				// Make an array from the user defined keys.
 				const customKeysArray = customDisallowedKeys.split( ',' );
@@ -228,10 +231,6 @@
 						disallowedCharsArray.push( String.fromCharCode( intKey ) );
 					}
 				}
-			} else {
-
-				// Space is disallowed by default.
-				disallowedCharsArray.push( ' ' );
 			}
 
 			return disallowedCharsArray;
@@ -251,7 +250,7 @@
 			const $tagInput = $mainWrapper.find( '.sui-multistrings-input input' ),
 				$textarea = $mainWrapper.find( 'textarea.sui-multistrings' ),
 				disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
-				regex = new RegExp( `[\r\n,${disallowedString}]`, 'gm' );
+				regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
 
 			// Sanitize the values on keydown.
 			$tagInput.on( 'keydown', function( e ) {
@@ -270,13 +269,15 @@
 				const newTrim = newValue.replace( regex, '' ),
 					isEnter   = ( 13 === e.keyCode );
 
+				if ( isEnter ) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
+
 				// If there's no value to add, don't insert any new value.
-				if ( 0 !== newTrim.length ) {
+				if ( 0 !== newTrim.length && 0 !== newTrim.trim().length ) {
 
 					if ( isEnter ) {
-						e.preventDefault();
-						e.stopPropagation();
-
 						const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
 
 						// Print new value on textarea.
@@ -362,7 +363,7 @@
 				textarea.val( cleanedCurrentValue );
 				oldValue = cleanedCurrentValue;
 
-				let textboxValues = textarea.val().split( /[\r\n\s]+/gm ).filter( el => el.length ),
+				let textboxValuesArray = cleanedCurrentValue.split( /[\r\n]+/gm ),
 					tags = $mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ),
 					tagsTitles = [];
 
@@ -370,15 +371,15 @@
 					tagsTitles.push( $( tag ).attr( 'title' ) );
 				}
 
-				const areEqual = compareArrays( textboxValues, tagsTitles );
+				const areEqual = compareArrays( textboxValuesArray, tagsTitles );
 
 				// The existing elements changed, update the existing tags.
 				if ( ! areEqual ) {
 
 					$mainWrapper.find( '.sui-multistrings-list li:not(.sui-multistrings-input)' ).remove();
 
-					for ( let value of textboxValues ) {
-
+					for ( let value of textboxValuesArray ) {
+						value = value.trim();
 						if ( value.length ) {
 
 							// Print new value on the list.
@@ -412,7 +413,7 @@
 		function cleanTextarea( string, disallowedCharsArray, isLoad = false ) {
 
 			const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
-				regex = new RegExp( `[^\\S\\r\\n]+|[,]+|[${disallowedString}]+|((\\r\\n|\\n|\\r)\$)|^\\s*$`, 'gm' );
+				regex = new RegExp( `[${disallowedString}]+|((\\r\\n|\\n|\\r)\$)|^\\s*$`, 'gm' );
 
 			let clearedString = string.replace( regex, '' );
 
