@@ -1,0 +1,269 @@
+---
+layout: default
+title: Whitelabel
+permalink: /whitelabel/
+is_searchable: true
+---
+
+
+<section>
+
+	<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav">
+
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+			<li class="sui-vertical-tab current">
+				<a href="#" data-tab="about">About Whitelabel</a>
+			</li>
+			<li class="sui-vertical-tab">
+				<a href="#" data-tab="wpmudev-branding">WPMU DEV Branding</a>
+			</li>
+			<li class="sui-vertical-tab">
+				<a href="#" data-tab="footer-text">Footer Text</a>
+			</li>
+			<li class="sui-vertical-tab">
+				<a href="#" data-tab="documentation-links">Documentation Links</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Tabs -->
+	<div class="sui-box" data-tab="about">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">About Whitelabel</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>We let our users remove the WPMU DEV branding from all our plugins and replace it with their own branding for their clients. This is done via the Whitelabel tool in the WPMU DEV Dashboard plugin. Find it under Tools -> Whitelabel.</p>
+
+			<p>We must adjust some elements in our plugins for those settings to work as expected. Each element to adjust is explained in the tabs at the left.</p>
+
+			<p>Here you can find <a href="https://bitbucket.org/hendrawankuncoro/workspace/snippets/oebRx9" target="_blank">the original instructions</a> on how to implement the whitelabel in your plugin, as well as the instructions for SUI below 2.3.18 which we don't cover in these docs (because you're not using that version anyway, right?).</p>
+
+		</div>
+
+	</div>
+
+	<div data-tab="wpmudev-branding" style="display: none;">
+
+		<div class="sui-box">
+
+			<div class="sui-box-header">
+				<h3 class="sui-box-title">WPMU DEV Branding</h3>
+			</div>
+
+			<div class="sui-box-body">
+
+				<p>This refers to all the the images that are part of our branding, like the cool super heroes you see around. These images can be hidden by this setting, and a custom image can be set for the dashboard section of each plugin.</p>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+
+						<h3 class="sui-settings-label">Hidding The Branding</h3>
+
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<p>Retrieve whether the branding should be hidden by applying the filter <code>wpmudev_branding_hide_branding</code>. It returns a <code>boolean</code>.<br/>If true, hide the branding. If false, display the branding.</p>
+
+						<div class="demo-code-block">
+
+							<pre class="sui-code-snippet php">
+&lt;?php
+$hide_branding = apply_filters( 'wpmudev_branding_hide_branding', false );
+if ( ! $hide_branding) {
+echo &quot;DISPLAY WPMUDEV DEFAULT HERO IMAGES&quot;;
+}
+							</pre>
+
+						</div>
+
+						<p>You should do this check in every place a super hero or a WPMU DEV branding is shown, except for the footer and documentation elements which have a hook of their own.</p>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+
+						<h3 class="sui-settings-label">Replacing The Hero Image</h3>
+
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<p>Retrieve the custom image defined by the user by applying the filter <code>wpmudev_branding_hero_image</code>. It returns a <code>string</code>.</br>This is an optional field so the value can be empty. This custom image is used within the <a href="{{ site.baseurl }}/shared-ui/summary/" target="_blank">Summary element</a>.</p>
+
+						<div class="demo-code-block">
+
+							<pre class="sui-code-snippet php">
+&lt;?php
+$custom_hero_image = apply_filters( 'wpmudev_branding_hero_image', '' );
+if ( ! empty( $custom_hero_image ) ) {
+echo &quot;CHANGE WPMUDEV DEFAULT HERO IMAGE TO : &quot; . $custom_hero_image;
+}
+							</pre>
+
+						</div>
+
+						<p><i>Okay, I got the string. Now what?</i></p>
+
+						<p>
+							<label class="sui-settings-label">Rebranded!</label>
+							The image string <u>is not empty</u> and 'hide branding' <u>is true</u>:<br/>
+							1. Use the custom image you just retrieved as the background for the <code>.sui-summary-image-space</code> div. Yes, inline style is fine<br/>
+							2. Add <code>sui-rebranded</code> class to the <code>.sui-summary</code> div
+						</p>
+
+						<p>
+							<label class="sui-settings-label">Unbranded</label>
+							The image string <u>is empty</u> and 'hide branding' <u>is true</u>:<br/>
+							1. Add <code>sui-unbranded</code> class to the <code>.sui-summary</code> div
+						</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<h4>Rebranded example</h4>
+		<div class="sui-box sui-summary sui-summary-sm sui-rebranded">
+
+			<div class="sui-summary-image-space" aria-hidden="true" style="background-image: url('{{ site.baseurl }}/assets/images/guarantee-stamp.png');"></div>
+
+			<div class="sui-summary-segment">
+
+				<div class="sui-summary-details">
+
+					<span class="sui-summary-large">1</span>
+					<span class="sui-summary-sub">Active Form</span>
+
+				</div>
+
+			</div>
+
+			<div class="sui-summary-segment">
+
+				<ul class="sui-list">
+
+					<li>
+						<span class="sui-list-label">Last Submission</span>
+						<span class="sui-list-detail">5 minutes ago</span>
+					</li>
+
+					<li>
+						<span class="sui-list-label">Submissions in the last 30 days</span>
+						<span class="sui-list-detail">1000</span>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+		<h4>Unbranded example</h4>
+		<div class="sui-box sui-summary sui-summary-sm sui-unbranded">
+
+			<div class="sui-summary-image-space" aria-hidden="true"></div>
+
+			<div class="sui-summary-segment">
+
+				<div class="sui-summary-details">
+
+					<span class="sui-summary-large">1</span>
+					<span class="sui-summary-sub">Active Form</span>
+
+				</div>
+
+			</div>
+
+			<div class="sui-summary-segment">
+
+				<ul class="sui-list">
+
+					<li>
+						<span class="sui-list-label">Last Submission</span>
+						<span class="sui-list-detail">5 minutes ago</span>
+					</li>
+
+					<li>
+						<span class="sui-list-label">Submissions in the last 30 days</span>
+						<span class="sui-list-detail">1000</span>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="sui-box" data-tab="footer-text" style="display: none;">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">Footer Text</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>This setting modifies the text to be displayed in the <a href="{{ site.baseurl }}/shared-ui/footer/" target="_blank">Footer element.</a></p>
+
+			<p>Retrieve the text defined by the user by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>string</code>. This is an optional field, the value can be empty.</p>
+
+			<div class="demo-code-block">
+
+				<pre class="sui-code-snippet php">
+&lt;?php
+$footer_text = apply_filters( 'wpmudev_branding_footer_text', 'Made with &lt;i&gt;love&lt;/i&gt; by WPMUDEV' );
+echo &quot;&lt;footer&gt;$footer_text&lt;/footer&gt;&quot;;
+				</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="sui-box" data-tab="documentation-links" style="display: none;">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">Documentation Links</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>This setting defines whether to hide the elements that link to documentation. For example, the "View documentation" button at the top right corner of every page in Forminator.</p>
+
+			<p>Retrieve whether to hide the documentation links by applying the filter <code>wpmudev_branding_hide_doc_link</code>. It returns a <code>boolean</code>. If true, hide the documentation. If false, display the documentation.</p>
+
+			<div class="demo-code-block">
+
+				<pre class="sui-code-snippet php">
+&lt;?php
+$hide_doc_link = apply_filters( 'wpmudev_branding_hide_doc_link', false );
+if ( ! $hide_doc_link) {
+	echo &quot;HIDE WPMUDEV DOCUMENTATION LINK&quot;;
+}
+				</pre>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
