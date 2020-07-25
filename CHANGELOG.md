@@ -1,5 +1,6 @@
 v2.9.5
 - [Fix] Toggle: Missing disabled state.
+- [Fix] Tabs: Overflow flushed tabs styling issues.
 
 
 v2.9.4
