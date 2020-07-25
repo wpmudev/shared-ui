@@ -1,3 +1,7 @@
+v2.9.5
+- [Fix] Toggle: Missing disabled state.
+
+
 v2.9.4
 - [New] Showcase: Add whitelabel instructions.
 			Dev Notes: You can find whitelabel instructions on
