@@ -89,18 +89,14 @@
 
 		// Overflowed tabs
 		&.sui-tabs-overflow {
-			border: 1px solid $tabs-content-border-color;
-			border-radius: $border-radius;
 			position: relative;
 
 			> [data-tabs],
 			> .sui-tabs-menu {
 				overflow: auto;
-				margin-right: $sui-gutter-md;
-				margin-left: $sui-gutter-md;
-				border-top-width: 0;
 				scrollbar-width: none;
 				scrollbar-height: none;
+
 				&::-webkit-scrollbar {
 					width: 0;
 					height: 0;
@@ -110,24 +106,6 @@
 				> *,
 				.sui-tab-item {
 					flex: 0 0 auto;
-				}
-
-			}
-
-			> [data-panes],
-			> .sui-tabs-content {
-
-				> *,
-				> .sui-tab-content {
-					padding-right: $sui-gutter-md;
-					padding-bottom: $sui-gutter-md;
-					padding-left: $sui-gutter-md;
-
-					@include media(min-width, md) {
-						padding-right: $sui-gutter;
-						padding-bottom: $sui-gutter;
-						padding-left: $sui-gutter;
-					}
 				}
 			}
 
@@ -152,6 +130,40 @@
 				&--hidden {
 					visibility: hidden;
 					opacity: 0;
+				}
+			}
+
+			&:not(.sui-tabs-flushed) {
+				border: 1px solid $tabs-content-border-color;
+				border-radius: $border-radius;
+
+				> [data-tabs],
+				> .sui-tabs-menu {
+					margin-right: $sui-gutter-md;
+					margin-left: $sui-gutter-md;
+					border-top-width: 0;
+
+					@include media(min-width, md) {
+						margin-right: $sui-gutter;
+						margin-left: $sui-gutter;
+					}
+				}
+
+				> [data-panes],
+				> .sui-tabs-content {
+
+					> *,
+					> .sui-tab-content {
+						padding-right: $sui-gutter-md;
+						padding-bottom: $sui-gutter-md;
+						padding-left: $sui-gutter-md;
+
+						@include media(min-width, md) {
+							padding-right: $sui-gutter;
+							padding-bottom: $sui-gutter;
+							padding-left: $sui-gutter;
+						}
+					}
 				}
 			}
 		}

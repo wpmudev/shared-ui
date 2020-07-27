@@ -229,7 +229,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }; // Convert all select lists to fancy sui Select lists.
 
 
-  $('.sui-2-9-4 select:not([multiple])').each(function () {
+  $('.sui-2-9-5 select:not([multiple])').each(function () {
     SUI.suiSelect(this);
   });
 })(jQuery);

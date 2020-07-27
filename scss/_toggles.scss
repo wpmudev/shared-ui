@@ -31,6 +31,28 @@
 					box-shadow: 0 0 0 5px palette(blue, light);
 				}
 			}
+
+			&[disabled] {
+
+				~ .sui-toggle-slider {
+					cursor: not-allowed;
+					opacity: 0.5;
+					background-color: $toggle-active-disabled-bg-color;
+
+					&:before {
+						background-color: $toggle-active-before-disabled-color;
+					}
+
+					&:hover {
+						box-shadow: none;
+					}
+				}
+
+				~ .sui-description,
+				~ .sui-toggle-label {
+					cursor: initial;
+				}
+			}
 		}
 
 		// ELEMENT: Slider.

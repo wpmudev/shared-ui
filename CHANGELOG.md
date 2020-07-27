@@ -1,3 +1,9 @@
+v2.9.5
+- [Fix] Box: Dropdown elements overflow sticky box.
+- [Fix] Toggle: Missing disabled state.
+- [Fix] Tabs: Overflow flushed tabs styling issues.
+
+
 v2.9.4
 - [New] Showcase: Add whitelabel instructions.
 			Dev Notes: You can find whitelabel instructions on
