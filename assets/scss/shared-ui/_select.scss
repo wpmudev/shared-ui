@@ -4,7 +4,6 @@
 		cursor: pointer;
 		display: block;
 		position: relative;
-		z-index: 1;
 		border: 1px solid $select-container--border-color;
 		border-radius: $border-radius;
 		background-color: $select-container--background;
@@ -20,7 +19,7 @@
 			width: #{$select-dropdown-handle-size - 1px};
 			display: block;
 			position: absolute;
-			z-index: 1011;
+			z-index: 10;
 			top: 0;
 			right: 0;
 			padding: 0;
@@ -87,7 +86,7 @@
 				overflow-y: auto;
 				display: none;
 				position: absolute;
-				z-index: 1010;
+				z-index: 10;
 				top: #{$select-dropdown-handle-size - 2px};
 				right: -9999px;
 				left: -9999px;
@@ -176,7 +175,7 @@
 		}
 
 		&.active {
-			z-index: 13; // OLD 99999
+			z-index: 10; // OLD 99999
 			background-color: $select-container--background-active;
 
 			.dropdown-handle {
@@ -336,7 +335,7 @@
 
 		> .select-open th,
 		> .select-open td {
-			z-index: 9;
+			z-index: 10;
 		}
 	}
 }

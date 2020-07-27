@@ -1,4 +1,5 @@
 v2.9.5
+- [Fix] Box: Dropdown elements overflow sticky box.
 - [Fix] Toggle: Missing disabled state.
 - [Fix] Tabs: Overflow flushed tabs styling issues.
 
