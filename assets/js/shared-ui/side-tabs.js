@@ -22,11 +22,11 @@
 		$this.on( 'click', function( e ) {
 
 			$alllabels.removeClass( 'active' );
-			$allinputs.removeAttr( 'checked' );
+			$allinputs.removeProp( 'checked' );
 			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).removeClass( 'active' );
 
 			$label.addClass( 'active' );
-			$this.attr( 'checked', 'checked' );
+			$this.prop( 'checked', true );
 
 			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
 
