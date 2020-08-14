@@ -1,3 +1,7 @@
+v2.9.6
+- [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
+
+
 v2.9.5
 - [Fix] Box: Dropdown elements overflow sticky box.
 - [Fix] Toggle: Missing disabled state.

@@ -107,7 +107,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-9-5 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-9-6 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
