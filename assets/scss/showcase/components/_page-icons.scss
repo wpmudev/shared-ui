@@ -73,4 +73,161 @@
 			}
 		}
 	}
+
+	.icons-list {
+		opacity: 0;
+
+		.icons-list-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			margin: -10px;
+		}
+
+		.icons-list-filter {
+			display: none;
+			flex-wrap: wrap;
+			margin: 0 0 20px;
+
+			button {
+				cursor: pointer;
+				display: block;
+				flex: 0 0 auto;
+				margin: 0;
+				margin-right: 1px;
+				padding: 9px 20px;
+				border: 0;
+				background-color: palette(silver, light);
+				color: palette(gray, default);
+				font: 500 13px/22px $font;
+				transition: $transition;
+
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					outline: none;
+					box-shadow: none;
+				}
+
+				&:hover,
+				&:focus,
+				&[disabled] {
+					background-color: palette(blue, light);
+				}
+
+				&[disabled] {
+					pointer-events: none;
+					color: $blue;
+				}
+
+				&:first-child {
+					border-top-left-radius: $border-radius;
+					border-bottom-left-radius: $border-radius;
+				}
+
+				&:last-child {
+					margin-right: 0;
+					border-top-right-radius: $border-radius;
+					border-bottom-right-radius: $border-radius;
+				}
+			}
+
+			@include media(min-width, md) {
+				display: flex;
+			}
+		}
+
+		.icons-list-search {
+			margin: 0 0 20px;
+		}
+
+		.icon-item {
+			flex: 0 0 100%;
+			display: block;
+			padding: 10px;
+
+			.icon-item-field {
+				margin: 0;
+				padding: 20px;
+				border: 1px solid palette(silver, soft);
+				border-radius: $border-radius;
+				background-color: $white;
+
+				.sui-form-field {
+					margin-bottom: 10px;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.icon-item-title {
+				display: flex;
+				align-items: flex-start;
+				margin-top: 0;
+				margin-bottom: 10px !important;
+				color: $black;
+				font-size: 16px;
+				line-height: 20px;
+
+				strong {
+					display: block;
+					flex: 1 1 auto;
+				}
+
+				[class*="sui-icon-"] {
+					display: block;
+					border-radius: $border-radius;
+					background-color: palette(silver, default);
+
+					&:before {
+						display: block;
+						flex: 0 0 auto;
+						color: $black;
+						text-align: center;
+					}
+
+					&.sui-md {
+						width: 30px;
+						height: 30px;
+						padding: 7px 5px;
+
+						+ strong {
+							margin: 5px 0;
+							margin-left: 10px;
+						}
+					}
+
+					&.sui-lg {
+						width: 40px;
+						height: 30px;
+						padding: 0 5px;
+
+						&:before {
+							line-height: 30px;
+						}
+
+						+ strong {
+							margin: 5px 0;
+							margin-left: 10px;
+						}
+					}
+				}
+			}
+
+			@include media(min-width, md) {
+				flex: 0 0 50%;
+			}
+
+			@include media(min-width, lg) {
+				flex: 0 0 25%;
+			}
+		}
+
+		&.active {
+			opacity: 1;
+		}
+	}
 }
