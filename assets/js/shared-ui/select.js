@@ -1,5 +1,281 @@
 ( function( $ ) {
 
+	// Enable strict mode.
+	'use strict';
+
+	// Define global SUI object if it doesn't exist.
+	if ( 'object' !== typeof window.SUI ) {
+		window.SUI = {};
+	}
+
+	SUI.select = function( el ) {
+
+		var select = $( el ),
+			wrapper,
+			button,
+			listbox,
+			value
+			;
+
+		// Check if element is "select".
+		if ( ! select.is( 'select' ) ) {
+			return;
+		}
+
+		// Check if element doesn't have an ID assigned.
+		if ( '' === select.attr( 'id' ) || null === select.attr( 'id' ) ) {
+			throw new Error( 'Select element requires an ID to work correctly.' );
+		}
+
+		// Add the DOM elements to style the select list.
+		function setupElement() {
+
+			// Wrap "select" element.
+			select.wrap( '<div class="sui-select" />' );
+
+			// Visually hide "select" element.
+			select.addClass( 'sui-screen-reader-text' );
+
+			// Get wrapper element.
+			wrapper = select.parent();
+
+			// Set handler button.
+			button = $( '<button type="button" class="sui-select-button" aria-haspopup="listbox" aria-labelledby=""><span class="sui-icon-chevron-down sui-sm"></span></button>' ).appendTo( wrapper );
+
+			// Set listbox markup.
+			listbox = $( '<ul tabindex="-1" role="listbox" id="" class="sui-select-listbox" aria-labelledby="" aria-activedescendant=""></ul>' ).appendTo( wrapper );
+
+			// Get "select" current value.
+			value = $( '<span class="sui-select-value">&nbsp;</span>' ).prependTo( button );
+
+		}
+
+		// When changing selection using JS, you need to trigger a 'sui:change' event
+		// eg: $('select').val('4').trigger('sui:change')
+		function handleSelectionChange() {
+
+			select.on( 'sui:change', function() {
+
+				// We need to re-populateList to handle dynamic select options added via JS/ajax.
+				populateList();
+
+				listbox.find( 'li' ).on( 'click', function onItemClick( ev ) {
+					var option = $( ev.target );
+					selectItem( option, false, option.data( 'color' ) );
+					handleValue();
+				});
+
+			});
+		}
+
+		// Add the DOM elements to style the list item.
+		function setupItemList( option, listbox, index ) {
+
+			var listitem = $( '<li role="option" class="sui-select-listitem"></li>' ).appendTo( listbox );
+
+			// Check if "option" has a value.
+			if ( '' !== option.val() || null !== option.val() ) {
+				listitem.attr( 'id', select.attr( 'id' ) + '-option-' + option.val() );
+			} else {
+				listitem.attr( 'id', select.attr( 'id' ) + '-option-' + index );
+			}
+
+			// Check if "option" is disabled.
+			if ( option.is( ':disabled' ) ) {
+				listitem.addClass( 'sui-disabled' ); // Add disabled styles.
+				listitem.attr( 'aria-disabled', 'true' ); // Disable for screen readers.
+			}
+
+			// Check if "option" is selected.
+			if ( option.val() === select.val() ) {
+				selectItem( option, true, option.data( 'color' ) );
+			}
+		}
+
+		// Add all the options to the new DOM elements.
+		function populateList() {
+
+			var children = select.children();
+
+			listbox.empty();
+
+			children.each( function( index ) {
+
+				var option = $( this ),
+					listgroup,
+					label
+					;
+
+				// Check if element is an "option".
+				if ( 'OPTION' === option.prop( 'tagName' ) ) {
+					setupItemList( option, listbox, index );
+				} else {
+
+					// Check if element is an "optgroup".
+					if ( 'OPTGROUP' === option.prop( 'tagName' ) ) {
+
+						listgroup = $( '<li class="sui-select-listitem-group"></li>' ).appendTo( listbox );
+						label     = $( '<span></span>' ).text( option.prop( 'label' ) );
+
+						label.appenTo( listgroup );
+						$( '<ul></ul>' ).appendTo( listgroup );
+
+						// Re-select listbox.
+						listbox = listgroup.find( 'ul' );
+
+						option.find( 'option' ).each( function( index ) {
+							setupItemList( $( this ), listbox, index );
+						});
+					}
+				}
+			});
+		}
+
+		// Checks the option value for a link.
+		function handleValue() {
+			var val = select[0].value;
+
+			// If option is link, navigate to it.
+			if ( val.match( '^https?:\/\/|#' ) ) {
+				window.location.href = val;
+			}
+		}
+
+		// Toggle the dropdown state between open/closed.
+		function stateToggle() {
+
+			if ( wrapper.find( 'select' ).is( ':disabled' ) ) {
+				return;
+			}
+
+			if ( ! wrapper.hasClass( 'sui-active' ) ) {
+				stateOpen();
+			} else {
+				stateClose();
+			}
+		}
+
+		// Close the dropdown list.
+		function stateClose( item ) {
+
+			if ( ! item ) {
+				item = wrapper;
+			}
+
+			item.removeClass( 'sui-active' );
+			// item.closest( 'tr' ).removeClass( 'select-open' );
+			// item.find( '.list-value' ).removeAttr( 'aria-expanded' );
+
+		}
+
+		// Open the dropdown list.
+		function stateOpen() {
+
+			// $( '.select-container.active' ).each( function() {
+			// 	stateClose( $( this ) );
+			// });
+
+			wrapper.addClass( 'sui-active' );
+			// wrapper.closest( 'tr' ).addClass( 'select-open' );
+			// wrapper.find( '.list-value' ).attr( 'aria-expanded', true );
+		}
+
+		// Visually mark the specified option as "selected".
+		function selectItem( option, isInit, optionColor ) {
+
+			isInit = 'undefined' === typeof isInit ? false : isInit;
+
+			// Assign option value.
+			value.text( option.text() );
+
+			// if ( undefined !== optionColor && '' !== optionColor ) {
+			// 	value.html( '<span style="background-color: ' + optionColor + '" data-color="' + optionColor + '"></span>' + opt.text() );
+			// } else {
+			// 	value.text( opt.text() );
+			// }
+
+			// $( '.current', items ).removeAttr( 'aria-selected' );
+			// $( '.current', items ).removeClass( 'current' );
+
+			// opt.addClass( 'current' );
+			// opt.attr( 'aria-selected', true );
+			// items.attr( 'aria-activedescendant', opt.attr( 'id' ) );
+
+			// Close dropdown list.
+			stateClose();
+
+			// Update select list value.
+			select.val( option.data( 'value' ) );
+
+			if ( ! isInit ) {
+				select.trigger( 'change' );
+			}
+		}
+
+		// Element constructor.
+		function init() {
+
+			var selectId;
+
+			setupElement();
+			populateList();
+			handleSelectionChange();
+
+			listbox.find( 'li' ).not( '.sui-select-listitem-group > span' ).on( 'click', function onItemClick( ev ) {
+				var option = $( ev.target );
+				selectItem( option, false, option.data( 'color' ) );
+				handleValue();
+			});
+
+			button.on( 'click', stateToggle );
+			value.on( 'click', stateToggle );
+			select.on( 'focus', stateOpen );
+
+			// $( document ).click( function onOutsideClick( ev ) {
+
+			// 	var jq = $( ev.target ),
+			// 		selectId;
+
+			// 	if ( jq.closest( '.select-container' ).length ) {
+			// 		return;
+			// 	}
+
+			// 	if ( jq.is( 'label' ) && jq.attr( 'for' ) ) {
+			// 		selectId = jq.attr( 'for' );
+
+			// 		if ( $( 'select#' + selectId ).length ) {
+			// 			return;
+			// 		}
+			// 	}
+
+			// 	stateClose();
+			// });
+
+			// selectId = select.attr( 'id' );
+
+			// if ( selectId ) {
+			// 	$( 'label[for="' + selectId + '"]' ).on( 'click', stateOpen );
+			// }
+
+			// select.addClass( 'sui-styled' );
+
+		}
+
+		init();
+
+		return this;
+
+	};
+
+	// Convert all select lists to fancy sui Select lists.
+	$( 'SUI_BODY_CLASS .sui-select:not([multiple])' ).each( function() {
+		SUI.select( this );
+	});
+}( jQuery ) );
+
+/**
+( function( $ ) {
+
     // Enable strict mode.
     'use strict';
 
@@ -200,7 +476,7 @@
 
 		// Element constructor.
 		function init() {
-			var selectID;
+			var selectId;
 
 			setupElement();
 			populateList();
@@ -218,16 +494,16 @@
 
 			$( document ).click( function onOutsideClick( ev ) {
 				var jq = $( ev.target ),
-					selectID;
+					selectId;
 
 				if ( jq.closest( '.select-container' ).length ) {
 					return;
 				}
 
 				if ( jq.is( 'label' ) && jq.attr( 'for' ) ) {
-					selectID = jq.attr( 'for' );
+					selectId = jq.attr( 'for' );
 
-					if ( $( 'select#' + selectID ).length ) {
+					if ( $( 'select#' + selectId ).length ) {
 						return;
 					}
 				}
@@ -235,10 +511,10 @@
 				stateClose();
 			});
 
-			selectID = jq.attr( 'id' );
+			selectId = jq.attr( 'id' );
 
-			if ( selectID ) {
-				$( 'label[for=' + selectID + ']' ).on( 'click', stateOpen );
+			if ( selectId ) {
+				$( 'label[for=' + selectId + ']' ).on( 'click', stateOpen );
 			}
 
 			jq.addClass( 'sui-styled' );
@@ -255,3 +531,4 @@
 	});
 
 }( jQuery ) );
+*/

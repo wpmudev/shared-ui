@@ -2,7 +2,7 @@
 
 	// Convert all select lists to fancy sui Select lists.
     if ( $( '.sui-color-accessible' )[0]) {
-        $( '.sui-select' ).SUIselect2({
+        $( '.sui-select2' ).SUIselect2({
 			placeholder: function() {
 				$( this ).data( 'placeholder' );
 			},
@@ -20,7 +20,7 @@
             dropdownCssClass: 'sui-variables-dropdown sui-color-accessible'
 		});
     } else {
-        $( '.sui-select' ).SUIselect2({
+        $( '.sui-select2' ).SUIselect2({
 			placeholder: function() {
 				$( this ).data( 'placeholder' );
 			},
