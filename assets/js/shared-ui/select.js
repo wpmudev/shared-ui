@@ -8,257 +8,211 @@
 		window.SUI = {};
 	}
 
-	SUI.select = function( el ) {
+	/**
+	 * @namespace aria
+	 */
+	let aria = aria || {};
 
-		var select = $( el ),
-			wrapper,
-			button,
-			listbox,
-			value
-			;
+	aria.Utils = aria.Utils || {};
 
-		// Check if element is "select".
-		if ( ! select.is( 'select' ) ) {
+	// Find out element's tag name.
+	aria.Utils.hasTag = function( el, tag ) {
+
+		if ( el.tagName === tag ) {
+			return true;
+		}
+
+		return false;
+
+	};
+
+	// Find out if element has an ID assigned.
+	aria.Utils.hasId = function( el ) {
+
+		if ( 'undefined' !== typeof el.id && '' !== el.id ) {
+			return true;
+		}
+
+		return false;
+
+	};
+
+	/**
+	 * @constructor
+	 * @desc Collapsible dropdown list providing modal focus management.
+	 *
+	 * @param element
+	 * Get's the main element from where Select is going to be built.
+	 */
+	SUI.Select = ( element ) => {
+
+		const select = $( element );
+
+		let container, listbox, value, button;
+
+		// Stop function when excecuted on a non "select" element.
+		if ( ! aria.Utils.hasTag( element, 'SELECT' ) ) {
 			return;
 		}
 
-		// Check if element doesn't have an ID assigned.
-		if ( '' === select.attr( 'id' ) || null === select.attr( 'id' ) ) {
-			throw new Error( 'Select element requires an ID to work correctly.' );
+		// Show error when "select" doesn't have an ID.
+		if ( ! aria.Utils.hasId( element ) ) {
+			throw new Error( 'Select element require an ID to work properly.' );
 		}
 
 		// Add the DOM elements to style the select list.
-		function setupElement() {
+		aria.Utils.createElement = () => {
 
-			// Wrap "select" element.
+			// Wrap select element.
 			select.wrap( '<div class="sui-select" />' );
 
-			// Visually hide "select" element.
+			// Hide select element.
 			select.addClass( 'sui-screen-reader-text' );
 
-			// Get wrapper element.
-			wrapper = select.parent();
+			// Define main container.
+			container = select.parent();
 
-			// Set handler button.
-			button = $( '<button type="button" class="sui-select-button" aria-haspopup="listbox" aria-labelledby=""><span class="sui-icon-chevron-down sui-sm"></span></button>' ).appendTo( wrapper );
+			// Define selector button.
+			button = $( '<button class="sui-select-button"><span class="sui-icon-chevron-down" aria-hidden="true"></span></button>' ).appendTo( container );
 
-			// Set listbox markup.
-			listbox = $( '<ul tabindex="-1" role="listbox" id="" class="sui-select-listbox" aria-labelledby="" aria-activedescendant=""></ul>' ).appendTo( wrapper );
-
-			// Get "select" current value.
+			// Define button value.
 			value = $( '<span class="sui-select-value">&nbsp;</span>' ).prependTo( button );
 
-		}
+			// Define listbox.
+			listbox = $( '<ul role="listbox" tabindex="-1" id="' + select.attr( 'id' ) + '-listbox" class="sui-select-listbox">' ).appendTo( container );
+
+		};
 
 		// When changing selection using JS, you need to trigger a 'sui:change' event
 		// eg: $('select').val('4').trigger('sui:change')
-		function handleSelectionChange() {
+		aria.Utils.selectChange = () => {
 
 			select.on( 'sui:change', function() {
 
-				// We need to re-populateList to handle dynamic select options added via JS/ajax.
-				populateList();
-
-				listbox.find( 'li' ).on( 'click', function onItemClick( ev ) {
-					var option = $( ev.target );
-					selectItem( option, false, option.data( 'color' ) );
-					handleValue();
-				});
+				// We need to re-populate listbox items to handle dynamic select options added via JS/ajax.
+				aria.Utils.populateList();
 
 			});
-		}
-
-		// Add the DOM elements to style the list item.
-		function setupItemList( option, listbox, index ) {
-
-			var listitem = $( '<li role="option" class="sui-select-listitem"></li>' ).appendTo( listbox );
-
-			// Check if "option" has a value.
-			if ( '' !== option.val() || null !== option.val() ) {
-				listitem.attr( 'id', select.attr( 'id' ) + '-option-' + option.val() );
-			} else {
-				listitem.attr( 'id', select.attr( 'id' ) + '-option-' + index );
-			}
-
-			// Check if "option" is disabled.
-			if ( option.is( ':disabled' ) ) {
-				listitem.addClass( 'sui-disabled' ); // Add disabled styles.
-				listitem.attr( 'aria-disabled', 'true' ); // Disable for screen readers.
-			}
-
-			// Check if "option" is selected.
-			if ( option.val() === select.val() ) {
-				selectItem( option, true, option.data( 'color' ) );
-			}
-		}
+		};
 
 		// Add all the options to the new DOM elements.
-		function populateList() {
+		aria.Utils.populateList = () => {
 
-			var children = select.children();
+			let children = select.children();
 
+			// Make sure listbox is empty.
 			listbox.empty();
 
 			children.each( function( index ) {
 
-				var option = $( this ),
-					listgroup,
+				let option = $( this ),
+					listitem,
+					itemid = select.attr( 'id' ) + '-item-',
 					label
 					;
 
-				// Check if element is an "option".
-				if ( 'OPTION' === option.prop( 'tagName' ) ) {
-					setupItemList( option, listbox, index );
+				// Check if item is an "option".
+				if ( aria.Utils.hasTag( children[index], 'OPTION' ) ) {
+
+					// Create item.
+					listitem = $( '<li role="option" class="sui-select-listitem"></li>' ).appendTo( listbox );
+					listitem.text( option.text() );
+
+					// Set item an unique id.
+					if ( 'undefined' !== typeof option.attr( 'value' ) ) {
+						listitem.attr( 'id', itemid + option.attr( 'value' ) );
+					} else {
+						listitem.attr( 'id', itemid + index );
+					}
+
+					// Disable item.
+					if ( option.is( ':disabled' ) ) {
+						listitem.addClass( 'sui-disabled' );
+						listitem.attr( 'aria-disabled', true );
+					}
 				} else {
 
-					// Check if element is an "optgroup".
-					if ( 'OPTGROUP' === option.prop( 'tagName' ) ) {
-
-						listgroup = $( '<li class="sui-select-listitem-group"></li>' ).appendTo( listbox );
-						label     = $( '<span></span>' ).text( option.prop( 'label' ) );
-
-						label.appenTo( listgroup );
-						$( '<ul></ul>' ).appendTo( listgroup );
-
-						// Re-select listbox.
-						listbox = listgroup.find( 'ul' );
-
-						option.find( 'option' ).each( function( index ) {
-							setupItemList( $( this ), listbox, index );
-						});
+					if ( aria.Utils.hasTag( children[index], 'OPTGROUP' ) ) {
+						window.console.log( 'optgroup' );
 					}
 				}
 			});
-		}
+		};
 
 		// Checks the option value for a link.
-		function handleValue() {
-			var val = select[0].value;
+		aria.Utils.handleValue = () => {
+
+			let val = select[0].value;
 
 			// If option is link, navigate to it.
 			if ( val.match( '^https?:\/\/|#' ) ) {
 				window.location.href = val;
 			}
-		}
+		};
 
 		// Toggle the dropdown state between open/closed.
-		function stateToggle() {
+		aria.Utils.stateToggle = () => {
 
-			if ( wrapper.find( 'select' ).is( ':disabled' ) ) {
+			// Check if select is disabled.
+			if ( container.find( 'select' ).is( ':disabled' ) ) {
 				return;
 			}
 
-			if ( ! wrapper.hasClass( 'sui-active' ) ) {
-				stateOpen();
+			// Check if container is already active (opened).
+			if ( ! container.hasClass( 'sui-active' ) ) {
+				aria.Utils.stateOpen();
 			} else {
-				stateClose();
+				aria.Utils.stateClose();
 			}
-		}
+		};
 
 		// Close the dropdown list.
-		function stateClose( item ) {
+		aria.Utils.stateClose = ( item ) => {
 
 			if ( ! item ) {
-				item = wrapper;
+				item = container;
 			}
 
+			// Remove "active" class to container.
 			item.removeClass( 'sui-active' );
-			// item.closest( 'tr' ).removeClass( 'select-open' );
-			// item.find( '.list-value' ).removeAttr( 'aria-expanded' );
 
-		}
+			// FIX: Make sure closed accordion table row closes.
+			item.closest( 'tr' ).removeClass( 'select-open' );
+
+		};
 
 		// Open the dropdown list.
-		function stateOpen() {
+		aria.Utils.stateOpen = () => {
 
-			// $( '.select-container.active' ).each( function() {
-			// 	stateClose( $( this ) );
-			// });
-
-			wrapper.addClass( 'sui-active' );
-			// wrapper.closest( 'tr' ).addClass( 'select-open' );
-			// wrapper.find( '.list-value' ).attr( 'aria-expanded', true );
-		}
-
-		// Visually mark the specified option as "selected".
-		function selectItem( option, isInit, optionColor ) {
-
-			isInit = 'undefined' === typeof isInit ? false : isInit;
-
-			// Assign option value.
-			value.text( option.text() );
-
-			// if ( undefined !== optionColor && '' !== optionColor ) {
-			// 	value.html( '<span style="background-color: ' + optionColor + '" data-color="' + optionColor + '"></span>' + opt.text() );
-			// } else {
-			// 	value.text( opt.text() );
-			// }
-
-			// $( '.current', items ).removeAttr( 'aria-selected' );
-			// $( '.current', items ).removeClass( 'current' );
-
-			// opt.addClass( 'current' );
-			// opt.attr( 'aria-selected', true );
-			// items.attr( 'aria-activedescendant', opt.attr( 'id' ) );
-
-			// Close dropdown list.
-			stateClose();
-
-			// Update select list value.
-			select.val( option.data( 'value' ) );
-
-			if ( ! isInit ) {
-				select.trigger( 'change' );
-			}
-		}
-
-		// Element constructor.
-		function init() {
-
-			var selectId;
-
-			setupElement();
-			populateList();
-			handleSelectionChange();
-
-			listbox.find( 'li' ).not( '.sui-select-listitem-group > span' ).on( 'click', function onItemClick( ev ) {
-				var option = $( ev.target );
-				selectItem( option, false, option.data( 'color' ) );
-				handleValue();
+			$( 'div.sui-select.sui-active' ).each( function() {
+				stateClose( $( this ) );
 			});
 
-			button.on( 'click', stateToggle );
-			value.on( 'click', stateToggle );
-			select.on( 'focus', stateOpen );
+			// Add "active" class to container.
+			container.addClass( 'sui-active' );
 
-			// $( document ).click( function onOutsideClick( ev ) {
+			// FIX: Make sure closed accordion table row remains open.
+			container.closest( 'tr' ).addClass( 'select-open' );
 
-			// 	var jq = $( ev.target ),
-			// 		selectId;
+		};
 
-			// 	if ( jq.closest( '.select-container' ).length ) {
-			// 		return;
-			// 	}
+		aria.Utils.placeholder = () => {
 
-			// 	if ( jq.is( 'label' ) && jq.attr( 'for' ) ) {
-			// 		selectId = jq.attr( 'for' );
+			if ( 'undefined' !== typeof select.attr( 'data-placeholder' ) ) {
+				select.prepend( '<option value=""></option>' ).val( select.attr( 'data-placeholder' ) );
+				value.text( select.attr( 'data-placeholder' ) );
+				value.addClass( 'sui-select-placeholder' );
+			}
+		};
 
-			// 		if ( $( 'select#' + selectId ).length ) {
-			// 			return;
-			// 		}
-			// 	}
+		// Visually mark the specified option as "selected".
+		aria.Utils.selectItem = ( option ) => {};
 
-			// 	stateClose();
-			// });
-
-			// selectId = select.attr( 'id' );
-
-			// if ( selectId ) {
-			// 	$( 'label[for="' + selectId + '"]' ).on( 'click', stateOpen );
-			// }
-
-			// select.addClass( 'sui-styled' );
-
+		function init() {
+			aria.Utils.createElement();
+			aria.Utils.populateList();
+			aria.Utils.placeholder();
+			aria.Utils.selectChange();
 		}
 
 		init();
@@ -267,10 +221,11 @@
 
 	};
 
-	// Convert all select lists to fancy sui Select lists.
+	// Execute function on load.
 	$( 'SUI_BODY_CLASS .sui-select:not([multiple])' ).each( function() {
-		SUI.select( this );
+		SUI.Select( this );
 	});
+
 }( jQuery ) );
 
 /**
