@@ -5,6 +5,7 @@ $select-height: 40px;
 	div.sui-select {
 		width: 100%;
 		display: block;
+		position: relative;
 
 		.sui-select-button {
 			width: 100%;
@@ -61,6 +62,44 @@ $select-height: 40px;
 			}
 		}
 
+		.sui-select-listbox {
+			width: 100%;
+			z-index: 10;
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			margin: 0;
+			padding: 10px 0;
+			border: 1px solid palette(gray, lighter);
+			border-radius: $border-radius;
+			background-color: $white;
+
+			.sui-select-listitem {
+				cursor: pointer;
+				overflow: hidden;
+				display: block;
+				margin: 0;
+				padding: 0 15px;
+				border: 0;
+				background-color: $white;
+				color: palette(gray, light);
+				font: 500 15px/35px $font;
+				letter-spacing: $font--letter-spacing;
+				transition: $transition;
+
+				&:hover {
+					background-color: palette(silver, light);
+					color: palette(gray, dark);
+				}
+
+				&.sui-active {
+					background-color: palette(gray, light);
+					color: $white;
+				}
+			}
+		}
+
 		// STATE: Disabled.
 		&.sui-disabled {
 			cursor: not-allowed;
@@ -75,6 +114,10 @@ $select-height: 40px;
 
 			.sui-select-button {
 				background-color: $white;
+			}
+
+			.sui-select-listbox {
+				display: block;
 			}
 		}
 	}
