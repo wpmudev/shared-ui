@@ -31,10 +31,13 @@ $select-height: 40px;
 
 			.sui-select-value {
 				min-width: 1px;
+				overflow: hidden;
 				display: block;
 				flex: 1;
 				padding-right: 5px;
 				padding-left: 15px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
 
 				&.sui-select-placeholder {
 					color: palette(silver, medium);
@@ -60,10 +63,18 @@ $select-height: 40px;
 			&:focus {
 				background-color: $white;
 			}
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
 		}
 
 		.sui-select-listbox {
 			width: 100%;
+			max-height: 182px;
+			overflow-x: hidden;
+			overflow-y: auto;
 			z-index: 10;
 			display: none;
 			position: absolute;
@@ -93,10 +104,79 @@ $select-height: 40px;
 					color: palette(gray, dark);
 				}
 
+				&:focus,
 				&.sui-active {
 					background-color: palette(gray, light);
 					color: $white;
 				}
+
+				&.sui-listitem-with-icon {
+					position: relative;
+					padding-left: 45px;
+
+					span[class*="sui-icon-"] {
+						width: 35px;
+						height: 35px;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						position: absolute;
+						top: 0px;
+						left: 10px;
+
+						&:before {
+							display: block;
+							flex: 0 0 auto;
+							margin: 0 auto;
+							color: inherit;
+							text-align: center;
+						}
+					}
+				}
+
+				&.sui-listitem-with-color {
+					position: relative;
+					padding-left: 60px;
+
+					span {
+						width: 30px;
+						height: 30px;
+						display: block;
+						position: absolute;
+						top: 50%;
+						left: 15px;
+						border-width: 1px;
+						border-style: solid;
+						border-radius: 2px;
+						transform: translateY(-50%);
+					}
+				}
+			}
+
+			.sui-select-listgroup {
+
+				&, ul {
+					margin: 0;
+					padding: 0;
+					border: 0;
+				}
+
+				.sui-listgroup-label {
+					padding: 0 15px;
+					color: palette(gray, dark);
+					font: 500 13px/35px $font;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				.sui-select-listitem {
+					padding-left: 30px;
+				}
+			}
+
+			// STATE: Focus.
+			&:focus {
+				outline: none;
+				box-shadow: none;
 			}
 		}
 
