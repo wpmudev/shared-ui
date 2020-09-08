@@ -122,28 +122,22 @@
 			});
 		};
 
-		let createItem = ( option, item, index, isinit ) => {
+		let createItem = ( option, box, index, isinit ) => {
 
 			const itemid   = select.attr( 'id' ) + '-item-';
-			const listitem = $( '<li role="option" class="sui-select-listitem"></li>' ).appendTo( item );
+			const listitem = $( '<li role="option" class="sui-select-listitem"></li>' ).appendTo( box );
 
 			// Set "isinit" default value to "false".
 			isinit = ( 'undefined' === typeof isinit ) ? false : isinit;
 
 			// Set item an unique id.
-			if ( 'undefined' !== typeof option.attr( 'value' ) ) {
-				listitem.attr( 'id', itemid + option.attr( 'value' ) );
-			} else {
-				listitem.attr( 'id', itemid + index );
-			}
+			listitem.attr( 'id', itemid + index );
 
 			// Set item value.
-			if ( 'undefined' !== typeof option.attr( 'data-content' ) ) {
+			listitem.data( 'value', option.val() );
 
-				// listitem.html( '<span>' + opt.text() + '</span><span>' + opt.data( 'content' ) + '</span>' );
-				listitem.text( option.text() );
-
-			} else if ( 'undefined' !== typeof option.attr( 'data-icon' ) ) {
+			// Set item name value.
+			if ( 'undefined' !== typeof option.attr( 'data-icon' ) ) {
 
 				listitem.addClass( 'sui-listitem-with-icon' );
 				listitem.html( '<span class="sui-icon-' + option.data( 'icon' ) + '" aria-hidden="true"></span>' + option.text() );
