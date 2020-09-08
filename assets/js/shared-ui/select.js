@@ -98,7 +98,7 @@
 			value = $( '<span id="' + select.attr( 'id' ) + '-button-label" class="sui-select-value">&nbsp;</span>' ).prependTo( button );
 
 			// Define listbox.
-			listbox = $( '<ul role="listbox" tabindex="-1" id="' + select.attr( 'id' ) + '-listbox" class="sui-select-listbox" aria-labelledby="' + select.attr( 'id' ) + '-label" aria-activedescendant=""></ul>' ).appendTo( container );
+			listbox = $( '<ul role="listbox" tabindex="0" id="' + select.attr( 'id' ) + '-listbox" class="sui-select-listbox" aria-labelledby="' + select.attr( 'id' ) + '-label" aria-activedescendant=""></ul>' ).appendTo( container );
 
 		};
 
@@ -200,14 +200,11 @@
 				listitem.attr( 'aria-disabled', true );
 			}
 
-			// item.data( 'value', opt.val() );
-			// item.data( 'color', opt.data( 'color' ) );
+			if ( 'undefined' !== typeof select.attr( 'placeholder' ) ) {
+				placeholder();
+			} else {
 
-			if ( option.val() === select.val() ) {
-
-				if ( 'undefined' !== typeof select.attr( 'data-placeholder' ) ) {
-					placeholder();
-				} else {
+				if ( option.val() === select.val() ) {
 					selectItem( listitem, option.attr( 'data-color' ), isinit );
 				}
 			}
@@ -223,34 +220,36 @@
 
 			children.each( function( index ) {
 
+				const idx = index;
 				const option = $( this );
+				const child = children[idx];
 
 				let listgroup, grouplabel;
 
 				// Check if item is an "option".
-				if ( aria.Utils.hasTag( children[index], 'OPTION' ) ) {
+				if ( aria.Utils.hasTag( child, 'OPTION' ) ) {
 
 					createItem( option, listbox, index, true );
 
 				} else {
 
-					if ( aria.Utils.hasTag( children[index], 'OPTGROUP' ) ) {
+					if ( aria.Utils.hasTag( child, 'OPTGROUP' ) ) {
 
-						listgroup = $( '<li tabindex="-1" class="sui-select-listgroup"></li>' ).appendTo( listbox );
+						listgroup = $( '<li class="sui-select-listgroup"></li>' ).appendTo( listbox );
 
 						// Add group label.
 						if ( 'undefined' !== typeof option.prop( 'label' ) ) {
-							grouplabel = $( '<span tabindex="-1" class="sui-listgroup-label"></span>' ).appendTo( listgroup );
+							grouplabel = $( '<span class="sui-listgroup-label"></span>' ).appendTo( listgroup );
 							grouplabel.text( option.prop( 'label' ) );
 						}
 
-						listgroup = $( '<ul tabindex="-1"></ul>' ).appendTo( listgroup );
+						listgroup = $( '<ul></ul>' ).appendTo( listgroup );
 
 						option.find( 'option' ).each( function( index ) {
 
 							const option = $( this );
 
-							createItem( option, listgroup, index );
+							createItem( option, listgroup, index + '-group-' + idx );
 
 						});
 
@@ -301,7 +300,6 @@
 
 			// FIX: Make sure closed accordion table row closes.
 			item.closest( 'tr' ).removeClass( 'select-open' );
-
 		};
 
 		// Open the dropdown list.
@@ -330,8 +328,8 @@
 			select.val( '' );
 
 			// Add placeholder text to select button.
-			value.text( select.attr( 'data-placeholder' ) );
-			value.addClass( 'sui-select-placeholder' );
+			value.text( select.attr( 'placeholder' ) );
+			button.addClass( 'sui-select-placeholder' );
 
 		};
 
@@ -340,13 +338,14 @@
 
 			isinit = ( 'undefined' === typeof isinit ) ? false : isinit;
 
-			if ( 'undefined' === typeof color ) {
-				value.text( option.text() );
-			} else {
+			if ( 'undefined' !== typeof color ) {
 				value.html( '<span style="background-color: ' + color + '" data-color="' + color + '"></span>' + option.text() );
+			} else {
+				value.text( option.text() );
 			}
 
-			value.removeClass( 'sui-select-placeholder' );
+			// Remove placeholder class from button.
+			button.removeClass( 'sui-select-placeholder' );
 
 			$( '.sui-active', listbox ).removeAttr( 'aria-selected' );
 			$( '.sui-active', listbox ).removeClass( 'sui-active' );
@@ -355,7 +354,6 @@
 			option.attr( 'aria-selected', true );
 
 			listbox.attr( 'aria-activedescendant', option.attr( 'id' ) );
-			window.console.log( option.attr( 'id' ) );
 
 			stateClose();
 
@@ -364,6 +362,7 @@
 
 			if ( ! isinit ) {
 				select.trigger( 'change' );
+				button.focus();
 			}
 		};
 
@@ -398,7 +397,6 @@
 				stateClose();
 
 			});
-
 		};
 
 		init();
