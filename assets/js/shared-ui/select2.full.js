@@ -4263,7 +4263,7 @@
 
 			// Custom SUIselect2 dropdown. @edited
 			var $dropdown = $(
-				'<span class="select2-dropdown sui-select-dropdown">' +
+				'<span class="sui-dropdown">' +
 				'<span class="select2-results"></span>' +
 				'</span>'
 			);
