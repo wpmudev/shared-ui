@@ -4693,8 +4693,12 @@
 			AttachBody.prototype._positionDropdown = function () {
 			var $window = $(window);
 
-			var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-			var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
+			// var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
+			// var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
+
+			// Custom SUIselect2 dropdown. @edited
+			var isCurrentlyAbove = this.$dropdown.hasClass( 'sui-select-dropdown--above' );
+			var isCurrentlyBelow = this.$dropdown.hasClass( 'sui-select-dropdown--below' );
 
 			var newDirection = null;
 
@@ -4765,13 +4769,23 @@
 				css.top = container.top - parentOffset.top - dropdown.height;
 			}
 
-			if (newDirection != null) {
+			// if (newDirection != null) {
+			// 	this.$dropdown
+			// 	.removeClass('select2-dropdown--below select2-dropdown--above')
+			// 	.addClass('select2-dropdown--' + newDirection);
+			// 	this.$container
+			// 	.removeClass('select2-container--below select2-container--above')
+			// 	.addClass('select2-container--' + newDirection);
+			// }
+
+			// Custom SUIselect2 dropdown. @edited
+			if ( newDirection != null ) {
 				this.$dropdown
-				.removeClass('select2-dropdown--below select2-dropdown--above')
-				.addClass('select2-dropdown--' + newDirection);
+					.removeClass('sui-dropdown--below sui-dropdown--above')
+					.addClass('sui-dropdown--' + newDirection);
 				this.$container
-				.removeClass('select2-container--below select2-container--above')
-				.addClass('select2-container--' + newDirection);
+					.removeClass('sui-dropdown-container--below sui-dropdown-container--above')
+					.addClass('sui-dropdown-container--' + newDirection);
 			}
 
 			this.$dropdownContainer.css(css);
@@ -6652,8 +6666,12 @@
 				var $dropdownContainer = $container.find( '.dropdown-wrapper' );
 				$dropdownContainer.append( $dropdown );
 
-				$dropdown.addClass( 'select2-dropdown--below' );
-				$container.addClass( 'select2-container--below' );
+				// $dropdown.addClass( 'select2-dropdown--below' );
+				// $container.addClass( 'select2-container--below' );
+
+				// Custom SUIselect2 dropdown. @edited
+				$dropdown.addClass( 'sui-dropdown--below' );
+				$container.addClass( 'sui-dropdown-container--below' );
 			};
 
 			return AttachContainer;
