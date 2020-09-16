@@ -36,261 +36,216 @@ is_searchable: true
 			<div class="sui-tabs sui-side-tabs">
 
 				<div role="tablist" data-tabs>
-					<div id="tab-design-default" class="active" role="tab">Default</div>
-					<div id="tab-design-icons" role="tab">With Icons</div>
-					<div id="tab-design-colors" role="tab">With Colors</div>
-					<div id="tab-design-search" role="tab">With Search</div>
+					<div role="tab" id="tab-design-simple" class="active">Simple Lists</div>
+					<div role="tab" id="tab-design-grouped">Grouped Lists</div>
 				</div>
 
 				<div class="sui-tabs-content-lg" data-panes>
 
-					<!-- TAB: Default -->
-					<div class="active" role="tabpanel" aria-labelledby="tab-design-default">
+					<!-- TAB: Simple Lists -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-design-simple">
 
 						<div class="sui-form-field">
 
-							<label for="option-default" id="label-option-default" class="sui-label">Simple list of beverages</label>
+							<label for="simple-list" id="label-simple-list" class="sui-label">Simple list</label>
 
-							<select id="option-default" aria-labelledby="label-option-default" aria-describedby="description-option-default">
-								<option>Water</option>
-								<option>Coffee</option>
-								<option>Juice</option>
-								<option>Smoothie</option>
+							<select
+								id="simple-list"
+								class="sui-select"
+								aria-labelledby="label-simple-list"
+								aria-describedby="description-simple-list"
+							>
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Option 4</option>
 							</select>
 
-							<span id="description-option-default" class="sui-description">This is a description for select field.</span>
-
-						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
+							<p id="description-simple-list" class="sui-description">This is a description for select field.</p>
 
 						</div>
 
 						<div class="sui-form-field">
 
-							<label for="optgroup-default" id="label-optgroup-default" class="sui-label">Grouped list of beverages</label>
+							<label for="simple-placeholder" id="label-simple-placeholder" class="sui-label">List with placeholder</label>
 
-							<select id="optgroup-default" aria-labelledby="label-optgroup-default" aria-describedby="description-optgroup-default">
-								<optgroup label="Coffee Based">
-									<option>Black Coffee</option>
-									<option>Espresso</option>
-									<option>Moccacino</option>
-									<option>Capuccino</option>
-									<option>Espresso Pana</option>
+							<select
+								id="simple-placeholder"
+								class="sui-select"
+								placeholder="Select an option"
+								aria-labelledby="label-simple-placeholder"
+								aria-describedby="description-simple-placeholder"
+							>
+								<option>Option 1</option>
+								<option>Option 2</option>
+								<option>Option 3</option>
+								<option>Option 4</option>
+							</select>
+
+							<p id="description-simple-placeholder" class="sui-description">This is a description for select field.</p>
+
+						</div>
+
+						<div class="sui-form-field">
+
+							<label for="simple-icons" id="label-simple-icons" class="sui-label">List with icons</label>
+
+							<select
+								id="simple-icons"
+								class="sui-select"
+								aria-labelledby="label-simple-icons"
+								aria-describedby="description-simple-icons"
+							>
+								<option data-icon="defender">Option 1</option>
+								<option data-icon="smush">Option 2</option>
+								<option data-icon="hummingbird">Option 3</option>
+								<option data-icon="uptime">Option 4</option>
+							</select>
+
+							<p id="description-simple-icons" class="sui-description">This is a description for select field.</p>
+
+						</div>
+
+						<div class="sui-form-field">
+
+							<label for="simple-colors" class="sui-label" id="label-simple-colors" class="sui-label">List with colors</label>
+
+							<select
+								id="simple-colors"
+								class="sui-select"
+								aria-labelledby="label-simple-colors"
+								aria-describedby="description-simple-colors"
+							>
+								<option data-color="white">Option 1</option>
+								<option data-color="yellow">Option 2</option>
+								<option data-color="red">Option 3</option>
+								<option data-color="blue">Option 4</option>
+							</select>
+
+							<p id="description-simple-colors" class="sui-description">This is a description for select field.</p>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Grouped Lists -->
+					<div role="tabpanel" aria-labelledby="tab-design-grouped">
+
+						<div class="sui-form-field">
+
+							<label for="grouped-list" id="label-grouped-list" class="sui-label">Grouped list</label>
+
+							<select
+								id="grouped-list"
+								class="sui-select"
+								aria-labelledby="label-grouped-list"
+								aria-describedby="description-grouped-list"
+							>
+								<optgroup label="Group 1">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+									<option>Option 4</option>
 								</optgroup>
-								<optgroup label="Fruit Juices">
-									<option>Peach</option>
-									<option>Orange</option>
-									<option>Pineapple</option>
+								<optgroup label="Group 2">
+									<option>Option A</option>
+									<option>Option B</option>
+									<option>Option C</option>
+									<option>Option D</option>
 								</optgroup>
 							</select>
 
-							<span id="description-optgroup-default" class="sui-description">This is a description for select field.</span>
+							<p id="description-grouped-list" class="sui-description">This is a description for select field.</p>
 
 						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;optgroup label=&quot;Option Group&quot;&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-		&lt;/optgroup&gt;
-
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- TAB: With Icons -->
-					<div role="tabpanel" aria-labelledby="tab-design-icons">
 
 						<div class="sui-form-field">
 
-							<label for="option-icons" id="label-option-icons" class="sui-label">List of WPMU DEV plugins</label>
+							<label for="grouped-placeholder" id="label-grouped-placeholder" class="sui-label">List with placeholder</label>
 
-							<select id="option-icons" aria-labelledby="label-option-icons" aria-describedby="description-option-icons">
-								<option data-icon="defender">Defender</option>
-								<option data-icon="smush">Smush</option>
-								<option data-icon="hummingbird">Hummingbird</option>
-								<option data-icon="uptime">Uptime</option>
-								<option data-icon="smart-crawl">SmartCrawl</option>
-								<option data-icon="forminator">Forminator</option>
-								<option data-icon="shipper-anchor">Shipper</option>
-								<option data-icon="snapshot">Snapshot</option>
-								<option data-icon="hustle">Hustle</option>
+							<select
+								id="grouped-placeholder"
+								class="sui-select"
+								placeholder="Select an option"
+								aria-labelledby="label-grouped-placeholder"
+								aria-describedby="description-grouped-placeholder"
+							>
+								<optgroup label="Group 1">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+									<option>Option 4</option>
+								</optgroup>
+								<optgroup label="Group 2">
+									<option>Option A</option>
+									<option>Option B</option>
+									<option>Option C</option>
+									<option>Option D</option>
+								</optgroup>
 							</select>
 
-							<span id="description-option-icons" class="sui-description">This is a description for select field.</span>
+							<p id="description-grouped-placeholder" class="sui-description">This is a description for select field.</p>
 
 						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- TAB: With Colors -->
-					<div role="tabpanel" aria-labelledby="tab-design-colors">
 
 						<div class="sui-form-field">
 
-							<label for="option-colors" id="label-option-colors" class="sui-label">List of basic colors</label>
+							<label for="grouped-icons" id="label-grouped-icons" class="sui-label">List with icons</label>
 
-							<select id="option-colors" class="sui-select-colors" aria-labelledby="label-option-colors" aria-describedby="description-option-colors">
-								<option data-color="white">White</option>
-								<option data-color="yellow">Yellow</option>
-								<option data-color="red">Red</option>
-								<option data-color="blue">Blue</option>
-								<option data-color="black">Black</option>
+							<select
+								id="grouped-icons"
+								class="sui-select"
+								aria-labelledby="label-grouped-icons"
+								aria-describedby="description-grouped-icons"
+							>
+								<optgroup label="Group 1">
+									<option data-icon="defender">Option 1</option>
+									<option data-icon="smush">Option 2</option>
+									<option data-icon="hummingbird">Option 3</option>
+									<option data-icon="uptime">Option 4</option>
+								</optgroup>
+								<optgroup label="Group 2">
+									<option data-icon="chevron-up">Option A</option>
+									<option data-icon="chevron-right">Option B</option>
+									<option data-icon="chevron-down">Option C</option>
+									<option data-icon="chevron-left">Option D</option>
+								</optgroup>
 							</select>
 
-							<span id="description-option-colors" class="sui-description">This is a description for select field.</span>
+							<p id="description-grouped-icons" class="sui-description">This is a description for select field.</p>
 
 						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-colors&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option data-color=&quot;#FFFFFF&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color HEX --&gt;
-		&lt;option data-color=&quot;white&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color name --&gt;
-		&lt;option data-color=&quot;rgba(255,255,255,0.5)&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color RGB or RGBA --&gt;
-
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- TAB: With Search -->
-					<div role="tabpanel" aria-labelledby="tab-design-search">
 
 						<div class="sui-form-field">
 
-							<label for="option-search" id="label-option-search" class="sui-label">List of fruits</label>
+							<label for="grouped-colors" id="label-grouped-colors" class="sui-label">List with colors</label>
 
-							<select id="option-search" class="sui-select" aria-labelledby="label-option-search" aria-describedby="description-option-search">
-								<option value="apple">Apple</option>
-								<option value="orange">Orange</option>
-								<option value="banana">Banana</option>
-								<option value="grapes">Grapes</option>
-								<option value="coconut">Coconut</option>
-								<option value="pineapple">Pineapple</option>
-								<option value="cherries">Cherries</option>
-								<option value="cucumbers">Cucumbers</option>
-								<option value="blackberry">Blackberry</option>
-								<option value="blueblerry">Blueberry</option>
-								<option value="cranberry">Cranberry</option>
-								<option value="cherimoya">Cherimoya</option>
-								<option value="lime">Lime</option>
-								<option value="lemon">Lemon</option>
-								<option value="kiwi">Kiwi</option>
-								<option value="mango">Mango</option>
-								<option value="papaya">Papaya</option>
-								<option value="peach">Peach</option>
-								<option value="raspberry">Raspberry</option>
-								<option value="star-fruit">Star Fruit</option>
-								<option value="strawberry">Strawberry</option>
-								<option value="tamarind">Tamarind</option>
+							<select
+								id="grouped-colors"
+								class="sui-select"
+								aria-labelledby="label-grouped-colors"
+								aria-describedby="description-grouped-colors"
+							>
+								<optgroup label="Group 1">
+									<option data-color="yellow">Option 1</option>
+									<option data-color="blue">Option 2</option>
+									<option data-color="red">Option 3</option>
+									<option data-color="green">Option 4</option>
+								</optgroup>
+								<optgroup label="Group 2">
+									<option data-color="white">Option A</option>
+									<option data-color="silver">Option B</option>
+									<option data-color="gray">Option C</option>
+									<option data-color="black">Option D</option>
+								</optgroup>
 							</select>
 
-							<span id="description-option-search" class="sui-description">This is a description for select field.</span>
+							<p id="description-grouped-colors" class="sui-description">This is a description for select field.</p>
 
 						</div>
 
-						<div class="sui-notice sui-notice-warning">
+						<!-- <div class="sui-notice sui-notice-warning">
 							<p>jQuery based selector powered with a search field commonly used with long list of options. E.g. Countries list.</p>
-						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
 						</div>
 
 						<span class="sui-label">Event Data</span>
@@ -309,7 +264,7 @@ $( '#unique-id' ).on( 'select2:select', function() {
 });
 </pre>
 
-						</div>
+						</div> -->
 
 					</div>
 
