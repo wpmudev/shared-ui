@@ -6246,7 +6246,8 @@
 
 	  this.$container = $container;
 
-	  this.$container.addClass('select2-container--' + this.options.get('theme'));
+	  // Remove select2 theme classname. @edited
+	  // this.$container.addClass('select2-container--' + this.options.get('theme'));
 
 	  Utils.StoreData($container[0], 'element', this.$element);
 
