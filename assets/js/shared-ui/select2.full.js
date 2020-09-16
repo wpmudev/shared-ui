@@ -4255,8 +4255,15 @@
 			Utils.Extend(Dropdown, Utils.Observable);
 
 			Dropdown.prototype.render = function () {
+			// var $dropdown = $(
+			// 	'<span class="select2-dropdown">' +
+			// 	'<span class="select2-results"></span>' +
+			// 	'</span>'
+			// );
+
+			// Custom SUIselect2 dropdown. @edited
 			var $dropdown = $(
-				'<span class="select2-dropdown">' +
+				'<span class="select2-dropdown sui-select-dropdown">' +
 				'<span class="select2-results"></span>' +
 				'</span>'
 			);
