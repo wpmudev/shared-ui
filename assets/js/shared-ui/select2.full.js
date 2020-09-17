@@ -4586,8 +4586,12 @@
 			// Clone all of the container classes
 			$dropdown.attr('class', $container.attr('class'));
 
+			// $dropdown.removeClass('select2');
+			// $dropdown.addClass('select2-container--open');
+
+			// Custom SUIselect2 dropdown. @edited
 			$dropdown.removeClass('select2');
-			$dropdown.addClass('select2-container--open');
+			$dropdown.addClass('sui-dropdown-container--open');
 
 			$dropdown.css({
 				position: 'absolute',
