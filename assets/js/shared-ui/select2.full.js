@@ -1755,10 +1755,18 @@
 
 				$selection.addClass( 'select2-selection--single' );
 
+				// $selection.html(
+				// 	'<span class="select2-selection__rendered"></span>' +
+				// 	'<span class="select2-selection__arrow" role="presentation">' +
+				// 	'<b role="presentation"></b>' +
+				// 	'</span>'
+				// );
+
+				// Assign SUI icon to select button. @edited
 				$selection.html(
 					'<span class="select2-selection__rendered"></span>' +
 					'<span class="select2-selection__arrow" role="presentation">' +
-					'<b role="presentation"></b>' +
+					'<b class="sui-icon-chevron-down" role="presentation"></b>' +
 					'</span>'
 				);
 
