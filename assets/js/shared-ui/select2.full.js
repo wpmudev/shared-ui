@@ -6233,6 +6233,9 @@
 	  this.$element.attr('tabindex',
 	  Utils.GetData(this.$element[0], 'old-tabindex'));
 
+	  // Remove SUI screen reader class. @edited
+	  this.$element.removeClass( 'sui-screen-reader-text' );
+
 	  this.$element.removeClass('select2-hidden-accessible');
 	  this.$element.attr('aria-hidden', 'false');
 	  Utils.RemoveData(this.$element[0]);
