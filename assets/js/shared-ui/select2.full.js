@@ -6267,8 +6267,10 @@
 	  // Remove select2 theme classname. @edited
 	  // this.$container.addClass('select2-container--' + this.options.get('theme'));
 
-	  // Add specific classname based on SUIselect2 theme. @edited
-	  this.$container.addClass( 'sui-dropdown-container' );
+	  // Add SUI class to select main div. @edited
+	  this.$container.addClass( 'sui-select' );
+
+	  // Additional class for themes. @edited
 	  if ( 'default' !== this.options.get( 'theme' ) ) {
 		  this.$container.addClass( 'sui-select-theme--' + this.options.get( 'theme' ) );
 	  }
