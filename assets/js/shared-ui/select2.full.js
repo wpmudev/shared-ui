@@ -5685,6 +5685,9 @@
 	  $element.addClass('select2-hidden-accessible');
 	  $element.attr('aria-hidden', 'true');
 
+	  // Hide the original select with SUI.
+	  $element.addClass( 'sui-screen-reader-text' );
+
 	  // Synchronize any monitored attributes
 	  this._syncAttributes();
 
