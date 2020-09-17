@@ -1766,7 +1766,7 @@
 				$selection.html(
 					'<span class="select2-selection__rendered"></span>' +
 					'<span class="select2-selection__arrow" role="presentation">' +
-					'<b class="sui-icon-chevron-down" role="presentation"></b>' +
+					'<span class="sui-icon-chevron-down sui-sm" aria-hidden="true"></span>' +
 					'</span>'
 				);
 
