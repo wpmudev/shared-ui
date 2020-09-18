@@ -21,23 +21,7 @@
 		}
 
 		if ( 'undefined' !== typeof icon ) {
-			markup = '<span class="sui-icon-' + icon.toLowerCase() + '" aria-hidden="true"></span> ' + label;
-		} else if ( 'undefined' !== typeof color ) {
-
-			switch ( color ) {
-
-				case '#FFF' :
-				case 'white' :
-				case '#FFFFFF' :
-					border = '#000';
-					break;
-
-				default :
-					border = color;
-					break;
-			}
-
-			markup = '<span class="sui-color" style="border-color: ' + border + '; background-color: ' + color + ';" aria-hidden="true"></span> ' + label;
+			markup = '<span class="sui-icon-' + icon.toLowerCase() + ' sui-md" aria-hidden="true"></span> ' + label;
 		} else {
 			markup = label;
 		}
