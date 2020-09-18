@@ -1,5 +1,6 @@
 // ELEMENT: Select.
-@include body-class(true) {
+// $sui-wrap: true | $rtl: false
+@include body-class(true, false) {
 
 	select.sui-select {
 
@@ -107,6 +108,7 @@
 	}
 }
 
+// $sui-wrap: true | $rtl: true
 @include body-class(true, true) {
 
 	select.sui-select {
@@ -134,7 +136,8 @@
 }
 
 // ELEMENT: Dropdown.
-@include body-class(false) {
+// $sui-wrap: false | $rtl: false
+@include body-class(false, false) {
 
 	.sui-select {
 
@@ -330,6 +333,7 @@
 	}
 }
 
+// $sui-wrap: false | $rtl: true
 @include body-class(false, true) {
 
 	.sui-select {
