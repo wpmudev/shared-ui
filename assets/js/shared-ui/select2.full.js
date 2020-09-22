@@ -6844,7 +6844,7 @@
 					if ( this.removeEventListener ) {
 
 						for ( var i = toBind.length; i; ) {
-							this.removeEventListener( toBind[--i], handler, false );
+							this.removeEventListener( toBind[--i], handler, { passive: true });
 						}
 					} else {
 						this.onmousewheel = null;
