@@ -71,13 +71,41 @@
 							}
 						}
 					}
+				}
 
-					// TYPE: Multiple Select.
-					// &.select2-selection--multiple {}
+				&:hover {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+							background-color: $white;
+						}
+					}
 				}
 			}
 
-			// Disabled.
+			// STATE: Focus.
+			&.select2-container--focus {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+							background-color: $white;
+
+							// Icon.
+							.select2-selection__arrow {
+								transform: rotate(180deg);
+							}
+						}
+					}
+				}
+			}
+
+			// STATE: Disabled.
 			&.select2-container--disabled {
 
 				.selection {
