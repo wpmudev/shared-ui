@@ -137,6 +137,85 @@ is_searchable: true
 
 			<p style="margin-top: 0;">Allows the user to select a single item from a dropdown menu.</p>
 
+			<div class="showcase-component">
+
+				<div class="showcase-component-options">
+
+					<fieldset data-option="states">
+
+						<legend>State</legend>
+
+						<input type="radio" name="multi-select-option--state" value="enabled" checked /> Default<br />
+						<input type="radio" name="multi-select-option--state" value="disabled" /> Disabled<br />
+						<input type="radio" name="multi-select-option--state" value="error" /> Error
+
+					</fieldset>
+
+					<fieldset data-option="options">
+
+						<legend>Options</legend>
+
+						<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder<br />
+						<input type="checkbox" id="multi-select-option--search" value="search" /> Search Bar
+
+					</fieldset>
+
+				</div>
+
+				<div class="showcase-component-preview" aria-live="polite">
+
+					<div class="sui-form-field">
+
+						<label class="sui-label">Countries</label>
+
+						<select id="multi-select-demo" class="sui-select" multiple>
+							<option>Argentina</option>
+							<option>Bolivia</option>
+							<option>Brasil</option>
+							<option>Colombia</option>
+							<option>Ecuador</option>
+							<option>Paraguay</option>
+							<option>Peru</option>
+							<option>Uruguay</option>
+							<option>Venezuela</option>
+						</select>
+
+						<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+						<span class="sui-description">List of South America countries.</span>
+
+					</div>
+
+				</div>
+
+				<div class="showcase-component-code demo-code-block">
+
+					<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select class=&quot;sui-select&quot;&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;option&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;List of South America countries.&lt;/p&gt;
+
+&lt;/div&gt;
+					</pre>
+
+					<button class="showcase-component-code--more">
+						Show More
+						<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+					</button>
+
+				</div>
+
+			</div>
+
 			<hr />
 
 			<!-- BLOCK: Smart Search -->
@@ -148,254 +227,36 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Sizes -->
-	<div class="sui-box" data-tab="sizes" style="display: none;">
+	<!-- SECTION: Usage -->
+	<div class="sui-box" data-tab="usage" style="display: none;">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Sizes</h2>
+			<h2 class="sui-box-title">Usage</h2>
 		</div>
 
-		<div class="sui-box-body">
+		<div class="sui-box-body"></div>
 
-			<!-- ROW: Width Variation -->
-			<div class="sui-box-settings-row">
+	</div>
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Width Variation</span>
-				</div>
+	<!-- SECTION: Code -->
+	<div class="sui-box" data-tab="code" style="display: none;">
 
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-tabs sui-side-tabs">
-
-						<div role="tablist" data-tabs>
-							<div id="tab-width-default" class="active" role="tab">Default</div>
-							<div id="tab-width-medium" role="tab">240 pixels</div>
-							<div id="tab-width-small" role="tab">80 pixels</div>
-						</div>
-
-						<div class="sui-tabs-content-lg" data-panes>
-
-							<!-- TAB: Default -->
-							<div class="active" role="tabpanel" aria-labelledby="tab-width-default">
-
-								<div class="sui-form-field">
-
-									<label for="width-default" id="label-width-default" class="sui-label">Select label</label>
-
-									<select id="width-default" aria-labelledby="label-width-default">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-							<!-- TAB: 240 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-width-medium">
-
-								<div class="sui-form-field sui-input-md">
-
-									<label for="width-medium" id="label-width-medium" class="sui-label">Select label</label>
-
-									<select id="width-medium" aria-labelledby="label-width-medium">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field sui-input-md&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-							<!-- TAB: 80 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-width-small">
-
-								<div class="sui-form-field sui-input-sm">
-
-									<label for="width-small" id="label-width-small" class="sui-label">Select label</label>
-
-									<select id="width-small" aria-labelledby="label-width-small">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field sui-input-sm&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- ROW: Height Variation -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Height Variation</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-tabs sui-side-tabs">
-
-						<div role="tablist" data-tabs>
-							<div id="tab-height-default" class="active" role="tab">40 pixels</div>
-							<div id="tab-height-small" role="tab">28 pixels</div>
-						</div>
-
-						<div class="sui-tabs-content-lg" data-panes>
-
-							<!-- TAB: 40 pixels -->
-							<div class="active" role="tabpanel" aria-labelledby="tab-height-default">
-
-								<div class="sui-form-field">
-
-									<label for="height-default" id="label-height-default" class="sui-label">Select label</label>
-
-									<select id="height-default" aria-labelledby="label-height-default">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-							<!-- TAB: 28 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-height-small">
-
-								<div class="sui-form-field">
-
-									<label for="height-small" id="label-height-small" class="sui-label">Select label</label>
-
-									<select id="height-small" class="sui-select-sm" aria-labelledby="label-height-small">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-sm&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Code</h2>
 		</div>
+
+		<div class="sui-box-body"></div>
+
+	</div>
+
+	<!-- SECTION: Configuration -->
+	<div class="sui-box" data-tab="config" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Configuration</h2>
+		</div>
+
+		<div class="sui-box-body"></div>
 
 	</div>
 
