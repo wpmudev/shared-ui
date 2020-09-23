@@ -106,6 +106,32 @@
 			}
 		}
 	}
+
+	// STATE: Error.
+	.sui-form-field {
+
+		&.sui-form-field-error {
+
+			select.sui-select {
+
+				+ .sui-select {
+
+					// STATE: Default.
+					.selection {
+
+						span[role="combobox"] {
+
+							// TYPE: Single Select.
+							&.select2-selection--single {
+								border-bottom-color: $red;
+								box-shadow: 0 1px 0 0 $red;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 // $sui-wrap: true | $rtl: true
