@@ -185,6 +185,38 @@
 				}
 			}
 
+			// DESIGN: Color.
+			&.sui-select-theme--color {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+
+							// Label.
+							.select2-selection__rendered {
+								position: relative;
+								padding-left: 45px;
+
+								.sui-color {
+									width: 30px;
+									height: 30px;
+									position: absolute;
+									top: 50%;
+									left: 5px;
+									border-width: 1px;
+									border-style: solid;
+									border-radius: #{$border-radius / 2};
+									transform: translateY(-50%);
+								}
+							}
+						}
+					}
+				}
+			}
+
 			// DESIGN: Smart Search.
 			&.sui-select-theme--search {
 
@@ -680,8 +712,6 @@
 		}
 	}
 }
-
-// @import url("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css");
 
 // @include body-class {
 
