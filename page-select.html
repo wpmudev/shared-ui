@@ -40,72 +40,138 @@ is_searchable: true
 
 			<h2 class="sui-box-title">Examples</h2>
 
-			<!-- <p style="margin-top: 0;">Single select gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p> -->
-
 		</div>
 
 		<div class="sui-box-body">
 
-			<!-- BLOCK: Single Select -->
-			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Single Select</h3>
+			<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
 
-			<p style="margin-top: 0;">Allows the user to select a single item from a dropdown menu.</p>
+				<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--left"
+					>
+						<i class="sui-icon-chevron-left"></i>
+					</button>
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--right"
+					>
+						<i class="sui-icon-chevron-right"></i>
+					</button>
+				</div>
 
-			<div class="showcase-component">
+				<div role="tablist" class="sui-tabs-menu">
 
-				<div class="showcase-component-options">
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-single"
+						class="sui-tab-item active"
+						aria-controls="tab-content-select-single"
+						aria-selected="true"
+					>
+						Single Select
+					</button>
 
-					<fieldset data-option="states">
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-multi"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-multi"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Multi Select
+					</button>
 
-						<legend>State</legend>
-
-						<input type="radio" name="single-select-option--state" value="enabled" checked /> Default<br />
-						<input type="radio" name="single-select-option--state" value="disabled" /> Disabled<br />
-						<input type="radio" name="single-select-option--state" value="error" /> Error
-
-					</fieldset>
-
-					<fieldset data-option="options">
-
-						<legend>Options</legend>
-
-						<input type="checkbox" id="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
-						<input type="checkbox" id="single-select-option--search" value="search" /> Search List
-
-					</fieldset>
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-search"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-search"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Smart Search
+					</button>
 
 				</div>
 
-				<div class="showcase-component-preview" aria-live="polite">
+				<div class="sui-tabs-content">
 
-					<div class="sui-form-field">
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-single"
+						class="sui-tab-content active"
+						aria-labelledby="tab-select-single"
+					>
 
-						<label class="sui-label">Countries</label>
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Single Select</h3>
 
-						<select id="single-select-demo" class="sui-select">
-							<option>Argentina</option>
-							<option>Bolivia</option>
-							<option>Brasil</option>
-							<option>Chile</option>
-							<option>Colombia</option>
-							<option>Ecuador</option>
-							<option>Paraguay</option>
-							<option>Peru</option>
-							<option>Uruguay</option>
-							<option>Venezuela</option>
-						</select>
+						<p style="margin-top: 0;">It gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
 
-						<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+						<!-- BLOCK: Default -->
+						<h4>Default</h4>
 
-						<span class="sui-description">List of South America countries.</span>
+						<div class="showcase-component">
 
-					</div>
+							<div class="showcase-component-options">
 
-				</div>
+								<fieldset data-option="states">
 
-				<div class="showcase-component-code demo-code-block">
+									<legend>State</legend>
 
-					<pre class="sui-code-snippet sui-no-copy html">
+									<input type="radio" name="single-select-option--state" value="enabled" checked /> Default<br />
+									<input type="radio" name="single-select-option--state" value="disabled" /> Disabled<br />
+									<input type="radio" name="single-select-option--state" value="error" /> Error
+
+								</fieldset>
+
+								<fieldset data-option="options">
+
+									<legend>Options</legend>
+
+									<input type="checkbox" id="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
+									<input type="checkbox" id="single-select-option--search" value="search" /> Search List
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Countries</label>
+
+									<select id="single-select-demo" class="sui-select">
+										<option>Argentina</option>
+										<option>Bolivia</option>
+										<option>Brasil</option>
+										<option>Chile</option>
+										<option>Colombia</option>
+										<option>Ecuador</option>
+										<option>Paraguay</option>
+										<option>Peru</option>
+										<option>Uruguay</option>
+										<option>Venezuela</option>
+									</select>
+
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+									<span class="sui-description">List of South America countries.</span>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
@@ -117,81 +183,259 @@ is_searchable: true
 		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;p class=&quot;sui-description&quot;&gt;List of South America countries.&lt;/p&gt;
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
 
 &lt;/div&gt;
-					</pre>
+								</pre>
 
-					<button class="showcase-component-code--more">
-						Show More
-						<span class="sui-icon-chevron-down" aria-hidden="true"></span>
-					</button>
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
 
-				</div>
+							</div>
 
-			</div>
+						</div>
 
-			<hr />
+						<hr />
 
-			<!-- BLOCK: Multi Select -->
-			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Multi Select</h3>
+						<!-- BLOCK: Select with icons -->
+						<h4>Dropdown options with icons</h4>
 
-			<p style="margin-top: 0;">Allows the user to select a single item from a dropdown menu.</p>
+						<div class="showcase-component">
 
-			<div class="showcase-component">
+							<div class="showcase-component-options">
 
-				<div class="showcase-component-options">
+								<fieldset data-option="states">
 
-					<fieldset data-option="states">
+									<legend>State</legend>
 
-						<legend>State</legend>
+									<input type="radio" name="single-select-icon-option--state" value="enabled" checked /> Default<br />
+									<input type="radio" name="single-select-icon-option--state" value="disabled" /> Disabled<br />
+									<input type="radio" name="single-select-icon-option--state" value="error" /> Error
 
-						<input type="radio" name="multi-select-option--state" value="enabled" checked /> Default<br />
-						<input type="radio" name="multi-select-option--state" value="disabled" /> Disabled<br />
-						<input type="radio" name="multi-select-option--state" value="error" /> Error
+								</fieldset>
 
-					</fieldset>
+								<fieldset data-option="options">
 
-					<fieldset data-option="options">
+									<legend>Options</legend>
 
-						<legend>Options</legend>
+									<input type="checkbox" id="single-select-icon-option--placeholder" value="placeholder" /> Placeholder<br />
+									<input type="checkbox" id="single-select-icon-option--search" value="search" /> Search List
 
-						<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder
+								</fieldset>
 
-					</fieldset>
+							</div>
 
-				</div>
+							<div class="showcase-component-preview" aria-live="polite">
 
-				<div class="showcase-component-preview" aria-live="polite">
+								<div class="sui-form-field">
 
-					<div class="sui-form-field">
+									<label class="sui-label">Countries</label>
 
-						<label class="sui-label">Countries</label>
+									<select id="single-select-icon-demo" class="sui-select" data-theme="icon">
+										<option data-icon="target">Argentina</option>
+										<option data-icon="target">Bolivia</option>
+										<option data-icon="target">Brasil</option>
+										<option data-icon="target">Chile</option>
+										<option data-icon="target">Colombia</option>
+										<option data-icon="target">Ecuador</option>
+										<option data-icon="target">Paraguay</option>
+										<option data-icon="target">Peru</option>
+										<option data-icon="target">Uruguay</option>
+										<option data-icon="target">Venezuela</option>
+									</select>
 
-						<select id="multi-select-demo" class="sui-select" multiple>
-							<option>Argentina</option>
-							<option>Bolivia</option>
-							<option>Brasil</option>
-							<option>Chile</option>
-							<option>Colombia</option>
-							<option>Ecuador</option>
-							<option>Paraguay</option>
-							<option>Peru</option>
-							<option>Uruguay</option>
-							<option>Venezuela</option>
-						</select>
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
 
-						<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+									<span class="sui-description">List of South America countries.</span>
 
-						<span class="sui-description">List of South America countries.</span>
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select class=&quot;sui-select&quot; data-theme=&quot;icon&quot;&gt;
+		&lt;option data-icon=&quot;target&quot;&gt;Option 1&lt;/option&gt;
+		&lt;option data-icon=&quot;target&quot;&gt;Option 2&lt;/option&gt;
+		&lt;option data-icon=&quot;target&quot;&gt;Option 3&lt;/option&gt;
+		&lt;option data-icon=&quot;target&quot;&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
+
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
+
+&lt;/div&gt;
+								</pre>
+
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
+
+							</div>
+
+						</div>
+
+						<hr />
+
+						<!-- BLOCK: Select with colors -->
+						<h4>Dropdown options with colors</h4>
+
+						<div class="showcase-component">
+
+							<div class="showcase-component-options">
+
+								<fieldset data-option="states">
+
+									<legend>State</legend>
+
+									<input type="radio" name="single-select-icon-option--state" value="enabled" checked /> Default<br />
+									<input type="radio" name="single-select-icon-option--state" value="disabled" /> Disabled<br />
+									<input type="radio" name="single-select-icon-option--state" value="error" /> Error
+
+								</fieldset>
+
+								<fieldset data-option="options">
+
+									<legend>Options</legend>
+
+									<input type="checkbox" id="single-select-icon-option--placeholder" value="placeholder" /> Placeholder<br />
+									<input type="checkbox" id="single-select-icon-option--search" value="search" /> Search List
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Countries</label>
+
+									<select id="single-select-color-demo" class="sui-select" data-theme="color">
+										<option data-color="white">White</option>
+										<option data-color="yellow">Yellow</option>
+										<option data-color="red">Red</option>
+										<option data-color="blue">Blue</option>
+										<option data-color="black">Black</option>
+									</select>
+
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+									<span class="sui-description">List of South America countries.</span>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select class=&quot;sui-select&quot; data-theme=&quot;color&quot;&gt;
+		&lt;option data-color=&quot;target&quot;&gt;Option 1&lt;/option&gt;
+		&lt;option data-color=&quot;target&quot;&gt;Option 2&lt;/option&gt;
+		&lt;option data-color=&quot;target&quot;&gt;Option 3&lt;/option&gt;
+		&lt;option data-color=&quot;target&quot;&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
+
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
+
+&lt;/div&gt;
+								</pre>
+
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
+
+							</div>
+
+						</div>
 
 					</div>
 
-				</div>
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-multi"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-multi"
+					>
 
-				<div class="showcase-component-code demo-code-block">
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Multi Select</h3>
 
-					<pre class="sui-code-snippet sui-no-copy html">
+						<p style="margin-top: 0;">It gives users the ability to choose multiple items from a list of dropdown menu items. It's usually found in forms.</p>
+
+						<div class="showcase-component">
+
+							<div class="showcase-component-options">
+
+								<fieldset data-option="states">
+
+									<legend>State</legend>
+
+									<input type="radio" name="multi-select-option--state" value="enabled" checked /> Default<br />
+									<input type="radio" name="multi-select-option--state" value="disabled" /> Disabled<br />
+									<input type="radio" name="multi-select-option--state" value="error" /> Error
+
+								</fieldset>
+
+								<fieldset data-option="options">
+
+									<legend>Options</legend>
+
+									<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Countries</label>
+
+									<select id="multi-select-demo" class="sui-select" multiple>
+										<option>Argentina</option>
+										<option>Bolivia</option>
+										<option>Brasil</option>
+										<option>Chile</option>
+										<option>Colombia</option>
+										<option>Ecuador</option>
+										<option>Paraguay</option>
+										<option>Peru</option>
+										<option>Uruguay</option>
+										<option>Venezuela</option>
+									</select>
+
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+									<span class="sui-description">List of South America countries.</span>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
@@ -203,81 +447,90 @@ is_searchable: true
 		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;p class=&quot;sui-description&quot;&gt;List of South America countries.&lt;/p&gt;
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
 
 &lt;/div&gt;
-					</pre>
+								</pre>
 
-					<button class="showcase-component-code--more">
-						Show More
-						<span class="sui-icon-chevron-down" aria-hidden="true"></span>
-					</button>
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
 
-				</div>
+							</div>
 
-			</div>
-
-			<hr />
-
-			<!-- BLOCK: Smart Search -->
-			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
-
-			<p style="margin-top: 0;">Allows the user to select a single item from a dropdown menu.</p>
-
-			<div class="showcase-component">
-
-				<div class="showcase-component-options">
-
-					<fieldset data-option="states">
-
-						<legend>State</legend>
-
-						<input type="radio" name="smart-search-option--state" value="enabled" checked /> Default<br />
-						<input type="radio" name="smart-search-option--state" value="disabled" /> Disabled<br />
-						<input type="radio" name="smart-search-option--state" value="error" /> Error
-
-					</fieldset>
-
-					<fieldset data-option="options">
-
-						<legend>Options</legend>
-
-						<input type="checkbox" id="smart-search-option--placeholder" value="placeholder" /> Placeholder
-
-					</fieldset>
-
-				</div>
-
-				<div class="showcase-component-preview" aria-live="polite">
-
-					<div class="sui-form-field">
-
-						<label class="sui-label">Countries</label>
-
-						<select id="smart-search-demo" class="sui-select" data-theme="search" multiple>
-							<option>Argentina</option>
-							<option>Bolivia</option>
-							<option>Brasil</option>
-							<option>Chile</option>
-							<option>Colombia</option>
-							<option>Ecuador</option>
-							<option>Paraguay</option>
-							<option>Peru</option>
-							<option>Uruguay</option>
-							<option>Venezuela</option>
-						</select>
-
-						<span role="alert" class="sui-error-message sui-hidden" hidden></span>
-
-						<span class="sui-description">List of South America countries.</span>
+						</div>
 
 					</div>
 
-				</div>
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-search"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-search"
+					>
 
-				<div class="showcase-component-code demo-code-block">
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
 
-					<pre class="sui-code-snippet sui-no-copy html">
+						<p style="margin-top: 0;">It gives users the ability to type, search and choose a single item from a list of dropdown menu items. It's usually found in forms.</p>
+
+						<div class="showcase-component">
+
+							<div class="showcase-component-options">
+
+								<fieldset data-option="states">
+
+									<legend>State</legend>
+
+									<input type="radio" name="smart-search-option--state" value="enabled" checked /> Default<br />
+									<input type="radio" name="smart-search-option--state" value="disabled" /> Disabled<br />
+									<input type="radio" name="smart-search-option--state" value="error" /> Error
+
+								</fieldset>
+
+								<fieldset data-option="options">
+
+									<legend>Options</legend>
+
+									<input type="checkbox" id="smart-search-option--placeholder" value="placeholder" /> Placeholder
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Countries</label>
+
+									<select id="smart-search-demo" class="sui-select" data-theme="search" multiple>
+										<option>Argentina</option>
+										<option>Bolivia</option>
+										<option>Brasil</option>
+										<option>Chile</option>
+										<option>Colombia</option>
+										<option>Ecuador</option>
+										<option>Paraguay</option>
+										<option>Peru</option>
+										<option>Uruguay</option>
+										<option>Venezuela</option>
+									</select>
+
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+									<span class="sui-description">List of South America countries.</span>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
@@ -289,15 +542,23 @@ is_searchable: true
 		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;p class=&quot;sui-description&quot;&gt;List of South America countries.&lt;/p&gt;
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
 
 &lt;/div&gt;
-					</pre>
+								</pre>
 
-					<button class="showcase-component-code--more">
-						Show More
-						<span class="sui-icon-chevron-down" aria-hidden="true"></span>
-					</button>
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
+
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 
@@ -314,7 +575,177 @@ is_searchable: true
 			<h2 class="sui-box-title">Usage</h2>
 		</div>
 
-		<div class="sui-box-body"></div>
+		<div class="sui-box-body">
+
+			<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow" style="margin-bottom: 0 !important;">
+
+				<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--left"
+					>
+						<i class="sui-icon-chevron-left"></i>
+					</button>
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--right"
+					>
+						<i class="sui-icon-chevron-right"></i>
+					</button>
+				</div>
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-single-usage"
+						class="sui-tab-item active"
+						aria-controls="tab-content-select-single-usage"
+						aria-selected="true"
+					>
+						Single Select
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-multi-usage"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-multi-usage"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Multi Select
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-smart-search-usage"
+						class="sui-tab-item"
+						aria-controls="tab-content-smart-search-usage"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Smart Search
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-single-usage"
+						class="sui-tab-content active"
+						aria-labelledby="tab-select-single-usage"
+					>
+
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Single Select</h3>
+
+						<p style="margin-top: 0;">It gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
+
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
+
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-single-select.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-single-select.png 1x, {{ site.baseurl }}/assets/images/anatomy-single-select@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
+
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Label:</strong> Labels should be sentence case as short as possible while clearly explaining the content of the menu.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings. Each item can also contain an icon or color.</li>
+						</ol>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-multi-usage"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-multi-usage"
+						hidden
+					>
+
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Multi Select</h3>
+
+						<p style="margin-top: 0;">It gives users the ability to choose multiple items from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
+
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
+
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-multi-select.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-multi-select.png 1x, {{ site.baseurl }}/assets/images/anatomy-multi-select@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
+
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Text input field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.</li>
+							<li><strong style="color: #333;">Tag:</strong> Tags show what options have been selected, and can be removed by selecting the adjacent "x" (Clear all).</li>
+							<li><strong style="color: #333;">Clear all "x":</strong> This clears everything in the text input field. It only appears when a user has selected at least one option.</li>
+						</ol>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-smart-search-usage"
+						class="sui-tab-content"
+						aria-labelledby="tab-smart-search-usage"
+						hidden
+					>
+
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
+
+						<p style="margin-top: 0;">It gives users the ability to type, search and choose a single item from a list of dropdown menu items. It's usually found in forms.</p>
+
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
+
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-smart-search.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-smart-search.png 1x, {{ site.baseurl }}/assets/images/anatomy-smart-search@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
+
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Text input field:</strong> The field where users type in to receive the suggestions they can choose from. Once filled with 2 characters at least, the user's choices are then shown in the field.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.</li>
+							<li><strong style="color: #333;">Tag:</strong> Tag shows the selected option, and can be removed by selecting the adjacent "x" (Clear all).</li>
+							<li><strong style="color: #333;">Clear all "x":</strong> This clears everything in the text input field. It only appears when a user has selected an option.</li>
+						</ol>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Best Practices</h4>
+
+			<ol style="margin-bottom: 30px;">
+				<li>Order your list of options in a way that will make the most sense to the user.</li>
+				<li>Remove options that rarely get used.</li>
+				<li>Don't overwhelm the user with too many options.</li>
+			</ol>
+
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Content Guidelines</h4>
+
+			<ol style="margin-bottom: 0;">
+				<li>Use concise and descriptive labels so that users clearly know the purpose of the selection. For example, use a "Save to..." label for a list containing options such as "Cloud, Local drive, CD".</li>
+				<li>Keep options to a single line of text.</li>
+				<li>Use commonly known terms for your options, make sure they're clear and direct.</li>
+			</ol>
+
+		</div>
 
 	</div>
 
