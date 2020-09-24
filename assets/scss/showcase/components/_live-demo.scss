@@ -2,23 +2,23 @@
 
 	.showcase-component {
 		position: relative;
-		padding-right: 200px;
 		border: 1px solid palette(silver, soft);
 		border-radius: $border-radius;
 		background-color: $white;
 
 		.showcase-component-options {
-			width: 200px;
+			width: 100%;
 			height: 100%;
 			overflow-x: hidden;
 			overflow-y: auto;
 			display: block;
 			position: absolute;
+			z-index: 1;
 			top: 0;
-			right: 0;
+			left: 0;
 			padding: 10px;
-			border-left: 1px solid palette(silver, soft);
-			border-radius: 0 #{$border-radius - 1px} #{$border-radius - 1px} 0;
+			border: 0;
+			border-radius: #{$border-radius - 1px};
 			background-color: $white;
 
 			fieldset {
@@ -32,6 +32,18 @@
 				&:not(:last-child) {
 					margin-bottom: 10px;
 				}
+			}
+
+			@include media(max-width, md) {
+				display: none;
+			}
+
+			@include media(min-width, md) {
+				width: 200px;
+				right: 0;
+				left: auto;
+				border-left: 1px solid palette(silver, soft);
+				border-radius: 0 #{$border-radius - 1px} #{$border-radius - 1px} 0;
 			}
 		}
 
@@ -124,6 +136,10 @@
 					display: none;
 				}
 			}
+		}
+
+		@include media(min-width, md) {
+			padding-right: 200px;
 		}
 	}
 }
