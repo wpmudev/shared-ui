@@ -70,7 +70,7 @@ is_searchable: true
 						<legend>Options</legend>
 
 						<input type="checkbox" id="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
-						<input type="checkbox" id="single-select-option--search" value="search" /> Search Bar
+						<input type="checkbox" id="single-select-option--search" value="search" /> Search List
 
 					</fieldset>
 
@@ -86,6 +86,7 @@ is_searchable: true
 							<option>Argentina</option>
 							<option>Bolivia</option>
 							<option>Brasil</option>
+							<option>Chile</option>
 							<option>Colombia</option>
 							<option>Ecuador</option>
 							<option>Paraguay</option>
@@ -155,8 +156,7 @@ is_searchable: true
 
 						<legend>Options</legend>
 
-						<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder<br />
-						<input type="checkbox" id="multi-select-option--search" value="search" /> Search Bar
+						<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder
 
 					</fieldset>
 
@@ -172,6 +172,7 @@ is_searchable: true
 							<option>Argentina</option>
 							<option>Bolivia</option>
 							<option>Brasil</option>
+							<option>Chile</option>
 							<option>Colombia</option>
 							<option>Ecuador</option>
 							<option>Paraguay</option>
@@ -195,7 +196,7 @@ is_searchable: true
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select class=&quot;sui-select&quot;&gt;
+	&lt;select class=&quot;sui-select&quot; multiple&gt;
 		&lt;option&gt;Option 1&lt;/option&gt;
 		&lt;option&gt;Option 2&lt;/option&gt;
 		&lt;option&gt;Option 3&lt;/option&gt;
@@ -222,6 +223,85 @@ is_searchable: true
 			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
 
 			<p style="margin-top: 0;">Allows the user to select a single item from a dropdown menu.</p>
+
+			<div class="showcase-component">
+
+				<div class="showcase-component-options">
+
+					<fieldset data-option="states">
+
+						<legend>State</legend>
+
+						<input type="radio" name="smart-search-option--state" value="enabled" checked /> Default<br />
+						<input type="radio" name="smart-search-option--state" value="disabled" /> Disabled<br />
+						<input type="radio" name="smart-search-option--state" value="error" /> Error
+
+					</fieldset>
+
+					<fieldset data-option="options">
+
+						<legend>Options</legend>
+
+						<input type="checkbox" id="smart-search-option--placeholder" value="placeholder" /> Placeholder
+
+					</fieldset>
+
+				</div>
+
+				<div class="showcase-component-preview" aria-live="polite">
+
+					<div class="sui-form-field">
+
+						<label class="sui-label">Countries</label>
+
+						<select id="smart-search-demo" class="sui-select" data-theme="search" multiple>
+							<option>Argentina</option>
+							<option>Bolivia</option>
+							<option>Brasil</option>
+							<option>Chile</option>
+							<option>Colombia</option>
+							<option>Ecuador</option>
+							<option>Paraguay</option>
+							<option>Peru</option>
+							<option>Uruguay</option>
+							<option>Venezuela</option>
+						</select>
+
+						<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+						<span class="sui-description">List of South America countries.</span>
+
+					</div>
+
+				</div>
+
+				<div class="showcase-component-code demo-code-block">
+
+					<pre class="sui-code-snippet sui-no-copy html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select class=&quot;sui-select&quot; data-theme=&quot;search&quot; multiple&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;option&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;List of South America countries.&lt;/p&gt;
+
+&lt;/div&gt;
+					</pre>
+
+					<button class="showcase-component-code--more">
+						Show More
+						<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+					</button>
+
+				</div>
+
+			</div>
 
 		</div>
 
