@@ -82,14 +82,14 @@
 								if ( searchbar ) {
 
 									select
-										.SUIselect2( 'destroy' )
-										.SUIselect2()
+										.SUIselect( 'destroy' )
+										.SUIselect()
 										;
 								} else {
 
 									select
-										.SUIselect2( 'destroy' )
-										.SUIselect2({
+										.SUIselect( 'destroy' )
+										.SUIselect({
 											minimumResultsForSearch: -1
 										})
 										;
@@ -100,8 +100,8 @@
 							if ( 'search' === $( this ).val() ) {
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2()
+									.SUIselect( 'destroy' )
+									.SUIselect()
 									;
 							}
 						} else {
@@ -121,14 +121,14 @@
 								if ( searchbar ) {
 
 									select
-										.SUIselect2( 'destroy' )
-										.SUIselect2()
+										.SUIselect( 'destroy' )
+										.SUIselect()
 										;
 								} else {
 
 									select
-										.SUIselect2( 'destroy' )
-										.SUIselect2({
+										.SUIselect( 'destroy' )
+										.SUIselect({
 											minimumResultsForSearch: -1
 										})
 										;
@@ -139,8 +139,8 @@
 							if ( 'search' === $( this ).val() ) {
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2({
+									.SUIselect( 'destroy' )
+									.SUIselect({
 										minimumResultsForSearch: -1
 									})
 									;
@@ -210,8 +210,8 @@
 									;
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2()
+									.SUIselect( 'destroy' )
+									.SUIselect()
 									;
 							}
 						} else {
@@ -229,8 +229,8 @@
 									;
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2()
+									.SUIselect( 'destroy' )
+									.SUIselect()
 									;
 							}
 						}
@@ -298,8 +298,8 @@
 									;
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2({
+									.SUIselect( 'destroy' )
+									.SUIselect({
 										minimumInputLength: 2,
 										maximumSelectionLength: 1
 									})
@@ -320,8 +320,8 @@
 									;
 
 								select
-									.SUIselect2( 'destroy' )
-									.SUIselect2({
+									.SUIselect( 'destroy' )
+									.SUIselect({
 										minimumInputLength: 2,
 										maximumSelectionLength: 1
 									})

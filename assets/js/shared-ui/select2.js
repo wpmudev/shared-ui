@@ -5,10 +5,9 @@
 		window.SUI = {};
 	}
 
-	// Load SUIselect2 function.
-	SUI.loadSelect = SUI.loadSelect || true;
+	SUI.select = {};
 
-	let formatIcon = ( data, container ) => {
+	SUI.select.formatIcon = ( data, container ) => {
 
 		let markup, border;
 
@@ -30,7 +29,7 @@
 
 	};
 
-	let formatIconSelection = ( data, container ) => {
+	SUI.select.formatIconSelection = ( data, container ) => {
 
 		let markup;
 
@@ -42,7 +41,7 @@
 
 	};
 
-	let formatColor = ( data, container ) => {
+	SUI.select.formatColor = ( data, container ) => {
 
 		let markup, border;
 
@@ -77,7 +76,7 @@
 
 	};
 
-	let formatColorSelection = ( data, container ) => {
+	SUI.select.formatColorSelection = ( data, container ) => {
 
 		let markup;
 
@@ -108,7 +107,7 @@
 
 	};
 
-	let formatVars = ( data, container ) => {
+	SUI.select.formatVars = ( data, container ) => {
 
 		let markup;
 
@@ -124,7 +123,7 @@
 
 	};
 
-	let formatVarsSelection = ( data, container ) => {
+	SUI.select.formatVarsSelection = ( data, container ) => {
 
 		let markup;
 
@@ -136,115 +135,54 @@
 
 	};
 
-	if ( SUI.loadSelect ) {
+	$( '.sui-select' ).each( function() {
 
-		// Default.
-		$( '.sui-select:not([data-search="true"]):not([data-theme])' ).SUIselect2({
-			minimumResultsForSearch: Infinity
-		});
+		let select       = $( this ),
+			getParent    = select.closest( '.sui-modal-content' ),
+			getParentId  = getParent.attr( 'id' ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
 
-		// Default + search input.
-		$( '.sui-select[data-search="true"]:not([data-theme])' ).SUIselect2();
+		if ( 'icon' === select.data( 'theme' ) ) {
 
-		// Select with icons.
-		$( '.sui-select[data-theme="icon"]:not([data-search="true"])' ).SUIselect2({
-			templateResult: formatIcon,
-			templateSelection: formatIconSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			},
-			minimumResultsForSearch: Infinity
-		});
+			select.SUIselect({
+				dropdownParent: selectParent,
+				templateResult: SUI.select.formatIcon,
+				templateSelection: SUI.select.formatIconSelection,
+				escapeMarkup: function( markup ) {
+					return markup;
+				},
+				minimumResultsForSearch: hasSearch
+			});
+		} else if ( 'color' === select.data( 'theme' ) ) {
 
-		// Select with icons + search input.
-		$( '.sui-select[data-theme="icon"][data-search="true"]' ).SUIselect2({
-			templateResult: formatIcon,
-			templateSelection: formatIconSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			}
-		});
+			select.SUIselect({
+				dropdownParent: selectParent,
+				templateResult: SUI.select.formatColor,
+				templateSelection: SUI.select.formatColorSelection,
+				escapeMarkup: function( markup ) {
+					return markup;
+				},
+				minimumResultsForSearch: hasSearch
+			});
+		} else if ( 'search' === select.data( 'theme' ) ) {
 
-		// Select with colors.
-		$( '.sui-select[data-theme="color"]:not([data-search="true"])' ).SUIselect2({
-			templateResult: formatColor,
-			templateSelection: formatColorSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			},
-			minimumResultsForSearch: Infinity
-		});
+			select.SUIselect({
+				dropdownParent: selectParent,
+				minimumInputLength: 2,
+				maximumSelectionLength: 1
+			});
+		} else {
 
-		// Select with colors + search input.
-		$( '.sui-select[data-theme="color"][data-search="true"]' ).SUIselect2({
-			templateResult: formatColor,
-			templateSelection: formatColorSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			}
-		});
-
-		// Insert variables.
-		$( '.sui-select[data-theme="vars"]:not([data-search="true"])' ).SUIselect2({
-			templateResult: formatVars,
-			templateSelection: formatVarsSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			},
-			minimumResultsForSearch: Infinity
-		});
-
-		// Insert variables.
-		$( '.sui-select[data-theme="vars"][data-search="true"]' ).SUIselect2({
-			templateResult: formatVars,
-			templateSelection: formatVarsSelection,
-			escapeMarkup: function( markup ) {
-				return markup;
-			}
-		});
-
-		// Smart search.
-		$( '.sui-select[data-theme="search"]' ).SUIselect2({
-			minimumInputLength: 2,
-			maximumSelectionLength: 1
-		});
-	}
-
-	// Convert all select lists to fancy sui Select lists.
-    // if ( $( '.sui-color-accessible' )[0]) {
-
-    //     $( '.sui-select' ).SUIselect2({
-    //         dropdownCssClass: 'sui-select-dropdown sui-color-accessible'
-	// 	});
-
-	// 	$( '.sui-search' ).SUIselect2({
-	// 		minimumInputLength: 2,
-	// 		maximumSelectionLength: 1,
-    //         dropdownCssClass: 'sui-search-dropdown sui-color-accessible'
-	// 	});
-
-	// 	$( '.sui-variables' ).SUIselect2({
-    //         dropdownCssClass: 'sui-variables-dropdown sui-color-accessible'
-	// 	});
-    // } else {
-
-    //     $( '.sui-select' ).SUIselect2({
-	// 		templateResult: formatOption,
-	// 		templateSelection: formatOptionSelection,
-	// 		escapeMarkup: function( markup ) {
-	// 			return markup;
-	// 		}
-	// 	});
-
-	// 	$( '.sui-search' ).SUIselect2({
-	// 		minimumInputLength: 2,
-	// 		maximumSelectionLength: 1,
-    //         dropdownCssClass: 'sui-search-dropdown'
-	// 	});
-
-	// 	$( '.sui-variables' ).SUIselect2({
-    //         dropdownCssClass: 'sui-variables-dropdown'
-	// 	});
-    // }
-
+			select.SUIselect({
+				dropdownParent: selectParent,
+				templateResult: SUI.select.formatVars,
+				templateSelection: SUI.select.formatVarsSelection,
+				escapeMarkup: function( markup ) {
+					return markup;
+				},
+				minimumResultsForSearch: hasSearch
+			});
+		}
+	});
 }( jQuery ) );

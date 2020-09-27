@@ -1687,8 +1687,8 @@
 
 						var $element = Utils.GetData( this, 'element' );
 
-						// SUIselect2 Renamed function. @edited
-						$element.SUIselect2( 'close' );
+						// SUIselect Renamed function. @edited
+						$element.SUIselect( 'close' );
 
 					});
 				});
@@ -4269,7 +4269,7 @@
 			// 	'</span>'
 			// );
 
-			// Custom SUIselect2 dropdown. @edited
+			// Custom SUIselect dropdown. @edited
 			var $dropdown = $(
 				'<span class="sui-dropdown">' +
 				'<span class="select2-results"></span>' +
@@ -4597,7 +4597,7 @@
 			// $dropdown.removeClass('select2');
 			// $dropdown.addClass('select2-container--open');
 
-			// Custom SUIselect2 dropdown. @edited
+			// Custom SUIselect dropdown. @edited
 			$dropdown.removeClass('select2');
 			$dropdown.addClass('sui-dropdown-container--open');
 
@@ -4708,7 +4708,7 @@
 			// var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
 			// var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
 
-			// Custom SUIselect2 dropdown. @edited
+			// Custom SUIselect dropdown. @edited
 			var isCurrentlyAbove = this.$dropdown.hasClass( 'sui-select-dropdown--above' );
 			var isCurrentlyBelow = this.$dropdown.hasClass( 'sui-select-dropdown--below' );
 
@@ -4790,7 +4790,7 @@
 			// 	.addClass('select2-container--' + newDirection);
 			// }
 
-			// Custom SUIselect2 dropdown. @edited
+			// Custom SUIselect dropdown. @edited
 			if ( newDirection != null ) {
 				this.$dropdown
 					.removeClass('sui-dropdown--below sui-dropdown--above')
@@ -6267,7 +6267,7 @@
 	  // Remove select2 theme classname. @edited
 	  // this.$container.addClass('select2-container--' + this.options.get('theme'));
 
-	  // Add SUI class to select main div. @edited
+	  // Add SUIselect class to select main div. @edited
 	  this.$container.addClass( 'sui-select' );
 
 	  // Additional class for themes. @edited
@@ -6696,7 +6696,7 @@
 				// $dropdown.addClass( 'select2-dropdown--below' );
 				// $container.addClass( 'select2-container--below' );
 
-				// Custom SUIselect2 dropdown. @edited
+				// Custom SUIselect dropdown. @edited
 				$dropdown.addClass( 'sui-dropdown--below' );
 				$container.addClass( 'sui-dropdown-container--below' );
 			};
@@ -7026,12 +7026,12 @@
 		}) );
 
 		/**
-		 * Rebranding select2 to SUIselect2
+		 * Rebranding select2 to SUIselect
 		 * It does avoid conflicts with other(s) that include select2 manually
 		 *
 		 * @edited
 		 */
-		S2.define( 'sui.select2',[
+		S2.define( 'sui.select',[
 			'jquery',
 			'jquery-mousewheel',
 
@@ -7040,14 +7040,14 @@
 			'./select2/utils'
 		], function( $, _, Select2, Defaults, Utils ) {
 
-			// SUIselect2 renamed function. @edited
-			if ( $.fn.SUIselect2 == null ) {
+			// SUIselect renamed function. @edited
+			if ( $.fn.SUIselect == null ) {
 
 				// All methods that should return the element
 				var thisMethods = ['open', 'close', 'destroy'];
 
-				// SUIselect2 renamed function. @edited
-	  			$.fn.SUIselect2 = function( options ) {
+				// SUIselect renamed function. @edited
+	  			$.fn.SUIselect = function( options ) {
 
 					options = options || {};
 
@@ -7072,9 +7072,9 @@
 
 						if ( instance == null && window.console && console.error ) {
 
-							// SUIselect2 renamed function. @edited
+							// SUIselect renamed function. @edited
 							console.error(
-								'The SUIselect2(\'' + options + '\') method was called on an ' +
+								'The SUIselect(\'' + options + '\') method was called on an ' +
 								'element that is not using Select2.'
 							);
 						}
@@ -7091,15 +7091,15 @@
 						return ret;
 
 					} else {
-						// SUIselect2 renamed function. @edited
-						throw new Error( 'Invalid arguments for SUIselect2: ' + options );
+						// SUIselect renamed function. @edited
+						throw new Error( 'Invalid arguments for SUIselect: ' + options );
 					}
 				};
 			}
 
-			// SUIselect2 renamed function. @edited
-			if ( $.fn.SUIselect2.defaults == null ) {
-				$.fn.SUIselect2.defaults = Defaults;
+			// SUIselect renamed function. @edited
+			if ( $.fn.SUIselect.defaults == null ) {
+				$.fn.SUIselect.defaults = Defaults;
 			}
 
 			return Select2;
@@ -7125,8 +7125,8 @@
 	// Return the Select2 instance for anyone who is importing it.
 	// return select2;
 
-	// Return SUIselect2 instance. @edited
-	var select2 = S2.require( 'sui.select2' );
+	// Return SUIselect instance. @edited
+	var select2 = S2.require( 'sui.select' );
 	return select2;
 
 }) );
