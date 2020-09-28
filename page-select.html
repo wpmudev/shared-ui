@@ -346,10 +346,10 @@ is_searchable: true
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
 	&lt;select class=&quot;sui-select&quot; data-theme=&quot;color&quot;&gt;
-		&lt;option data-color=&quot;target&quot;&gt;Option 1&lt;/option&gt;
-		&lt;option data-color=&quot;target&quot;&gt;Option 2&lt;/option&gt;
-		&lt;option data-color=&quot;target&quot;&gt;Option 3&lt;/option&gt;
-		&lt;option data-color=&quot;target&quot;&gt;Option 4&lt;/option&gt;
+		&lt;option data-color=&quot;white&quot;&gt;Option 1&lt;/option&gt;
+		&lt;option data-color=&quot;#FFF&quot;&gt;Option 2&lt;/option&gt;
+		&lt;option data-color=&quot;black&quot;&gt;Option 3&lt;/option&gt;
+		&lt;option data-color=&quot;#000&quot;&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
 	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
@@ -756,7 +756,86 @@ is_searchable: true
 			<h2 class="sui-box-title">Code</h2>
 		</div>
 
-		<div class="sui-box-body"></div>
+		<div class="sui-box-body">
+
+			<h3 style="margin: 0 0 20px; font-size: 20px; line-height: 30px;">Styles</h3>
+
+			<div class="demo-code-block" style="margin: 0 0 10px;">
+
+<pre class="sui-code-snippet scss">
+// Include all components' styles.
+@import "shared-ui";
+
+// Include styles for component only.
+@import "~@wpmudev/shared-ui/scss/select";
+</pre>
+
+			</div>
+
+			<p class="sui-description"><strong>Note:</strong> When importing component styles only you will also need to import functions, colors, variables, and other basic files that work together with select file.</p>
+
+			<hr />
+
+			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">JavaScript Instantiation</h3>
+
+			<p style="margin-top: 0;">This is the basic configuration for each variation of the select component.</p>
+
+			<h4>Default</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+$( '#unique-id' ).SUIselect();
+</pre>
+
+			</div>
+
+			<h4>Dropdown option with icon</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	templateResult: SUI.select.formatIcon,
+	templateSelection: SUI.select.formatIconSelection,
+	escapeMarkup: function( markup ) {
+		return markup;
+	}
+});
+</pre>
+
+			</div>
+
+			<h4>Dropdown option with color</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	templateResult: SUI.select.formatColor,
+	templateSelection: SUI.select.formatColorSelection,
+	escapeMarkup: function( markup ) {
+		return markup;
+	}
+});
+</pre>
+
+			</div>
+
+			<h4>Smart Search</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	minimumInputLength: 2,
+	maximumSelectionLength: 1
+});
+</pre>
+
+			</div>
+
+		</div>
 
 	</div>
 
@@ -767,7 +846,91 @@ is_searchable: true
 			<h2 class="sui-box-title">Configuration</h2>
 		</div>
 
-		<div class="sui-box-body"></div>
+		<div class="sui-box-body">
+
+			<p>To configure custom options when you initialize <strong>SUIselect</strong>, simply pass an object in your call to <code>.SUIselect()</code>.</p>
+
+			<h4 style="margin: 0;">JS options</h4>
+
+			<p style="margin: 0 0 20px;">This is a list with the most common SUIselect configuration options.</p>
+
+			<table class="sui-table" style="margin: 0 0 10px;">
+
+				<thead>
+
+					<tr>
+						<th colspan="1">Option</th>
+						<th colspan="1">Type</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>dropdownParent</code></td>
+						<td colspan="1">jQuery selector or DOM node</td>
+						<td colspan="1"><code>$( document.body )</code></td>
+						<td colspan="3">Allows you to modify where dropdown is going to be placed. Use this option when select is placed inside modals.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateResult</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that dropdown options are rendered. You can select between: <code>SUI.select.formatIcon</code> to show an icon or <code>SUI.select.formatColor</code> to show a color square.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateSelection</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that selections are rendered. You can select between: <code>SUI.select.formatIconSelection</code> to show an icon or <code>SUI.select.formatColorSelection</code> to show a color square.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>escapeMarkup</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"><code>Utils.escapeMarkup</code></td>
+						<td colspan="3">Handles automatic escaping of content rendered by custom templates.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<p class="sui-description" style="margin: 0 0 20px;">Since <strong>SUIselect</strong> is based on <a href="https://select2.org/" target="_blank" rel="nofollow">Select2</a>, you can find more configuration options listed <a href="https://select2.org/configuration/options-api" target="_blank" rel="nofollow">here</a>.</p>
+
+			<hr />
+
+			<h4 style="margin: 0;">*-data attributes</h4>
+
+			<p style="margin: 0 0 20px;">It is recommended that you declare your configuration options by passing in an object when initializing SUIselect. However, you may also define your configuration options by using the HTML5 data-* attributes, which will override any options set when initializing SUIselect and any defaults.</p>
+
+			<ol>
+				<li><strong>data-placeholder</strong> make use of this attribute along with an empty <code>&lt;option&gt;</code> at the beginning of the options' list.</li>
+				<li><strong>data-theme</strong> can be: default, icon, color, or search. When using <strong>icon</strong> or <strong>color</strong> value you need to mix it with <strong>templateResult</strong>, <strong>templateSelection</strong> and <strong>escapeMarkup</strong> options to make sure you assign the correct markup to the chosen theme.</li>
+			</ol>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;select
+	data-placeholder=&quot;Placeholder&quot;
+	data-theme=&quot;default&quot;
+&gt;
+	&lt;option&gt;&lt;/option&gt;
+	&lt;option&gt;Option 1&lt;/option&gt;
+	&lt;option&gt;Option 2&lt;/option&gt;
+	&lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+			</div>
+
+		</div>
 
 	</div>
 
