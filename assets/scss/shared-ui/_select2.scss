@@ -622,6 +622,47 @@
 					}
 				}
 			}
+
+			// DESIGN: Select with variables.
+			&.sui-select-theme--vars {
+
+				.sui-dropdown {
+					width: 240px !important;
+					margin-left: -200px;
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+
+							.select2-results__option {
+								display: flex;
+								flex-flow: row nowrap;
+								align-items: center;
+								position: relative;
+
+								.sui-variable-name {
+									min-width: 100px;
+									flex: 1;
+								}
+
+								.sui-variable-value {
+									flex: 0 0 auto;
+									color: palette(silver, medium);
+									font-size: 12px;
+								}
+
+								&[aria-selected="true"] {
+
+									.sui-variable-value {
+										color: $white;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
