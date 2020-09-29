@@ -111,13 +111,18 @@
 
 		let markup;
 
-		const label = data.text;
+		const label   = data.text;
+		const content = $( data.element ).val();
 
 		if ( ! data.id ) {
 			return label; // optgroup.
 		}
 
-		markup = label;
+		if ( 'undefined' !== typeof content ) {
+			markup = '<span class="sui-variable-name">' + label + '</span><span class="sui-variable-value">' + content + '</span> ';
+		} else {
+			markup = label;
+		}
 
 		return markup;
 
@@ -129,7 +134,8 @@
 
 		const label = data.text;
 
-		markup = label;
+		markup  = '<span class="sui-icon-plus-circle sui-md" aria-hidden="true"></span>';
+		markup += '<span class="sui-screen-reader-text">' + label + '</span>';
 
 		return markup;
 
@@ -176,13 +182,28 @@
 
 			select.SUIselect({
 				dropdownParent: selectParent,
-				templateResult: SUI.select.formatVars,
-				templateSelection: SUI.select.formatVarsSelection,
-				escapeMarkup: function( markup ) {
-					return markup;
-				},
 				minimumResultsForSearch: hasSearch
 			});
 		}
+	});
+
+	$( '.sui-variables' ).each( function() {
+
+		let select       = $( this ),
+			getParent    = select.closest( '.sui-modal-content' ),
+			getParentId  = getParent.attr( 'id' ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
+
+		select.SUIselect({
+			theme: 'vars',
+			dropdownParent: selectParent,
+			templateResult: SUI.select.formatVars,
+			templateSelection: SUI.select.formatVarsSelection,
+			escapeMarkup: function( markup ) {
+				return markup;
+			},
+			minimumResultsForSearch: hasSearch
+		});
 	});
 }( jQuery ) );
