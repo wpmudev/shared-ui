@@ -1,0 +1,67 @@
+// ELEMENT: Insert Variables.
+// $sui-wrap: true | $rtl: false
+@include body-class(true, false) {
+
+	.sui-insert-variables {
+		position: relative;
+
+		.sui-form-control {
+			padding-right: #{($form--input-height-base - 1px) + 14px};
+		}
+
+		select.sui-variables {
+
+			+ .sui-select {
+				width: 40px !important;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				// STATE: Default.
+				.selection {
+					display: block;
+
+					span[role="combobox"] {
+						height: 40px;
+						cursor: pointer;
+						user-select: none;
+						display: flex;
+						flex-flow: column nowrap;
+						align-items: center;
+						justify-content: center;
+						margin: 0;
+						padding: 0;
+						border: 1px solid transparent;
+						border-left-color: palette(gray, lighter);
+						border-radius: 0 $border-radius $border-radius 0;
+						background-color: transparent;
+						text-align: center;
+						transition: $transition;
+
+						// Label.
+						.select2-selection__rendered {
+							width: 40px;
+							min-width: 1px;
+
+							[class*="sui-icon-"] {
+								display: block;
+								user-select: none;
+								pointer-events: none;
+
+								&:before {
+									display: block;
+								}
+							}
+						}
+
+						// Icon.
+						.select2-selection__arrow {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
