@@ -1,3 +1,7 @@
+v2.10.0
+- [Fix] Select: Merge Select2 with SUI.Select().
+
+
 v2.9.6
 - [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
 
