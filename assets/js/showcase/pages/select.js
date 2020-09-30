@@ -65,6 +65,17 @@
 
 						searchbar = ( self.find( '#single-select-option--search' ).is( ':checked' ) ) ? true : false;
 
+						let format = '',
+							formatSelection = '';
+
+						if ( 'icon' === select.attr( 'data-theme' ) ) {
+							format = SUI.select.formatIcon;
+							formatSelection = SUI.select.formatIconSelection;
+						} else if ( 'color' === select.attr( 'data-theme' ) ) {
+							format = SUI.select.formatColor;
+							formatSelection = SUI.select.formatColorSelection;
+						}
+
 						if ( $( this ).is( ':checked' ) ) {
 
 							// Add placeholder.
@@ -83,14 +94,25 @@
 
 									select
 										.SUIselect( 'destroy' )
-										.SUIselect()
+										.SUIselect({
+											templateResult: format,
+											templateSelection: formatSelection,
+											escapeMarkup: function( markup ) {
+												return markup;
+											}
+										})
 										;
 								} else {
 
 									select
 										.SUIselect( 'destroy' )
 										.SUIselect({
-											minimumResultsForSearch: -1
+											minimumResultsForSearch: -1,
+											templateResult: format,
+											templateSelection: formatSelection,
+											escapeMarkup: function( markup ) {
+												return markup;
+											}
 										})
 										;
 								}
@@ -101,7 +123,13 @@
 
 								select
 									.SUIselect( 'destroy' )
-									.SUIselect()
+									.SUIselect({
+										templateResult: format,
+										templateSelection: formatSelection,
+										escapeMarkup: function( markup ) {
+											return markup;
+										}
+									})
 									;
 							}
 						} else {
@@ -122,14 +150,25 @@
 
 									select
 										.SUIselect( 'destroy' )
-										.SUIselect()
+										.SUIselect({
+											templateResult: format,
+											templateSelection: formatSelection,
+											escapeMarkup: function( markup ) {
+												return markup;
+											}
+										})
 										;
 								} else {
 
 									select
 										.SUIselect( 'destroy' )
 										.SUIselect({
-											minimumResultsForSearch: -1
+											minimumResultsForSearch: -1,
+											templateResult: format,
+											templateSelection: formatSelection,
+											escapeMarkup: function( markup ) {
+												return markup;
+											}
 										})
 										;
 								}
@@ -141,7 +180,12 @@
 								select
 									.SUIselect( 'destroy' )
 									.SUIselect({
-										minimumResultsForSearch: -1
+										minimumResultsForSearch: -1,
+										templateResult: format,
+										templateSelection: formatSelection,
+										escapeMarkup: function( markup ) {
+											return markup;
+										}
 									})
 									;
 							}
@@ -337,6 +381,8 @@
 
 			// DEMO: Single Select.
 			singleSelect( $( '#single-select-demo' ) );
+			singleSelect( $( '#single-select-icon-demo' ) );
+			singleSelect( $( '#single-select-color-demo' ) );
 
 			// DEMO: Multi Select.
 			multiSelect( $( '#multi-select-demo' ) );
