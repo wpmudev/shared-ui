@@ -13,7 +13,6 @@
 
 		const label = data.text;
 		const icon  = $( data.element ).attr( 'data-icon' );
-		const color = $( data.element ).attr( 'data-color' );
 
 		if ( ! data.id ) {
 			return label; // optgroup.
@@ -34,8 +33,13 @@
 		let markup;
 
 		const label = data.text;
+		const icon  = $( data.element ).attr( 'data-icon' );
 
-		markup = label;
+		if ( 'undefined' !== typeof icon ) {
+			markup = '<span class="sui-icon-' + icon.toLowerCase() + ' sui-md" aria-hidden="true"></span> ' + label;
+		} else {
+			markup = label;
+		}
 
 		return markup;
 

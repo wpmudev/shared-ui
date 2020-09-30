@@ -185,6 +185,44 @@
 				}
 			}
 
+			// DESIGN: Icon.
+			&.sui-select-theme--icon {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+
+							// Label.
+							.select2-selection__rendered {
+								position: relative;
+								padding-left: 46px;
+
+								[class*="sui-icon-"] {
+									width: 30px;
+									height: 30px;
+									display: flex;
+									flex-flow: row wrap;
+									align-items: center;
+									justify-content: center;
+									position: absolute;
+									top: 50%;
+									left: 10px;
+									transform: translateY(-50%);
+									text-align: center;
+
+									&:before {
+										display: block;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
 			// DESIGN: Color.
 			&.sui-select-theme--color {
 
