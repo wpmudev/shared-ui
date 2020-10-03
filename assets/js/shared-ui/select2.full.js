@@ -6433,6 +6433,7 @@
 	  CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
 
 	  $dropdown.css(dropdownCss);
+	  $dropdown.addClass('sui-dropdown'); // FIX: Make sure "sui-dropdown" main class does not get erased. @edited
 	  $dropdown.addClass(dropdownCssClass);
 
 	  return $dropdown;
