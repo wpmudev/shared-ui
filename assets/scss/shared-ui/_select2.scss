@@ -33,7 +33,7 @@
 
 						// Label.
 						.select2-selection__rendered {
-							min-width: 50px;
+							min-width: 10px;
 							overflow: hidden;
 							display: block;
 							flex: 1;
@@ -69,6 +69,7 @@
 
 								&:before {
 									color: inherit;
+									display: block;
 								}
 							}
 						}
@@ -215,6 +216,7 @@
 
 									&:before {
 										display: block;
+										font-size: 16px;
 									}
 								}
 
@@ -323,6 +325,20 @@
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							background-color: $white;
+						}
+					}
+				}
+			}
+
+			// STATE: Dropdown open.
+			&.select2-container--open {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
 
 							// Icon.
 							.select2-selection__arrow {
@@ -372,11 +388,102 @@
 			}
 		}
 
+		// SIZE: Small.
+		&.sui-select-sm {
+
+			+ .sui-select {
+
+				// STATE: Default.
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+
+							// Label.
+							.select2-selection__rendered {
+								padding: 6px 6px 6px 12px;
+								font-size: 13px;
+								line-height: 16px;
+							}
+
+							// Icon.
+							.select2-selection__arrow {
+								width: 28px;
+								height: 28px;
+							}
+						}
+					}
+				}
+
+				// DESIGN: Icon.
+				&.sui-select-theme--icon {
+
+					.selection {
+
+						span[role="combobox"] {
+
+							// TYPE: Single Select.
+							&.select2-selection--single {
+
+								// Label.
+								.select2-selection__rendered {
+									padding-left: 36px;
+
+									[class*="sui-icon-"] {
+										left: 5px;
+
+										&:before {
+											font-size: 12px;
+										}
+									}
+								}
+
+								.select2-selection__placeholder {
+									margin-left: -24px;
+								}
+							}
+						}
+					}
+				}
+
+				// DESIGN: Color.
+				&.sui-select-theme--color {
+
+					.selection {
+
+						span[role="combobox"] {
+
+							// TYPE: Single Select.
+							&.select2-selection--single {
+
+								// Label.
+								.select2-selection__rendered {
+									padding-left: 40px;
+
+									.sui-color {
+										width: 20px;
+										height: 20px;
+										left: 10px;
+									}
+
+									.select2-selection__placeholder {
+										margin-left: -28px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// DESIGN: Inline select.
 		&.sui-select-inline {
 
 			+ .sui-select {
-				min-width: 200px;
+				min-width: auto;
 			}
 		}
 	}
@@ -604,6 +711,24 @@
 						}
 					}
 				}
+
+				// SIZE: Small.
+				&.sui-dropdown-sm {
+					padding: 15px 0;
+
+					// Dropdown list.
+					.select2-results {
+
+						.select2-results__options {
+							max-height: 208px;
+
+							.select2-results__option {
+								font-size: 13px;
+								line-height: 30px;
+							}
+						}
+					}
+				}
 			}
 
 			// DESIGN: Select with icon.
@@ -630,11 +755,38 @@
 
 									&:before {
 										color: inherit;
+										font-size: 16px;
 									}
 								}
 
 								&[role="option"] {
 									padding-left: 46px;
+								}
+							}
+						}
+					}
+
+					// SIZE: Small.
+					&.sui-dropdown-sm {
+
+						// Dropdown list.
+						.select2-results {
+
+							.select2-results__options {
+
+								.select2-results__option {
+
+									[class*="sui-icon-"] {
+										left: 5px;
+
+										&:before {
+											font-size: 12px;
+										}
+									}
+
+									&[role="option"] {
+										padding-left: 36px;
+									}
 								}
 							}
 						}
