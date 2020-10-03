@@ -1357,10 +1357,10 @@
 			singleSelectColor( '#single-select-color-demo' );
 
 			// DEMO: Multi Select.
-			// multiSelect( $( '#multi-select-demo' ) );
+			multiSelect( $( '#multi-select-demo' ) );
 
 			// DEMO: Smart Search.
-			// smartSearch( $( '#smart-search-demo' ) );
+			smartSearch( $( '#smart-search-demo' ) );
 
 		}
 
