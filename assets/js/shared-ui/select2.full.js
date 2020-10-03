@@ -10,7 +10,7 @@
  */
 ;( function( factory ) {
 
-	// SUIselect2 disables AMD and module exports. @edited
+	// SUIselect disables AMD and module exports. @edited
 	if ( typeof define === 'function' && define.amd ) {
 
 		// AMD. Register as an anonymous module.
