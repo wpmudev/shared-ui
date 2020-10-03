@@ -9,7 +9,7 @@
 
 	SUI.select.formatIcon = ( data, container ) => {
 
-		let markup, border;
+		let markup;
 
 		const label = data.text;
 		const icon  = $( data.element ).attr( 'data-icon' );
@@ -19,7 +19,7 @@
 		}
 
 		if ( 'undefined' !== typeof icon ) {
-			markup = '<span class="sui-icon-' + icon.toLowerCase() + ' sui-md" aria-hidden="true"></span> ' + label;
+			markup = '<span class="sui-icon-' + icon.toLowerCase() + '" aria-hidden="true"></span> ' + label;
 		} else {
 			markup = label;
 		}
@@ -36,7 +36,7 @@
 		const icon  = $( data.element ).attr( 'data-icon' );
 
 		if ( 'undefined' !== typeof icon ) {
-			markup = '<span class="sui-icon-' + icon.toLowerCase() + ' sui-md" aria-hidden="true"></span> ' + label;
+			markup = '<span class="sui-icon-' + icon.toLowerCase() + '" aria-hidden="true"></span> ' + label;
 		} else {
 			markup = label;
 		}
