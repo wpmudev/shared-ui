@@ -151,7 +151,8 @@
 			getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
-			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
+			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
+			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
 		if ( 'icon' === select.data( 'theme' ) ) {
 
@@ -162,7 +163,8 @@
 				escapeMarkup: function( markup ) {
 					return markup;
 				},
-				minimumResultsForSearch: hasSearch
+				minimumResultsForSearch: hasSearch,
+				dropdownCssClass: isSmall
 			});
 		} else if ( 'color' === select.data( 'theme' ) ) {
 
@@ -173,20 +175,23 @@
 				escapeMarkup: function( markup ) {
 					return markup;
 				},
-				minimumResultsForSearch: hasSearch
+				minimumResultsForSearch: hasSearch,
+				dropdownCssClass: isSmall
 			});
 		} else if ( 'search' === select.data( 'theme' ) ) {
 
 			select.SUIselect({
 				dropdownParent: selectParent,
 				minimumInputLength: 2,
-				maximumSelectionLength: 1
+				maximumSelectionLength: 1,
+				dropdownCssClass: isSmall
 			});
 		} else {
 
 			select.SUIselect({
 				dropdownParent: selectParent,
-				minimumResultsForSearch: hasSearch
+				minimumResultsForSearch: hasSearch,
+				dropdownCssClass: isSmall
 			});
 		}
 	});
