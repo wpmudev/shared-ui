@@ -1353,8 +1353,6 @@
 
 			// DEMO: Single Select.
 			singleSelect( '#single-select-demo' );
-			singleSelectIcon( '#single-select-icon-demo' );
-			singleSelectColor( '#single-select-color-demo' );
 
 			// DEMO: Multi Select.
 			multiSelect( $( '#multi-select-demo' ) );
