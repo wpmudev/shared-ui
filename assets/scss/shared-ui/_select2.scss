@@ -388,8 +388,9 @@
 			}
 		}
 
-		// SIZE: Small.
-		&.sui-select-sm {
+		// SIZE: Small height.
+		&[data-height="sm"],
+		&[data-height="small"] {
 
 			+ .sui-select {
 
@@ -479,11 +480,19 @@
 			}
 		}
 
+		// SIZE: Auto width.
+		&[data-width] {
+
+			+ .sui-select {
+				min-width: auto;
+			}
+		}
+
 		// DESIGN: Inline select.
 		&.sui-select-inline {
 
 			+ .sui-select {
-				min-width: auto;
+				display: inline-block;
 			}
 		}
 	}
