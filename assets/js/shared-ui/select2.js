@@ -66,6 +66,12 @@
 					border = '#000';
 					break;
 
+				case '#FAFAFA' :
+				case '#F8F8F8' :
+				case '#F2F2F2' :
+					border = '#333';
+					break;
+
 				default :
 					border = color;
 					break;
@@ -95,6 +101,12 @@
 				case 'white' :
 				case '#FFFFFF' :
 					border = '#000';
+					break;
+
+				case '#FAFAFA' :
+				case '#F8F8F8' :
+				case '#F2F2F2' :
+					border = '#333';
 					break;
 
 				default :
