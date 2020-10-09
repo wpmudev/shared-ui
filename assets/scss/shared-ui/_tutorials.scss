@@ -1,0 +1,358 @@
+$thumb-width: 66px;
+$thumb-height: 54px;
+
+@include body-class(true) {
+
+	// ELEMENT: Slider.
+	.wp-smush-tutorials-section {
+		position: relative;
+
+		.wp-smush-tutorials-slider {
+
+			.wp-smush-slider-wrapper {
+				margin: 0;
+				padding: 0;
+				border: 0;
+
+				li {
+					margin: 0;
+					padding: 0;
+					border: 0;
+
+					.wp-smush-tutorial {
+						margin: 0 0 20px;
+
+						&:focus {
+							outline: none;
+							box-shadow: none;
+						}
+
+						&-image {
+							width: $thumb-width;
+							height: $thumb-height;
+							overflow: hidden;
+							display: block;
+							position: relative;
+							border-radius: $border-radius;
+							background-color: #D8D8D8;
+
+							img {
+								width: auto;
+								height: 100%;
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 50%;
+								transform: translateX(-50%);
+							}
+						}
+
+						&-title {
+							margin: 0 0 2px;
+							padding: 0;
+							border: 0;
+							color: palette(gray, dark);
+							font: 400 13px/18px $font;
+							letter-spacing: -0.22px;
+
+							a {
+								color: palette(gray, dark);
+								font-weight: 500;
+								text-decoration: none;
+
+								&:hover,
+								&:focus {
+									color: $black;
+								}
+							}
+						}
+
+						&-time {
+							display: flex;
+							flex-flow: row nowrap;
+							align-items: center;
+							margin: 0;
+							padding: 0;
+							border: 0;
+							color: #888;
+							font: 400 13px/18px $font;
+							letter-spacing: $font--letter-spacing;
+
+							span[aria-hidden="true"] {
+								flex: 0 0 auto;
+
+								+ span:not([aria-hidden="true"]) {
+									margin-left: 5px;
+								}
+							}
+
+							span:not([aria-hidden="true"]) {
+								overflow: hidden;
+								display: block;
+								flex: 1;
+								white-space: nowrap;
+								text-overflow: ellipsis;
+							}
+						}
+
+						&-header {
+							display: flex;
+							flex-flow: row wrap;
+
+							&-right {
+								flex: 1;
+							}
+
+							.wp-smush-tutorial-image {
+								flex: 0 0 auto;
+
+								+ .wp-smush-tutorial-header-right {
+									margin-left: 10px;
+
+									.wp-smush-reading-time {
+										margin-left: 5px;
+									}
+								}
+							}
+
+							+ .wp-smush-tutorial-body {
+								margin-top: 10px;
+							}
+						}
+
+						&:last-child {
+							margin: 0;
+						}
+
+						@include media(min-width, md) {
+							width: 50%;
+							margin: 0;
+							flex: 0 0 auto;
+							padding: 0 10px;
+						}
+					}
+
+					&[aria-hidden="true"] {
+						display: none;
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: none;
+					}
+
+					@include media(min-width, md) {
+						display: flex;
+						flex-flow: row wrap;
+						margin: 0 -10px;
+					}
+				}
+			}
+
+			&-buttons {
+				overflow: hidden;
+				pointer-events: none;
+				display: block;
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				transform: translateY(-50%);
+
+				.wp-smush-slider-button-prev,
+				.wp-smush-slider-button-next {
+					margin: 0;
+					pointer-events: all;
+
+					[class*="sui-icon-"] {
+						pointer-events: none;
+					}
+
+					&[disabled],
+					&[aria-disabled="true"] {
+						opacity: 0;
+						clip: rect(1px, 1px, 1px, 1px);
+						clip-path: inset(50%);
+					}
+				}
+			}
+		}
+
+		// TODO: apply to all but the last slide dynamically.
+		&:not([data-active="3"]) {
+
+			.wp-smush-tutorials-slider {
+				padding-right: 30px;
+
+				&-buttons {
+					right: -10px;
+
+					.wp-smush-slider-button-next {
+						float: right;
+					}
+
+					@include media(min-width, md) {
+						right: -15px;
+					}
+				}
+			}
+		}
+
+		&:not([data-active="1"]) {
+
+			.wp-smush-tutorials-slider {
+				padding-left: 30px;
+
+				&-buttons {
+					left: -10px;
+
+					@include media(min-width, md) {
+						left: -15px;
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Tab box.
+	#smush-box-tutorials {
+
+		.sui-box-header {
+
+			.sui-actions-right {
+
+				p.sui-description {
+
+					a [class*="sui-icon-"] {
+
+						&:before {
+							color: inherit;
+						}
+					}
+				}
+			}
+		}
+
+		.sui-box-body {
+
+			.wp-smush-tutorials-section {
+				margin: 0 -#{$sui-gutter-md};
+				padding: $sui-gutter-md;
+				background-color: #FAFAFA;
+
+				.wp-smush-tutorial-item {
+					border: 1px solid #E6E6E6;
+					border-radius: $border-radius;
+					background-color: $white;
+					transition: $transition;
+
+					* {
+						pointer-events: none; // FIX: Prevents from getting inner elements when clicking on item / box.
+					}
+
+					&-header {
+						width: 100%;
+						height: 140px;
+						overflow: hidden;
+						position: relative;
+						border-top-left-radius: $border-radius;
+						border-top-right-radius: $border-radius;
+						background-position: top;
+						background-repeat: no-repeat;
+						background-size: cover;
+
+						img {
+							width: auto;
+							min-width: 100%;
+							height: 100%;
+							min-height: 100%;
+							display: block;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						@include media(min-width, md) {
+							flex: 0 0 auto;
+						}
+					}
+
+					&-body {
+						padding: $sui-gutter #{$sui-gutter / 2} #{$sui-gutter-md / 4};
+
+						.wp-smush-tutorial-item-title {
+							margin: 0;
+							padding: 0;
+							border: 0;
+							color: palette(gray, dark);
+							font: 500 13px/18px $font;
+							letter-spacing: -0.2px;
+						}
+
+						@include media(min-width, md) {
+							flex: 1;
+							padding-top: #{$sui-gutter / 2};
+						}
+					}
+
+					&-footer {
+						display: flex;
+						flex-flow: row nowrap;
+						align-items: center;
+						padding: #{$sui-gutter-md / 4} #{$sui-gutter / 2} $sui-gutter;
+
+						.wp-smush-read-more,
+						.wp-smush-reading-time {
+							margin: 0;
+							@extend .sui-description;
+						}
+
+						.wp-smush-read-more {
+							flex: 0 0 auto;
+							color: $blue;
+							font-weight: 500;
+
+							+ .wp-smush-reading-time {
+								margin-left: 10px;
+							}
+						}
+
+						.wp-smush-reading-time {
+							flex: 1;
+							text-align: right;
+						}
+
+						@include media(min-width, md) {
+							flex: 0 0 auto;
+						}
+					}
+
+					&[role="link"] {
+						cursor: pointer;
+					}
+
+					&:hover,
+					&:focus {
+						position: relative;
+						z-index: 1;
+						outline: none;
+						box-shadow: none;
+						transform: scale(1.04);
+						transform-origin: center;
+					}
+
+					@include media(min-width, md) {
+						min-height: 100%;
+						display: flex;
+						flex-direction: column;
+					}
+				}
+
+				@include media(min-width, md) {
+					margin: 0 -#{$sui-gutter};
+					padding: $sui-gutter;
+				}
+			}
+		}
+	}
+}
