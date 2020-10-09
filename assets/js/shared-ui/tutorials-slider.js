@@ -10,10 +10,10 @@
 
 	SUI.tutorialsSlider = function( sliderContainer ) {
 
-		$( sliderContainer ).find( '.wp-smush-tutorials-button' ).on( 'click', function( e ) {
+		$( sliderContainer ).find( '.sui-tutorials-button' ).on( 'click', function( e ) {
 			const $button = $( e.currentTarget ),
-				$sliderContainer = $button.closest( '.wp-smush-tutorials-section' ),
-				amountOfSlides = $sliderContainer.find( '.wp-smush-slider-wrapper li' ).length;
+				$sliderContainer = $( sliderContainer ),
+				amountOfSlides = $sliderContainer.find( '.sui-slider-wrapper li' ).length;
 
 			// If there isn't more than 1 slide, we don't need the slider functionality.
 			if ( 1 >= amountOfSlides ) {
@@ -31,8 +31,8 @@
 			}
 
 			const $activeSlide = $sliderContainer.find( `[data-slide="${ activeSlideNumber }"]` ),
-				$nextButton = $sliderContainer.find( '.wp-smush-slider-button-next' ),
-				$prevButton = $sliderContainer.find( '.wp-smush-slider-button-prev' );
+				$nextButton = $sliderContainer.find( '.sui-tutorials-slider-button-next' ),
+				$prevButton = $sliderContainer.find( '.sui-tutorials-slider-button-prev' );
 
 			// Hide the previous slide, show the new one.
 			$activeSlide.attr( 'tabindex', '-1' );
@@ -93,7 +93,7 @@
 		};
 
 		// Handling accessibility for the tutorials tab.
-		$( '#smush-box-tutorials div[role="link"]' ).on( 'click', function( e ) {
+		$( '.sui-tutorials-section div[role="link"]' ).on( 'click', function( e ) {
 
 			let ref = null !== e.target ? e.target : e.srcElement;
 
@@ -106,11 +106,11 @@
 				const current = $( ref ).data( 'tutorial' ),
 					next = 'next' === direction ? current + 1 : current - 1;
 
-				let $nextTut = $( `#smush-box-tutorials [data-tutorial="${ next }"]` );
+				let $nextTut = $( `.sui-tutorials-section [data-tutorial="${ next }"]` );
 
 				// When we are at the end and moving forward, or at the beginning and moving backward.
 				if ( ! $nextTut.length ) {
-					const allTuts = $( '#smush-box-tutorials .wp-smush-tutorial-item' ),
+					const allTuts = $( '.sui-tutorials-section .sui-tutorial-item' ),
 						nextTutKey = 'next' === direction ? 0 : allTuts.length - 1;
 					$nextTut = allTuts[ nextTutKey ];
 				}
@@ -141,7 +141,7 @@
 
 	};
 
-	$( 'SUI_BODY_CLASS .wp-smush-tutorials-section' ).each( function() {
+	$( 'SUI_BODY_CLASS .sui-tutorials-slider-container' ).each( function() {
 		SUI.tutorialsSlider( this );
 	});
 

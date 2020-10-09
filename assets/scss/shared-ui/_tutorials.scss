@@ -4,12 +4,12 @@ $thumb-height: 54px;
 @include body-class(true) {
 
 	// ELEMENT: Slider.
-	.wp-smush-tutorials-section {
+	.sui-tutorials-slider-container {
 		position: relative;
 
-		.wp-smush-tutorials-slider {
+		.sui-tutorials-slider {
 
-			.wp-smush-slider-wrapper {
+			.sui-slider-wrapper {
 				margin: 0;
 				padding: 0;
 				border: 0;
@@ -19,7 +19,7 @@ $thumb-height: 54px;
 					padding: 0;
 					border: 0;
 
-					.wp-smush-tutorial {
+					.sui-tutorial {
 						margin: 0 0 20px;
 
 						&:focus {
@@ -103,19 +103,19 @@ $thumb-height: 54px;
 								flex: 1;
 							}
 
-							.wp-smush-tutorial-image {
+							.sui-tutorial-image {
 								flex: 0 0 auto;
 
-								+ .wp-smush-tutorial-header-right {
+								+ .sui-tutorial-header-right {
 									margin-left: 10px;
 
-									.wp-smush-reading-time {
+									.sui-tutorial-item-reading-time {
 										margin-left: 5px;
 									}
 								}
 							}
 
-							+ .wp-smush-tutorial-body {
+							+ .sui-tutorial-body {
 								margin-top: 10px;
 							}
 						}
@@ -158,8 +158,8 @@ $thumb-height: 54px;
 				top: 50%;
 				transform: translateY(-50%);
 
-				.wp-smush-slider-button-prev,
-				.wp-smush-slider-button-next {
+				.sui-tutorials-slider-button-prev,
+				.sui-tutorials-slider-button-next {
 					margin: 0;
 					pointer-events: all;
 
@@ -180,13 +180,13 @@ $thumb-height: 54px;
 		// TODO: apply to all but the last slide dynamically.
 		&:not([data-active="3"]) {
 
-			.wp-smush-tutorials-slider {
+			.sui-tutorials-slider {
 				padding-right: 30px;
 
 				&-buttons {
 					right: -10px;
 
-					.wp-smush-slider-button-next {
+					.sui-tutorials-slider-button-next {
 						float: right;
 					}
 
@@ -199,7 +199,7 @@ $thumb-height: 54px;
 
 		&:not([data-active="1"]) {
 
-			.wp-smush-tutorials-slider {
+			.sui-tutorials-slider {
 				padding-left: 30px;
 
 				&-buttons {
@@ -214,7 +214,8 @@ $thumb-height: 54px;
 	}
 
 	// ELEMENT: Tab box.
-	#smush-box-tutorials {
+	// TODO: move this to showcase.
+	.sui-tutorials[data-tab="list"] {
 
 		.sui-box-header {
 
@@ -234,12 +235,12 @@ $thumb-height: 54px;
 
 		.sui-box-body {
 
-			.wp-smush-tutorials-section {
+			.sui-tutorials-section {
 				margin: 0 -#{$sui-gutter-md};
 				padding: $sui-gutter-md;
 				background-color: #FAFAFA;
 
-				.wp-smush-tutorial-item {
+				.sui-tutorial-item {
 					border: 1px solid #E6E6E6;
 					border-radius: $border-radius;
 					background-color: $white;
@@ -280,7 +281,7 @@ $thumb-height: 54px;
 					&-body {
 						padding: $sui-gutter #{$sui-gutter / 2} #{$sui-gutter-md / 4};
 
-						.wp-smush-tutorial-item-title {
+						.sui-tutorial-item-title {
 							margin: 0;
 							padding: 0;
 							border: 0;
@@ -301,23 +302,23 @@ $thumb-height: 54px;
 						align-items: center;
 						padding: #{$sui-gutter-md / 4} #{$sui-gutter / 2} $sui-gutter;
 
-						.wp-smush-read-more,
-						.wp-smush-reading-time {
+						.sui-tutorial-item-read-more,
+						.sui-tutorial-item-reading-time {
 							margin: 0;
 							@extend .sui-description;
 						}
 
-						.wp-smush-read-more {
+						.sui-tutorial-item-read-more {
 							flex: 0 0 auto;
 							color: $blue;
 							font-weight: 500;
 
-							+ .wp-smush-reading-time {
+							+ .sui-tutorial-item-reading-time {
 								margin-left: 10px;
 							}
 						}
 
-						.wp-smush-reading-time {
+						.sui-tutorial-item-reading-time {
 							flex: 1;
 							text-align: right;
 						}
