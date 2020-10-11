@@ -157,54 +157,88 @@
 
 	};
 
-	$( '.sui-select' ).each( function() {
+	SUI.select.init = ( select ) => {
 
-		let select       = $( this ),
-			getParent    = select.closest( '.sui-modal-content' ),
+		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
-			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
+			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+
+		select.SUIselect({
+			dropdownParent: selectParent,
+			minimumResultsForSearch: hasSearch,
+			dropdownCssClass: isSmall
+		});
+	};
+
+	SUI.select.initIcon = ( select ) => {
+
+		let getParent    = select.closest( '.sui-modal-content' ),
+			getParentId  = getParent.attr( 'id' ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
+			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+
+		select.SUIselect({
+			dropdownParent: selectParent,
+			templateResult: SUI.select.formatIcon,
+			templateSelection: SUI.select.formatIconSelection,
+			escapeMarkup: function( markup ) {
+				return markup;
+			},
+			minimumResultsForSearch: hasSearch,
+			dropdownCssClass: isSmall
+		});
+	};
+
+	SUI.select.initColor = ( select ) => {
+
+		let getParent    = select.closest( '.sui-modal-content' ),
+			getParentId  = getParent.attr( 'id' ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
+			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+
+		select.SUIselect({
+			dropdownParent: selectParent,
+			templateResult: SUI.select.formatColor,
+			templateSelection: SUI.select.formatColorSelection,
+			escapeMarkup: function( markup ) {
+				return markup;
+			},
+			minimumResultsForSearch: hasSearch,
+			dropdownCssClass: isSmall
+		});
+	};
+
+	SUI.select.initSearch = ( select ) => {
+
+		let getParent    = select.closest( '.sui-modal-content' ),
+			getParentId  = getParent.attr( 'id' ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+
+		select.SUIselect({
+			dropdownParent: selectParent,
+			minimumInputLength: 2,
+			maximumSelectionLength: 1,
+			dropdownCssClass: isSmall
+		});
+	};
+
+	$( '.sui-select' ).each( function() {
+
+		let select = $( this );
 
 		if ( 'icon' === select.data( 'theme' ) ) {
-
-			select.SUIselect({
-				dropdownParent: selectParent,
-				templateResult: SUI.select.formatIcon,
-				templateSelection: SUI.select.formatIconSelection,
-				escapeMarkup: function( markup ) {
-					return markup;
-				},
-				minimumResultsForSearch: hasSearch,
-				dropdownCssClass: isSmall
-			});
+			SUI.select.initIcon( select );
 		} else if ( 'color' === select.data( 'theme' ) ) {
-
-			select.SUIselect({
-				dropdownParent: selectParent,
-				templateResult: SUI.select.formatColor,
-				templateSelection: SUI.select.formatColorSelection,
-				escapeMarkup: function( markup ) {
-					return markup;
-				},
-				minimumResultsForSearch: hasSearch,
-				dropdownCssClass: isSmall
-			});
+			SUI.select.initColor( select );
 		} else if ( 'search' === select.data( 'theme' ) ) {
-
-			select.SUIselect({
-				dropdownParent: selectParent,
-				minimumInputLength: 2,
-				maximumSelectionLength: 1,
-				dropdownCssClass: isSmall
-			});
+			SUI.select.initSearch( select );
 		} else {
-
-			select.SUIselect({
-				dropdownParent: selectParent,
-				minimumResultsForSearch: hasSearch,
-				dropdownCssClass: isSmall
-			});
+			SUI.select.init( select );
 		}
 	});
 
