@@ -114,18 +114,25 @@ is_searchable: true
 
 						<p style="margin-top: 0;">It gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
 
-						<!-- BLOCK: Preview -->
-						<div id="component-single-select" class="showcase-component">
+						<div id="component-single-select" class="showcase-component" aria-hidden="true">
 
 							<div class="showcase-component-options">
 
-								<fieldset data-option="states">
+								<fieldset data-option="width">
 
-									<legend>State</legend>
+									<legend>Width</legend>
 
-									<input type="radio" name="single-select-option--state" value="enabled" checked /> Default<br />
-									<input type="radio" name="single-select-option--state" value="disabled" /> Disabled<br />
-									<input type="radio" name="single-select-option--state" value="error" /> Error
+									<input type="radio" name="single-select-option--width" value="default" checked /> Full width<br />
+									<input type="radio" name="single-select-option--width" value="custom" /> Custom
+
+								</fieldset>
+
+								<fieldset data-option="height">
+
+									<legend>Height</legend>
+
+									<input type="radio" name="single-select-option--height" value="default" checked /> 40px<br />
+									<input type="radio" name="single-select-option--height" value="small" /> 30px
 
 								</fieldset>
 
@@ -138,270 +145,211 @@ is_searchable: true
 
 								</fieldset>
 
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
+
+								</fieldset>
+
 							</div>
 
-							<div class="showcase-component-preview" aria-live="polite">
+							<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
 
-								<div class="sui-form-field">
+								<div tabindex="-1" class="sui-tabs-navigation">
+									<button
+										type="button"
+										class="sui-button-icon sui-tabs-navigation--left"
+									>
+										<span class="sui-icon-chevron-left"></span>
+									</button>
+									<button
+										type="button"
+										class="sui-button-icon sui-tabs-navigation--right"
+									>
+										<span class="sui-icon-chevron-right"></span>
+									</button>
+								</div>
 
-									<label class="sui-label">Countries</label>
+								<div role="tablist" class="sui-tabs-menu">
 
-									<select id="single-select-demo" class="sui-select">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-default"
+										class="sui-tab-item active"
+										aria-controls="tab-content-demo-single-default"
+										aria-selected="true"
+									>
+										Default
+									</button>
 
-									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-icon"
+										class="sui-tab-item"
+										aria-controls="tab-content-demo-single-icon"
+										aria-selected="false"
+										tabindex="-1"
+									>
+										Leading icon
+									</button>
 
-									<span class="sui-description">List of South America countries.</span>
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-color"
+										class="sui-tab-item"
+										aria-controls="tab-content-demo-single-color"
+										aria-selected="false"
+										tabindex="-1"
+									>
+										Leading color
+									</button>
 
 								</div>
 
-							</div>
+								<div class="sui-tabs-content">
 
-							<div class="showcase-component-code demo-code-block">
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-default" class="sui-tab-content active" aria-labelledby="tab-demo-single-default">
 
-								<pre class="sui-code-snippet sui-no-copy html">
+										<div class="showcase-component-preview">
+
+<div class="sui-form-field">
+
+	<label class="sui-label">Label</label>
+
+	<select id="select-single-default" class="sui-select">
+		<option>Option 1</option>
+		<option>Option 2</option>
+		<option>Option 3</option>
+		<option>Option 4</option>
+	</select>
+
+</div>
+
+										</div>
+
+										<div class="showcase-component-code demo-code-block">
+
+<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select class=&quot;sui-select&quot;&gt;
+	&lt;select id=&quot;select-single-default&quot; class=&quot;sui-select&quot;&gt;
 		&lt;option&gt;Option 1&lt;/option&gt;
 		&lt;option&gt;Option 2&lt;/option&gt;
 		&lt;option&gt;Option 3&lt;/option&gt;
 		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>
 
-	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
+
+										</div>
+
+									</div>
+
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-icon" class="sui-tab-content" aria-labelledby="tab-demo-single-icon" hidden>
+
+										<div class="showcase-component-preview">
+
+<div class="sui-form-field">
+
+	<label class="sui-label">Label</label>
+
+	<select id="select-single-icon" class="sui-select" data-theme="icon">
+		<option data-icon="copy">Option 1</option>
+		<option data-icon="warning-alert">Option 2</option>
+		<option data-icon="trash">Option 3</option>
+		<option data-icon="pin">Option 4</option>
+	</select>
+
+</div>
+
+										</div>
+
+										<div class="showcase-component-code demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;select-single-icon&quot; class=&quot;sui-select&quot; data-theme=&quot;icon&quot;&gt;
+		&lt;option data-icon="copy"&gt;Option 1&lt;/option&gt;
+		&lt;option data-icon="warning-alert"&gt;Option 2&lt;/option&gt;
+		&lt;option data-icon="trash"&gt;Option 3&lt;/option&gt;
+		&lt;option data-icon="pin"&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
 
 &lt;/div&gt;
-								</pre>
+</pre>
 
-								<button class="showcase-component-code--more">
-									Show More
-									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
-								</button>
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
 
-							</div>
+										</div>
 
-						</div>
+									</div>
 
-						<hr />
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-color" class="sui-tab-content" aria-labelledby="tab-demo-single-color" hidden>
 
-						<div class="sui-box-settings-row">
+										<div class="showcase-component-preview">
 
-							<div class="sui-box-settings-col-1">
-								<h4 class="sui-settings-label">Selector Size</h4>
-							</div>
+<div class="sui-form-field">
 
-							<div class="sui-box-settings-col-2">
+	<label class="sui-label">Label</label>
 
-								<div class="sui-form-field">
+	<select id="select-single-color" class="sui-select" data-theme="color">
+		<option data-color="white">Option 1</option>
+		<option data-color="yellow">Option 2</option>
+		<option data-color="blue">Option 3</option>
+		<option data-color="black">Option 4</option>
+	</select>
 
-									<label class="sui-label">Default size</label>
+</div>
 
-									<select class="sui-select">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
+										</div>
 
-								</div>
+										<div class="showcase-component-code demo-code-block">
 
-								<div class="sui-form-field">
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
 
-									<label class="sui-label">Custom width</label>
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-									<select class="sui-select" data-width="200px">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
+	&lt;select id=&quot;select-single-color&quot; class=&quot;sui-select&quot; data-theme=&quot;color&quot;&gt;
+		&lt;option data-color="white"&gt;Option 1&lt;/option&gt;
+		&lt;option data-color="yellow"&gt;Option 2&lt;/option&gt;
+		&lt;option data-color="blue"&gt;Option 3&lt;/option&gt;
+		&lt;option data-color="black"&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
 
-								</div>
+&lt;/div&gt;
+</pre>
 
-								<div class="sui-form-field">
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
 
-									<label class="sui-label">Small height (30px)</label>
+										</div>
 
-									<select class="sui-select" data-height="sm">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-settings-row">
-
-							<div class="sui-box-settings-col-1">
-								<h4 class="sui-settings-label">Selector Position</h4>
-							</div>
-
-							<div class="sui-box-settings-col-2">
-
-								<div class="sui-form-field">
-
-									<label class="sui-label">Single line selector</label>
-
-									<select class="sui-select">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
-
-								</div>
-
-								<div class="sui-form-field">
-
-									<label class="sui-label">Inline selector</label>
-
-									<span class="sui-field-prefix">Prefix</span>
-
-									<select class="sui-select sui-select-inline" data-width="200px" data-height="sm">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
-
-									<span class="sui-field-suffix">Suffix</span>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="sui-box-settings-row">
-
-							<div class="sui-box-settings-col-1">
-								<h4 class="sui-settings-label">Dropdown Options</h4>
-							</div>
-
-							<div class="sui-box-settings-col-2">
-
-								<div class="sui-form-field">
-
-									<label class="sui-label">Default dropdown options</label>
-
-									<select class="sui-select">
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Falkland Islands</option>
-										<option>French Guiana</option>
-										<option>Guyana</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Suriname</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
-									</select>
-
-								</div>
-
-								<div class="sui-form-field">
-
-									<label class="sui-label">Dropdown options with icons</label>
-
-									<select class="sui-select" data-theme="icon">
-										<option data-icon="align-left">Left</option>
-										<option data-icon="align-center">Center</option>
-										<option data-icon="align-right">Right</option>
-										<option data-icon="align-justify">Justify</option>
-									</select>
-
-								</div>
-
-								<div class="sui-form-field">
-
-									<label class="sui-label">Dropdown options with colors</label>
-
-									<select class="sui-select" data-theme="color">
-										<option data-color="#FAFAFA">Cloud</option>
-										<option data-color="#F2F2F2">Smoke</option>
-										<option data-color="#DDDDDD">Overcast</option>
-										<option data-color="#666666">Ironmike</option>
-										<option data-color="#333333">Nightrider</option>
-										<option data-color="#17A8E3">Blue</option>
-										<option data-color="#1ABC9C">Green</option>
-										<option data-color="#FECF2F">Yellow</option>
-										<option data-color="#FF6D6D">Red</option>
-										<option data-color="#8D00B1">Purple</option>
-									</select>
+									</div>
 
 								</div>
 
@@ -476,7 +424,7 @@ is_searchable: true
 
 							<div class="showcase-component-code demo-code-block">
 
-								<pre class="sui-code-snippet sui-no-copy html">
+								<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
@@ -571,7 +519,7 @@ is_searchable: true
 
 							<div class="showcase-component-code demo-code-block">
 
-								<pre class="sui-code-snippet sui-no-copy html">
+								<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
@@ -948,28 +896,111 @@ $( '#unique-id' ).SUIselect({
 
 			<hr />
 
-			<h4 style="margin: 0;">*-data attributes</h4>
+			<h4 style="margin: 0;">data-* attributes</h4>
 
 			<p style="margin: 0 0 20px;">It is recommended that you declare your configuration options by passing in an object when initializing SUIselect. However, you may also define your configuration options by using the HTML5 data-* attributes, which will override any options set when initializing SUIselect and any defaults.</p>
 
-			<ol>
-				<li><strong>data-placeholder</strong> make use of this attribute along with an empty <code>&lt;option&gt;</code> at the beginning of the options' list.</li>
-				<li><strong>data-theme</strong> can be: default, icon, color, or search. When using <strong>icon</strong> or <strong>color</strong> value you need to mix it with <strong>templateResult</strong>, <strong>templateSelection</strong> and <strong>escapeMarkup</strong> options to make sure you assign the correct markup to the chosen theme.</li>
-			</ol>
+			<table class="sui-table">
 
-			<div class="demo-code-block">
+				<thead>
 
-<pre class="sui-code-snippet html">
-&lt;select
-	data-placeholder=&quot;Placeholder&quot;
-	data-theme=&quot;default&quot;
-&gt;
-	&lt;option&gt;&lt;/option&gt;
-	&lt;option&gt;Option 1&lt;/option&gt;
-	&lt;option&gt;Option 2&lt;/option&gt;
-	&lt;option&gt;Option 3&lt;/option&gt;
-&lt;/select&gt;
-</pre>
+					<tr>
+						<th colspan="1">Attribute</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>data-theme</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Enables markup and styles for different select styles. Use <code>icon</code>, <code>color</code> or <code>search</code> value depending the case. Make use of <strong>Examples</strong> tab to confirm the correct markup.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-placeholder</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Make use of this attribute along with an empty <code>&lt;option&gt;</code> at the beginning of the options' list.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-width</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Include any fixed value you need for the selector, for example <code>200px</code>.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-height</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Use this attribute with <code>sm</code> value to make selector height 30px.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-search</code></td>
+						<td colspan="1">false</td>
+						<td colspan="3">Use <code>true</code> value when you need to enable search input on dropdown list.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<hr />
+
+			<h4 style="margin: 0;">Classes</h4>
+
+			<p style="margin: 0 0 20px;">Select element by default occupies a single row and the full width of it, but there are times when you need to use it as an inline element. For that, you need to add <code>sui-select-inline</code> class to select element.</p>
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Select (default)</label>
+
+				<select class="sui-select">
+					<option>Argentina</option>
+					<option>Bolivia</option>
+					<option>Brasil</option>
+					<option>Chile</option>
+					<option>Colombia</option>
+					<option>Ecuador</option>
+					<option>Falkland Islands</option>
+					<option>French Guiana</option>
+					<option>Guyana</option>
+					<option>Paraguay</option>
+					<option>Peru</option>
+					<option>Suriname</option>
+					<option>Uruguay</option>
+					<option>Venezuela</option>
+				</select>
+
+			</div>
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Select inline</label>
+
+				<span class="sui-field-prefix">Prefix</span>
+
+				<select class="sui-select sui-select-inline">
+					<option>Argentina</option>
+					<option>Bolivia</option>
+					<option>Brasil</option>
+					<option>Chile</option>
+					<option>Colombia</option>
+					<option>Ecuador</option>
+					<option>Falkland Islands</option>
+					<option>French Guiana</option>
+					<option>Guyana</option>
+					<option>Paraguay</option>
+					<option>Peru</option>
+					<option>Suriname</option>
+					<option>Uruguay</option>
+					<option>Venezuela</option>
+				</select>
+
+				<span class="sui-field-suffix">Suffix</span>
 
 			</div>
 

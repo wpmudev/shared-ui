@@ -8,6 +8,216 @@
 		window.DEMO = {};
 	}
 
+	DEMO.previewSelect = ( el ) => {
+
+		var component = $( el ),
+			options   = component.find( '.showcase-component-options' ),
+			option    = options.find( 'input' ),
+			select    = component.find( 'select' )
+			;
+
+		function changeWidth() {
+
+			var option = options.find( '[data-option="width"] input' );
+
+			option.on( 'click', function() {
+
+				var option = $( this );
+
+				select.each( function() {
+
+					var select = $( this );
+
+					if ( 'custom' === option.val() ) {
+						select.attr( 'data-width', '200px' );
+					} else {
+						select.removeAttr( 'data-width' );
+					}
+				});
+
+			});
+
+		}
+
+		function changeHeight() {
+
+			var option = options.find( '[data-option="height"] input' );
+
+			option.on( 'click', function() {
+
+				var option = $( this );
+
+				select.each( function() {
+
+					var select = $( this );
+
+					if ( 'small' === option.val() ) {
+						select.attr( 'data-height', 'sm' );
+					} else {
+						select.removeAttr( 'data-height' );
+					}
+				});
+
+			});
+
+		}
+
+		function changeAssistiveText() {
+
+			var option = options.find( '[data-option="assistive-text"] input' );
+
+			option.on( 'click', function() {
+
+				var option = $( this );
+
+				select.each( function() {
+
+					var select = $( this ),
+						field  = select.parent();
+
+					var helper = '<p id="' + select.attr( 'id' ) + '-helper" class="sui-description">Helper message</p>',
+						error  = '<p id="' + select.attr( 'id' ) + '-error" class="sui-error-message">Error message</p>';
+
+					field.removeClass( 'sui-form-field-error' );
+					field.find( '.sui-description' ).remove();
+					field.find( '.sui-error-message' ).remove();
+
+					if ( 'helper' === option.val() ) {
+						field.append( helper );
+					} else if ( 'error' === option.val() ) {
+						field.append( error );
+						field.addClass( 'sui-form-field-error' );
+					} else if ( 'error-helper' === option.val() ) {
+						field.append( error );
+						field.find( '.sui-error-message' ).css( 'margin-bottom', 0 );
+						field.append( helper );
+						field.addClass( 'sui-form-field-error' );
+					}
+				});
+
+			});
+
+		}
+
+		function changePlaceholder() {
+
+			var option = options.find( '#single-select-option--placeholder' );
+
+			option.on( 'click', function() {
+
+				var option = $( this );
+
+				select.each( function() {
+
+					var select = $( this );
+
+					// Copy select options.
+					var selectOptions = select.children().clone();
+
+					if ( option.is( ':checked' ) ) {
+
+						select.attr( 'data-placeholder', 'Placeholder' );
+
+						if ( '' !== select.find( 'option:first' ).val() ) {
+							select
+								.empty() // Empty select options.
+								.append( '<option></option>' ) // Add empty option to select.
+								.append( selectOptions ) // Paste original options to select.
+								;
+						}
+					} else {
+						select
+							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
+							.find( 'option' )
+							.filter( function() {
+								return ! this.value || 0 === $.trim( this.value ).length; // Find empty option.
+							})
+							.remove() // Remove empty option.
+							;
+					}
+				});
+			});
+		}
+
+		function changeSearch() {
+
+			var option = options.find( '#single-select-option--search' );
+
+			option.on( 'click', function() {
+
+				var option = $( this );
+
+				select.each( function() {
+
+					var select = $( this );
+
+					if ( option.is( ':checked' ) ) {
+						select.attr( 'data-search', 'true' );
+					} else {
+						select.removeAttr( 'data-search' );
+					}
+				});
+			});
+		}
+
+		function markup( el ) {
+
+			var code = el.closest( '.sui-tab-content' ).find( '.showcase-component-code pre' );
+
+			// Remove unnecessary attributes.
+			el.removeAttr( 'tabindex' );
+			el.removeAttr( 'aria-hidden' );
+
+			// Get component code.
+			code.text( el.parent( '.sui-form-field' )[0].outerHTML );
+			code.text().trim().replace( /(?:(?:\r\n|\r|\n)\s*){3}/gm, '' );
+
+			// Initialize highlight js for demo code blocks.
+			code.each( function( i, block ) {
+				hljs.highlightBlock( block );
+			});
+
+		}
+
+		function init() {
+
+			changeWidth();
+			changeHeight();
+			changePlaceholder();
+			changeAssistiveText();
+			changeSearch();
+
+			// Re-build select.
+			option.on( 'click', function() {
+
+				select.each( function() {
+
+					var select = $( this );
+
+					// Destroy.
+					select.SUIselect( 'destroy' );
+
+					// Get sample markup.
+					markup( select );
+
+					// Initialize.
+					if ( 'icon' === select.attr( 'data-theme' ) ) {
+						SUI.select.initIcon( select );
+					} else if ( 'color' === select.attr( 'data-theme' ) ) {
+						SUI.select.initColor( select );
+					} else {
+						SUI.select.init( select );
+					}
+				});
+			});
+		}
+
+		init();
+
+		return this;
+
+	};
+
 	DEMO.pageSelect = ( page ) => {
 
 		var body = $( 'body' ),
@@ -200,1159 +410,10 @@
 			});
 		}
 
-		function singleSelect( select ) {
-
-			let option, hasPlaceholder, hasSearch, selectOptions;
-
-			select = $( select );
-
-			const container = $( '#component-single-select' );
-			const options   = container.find( '.showcase-component-options' );
-
-			const fieldStates      = options.find( '[data-option="states"]' );
-			const fieldPlaceholder = options.find( '#single-select-option--placeholder' );
-			const fieldSearch      = options.find( '#single-select-option--search' );
-
-			let format = '',
-				formatSelection = '';
-
-			if ( 'icon' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatIcon;
-				formatSelection = SUI.select.formatIconSelection;
-			} else if ( 'color' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatColor;
-				formatSelection = SUI.select.formatColorSelection;
-			}
-
-			let isSmall = false;
-
-			if ( select.hasClass( 'sui-select-sm' ) ) {
-				isSmall = true;
-			}
-
-			// OPTIONS: States.
-			fieldStates.find( 'input' ).on( 'click', function() {
-
-				option = $( this );
-
-				// Add "disabled" attribute.
-				if ( 'disabled' === option.val() ) {
-					select.attr( 'disabled', true );
-				} else {
-					select.removeAttr( 'disabled' );
-				}
-
-				// Add "error" class.
-				if ( 'error' === option.val() ) {
-					select.closest( '.sui-form-field' ).addClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeAttr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).text( 'This field is required. Please, pick an option before continuing.' );
-				} else {
-					select.closest( '.sui-form-field' ).removeClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).attr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).addClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).empty();
-				}
-			});
-
-			// OPTIONS: Placeholder.
-			fieldPlaceholder.on( 'click', function() {
-
-				option    = $( this );
-				hasSearch = ( fieldSearch.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					// Copy select options.
-					selectOptions = select.children().clone();
-
-					select
-						.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-						.empty() // Empty select options.
-						.append( '<option></option>' ) // Add empty option to select.
-						.append( selectOptions ) // Paste original options to select.
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				} else {
-
-					select
-						.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-						.find( 'option' )
-						.filter( function() {
-							return ! this.value || 0 === $.trim( this.value ).length;
-						})
-						.remove()
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				}
-			});
-
-			// OPTIONS: Search List.
-			fieldSearch.on( 'click', function() {
-
-				option         = $( this );
-				hasPlaceholder = ( fieldPlaceholder.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect();
-						}
-					}
-				} else {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity
-							});
-						}
-					}
-				}
-			});
-		}
-
-		function singleSelectIcon( select ) {
-
-			let option, hasPlaceholder, hasSearch, selectOptions;
-
-			select = $( select );
-
-			const container = $( '#component-single-select-icon' );
-			const options   = container.find( '.showcase-component-options' );
-
-			const fieldStates      = options.find( '[data-option="states"]' );
-			const fieldPlaceholder = options.find( '#single-select-icon-option--placeholder' );
-			const fieldSearch      = options.find( '#single-select-icon-option--search' );
-
-			let format = '',
-				formatSelection = '';
-
-			if ( 'icon' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatIcon;
-				formatSelection = SUI.select.formatIconSelection;
-			} else if ( 'color' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatColor;
-				formatSelection = SUI.select.formatColorSelection;
-			}
-
-			let isSmall = false;
-
-			if ( select.hasClass( 'sui-select-sm' ) ) {
-				isSmall = true;
-			}
-
-			// OPTIONS: States.
-			fieldStates.find( 'input' ).on( 'click', function() {
-
-				option = $( this );
-
-				// Add "disabled" attribute.
-				if ( 'disabled' === option.val() ) {
-					select.attr( 'disabled', true );
-				} else {
-					select.removeAttr( 'disabled' );
-				}
-
-				// Add "error" class.
-				if ( 'error' === option.val() ) {
-					select.closest( '.sui-form-field' ).addClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeAttr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).text( 'This field is required. Please, pick an option before continuing.' );
-				} else {
-					select.closest( '.sui-form-field' ).removeClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).attr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).addClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).empty();
-				}
-			});
-
-			// OPTIONS: Placeholder.
-			fieldPlaceholder.on( 'click', function() {
-
-				option    = $( this );
-				hasSearch = ( fieldSearch.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					// Copy select options.
-					selectOptions = select.children().clone();
-
-					select
-						.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-						.empty() // Empty select options.
-						.append( '<option></option>' ) // Add empty option to select.
-						.append( selectOptions ) // Paste original options to select.
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				} else {
-
-					select
-						.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-						.find( 'option' )
-						.filter( function() {
-							return ! this.value || 0 === $.trim( this.value ).length;
-						})
-						.remove()
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				}
-			});
-
-			// OPTIONS: Search List.
-			fieldSearch.on( 'click', function() {
-
-				option         = $( this );
-				hasPlaceholder = ( fieldPlaceholder.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect();
-						}
-					}
-				} else {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity
-							});
-						}
-					}
-				}
-			});
-		}
-
-		function singleSelectColor( select ) {
-
-			let option, hasPlaceholder, hasSearch, selectOptions;
-
-			select = $( select );
-
-			const container = $( '#component-single-select-color' );
-			const options   = container.find( '.showcase-component-options' );
-
-			const fieldStates      = options.find( '[data-option="states"]' );
-			const fieldPlaceholder = options.find( '#single-select-color-option--placeholder' );
-			const fieldSearch      = options.find( '#single-select-color-option--search' );
-
-			let format = '',
-				formatSelection = '';
-
-			if ( 'icon' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatIcon;
-				formatSelection = SUI.select.formatIconSelection;
-			} else if ( 'color' === select.attr( 'data-theme' ) ) {
-				format = SUI.select.formatColor;
-				formatSelection = SUI.select.formatColorSelection;
-			}
-
-			let isSmall = false;
-
-			if ( select.hasClass( 'sui-select-sm' ) ) {
-				isSmall = true;
-			}
-
-			// OPTIONS: States.
-			fieldStates.find( 'input' ).on( 'click', function() {
-
-				option = $( this );
-
-				// Add "disabled" attribute.
-				if ( 'disabled' === option.val() ) {
-					select.attr( 'disabled', true );
-				} else {
-					select.removeAttr( 'disabled' );
-				}
-
-				// Add "error" class.
-				if ( 'error' === option.val() ) {
-					select.closest( '.sui-form-field' ).addClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeAttr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).text( 'This field is required. Please, pick an option before continuing.' );
-				} else {
-					select.closest( '.sui-form-field' ).removeClass( 'sui-form-field-error' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).attr( 'hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).addClass( 'sui-hidden' );
-					select.closest( '.sui-form-field' ).find( '.sui-error-message' ).empty();
-				}
-			});
-
-			// OPTIONS: Placeholder.
-			fieldPlaceholder.on( 'click', function() {
-
-				option    = $( this );
-				hasSearch = ( fieldSearch.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					// Copy select options.
-					selectOptions = select.children().clone();
-
-					select
-						.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-						.empty() // Empty select options.
-						.append( '<option></option>' ) // Add empty option to select.
-						.append( selectOptions ) // Paste original options to select.
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( true === isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				} else {
-
-					select
-						.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-						.find( 'option' )
-						.filter( function() {
-							return ! this.value || 0 === $.trim( this.value ).length;
-						})
-						.remove()
-						;
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					// Init SUIselect.
-					if ( true === hasSearch ) {
-
-						if ( '' !== format ) {
-
-							if ( isSmall ) {
-
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect();
-							}
-						}
-					} else {
-
-						if ( '' !== format ) {
-
-							if ( true === isSmall ) {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm',
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							} else {
-
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									templateResult: format,
-									templateSelection: formatSelection,
-									escapeMarkup: function( markup ) {
-										return markup;
-									}
-								});
-							}
-						} else {
-
-							if ( isSmall ) {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity,
-									dropdownCssClass: 'sui-dropdown-sm'
-								});
-							} else {
-								select.SUIselect({
-									minimumResultsForSearch: Infinity
-								});
-							}
-						}
-					}
-				}
-			});
-
-			// OPTIONS: Search List.
-			fieldSearch.on( 'click', function() {
-
-				option         = $( this );
-				hasPlaceholder = ( fieldPlaceholder.is( ':checked' ) ) ? true : false;
-
-				if ( option.is( ':checked' ) ) {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect();
-						}
-					}
-				} else {
-
-					if ( true === hasPlaceholder ) {
-
-						// Copy select options.
-						selectOptions = select.children().clone();
-
-						select
-							.attr( 'data-placeholder', 'Placeholder' ) // Add placeholder attribute.
-							.empty() // Empty select options.
-							.append( '<option></option>' ) // Add empty option to select.
-							.append( selectOptions ) // Paste original options to select.
-							;
-
-					} else {
-
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length;
-							})
-							.remove()
-							;
-
-					}
-
-					// Destroy SUIselect.
-					select.SUIselect( 'destroy' );
-
-					if ( '' !== format ) {
-
-						if ( true === isSmall ) {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm',
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						} else {
-
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								templateResult: format,
-								templateSelection: formatSelection,
-								escapeMarkup: function( markup ) {
-									return markup;
-								}
-							});
-						}
-					} else {
-
-						if ( true === isSmall ) {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity,
-								dropdownCssClass: 'sui-dropdown-sm'
-							});
-						} else {
-							select.SUIselect({
-								minimumResultsForSearch: Infinity
-							});
-						}
-					}
-				}
-			});
-		}
-
 		function init() {
 
 			// DEMO: Single Select.
-			singleSelect( '#single-select-demo' );
+			DEMO.previewSelect( '#component-single-select' );
 
 			// DEMO: Multi Select.
 			multiSelect( $( '#multi-select-demo' ) );
