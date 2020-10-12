@@ -20,149 +20,167 @@
 
 			var option = options.find( '[data-option="width"] input' );
 
-			option.on( 'click', function() {
+			if ( options.find( '[data-option="width"]' ).length ) {
 
-				var option = $( this );
+				option.on( 'click', function() {
 
-				select.each( function() {
+					var option = $( this );
 
-					var select = $( this );
+					select.each( function() {
 
-					if ( 'custom' === option.val() ) {
-						select.attr( 'data-width', '200px' );
-					} else {
-						select.removeAttr( 'data-width' );
-					}
+						var select = $( this );
+
+						if ( 'custom' === option.val() ) {
+							select.attr( 'data-width', '200px' );
+						} else {
+							select.removeAttr( 'data-width' );
+						}
+					});
+
 				});
 
-			});
-
+			}
 		}
 
 		function changeHeight() {
 
 			var option = options.find( '[data-option="height"] input' );
 
-			option.on( 'click', function() {
+			if ( options.find( '[data-option="height"]' ).length ) {
 
-				var option = $( this );
+				option.on( 'click', function() {
 
-				select.each( function() {
+					var option = $( this );
 
-					var select = $( this );
+					select.each( function() {
 
-					if ( 'small' === option.val() ) {
-						select.attr( 'data-height', 'sm' );
-					} else {
-						select.removeAttr( 'data-height' );
-					}
+						var select = $( this );
+
+						if ( 'small' === option.val() ) {
+							select.attr( 'data-height', 'sm' );
+						} else {
+							select.removeAttr( 'data-height' );
+						}
+					});
+
 				});
 
-			});
-
+			}
 		}
 
 		function changeAssistiveText() {
 
 			var option = options.find( '[data-option="assistive-text"] input' );
 
-			option.on( 'click', function() {
+			if ( options.find( '[data-option="assistive-text"]' ).length ) {
 
-				var option = $( this );
+				option.on( 'click', function() {
 
-				select.each( function() {
+					var option = $( this );
 
-					var select = $( this ),
-						field  = select.parent();
+					select.each( function() {
 
-					var helper = '<p id="' + select.attr( 'id' ) + '-helper" class="sui-description">Helper message</p>',
-						error  = '<p id="' + select.attr( 'id' ) + '-error" class="sui-error-message">Error message</p>';
+						var select = $( this ),
+							field  = select.parent();
 
-					field.removeClass( 'sui-form-field-error' );
-					field.find( '.sui-description' ).remove();
-					field.find( '.sui-error-message' ).remove();
+						var helper = '<p id="' + select.attr( 'id' ) + '-helper" class="sui-description">Helper message</p>',
+							error  = '<p id="' + select.attr( 'id' ) + '-error" class="sui-error-message">Error message</p>';
 
-					if ( 'helper' === option.val() ) {
-						field.append( helper );
-					} else if ( 'error' === option.val() ) {
-						field.append( error );
-						field.addClass( 'sui-form-field-error' );
-					} else if ( 'error-helper' === option.val() ) {
-						field.append( error );
-						field.find( '.sui-error-message' ).css( 'margin-bottom', 0 );
-						field.append( helper );
-						field.addClass( 'sui-form-field-error' );
-					}
+						field.removeClass( 'sui-form-field-error' );
+						field.find( '.sui-description' ).remove();
+						field.find( '.sui-error-message' ).remove();
+
+						if ( 'helper' === option.val() ) {
+							field.append( helper );
+						} else if ( 'error' === option.val() ) {
+							field.append( error );
+							field.addClass( 'sui-form-field-error' );
+						} else if ( 'error-helper' === option.val() ) {
+							field.append( error );
+							field.find( '.sui-error-message' ).css( 'margin-bottom', 0 );
+							field.append( helper );
+							field.addClass( 'sui-form-field-error' );
+						}
+					});
+
 				});
 
-			});
-
+			}
 		}
 
 		function changePlaceholder() {
 
-			var option = options.find( '#single-select-option--placeholder' );
+			var option = options.find( '.single-select-option--placeholder' );
 
-			option.on( 'click', function() {
+			if ( option.length ) {
 
-				var option = $( this );
+				option.on( 'click', function() {
 
-				select.each( function() {
+					var option = $( this );
 
-					var select = $( this );
+					select.each( function() {
 
-					// Copy select options.
-					var selectOptions = select.children().clone();
+						var select = $( this );
 
-					if ( option.is( ':checked' ) ) {
+						// Copy select options.
+						var selectOptions = select.children().clone();
 
-						select.attr( 'data-placeholder', 'Placeholder' );
+						if ( option.is( ':checked' ) ) {
 
-						if ( '' !== select.find( 'option:first' ).val() ) {
+							select.attr( 'data-placeholder', 'Placeholder' );
+
+							if ( '' !== select.find( 'option:first' ).val() ) {
+								select
+									.empty() // Empty select options.
+									.append( '<option></option>' ) // Add empty option to select.
+									.append( selectOptions ) // Paste original options to select.
+									;
+							}
+						} else {
 							select
-								.empty() // Empty select options.
-								.append( '<option></option>' ) // Add empty option to select.
-								.append( selectOptions ) // Paste original options to select.
+								.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
+								.find( 'option' )
+								.filter( function() {
+									return ! this.value || 0 === $.trim( this.value ).length; // Find empty option.
+								})
+								.remove() // Remove empty option.
 								;
 						}
-					} else {
-						select
-							.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
-							.find( 'option' )
-							.filter( function() {
-								return ! this.value || 0 === $.trim( this.value ).length; // Find empty option.
-							})
-							.remove() // Remove empty option.
-							;
-					}
+					});
 				});
-			});
+
+			}
 		}
 
 		function changeSearch() {
 
-			var option = options.find( '#single-select-option--search' );
+			var option = options.find( '.single-select-option--search' );
 
-			option.on( 'click', function() {
+			if ( option.length ) {
 
-				var option = $( this );
+				option.on( 'click', function() {
 
-				select.each( function() {
+					var option = $( this );
 
-					var select = $( this );
+					select.each( function() {
 
-					if ( option.is( ':checked' ) ) {
-						select.attr( 'data-search', 'true' );
-					} else {
-						select.removeAttr( 'data-search' );
-					}
+						var select = $( this );
+
+						if ( option.is( ':checked' ) ) {
+							select.attr( 'data-search', 'true' );
+						} else {
+							select.removeAttr( 'data-search' );
+						}
+					});
 				});
-			});
+
+			}
 		}
 
 		function markup( el ) {
 
-			var code = el.closest( '.sui-tab-content' ).find( '.showcase-component-code pre' );
+			var container = ( el.closest( '.sui-tab-content' ).length ) ? el.closest( '.sui-tab-content' ) : component,
+				code      = container.find( '.showcase-component-code pre' );
 
 			// Remove unnecessary attributes.
 			el.removeAttr( 'tabindex' );
@@ -205,6 +223,8 @@
 						SUI.select.initIcon( select );
 					} else if ( 'color' === select.attr( 'data-theme' ) ) {
 						SUI.select.initColor( select );
+					} else if ( 'search' === select.attr( 'data-theme' ) ) {
+						SUI.select.initSearch( select );
 					} else {
 						SUI.select.init( select );
 					}
@@ -228,198 +248,16 @@
 			return;
 		}
 
-		function multiSelect( select ) {
-
-			var container = select.closest( '.showcase-component' ),
-				options   = container.find( '.showcase-component-options' ),
-				option    = options.find( 'fieldset' )
-				;
-
-			option.each( function() {
-
-				self = $( this );
-
-				if ( 'states' === $( this ).data( 'option' ) ) {
-
-					option = $( this ).find( 'input[type="radio"]' );
-
-					option.on( 'click', function() {
-
-						if ( 'disabled' === $( this ).val() ) {
-							select.attr( 'disabled', true );
-						} else {
-							select.attr( 'disabled', false );
-							select.removeAttr( 'disabled' );
-						}
-
-						if ( 'error' === $( this ).val() ) {
-							select.closest( '.sui-form-field' ).addClass( 'sui-form-field-error' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeAttr( 'hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeClass( 'sui-hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).text( 'This field is required. Please, pick an option before continuing.' );
-						} else {
-							select.closest( '.sui-form-field' ).removeClass( 'sui-form-field-error' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).attr( 'hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).addClass( 'sui-hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).empty();
-						}
-					});
-				}
-
-				if ( 'options' === $( this ).data( 'option' ) ) {
-
-					option = $( this ).find( 'input[type="checkbox"]' );
-
-					option.on( 'click', function() {
-
-						if ( $( this ).is( ':checked' ) ) {
-
-							// Add placeholder.
-							if ( 'placeholder' === $( this ).val() ) {
-
-								options = select.children().clone();
-
-								select
-									.attr( 'data-placeholder', 'Select Option' )
-									.empty()
-									.append( '<option></option>' )
-									.append( options )
-									;
-
-								select
-									.SUIselect( 'destroy' )
-									.SUIselect()
-									;
-							}
-						} else {
-
-							// Remove placeholder.
-							if ( 'placeholder' === $( this ).val() ) {
-
-								select
-									.removeAttr( 'data-placeholder' )
-									.find( 'option' )
-									.filter( function() {
-										return ! this.value || 0 === $.trim( this.value ).length;
-									})
-									.remove()
-									;
-
-								select
-									.SUIselect( 'destroy' )
-									.SUIselect()
-									;
-							}
-						}
-					});
-				}
-			});
-		}
-
-		function smartSearch( select ) {
-
-			var container = select.closest( '.showcase-component' ),
-				options   = container.find( '.showcase-component-options' ),
-				option    = options.find( 'fieldset' )
-				;
-
-			option.each( function() {
-
-				self = $( this );
-
-				if ( 'states' === $( this ).data( 'option' ) ) {
-
-					option = $( this ).find( 'input[type="radio"]' );
-
-					option.on( 'click', function() {
-
-						if ( 'disabled' === $( this ).val() ) {
-							select.attr( 'disabled', true );
-						} else {
-							select.attr( 'disabled', false );
-							select.removeAttr( 'disabled' );
-						}
-
-						if ( 'error' === $( this ).val() ) {
-							select.closest( '.sui-form-field' ).addClass( 'sui-form-field-error' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeAttr( 'hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).removeClass( 'sui-hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).text( 'This field is required. Please, pick an option before continuing.' );
-						} else {
-							select.closest( '.sui-form-field' ).removeClass( 'sui-form-field-error' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).attr( 'hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).addClass( 'sui-hidden' );
-							select.closest( '.sui-form-field' ).find( '.sui-error-message' ).empty();
-						}
-					});
-				}
-
-				if ( 'options' === $( this ).data( 'option' ) ) {
-
-					option = $( this ).find( 'input[type="checkbox"]' );
-
-					option.on( 'click', function() {
-
-						if ( $( this ).is( ':checked' ) ) {
-
-							// Add placeholder.
-							if ( 'placeholder' === $( this ).val() ) {
-
-								options = select.children().clone();
-
-								select
-									.attr( 'data-placeholder', 'Select Option' )
-									.empty()
-									.append( '<option></option>' )
-									.append( options )
-									;
-
-								select
-									.SUIselect( 'destroy' )
-									.SUIselect({
-										minimumInputLength: 2,
-										maximumSelectionLength: 1
-									})
-									;
-							}
-						} else {
-
-							// Remove placeholder.
-							if ( 'placeholder' === $( this ).val() ) {
-
-								select
-									.removeAttr( 'data-placeholder' )
-									.find( 'option' )
-									.filter( function() {
-										return ! this.value || 0 === $.trim( this.value ).length;
-									})
-									.remove()
-									;
-
-								select
-									.SUIselect( 'destroy' )
-									.SUIselect({
-										minimumInputLength: 2,
-										maximumSelectionLength: 1
-									})
-									;
-							}
-						}
-					});
-				}
-			});
-		}
-
 		function init() {
 
 			// DEMO: Single Select.
 			DEMO.previewSelect( '#component-single-select' );
 
 			// DEMO: Multi Select.
-			multiSelect( $( '#multi-select-demo' ) );
+			DEMO.previewSelect( '#component-multi-select' );
 
 			// DEMO: Smart Search.
-			smartSearch( $( '#smart-search-demo' ) );
+			DEMO.previewSelect( '#component-smart-select' );
 
 		}
 
