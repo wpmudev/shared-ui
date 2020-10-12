@@ -33,7 +33,7 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Designs -->
+	<!-- SECTION: Examples -->
 	<div class="sui-box" data-tab="examples">
 
 		<div class="sui-box-header" style="display: block;">
@@ -140,8 +140,8 @@ is_searchable: true
 
 									<legend>Options</legend>
 
-									<input type="checkbox" id="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
-									<input type="checkbox" id="single-select-option--search" value="search" /> Search List
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
+									<input type="checkbox" class="single-select-option--search" value="search" /> Search List
 
 								</fieldset>
 
@@ -371,25 +371,26 @@ is_searchable: true
 
 						<p style="margin-top: 0;">It gives users the ability to choose multiple items from a list of dropdown menu items. It's usually found in forms.</p>
 
-						<div class="showcase-component">
+						<div id="component-multi-select" class="showcase-component">
 
 							<div class="showcase-component-options">
-
-								<fieldset data-option="states">
-
-									<legend>State</legend>
-
-									<input type="radio" name="multi-select-option--state" value="enabled" checked /> Default<br />
-									<input type="radio" name="multi-select-option--state" value="disabled" /> Disabled<br />
-									<input type="radio" name="multi-select-option--state" value="error" /> Error
-
-								</fieldset>
 
 								<fieldset data-option="options">
 
 									<legend>Options</legend>
 
-									<input type="checkbox" id="multi-select-option--placeholder" value="placeholder" /> Placeholder
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder
+
+								</fieldset>
+
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
 
 								</fieldset>
 
@@ -399,24 +400,14 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Countries</label>
+									<label class="sui-label">Label</label>
 
-									<select id="multi-select-demo" class="sui-select" multiple>
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
+									<select id="select-multi-default" class="sui-select" multiple>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+										<option>Option 4</option>
 									</select>
-
-									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
-
-									<span class="sui-description">List of South America countries.</span>
 
 								</div>
 
@@ -435,10 +426,6 @@ is_searchable: true
 		&lt;option&gt;Option 3&lt;/option&gt;
 		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
-
-	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
-
-	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
 
 &lt;/div&gt;
 								</pre>
@@ -466,25 +453,26 @@ is_searchable: true
 
 						<p style="margin-top: 0;">It gives users the ability to type, search and choose a single item from a list of dropdown menu items. It's usually found in forms.</p>
 
-						<div class="showcase-component">
+						<div id="component-smart-select" class="showcase-component">
 
 							<div class="showcase-component-options">
-
-								<fieldset data-option="states">
-
-									<legend>State</legend>
-
-									<input type="radio" name="smart-search-option--state" value="enabled" checked /> Default<br />
-									<input type="radio" name="smart-search-option--state" value="disabled" /> Disabled<br />
-									<input type="radio" name="smart-search-option--state" value="error" /> Error
-
-								</fieldset>
 
 								<fieldset data-option="options">
 
 									<legend>Options</legend>
 
-									<input type="checkbox" id="smart-search-option--placeholder" value="placeholder" /> Placeholder
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder
+
+								</fieldset>
+
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
 
 								</fieldset>
 
@@ -494,19 +482,13 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Countries</label>
+									<label class="sui-label">Label</label>
 
-									<select id="smart-search-demo" class="sui-select" data-theme="search" multiple>
-										<option>Argentina</option>
-										<option>Bolivia</option>
-										<option>Brasil</option>
-										<option>Chile</option>
-										<option>Colombia</option>
-										<option>Ecuador</option>
-										<option>Paraguay</option>
-										<option>Peru</option>
-										<option>Uruguay</option>
-										<option>Venezuela</option>
+									<select id="select-smart-default" class="sui-select" data-theme="search" multiple>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+										<option>Option 4</option>
 									</select>
 
 									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
