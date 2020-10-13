@@ -1,3 +1,7 @@
+v2.10.0
+- [Enhance] Icons: Replace i selector for span.
+
+
 v2.9.6
 - [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
 
