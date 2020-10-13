@@ -7,6 +7,8 @@
 			hljs.highlightBlock( block );
 		});
 
+		new ClipboardJS( '.showcase-copy' );
+
 	});
 
 }( jQuery ) );

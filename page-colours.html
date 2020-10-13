@@ -1,0 +1,36 @@
+---
+layout: default
+title: Colours
+permalink: /colours/
+is_searchable: true
+---
+
+<div class="sui-box">
+
+	<div class="sui-box-body">
+
+		{% for parent in site.colours %}
+
+			<h2>{{ parent.name }}</h2>
+
+			<div class="showcase-colors">
+				{% for child in parent.children %}
+
+					{% capture color %}showcase-color-{{ child.name }}{% endcapture %}
+					{% capture palette %}${{ child.name }}{% endcapture %}
+
+					<div class="showcase-color">
+						<button class="showcase-color-preview {{ color }} showcase-copy sui-tooltip" data-tooltip="Click to copy" data-clipboard-text="{{ palette }}">
+							<span class="sui-screen-reader-text">SCSS variable for {{ child.name }}</span>
+						</button>
+						<span class="showcase-color-name">{{ child.name }}</span>
+						<span class="showcase-color-hex">{{ child.hex }}</span>
+					</div>
+				{% endfor %}
+			</div>
+
+		{% endfor %}
+
+	</div>
+
+</div>
