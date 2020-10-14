@@ -1,4 +1,4 @@
-v2.10.0
+v2.10.0-beta.1
 - [Fix] Select: Merge Select2 with SUI.Select().
 - [Enhance] Icons: Replace i selector for span.
 - [Enhance] Buttons: New design for focus state.
