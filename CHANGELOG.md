@@ -1,5 +1,6 @@
 v2.10.0
 - [Enhance] Icons: Replace i selector for span.
+- [Enhance] Buttons: New design for focus state.
 
 
 v2.9.6
