@@ -134,9 +134,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return markup;
   };
 
-  SUI.select.init = function (el) {
-    var select = $(el),
-        getParent = select.closest('.sui-modal-content'),
+  SUI.select.init = function (select) {
+    var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -148,9 +147,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initIcon = function (el) {
-    var select = $(el),
-        getParent = select.closest('.sui-modal-content'),
+  SUI.select.initIcon = function (select) {
+    var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -167,9 +165,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initColor = function (el) {
-    var select = $(el),
-        getParent = select.closest('.sui-modal-content'),
+  SUI.select.initColor = function (select) {
+    var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -186,9 +183,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initSearch = function (el) {
-    var select = $(el),
-        getParent = select.closest('.sui-modal-content'),
+  SUI.select.initSearch = function (select) {
+    var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
@@ -200,9 +196,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initVars = function (el) {
-    var select = $(el),
-        getParent = select.closest('.sui-modal-content'),
+  SUI.select.initVars = function (select) {
+    var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
@@ -222,16 +217,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     var select = $(this);
 
     if ('icon' === select.data('theme')) {
-      SUI.select.initIcon(this);
+      SUI.select.initIcon(select);
     } else if ('color' === select.data('theme')) {
-      SUI.select.initColor(this);
+      SUI.select.initColor(select);
     } else if ('search' === select.data('theme')) {
-      SUI.select.initSearch(this);
+      SUI.select.initSearch(select);
     } else {
-      SUI.select.init(this);
+      SUI.select.init(select);
     }
   });
   $('.sui-variables').each(function () {
-    SUI.select.initVars(this);
+    var select = $(this);
+    SUI.select.initVars(select);
   });
 })(jQuery);
