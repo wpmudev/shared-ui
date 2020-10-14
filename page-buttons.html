@@ -13,6 +13,10 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="examples">Examples</a>
+			</li>
+
+			<li class="sui-vertical-tab">
 				<a href="#" role="button" data-tab="regular">Regular</a>
 			</li>
 
@@ -40,8 +44,149 @@ is_searchable: true
 
 	</div>
 
+	<!-- TAB: Examples -->
+	<div class="sui-box" data-tab="examples">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Examples</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Interactive demo</h3>
+
+			<p style="margin-top: 0;">Buttons are used everywhere across all designs to highlight actions. Generally, the rule is one Solid coloured button per screen, where the Ghost buttons can be used more freely throughout screens as a secondary actrion.</p>
+
+			<div id="demo-buttons" class="showcase-component" aria-hidden="true">
+
+				<!-- Options -->
+				<div class="showcase-component-options">
+
+					<fieldset data-option="height">
+
+						<legend>Height</legend>
+
+						<input type="radio" name="single-select-option--height" value="default" checked /> 30px<br />
+						<input type="radio" name="single-select-option--height" value="large" /> 40px
+
+					</fieldset>
+
+					<fieldset data-option="icon">
+
+						<legend>Leading icon</legend>
+
+						<input type="radio" name="single-select-option--icon" value="none" checked /> None<br />
+						<input type="radio" name="single-select-option--icon" value="left" /> Left<br />
+						<input type="radio" name="single-select-option--icon" value="right" /> Right
+
+					</fieldset>
+
+				</div>
+
+				<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
+
+					<div tabindex="-1" class="sui-tabs-navigation">
+						<button
+							type="button"
+							class="sui-button-icon sui-tabs-navigation--left"
+						>
+							<span class="sui-icon-chevron-left"></span>
+						</button>
+						<button
+							type="button"
+							class="sui-button-icon sui-tabs-navigation--right"
+						>
+							<span class="sui-icon-chevron-right"></span>
+						</button>
+					</div>
+
+					<div role="tablist" class="sui-tabs-menu">
+
+						<button
+							type="button"
+							role="tab"
+							id="tab-button-solid"
+							class="sui-tab-item active"
+							aria-controls="tab-content-button-solid"
+							aria-selected="true"
+						>
+							Solid
+						</button>
+
+						<button
+							type="button"
+							role="tab"
+							id="tab-button-ghost"
+							class="sui-tab-item"
+							aria-controls="tab-content-button-ghost"
+							aria-selected="false"
+							tabindex="-1"
+						>
+							Ghost
+						</button>
+
+						<button
+							type="button"
+							role="tab"
+							id="tab-button-light"
+							class="sui-tab-item"
+							aria-controls="tab-content-button-light"
+							aria-selected="false"
+							tabindex="-1"
+						>
+							Light
+						</button>
+
+					</div>
+
+					<div class="sui-tabs-content">
+
+						<!-- TAB: Solid. -->
+						<div tabindex="0" role="tabpanel" id="tab-content-button-solid" class="sui-tab-content active" aria-labelledby="tab-button-solid">
+
+							<div class="showcase-component-preview" style="padding-top: 100px; padding-bottom: 100px; text-align: center;">
+								<button class="sui-button">Button</button>
+							</div>
+
+						</div>
+
+						<!-- TAB: Outlined. -->
+						<div tabindex="0" role="tabpanel" id="tab-content-button-outlined" class="sui-tab-content" aria-labelledby="tab-button-outlined" hidden>
+
+							<div class="showcase-component-preview" style="padding-top: 100px; padding-bottom: 100px; text-align: center;">
+								<button class="sui-button sui-button-outlined">Button</button>
+							</div>
+
+						</div>
+
+						<!-- TAB: Ghost. -->
+						<div tabindex="0" role="tabpanel" id="tab-content-button-ghost" class="sui-tab-content" aria-labelledby="tab-button-ghost" hidden>
+
+							<div class="showcase-component-preview" style="padding-top: 100px; padding-bottom: 100px; text-align: center;">
+								<button class="sui-button sui-button-ghost">Button</button>
+							</div>
+
+						</div>
+
+						<!---
+						QUICK NOTES:
+							- Solid, is default button.
+							- Outlined, is button without background on its default state.
+							- Ghost, is button that simulates being just plain text. No border nor background on its default state.
+						-->
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
 	<!-- TAB: Regular -->
-	<div class="sui-box" data-tab="regular">
+	<div class="sui-box" data-tab="regular" style="display: none;">
 
 		<div class="sui-box-header">
 			<h2 class="sui-box-title">Regular Button</h2>
