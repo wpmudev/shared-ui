@@ -4,7 +4,6 @@ v2.10.0-beta.1
 - [Enhance] Select: Support RTL language.
 - [Enhance] Icons: Replace i selector for span.
 - [Enhance] Buttons: New design for focus state.
-- [Enhance] ClipboardJS: File removed from library.
 
 v2.9.6
 - [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
