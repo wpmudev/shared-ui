@@ -57,9 +57,9 @@
 						var select = $( this );
 
 						if ( 'small' === option.val() ) {
-							select.attr( 'data-height', 'sm' );
+							select.addClass( 'sui-select-sm' );
 						} else {
-							select.removeAttr( 'data-height' );
+							select.removeClass( 'sui-select-sm' );
 						}
 					});
 
