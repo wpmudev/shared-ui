@@ -2,6 +2,7 @@
 layout: default
 title: Select
 permalink: /select/
+id: select
 is_searchable: true
 ---
 
@@ -13,301 +14,518 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
-				<a href="#" role="button" data-tab="designs">Designs</a>
+				<a href="#" role="button" data-tab="examples">Examples</a>
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="sizes">Sizes</a>
+				<a href="#" role="button" data-tab="usage">Usage</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="code">Code</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="config">Configuration</a>
 			</li>
 
 		</ul>
 
 	</div>
 
-	<!-- SECTION: Designs -->
-	<div class="sui-box" data-tab="designs">
+	<!-- SECTION: Examples -->
+	<div class="sui-box" data-tab="examples">
 
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Designs</h2>
+		<div class="sui-box-header" style="display: block;">
+
+			<h2 class="sui-box-title">Examples</h2>
+
 		</div>
 
 		<div class="sui-box-body">
 
-			<div class="sui-tabs sui-side-tabs">
+			<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
 
-				<div role="tablist" data-tabs>
-					<div id="tab-design-default" class="active" role="tab">Default</div>
-					<div id="tab-design-icons" role="tab">With Icons</div>
-					<div id="tab-design-colors" role="tab">With Colors</div>
-					<div id="tab-design-search" role="tab">With Search</div>
+				<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--left"
+					>
+						<i class="sui-icon-chevron-left"></i>
+					</button>
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--right"
+					>
+						<i class="sui-icon-chevron-right"></i>
+					</button>
 				</div>
 
-				<div class="sui-tabs-content-lg" data-panes>
+				<div role="tablist" class="sui-tabs-menu">
 
-					<!-- TAB: Default -->
-					<div class="active" role="tabpanel" aria-labelledby="tab-design-default">
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-single"
+						class="sui-tab-item active"
+						aria-controls="tab-content-select-single"
+						aria-selected="true"
+					>
+						Single Select
+					</button>
 
-						<div class="sui-form-field">
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-multi"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-multi"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Multi Select
+					</button>
 
-							<label for="option-default" id="label-option-default" class="sui-label">Simple list of beverages</label>
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-search"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-search"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Smart Search
+					</button>
 
-							<select id="option-default" aria-labelledby="label-option-default" aria-describedby="description-option-default">
-								<option>Water</option>
-								<option>Coffee</option>
-								<option>Juice</option>
-								<option>Smoothie</option>
-							</select>
+				</div>
 
-							<span id="description-option-default" class="sui-description">This is a description for select field.</span>
+				<div class="sui-tabs-content">
 
-						</div>
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-single"
+						class="sui-tab-content active"
+						aria-labelledby="tab-select-single"
+					>
 
-						<span class="sui-label">Markup</span>
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Single Select</h3>
 
-						<div class="demo-code-block">
+						<p style="margin-top: 0;">It gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
+
+						<div id="component-single-select" class="showcase-component" aria-hidden="true">
+
+							<div class="showcase-component-options">
+
+								<fieldset data-option="width">
+
+									<legend>Width</legend>
+
+									<input type="radio" name="single-select-option--width" value="default" checked /> Full width<br />
+									<input type="radio" name="single-select-option--width" value="custom" /> Custom
+
+								</fieldset>
+
+								<fieldset data-option="height">
+
+									<legend>Height</legend>
+
+									<input type="radio" name="single-select-option--height" value="default" checked /> 40px<br />
+									<input type="radio" name="single-select-option--height" value="small" /> 30px
+
+								</fieldset>
+
+								<fieldset data-option="options">
+
+									<legend>Options</legend>
+
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder<br />
+									<input type="checkbox" class="single-select-option--search" value="search" /> Search List
+
+								</fieldset>
+
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
+
+								</fieldset>
+
+							</div>
+
+							<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
+
+								<div tabindex="-1" class="sui-tabs-navigation">
+									<button
+										type="button"
+										class="sui-button-icon sui-tabs-navigation--left"
+									>
+										<span class="sui-icon-chevron-left"></span>
+									</button>
+									<button
+										type="button"
+										class="sui-button-icon sui-tabs-navigation--right"
+									>
+										<span class="sui-icon-chevron-right"></span>
+									</button>
+								</div>
+
+								<div role="tablist" class="sui-tabs-menu">
+
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-default"
+										class="sui-tab-item active"
+										aria-controls="tab-content-demo-single-default"
+										aria-selected="true"
+									>
+										Default
+									</button>
+
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-icon"
+										class="sui-tab-item"
+										aria-controls="tab-content-demo-single-icon"
+										aria-selected="false"
+										tabindex="-1"
+									>
+										Leading icon
+									</button>
+
+									<button
+										type="button"
+										role="tab"
+										id="tab-demo-single-color"
+										class="sui-tab-item"
+										aria-controls="tab-content-demo-single-color"
+										aria-selected="false"
+										tabindex="-1"
+									>
+										Leading color
+									</button>
+
+								</div>
+
+								<div class="sui-tabs-content">
+
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-default" class="sui-tab-content active" aria-labelledby="tab-demo-single-default">
+
+										<div class="showcase-component-preview">
+
+<div class="sui-form-field">
+
+	<label class="sui-label">Label</label>
+
+	<select id="select-single-default" class="sui-select">
+		<option>Option 1</option>
+		<option>Option 2</option>
+		<option>Option 3</option>
+		<option>Option 4</option>
+	</select>
+
+</div>
+
+										</div>
+
+										<div class="showcase-component-code demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
+	&lt;select id=&quot;select-single-default&quot; class=&quot;sui-select&quot;&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
 
 &lt;/div&gt;
 </pre>
 
-						</div>
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
 
-						<div class="sui-form-field">
+										</div>
 
-							<label for="optgroup-default" id="label-optgroup-default" class="sui-label">Grouped list of beverages</label>
+									</div>
 
-							<select id="optgroup-default" aria-labelledby="label-optgroup-default" aria-describedby="description-optgroup-default">
-								<optgroup label="Coffee Based">
-									<option>Black Coffee</option>
-									<option>Espresso</option>
-									<option>Moccacino</option>
-									<option>Capuccino</option>
-									<option>Espresso Pana</option>
-								</optgroup>
-								<optgroup label="Fruit Juices">
-									<option>Peach</option>
-									<option>Orange</option>
-									<option>Pineapple</option>
-								</optgroup>
-							</select>
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-icon" class="sui-tab-content" aria-labelledby="tab-demo-single-icon" hidden>
 
-							<span id="description-optgroup-default" class="sui-description">This is a description for select field.</span>
+										<div class="showcase-component-preview">
 
-						</div>
+<div class="sui-form-field">
 
-						<span class="sui-label">Markup</span>
+	<label class="sui-label">Label</label>
 
-						<div class="demo-code-block">
+	<select id="select-single-icon" class="sui-select" data-theme="icon">
+		<option data-icon="copy">Option 1</option>
+		<option data-icon="warning-alert">Option 2</option>
+		<option data-icon="trash">Option 3</option>
+		<option data-icon="pin">Option 4</option>
+	</select>
+
+</div>
+
+										</div>
+
+										<div class="showcase-component-code demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;optgroup label=&quot;Option Group&quot;&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-			&lt;option&gt;Option name&lt;/option&gt;
-		&lt;/optgroup&gt;
-
+	&lt;select id=&quot;select-single-icon&quot; class=&quot;sui-select&quot; data-theme=&quot;icon&quot;&gt;
+		&lt;option data-icon="copy"&gt;Option 1&lt;/option&gt;
+		&lt;option data-icon="warning-alert"&gt;Option 2&lt;/option&gt;
+		&lt;option data-icon="trash"&gt;Option 3&lt;/option&gt;
+		&lt;option data-icon="pin"&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
 
 &lt;/div&gt;
 </pre>
+
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
+
+										</div>
+
+									</div>
+
+									<div tabindex="0" role="tabpanel" id="tab-content-demo-single-color" class="sui-tab-content" aria-labelledby="tab-demo-single-color" hidden>
+
+										<div class="showcase-component-preview">
+
+<div class="sui-form-field">
+
+	<label class="sui-label">Label</label>
+
+	<select id="select-single-color" class="sui-select" data-theme="color">
+		<option data-color="white">Option 1</option>
+		<option data-color="yellow">Option 2</option>
+		<option data-color="blue">Option 3</option>
+		<option data-color="black">Option 4</option>
+	</select>
+
+</div>
+
+										</div>
+
+										<div class="showcase-component-code demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;select id=&quot;select-single-color&quot; class=&quot;sui-select&quot; data-theme=&quot;color&quot;&gt;
+		&lt;option data-color="white"&gt;Option 1&lt;/option&gt;
+		&lt;option data-color="yellow"&gt;Option 2&lt;/option&gt;
+		&lt;option data-color="blue"&gt;Option 3&lt;/option&gt;
+		&lt;option data-color="black"&gt;Option 4&lt;/option&gt;
+	&lt;/select&gt;
+
+&lt;/div&gt;
+</pre>
+
+											<button class="showcase-component-code--more">
+												Show More
+												<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+											</button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
 
 						</div>
 
 					</div>
 
-					<!-- TAB: With Icons -->
-					<div role="tabpanel" aria-labelledby="tab-design-icons">
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-multi"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-multi"
+					>
 
-						<div class="sui-form-field">
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Multi Select</h3>
 
-							<label for="option-icons" id="label-option-icons" class="sui-label">List of WPMU DEV plugins</label>
+						<p style="margin-top: 0;">It gives users the ability to choose multiple items from a list of dropdown menu items. It's usually found in forms.</p>
 
-							<select id="option-icons" aria-labelledby="label-option-icons" aria-describedby="description-option-icons">
-								<option data-icon="defender">Defender</option>
-								<option data-icon="smush">Smush</option>
-								<option data-icon="hummingbird">Hummingbird</option>
-								<option data-icon="uptime">Uptime</option>
-								<option data-icon="smart-crawl">SmartCrawl</option>
-								<option data-icon="forminator">Forminator</option>
-								<option data-icon="shipper-anchor">Shipper</option>
-								<option data-icon="snapshot">Snapshot</option>
-								<option data-icon="hustle">Hustle</option>
-							</select>
+						<div id="component-multi-select" class="showcase-component">
 
-							<span id="description-option-icons" class="sui-description">This is a description for select field.</span>
+							<div class="showcase-component-options">
 
-						</div>
+								<fieldset data-option="options">
 
-						<span class="sui-label">Markup</span>
+									<legend>Options</legend>
 
-						<div class="demo-code-block">
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder
 
-<pre class="sui-code-snippet html">
+								</fieldset>
+
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Label</label>
+
+									<select id="select-multi-default" class="sui-select" multiple>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+										<option>Option 4</option>
+									</select>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-		&lt;option data-icon=&quot;icon-name&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert icon name without &quot;sui-icon-&quot; prefix --&gt;
-
+	&lt;select class=&quot;sui-select&quot; multiple&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
-
 &lt;/div&gt;
-</pre>
+								</pre>
+
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
+
+							</div>
 
 						</div>
 
 					</div>
 
-					<!-- TAB: With Colors -->
-					<div role="tabpanel" aria-labelledby="tab-design-colors">
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-search"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-search"
+					>
 
-						<div class="sui-form-field">
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
 
-							<label for="option-colors" id="label-option-colors" class="sui-label">List of basic colors</label>
+						<p style="margin-top: 0;">It gives users the ability to type, search and choose a single item from a list of dropdown menu items. It's usually found in forms.</p>
 
-							<select id="option-colors" class="sui-select-colors" aria-labelledby="label-option-colors" aria-describedby="description-option-colors">
-								<option data-color="white">White</option>
-								<option data-color="yellow">Yellow</option>
-								<option data-color="red">Red</option>
-								<option data-color="blue">Blue</option>
-								<option data-color="black">Black</option>
-							</select>
+						<div id="component-smart-select" class="showcase-component">
 
-							<span id="description-option-colors" class="sui-description">This is a description for select field.</span>
+							<div class="showcase-component-options">
 
-						</div>
+								<fieldset data-option="options">
 
-						<span class="sui-label">Markup</span>
+									<legend>Options</legend>
 
-						<div class="demo-code-block">
+									<input type="checkbox" class="single-select-option--placeholder" value="placeholder" /> Placeholder
 
-<pre class="sui-code-snippet html">
+								</fieldset>
+
+								<fieldset data-option="assistive-text">
+
+									<legend>Assistive Text</legend>
+
+									<input type="radio" name="single-select-option--assistive-text" value="none" checked /> None<br />
+									<input type="radio" name="single-select-option--assistive-text" value="helper" /> Helper text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error" /> Error text<br />
+									<input type="radio" name="single-select-option--assistive-text" value="error-helper" /> Helper + Error text
+
+								</fieldset>
+
+							</div>
+
+							<div class="showcase-component-preview" aria-live="polite">
+
+								<div class="sui-form-field">
+
+									<label class="sui-label">Label</label>
+
+									<select id="select-smart-default" class="sui-select" data-theme="search" multiple>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+										<option>Option 4</option>
+									</select>
+
+									<span role="alert" class="sui-error-message sui-hidden" hidden></span>
+
+									<span class="sui-description">List of South America countries.</span>
+
+								</div>
+
+							</div>
+
+							<div class="showcase-component-code demo-code-block">
+
+								<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-colors&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option data-color=&quot;#FFFFFF&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color HEX --&gt;
-		&lt;option data-color=&quot;white&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color name --&gt;
-		&lt;option data-color=&quot;rgba(255,255,255,0.5)&quot;&gt;Option name&lt;/option&gt;&lt;!-- Insert color RGB or RGBA --&gt;
-
+	&lt;select class=&quot;sui-select&quot; data-theme=&quot;search&quot; multiple&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+		&lt;option&gt;Option 4&lt;/option&gt;
 	&lt;/select&gt;
 
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
+	&lt;p role=&quot;alert&quot; class=&quot;sui-error-message sui-hidden&quot; hidden&gt;&lt;/p&gt;
+
+	&lt;p class=&quot;sui-description&quot;&gt;Element description.&lt;/p&gt;
 
 &lt;/div&gt;
-</pre>
+								</pre>
 
-						</div>
+								<button class="showcase-component-code--more">
+									Show More
+									<span class="sui-icon-chevron-down" aria-hidden="true"></span>
+								</button>
 
-					</div>
-
-					<!-- TAB: With Search -->
-					<div role="tabpanel" aria-labelledby="tab-design-search">
-
-						<div class="sui-form-field">
-
-							<label for="option-search" id="label-option-search" class="sui-label">List of fruits</label>
-
-							<select id="option-search" class="sui-select" aria-labelledby="label-option-search" aria-describedby="description-option-search">
-								<option value="apple">Apple</option>
-								<option value="orange">Orange</option>
-								<option value="banana">Banana</option>
-								<option value="grapes">Grapes</option>
-								<option value="coconut">Coconut</option>
-								<option value="pineapple">Pineapple</option>
-								<option value="cherries">Cherries</option>
-								<option value="cucumbers">Cucumbers</option>
-								<option value="blackberry">Blackberry</option>
-								<option value="blueblerry">Blueberry</option>
-								<option value="cranberry">Cranberry</option>
-								<option value="cherimoya">Cherimoya</option>
-								<option value="lime">Lime</option>
-								<option value="lemon">Lemon</option>
-								<option value="kiwi">Kiwi</option>
-								<option value="mango">Mango</option>
-								<option value="papaya">Papaya</option>
-								<option value="peach">Peach</option>
-								<option value="raspberry">Raspberry</option>
-								<option value="star-fruit">Star Fruit</option>
-								<option value="strawberry">Strawberry</option>
-								<option value="tamarind">Tamarind</option>
-							</select>
-
-							<span id="description-option-search" class="sui-description">This is a description for select field.</span>
-
-						</div>
-
-						<div class="sui-notice sui-notice-warning">
-							<p>jQuery based selector powered with a search field commonly used with long list of options. E.g. Countries list.</p>
-						</div>
-
-						<span class="sui-label">Markup</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select&quot; aria-labelledby=&quot;label-unique-id&quot; aria-describedby=&quot;description-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Element description&lt;/span&gt;
-
-&lt;/div&gt;
-</pre>
-
-						</div>
-
-						<span class="sui-label">Event Data</span>
-
-						<div class="demo-code-block">
-
-<pre class="sui-code-snippet sui-no-copy js">
-$( '#unique-id' ).on( 'select2:select', function() {
-
-	let select = $( this ),
-		value  = select.SUIselect2( 'val' )
-		;
-
-	console.log( value );
-
-});
-</pre>
+							</div>
 
 						</div>
 
@@ -321,146 +539,160 @@ $( '#unique-id' ).on( 'select2:select', function() {
 
 	</div>
 
-	<!-- SECTION: Sizes -->
-	<div class="sui-box" data-tab="sizes" style="display: none;">
+	<!-- SECTION: Usage -->
+	<div class="sui-box" data-tab="usage" style="display: none;">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Sizes</h2>
+			<h2 class="sui-box-title">Usage</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<!-- ROW: Width Variation -->
-			<div class="sui-box-settings-row">
+			<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow" style="margin-bottom: 0 !important;">
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Width Variation</span>
+				<div tabindex="-1" class="sui-tabs-navigation" aria-hidden="true">
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--left"
+					>
+						<i class="sui-icon-chevron-left"></i>
+					</button>
+					<button
+						type="button"
+						class="sui-button-icon sui-tabs-navigation--right"
+					>
+						<i class="sui-icon-chevron-right"></i>
+					</button>
 				</div>
 
-				<div class="sui-box-settings-col-2">
+				<div role="tablist" class="sui-tabs-menu">
 
-					<div class="sui-tabs sui-side-tabs">
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-single-usage"
+						class="sui-tab-item active"
+						aria-controls="tab-content-select-single-usage"
+						aria-selected="true"
+					>
+						Single Select
+					</button>
 
-						<div role="tablist" data-tabs>
-							<div id="tab-width-default" class="active" role="tab">Default</div>
-							<div id="tab-width-medium" role="tab">240 pixels</div>
-							<div id="tab-width-small" role="tab">80 pixels</div>
-						</div>
+					<button
+						type="button"
+						role="tab"
+						id="tab-select-multi-usage"
+						class="sui-tab-item"
+						aria-controls="tab-content-select-multi-usage"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Multi Select
+					</button>
 
-						<div class="sui-tabs-content-lg" data-panes>
+					<button
+						type="button"
+						role="tab"
+						id="tab-smart-search-usage"
+						class="sui-tab-item"
+						aria-controls="tab-content-smart-search-usage"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Smart Search
+					</button>
 
-							<!-- TAB: Default -->
-							<div class="active" role="tabpanel" aria-labelledby="tab-width-default">
+				</div>
 
-								<div class="sui-form-field">
+				<div class="sui-tabs-content">
 
-									<label for="width-default" id="label-width-default" class="sui-label">Select label</label>
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-single-usage"
+						class="sui-tab-content active"
+						aria-labelledby="tab-select-single-usage"
+					>
 
-									<select id="width-default" aria-labelledby="label-width-default">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Single Select</h3>
 
-								</div>
+						<p style="margin-top: 0;">It gives users the ability to choose a single item from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
 
-								<div class="demo-code-block">
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-single-select.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-single-select.png 1x, {{ site.baseurl }}/assets/images/anatomy-single-select@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Label:</strong> Labels should be sentence case as short as possible while clearly explaining the content of the menu.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings. Each item can also contain an icon or color.</li>
+						</ol>
 
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
+					</div>
 
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-select-multi-usage"
+						class="sui-tab-content"
+						aria-labelledby="tab-select-multi-usage"
+						hidden
+					>
 
-	&lt;/select&gt;
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Multi Select</h3>
 
-&lt;/div&gt;
-</pre>
+						<p style="margin-top: 0;">It gives users the ability to choose multiple items from a list of dropdown menu items. It's usually found in forms or inline edit.</p>
 
-								</div>
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
 
-							</div>
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-multi-select.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-multi-select.png 1x, {{ site.baseurl }}/assets/images/anatomy-multi-select@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
 
-							<!-- TAB: 240 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-width-medium">
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Text input field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.</li>
+							<li><strong style="color: #333;">Tag:</strong> Tags show what options have been selected, and can be removed by selecting the adjacent "x" (Clear all).</li>
+							<li><strong style="color: #333;">Clear all "x":</strong> This clears everything in the text input field. It only appears when a user has selected at least one option.</li>
+						</ol>
 
-								<div class="sui-form-field sui-input-md">
+					</div>
 
-									<label for="width-medium" id="label-width-medium" class="sui-label">Select label</label>
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-smart-search-usage"
+						class="sui-tab-content"
+						aria-labelledby="tab-smart-search-usage"
+						hidden
+					>
 
-									<select id="width-medium" aria-labelledby="label-width-medium">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
+						<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Smart Search</h3>
 
-								</div>
+						<p style="margin-top: 0;">It gives users the ability to type, search and choose a single item from a list of dropdown menu items. It's usually found in forms.</p>
 
-								<div class="demo-code-block">
+						<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field sui-input-md&quot;&gt;
+						<img
+							src="{{ site.baseurl }}/assets/images/anatomy-smart-search.png"
+							srcset="{{ site.baseurl }}/assets/images/anatomy-smart-search.png 1x, {{ site.baseurl }}/assets/images/anatomy-smart-search@2x.png 2x"
+							class="sui-image"
+							aria-hidden="true"
+						/>
 
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-							<!-- TAB: 80 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-width-small">
-
-								<div class="sui-form-field sui-input-sm">
-
-									<label for="width-small" id="label-width-small" class="sui-label">Select label</label>
-
-									<select id="width-small" aria-labelledby="label-width-small">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-
-								</div>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field sui-input-sm&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
-
-						</div>
+						<ol style="margin-bottom: 0;">
+							<li><strong style="color: #333;">Text input field:</strong> The field where users type in to receive the suggestions they can choose from. Once filled with 2 characters at least, the user's choices are then shown in the field.</li>
+							<li><strong style="color: #333;">Menu:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.</li>
+							<li><strong style="color: #333;">Tag:</strong> Tag shows the selected option, and can be removed by selecting the adjacent "x" (Clear all).</li>
+							<li><strong style="color: #333;">Clear all "x":</strong> This clears everything in the text input field. It only appears when a user has selected an option.</li>
+						</ol>
 
 					</div>
 
@@ -468,103 +700,289 @@ $( '#unique-id' ).on( 'select2:select', function() {
 
 			</div>
 
-			<!-- ROW: Height Variation -->
-			<div class="sui-box-settings-row">
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Best Practices</h4>
 
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Height Variation</span>
-				</div>
+			<ol style="margin-bottom: 30px;">
+				<li>Order your list of options in a way that will make the most sense to the user.</li>
+				<li>Remove options that rarely get used.</li>
+				<li>Don't overwhelm the user with too many options.</li>
+			</ol>
 
-				<div class="sui-box-settings-col-2">
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Content Guidelines</h4>
 
-					<div class="sui-tabs sui-side-tabs">
+			<ol style="margin-bottom: 0;">
+				<li>Use concise and descriptive labels so that users clearly know the purpose of the selection. For example, use a "Save to..." label for a list containing options such as "Cloud, Local drive, CD".</li>
+				<li>Keep options to a single line of text.</li>
+				<li>Use commonly known terms for your options, make sure they're clear and direct.</li>
+			</ol>
 
-						<div role="tablist" data-tabs>
-							<div id="tab-height-default" class="active" role="tab">40 pixels</div>
-							<div id="tab-height-small" role="tab">28 pixels</div>
-						</div>
+		</div>
 
-						<div class="sui-tabs-content-lg" data-panes>
+	</div>
 
-							<!-- TAB: 40 pixels -->
-							<div class="active" role="tabpanel" aria-labelledby="tab-height-default">
+	<!-- SECTION: Code -->
+	<div class="sui-box" data-tab="code" style="display: none;">
 
-								<div class="sui-form-field">
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Code</h2>
+		</div>
 
-									<label for="height-default" id="label-height-default" class="sui-label">Select label</label>
+		<div class="sui-box-body">
 
-									<select id="height-default" aria-labelledby="label-height-default">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
+			<h3 style="margin: 0 0 20px; font-size: 20px; line-height: 30px;">Styles</h3>
 
-								</div>
+			<div class="demo-code-block" style="margin: 0 0 10px;">
 
-								<div class="demo-code-block">
+<pre class="sui-code-snippet scss">
+// Include all components' styles.
+@import "shared-ui";
 
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
+// Include styles for component only.
+@import "~@wpmudev/shared-ui/scss/select";
 </pre>
 
-								</div>
+			</div>
 
-							</div>
+			<p class="sui-description"><strong>Note:</strong> When importing component styles only you will also need to import functions, colors, variables, and other basic files that work together with select file.</p>
 
-							<!-- TAB: 28 pixels -->
-							<div role="tabpanel" aria-labelledby="tab-height-small">
+			<hr />
 
-								<div class="sui-form-field">
+			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">JavaScript Instantiation</h3>
 
-									<label for="height-small" id="label-height-small" class="sui-label">Select label</label>
+			<p style="margin-top: 0;">This is the basic configuration for each variation of the select component.</p>
 
-									<select id="height-small" class="sui-select-sm" aria-labelledby="label-height-small">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
+			<h4>Default</h4>
 
-								</div>
+			<div class="demo-code-block">
 
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-form-field&quot;&gt;
-
-	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
-
-	&lt;select id=&quot;unique-id&quot; class=&quot;sui-select-sm&quot; aria-labelledby=&quot;label-unique-id&quot;&gt;
-
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-		&lt;option&gt;Option name&lt;/option&gt;
-
-	&lt;/select&gt;
-
-&lt;/div&gt;
+<pre class="sui-code-snippet sui-no-copy js">
+$( '#unique-id' ).SUIselect();
 </pre>
 
-								</div>
+			</div>
 
-							</div>
+			<h4>Dropdown option with icon</h4>
 
-						</div>
+			<div class="demo-code-block">
 
-					</div>
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	templateResult: SUI.select.formatIcon,
+	templateSelection: SUI.select.formatIconSelection,
+	escapeMarkup: function( markup ) {
+		return markup;
+	}
+});
+</pre>
 
-				</div>
+			</div>
+
+			<h4>Dropdown option with color</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	templateResult: SUI.select.formatColor,
+	templateSelection: SUI.select.formatColorSelection,
+	escapeMarkup: function( markup ) {
+		return markup;
+	}
+});
+</pre>
+
+			</div>
+
+			<h4>Smart Search</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).SUIselect({
+	minimumInputLength: 2,
+	maximumSelectionLength: 1
+});
+</pre>
+
+			</div>
+
+			<p style="padding: 5px 10px; border-radius: 4px; background-color: #FECF2F;"><strong style="color: #333;">By adding <code>sui-select</code> class there's no need for any JavaScript instantiation but if you need to pass data through JS or any other configuration, you can do it by using <code>.SUIselect( 'destroy' )</code> before calling <code>.SUIselect()</code>.</strong></p>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Configuration -->
+	<div class="sui-box" data-tab="config" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Configuration</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>To configure custom options when you initialize <strong>SUIselect</strong>, simply pass an object in your call to <code>.SUIselect()</code>.</p>
+
+			<h4 style="margin: 0;">JS options</h4>
+
+			<p style="margin: 0 0 20px;">This is a list with the most common SUIselect configuration options.</p>
+
+			<table class="sui-table" style="margin: 0 0 10px;">
+
+				<thead>
+
+					<tr>
+						<th colspan="1">Option</th>
+						<th colspan="1">Type</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>dropdownParent</code></td>
+						<td colspan="1">jQuery selector or DOM node</td>
+						<td colspan="1"><code>$( document.body )</code></td>
+						<td colspan="3">Allows you to modify where dropdown is going to be placed. Use this option when select is placed inside modals.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateResult</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that dropdown options are rendered. You can select between: <code>SUI.select.formatIcon</code> to show an icon or <code>SUI.select.formatColor</code> to show a color square.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateSelection</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that selections are rendered. You can select between: <code>SUI.select.formatIconSelection</code> to show an icon or <code>SUI.select.formatColorSelection</code> to show a color square.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>escapeMarkup</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"><code>Utils.escapeMarkup</code></td>
+						<td colspan="3">Handles automatic escaping of content rendered by custom templates.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<p class="sui-description" style="margin: 0 0 20px;">Since <strong>SUIselect</strong> is based on <a href="https://select2.org/" target="_blank" rel="nofollow">Select2</a>, you can find more configuration options listed <a href="https://select2.org/configuration/options-api" target="_blank" rel="nofollow">here</a>.</p>
+
+			<hr />
+
+			<h4 style="margin: 0;">data-* attributes</h4>
+
+			<p style="margin: 0 0 20px;">It is recommended that you declare your configuration options by passing in an object when initializing SUIselect. However, you may also define your configuration options by using the HTML5 data-* attributes, which will override any options set when initializing SUIselect and any defaults.</p>
+
+			<table class="sui-table">
+
+				<thead>
+
+					<tr>
+						<th colspan="1">Attribute</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>data-theme</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Enables markup and styles for different select styles. Use <code>icon</code>, <code>color</code> or <code>search</code> value depending the case. Make use of <strong style="color: #333;">Examples</strong> tab to confirm the correct markup.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-placeholder</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Make use of this attribute along with an empty <code>&lt;option&gt;</code> at the beginning of the options' list.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-width</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Include any fixed value you need for the selector, for example <code>200px</code>. This attribute works with <strong style="color: #333;">single select</strong> only.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-height</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Use this attribute with <code>sm</code> value to make selector height 30px. This attribute works with <strong style="color: #333;">single select</strong> only.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-search</code></td>
+						<td colspan="1">false</td>
+						<td colspan="3">Use <code>true</code> value when you need to enable search input on dropdown list. This attribute works with <strong style="color: #333;">single select</strong> only.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<hr />
+
+			<h4 style="margin: 0;">Classes</h4>
+
+			<p style="margin: 0 0 20px;"><strong style="color: #333;">Single select</strong> element by default occupies a single row and the full width of it, but there are times when you need to use it as an inline element. For that, you need to add <code>sui-select-inline</code> class to select element.</p>
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Select (default)</label>
+
+				<select class="sui-select">
+					<option>Argentina</option>
+					<option>Bolivia</option>
+					<option>Brasil</option>
+					<option>Chile</option>
+					<option>Colombia</option>
+					<option>Ecuador</option>
+					<option>Falkland Islands</option>
+					<option>French Guiana</option>
+					<option>Guyana</option>
+					<option>Paraguay</option>
+					<option>Peru</option>
+					<option>Suriname</option>
+					<option>Uruguay</option>
+					<option>Venezuela</option>
+				</select>
+
+			</div>
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Select inline</label>
+
+				<span class="sui-field-prefix">Prefix</span>
+
+				<select class="sui-select sui-select-inline">
+					<option>Argentina</option>
+					<option>Bolivia</option>
+					<option>Brasil</option>
+					<option>Chile</option>
+					<option>Colombia</option>
+					<option>Ecuador</option>
+					<option>Falkland Islands</option>
+					<option>French Guiana</option>
+					<option>Guyana</option>
+					<option>Paraguay</option>
+					<option>Peru</option>
+					<option>Suriname</option>
+					<option>Uruguay</option>
+					<option>Venezuela</option>
+				</select>
+
+				<span class="sui-field-suffix">Suffix</span>
 
 			</div>
 
