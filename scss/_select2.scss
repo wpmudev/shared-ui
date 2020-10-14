@@ -389,8 +389,7 @@
 		}
 
 		// SIZE: Small height.
-		&[data-height="sm"],
-		&[data-height="small"] {
+		&.sui-select-sm {
 
 			+ .sui-select {
 
@@ -494,6 +493,11 @@
 			+ .sui-select {
 				min-width: 1px;
 				display: inline-block;
+				margin-right: 10px;
+
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}

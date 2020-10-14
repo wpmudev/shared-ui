@@ -163,7 +163,7 @@
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
-			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
 		select.SUIselect({
 			dropdownParent: selectParent,
@@ -178,7 +178,7 @@
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
-			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
 		select.SUIselect({
 			dropdownParent: selectParent,
@@ -198,7 +198,7 @@
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
-			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
 		select.SUIselect({
 			dropdownParent: selectParent,
@@ -217,7 +217,7 @@
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
-			isSmall      = ( 'sm' === select.attr( 'data-height' ) ) ? 'sui-dropdown-sm' : '';
+			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
 		select.SUIselect({
 			dropdownParent: selectParent,
