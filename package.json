@@ -103,6 +103,7 @@
 		"publish:library": "npm run clean:ghpages && gulp publish:sui",
 		"publish:showcase": "npm run clean:ghpages && gulp publish:dev",
 		"release:patch": "npm version patch --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
+		"release:prepatch": "npm version prepatch --preid=beta --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
 		"release:minor": "npm version minor --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
 		"release:major": "npm version major --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library"
 	}
