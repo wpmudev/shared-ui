@@ -7,13 +7,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
  * Released under the MIT license
  * https://github.com/select2/select2/blob/master/LICENSE.md
  *
- * Modifications should contain a description and be tagged with @edited
- * for easy debugging process or update upstream of select.
+ * Modified logic/function,etc besides formatting should be marked with //SUI-SELECT2
+ * For easy debugging process or update upstream of select
  */
 ;
 
 (function (factory) {
-  // SUIselect disables AMD and module exports. @edited
+  // SUI-SELECT2 disable AMD and module exports
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['jquery'], factory);
@@ -112,7 +112,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                 normalizedBaseParts,
                 baseParts = baseName && baseName.split("/"),
                 map = config.map,
-                starMap = map && map['*'] || {}; // Adjust any relative paths.
+                starMap = map && map['*'] || {}; //Adjust any relative paths.
 
             if (name) {
               name = name.split('/');
@@ -297,7 +297,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             if (prefix) {
               prefix = normalize(prefix, relResourceName);
               plugin = callDep(prefix);
-            } // Normalize according
+            } //Normalize according
 
 
             if (prefix) {
@@ -315,12 +315,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               if (prefix) {
                 plugin = callDep(prefix);
               }
-            } // Using ridiculous property names for space reasons
+            } //Using ridiculous property names for space reasons
 
 
             return {
               f: prefix ? prefix + '!' + name : name,
-              // fullName
+              //fullName
               n: name,
               pr: prefix,
               p: plugin
@@ -365,30 +365,30 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                 relParts,
                 args = [],
                 callbackType = _typeof(callback),
-                usingExports; // Use name if no relName
+                usingExports; //Use name if no relName
 
 
             relName = relName || name;
-            relParts = makeRelParts(relName); // Call the callback to define the module, if necessary.
+            relParts = makeRelParts(relName); //Call the callback to define the module, if necessary.
 
             if (callbackType === 'undefined' || callbackType === 'function') {
-              // Pull out the defined dependencies and pass the ordered
-              // values to the callback.
-              // Default to [require, exports, module] if no deps
+              //Pull out the defined dependencies and pass the ordered
+              //values to the callback.
+              //Default to [require, exports, module] if no deps
               deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
 
               for (i = 0; i < deps.length; i += 1) {
                 map = makeMap(deps[i], relParts);
-                depName = map.f; // Fast path CommonJS standard dependencies.
+                depName = map.f; //Fast path CommonJS standard dependencies.
 
                 if (depName === "require") {
                   args[i] = handlers.require(name);
                 } else if (depName === "exports") {
-                  // CommonJS module spec 1.1
+                  //CommonJS module spec 1.1
                   args[i] = handlers.exports(name);
                   usingExports = true;
                 } else if (depName === "module") {
-                  // CommonJS module spec 1.1
+                  //CommonJS module spec 1.1
                   cjsModule = args[i] = handlers.module(name);
                 } else if (hasProp(defined, depName) || hasProp(waiting, depName) || hasProp(defining, depName)) {
                   args[i] = callDep(depName);
@@ -403,19 +403,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               ret = callback ? callback.apply(defined[name], args) : undefined;
 
               if (name) {
-                // If setting exports via "module" is in play,
-                // favor that over return value and exports. After that,
-                // favor a non-undefined return value over exports use.
+                //If setting exports via "module" is in play,
+                //favor that over return value and exports. After that,
+                //favor a non-undefined return value over exports use.
                 if (cjsModule && cjsModule.exports !== undef && cjsModule.exports !== defined[name]) {
                   defined[name] = cjsModule.exports;
                 } else if (ret !== undef || !usingExports) {
-                  // Use the return value from the function.
+                  //Use the return value from the function.
                   defined[name] = ret;
                 }
               }
             } else if (name) {
-              // May just be an object definition for the module. Only
-              // worry about defining if have a module name.
+              //May just be an object definition for the module. Only
+              //worry about defining if have a module name.
               defined[name] = callback;
             }
           };
@@ -423,17 +423,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           requirejs = require = _req = function req(deps, callback, relName, forceSync, alt) {
             if (typeof deps === "string") {
               if (handlers[deps]) {
-                // callback in this case is really relName
+                //callback in this case is really relName
                 return handlers[deps](callback);
-              } // Just return the module wanted. In this scenario, the
-              // deps arg is the module name, and second arg (if passed)
-              // is just the relName.
-              // Normalize module name, if it contains . or ..
+              } //Just return the module wanted. In this scenario, the
+              //deps arg is the module name, and second arg (if passed)
+              //is just the relName.
+              //Normalize module name, if it contains . or ..
 
 
               return callDep(makeMap(deps, makeRelParts(callback)).f);
             } else if (!deps.splice) {
-              // deps is a config object, not an array.
+              //deps is a config object, not an array.
               config = deps;
 
               if (config.deps) {
@@ -445,19 +445,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               }
 
               if (callback.splice) {
-                // callback is an array, which means it is a dependency list.
-                // Adjust args if there are dependencies
+                //callback is an array, which means it is a dependency list.
+                //Adjust args if there are dependencies
                 deps = callback;
                 callback = relName;
                 relName = null;
               } else {
                 deps = undef;
               }
-            } // Support require(['a'])
+            } //Support require(['a'])
 
 
-            callback = callback || function () {}; // If relName is a function, it is an errback handler,
-            // so remove it.
+            callback = callback || function () {}; //If relName is a function, it is an errback handler,
+            //so remove it.
 
 
             if (typeof relName === 'function') {
@@ -469,12 +469,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             if (forceSync) {
               main(undef, deps, callback, relName);
             } else {
-              // Using a non-zero value because of concern for what old browsers
-              // do, and latest browsers "upgrade" to 4 if lower value is used:
-              // http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-              // If want a value immediately, use require('id') instead -- something
-              // that works in almond on the global level, but not guaranteed and
-              // unlikely to work in other AMD implementations.
+              //Using a non-zero value because of concern for what old browsers
+              //do, and latest browsers "upgrade" to 4 if lower value is used:
+              //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
+              //If want a value immediately, use require('id') instead -- something
+              //that works in almond on the global level, but not guaranteed and
+              //unlikely to work in other AMD implementations.
               setTimeout(function () {
                 main(undef, deps, callback, relName);
               }, 4);
@@ -501,7 +501,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           define = function define(name, deps, callback) {
             if (typeof name !== 'string') {
               throw new Error('See almond README: incorrect module build, no module name');
-            } // This module may not have dependencies
+            } //This module may not have dependencies
 
 
             if (!deps.splice) {
@@ -742,7 +742,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         // and was designed to be used with the Sizzle selector engine.
         var $el = $(el);
         var overflowX = el.style.overflowX;
-        var overflowY = el.style.overflowY; // Check both x and y declarations
+        var overflowY = el.style.overflowY; //Check both x and y declarations
 
         if (overflowX === overflowY && (overflowY === 'hidden' || overflowY === 'visible')) {
           return false;
@@ -788,76 +788,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         $element.append($nodes);
-      }; // Cache objects in Utils.__cache instead of $.data (see #4346)
-
-
-      Utils.__cache = {};
-      var id = 0;
-
-      Utils.GetUniqueElementId = function (element) {
-        // Get a unique element Id. If element has no id,
-        // creates a new unique number, stores it in the id
-        // attribute and returns the new id.
-        // If an id already exists, it simply returns it.
-        var select2Id = element.getAttribute('data-select2-id');
-
-        if (select2Id == null) {
-          // If element has id, use it.
-          if (element.id) {
-            select2Id = element.id;
-            element.setAttribute('data-select2-id', select2Id);
-          } else {
-            element.setAttribute('data-select2-id', ++id);
-            select2Id = id.toString();
-          }
-        }
-
-        return select2Id;
-      };
-
-      Utils.StoreData = function (element, name, value) {
-        // Stores an item in the cache for a specified element.
-        // name is the cache key.
-        var id = Utils.GetUniqueElementId(element);
-
-        if (!Utils.__cache[id]) {
-          Utils.__cache[id] = {};
-        }
-
-        Utils.__cache[id][name] = value;
-      };
-
-      Utils.GetData = function (element, name) {
-        // Retrieves a value from the cache by its key (name)
-        // name is optional. If no name specified, return
-        // all cache items for the specified element.
-        // and for a specified element.
-        var id = Utils.GetUniqueElementId(element);
-
-        if (name) {
-          if (Utils.__cache[id]) {
-            if (Utils.__cache[id][name] != null) {
-              return Utils.__cache[id][name];
-            }
-
-            return $(element).data(name); // Fallback to HTML5 data attribs.
-          }
-
-          return $(element).data(name); // Fallback to HTML5 data attribs.
-        } else {
-          return Utils.__cache[id];
-        }
-      };
-
-      Utils.RemoveData = function (element) {
-        // Removes all cached items for a specified element.
-        var id = Utils.GetUniqueElementId(element);
-
-        if (Utils.__cache[id] != null) {
-          delete Utils.__cache[id];
-        }
-
-        element.removeAttribute('data-select2-id');
       };
 
       return Utils;
@@ -874,7 +804,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Utils.Extend(Results, Utils.Observable);
 
       Results.prototype.render = function () {
-        var $results = $('<ul class="select2-results__options" role="listbox"></ul>');
+        var $results = $('<ul class="select2-results__options" role="tree"></ul>');
 
         if (this.options.get('multiple')) {
           $results.attr('aria-multiselectable', 'true');
@@ -892,7 +822,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var escapeMarkup = this.options.get('escapeMarkup');
         this.clear();
         this.hideLoading();
-        var $message = $('<li role="alert" aria-live="assertive"' + ' class="select2-results__option"></li>');
+        var $message = $('<li role="treeitem" aria-live="assertive"' + ' class="select2-results__option"></li>');
         var message = this.options.get('translations').get(params.message);
         $message.append(escapeMarkup(message(params.args)));
         $message[0].className += ' select2-results__message';
@@ -963,7 +893,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var $options = self.$results.find('.select2-results__option[aria-selected]');
           $options.each(function () {
             var $option = $(this);
-            var item = Utils.GetData(this, 'data'); // id needs to be converted to a string when comparing
+            var item = $.data(this, 'data'); // id needs to be converted to a string when comparing
 
             var id = '' + item.id;
 
@@ -997,12 +927,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var option = document.createElement('li');
         option.className = 'select2-results__option';
         var attrs = {
-          'role': 'option',
+          'role': 'treeitem',
           'aria-selected': 'false'
         };
-        var matches = window.Element.prototype.matches || window.Element.prototype.msMatchesSelector || window.Element.prototype.webkitMatchesSelector;
 
-        if (data.element != null && matches.call(data.element, ':disabled') || data.element == null && data.disabled) {
+        if (data.disabled) {
           delete attrs['aria-selected'];
           attrs['aria-disabled'] = 'true';
         }
@@ -1054,7 +983,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           this.template(data, option);
         }
 
-        Utils.StoreData(option, 'data', data);
+        $.data(option, 'data', data);
         return option;
       };
 
@@ -1088,10 +1017,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           self.setClasses();
-
-          if (self.options.get('scrollAfterSelect')) {
-            self.highlightFirstItem();
-          }
+          self.highlightFirstItem();
         });
         container.on('unselect', function () {
           if (!container.isOpen()) {
@@ -1099,10 +1025,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           self.setClasses();
-
-          if (self.options.get('scrollAfterSelect')) {
-            self.highlightFirstItem();
-          }
+          self.highlightFirstItem();
         });
         container.on('open', function () {
           // When the dropdown is open, aria-expended="true"
@@ -1133,7 +1056,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             return;
           }
 
-          var data = Utils.GetData($highlighted[0], 'data');
+          var data = $highlighted.data('data');
 
           if ($highlighted.attr('aria-selected') == 'true') {
             self.trigger('close', {});
@@ -1146,10 +1069,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         container.on('results:previous', function () {
           var $highlighted = self.getHighlightedResults();
           var $options = self.$results.find('[aria-selected]');
-          var currentIndex = $options.index($highlighted); // If we are already at the top, don't move further
-          // If no options, currentIndex will be -1
+          var currentIndex = $options.index($highlighted); // If we are already at te top, don't move further
 
-          if (currentIndex <= 0) {
+          if (currentIndex === 0) {
             return;
           }
 
@@ -1221,7 +1143,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         this.$results.on('mouseup', '.select2-results__option[aria-selected]', function (evt) {
           var $this = $(this);
-          var data = Utils.GetData(this, 'data');
+          var data = $this.data('data');
 
           if ($this.attr('aria-selected') === 'true') {
             if (self.options.get('multiple')) {
@@ -1242,7 +1164,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           });
         });
         this.$results.on('mouseenter', '.select2-results__option[aria-selected]', function (evt) {
-          var data = Utils.GetData(this, 'data');
+          var data = $(this).data('data');
           self.getHighlightedResults().removeClass('select2-results__option--highlighted');
           self.trigger('results:focus', {
             data: data,
@@ -1334,21 +1256,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var $selection = $('<span class="select2-selection" role="combobox" ' + ' aria-haspopup="true" aria-expanded="false">' + '</span>');
         this._tabindex = 0;
 
-        if (Utils.GetData(this.$element[0], 'old-tabindex') != null) {
-          this._tabindex = Utils.GetData(this.$element[0], 'old-tabindex');
+        if (this.$element.data('old-tabindex') != null) {
+          this._tabindex = this.$element.data('old-tabindex');
         } else if (this.$element.attr('tabindex') != null) {
           this._tabindex = this.$element.attr('tabindex');
         }
 
         $selection.attr('title', this.$element.attr('title'));
         $selection.attr('tabindex', this._tabindex);
-        $selection.attr('aria-disabled', 'false');
         this.$selection = $selection;
         return $selection;
       };
 
       BaseSelection.prototype.bind = function (container, $container) {
         var self = this;
+        var id = container.id + '-container';
         var resultsId = container.id + '-results';
         this.container = container;
         this.$selection.on('focus', function (evt) {
@@ -1382,17 +1304,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           self.$selection.attr('aria-expanded', 'false');
           self.$selection.removeAttr('aria-activedescendant');
           self.$selection.removeAttr('aria-owns');
-          self.$selection.trigger('focus');
+          self.$selection.focus();
 
           self._detachCloseHandler(container);
         });
         container.on('enable', function () {
           self.$selection.attr('tabindex', self._tabindex);
-          self.$selection.attr('aria-disabled', 'false');
         });
         container.on('disable', function () {
           self.$selection.attr('tabindex', '-1');
-          self.$selection.attr('aria-disabled', 'true');
         });
       };
 
@@ -1411,18 +1331,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       BaseSelection.prototype._attachCloseHandler = function (container) {
+        var self = this;
         $(document.body).on('mousedown.select2.' + container.id, function (e) {
           var $target = $(e.target);
           var $select = $target.closest('.select2');
           var $all = $('.select2.select2-container--open');
           $all.each(function () {
+            var $this = $(this);
+
             if (this == $select[0]) {
               return;
             }
 
-            var $element = Utils.GetData(this, 'element'); // SUIselect Renamed function. @edited
+            var $element = $this.data('element'); // SUI-SELECT2 renamed function to SUIselect2
 
-            $element.SUIselect('close');
+            $element.SUIselect2('close'); // $element.select2('close');
           });
         });
       };
@@ -1443,29 +1366,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       BaseSelection.prototype.update = function (data) {
         throw new Error('The `update` method must be defined in child classes.');
       };
-      /**
-       * Helper method to abstract the "enabled" (not "disabled") state of this
-       * object.
-       *
-       * @return {true} if the instance is not disabled.
-       * @return {false} if the instance is disabled.
-       */
-
-
-      BaseSelection.prototype.isEnabled = function () {
-        return !this.isDisabled();
-      };
-      /**
-       * Helper method to abstract the "disabled" state of this object.
-       *
-       * @return {true} if the disabled option is true.
-       * @return {false} if the disabled option is false.
-       */
-
-
-      BaseSelection.prototype.isDisabled = function () {
-        return this.options.get('disabled');
-      };
 
       return BaseSelection;
     });
@@ -1479,15 +1379,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       SingleSelection.prototype.render = function () {
         var $selection = SingleSelection.__super__.render.call(this);
 
-        $selection.addClass('select2-selection--single'); // $selection.html(
-        // 	'<span class="select2-selection__rendered"></span>' +
-        // 	'<span class="select2-selection__arrow" role="presentation">' +
-        // 	'<b role="presentation"></b>' +
-        // 	'</span>'
-        // );
-        // Assign SUI icon to select button. @edited
-
-        $selection.html('<span class="select2-selection__rendered"></span>' + '<span class="select2-selection__arrow" role="presentation">' + '<span class="sui-icon-chevron-down sui-sm" aria-hidden="true"></span>' + '</span>');
+        $selection.addClass('select2-selection--single');
+        $selection.html('<span class="select2-selection__rendered"></span>' + '<span class="select2-selection__arrow" role="presentation">' + '<b role="presentation"></b>' + '</span>');
         return $selection;
       };
 
@@ -1497,7 +1390,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         SingleSelection.__super__.bind.apply(this, arguments);
 
         var id = container.id + '-container';
-        this.$selection.find('.select2-selection__rendered').attr('id', id).attr('role', 'textbox').attr('aria-readonly', 'true');
+        this.$selection.find('.select2-selection__rendered').attr('id', id);
         this.$selection.attr('aria-labelledby', id);
         this.$selection.on('mousedown', function (evt) {
           // Only respond to left clicks
@@ -1515,15 +1408,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         });
         container.on('focus', function (evt) {
           if (!container.isOpen()) {
-            self.$selection.trigger('focus');
+            self.$selection.focus();
           }
+        });
+        container.on('selection:update', function (params) {
+          self.update(params.data);
         });
       };
 
       SingleSelection.prototype.clear = function () {
-        var $rendered = this.$selection.find('.select2-selection__rendered');
-        $rendered.empty();
-        $rendered.removeAttr('title'); // clear tooltip on empty
+        this.$selection.find('.select2-selection__rendered').empty();
       };
 
       SingleSelection.prototype.display = function (data, container) {
@@ -1546,13 +1440,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var $rendered = this.$selection.find('.select2-selection__rendered');
         var formatted = this.display(selection, $rendered);
         $rendered.empty().append(formatted);
-        var title = selection.title || selection.text;
-
-        if (title) {
-          $rendered.attr('title', title);
-        } else {
-          $rendered.removeAttr('title');
-        }
+        $rendered.prop('title', selection.title || selection.text);
       };
 
       return SingleSelection;
@@ -1584,13 +1472,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         });
         this.$selection.on('click', '.select2-selection__choice__remove', function (evt) {
           // Ignore the event if it is disabled
-          if (self.isDisabled()) {
+          if (self.options.get('disabled')) {
             return;
           }
 
           var $remove = $(this);
           var $selection = $remove.parent();
-          var data = Utils.GetData($selection[0], 'data');
+          var data = $selection.data('data');
           self.trigger('unselect', {
             originalEvent: evt,
             data: data
@@ -1599,9 +1487,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       MultipleSelection.prototype.clear = function () {
-        var $rendered = this.$selection.find('.select2-selection__rendered');
-        $rendered.empty();
-        $rendered.removeAttr('title');
+        this.$selection.find('.select2-selection__rendered').empty();
       };
 
       MultipleSelection.prototype.display = function (data, container) {
@@ -1629,13 +1515,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           var $selection = this.selectionContainer();
           var formatted = this.display(selection, $selection);
           $selection.append(formatted);
-          var title = selection.title || selection.text;
-
-          if (title) {
-            $selection.attr('title', title);
-          }
-
-          Utils.StoreData($selection[0], 'data', selection);
+          $selection.prop('title', selection.title || selection.text);
+          $selection.data('data', selection);
           $selections.push($selection);
         }
 
@@ -1684,7 +1565,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       return Placeholder;
     });
-    S2.define('select2/selection/allowClear', ['jquery', '../keys', '../utils'], function ($, KEYS, Utils) {
+    S2.define('select2/selection/allowClear', ['jquery', '../keys'], function ($, KEYS) {
       function AllowClear() {}
 
       AllowClear.prototype.bind = function (decorated, container, $container) {
@@ -1707,7 +1588,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       AllowClear.prototype._handleClear = function (_, evt) {
         // Ignore the event if it is disabled
-        if (this.isDisabled()) {
+        if (this.options.get('disabled')) {
           return;
         }
 
@@ -1718,21 +1599,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
 
         evt.stopPropagation();
-        var data = Utils.GetData($clear[0], 'data');
-        var previousVal = this.$element.val();
-        this.$element.val(this.placeholder.id);
-        var unselectData = {
-          data: data
-        };
-        this.trigger('clear', unselectData);
-
-        if (unselectData.prevented) {
-          this.$element.val(previousVal);
-          return;
-        }
+        var data = $clear.data('data');
 
         for (var d = 0; d < data.length; d++) {
-          unselectData = {
+          var unselectData = {
             data: data[d]
           }; // Trigger the `unselect` event, so people can prevent it from being
           // cleared.
@@ -1740,12 +1610,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           this.trigger('unselect', unselectData); // If the event was prevented, don't clear it out.
 
           if (unselectData.prevented) {
-            this.$element.val(previousVal);
             return;
           }
         }
 
-        this.$element.trigger('input').trigger('change');
+        this.$element.val(this.placeholder.id).trigger('change');
         this.trigger('toggle', {});
       };
 
@@ -1766,9 +1635,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return;
         }
 
-        var removeAll = this.options.get('translations').get('removeAllItems');
-        var $remove = $('<span class="select2-selection__clear" title="' + removeAll() + '">' + '&times;' + '</span>');
-        Utils.StoreData($remove[0], 'data', data);
+        var $remove = $('<span class="select2-selection__clear">' + '&times;' + '</span>');
+        $remove.data('data', data);
         this.$selection.find('.select2-selection__rendered').prepend($remove);
       };
 
@@ -1780,7 +1648,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
 
       Search.prototype.render = function (decorated) {
-        var $search = $('<li class="select2-search select2-search--inline">' + '<input class="select2-search__field" type="search" tabindex="-1"' + ' autocomplete="off" autocorrect="off" autocapitalize="none"' + ' spellcheck="false" role="searchbox" aria-autocomplete="list" />' + '</li>');
+        var $search = $('<li class="select2-search select2-search--inline">' + '<input class="select2-search__field" type="search" tabindex="-1"' + ' autocomplete="off" autocorrect="off" autocapitalize="none"' + ' spellcheck="false" role="textbox" aria-autocomplete="list" />' + '</li>');
         this.$searchContainer = $search;
         this.$search = $search.find('input');
         var $rendered = decorated.call(this);
@@ -1792,15 +1660,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       Search.prototype.bind = function (decorated, container, $container) {
         var self = this;
-        var resultsId = container.id + '-results';
         decorated.call(this, container, $container);
         container.on('open', function () {
-          self.$search.attr('aria-controls', resultsId);
           self.$search.trigger('focus');
         });
         container.on('close', function () {
           self.$search.val('');
-          self.$search.removeAttr('aria-controls');
           self.$search.removeAttr('aria-activedescendant');
           self.$search.trigger('focus');
         });
@@ -1816,11 +1681,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           self.$search.trigger('focus');
         });
         container.on('results:focus', function (params) {
-          if (params.data._resultId) {
-            self.$search.attr('aria-activedescendant', params.data._resultId);
-          } else {
-            self.$search.removeAttr('aria-activedescendant');
-          }
+          self.$search.attr('aria-activedescendant', params.id);
         });
         this.$selection.on('focusin', '.select2-search--inline', function (evt) {
           self.trigger('focus', evt);
@@ -1838,15 +1699,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             var $previousChoice = self.$searchContainer.prev('.select2-selection__choice');
 
             if ($previousChoice.length > 0) {
-              var item = Utils.GetData($previousChoice[0], 'data');
+              var item = $previousChoice.data('data');
               self.searchRemoveChoice(item);
               evt.preventDefault();
             }
-          }
-        });
-        this.$selection.on('click', '.select2-search--inline', function (evt) {
-          if (self.$search.val()) {
-            evt.stopPropagation();
           }
         }); // Try to detect the IE version should the `documentMode` property that
         // is stored on the document. This is only implemented in IE and is
@@ -1920,7 +1776,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         this.resizeSearch();
 
         if (searchHadFocus) {
-          this.$search.trigger('focus');
+          this.$search.focus();
         }
       };
 
@@ -1950,7 +1806,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var width = '';
 
         if (this.$search.attr('placeholder') !== '') {
-          width = this.$selection.find('.select2-selection__rendered').width();
+          width = this.$selection.find('.select2-selection__rendered').innerWidth();
         } else {
           var minimumWidth = this.$search.val().length + 1;
           width = minimumWidth * 0.75 + 'em';
@@ -1966,8 +1822,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       EventRelay.prototype.bind = function (decorated, container, $container) {
         var self = this;
-        var relayEvents = ['open', 'opening', 'close', 'closing', 'select', 'selecting', 'unselect', 'unselecting', 'clear', 'clearing'];
-        var preventableEvents = ['opening', 'closing', 'selecting', 'unselecting', 'clearing'];
+        var relayEvents = ['open', 'opening', 'close', 'closing', 'select', 'selecting', 'unselect', 'unselecting'];
+        var preventableEvents = ['opening', 'closing', 'selecting', 'unselecting'];
         decorated.call(this, container, $container);
         container.on('*', function (name, params) {
           // Ignore events that should not be relayed
@@ -2287,7 +2143,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "\u019F": 'O',
         "\uA74A": 'O',
         "\uA74C": 'O',
-        "\u0152": 'OE',
         "\u01A2": 'OI',
         "\uA74E": 'OO',
         "\u0222": 'OU',
@@ -2697,7 +2552,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "\uA74B": 'o',
         "\uA74D": 'o',
         "\u0275": 'o',
-        "\u0153": 'oe',
         "\u01A3": 'oi',
         "\u0223": 'ou',
         "\uA74F": 'oo',
@@ -2866,9 +2720,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         "\u03CD": "\u03C5",
         "\u03CB": "\u03C5",
         "\u03B0": "\u03C5",
-        "\u03CE": "\u03C9",
-        "\u03C2": "\u03C3",
-        "\u2019": '\''
+        "\u03C9": "\u03C9",
+        "\u03C2": "\u03C3"
       };
       return diacritics;
     });
@@ -2935,7 +2788,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if ($(data.element).is('option')) {
           data.element.selected = true;
-          this.$element.trigger('input').trigger('change');
+          this.$element.trigger('change');
           return;
         }
 
@@ -2954,12 +2807,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             }
 
             self.$element.val(val);
-            self.$element.trigger('input').trigger('change');
+            self.$element.trigger('change');
           });
         } else {
           var val = data.id;
           this.$element.val(val);
-          this.$element.trigger('input').trigger('change');
+          this.$element.trigger('change');
         }
       };
 
@@ -2974,7 +2827,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if ($(data.element).is('option')) {
           data.element.selected = false;
-          this.$element.trigger('input').trigger('change');
+          this.$element.trigger('change');
           return;
         }
 
@@ -2990,7 +2843,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           self.$element.val(val);
-          self.$element.trigger('input').trigger('change');
+          self.$element.trigger('change');
         });
       };
 
@@ -3009,7 +2862,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         // Remove anything added to child elements
         this.$element.find('*').each(function () {
           // Remove any custom data set by Select2
-          Utils.RemoveData(this);
+          $.removeData(this, 'data');
         });
       };
 
@@ -3078,13 +2931,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         normalizedData.element = option; // Override the option's data with the combined data
 
-        Utils.StoreData(option, 'data', normalizedData);
+        $.data(option, 'data', normalizedData);
         return $option;
       };
 
       SelectAdapter.prototype.item = function ($option) {
         var data = {};
-        data = Utils.GetData($option[0], 'data');
+        data = $.data($option[0], 'data');
 
         if (data != null) {
           return data;
@@ -3118,12 +2971,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         data = this._normalizeItem(data);
         data.element = $option[0];
-        Utils.StoreData($option[0], 'data', data);
+        $.data($option[0], 'data', data);
         return data;
       };
 
       SelectAdapter.prototype._normalizeItem = function (item) {
-        if (item !== Object(item)) {
+        if (!$.isPlainObject(item)) {
           item = {
             id: item,
             text: item
@@ -3162,18 +3015,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
     S2.define('select2/data/array', ['./select', '../utils', 'jquery'], function (SelectAdapter, Utils, $) {
       function ArrayAdapter($element, options) {
-        this._dataToConvert = options.get('data') || [];
+        var data = options.get('data') || [];
 
         ArrayAdapter.__super__.constructor.call(this, $element, options);
+
+        this.addOptions(this.convertToOptions(data));
       }
 
       Utils.Extend(ArrayAdapter, SelectAdapter);
-
-      ArrayAdapter.prototype.bind = function (container, $container) {
-        ArrayAdapter.__super__.bind.call(this, container, $container);
-
-        this.addOptions(this.convertToOptions(this._dataToConvert));
-      };
 
       ArrayAdapter.prototype.select = function (data) {
         var $option = this.$element.find('option').filter(function (i, elm) {
@@ -3304,7 +3153,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }, function () {
             // Attempt to detect if a request was aborted
             // Only works if the transport exposes a status property
-            if ('status' in $request && ($request.status === 0 || $request.status === '0')) {
+            if ($request.status && $request.status === '0') {
               return;
             }
 
@@ -3428,6 +3277,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       Tags.prototype._removeOldTags = function (_) {
+        var tag = this._lastTag;
         var $options = this.$element.find('option[data-select2-tag]');
         $options.each(function () {
           if (this.selected) {
@@ -3495,7 +3345,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // Replace the search term if we have the search box
           if (this.$search.length) {
             this.$search.val(tokenData.term);
-            this.$search.trigger('focus');
+            this.$search.focus();
           }
 
           params.term = tokenData.term;
@@ -3606,23 +3456,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         decorated.call(this, $e, options);
       }
 
-      MaximumSelectionLength.prototype.bind = function (decorated, container, $container) {
-        var self = this;
-        decorated.call(this, container, $container);
-        container.on('select', function () {
-          self._checkIfMaximumSelected();
-        });
-      };
-
       MaximumSelectionLength.prototype.query = function (decorated, params, callback) {
-        var self = this;
-
-        this._checkIfMaximumSelected(function () {
-          decorated.call(self, params, callback);
-        });
-      };
-
-      MaximumSelectionLength.prototype._checkIfMaximumSelected = function (_, successCallback) {
         var self = this;
         this.current(function (currentData) {
           var count = currentData != null ? currentData.length : 0;
@@ -3637,9 +3471,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             return;
           }
 
-          if (successCallback) {
-            successCallback();
-          }
+          decorated.call(self, params, callback);
         });
       };
 
@@ -3656,13 +3488,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Utils.Extend(Dropdown, Utils.Observable);
 
       Dropdown.prototype.render = function () {
-        // var $dropdown = $(
-        // 	'<span class="select2-dropdown">' +
-        // 	'<span class="select2-results"></span>' +
-        // 	'</span>'
-        // );
-        // Custom SUIselect dropdown. @edited
-        var $dropdown = $('<span class="sui-dropdown">' + '<span class="select2-results"></span>' + '</span>');
+        var $dropdown = $('<span class="select2-dropdown">' + '<span class="select2-results"></span>' + '</span>');
         $dropdown.attr('dir', this.options.get('dir'));
         this.$dropdown = $dropdown;
         return $dropdown;
@@ -3671,7 +3497,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Dropdown.prototype.bind = function () {// Should be implemented in subclasses
       };
 
-      Dropdown.prototype.position = function ($dropdown, $container) {// Should be implemented in subclasses
+      Dropdown.prototype.position = function ($dropdown, $container) {// Should be implmented in subclasses
       };
 
       Dropdown.prototype.destroy = function () {
@@ -3686,7 +3512,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       Search.prototype.render = function (decorated) {
         var $rendered = decorated.call(this);
-        var $search = $('<span class="select2-search select2-search--dropdown">' + '<input class="select2-search__field" type="search" tabindex="-1"' + ' autocomplete="off" autocorrect="off" autocapitalize="none"' + ' spellcheck="false" role="searchbox" aria-autocomplete="list" />' + '</span>');
+        var $search = $('<span class="select2-search select2-search--dropdown">' + '<input class="select2-search__field" type="search" tabindex="-1"' + ' autocomplete="off" autocorrect="off" autocapitalize="none"' + ' spellcheck="false" role="textbox" />' + '</span>');
         this.$searchContainer = $search;
         this.$search = $search.find('input');
         $rendered.prepend($search);
@@ -3695,7 +3521,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       Search.prototype.bind = function (decorated, container, $container) {
         var self = this;
-        var resultsId = container.id + '-results';
         decorated.call(this, container, $container);
         this.$search.on('keydown', function (evt) {
           self.trigger('keypress', evt);
@@ -3713,22 +3538,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         });
         container.on('open', function () {
           self.$search.attr('tabindex', 0);
-          self.$search.attr('aria-controls', resultsId);
-          self.$search.trigger('focus');
+          self.$search.focus();
           window.setTimeout(function () {
-            self.$search.trigger('focus');
+            self.$search.focus();
           }, 0);
         });
         container.on('close', function () {
           self.$search.attr('tabindex', -1);
-          self.$search.removeAttr('aria-controls');
-          self.$search.removeAttr('aria-activedescendant');
           self.$search.val('');
-          self.$search.trigger('blur');
         });
         container.on('focus', function () {
           if (!container.isOpen()) {
-            self.$search.trigger('focus');
+            self.$search.focus();
           }
         });
         container.on('results:all', function (params) {
@@ -3740,13 +3561,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             } else {
               self.$searchContainer.addClass('select2-search--hide');
             }
-          }
-        });
-        container.on('results:focus', function (params) {
-          if (params.data._resultId) {
-            self.$search.attr('aria-activedescendant', params.data._resultId);
-          } else {
-            self.$search.removeAttr('aria-activedescendant');
           }
         });
       };
@@ -3821,7 +3635,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (this.showLoadingMore(data)) {
           this.$results.append(this.$loadingMore);
-          this.loadMoreIfNeeded();
         }
       };
 
@@ -3836,22 +3649,20 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           self.lastParams = params;
           self.loading = true;
         });
-        this.$results.on('scroll', this.loadMoreIfNeeded.bind(this));
-      };
+        this.$results.on('scroll', function () {
+          var isLoadMoreVisible = $.contains(document.documentElement, self.$loadingMore[0]);
 
-      InfiniteScroll.prototype.loadMoreIfNeeded = function () {
-        var isLoadMoreVisible = $.contains(document.documentElement, this.$loadingMore[0]);
+          if (self.loading || !isLoadMoreVisible) {
+            return;
+          }
 
-        if (this.loading || !isLoadMoreVisible) {
-          return;
-        }
+          var currentOffset = self.$results.offset().top + self.$results.outerHeight(false);
+          var loadingMoreOffset = self.$loadingMore.offset().top + self.$loadingMore.outerHeight(false);
 
-        var currentOffset = this.$results.offset().top + this.$results.outerHeight(false);
-        var loadingMoreOffset = this.$loadingMore.offset().top + this.$loadingMore.outerHeight(false);
-
-        if (currentOffset + 50 >= loadingMoreOffset) {
-          this.loadMore();
-        }
+          if (currentOffset + 50 >= loadingMoreOffset) {
+            self.loadMore();
+          }
+        });
       };
 
       InfiniteScroll.prototype.loadMore = function () {
@@ -3868,7 +3679,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       InfiniteScroll.prototype.createLoadingMore = function () {
-        var $option = $('<li ' + 'class="select2-results__option select2-results__option--load-more"' + 'role="option" aria-disabled="true"></li>');
+        var $option = $('<li ' + 'class="select2-results__option select2-results__option--load-more"' + 'role="treeitem" aria-disabled="true"></li>');
         var message = this.options.get('translations').get('loadingMore');
         $option.html(message(this.lastParams));
         return $option;
@@ -3878,20 +3689,32 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
     S2.define('select2/dropdown/attachBody', ['jquery', '../utils'], function ($, Utils) {
       function AttachBody(decorated, $element, options) {
-        this.$dropdownParent = $(options.get('dropdownParent') || document.body);
+        this.$dropdownParent = options.get('dropdownParent') || $(document.body);
         decorated.call(this, $element, options);
       }
 
       AttachBody.prototype.bind = function (decorated, container, $container) {
         var self = this;
+        var setupResultsEvents = false;
         decorated.call(this, container, $container);
         container.on('open', function () {
           self._showDropdown();
 
-          self._attachPositioningHandler(container); // Must bind after the results handlers to ensure correct sizing
+          self._attachPositioningHandler(container);
 
+          if (!setupResultsEvents) {
+            setupResultsEvents = true;
+            container.on('results:all', function () {
+              self._positionDropdown();
 
-          self._bindContainerResultHandlers(container);
+              self._resizeDropdown();
+            });
+            container.on('results:append', function () {
+              self._positionDropdown();
+
+              self._resizeDropdown();
+            });
+          }
         });
         container.on('close', function () {
           self._hideDropdown();
@@ -3910,12 +3733,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       AttachBody.prototype.position = function (decorated, $dropdown, $container) {
         // Clone all of the container classes
-        $dropdown.attr('class', $container.attr('class')); // $dropdown.removeClass('select2');
-        // $dropdown.addClass('select2-container--open');
-        // Custom SUIselect dropdown. @edited
-
+        $dropdown.attr('class', $container.attr('class'));
         $dropdown.removeClass('select2');
-        $dropdown.addClass('sui-dropdown-container--open');
+        $dropdown.addClass('select2-container--open');
         $dropdown.css({
           position: 'absolute',
           top: -999999
@@ -3935,41 +3755,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         this.$dropdownContainer.detach();
       };
 
-      AttachBody.prototype._bindContainerResultHandlers = function (decorated, container) {
-        // These should only be bound once
-        if (this._containerResultsHandlersBound) {
-          return;
-        }
-
-        var self = this;
-        container.on('results:all', function () {
-          self._positionDropdown();
-
-          self._resizeDropdown();
-        });
-        container.on('results:append', function () {
-          self._positionDropdown();
-
-          self._resizeDropdown();
-        });
-        container.on('results:message', function () {
-          self._positionDropdown();
-
-          self._resizeDropdown();
-        });
-        container.on('select', function () {
-          self._positionDropdown();
-
-          self._resizeDropdown();
-        });
-        container.on('unselect', function () {
-          self._positionDropdown();
-
-          self._resizeDropdown();
-        });
-        this._containerResultsHandlersBound = true;
-      };
-
       AttachBody.prototype._attachPositioningHandler = function (decorated, container) {
         var self = this;
         var scrollEvent = 'scroll.select2.' + container.id;
@@ -3977,13 +3762,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var orientationEvent = 'orientationchange.select2.' + container.id;
         var $watchers = this.$container.parents().filter(Utils.hasScroll);
         $watchers.each(function () {
-          Utils.StoreData(this, 'select2-scroll-position', {
+          $(this).data('select2-scroll-position', {
             x: $(this).scrollLeft(),
             y: $(this).scrollTop()
           });
         });
         $watchers.on(scrollEvent, function (ev) {
-          var position = Utils.GetData(this, 'select2-scroll-position');
+          var position = $(this).data('select2-scroll-position');
           $(this).scrollTop(position.y);
         });
         $(window).on(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent, function (e) {
@@ -4003,12 +3788,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       AttachBody.prototype._positionDropdown = function () {
-        var $window = $(window); // var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-        // var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
-        // Custom SUIselect dropdown. @edited
-
-        var isCurrentlyAbove = this.$dropdown.hasClass('sui-select-dropdown--above');
-        var isCurrentlyBelow = this.$dropdown.hasClass('sui-select-dropdown--below');
+        var $window = $(window);
+        var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
+        var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
         var newDirection = null;
         var offset = this.$container.offset();
         offset.bottom = offset.top + this.$container.outerHeight(false);
@@ -4029,24 +3811,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         var css = {
           left: offset.left,
           top: container.bottom
-        }; // Determine what the parent element is to use for calculating the offset
+        }; // Determine what the parent element is to use for calciulating the offset
 
-        var $offsetParent = this.$dropdownParent; // For statically positioned elements, we need to get the element
+        var $offsetParent = this.$dropdownParent; // For statically positoned elements, we need to get the element
         // that is determining the offset
 
         if ($offsetParent.css('position') === 'static') {
           $offsetParent = $offsetParent.offsetParent();
         }
 
-        var parentOffset = {
-          top: 0,
-          left: 0
-        };
-
-        if ($.contains(document.body, $offsetParent[0]) || $offsetParent[0].isConnected) {
-          parentOffset = $offsetParent.offset();
-        }
-
+        var parentOffset = $offsetParent.offset();
         css.top -= parentOffset.top;
         css.left -= parentOffset.left;
 
@@ -4062,20 +3836,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (newDirection == 'above' || isCurrentlyAbove && newDirection !== 'below') {
           css.top = container.top - parentOffset.top - dropdown.height;
-        } // if (newDirection != null) {
-        // 	this.$dropdown
-        // 	.removeClass('select2-dropdown--below select2-dropdown--above')
-        // 	.addClass('select2-dropdown--' + newDirection);
-        // 	this.$container
-        // 	.removeClass('select2-container--below select2-container--above')
-        // 	.addClass('select2-container--' + newDirection);
-        // }
-        // Custom SUIselect dropdown. @edited
-
+        }
 
         if (newDirection != null) {
-          this.$dropdown.removeClass('sui-dropdown--below sui-dropdown--above').addClass('sui-dropdown--' + newDirection);
-          this.$container.removeClass('sui-dropdown-container--below sui-dropdown-container--above').addClass('sui-dropdown-container--' + newDirection);
+          this.$dropdown.removeClass('select2-dropdown--below select2-dropdown--above').addClass('select2-dropdown--' + newDirection);
+          this.$container.removeClass('select2-container--below select2-container--above').addClass('select2-container--' + newDirection);
         }
 
         this.$dropdownContainer.css(css);
@@ -4142,7 +3907,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       return MinimumResultsForSearch;
     });
-    S2.define('select2/dropdown/selectOnClose', ['../utils'], function (Utils) {
+    S2.define('select2/dropdown/selectOnClose', [], function () {
       function SelectOnClose() {}
 
       SelectOnClose.prototype.bind = function (decorated, container, $container) {
@@ -4169,7 +3934,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return;
         }
 
-        var data = Utils.GetData($highlightedResults[0], 'data'); // Don't re-select already selected resulte
+        var data = $highlightedResults.data('data'); // Don't re-select already selected resulte
 
         if (data.element != null && data.element.selected || data.element == null && data.selected) {
           return;
@@ -4199,7 +3964,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       CloseOnSelect.prototype._selectTriggered = function (_, evt) {
         var originalEvent = evt.originalEvent; // Don't close if the control key is being held
 
-        if (originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey)) {
+        if (originalEvent && originalEvent.ctrlKey) {
           return;
         }
 
@@ -4249,9 +4014,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         },
         searching: function searching() {
           return 'Searching…';
-        },
-        removeAllItems: function removeAllItems() {
-          return 'Remove all items';
         }
       };
     });
@@ -4373,25 +4135,60 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           options.selectionAdapter = Utils.Decorate(options.selectionAdapter, EventRelay);
-        } // If the defaults were not previously applied from an element, it is
-        // possible for the language option to have not been resolved
+        }
 
-
-        options.language = this._resolveLanguage(options.language); // Always fall back to English since it will always be complete
-
-        options.language.push('en');
-        var uniqueLanguages = [];
-
-        for (var l = 0; l < options.language.length; l++) {
-          var language = options.language[l];
-
-          if (uniqueLanguages.indexOf(language) === -1) {
-            uniqueLanguages.push(language);
+        if (typeof options.language === 'string') {
+          // Check if the language is specified with a region
+          if (options.language.indexOf('-') > 0) {
+            // Extract the region information if it is included
+            var languageParts = options.language.split('-');
+            var baseLanguage = languageParts[0];
+            options.language = [options.language, baseLanguage];
+          } else {
+            options.language = [options.language];
           }
         }
 
-        options.language = uniqueLanguages;
-        options.translations = this._processTranslations(options.language, options.debug);
+        if ($.isArray(options.language)) {
+          var languages = new Translation();
+          options.language.push('en');
+          var languageNames = options.language;
+
+          for (var l = 0; l < languageNames.length; l++) {
+            var name = languageNames[l];
+            var language = {};
+
+            try {
+              // Try to load it with the original name
+              language = Translation.loadPath(name);
+            } catch (e) {
+              try {
+                // If we couldn't load it, check if it wasn't the full path
+                name = this.defaults.amdLanguageBase + name;
+                language = Translation.loadPath(name);
+              } catch (ex) {
+                // The translation could not be loaded at all. Sometimes this is
+                // because of a configuration problem, other times this can be
+                // because of how Select2 helps load all possible translation files.
+                if (options.debug && window.console && console.warn) {
+                  console.warn('Select2: The language file for "' + name + '" could not be ' + 'automatically loaded. A fallback will be used instead.');
+                }
+
+                continue;
+              }
+            }
+
+            languages.extend(language);
+          }
+
+          options.translations = languages;
+        } else {
+          var baseTranslation = Translation.loadPath(this.defaults.amdLanguageBase + 'en');
+          var customTranslation = new Translation(options.language);
+          customTranslation.extend(baseTranslation);
+          options.translations = customTranslation;
+        }
+
         return options;
       };
 
@@ -4453,14 +4250,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           debug: false,
           dropdownAutoWidth: false,
           escapeMarkup: Utils.escapeMarkup,
-          language: {},
+          language: EnglishTranslation,
           matcher: matcher,
           minimumInputLength: 0,
           maximumInputLength: 0,
           maximumSelectionLength: 0,
           minimumResultsForSearch: 0,
           selectOnClose: false,
-          scrollAfterSelect: false,
           sorter: function sorter(data) {
             return data;
           },
@@ -4475,90 +4271,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         };
       };
 
-      Defaults.prototype.applyFromElement = function (options, $element) {
-        var optionLanguage = options.language;
-        var defaultLanguage = this.defaults.language;
-        var elementLanguage = $element.prop('lang');
-        var parentLanguage = $element.closest('[lang]').prop('lang');
-        var languages = Array.prototype.concat.call(this._resolveLanguage(elementLanguage), this._resolveLanguage(optionLanguage), this._resolveLanguage(defaultLanguage), this._resolveLanguage(parentLanguage));
-        options.language = languages;
-        return options;
-      };
-
-      Defaults.prototype._resolveLanguage = function (language) {
-        if (!language) {
-          return [];
-        }
-
-        if ($.isEmptyObject(language)) {
-          return [];
-        }
-
-        if ($.isPlainObject(language)) {
-          return [language];
-        }
-
-        var languages;
-
-        if (!$.isArray(language)) {
-          languages = [language];
-        } else {
-          languages = language;
-        }
-
-        var resolvedLanguages = [];
-
-        for (var l = 0; l < languages.length; l++) {
-          resolvedLanguages.push(languages[l]);
-
-          if (typeof languages[l] === 'string' && languages[l].indexOf('-') > 0) {
-            // Extract the region information if it is included
-            var languageParts = languages[l].split('-');
-            var baseLanguage = languageParts[0];
-            resolvedLanguages.push(baseLanguage);
-          }
-        }
-
-        return resolvedLanguages;
-      };
-
-      Defaults.prototype._processTranslations = function (languages, debug) {
-        var translations = new Translation();
-
-        for (var l = 0; l < languages.length; l++) {
-          var languageData = new Translation();
-          var language = languages[l];
-
-          if (typeof language === 'string') {
-            try {
-              // Try to load it with the original name
-              languageData = Translation.loadPath(language);
-            } catch (e) {
-              try {
-                // If we couldn't load it, check if it wasn't the full path
-                language = this.defaults.amdLanguageBase + language;
-                languageData = Translation.loadPath(language);
-              } catch (ex) {
-                // The translation could not be loaded at all. Sometimes this is
-                // because of a configuration problem, other times this can be
-                // because of how Select2 helps load all possible translation files
-                if (debug && window.console && console.warn) {
-                  console.warn('Select2: The language file for "' + language + '" could ' + 'not be automatically loaded. A fallback will be used instead.');
-                }
-              }
-            }
-          } else if ($.isPlainObject(language)) {
-            languageData = new Translation(language);
-          } else {
-            languageData = language;
-          }
-
-          translations.extend(languageData);
-        }
-
-        return translations;
-      };
-
       Defaults.prototype.set = function (key, value) {
         var camelKey = $.camelCase(key);
         var data = {};
@@ -4566,7 +4278,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         var convertedData = Utils._convertData(data);
 
-        $.extend(true, this.defaults, convertedData);
+        $.extend(this.defaults, convertedData);
       };
 
       var defaults = new Defaults();
@@ -4578,10 +4290,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if ($element != null) {
           this.fromElement($element);
-        }
-
-        if ($element != null) {
-          this.options = Defaults.applyFromElement(this.options, $element);
         }
 
         this.options = Defaults.apply(this.options);
@@ -4604,6 +4312,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           this.options.disabled = $e.prop('disabled');
         }
 
+        if (this.options.language == null) {
+          if ($e.prop('lang')) {
+            this.options.language = $e.prop('lang').toLowerCase();
+          } else if ($e.closest('[lang]').prop('lang')) {
+            this.options.language = $e.closest('[lang]').prop('lang');
+          }
+        }
+
         if (this.options.dir == null) {
           if ($e.prop('dir')) {
             this.options.dir = $e.prop('dir');
@@ -4617,56 +4333,34 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         $e.prop('disabled', this.options.disabled);
         $e.prop('multiple', this.options.multiple);
 
-        if (Utils.GetData($e[0], 'select2Tags')) {
+        if ($e.data('select2Tags')) {
           if (this.options.debug && window.console && console.warn) {
             console.warn('Select2: The `data-select2-tags` attribute has been changed to ' + 'use the `data-data` and `data-tags="true"` attributes and will be ' + 'removed in future versions of Select2.');
           }
 
-          Utils.StoreData($e[0], 'data', Utils.GetData($e[0], 'select2Tags'));
-          Utils.StoreData($e[0], 'tags', true);
+          $e.data('data', $e.data('select2Tags'));
+          $e.data('tags', true);
         }
 
-        if (Utils.GetData($e[0], 'ajaxUrl')) {
+        if ($e.data('ajaxUrl')) {
           if (this.options.debug && window.console && console.warn) {
             console.warn('Select2: The `data-ajax-url` attribute has been changed to ' + '`data-ajax--url` and support for the old attribute will be removed' + ' in future versions of Select2.');
           }
 
-          $e.attr('ajax--url', Utils.GetData($e[0], 'ajaxUrl'));
-          Utils.StoreData($e[0], 'ajax-Url', Utils.GetData($e[0], 'ajaxUrl'));
+          $e.attr('ajax--url', $e.data('ajaxUrl'));
+          $e.data('ajax--url', $e.data('ajaxUrl'));
         }
 
-        var dataset = {};
-
-        function upperCaseLetter(_, letter) {
-          return letter.toUpperCase();
-        } // Pre-load all of the attributes which are prefixed with `data-`
-
-
-        for (var attr = 0; attr < $e[0].attributes.length; attr++) {
-          var attributeName = $e[0].attributes[attr].name;
-          var prefix = 'data-';
-
-          if (attributeName.substr(0, prefix.length) == prefix) {
-            // Get the contents of the attribute after `data-`
-            var dataName = attributeName.substring(prefix.length); // Get the data contents from the consistent source
-            // This is more than likely the jQuery data helper
-
-            var dataValue = Utils.GetData($e[0], dataName); // camelCase the attribute name to match the spec
-
-            var camelDataName = dataName.replace(/-([a-z])/g, upperCaseLetter); // Store the data attribute contents into the dataset since
-
-            dataset[camelDataName] = dataValue;
-          }
-        } // Prefer the element's `dataset` attribute if it exists
+        var dataset = {}; // Prefer the element's `dataset` attribute if it exists
         // jQuery 1.x does not correctly handle data attributes with multiple dashes
 
-
         if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
-          dataset = $.extend(true, {}, $e[0].dataset, dataset);
-        } // Prefer our internal data cache if it exists
+          dataset = $.extend(true, {}, $e[0].dataset, $e.data());
+        } else {
+          dataset = $e.data();
+        }
 
-
-        var data = $.extend(true, {}, Utils.GetData($e[0]), dataset);
+        var data = $.extend(true, {}, dataset);
         data = Utils._convertData(data);
 
         for (var key in data) {
@@ -4696,8 +4390,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
     S2.define('select2/core', ['jquery', './options', './utils', './keys'], function ($, Options, Utils, KEYS) {
       var Select2 = function Select2($element, options) {
-        if (Utils.GetData($element[0], 'select2') != null) {
-          Utils.GetData($element[0], 'select2').destroy();
+        if ($element.data('select2') != null) {
+          $element.data('select2').destroy();
         }
 
         this.$element = $element;
@@ -4709,7 +4403,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
         var tabindex = $element.attr('tabindex') || 0;
-        Utils.StoreData($element[0], 'old-tabindex', tabindex);
+        $element.data('old-tabindex', tabindex);
         $element.attr('tabindex', '-1'); // Set up containers and adapters
 
         var DataAdapter = this.options.get('dataAdapter');
@@ -4757,13 +4451,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }); // Hide the original select
 
         $element.addClass('select2-hidden-accessible');
-        $element.attr('aria-hidden', 'true'); // Hide the original select with SUI.
-
-        $element.addClass('sui-screen-reader-text'); // Synchronize any monitored attributes
+        $element.attr('aria-hidden', 'true'); // Synchronize any monitored attributes
 
         this._syncAttributes();
-
-        Utils.StoreData($element[0], 'select2', this); // Ensure backwards compatibility with $element.data('select2').
 
         $element.data('select2', this);
       };
@@ -4840,11 +4530,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return null;
         }
 
-        if (method == 'computedstyle') {
-          var computedStyle = window.getComputedStyle($element[0]);
-          return computedStyle.width;
-        }
-
         return method;
       };
 
@@ -4878,9 +4563,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (observer != null) {
           this._observer = new observer(function (mutations) {
-            self._syncA();
-
-            self._syncS(null, mutations);
+            $.each(mutations, self._syncA);
+            $.each(mutations, self._syncS);
           });
 
           this._observer.observe(this.$element[0], {
@@ -4976,7 +4660,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
           if (self.isOpen()) {
             if (key === KEYS.ESC || key === KEYS.TAB || key === KEYS.UP && evt.altKey) {
-              self.close(evt);
+              self.close();
               evt.preventDefault();
             } else if (key === KEYS.ENTER) {
               self.trigger('results:select', {});
@@ -5003,7 +4687,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Select2.prototype._syncAttributes = function () {
         this.options.set('disabled', this.$element.prop('disabled'));
 
-        if (this.isDisabled()) {
+        if (this.options.get('disabled')) {
           if (this.isOpen()) {
             this.close();
           }
@@ -5014,7 +4698,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }
       };
 
-      Select2.prototype._isChangeMutation = function (evt, mutations) {
+      Select2.prototype._syncSubtree = function (evt, mutations) {
         var changed = false;
         var self = this; // Ignore any mutation events raised for elements that aren't options or
         // optgroups. This handles the case when the select element is destroyed
@@ -5037,24 +4721,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
         } else if (mutations.removedNodes && mutations.removedNodes.length > 0) {
           changed = true;
-        } else if ($.isArray(mutations)) {
-          $.each(mutations, function (evt, mutation) {
-            if (self._isChangeMutation(evt, mutation)) {
-              // We've found a change mutation.
-              // Let's escape from the loop and continue
-              changed = true;
-              return false;
-            }
-          });
-        }
+        } // Only re-pull the data if we think there is a change
 
-        return changed;
-      };
-
-      Select2.prototype._syncSubtree = function (evt, mutations) {
-        var changed = this._isChangeMutation(evt, mutations);
-
-        var self = this; // Only re-pull the data if we think there is a change
 
         if (changed) {
           this.dataAdapter.current(function (currentData) {
@@ -5076,8 +4744,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           'open': 'opening',
           'close': 'closing',
           'select': 'selecting',
-          'unselect': 'unselecting',
-          'clear': 'clearing'
+          'unselect': 'unselecting'
         };
 
         if (args === undefined) {
@@ -5103,7 +4770,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       Select2.prototype.toggleDropdown = function () {
-        if (this.isDisabled()) {
+        if (this.options.get('disabled')) {
           return;
         }
 
@@ -5119,44 +4786,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return;
         }
 
-        if (this.isDisabled()) {
-          return;
-        }
-
         this.trigger('query', {});
       };
 
-      Select2.prototype.close = function (evt) {
+      Select2.prototype.close = function () {
         if (!this.isOpen()) {
           return;
         }
 
-        this.trigger('close', {
-          originalEvent: evt
-        });
-      };
-      /**
-       * Helper method to abstract the "enabled" (not "disabled") state of this
-       * object.
-       *
-       * @return {true} if the instance is not disabled.
-       * @return {false} if the instance is disabled.
-       */
-
-
-      Select2.prototype.isEnabled = function () {
-        return !this.isDisabled();
-      };
-      /**
-       * Helper method to abstract the "disabled" state of this object.
-       *
-       * @return {true} if the disabled option is true.
-       * @return {false} if the disabled option is false.
-       */
-
-
-      Select2.prototype.isDisabled = function () {
-        return this.options.get('disabled');
+        this.trigger('close', {});
       };
 
       Select2.prototype.isOpen = function () {
@@ -5219,7 +4857,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           });
         }
 
-        this.$element.val(newVal).trigger('input').trigger('change');
+        this.$element.val(newVal).trigger('change');
       };
 
       Select2.prototype.destroy = function () {
@@ -5242,12 +4880,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         this._syncA = null;
         this._syncS = null;
         this.$element.off('.select2');
-        this.$element.attr('tabindex', Utils.GetData(this.$element[0], 'old-tabindex')); // Remove SUI screen reader class. @edited
-
-        this.$element.removeClass('sui-screen-reader-text');
+        this.$element.attr('tabindex', this.$element.data('old-tabindex'));
         this.$element.removeClass('select2-hidden-accessible');
         this.$element.attr('aria-hidden', 'false');
-        Utils.RemoveData(this.$element[0]);
         this.$element.removeData('select2');
         this.dataAdapter.destroy();
         this.selection.destroy();
@@ -5262,17 +4897,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Select2.prototype.render = function () {
         var $container = $('<span class="select2 select2-container">' + '<span class="selection"></span>' + '<span class="dropdown-wrapper" aria-hidden="true"></span>' + '</span>');
         $container.attr('dir', this.options.get('dir'));
-        this.$container = $container; // Remove select2 theme classname. @edited
-        // this.$container.addClass('select2-container--' + this.options.get('theme'));
-        // Add SUIselect class to select main div. @edited
-
-        this.$container.addClass('sui-select'); // Additional class for themes. @edited
-
-        if ('default' !== this.options.get('theme')) {
-          this.$container.addClass('sui-select-theme--' + this.options.get('theme'));
-        }
-
-        Utils.StoreData($container[0], 'element', this.$element);
+        this.$container = $container;
+        this.$container.addClass('select2-container--' + this.options.get('theme'));
+        $container.data('element', this.$element);
         return $container;
       };
 
@@ -5412,8 +5039,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
         $dropdown.css(dropdownCss);
-        $dropdown.addClass('sui-dropdown'); // FIX: Make sure "sui-dropdown" main class does not get erased. @edited
-
         $dropdown.addClass(dropdownCssClass);
         return $dropdown;
       };
@@ -5452,7 +5077,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       return InitSelection;
     });
-    S2.define('select2/compat/inputData', ['jquery', '../utils'], function ($, Utils) {
+    S2.define('select2/compat/inputData', ['jquery'], function ($) {
       function InputData(decorated, $element, options) {
         this._currentData = [];
         this._valueSeparator = options.get('valueSeparator') || ',';
@@ -5502,12 +5127,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             });
           });
           this.$element.val(data.id);
-          this.$element.trigger('input').trigger('change');
+          this.$element.trigger('change');
         } else {
           var value = this.$element.val();
           value += this._valueSeparator + data.id;
           this.$element.val(value);
-          this.$element.trigger('input').trigger('change');
+          this.$element.trigger('change');
         }
       };
 
@@ -5528,7 +5153,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           }
 
           self.$element.val(values.join(self._valueSeparator));
-          self.$element.trigger('input').trigger('change');
+          self.$element.trigger('change');
         });
       };
 
@@ -5551,7 +5176,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       InputData.prototype.addOptions = function (_, $options) {
         var options = $.map($options, function ($option) {
-          return Utils.GetData($option[0], 'data');
+          return $.data($option[0], 'data');
         });
 
         this._currentData.push.apply(this._currentData, options);
@@ -5621,12 +5246,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       AttachContainer.prototype.position = function (decorated, $dropdown, $container) {
         var $dropdownContainer = $container.find('.dropdown-wrapper');
-        $dropdownContainer.append($dropdown); // $dropdown.addClass( 'select2-dropdown--below' );
-        // $container.addClass( 'select2-container--below' );
-        // Custom SUIselect dropdown. @edited
-
-        $dropdown.addClass('sui-dropdown--below');
-        $container.addClass('sui-dropdown-container--below');
+        $dropdownContainer.append($dropdown);
+        $dropdown.addClass('select2-dropdown--below');
+        $container.addClass('select2-container--below');
       };
 
       return AttachContainer;
@@ -5694,9 +5316,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         setup: function setup() {
           if (this.addEventListener) {
             for (var i = toBind.length; i;) {
-              this.addEventListener(toBind[--i], handler, {
-                passive: false
-              });
+              this.addEventListener(toBind[--i], handler, false);
             }
           } else {
             this.onmousewheel = handler;
@@ -5889,21 +5509,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
       }
     });
-    /**
-     * Rebranding select2 to SUIselect
-     * It does avoid conflicts with other(s) that include select2 manually
-     *
-     * @edited
-     */
 
-
-    S2.define('sui.select', ['jquery', 'jquery-mousewheel', './select2/core', './select2/defaults', './select2/utils'], function ($, _, Select2, Defaults, Utils) {
-      // SUIselect renamed function. @edited
-      if ($.fn.SUIselect == null) {
+    S2.define('jquery.select2', ['jquery', 'jquery-mousewheel', './select2/core', './select2/defaults'], function ($, _, Select2, Defaults) {
+      if ($.fn.select2 == null) {
         // All methods that should return the element
-        var thisMethods = ['open', 'close', 'destroy']; // SUIselect renamed function. @edited
+        var thisMethods = ['open', 'close', 'destroy'];
 
-        $.fn.SUIselect = function (options) {
+        $.fn.select2 = function (options) {
           options = options || {};
 
           if (_typeof(options) === 'object') {
@@ -5916,11 +5528,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             var ret;
             var args = Array.prototype.slice.call(arguments, 1);
             this.each(function () {
-              var instance = Utils.GetData(this, 'select2');
+              var instance = $(this).data('select2');
 
               if (instance == null && window.console && console.error) {
-                // SUIselect renamed function. @edited
-                console.error('The SUIselect(\'' + options + '\') method was called on an ' + 'element that is not using Select2.');
+                console.error('The select2(\'' + options + '\') method was called on an ' + 'element that is not using Select2.');
               }
 
               ret = instance[options].apply(instance, args);
@@ -5932,15 +5543,63 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
             return ret;
           } else {
-            // SUIselect renamed function. @edited
-            throw new Error('Invalid arguments for SUIselect: ' + options);
+            throw new Error('Invalid arguments for Select2: ' + options);
           }
         };
-      } // SUIselect renamed function. @edited
+      }
 
+      if ($.fn.select2.defaults == null) {
+        $.fn.select2.defaults = Defaults;
+      }
 
-      if ($.fn.SUIselect.defaults == null) {
-        $.fn.SUIselect.defaults = Defaults;
+      return Select2;
+    }); //SUI-SELECT2
+
+    /**
+     * Rebranding select2 to SUIselect2
+     * It does avoid conflicts with other(s) that include select2 manually
+     */
+
+    S2.define('sui.select2', ['jquery', 'jquery-mousewheel', './select2/core', './select2/defaults'], function ($, _, Select2, Defaults) {
+      if ($.fn.SUIselect2 == null) {
+        // All methods that should return the element
+        var thisMethods = ['open', 'close', 'destroy'];
+
+        $.fn.SUIselect2 = function (options) {
+          options = options || {};
+
+          if (_typeof(options) === 'object') {
+            this.each(function () {
+              var instanceOptions = $.extend(true, {}, options);
+              var instance = new Select2($(this), instanceOptions);
+            });
+            return this;
+          } else if (typeof options === 'string') {
+            var ret;
+            var args = Array.prototype.slice.call(arguments, 1);
+            this.each(function () {
+              var instance = $(this).data('select2');
+
+              if (instance == null && window.console && console.error) {
+                console.error('The SUISelect2(\'' + options + '\') method was called on an ' + 'element that is not using Select2.');
+              }
+
+              ret = instance[options].apply(instance, args);
+            }); // Check if we should be returning `this`
+
+            if ($.inArray(options, thisMethods) > -1) {
+              return this;
+            }
+
+            return ret;
+          } else {
+            throw new Error('Invalid arguments for SUISelect2: ' + options);
+          }
+        };
+      }
+
+      if ($.fn.SUIselect2.defaults == null) {
+        $.fn.SUIselect2.defaults = Defaults;
       }
 
       return Select2;
@@ -5950,19 +5609,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       define: S2.define,
       require: S2.require
     };
-  }(); // Autoload the jQuery bindings
-  // We know that all of the modules exist above this, so we're safe
+  }(); // // Autoload the jQuery bindings
+  // // We know that all of the modules exist above this, so we're safe
   // var select2 = S2.require('jquery.select2');
-  // Hold the AMD module references on the jQuery function that was just loaded
-  // This allows Select2 to use the internal loader outside of this file, such
-  // as in the language files.
+  //
+  // // Hold the AMD module references on the jQuery function that was just loaded
+  // // This allows Select2 to use the internal loader outside of this file, such
+  // // as in the language files.
   // jQuery.fn.select2.amd = S2;
-  // Return the Select2 instance for anyone who is importing it.
+  //
+  // // Return the Select2 instance for anyone who is importing it.
   // return select2;
-  // Return SUIselect instance. @edited
+  // SUI-SELECT2
 
 
-  var select2 = S2.require('sui.select');
+  var select2 = S2.require('sui.select2');
 
   return select2;
 });

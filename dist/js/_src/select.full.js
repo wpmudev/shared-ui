@@ -13,7 +13,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 ;
 
 (function (factory) {
-  // SUIselect disables AMD and module exports. @edited
+  // SUIselect2 disables AMD and module exports. @edited
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['jquery'], factory);
@@ -5412,8 +5412,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
         $dropdown.css(dropdownCss);
-        $dropdown.addClass('sui-dropdown'); // FIX: Make sure "sui-dropdown" main class does not get erased. @edited
-
         $dropdown.addClass(dropdownCssClass);
         return $dropdown;
       };

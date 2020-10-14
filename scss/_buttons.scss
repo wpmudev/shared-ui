@@ -57,12 +57,13 @@
 				}
 			}
 
-			&,
-			&:hover,
-			&:focus,
-			&:active {
+			&:hover {
 				outline: none;
 				box-shadow: none;
+			}
+
+			&:focus {
+				outline: none;
 			}
 
 			&.disabled,
@@ -146,9 +147,13 @@
 		}
 
 		&:hover,
-		&:focus,
-		&:active {
+		&:focus {
 			background-color: darken(map-get($button-background, default), 10%);
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 3px map-get($button-shadow, default);
 		}
 
 		&.disabled,
@@ -180,9 +185,13 @@
 				color: map-get($button-text-color, $color);
 
 				&:hover,
-				&:focus,
-				&:active {
+				&:focus {
 					background-color: darken(map-get($button-background, $color), 10%);
+				}
+
+				&:focus {
+					outline: none;
+					box-shadow: 0 0 0 3px map-get($button-shadow, $color);
 				}
 
 				&.disabled,
@@ -209,12 +218,16 @@
 			text-transform: none;
 
 			&:hover,
-			&:focus,
-			&:active {
+			&:focus {
 				opacity: 1;
 				border-color: $button-upsell--border-active;
 				background-color: $button-upsell--border-active;
 				color: $button-upsell--color-active;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 3px $purple-ghost;
 			}
 		}
 
@@ -255,11 +268,15 @@
 			color: map-get($button-background, default);
 
 			&:hover,
-			&:focus,
-			&:active {
+			&:focus {
 				border-color: map-get($button-background, default);
 				background-color: map-get($button-background, default);
 				color: map-get($button-text-color, default);
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 3px map-get($button-shadow, default);
 			}
 
 			&.disabled,
@@ -279,11 +296,15 @@
 					color: map-get($button-background, $color);
 
 					&:hover,
-					&:focus,
-					&:active {
+					&:focus {
 						border-color: map-get($button-background, $color);
 						background-color: map-get($button-background, $color);
 						color: map-get($button-text-color, $color);
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: 0 0 0 3px map-get($button-shadow, $color);
 					}
 
 					&.disabled,
@@ -376,10 +397,14 @@
 
 		&:hover,
 		&:focus,
-		&:active,
 		&.sui-active {
 			background-color: map-get($button-icon--background, default);
 			color: map-get($button-icon--color-hover, default);
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 3px map-get($button-icon--shadow, default);
 		}
 
 		&.disabled,
@@ -398,10 +423,14 @@
 
 				&:hover,
 				&:focus,
-				&:active,
 				&.sui-active {
 					background-color: map-get($button-icon--background, $color);
 					color: map-get($button-icon--color-hover, $color);
+				}
+
+				&:focus {
+					outline: none;
+					box-shadow: 0 0 0 3px map-get($button-icon--shadow, $color);
 				}
 
 				&.disabled,
@@ -422,11 +451,15 @@
 
 			&:hover,
 			&:focus,
-			&:active,
 			&.sui-active {
 				border-color: map-get($button-icon--background-hover, default);
 				background-color: map-get($button-icon--background-hover, default);
 				color: map-get($button-icon--alt, default);
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 3px map-get($button-icon--shadow, default);
 			}
 
 			&.disabled,
@@ -444,11 +477,15 @@
 
 					&:hover,
 					&:focus,
-					&:active,
 					&.sui-active {
 						border-color: map-get($button-icon--background-hover, $color);
 						background-color: map-get($button-icon--background-hover, $color);
 						color: map-get($button-icon--alt, $color);
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: 0 0 0 3px map-get($button-icon--shadow, $color);
 					}
 
 					&.disabled,
@@ -469,9 +506,13 @@
 
 			&:hover,
 			&:focus,
-			&:active,
 			&.sui-active {
 				background-color: darken(map-get($button-icon--background-filled, default), 8%);
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 0 0 3px map-get($button-icon--shadow, default);
 			}
 
 			&.disabled,
@@ -491,9 +532,13 @@
 
 					&:hover,
 					&:focus,
-					&:active,
 					&.sui-active {
 						background-color: darken(map-get($button-icon--background-filled, $color), 10%);
+					}
+
+					&:focus {
+						outline: none;
+						box-shadow: 0 0 0 3px map-get($button-icon--shadow, $color);
 					}
 
 					&.disabled,

@@ -1,3 +1,8 @@
+v2.10.0
+- [Fix] Select: Merge Select2 with SUI.Select().
+- [Enhance] Icons: Replace i selector for span.
+- [Enhance] Buttons: New design for focus state.
+
 v2.9.6
 - [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
 

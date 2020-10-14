@@ -20,28 +20,68 @@ $palettes: (
 	blue: (
 		default: #17A8E3,
 		light:   #E1F6FF,
+		ghost:   #E1F6FF,
 	),
 	red: (
 		default: #FF6D6D,
 		light:   #FFE5E9,
+		ghost:   #FFE5E9,
 	),
 	yellow: (
 		default: #FECF2F,
 		light:   #FFF5D5,
+		ghost:   #FFF5D5,
 	),
 	green: (
 		default: #1ABC9C,
 		light:   #D1F1EA,
+		ghost:   #D1F1EA,
 	),
 	orange: (
 		default: #FF7E41,
 		light:   #FFE5D9,
+		ghost:   #FFE5D9,
 	),
 	purple: (
 		default: #8D00B1,
 		light:   #F9E1FF,
-	)
+		ghost:   #F9E1FF,
+	),
+	monos: (
+		cloud:       #FAFAFA,
+		haze:        #F8F8F8,
+		smoke:       #F2F2F2,
+		silver:      #E6E6E6,
+		overcast:    #DDDDDD,
+		fiftyshades: #AAAAAA,
+		grey:        #888888,
+		ironmike:    #666666,
+		nightrider:  #333333,
+	),
 ) !default;
+
+$cloud:        palette(monos, cloud)       !default;
+$haze:         palette(monos, haze)        !default;
+$smoke:        palette(monos, smoke)       !default;
+$silver:       palette(monos, silver)    !default;
+$overcast:     palette(monos, overcast)    !default;
+$fiftyshades:  palette(monos, fiftyshades) !default;
+$grey:         palette(monos, grey)      !default;
+$ironmike:     palette(monos, ironmike)    !default;
+$nightrider:   palette(monos, nightrider)  !default;
+$blue:         palette(blue, default)    !default;
+$green:        palette(green, default)   !default;
+$yellow:       palette(yellow, default)  !default;
+$red:          palette(red, default)     !default;
+$purple:       palette(purple, default)  !default;
+$blue-ghost:   palette(blue, ghost)      !default;
+$green-ghost:  palette(green, ghost)     !default;
+$yellow-ghost: palette(yellow, ghost)    !default;
+$red-ghost:    palette(red, ghost)       !default;
+$purple-ghost: palette(purple, ghost)    !default;
+
+// ============================================================
+// Old colors (organization)
 
 $success:                               palette(green)                !default;
 $warning:                               palette(yellow)               !default;
@@ -53,10 +93,6 @@ $white:                                 palette(mono, white)          !default;
 $black:                                 palette(mono, black)          !default;
 $gray:                                  palette(gray)                 !default;
 $gray-alt:                              palette(gray, dark)           !default;
-$blue:                                  palette(blue)                 !default;
-$red:                                   palette(red)                  !default;
-$green:                                 palette(green)                !default;
-$silver:                                palette(silver)               !default;
 
 // Boxes Colors (_boxes.scss)
 $box-bg-color:                          palette(mono, white)          !default;
@@ -72,6 +108,17 @@ $box-upsell-border-color:               palette(purple)                !default;
 // Buttons Colors (_buttons.scss)
 
 $button-colors: blue green red orange yellow purple white;
+
+$button-shadow: (
+	default: $overcast,
+	blue:    $blue-ghost,
+	green:   $green-ghost,
+	red:     $red-ghost,
+	orange:  palette(orange, ghost),
+	yellow:  $yellow-ghost,
+	purple:  $purple-ghost,
+	white:   $white
+) !default;
 
 $button-border: (
 	default: palette(gray, lighter),
@@ -122,6 +169,17 @@ $button-dashed--color:         palette(gray, light)    !default;
 
 // ============================================================
 // Icon Buttons Colors (_buttons.scss)
+
+$button-icon--shadow: (
+	default: $overcast,
+	blue:    $blue-ghost,
+	green:   $green-ghost,
+	red:     $red-ghost,
+	orange:  palette(orange, ghost),
+	yellow:  $yellow-ghost,
+	purple:  $purple-ghost,
+	white:   $white
+) !default;
 
 $button-icon--border: (
 	default: palette(gray, lighter),
