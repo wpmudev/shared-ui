@@ -118,8 +118,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-0-beta-3 .sui-accordion').length) {
-    $('.sui-2-10-0-beta-3 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-10-0-beta-4 .sui-accordion').length) {
+    $('.sui-2-10-0-beta-4 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-10-0-beta-3 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-10-0-beta-4 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-10-0-beta-3 .sui-slider').each(function () {
+  $('.sui-2-10-0-beta-4 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-10-0-beta-3 .sui-dropdown');
+      var $dropdowns = $('.sui-2-10-0-beta-4 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       e.preventDefault();
     });
     $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-10-0-beta-3 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-10-0-beta-4 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2501,7 +2501,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-10-0-beta-3 .sui-form-field').each(function () {
+    $('.sui-2-10-0-beta-4 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2529,7 +2529,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-10-0-beta-3 .sui-reviews').each(function () {
+  $('.sui-2-10-0-beta-4 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -2567,7 +2567,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-10-0-beta-3 .sui-circle-score').each(function () {
+  $('.sui-2-10-0-beta-4 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -8675,8 +8675,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return markup;
   };
 
-  SUI.select.init = function (select) {
-    var getParent = select.closest('.sui-modal-content'),
+  SUI.select.init = function (el) {
+    var select = $(el),
+        getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -8688,8 +8689,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initIcon = function (select) {
-    var getParent = select.closest('.sui-modal-content'),
+  SUI.select.initIcon = function (el) {
+    var select = $(el),
+        getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -8706,8 +8708,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initColor = function (select) {
-    var getParent = select.closest('.sui-modal-content'),
+  SUI.select.initColor = function (el) {
+    var select = $(el),
+        getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
@@ -8724,8 +8727,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initSearch = function (select) {
-    var getParent = select.closest('.sui-modal-content'),
+  SUI.select.initSearch = function (el) {
+    var select = $(el),
+        getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
@@ -8737,8 +8741,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  SUI.select.initVars = function (select) {
-    var getParent = select.closest('.sui-modal-content'),
+  SUI.select.initVars = function (el) {
+    var select = $(el),
+        getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
@@ -8758,18 +8763,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     var select = $(this);
 
     if ('icon' === select.data('theme')) {
-      SUI.select.initIcon(select);
+      SUI.select.initIcon(this);
     } else if ('color' === select.data('theme')) {
-      SUI.select.initColor(select);
+      SUI.select.initColor(this);
     } else if ('search' === select.data('theme')) {
-      SUI.select.initSearch(select);
+      SUI.select.initSearch(this);
     } else {
-      SUI.select.init(select);
+      SUI.select.init(this);
     }
   });
   $('.sui-variables').each(function () {
-    var select = $(this);
-    SUI.select.initVars(select);
+    SUI.select.initVars(this);
   });
 })(jQuery);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -8804,7 +8808,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-10-0-beta-3 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-10-0-beta-4 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -9243,12 +9247,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-0-beta-3 .sui-tabs').length) {
+  if (0 !== $('.sui-2-10-0-beta-4 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-10-0-beta-3 .sui-tabs-navigation').each(function () {
+    $('.sui-2-10-0-beta-4 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9568,8 +9572,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-0-beta-3 .sui-tree').length) {
-    $('.sui-2-10-0-beta-3 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-10-0-beta-4 .sui-tree').length) {
+    $('.sui-2-10-0-beta-4 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9585,7 +9589,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-10-0-beta-3 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-10-0-beta-4 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
