@@ -1,0 +1,156 @@
+@include body-class {
+
+	.showcase-component {
+		position: relative;
+		border: 1px solid palette(silver, soft);
+		border-radius: $border-radius;
+		background-color: $white;
+
+		.sui-tabs {
+
+			.sui-tabs-menu {
+				padding: 0 20px !important;
+			}
+
+			.sui-tabs-content {
+
+				.sui-tab-content {
+					padding-top: 0 !important;
+				}
+			}
+		}
+
+		.showcase-component-options {
+			width: 100%;
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
+			display: block;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			padding: 10px;
+			border: 0;
+			border-radius: #{$border-radius - 1px};
+			background-color: $white;
+
+			fieldset {
+
+				legend {
+					color: palette(gray, dark);
+					font: 500 14px/22px $font;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+
+			@include media(max-width, md) {
+				display: none;
+			}
+
+			@include media(min-width, md) {
+				width: 200px;
+				right: 0;
+				left: auto;
+				border-left: 1px solid palette(silver, soft);
+				border-radius: 0 #{$border-radius - 1px} #{$border-radius - 1px} 0;
+			}
+		}
+
+		.showcase-component-preview {
+			display: block;
+			padding: 24px;
+			border-radius: #{$border-radius - 1px} 0 0 #{$border-radius - 1px};
+			background-color: $white;
+			background-image: linear-gradient(45deg, rgb(249, 249, 250) 25%, transparent 25%), linear-gradient(135deg, rgb(249, 249, 250) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgb(249, 249, 250) 75%), linear-gradient(135deg, transparent 75%, rgb(249, 249, 250) 75%);
+			background-size: 20px 20px;
+			background-position: 0px 0px, 10px 0px, 10px -10px, 0px 10px;
+		}
+
+		.showcase-component-code {
+			height: 150px;
+			overflow: hidden;
+			display: block;
+			position: relative;
+			z-index: 0;
+			border-radius: 0 0 #{$border-radius - 1px} #{$border-radius - 1px};
+
+			&:before {
+				content: " ";
+				width: 100%;
+				height: 75%;
+				pointer-events: none;
+				display: block;
+				position: absolute;
+				z-index: 1;
+				top: 25%;
+				left: 0;
+				background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244, 245, 247) 90%);
+			}
+
+			.sui-code-snippet {
+				display: block;
+				padding: 24px 24px 54px;
+				border: 0;
+				border-radius: 0;
+				white-space: pre-wrap;
+
+				&-wrapper {
+
+					.sui-button {
+
+						&.sui-tooltip {
+							@extend .sui-tooltip-bottom;
+						}
+					}
+				}
+			}
+
+			.showcase-component-code--more {
+				width: 100%;
+				cursor: pointer;
+				position: absolute;
+				z-index: 1;
+				bottom: 0;
+				left: 0;
+				margin: 0;
+				padding: 0 10px;
+				border: 0;
+				background-color: palette(silver, light);
+				color: palette(gray, light);
+				font: 500 12px/30px $font;
+				text-transform: uppercase;
+				text-align: center;
+				transition: $transition;
+
+				[class*="sui-icon-"] {
+					margin-left: 5px;
+				}
+
+				&:hover,
+				&:focus {
+					outline: none;
+					box-shadow: none;
+					background-color: palette(silver, soft);
+				}
+			}
+
+			&.open {
+				height: auto;
+
+				&:before {
+					content: unset;
+					display: none;
+				}
+			}
+		}
+
+		@include media(min-width, md) {
+			padding-right: 200px;
+		}
+	}
+}
