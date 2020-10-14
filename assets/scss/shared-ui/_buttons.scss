@@ -57,12 +57,13 @@
 				}
 			}
 
-			&,
-			&:hover,
-			&:focus,
-			&:active {
+			&:hover {
 				outline: none;
 				box-shadow: none;
+			}
+
+			&:focus {
+				outline: none;
 			}
 
 			&.disabled,
@@ -146,9 +147,12 @@
 		}
 
 		&:hover,
-		&:focus,
-		&:active {
+		&:focus {
 			background-color: darken(map-get($button-background, default), 10%);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 3px map-get($button-border, default);
 		}
 
 		&.disabled,
@@ -180,9 +184,12 @@
 				color: map-get($button-text-color, $color);
 
 				&:hover,
-				&:focus,
-				&:active {
+				&:focus {
 					background-color: darken(map-get($button-background, $color), 10%);
+				}
+
+				&:focus {
+					box-shadow: 0 0 0 3px map-get($button-border, $color);
 				}
 
 				&.disabled,
@@ -209,8 +216,7 @@
 			text-transform: none;
 
 			&:hover,
-			&:focus,
-			&:active {
+			&:focus {
 				opacity: 1;
 				border-color: $button-upsell--border-active;
 				background-color: $button-upsell--border-active;
@@ -255,8 +261,7 @@
 			color: map-get($button-background, default);
 
 			&:hover,
-			&:focus,
-			&:active {
+			&:focus {
 				border-color: map-get($button-background, default);
 				background-color: map-get($button-background, default);
 				color: map-get($button-text-color, default);
