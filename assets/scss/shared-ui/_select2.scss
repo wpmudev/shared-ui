@@ -969,13 +969,17 @@
 								[class*="sui-icon-"] {
 									width: 30px;
 									height: 30px;
+									display: flex;
+									flex-flow: row nowrap;
+									align-items: center;
 									position: absolute;
-									top: 50%;
+									top: 0;
 									left: 10px;
-									transform: translateY(-50%);
 									text-align: center;
 
 									&:before {
+										display: block;
+										flex: 0 0 auto;
 										color: inherit;
 										font-size: 16px;
 									}
@@ -999,6 +1003,7 @@
 								.select2-results__option {
 
 									[class*="sui-icon-"] {
+										height: 28px;
 										left: 5px;
 
 										&:before {
