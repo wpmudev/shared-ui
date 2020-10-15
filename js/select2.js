@@ -1,4 +1,4 @@
-( function( $ ) {
+;( function( $ ) {
 
 	// Define global SUI object if it doesn't exist.
 	if ( 'object' !== typeof window.SUI ) {
@@ -165,7 +165,7 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			minimumResultsForSearch: hasSearch,
 			dropdownCssClass: isSmall
@@ -180,7 +180,7 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatIcon,
 			templateSelection: SUI.select.formatIconSelection,
@@ -200,7 +200,7 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatColor,
 			templateSelection: SUI.select.formatColorSelection,
@@ -219,7 +219,7 @@
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			minimumInputLength: 2,
 			maximumSelectionLength: 1,
@@ -234,7 +234,7 @@
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
 
-		select.SUIselect({
+		select.SUIselect2({
 			theme: 'vars',
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatVars,

@@ -1,7 +1,7 @@
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-10-0-beta-5 .sui-reviews').each(function () {
+  $('.sui-2-10-0-beta-6 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);

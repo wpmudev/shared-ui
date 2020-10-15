@@ -1,5 +1,7 @@
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+;
+
 (function ($) {
   // Define global SUI object if it doesn't exist.
   if ('object' !== _typeof(window.SUI)) {
@@ -140,7 +142,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
-    select.SUIselect({
+    select.SUIselect2({
       dropdownParent: selectParent,
       minimumResultsForSearch: hasSearch,
       dropdownCssClass: isSmall
@@ -153,7 +155,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
-    select.SUIselect({
+    select.SUIselect2({
       dropdownParent: selectParent,
       templateResult: SUI.select.formatIcon,
       templateSelection: SUI.select.formatIconSelection,
@@ -171,7 +173,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
-    select.SUIselect({
+    select.SUIselect2({
       dropdownParent: selectParent,
       templateResult: SUI.select.formatColor,
       templateSelection: SUI.select.formatColorSelection,
@@ -188,7 +190,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
-    select.SUIselect({
+    select.SUIselect2({
       dropdownParent: selectParent,
       minimumInputLength: 2,
       maximumSelectionLength: 1,
@@ -201,7 +203,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
-    select.SUIselect({
+    select.SUIselect2({
       theme: 'vars',
       dropdownParent: selectParent,
       templateResult: SUI.select.formatVars,
