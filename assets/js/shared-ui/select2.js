@@ -1,4 +1,4 @@
-( function( $ ) {
+;( function( $ ) {
 
 	// Define global SUI object if it doesn't exist.
 	if ( 'object' !== typeof window.SUI ) {
@@ -7,7 +7,7 @@
 
 	SUI.select = {};
 
-	SUI.select.formatIcon = ( data, container ) => {
+	SUI.select.formatIcon = function( data, container ) {
 
 		let markup;
 
@@ -28,7 +28,7 @@
 
 	};
 
-	SUI.select.formatIconSelection = ( data, container ) => {
+	SUI.select.formatIconSelection = function( data, container ) {
 
 		let markup;
 
@@ -45,7 +45,7 @@
 
 	};
 
-	SUI.select.formatColor = ( data, container ) => {
+	SUI.select.formatColor = function( data, container ) {
 
 		let markup, border;
 
@@ -86,7 +86,7 @@
 
 	};
 
-	SUI.select.formatColorSelection = ( data, container ) => {
+	SUI.select.formatColorSelection = function( data, container ) {
 
 		let markup;
 
@@ -123,7 +123,7 @@
 
 	};
 
-	SUI.select.formatVars = ( data, container ) => {
+	SUI.select.formatVars = function( data, container ) {
 
 		let markup;
 
@@ -144,7 +144,7 @@
 
 	};
 
-	SUI.select.formatVarsSelection = ( data, container ) => {
+	SUI.select.formatVarsSelection = function( data, container ) {
 
 		let markup;
 
@@ -157,7 +157,7 @@
 
 	};
 
-	SUI.select.init = ( select ) => {
+	SUI.select.init = function( select ) {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -165,14 +165,14 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			minimumResultsForSearch: hasSearch,
 			dropdownCssClass: isSmall
 		});
 	};
 
-	SUI.select.initIcon = ( select ) => {
+	SUI.select.initIcon = function( select ) {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -180,7 +180,7 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatIcon,
 			templateSelection: SUI.select.formatIconSelection,
@@ -192,7 +192,7 @@
 		});
 	};
 
-	SUI.select.initColor = ( select ) => {
+	SUI.select.initColor = function( select ) {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -200,7 +200,7 @@
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatColor,
 			templateSelection: SUI.select.formatColorSelection,
@@ -212,14 +212,14 @@
 		});
 	};
 
-	SUI.select.initSearch = ( select ) => {
+	SUI.select.initSearch = function( select ) {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-dropdown-sm' : '';
 
-		select.SUIselect({
+		select.SUIselect2({
 			dropdownParent: selectParent,
 			minimumInputLength: 2,
 			maximumSelectionLength: 1,
@@ -227,14 +227,14 @@
 		});
 	};
 
-	SUI.select.initVars = ( select ) => {
+	SUI.select.initVars = function( select ) {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
 			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
 
-		select.SUIselect({
+		select.SUIselect2({
 			theme: 'vars',
 			dropdownParent: selectParent,
 			templateResult: SUI.select.formatVars,
