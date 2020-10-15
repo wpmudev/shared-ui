@@ -213,7 +213,7 @@
 					var select = $( this );
 
 					// Destroy.
-					select.SUIselect( 'destroy' );
+					select.SUIselect2( 'destroy' );
 
 					// Get sample markup.
 					markup( select );
