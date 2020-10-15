@@ -1,4 +1,6 @@
-@include body-class {
+// ELEMENT: Select.
+// $sui-wrap: true | $rtl: false
+@include body-class(true, false) {
 
 	select:not(.sui-select),
 	select.sui-select.sui-no-js {
@@ -93,6 +95,41 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+	}
+}
+
+// $sui-wrap: true | $rtl: false | $monochrome: true
+@include body-class(true, false, true) {
+
+	select:not(.sui-select),
+	select.sui-select.sui-no-js {
+		border-color: $black;
+		color: $black;
+
+		&,
+		&:hover,
+		&:focus {
+			background-color: $white;
+		}
+
+		// STYLE: Multi Select.
+		&[multiple] {
+			background-color: $white;
+
+			option {
+				background-color: $white;
+				color: $black;
+
+				&:hover {
+					background-color: $grey;
+				}
+
+				&:checked {
+					background-color: $black;
+					color: $white;
+				}
+			}
 		}
 	}
 }
