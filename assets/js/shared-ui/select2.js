@@ -7,7 +7,7 @@
 
 	SUI.select = {};
 
-	SUI.select.formatIcon = function( data, container ) {
+	SUI.select.formatIcon = ( data, container ) => {
 
 		let markup;
 
@@ -28,7 +28,7 @@
 
 	};
 
-	SUI.select.formatIconSelection = function( data, container ) {
+	SUI.select.formatIconSelection = ( data, container ) => {
 
 		let markup;
 
@@ -45,7 +45,7 @@
 
 	};
 
-	SUI.select.formatColor = function( data, container ) {
+	SUI.select.formatColor = ( data, container ) => {
 
 		let markup, border;
 
@@ -86,7 +86,7 @@
 
 	};
 
-	SUI.select.formatColorSelection = function( data, container ) {
+	SUI.select.formatColorSelection = ( data, container ) => {
 
 		let markup;
 
@@ -123,7 +123,7 @@
 
 	};
 
-	SUI.select.formatVars = function( data, container ) {
+	SUI.select.formatVars = ( data, container ) => {
 
 		let markup;
 
@@ -144,7 +144,7 @@
 
 	};
 
-	SUI.select.formatVarsSelection = function( data, container ) {
+	SUI.select.formatVarsSelection = ( data, container ) => {
 
 		let markup;
 
@@ -157,7 +157,7 @@
 
 	};
 
-	SUI.select.init = function( select ) {
+	SUI.select.init = ( select ) => {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -172,7 +172,7 @@
 		});
 	};
 
-	SUI.select.initIcon = function( select ) {
+	SUI.select.initIcon = ( select ) => {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -192,7 +192,7 @@
 		});
 	};
 
-	SUI.select.initColor = function( select ) {
+	SUI.select.initColor = ( select ) => {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -212,7 +212,7 @@
 		});
 	};
 
-	SUI.select.initSearch = function( select ) {
+	SUI.select.initSearch = ( select ) => {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
@@ -227,7 +227,7 @@
 		});
 	};
 
-	SUI.select.initVars = function( select ) {
+	SUI.select.initVars = ( select ) => {
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
