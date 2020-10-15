@@ -561,6 +561,36 @@
 					}
 				}
 			}
+
+			// DESIGN: Icon.
+			&.sui-select-theme--icon {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+
+							// Label.
+							.select2-selection__rendered {
+								padding-left: 5px;
+								padding-right: 46px;
+
+								[class*="sui-icon-"] {
+									left: auto;
+									right: 10px;
+								}
+
+								.select2-selection__placeholder {
+									margin-left: auto;
+									margin-right: -32px;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
