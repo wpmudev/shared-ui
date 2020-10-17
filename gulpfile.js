@@ -420,7 +420,7 @@ gulp.task( 'publish:sui', () => {
 		repo: 'https://github.com/wpmudev/shared-ui.git',
 		dest: '',
 		dotfiles: true,
-		message: ':package: Shared UI v' + getVersion()
+		message: '📦 Shared UI v' + getVersion()
 	});
 });
 
@@ -432,6 +432,6 @@ gulp.task( 'publish:dev', () => {
 		repo: 'https://github.com/wpmudev/shared-ui.git',
 		dest: '',
 		dotfiles: true,
-		message: ':package: Shared UI Showcase with SUI v' + getVersion()
+		message: '📦 Shared UI Showcase with SUI v' + getVersion()
 	});
 });
