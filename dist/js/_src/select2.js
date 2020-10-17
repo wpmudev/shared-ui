@@ -141,7 +141,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
-        isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
+        isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
       minimumResultsForSearch: hasSearch,
@@ -154,7 +154,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
-        isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
+        isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
       templateResult: SUI.select.formatIcon,
@@ -172,7 +172,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
-        isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
+        isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
       templateResult: SUI.select.formatColor,
@@ -189,7 +189,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
         selectParent = getParent.length ? $('#' + getParentId) : $(document.body),
-        isSmall = select.hasClass('sui-select-sm') ? 'sui-dropdown-sm' : '';
+        isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
       minimumInputLength: 2,

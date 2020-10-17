@@ -3876,7 +3876,7 @@
 
             Dropdown.prototype.render = function () {
                 var $dropdown = $(
-					'<span class="sui-dropdown">' +
+					'<span class="sui-select-dropdown">' +
 					'<span class="select2-results"></span>' +
 					'</span>'
 				);
@@ -4197,7 +4197,7 @@
 
 				// Custom SUIselect dropdown. @edited
 				$dropdown.removeClass('select2');
-                $dropdown.addClass('sui-dropdown-container--open');
+                $dropdown.addClass('sui-select-dropdown-container--open');
 
                 $dropdown.css({
                     position: 'absolute',
@@ -4331,11 +4331,11 @@
 				// Custom SUIselect dropdown. @edited
 				if (newDirection != null) {
                     this.$dropdown
-						.removeClass('sui-dropdown--below sui-dropdown--above')
-                        .addClass('sui-dropdown--' + newDirection);
+						.removeClass('sui-select-dropdown--below sui-select-dropdown--above')
+                        .addClass('sui-select-dropdown--' + newDirection);
                     this.$container
-						.removeClass('sui-dropdown-container--below sui-dropdown-container--above')
-                        .addClass('sui-dropdown-container--' + newDirection);
+						.removeClass('sui-select-dropdown-container--below sui-select-dropdown-container--above')
+                        .addClass('sui-select-dropdown-container--' + newDirection);
                 }
 
                 this.$dropdownContainer.css(css);
@@ -5832,7 +5832,7 @@
                 CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
 
 				$dropdown.css(dropdownCss);
-				$dropdown.addClass('sui-dropdown'); // FIX: Make sure "sui-dropdown" main class does not get erased. @edited
+				$dropdown.addClass('sui-select-dropdown'); // FIX: Make sure "sui-select-dropdown" main class does not get erased. @edited
                 $dropdown.addClass(dropdownCssClass);
 
                 return $dropdown;
@@ -6095,8 +6095,8 @@
                     $dropdownContainer.append($dropdown);
 
 					// Custom SUIselect dropdown. @edited
-					$dropdown.addClass( 'sui-dropdown--below' );
-                    $container.addClass( 'sui-dropdown-container--below' );
+					$dropdown.addClass( 'sui-select-dropdown--below' );
+                    $container.addClass( 'sui-select-dropdown-container--below' );
                 };
 
             return AttachContainer;

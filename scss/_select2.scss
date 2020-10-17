@@ -8,6 +8,7 @@
 			min-width: 100%;
 			max-width: 100%;
 			display: block;
+			text-align: left;
 
 			// STATE: Default.
 			.selection {
@@ -545,6 +546,7 @@
 
 		+ .sui-select {
 			direction: rtl;
+			text-align: right;
 
 			.selection {
 
@@ -561,6 +563,214 @@
 					}
 				}
 			}
+
+			// DESIGN: Icon.
+			&.sui-select-theme--icon {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+
+							// Label.
+							.select2-selection__rendered {
+								padding-left: 5px;
+								padding-right: 46px;
+
+								[class*="sui-icon-"] {
+									left: auto;
+									right: 10px;
+								}
+
+								.select2-selection__placeholder {
+									margin-left: auto;
+									margin-right: -32px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// $sui-wrap: true | $rtl: false | $monochrome: true
+@include body-class(true, false, true) {
+
+	select.sui-select {
+
+		+ .sui-select {
+
+			// STATE: Default.
+			.selection {
+
+				span[role="combobox"] {
+
+					// TYPE: Single Select.
+					&.select2-selection--single {
+						border-color: $black;
+						background-color: $white;
+
+						// Label.
+						.select2-selection__rendered {
+							color: $black;
+
+							.select2-selection__placeholder {
+								color: $black;
+							}
+						}
+
+						// Icon.
+						.select2-selection__arrow {
+							color: $black;
+						}
+					}
+
+					// TYPE: Multi Select.
+					&.select2-selection--multiple {
+
+						// Options.
+						.select2-selection__rendered {
+							border-color: $black;
+							background-color: $white;
+
+							.select2-search {
+
+								input {
+									color: $black;
+
+									&::placeholder {
+										color: $black;
+									}
+
+									&:-moz-placeholder {
+										color: $black;
+									}
+
+									&::-moz-placeholder {
+										color: $black;
+									}
+
+									&:-ms-input-placeholder {
+										color: $black;
+									}
+
+									&::-webkit-input-placeholder {
+										color: $black;
+									}
+								}
+							}
+
+							.select2-selection__choice {
+								background-color: $black;
+
+								.select2-selection__choice__remove {
+									background-color: $black;
+									color: $white;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// DESIGN: Smart Search.
+			&.sui-select-theme--search {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Multi Select.
+						&.select2-selection--multiple {
+
+							.select2-selection__rendered {
+
+								.select2-selection__choice {
+									color: $black;
+
+									.select2-selection__choice__remove {
+										color: $black;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// STATE: Disabled.
+			&.select2-container--disabled {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+							border-color: $grey;
+							background-color: $white;
+
+							// Label.
+							.select2-selection__rendered {
+								color: $grey;
+							}
+
+							// Icon.
+							.select2-selection__arrow {
+								color: $grey;
+							}
+						}
+
+						// TYPE: Multi Select.
+						&.select2-selection--multiple {
+
+							.select2-selection__rendered {
+								border-color: $grey;
+								background-color: $grey;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// STATE: Error.
+	.sui-form-field {
+
+		&.sui-form-field-error {
+
+			select.sui-select {
+
+				+ .sui-select {
+
+					// STATE: Default.
+					.selection {
+
+						span[role="combobox"] {
+
+							// TYPE: Single Select.
+							&.select2-selection--single {
+								border-bottom-color: $black;
+								box-shadow: 0 1px 0 0 $black;
+							}
+
+							// TYPE: Multi Select.
+							&.select2-selection--multiple {
+
+								.select2-selection__rendered {
+									border-bottom-color: $black;
+									box-shadow: 0 1px 0 0 $black;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -571,7 +781,7 @@
 
 	.sui-select {
 
-		&.sui-dropdown-container--open {
+		&.sui-select-dropdown-container--open {
 			display: block;
 
 			* {
@@ -585,7 +795,7 @@
 				text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 			}
 
-			.sui-dropdown {
+			.sui-select-dropdown {
 				display: block;
 				margin: 0;
 				padding: 10px 0;
@@ -727,7 +937,7 @@
 				}
 
 				// SIZE: Small.
-				&.sui-dropdown-sm {
+				&.sui-select-dropdown-sm {
 					padding: 15px 0;
 
 					// Dropdown list.
@@ -748,7 +958,7 @@
 			// DESIGN: Select with icon.
 			&.sui-select-theme--icon {
 
-				.sui-dropdown {
+				.sui-select-dropdown {
 
 					// Dropdown list.
 					.select2-results {
@@ -761,13 +971,17 @@
 								[class*="sui-icon-"] {
 									width: 30px;
 									height: 30px;
+									display: flex;
+									flex-flow: row nowrap;
+									align-items: center;
 									position: absolute;
-									top: 50%;
+									top: 0;
 									left: 10px;
-									transform: translateY(-50%);
 									text-align: center;
 
 									&:before {
+										display: block;
+										flex: 0 0 auto;
 										color: inherit;
 										font-size: 16px;
 									}
@@ -781,7 +995,7 @@
 					}
 
 					// SIZE: Small.
-					&.sui-dropdown-sm {
+					&.sui-select-dropdown-sm {
 
 						// Dropdown list.
 						.select2-results {
@@ -791,6 +1005,7 @@
 								.select2-results__option {
 
 									[class*="sui-icon-"] {
+										height: 28px;
 										left: 5px;
 
 										&:before {
@@ -811,7 +1026,7 @@
 			// DESIGN: Select with color.
 			&.sui-select-theme--color {
 
-				.sui-dropdown {
+				.sui-select-dropdown {
 
 					// Dropdown list.
 					.select2-results {
@@ -846,7 +1061,7 @@
 			// DESIGN: Select with variables.
 			&.sui-select-theme--vars {
 
-				.sui-dropdown {
+				.sui-select-dropdown {
 					width: 240px !important;
 					margin-left: -200px;
 
@@ -892,10 +1107,10 @@
 
 	.sui-select {
 
-		&.sui-dropdown-container--open {
+		&.sui-select-dropdown-container--open {
 			direction: rtl;
 
-			.sui-dropdown {
+			.sui-select-dropdown {
 
 				// Search input.
 				.select2-search {
@@ -920,7 +1135,7 @@
 			// DESIGN: Select with icon.
 			&.sui-select-theme--icon {
 
-				.sui-dropdown {
+				.sui-select-dropdown {
 
 					// Dropdown list.
 					.select2-results {
@@ -947,7 +1162,7 @@
 			// DESIGN: Select with color.
 			&.sui-select-theme--color {
 
-				.sui-dropdown {
+				.sui-select-dropdown {
 
 					// Dropdown list.
 					.select2-results {
