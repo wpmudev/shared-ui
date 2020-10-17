@@ -11,6 +11,16 @@
 	word-wrap: normal !important;
 }
 
-.sui-screen-reader-text {
-	@extend %sui-screen-reader-text;
+@include body-class() {
+
+	.sui-screen-reader-text {
+		@extend %sui-screen-reader-text;
+	}
+}
+
+@include body-class(true) {
+
+	.sui-screen-reader-text {
+		@extend %sui-screen-reader-text;
+	}
 }
