@@ -2,8 +2,7 @@
 // $sui-wrap: true | $rtl: false
 @include body-class(true, false) {
 
-	select:not(.sui-select),
-	select.sui-select.sui-no-js {
+	select:not(.sui-select):not(.sui-variables) {
 		width: 100%;
 		cursor: pointer;
 		display: block;
@@ -102,8 +101,7 @@
 // $sui-wrap: true | $rtl: false | $monochrome: true
 @include body-class(true, false, true) {
 
-	select:not(.sui-select):not(.sui-variables),
-	select.sui-select.sui-no-js {
+	select:not(.sui-select):not(.sui-variables) {
 		border-color: $black;
 		color: $black;
 
