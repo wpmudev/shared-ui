@@ -1,4 +1,4 @@
-v2.10.0-beta.7
+v2.10.0-beta.9
 - [Fix] Select: Merge Select2 with SUI.Select().
 - [Fix] Select: Make element accessible for screen readers users.
 - [Enhance] Select: Support RTL language.
