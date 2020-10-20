@@ -1574,10 +1574,16 @@
             };
 
             SingleSelection.prototype.update = function (data) {
-                if (data.length === 0) {
-                    this.clear();
-                    return;
-                }
+				// Add icon when variables is empty. @edited
+				if (data.length === 0) {
+					this.clear();
+					if ( 'vars' === this.options.get( 'theme' ) ) {
+						this.$selection.find( '.select2-selection__rendered' ).html(
+							'<span class="sui-icon-plus-circle sui-md" aria-hidden="true"></span>'
+						);
+					}
+					return;
+				}
 
                 var selection = data[0];
 
