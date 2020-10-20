@@ -1430,8 +1430,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       SingleSelection.prototype.update = function (data) {
+        // Add icon when variables is empty. @edited
         if (data.length === 0) {
           this.clear();
+
+          if ('vars' === this.options.get('theme')) {
+            this.$selection.find('.select2-selection__rendered').html('<span class="sui-icon-plus-circle sui-md" aria-hidden="true"></span>');
+          }
+
           return;
         }
 
