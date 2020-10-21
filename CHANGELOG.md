@@ -1,6 +1,7 @@
 v2.10.0-beta.9
 - [Fix] Select: Merge Select2 with SUI.Select().
 - [Fix] Select: Make element accessible for screen readers users.
+- [Fix] Select: Non-passive event listener to a scroll-blocking 'wheel' event.
 - [Enhance] Select: Support RTL language.
 - [Enhance] Icons: Replace i selector for span.
 - [Enhance] Buttons: New design for focus state.

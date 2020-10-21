@@ -5337,7 +5337,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         setup: function setup() {
           if (this.addEventListener) {
             for (var i = toBind.length; i;) {
-              this.addEventListener(toBind[--i], handler, false);
+              this.addEventListener(toBind[--i], handler, {
+                passive: false
+              }); // Non-passive event listener to a scroll-blocking 'wheel' event. @edited
             }
           } else {
             this.onmousewheel = handler;
