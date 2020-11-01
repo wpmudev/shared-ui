@@ -1,8 +1,17 @@
-v2.10.0-beta.9
-- [Fix] Select: Merge Select2 with SUI.Select().
+v2.10.0
 - [Fix] Select: Make element accessible for screen readers users.
 - [Fix] Select: Non-passive event listener to a scroll-blocking 'wheel' event.
+- [Fix] Select: Non-js element is already styled.
+- [Enhance] Select: Merge SUIselect2() with SUI.Select().
+			Dev Notes: Regular select (without JS init) is now styled too, and the only difference
+			you are going to find between both is the dropdown list that without JS looks un-styled.
+			For more info, please review the documentation https://wpmudev.github.io/shared-ui/select/
+			or ping @Leigh.
 - [Enhance] Select: Support RTL language.
+- [Enhance] Insert Variables: Now uses SUIselect2() only since SUI.Select() was removed.
+			Dev Notes: Changes done to select component affect this element too. For more info,
+			please review the documentation https://wpmudev.github.io/shared-ui/insert-variables/
+			or ping @Leigh.
 - [Enhance] Icons: Replace i selector for span.
 - [Enhance] Buttons: New design for focus state.
 
