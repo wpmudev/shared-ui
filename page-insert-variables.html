@@ -8,11 +8,38 @@ is_searchable: true
 
 <div class="sui-row-with-sidenav">
 
-	<!-- SECTION: Select2 -->
-	<div class="sui-box">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Insert Variables with <span style="text-decoration: underline;">Select2()</span></h2>
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="examples">Examples</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="usage">Usage</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="code">Code</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="config">Configuration</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Examples -->
+	<div class="sui-box" data-tab="examples">
+
+		<div class="sui-box-header" style="display: block;">
+
+			<h2 class="sui-box-title">Examples</h2>
+
 		</div>
 
 		<div class="sui-box-body">
@@ -25,7 +52,7 @@ is_searchable: true
 
 					<input type="text" value="New enquiry from {first-name}" id="demo-select2-input" class="sui-form-control" aria-labelledby="demo-select2-input-label" />
 
-					<select id="demo-select2-options" class="sui-variables" aria-labelledby="demo-select2-input-label">
+					<select id="demo-select2-options" class="sui-variables">
 						<option value="{address}">Address</option>
 						<option value="{email-address}">Email Address</option>
 						<option value="{first-name}">First Name</option>
@@ -66,6 +93,238 @@ is_searchable: true
 			</div>
 
 			<p style="padding: 5px 10px; border-radius: 4px; background-color: #FECF2F;"><strong style="color: #333;">Use <code>data-search="true"</code> to enable search input on dropdown list.</strong></p>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Usage -->
+	<div class="sui-box" data-tab="usage" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Usage</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">Insert Variables</h3>
+
+			<p style="margin-top: 0;">This type of select is commonly used when inserting structured variables into emails and subject headings, etc. The user simply clicks the options in the dropdown to add them.</p>
+
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Anatomy</h4>
+
+			<img
+				src="{{ site.baseurl }}/assets/images/anatomy-insert-variables.png"
+				srcset="{{ site.baseurl }}/assets/images/anatomy-insert-variables.png 1x, {{ site.baseurl }}/assets/images/anatomy-insert-variables@2x.png 2x"
+				class="sui-image"
+				aria-hidden="true"
+			/>
+
+			<ol style="margin-bottom: 30px;">
+				<li><strong style="color: #333;">Label:</strong> Labels should be sentence case as short as possible while clearly explaining the content of the menu.</li>
+				<li><strong style="color: #333;">Insert Button:</strong> Text input is accompanied by select button at right. User should click on it to display the menu and pick an option to insert into the input.</li>
+				<li><strong style="color: #333;">Menu:</strong> Contains the list of all items that can be inserted. These can be grouped into sub-categories under headings too. Each item will be accompanied by the option value.</li>
+			</ol>
+
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Best Practices</h4>
+
+			<ol style="margin-bottom: 30px;">
+				<li>Order your list of options in a way that will make the most sense to the user.</li>
+				<li>Remove options that rarely get used.</li>
+				<li>Don't overwhelm the user with too many options.</li>
+			</ol>
+
+			<h4 style="margin: 0 0 15px; line-height: 24px;">Content Guidelines</h4>
+
+			<ol style="margin-bottom: 0;">
+				<li>Use concise and descriptive labels so that users clearly know the purpose of the selection. For example, use a "Save to..." label for a list containing options such as "Cloud, Local drive, CD".</li>
+				<li>Keep options to a single line of text.</li>
+				<li>Use commonly known terms for your options, make sure they're clear and direct.</li>
+			</ol>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Code -->
+	<div class="sui-box" data-tab="code" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Code</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<h3 style="margin: 0 0 20px; font-size: 20px; line-height: 30px;">Styles</h3>
+
+			<div class="demo-code-block" style="margin: 0 0 10px;">
+
+<pre class="sui-code-snippet scss">
+// Include all components' styles.
+@import "shared-ui";
+
+// Include styles for this component only.
+@import "~@wpmudev/shared-ui/scss/select2";
+@import "~@wpmudev/shared-ui/scss/insert-variables";
+</pre>
+
+			</div>
+
+			<p class="sui-description"><strong>Note:</strong> When importing component styles only you will also need to import functions, colors, variables, and other basic files that work together with select file.</p>
+
+			<hr />
+
+			<h3 style="margin: 0; font-size: 20px; line-height: 30px;">JavaScript Instantiation</h3>
+
+			<p style="margin-top: 0;">This is the basic configuration to initiate select element for insert variables component.</p>
+
+			<h4>Default</h4>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy js">
+SUI.select.initVars( $( '#unique-id' ) );
+</pre>
+
+			</div>
+
+			<h4 style="margin-bottom: 5px;">Custom</h4>
+
+			<p class="sui-description" style="margin-top: 0;">Usually when don't need basic configuration and need to pass additional data through JS.</p>
+
+			<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+let getParent    = select.closest( '.sui-modal-content' ),
+	getParentId  = getParent.attr( 'id' ),
+	selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+	hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
+
+$( '#unique-id' ).SUIselect2({
+	theme: 'vars',
+	dropdownParent: selectParent,
+	templateResult: SUI.select.formatVars,
+	templateSelection: SUI.select.formatVarsSelection,
+	escapeMarkup: function( markup ) {
+		return markup;
+	},
+	minimumResultsForSearch: hasSearch
+});
+</pre>
+
+			</div>
+
+			<p style="padding: 5px 10px; border-radius: 4px; background-color: #FECF2F;"><strong style="color: #333;">By adding <code>sui-variables</code> class there's no need for any JavaScript instantiation but if you need to pass data through JS or any other configuration, you can do it by using <code>.SUIselect2( 'destroy' )</code> before calling again <code>.SUIselect2()</code> with your default configurations.</strong></p>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Configuration -->
+	<div class="sui-box" data-tab="config" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Configuration</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>To configure custom options when you initialize <strong>SUIselect2</strong>, simply pass an object in your call to <code>.SUIselect2()</code>.</p>
+
+			<h4 style="margin: 0;">JS options</h4>
+
+			<p style="margin: 0 0 20px;">This is a list with the most common SUIselect2 configuration options.</p>
+
+			<table class="sui-table" style="margin: 0 0 10px;">
+
+				<thead>
+
+					<tr>
+						<th colspan="1">Option</th>
+						<th colspan="1">Type</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>dropdownParent</code></td>
+						<td colspan="1">jQuery selector or DOM node</td>
+						<td colspan="1"><code>$( document.body )</code></td>
+						<td colspan="3">Allows you to modify where dropdown is going to be placed. Use this option when select is placed inside modals.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateResult</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that dropdown options are rendered. Use <code>SUI.select.formatVars</code> to show an icon button instead of selected option.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>templateSelection</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"></td>
+						<td colspan="3">Customizes the way that selections are rendered. Use <code>SUI.select.formatVarsSelection</code> to show option label followed by its value.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>escapeMarkup</code></td>
+						<td colspan="1">callback</td>
+						<td colspan="1"><code>Utils.escapeMarkup</code></td>
+						<td colspan="3">Handles automatic escaping of content rendered by custom templates.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<p class="sui-description" style="margin: 0 0 20px;">Since <strong>SUIselect2</strong> is based on <a href="https://select2.org/" target="_blank" rel="nofollow">Select2</a>, you can find more configuration options listed <a href="https://select2.org/configuration/options-api" target="_blank" rel="nofollow">here</a>.</p>
+
+			<hr />
+
+			<h4 style="margin: 0;">data-* attributes</h4>
+
+			<p style="margin: 0 0 20px;">It is recommended that you declare your configuration options by passing in an object when initializing SUIselect2. However, you may also define your configuration options by using the HTML5 data-* attributes, which will override any options set when initializing SUIselect2 and any defaults.</p>
+
+			<table class="sui-table">
+
+				<thead>
+
+					<tr>
+						<th colspan="1">Attribute</th>
+						<th colspan="1">Default</th>
+						<th colspan="3">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td colspan="1"><code>data-theme</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Enables markup and styles for different select styles. Use <code>vars</code> value to enable insert variables styles for select button. If you already passed this data through <code>theme</code> JS code, there's no need to call this data again.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-placeholder</code></td>
+						<td colspan="1"></td>
+						<td colspan="3">Make use of this attribute followed by an empty <code>&lt;option&gt;</code> at the beginning of the options' list.</td>
+					</tr>
+
+					<tr>
+						<td colspan="1"><code>data-search</code></td>
+						<td colspan="1">false</td>
+						<td colspan="3">Use <code>true</code> value when you need to enable search input on dropdown list.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
 
 		</div>
 
