@@ -1,4 +1,4 @@
-v2.10.0-beta.9
+v2.10.0
 - [Fix] Select: Make element accessible for screen readers users.
 - [Fix] Select: Non-passive event listener to a scroll-blocking 'wheel' event.
 - [Enhance] Select: Merge SUIselect2 with SUI.Select().
