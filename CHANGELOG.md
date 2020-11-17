@@ -1,3 +1,8 @@
+v2.10.1
+- [Fix] Remove UTF symbols on comments.
+- [Fix] Side Navigation: Icons are placed on next line.
+
+
 v2.10.0
 - [Fix] Select: Make element accessible for screen readers users.
 - [Fix] Select: Non-passive event listener to a scroll-blocking 'wheel' event.
