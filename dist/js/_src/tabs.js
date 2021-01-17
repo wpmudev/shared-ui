@@ -154,7 +154,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
     }
 
-    leftButton.click(function () {
+    leftButton.on('click', function () {
       rightButton.removeClass('sui-tabs-navigation--hidden');
 
       if (0 >= tabs.scrollLeft() - 150) {
@@ -166,7 +166,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }, 400, function () {});
       return false;
     });
-    rightButton.click(function () {
+    rightButton.on('click', function () {
       leftButton.removeClass('sui-tabs-navigation--hidden');
       reachedEnd(150);
       tabs.animate({
@@ -174,10 +174,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }, 400, function () {});
       return false;
     });
-    $(window).resize(function () {
+    $(window).on('resize', function () {
       overflowing();
     });
-    tabs.scroll(function () {
+    tabs.on('scroll', function () {
       overflowing();
     });
   };
@@ -215,7 +215,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       tabs.attr('tabindex', '-1');
       tabs.attr('aria-selected', false);
       panels.removeClass('active');
-      panels.attr('hidden', true);
+      panels.prop('hidden', true);
     } // Activate current tab panel.
 
 
@@ -229,8 +229,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $(tab).removeAttr('tabindex');
       $(tab).attr('aria-selected', true);
       panel.addClass('active');
-      panel.attr('hidden', false);
-      panel.removeAttr('hidden');
+      panel.prop('hidden', false);
     } // When a "tablist" aria-orientation is set to vertical,
     // only up and down arrow should function.
     // In all other cases only left and right should function.
@@ -356,10 +355,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         tabs.on('click', function (e) {
           clickEventListener(e); // Trigger events when pressing key.
-        }).keydown(function (e) {
+        }).on('keydown', function (e) {
           index = $(this).index();
           keydownEventListener(e, index, tablist); // Trigger events when releasing key.
-        }).keyup(function (e) {
+        }).on('keyup', function (e) {
           index = $(this).index();
           keyupEventListener(e, index, tablist);
         });
@@ -370,12 +369,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-1 .sui-tabs').length) {
+  if (0 !== $('.sui-2-10-2 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-10-1 .sui-tabs-navigation').each(function () {
+    $('.sui-2-10-2 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }

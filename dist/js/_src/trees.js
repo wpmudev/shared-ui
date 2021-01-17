@@ -198,7 +198,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           content.removeAttr('aria-hidden'); // FIX: Open tree if it's closed
 
           if ('true' !== leaf.attr('aria-expanded')) {
-            expand.click();
+            expand.trigger('click');
           } // Focus content
 
 
@@ -313,8 +313,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-1 .sui-tree').length) {
-    $('.sui-2-10-1 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-10-2 .sui-tree').length) {
+    $('.sui-2-10-2 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }

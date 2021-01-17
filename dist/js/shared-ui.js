@@ -118,8 +118,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-1 .sui-accordion').length) {
-    $('.sui-2-10-1 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-10-2 .sui-accordion').length) {
+    $('.sui-2-10-2 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-10-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-10-2 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-10-1 .sui-slider').each(function () {
+  $('.sui-2-10-2 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-10-1 .sui-dropdown');
+      var $dropdowns = $('.sui-2-10-2 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -545,8 +545,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       e.preventDefault();
     });
-    $('body').mouseup(function (e) {
-      var $anchor = $('.sui-2-10-1 .sui-dropdown-anchor');
+    $('body').on('mouseup', function (e) {
+      var $anchor = $('.sui-2-10-2 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -923,7 +923,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       if (0 < slides.length) {
         // Hide all slides.
         for (var i = 0; i < slides.length; i++) {
-          slides[i].setAttribute('disabled', true);
+          slides[i].prop('disabled', true);
           slides[i].classList.remove('sui-loaded');
           slides[i].classList.remove('sui-active');
           slides[i].setAttribute('tabindex', '-1');
@@ -976,7 +976,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         slides[0].classList.add('sui-active');
         slides[0].classList.add('sui-loaded');
-        slides[0].removeAttribute('disabled');
+        slides[0].prop('disabled', false);
         slides[0].removeAttribute('tabindex');
         slides[0].removeAttribute('aria-hidden'); // Change modal label.
 
@@ -1058,7 +1058,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       if (0 < slides.length) {
         // Hide all slides.
         for (var i = 0; i < slides.length; i++) {
-          slides[i].setAttribute('disabled', true);
+          slides[i].prop('disabled', true);
           slides[i].classList.remove('sui-loaded');
           slides[i].classList.remove('sui-active');
           slides[i].setAttribute('tabindex', '-1');
@@ -1111,7 +1111,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         slides[0].classList.add('sui-active');
         slides[0].classList.add('sui-loaded');
-        slides[0].removeAttribute('disabled');
+        slides[0].prop('disabled', false);
         slides[0].removeAttribute('tabindex');
         slides[0].removeAttribute('aria-hidden'); // Change modal label.
 
@@ -1185,7 +1185,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
     for (var i = 0; i < getAllSlides.length; i++) {
-      getAllSlides[i].setAttribute('disabled', true);
+      getAllSlides[i].prop('disabled', true);
       getAllSlides[i].classList.remove('sui-loaded');
       getAllSlides[i].classList.remove('sui-active');
       getAllSlides[i].setAttribute('tabindex', '-1');
@@ -1269,7 +1269,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     setTimeout(function () {
       getNewSlide.classList.add('sui-loaded');
       getNewSlide.classList.remove(animation);
-      getNewSlide.removeAttribute('disabled');
+      getNewSlide.prop('disabled', false);
     }, 600);
 
     if ('string' === typeof newSlideFocus) {
@@ -2501,7 +2501,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-10-1 .sui-form-field').each(function () {
+    $('.sui-2-10-2 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2529,7 +2529,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 (function ($) {
   var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
 
-  $('.sui-2-10-1 .sui-reviews').each(function () {
+  $('.sui-2-10-2 .sui-reviews').each(function () {
     var review = $(this);
     $.get(endpoint, function (data) {
       var stars = Math.round(data.stats.average_rating);
@@ -2567,7 +2567,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-10-1 .sui-circle-score').each(function () {
+  $('.sui-2-10-2 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -8490,7 +8490,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-10-1 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-10-2 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8713,7 +8713,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }
     }
 
-    leftButton.click(function () {
+    leftButton.on('click', function () {
       rightButton.removeClass('sui-tabs-navigation--hidden');
 
       if (0 >= tabs.scrollLeft() - 150) {
@@ -8725,7 +8725,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }, 400, function () {});
       return false;
     });
-    rightButton.click(function () {
+    rightButton.on('click', function () {
       leftButton.removeClass('sui-tabs-navigation--hidden');
       reachedEnd(150);
       tabs.animate({
@@ -8733,10 +8733,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       }, 400, function () {});
       return false;
     });
-    $(window).resize(function () {
+    $(window).on('resize', function () {
       overflowing();
     });
-    tabs.scroll(function () {
+    tabs.on('scroll', function () {
       overflowing();
     });
   };
@@ -8774,7 +8774,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       tabs.attr('tabindex', '-1');
       tabs.attr('aria-selected', false);
       panels.removeClass('active');
-      panels.attr('hidden', true);
+      panels.prop('hidden', true);
     } // Activate current tab panel.
 
 
@@ -8788,8 +8788,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       $(tab).removeAttr('tabindex');
       $(tab).attr('aria-selected', true);
       panel.addClass('active');
-      panel.attr('hidden', false);
-      panel.removeAttr('hidden');
+      panel.prop('hidden', false);
     } // When a "tablist" aria-orientation is set to vertical,
     // only up and down arrow should function.
     // In all other cases only left and right should function.
@@ -8915,10 +8914,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         tabs.on('click', function (e) {
           clickEventListener(e); // Trigger events when pressing key.
-        }).keydown(function (e) {
+        }).on('keydown', function (e) {
           index = $(this).index();
           keydownEventListener(e, index, tablist); // Trigger events when releasing key.
-        }).keyup(function (e) {
+        }).on('keyup', function (e) {
           index = $(this).index();
           keyupEventListener(e, index, tablist);
         });
@@ -8929,12 +8928,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-1 .sui-tabs').length) {
+  if (0 !== $('.sui-2-10-2 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-10-1 .sui-tabs-navigation').each(function () {
+    $('.sui-2-10-2 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9139,7 +9138,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           content.removeAttr('aria-hidden'); // FIX: Open tree if it's closed
 
           if ('true' !== leaf.attr('aria-expanded')) {
-            expand.click();
+            expand.trigger('click');
           } // Focus content
 
 
@@ -9254,8 +9253,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-1 .sui-tree').length) {
-    $('.sui-2-10-1 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-10-2 .sui-tree').length) {
+    $('.sui-2-10-2 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9271,7 +9270,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-10-1 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-10-2 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

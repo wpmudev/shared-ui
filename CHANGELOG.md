@@ -1,3 +1,8 @@
+v2.10.2
+- [Fix] jQuery 3 and WordPress v5.6 compatibility.
+- [Fix] Selectors: Setting height for makes the modal jump on click.
+
+
 v2.10.1
 - [Fix] Remove UTF symbols on comments.
 - [Fix] Side Navigation: Icons are placed on next line.

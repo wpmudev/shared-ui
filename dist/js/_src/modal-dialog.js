@@ -356,7 +356,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       if (0 < slides.length) {
         // Hide all slides.
         for (var i = 0; i < slides.length; i++) {
-          slides[i].setAttribute('disabled', true);
+          slides[i].prop('disabled', true);
           slides[i].classList.remove('sui-loaded');
           slides[i].classList.remove('sui-active');
           slides[i].setAttribute('tabindex', '-1');
@@ -409,7 +409,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         slides[0].classList.add('sui-active');
         slides[0].classList.add('sui-loaded');
-        slides[0].removeAttribute('disabled');
+        slides[0].prop('disabled', false);
         slides[0].removeAttribute('tabindex');
         slides[0].removeAttribute('aria-hidden'); // Change modal label.
 
@@ -491,7 +491,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       if (0 < slides.length) {
         // Hide all slides.
         for (var i = 0; i < slides.length; i++) {
-          slides[i].setAttribute('disabled', true);
+          slides[i].prop('disabled', true);
           slides[i].classList.remove('sui-loaded');
           slides[i].classList.remove('sui-active');
           slides[i].setAttribute('tabindex', '-1');
@@ -544,7 +544,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         slides[0].classList.add('sui-active');
         slides[0].classList.add('sui-loaded');
-        slides[0].removeAttribute('disabled');
+        slides[0].prop('disabled', false);
         slides[0].removeAttribute('tabindex');
         slides[0].removeAttribute('aria-hidden'); // Change modal label.
 
@@ -618,7 +618,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
     for (var i = 0; i < getAllSlides.length; i++) {
-      getAllSlides[i].setAttribute('disabled', true);
+      getAllSlides[i].prop('disabled', true);
       getAllSlides[i].classList.remove('sui-loaded');
       getAllSlides[i].classList.remove('sui-active');
       getAllSlides[i].setAttribute('tabindex', '-1');
@@ -702,7 +702,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     setTimeout(function () {
       getNewSlide.classList.add('sui-loaded');
       getNewSlide.classList.remove(animation);
-      getNewSlide.removeAttribute('disabled');
+      getNewSlide.prop('disabled', false);
     }, 600);
 
     if ('string' === typeof newSlideFocus) {

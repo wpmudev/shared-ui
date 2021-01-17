@@ -37,7 +37,7 @@
 
 		});
 
-		$( 'body' ).mouseup( function( e ) {
+		$( 'body' ).on( 'mouseup', function( e ) {
 
 			var $anchor = $( 'SUI_BODY_CLASS .sui-dropdown-anchor' );
 

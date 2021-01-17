@@ -243,7 +243,7 @@
 
 					// FIX: Open tree if it's closed
 					if ( 'true' !== leaf.attr( 'aria-expanded' ) ) {
-						expand.click();
+						expand.trigger( 'click' );
 					}
 
 					// Focus content
