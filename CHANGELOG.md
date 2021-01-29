@@ -1,3 +1,7 @@
+v2.10.3
+- [Fix] Modals with slides fail to open
+
+
 v2.10.2
 - [Fix] jQuery 3 and WordPress v5.6 compatibility.
 - [Fix] Selectors: Setting height for makes the modal jump on click.
