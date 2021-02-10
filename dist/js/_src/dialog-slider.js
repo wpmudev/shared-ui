@@ -263,7 +263,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  $('.sui-2-11-0 .sui-slider').each(function () {
+  $('.sui-2-10-4 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
