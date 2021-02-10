@@ -1,3 +1,7 @@
+v2.10.4
+- [Fix] Upgrade to Select2 v4.1.0-rc.0
+
+
 v2.10.3
 - [Fix] Modals with slides fail to open
 
