@@ -13,7 +13,7 @@
 	if (false && typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
 		define(['jquery'], factory);
-	} else if (typeof module === 'object' && module.exports) {
+	} else if (false && typeof module === 'object' && module.exports) {
 		// Node/CommonJS
 		module.exports = function (root, jQuery) {
 			if (jQuery === undefined) {
@@ -147,7 +147,7 @@
 								for (j = baseParts.length; j > 0; j -= 1) {
 									mapValue = map[baseParts.slice(0, j).join('/')];
 
-									//baseName segment has	config, find if it has one for
+									//baseName segment has config, find if it has one for
 									//this name.
 									if (mapValue) {
 										mapValue = mapValue[nameSegment];
@@ -371,7 +371,7 @@
 							//favor that over return value and exports. After that,
 							//favor a non-undefined return value over exports use.
 							if (cjsModule && cjsModule.exports !== undef &&
-									cjsModule.exports !== defined[name]) {
+								cjsModule.exports !== defined[name]) {
 								defined[name] = cjsModule.exports;
 							} else if (ret !== undef || !usingExports) {
 								//Use the return value from the function.
@@ -483,8 +483,9 @@
 			}());
 
 			S2.requirejs = requirejs;S2.require = require;S2.define = define;
-		}}());
-		S2.define("almond", function(){});
+		}
+	}());
+	S2.define("almond", function(){});
 
 		/* global jQuery:false, $:false */
 		S2.define('jquery',[],function () {
@@ -492,9 +493,9 @@
 
 			if (_$ == null && console && console.error) {
 				console.error(
-				'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
-				'found. Make sure that you are including jQuery before Select2 on your ' +
-				'web page.'
+					'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
+					'found. Make sure that you are including jQuery before Select2 on your ' +
+					'web page.'
 				);
 			}
 
@@ -510,13 +511,13 @@
 				var __hasProp = {}.hasOwnProperty;
 
 				function BaseConstructor () {
-				this.constructor = ChildClass;
+					this.constructor = ChildClass;
 				}
 
 				for (var key in SuperClass) {
-				if (__hasProp.call(SuperClass, key)) {
-					ChildClass[key] = SuperClass[key];
-				}
+					if (__hasProp.call(SuperClass, key)) {
+						ChildClass[key] = SuperClass[key];
+					}
 				}
 
 				BaseConstructor.prototype = SuperClass.prototype;
@@ -532,17 +533,17 @@
 				var methods = [];
 
 				for (var methodName in proto) {
-				var m = proto[methodName];
+					var m = proto[methodName];
 
-				if (typeof m !== 'function') {
-					continue;
-				}
+					if (typeof m !== 'function') {
+						continue;
+					}
 
-				if (methodName === 'constructor') {
-					continue;
-				}
+					if (methodName === 'constructor') {
+						continue;
+					}
 
-				methods.push(methodName);
+					methods.push(methodName);
 				}
 
 				return methods;
@@ -619,9 +620,9 @@
 				this.listeners = this.listeners || {};
 
 				if (event in this.listeners) {
-				this.listeners[event].push(callback);
+					this.listeners[event].push(callback);
 				} else {
-				this.listeners[event] = [callback];
+					this.listeners[event] = [callback];
 				}
 			};
 
@@ -633,29 +634,29 @@
 
 				// Params should always come in as an array
 				if (params == null) {
-				params = [];
+					params = [];
 				}
 
 				// If there are no arguments to the event, use a temporary object
 				if (params.length === 0) {
-				params.push({});
+					params.push({});
 				}
 
 				// Set the `_type` of the first object to the event
 				params[0]._type = event;
 
 				if (event in this.listeners) {
-				this.invoke(this.listeners[event], slice.call(arguments, 1));
+					this.invoke(this.listeners[event], slice.call(arguments, 1));
 				}
 
 				if ('*' in this.listeners) {
-				this.invoke(this.listeners['*'], arguments);
+					this.invoke(this.listeners['*'], arguments);
 				}
 			};
 
 			Observable.prototype.invoke = function (listeners, params) {
 				for (var i = 0, len = listeners.length; i < len; i++) {
-				listeners[i].apply(this, params);
+					listeners[i].apply(this, params);
 				}
 			};
 
@@ -665,8 +666,8 @@
 				var chars = '';
 
 				for (var i = 0; i < length; i++) {
-				var randomChar = Math.floor(Math.random() * 36);
-				chars += randomChar.toString(36);
+					var randomChar = Math.floor(Math.random() * 36);
+					chars += randomChar.toString(36);
 				}
 
 				return chars;
@@ -674,39 +675,39 @@
 
 			Utils.bind = function (func, context) {
 				return function () {
-				func.apply(context, arguments);
+					func.apply(context, arguments);
 				};
 			};
 
 			Utils._convertData = function (data) {
 				for (var originalKey in data) {
-				var keys = originalKey.split('-');
+					var keys = originalKey.split('-');
 
-				var dataLevel = data;
+					var dataLevel = data;
 
-				if (keys.length === 1) {
-					continue;
-				}
-
-				for (var k = 0; k < keys.length; k++) {
-					var key = keys[k];
-
-					// Lowercase the first letter
-					// By default, dash-separated becomes camelCase
-					key = key.substring(0, 1).toLowerCase() + key.substring(1);
-
-					if (!(key in dataLevel)) {
-					dataLevel[key] = {};
+					if (keys.length === 1) {
+						continue;
 					}
 
-					if (k == keys.length - 1) {
-					dataLevel[key] = data[originalKey];
+					for (var k = 0; k < keys.length; k++) {
+						var key = keys[k];
+
+						// Lowercase the first letter
+						// By default, dash-separated becomes camelCase
+						key = key.substring(0, 1).toLowerCase() + key.substring(1);
+
+						if (!(key in dataLevel)) {
+							dataLevel[key] = {};
+						}
+
+						if (k == keys.length - 1) {
+							dataLevel[key] = data[originalKey];
+						}
+
+						dataLevel = dataLevel[key];
 					}
 
-					dataLevel = dataLevel[key];
-				}
-
-				delete data[originalKey];
+					delete data[originalKey];
 				}
 
 				return data;
@@ -726,35 +727,35 @@
 				//Check both x and y declarations
 				if (overflowX === overflowY &&
 					(overflowY === 'hidden' || overflowY === 'visible')) {
-				return false;
+					return false;
 				}
 
 				if (overflowX === 'scroll' || overflowY === 'scroll') {
-				return true;
+					return true;
 				}
 
 				return ($el.innerHeight() < el.scrollHeight ||
-				$el.innerWidth() < el.scrollWidth);
+					$el.innerWidth() < el.scrollWidth);
 			};
 
 			Utils.escapeMarkup = function (markup) {
 				var replaceMap = {
-				'\\': '&#92;',
-				'&': '&amp;',
-				'<': '&lt;',
-				'>': '&gt;',
-				'"': '&quot;',
-				'\'': '&#39;',
-				'/': '&#47;'
+					'\\': '&#92;',
+					'&': '&amp;',
+					'<': '&lt;',
+					'>': '&gt;',
+					'"': '&quot;',
+					'\'': '&#39;',
+					'/': '&#47;'
 				};
 
 				// Do not try to escape the markup if it's not a string
 				if (typeof markup !== 'string') {
-				return markup;
+					return markup;
 				}
 
 				return String(markup).replace(/[&<>"'\/\\]/g, function (match) {
-				return replaceMap[match];
+					return replaceMap[match];
 				});
 			};
 
@@ -771,15 +772,15 @@
 				var select2Id = element.getAttribute('data-select2-id');
 
 				if (select2Id != null) {
-				return select2Id;
+					return select2Id;
 				}
 
 				// If element has id, use it.
 				if (element.id) {
-				select2Id = 'select2-data-' + element.id;
+					select2Id = 'select2-data-' + element.id;
 				} else {
-				select2Id = 'select2-data-' + (++id).toString() +
-					'-' + Utils.generateChars(4);
+					select2Id = 'select2-data-' + (++id).toString() +
+						'-' + Utils.generateChars(4);
 				}
 
 				element.setAttribute('data-select2-id', select2Id);
@@ -792,7 +793,7 @@
 				// name is the cache key.
 				var id = Utils.GetUniqueElementId(element);
 				if (!Utils.__cache[id]) {
-				Utils.__cache[id] = {};
+					Utils.__cache[id] = {};
 				}
 
 				Utils.__cache[id][name] = value;
@@ -805,15 +806,15 @@
 				// and for a specified element.
 				var id = Utils.GetUniqueElementId(element);
 				if (name) {
-				if (Utils.__cache[id]) {
-					if (Utils.__cache[id][name] != null) {
-					return Utils.__cache[id][name];
+					if (Utils.__cache[id]) {
+						if (Utils.__cache[id][name] != null) {
+							return Utils.__cache[id][name];
+						}
+						return $(element).data(name); // Fallback to HTML5 data attribs.
 					}
 					return $(element).data(name); // Fallback to HTML5 data attribs.
-				}
-				return $(element).data(name); // Fallback to HTML5 data attribs.
 				} else {
-				return Utils.__cache[id];
+					return Utils.__cache[id];
 				}
 			};
 
@@ -868,11 +869,11 @@
 
 			Results.prototype.render = function () {
 				var $results = $(
-				'<ul class="select2-results__options" role="listbox"></ul>'
+					'<ul class="select2-results__options" role="listbox"></ul>'
 				);
 
 				if (this.options.get('multiple')) {
-				$results.attr('aria-multiselectable', 'true');
+					$results.attr('aria-multiselectable', 'true');
 				}
 
 				this.$results = $results;
@@ -891,16 +892,16 @@
 				this.hideLoading();
 
 				var $message = $(
-				'<li role="alert" aria-live="assertive"' +
-				' class="select2-results__option"></li>'
+					'<li role="alert" aria-live="assertive"' +
+					' class="select2-results__option"></li>'
 				);
 
 				var message = this.options.get('translations').get(params.message);
 
 				$message.append(
-				escapeMarkup(
-					message(params.args)
-				)
+					escapeMarkup(
+						message(params.args)
+					)
 				);
 
 				$message[0].className += ' select2-results__message';
@@ -920,7 +921,7 @@
 				if (data.results == null || data.results.length === 0) {
 				if (this.$results.children().length === 0) {
 					this.trigger('results:message', {
-					message: 'noResults'
+						message: 'noResults'
 					});
 				}
 
