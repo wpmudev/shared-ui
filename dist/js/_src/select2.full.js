@@ -17,7 +17,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   if (false && typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['jquery'], factory);
-  } else if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === 'object' && module.exports) {
+  } else if (false && (typeof module === "undefined" ? "undefined" : _typeof(module)) === 'object' && module.exports) {
     // Node/CommonJS
     module.exports = function (root, jQuery) {
       if (jQuery === undefined) {
@@ -173,7 +173,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                   //Find the longest baseName segment match in the config.
                   //So, do joins on the biggest to smallest lengths of baseParts.
                   for (j = baseParts.length; j > 0; j -= 1) {
-                    mapValue = map[baseParts.slice(0, j).join('/')]; //baseName segment has	config, find if it has one for
+                    mapValue = map[baseParts.slice(0, j).join('/')]; //baseName segment has config, find if it has one for
                     //this name.
 
                     if (mapValue) {

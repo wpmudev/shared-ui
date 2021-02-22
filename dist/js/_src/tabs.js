@@ -369,12 +369,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-4 .sui-tabs').length) {
+  if (0 !== $('.sui-2-10-5 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-10-4 .sui-tabs-navigation').each(function () {
+    $('.sui-2-10-5 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }

@@ -1,3 +1,8 @@
+v2.10.5
+- [Fix] e.SUISelect2 is not a function.
+- [Fix] Broken icons on dropdown.
+
+
 v2.10.4
 - [Fix] Upgrade to Select2 v4.1.0-rc.0
 

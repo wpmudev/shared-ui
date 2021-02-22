@@ -1,7 +1,7 @@
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*!
- * Select2 4.0.13
+ * Select2 4.0.5
  * https://select2.github.io
  *
  * Released under the MIT license
@@ -10,14 +10,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
  * Modified logic/function,etc besides formatting should be marked with //SUI-SELECT2
  * For easy debugging process or update upstream of select
  */
-;
-
 (function (factory) {
   // SUI-SELECT2 disable AMD and module exports
-  if (typeof define === 'function' && define.amd) {
+  if (false && typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['jquery'], factory);
-  } else if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === 'object' && module.exports) {
+  } else if (false && (typeof module === "undefined" ? "undefined" : _typeof(module)) === 'object' && module.exports) {
     // Node/CommonJS
     module.exports = function (root, jQuery) {
       if (jQuery === undefined) {
@@ -173,7 +171,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
                   //Find the longest baseName segment match in the config.
                   //So, do joins on the biggest to smallest lengths of baseParts.
                   for (j = baseParts.length; j > 0; j -= 1) {
-                    mapValue = map[baseParts.slice(0, j).join('/')]; //baseName segment has  config, find if it has one for
+                    mapValue = map[baseParts.slice(0, j).join('/')]; //baseName segment has config, find if it has one for
                     //this name.
 
                     if (mapValue) {
@@ -1379,8 +1377,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       SingleSelection.prototype.render = function () {
         var $selection = SingleSelection.__super__.render.call(this);
 
-        $selection.addClass('select2-selection--single');
-        $selection.html('<span class="select2-selection__rendered"></span>' + '<span class="select2-selection__arrow" role="presentation">' + '<b role="presentation"></b>' + '</span>');
+        $selection.addClass('select2-selection--single'); // Assign SUI icon to select button. @edited
+
+        $selection.html('<span class="select2-selection__rendered"></span>' + '<span class="select2-selection__arrow" role="presentation">' + '<span class="sui-icon-chevron-down sui-sm" aria-hidden="true"></span>' + '</span>');
         return $selection;
       };
 
@@ -1431,8 +1430,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       SingleSelection.prototype.update = function (data) {
+        // Add icon when variables is empty. @edited
         if (data.length === 0) {
           this.clear();
+
+          if ('vars' === this.options.get('theme')) {
+            this.$selection.find('.select2-selection__rendered').html('<span class="sui-icon-plus-circle sui-md" aria-hidden="true"></span>');
+          }
+
           return;
         }
 
@@ -3488,7 +3493,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Utils.Extend(Dropdown, Utils.Observable);
 
       Dropdown.prototype.render = function () {
-        var $dropdown = $('<span class="select2-dropdown">' + '<span class="select2-results"></span>' + '</span>');
+        var $dropdown = $('<span class="sui-select-dropdown">' + '<span class="select2-results"></span>' + '</span>');
         $dropdown.attr('dir', this.options.get('dir'));
         this.$dropdown = $dropdown;
         return $dropdown;
@@ -3733,9 +3738,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       AttachBody.prototype.position = function (decorated, $dropdown, $container) {
         // Clone all of the container classes
-        $dropdown.attr('class', $container.attr('class'));
+        $dropdown.attr('class', $container.attr('class')); // Custom SUIselect dropdown. @edited
+
         $dropdown.removeClass('select2');
-        $dropdown.addClass('select2-container--open');
+        $dropdown.addClass('sui-select-dropdown-container--open');
         $dropdown.css({
           position: 'absolute',
           top: -999999
@@ -3788,9 +3794,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       };
 
       AttachBody.prototype._positionDropdown = function () {
-        var $window = $(window);
-        var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-        var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
+        var $window = $(window); // Custom SUIselect dropdown. @edited
+
+        var isCurrentlyAbove = this.$dropdown.hasClass('sui-select-dropdown--above');
+        var isCurrentlyBelow = this.$dropdown.hasClass('sui-select-dropdown--below');
         var newDirection = null;
         var offset = this.$container.offset();
         offset.bottom = offset.top + this.$container.outerHeight(false);
@@ -3836,11 +3843,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         if (newDirection == 'above' || isCurrentlyAbove && newDirection !== 'below') {
           css.top = container.top - parentOffset.top - dropdown.height;
-        }
+        } // Custom SUIselect dropdown. @edited
+
 
         if (newDirection != null) {
-          this.$dropdown.removeClass('select2-dropdown--below select2-dropdown--above').addClass('select2-dropdown--' + newDirection);
-          this.$container.removeClass('select2-container--below select2-container--above').addClass('select2-container--' + newDirection);
+          this.$dropdown.removeClass('sui-select-dropdown--below sui-select-dropdown--above').addClass('sui-select-dropdown--' + newDirection);
+          this.$container.removeClass('sui-select-dropdown-container--below sui-select-dropdown-container--above').addClass('sui-select-dropdown-container--' + newDirection);
         }
 
         this.$dropdownContainer.css(css);
@@ -4451,7 +4459,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         }); // Hide the original select
 
         $element.addClass('select2-hidden-accessible');
-        $element.attr('aria-hidden', 'true'); // Synchronize any monitored attributes
+        $element.attr('aria-hidden', 'true'); // Hide the original select with SUI. @edited
+
+        $element.addClass('sui-screen-reader-text'); // Synchronize any monitored attributes
 
         this._syncAttributes();
 
@@ -4880,7 +4890,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         this._syncA = null;
         this._syncS = null;
         this.$element.off('.select2');
-        this.$element.attr('tabindex', this.$element.data('old-tabindex'));
+        this.$element.attr('tabindex', this.$element.data('old-tabindex')); // Remove SUI screen reader class. @edited
+
+        this.$element.removeClass('sui-screen-reader-text');
         this.$element.removeClass('select2-hidden-accessible');
         this.$element.attr('aria-hidden', 'false');
         this.$element.removeData('select2');
@@ -4897,8 +4909,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       Select2.prototype.render = function () {
         var $container = $('<span class="select2 select2-container">' + '<span class="selection"></span>' + '<span class="dropdown-wrapper" aria-hidden="true"></span>' + '</span>');
         $container.attr('dir', this.options.get('dir'));
-        this.$container = $container;
-        this.$container.addClass('select2-container--' + this.options.get('theme'));
+        this.$container = $container; // Add SUIselect class to select main div. @edited
+
+        this.$container.addClass('sui-select'); // Additional class for themes. @edited
+
+        if ('default' !== this.options.get('theme')) {
+          this.$container.addClass('sui-select-theme--' + this.options.get('theme'));
+        }
+
         $container.data('element', this.$element);
         return $container;
       };
@@ -5039,6 +5057,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         CompatUtils.syncCssClasses($dropdown, this.$element, dropdownCssAdapter);
         $dropdown.css(dropdownCss);
+        $dropdown.addClass('sui-select-dropdown'); // FIX: Make sure "sui-select-dropdown" main class does not get erased. @edited
+
         $dropdown.addClass(dropdownCssClass);
         return $dropdown;
       };
@@ -5246,9 +5266,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       AttachContainer.prototype.position = function (decorated, $dropdown, $container) {
         var $dropdownContainer = $container.find('.dropdown-wrapper');
-        $dropdownContainer.append($dropdown);
-        $dropdown.addClass('select2-dropdown--below');
-        $container.addClass('select2-container--below');
+        $dropdownContainer.append($dropdown); // Custom SUIselect dropdown. @edited
+
+        $dropdown.addClass('sui-select-dropdown--below');
+        $container.addClass('sui-select-dropdown-container--below');
       };
 
       return AttachContainer;
@@ -5316,7 +5337,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         setup: function setup() {
           if (this.addEventListener) {
             for (var i = toBind.length; i;) {
-              this.addEventListener(toBind[--i], handler, false);
+              this.addEventListener(toBind[--i], handler, {
+                passive: false
+              }); // Non-passive event listener to a scroll-blocking 'wheel' event. @edited
             }
           } else {
             this.onmousewheel = handler;

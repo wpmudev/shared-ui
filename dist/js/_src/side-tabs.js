@@ -30,7 +30,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-10-4 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-10-5 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
