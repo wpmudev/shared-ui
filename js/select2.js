@@ -161,7 +161,7 @@
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
-			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( 'SUI_BODY_CLASS' ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-select-dropdown-sm' : '';
 
@@ -176,7 +176,7 @@
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
-			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( 'SUI_BODY_CLASS' ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-select-dropdown-sm' : '';
 
@@ -196,7 +196,7 @@
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
-			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( 'SUI_BODY_CLASS' ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1,
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-select-dropdown-sm' : '';
 
@@ -216,7 +216,7 @@
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
-			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( 'SUI_BODY_CLASS' ),
 			isSmall      = select.hasClass( 'sui-select-sm' ) ? 'sui-select-dropdown-sm' : '';
 
 		select.SUIselect2({
@@ -231,7 +231,7 @@
 
 		let getParent    = select.closest( '.sui-modal-content' ),
 			getParentId  = getParent.attr( 'id' ),
-			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( document.body ),
+			selectParent = ( getParent.length ) ? $( '#' + getParentId ) : $( 'SUI_BODY_CLASS' ),
 			hasSearch    = ( 'true' === select.attr( 'data-search' ) ) ? 0 : -1;
 
 		select.SUIselect2({

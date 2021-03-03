@@ -1,6 +1,10 @@
+v2.10.6
+- [Fix] Select: Append dropdown to SUI body class instead of body tag.
+
+
 v2.10.5
 - [Fix] e.SUISelect2 is not a function.
-- [Fix] Broken icons on dropdown.
+- [Fix] Broken icons on Select2 dropdown.
 
 
 v2.10.4
