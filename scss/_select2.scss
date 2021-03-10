@@ -39,14 +39,14 @@
 							display: block;
 							flex: 1;
 							padding: 8px 5px 8px 14px;
-							color: palette(gray, dark);
+							color: $nightrider;
 							font: 500 15px/22px $font;
 							letter-spacing: -0.2px;
 							text-overflow: ellipsis;
 							white-space: nowrap;
 
 							.select2-selection__placeholder {
-								color: palette(silver, medium);
+								color: $fiftyshades;
 							}
 						}
 
@@ -62,7 +62,7 @@
 							margin: 0;
 							padding: 0;
 							border: 0;
-							color: palette(gray, light);
+							color: $grey;
 
 							[class*="sui-icon-"] {
 								display: block;
@@ -78,97 +78,120 @@
 
 					// TYPE: Multi Select.
 					&.select2-selection--multiple {
-						display: block;
+						display: flex;
+						flex-flow: row wrap;
+						align-items: center;
 						margin: 0;
-						padding: 0;
-						border: 0;
+						padding: 3px 9px;
+						border: 1px solid $overcast;
+						border-radius: $border-radius;
+						background-color: $cloud;
 
 						// Options.
 						.select2-selection__rendered {
+							min-width: 1px;
 							display: flex;
+							flex: 0 1 auto;
 							flex-flow: row wrap;
 							align-items: center;
 							margin: 0;
-							padding: 3px 9px;
-							border: 1px solid palette(gray, lighter);
-							border-radius: $border-radius;
-							background-color: #FAFAFA;
-
-							.select2-search,
-							.select2-selection__choice {
-								display: block;
-								list-style: none;
-							}
-
-							.select2-search {
-								min-width: 100px;
-								flex: 1;
-								margin: 5px;
-								padding: 0;
-								border: 0;
-
-								input {
-									width: 100% !important;
-									display: block;
-									margin: 0;
-									padding: 0;
-									border: 0;
-									background-color: transparent;
-									color: palette(gray, dark);
-									font: 500 15px/22px $font;
-									letter-spacing: $font--letter-spacing;
-
-									&::placeholder {
-										color: palette(silver, medium);
-									}
-
-									&:-moz-placeholder {
-										color: palette(silver, medium);
-									}
-
-									&::-moz-placeholder {
-										color: palette(silver, medium);
-									}
-
-									&:-ms-input-placeholder {
-										color: palette(silver, medium);
-									}
-
-									&::-webkit-input-placeholder {
-										color: palette(silver, medium);
-									}
-								}
-							}
+							padding: 0;
+							border: 0;
 
 							.select2-selection__choice {
 								max-width: 200px;
-								overflow: hidden;
-								position: relative;
+								// overflow: hidden;
+								display: flex;
+								flex-flow: row nowrap;
+								align-items: center;
 								margin: 2px;
-								padding: 5px 10px;
-								padding-right: 31px;
+								padding: 0;
+								border: 0;
 								border-radius: $border-radius;
-								background-color: palette(gray, default);
+								background-color: $ironmike;
 								color: $white;
 								font: 500 12px/16px $font;
 								letter-spacing: $font--letter-spacing;
-								text-overflow: ellipsis;
-								white-space: nowrap;
+
+								.select2-selection__choice__display {
+									min-width: 1px;
+									overflow: hidden;
+									display: block;
+									flex: 1;
+									padding: 5px 10px;
+									padding-left: 5px;
+									text-overflow: ellipsis;
+									white-space: nowrap;
+								}
 
 								.select2-selection__choice__remove {
 									width: 26px;
-									height: 100%;
+									height: 26px;
 									cursor: pointer;
 									display: flex;
 									flex-flow: column nowrap;
 									align-items: center;
 									justify-content: center;
-									position: absolute;
-									top: 0;
-									right: 0;
+									margin: 0;
+									padding: 0;
+									border: 0;
+									border-top-left-radius: $border-radius;
+									border-bottom-left-radius: $border-radius;
 									background-color: #5E5E5E;
-									color: palette(gray, lighter);
+									color: $overcast;
 									text-align: center;
+
+									span {
+										display: block;
+									}
+								}
+							}
+						}
+
+						// Search input.
+						.select2-search {
+
+							&.select2-search--inline {
+								min-width: 100px;
+								flex: 1;
+								margin: 5px;
+								padding: 0;
+								border: 0;
+								display: block;
+
+								.select2-search__field {
+									width: 100% !important;
+									height: 22px;
+									resize: none;
+									display: block;
+									margin: 0;
+									padding: 0;
+									border: 0;
+									border-radius: 0;
+									background-color: transparent;
+									color: $nightrider;
+									font: 500 15px/22px $font;
+									letter-spacing: $font--letter-spacing;
+
+									&::placeholder {
+										color: $fiftyshades;
+									}
+
+									&:-moz-placeholder {
+										color: $fiftyshades;
+									}
+					
+									&::-moz-placeholder {
+										color: $fiftyshades;
+									}
+					
+									&:-ms-input-placeholder {
+										color: $fiftyshades;
+									}
+					
+									&::-webkit-input-placeholder {
+										color: $fiftyshades;
+									}
 								}
 							}
 						}
@@ -297,13 +320,13 @@
 									padding-left: 0;
 									background-color: transparent;
 									border-radius: 0;
-									color: palette(gray, dark);
+									color: $nightrider;
 									font: 500 15px/22px $font;
 									letter-spacing: -0.2px;
 
 									.select2-selection__choice__remove {
 										background-color: transparent;
-										color: palette(gray, dark);
+										color: $nightrider;
 									}
 
 									+ .select2-search {
@@ -366,12 +389,12 @@
 
 							// Label.
 							.select2-selection__rendered {
-								color: palette(silver, medium);
+								color: $fiftyshades;
 							}
 
 							// Icon.
 							.select2-selection__arrow {
-								color: palette(silver, medium);
+								color: $fiftyshades;
 							}
 						}
 
@@ -818,28 +841,28 @@
 						padding: 9px 14px;
 						border: 1px solid palette(gray, lighter);
 						border-radius: $border-radius;
-						color: palette(gray, dark);
+						color: $nightrider;
 						font: 500 15px/20px $font;
 						letter-spacing: -0.2px;
 
 						&::placeholder {
-							color: palette(silver, medium);
+							color: $fiftyshades;
 						}
 
 						&:-moz-placeholder {
-							color: palette(silver, medium);
+							color: $fiftyshades;
 						}
 
 						&::-moz-placeholder {
-							color: palette(silver, medium);
+							color: $fiftyshades;
 						}
 
 						&:-ms-input-placeholder {
-							color: palette(silver, medium);
+							color: $fiftyshades;
 						}
 
 						&::-webkit-input-placeholder {
-							color: palette(silver, medium);
+							color: $fiftyshades;
 						}
 
 						&:hover,
@@ -878,7 +901,7 @@
 							padding: 0 14px;
 							border: 0;
 							background-color: transparent;
-							color: palette(gray, light);
+							color: $grey;
 							font: 500 15px/35px $font;
 							letter-spacing: -0.2px;
 							list-style: none;
@@ -892,7 +915,7 @@
 								border: 0;
 								border-radius: $border-radius;
 								background-color: palette(silver, default);
-								color: palette(gray, dark);
+								color: $nightrider;
 								font: 400 13px/22px $font;
 								letter-spacing: $font--letter-spacing;
 
@@ -902,33 +925,33 @@
 									top: 50%;
 									left: 10px;
 									transform: translateY(-50%);
-									color: palette(gray, light);
+									color: $grey;
 									font-size: 16px;
 									text-align: center;
 								}
 							}
 
 							.select2-results__group {
-								color: palette(silver, medium);
+								color: $fiftyshades;
 								font-size: 12px;
 								font-weight: 500;
 							}
 
-							&[aria-selected] {
+							&:not(.select2-results__option--selected) {
 								cursor: pointer;
 
 								&.select2-results__option--highlighted {
-									background-color: palette(silver, light);
-									color: palette(gray, dark);
+									background-color: $haze;
+									color: $nightrider;
 								}
 							}
 
-							&[aria-selected="true"] {
-								background-color: palette(gray, light);
+							&.select2-results__option--selected {
+								background-color: $grey;
 								color: $white;
 
 								&.select2-results__option--highlighted {
-									background-color: palette(gray, light);
+									background-color: $grey;
 									color: $white;
 								}
 							}
@@ -1084,7 +1107,7 @@
 
 								.sui-variable-value {
 									flex: 0 0 auto;
-									color: palette(silver, medium);
+									color: $fiftyshades;
 									font-size: 12px;
 								}
 

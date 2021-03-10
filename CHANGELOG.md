@@ -1,3 +1,9 @@
+v2.10.7
+- [Fix] Select: Selected items are not properly highlighted inside dropdown.
+- [Fix] Select: Multi-select search is unstyled and placed outside container.
+- [Enhance] Select: Use new color variables.
+
+
 v2.10.6
 - [Fix] Select: Append dropdown to SUI body class instead of body tag.
 
