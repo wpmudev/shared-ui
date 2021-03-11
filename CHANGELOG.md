@@ -1,3 +1,8 @@
+V2.10.8
+- [Fix] Side Navigation: Remove select bottom margin.
+- [Enhance] Side Navigation: Support RTL language.
+
+
 v2.10.7
 - [Fix] Select: Selected items are not properly highlighted inside dropdown.
 - [Fix] Select: Multi-select search is unstyled and placed outside container.
