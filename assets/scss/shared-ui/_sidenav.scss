@@ -1,4 +1,5 @@
-@include body-class(true) {
+// $sui-wrap: true | $rtl: false
+@include body-class(true, false) {
 	position: relative;
 
 	.sui-row-with-sidenav {
@@ -34,9 +35,12 @@
 						}
 					}
 
-					[class*="sui-icon-"],
-					.sui-tag {
+					.sui-tag,
+					[class*="sui-icon-"] {
 						position: absolute;
+					}
+
+					.sui-tag {
 						top: 2px;
 						right: 3px;
 					}
@@ -179,6 +183,49 @@
 
 		@media (max-width: 1100px) {
 			display: block;
+		}
+	}
+}
+
+// $sui-wrap: true | $rtl: true
+@include body-class(true, true) {
+
+	.sui-row-with-sidenav {
+
+		.sui-sidenav {
+
+			.sui-vertical-tabs {
+
+				.sui-vertical-tab {
+
+					.sui-tag,
+					[class*="sui-icon-"] {
+						right: auto;
+						margin-left: 0;
+					}
+
+					.sui-tag {
+						left: 0;
+					}
+
+					[class*="sui-icon-"] {
+						left: 7px;
+					}
+				}
+			}
+
+			.sui-with-floating-input {
+
+				@include media(min-width, lg) {
+					right: #{$sidenav-width + 10px};
+					left: auto;
+				}
+			}
+
+			@include media(min-width, lg) {
+				padding-right: 0;
+				padding-left: $sui-gutter;
+			}
 		}
 	}
 }
