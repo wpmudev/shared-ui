@@ -266,7 +266,7 @@
 					if ( true === dismiss.show ) {
 
 						// Focus dismiss button.
-						noticeNode.find( '.sui-notice-actions button' ).focus();
+						noticeNode.find( '.sui-notice-actions button' ).trigger( 'focus' );
 
 						// Dismiss button.
 						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
@@ -288,7 +288,7 @@
 					if ( true === dismiss.show ) {
 
 						// Focus dismiss button.
-						noticeNode.find( '.sui-notice-actions button' ).focus();
+						noticeNode.find( '.sui-notice-actions button' ).trigger( 'focus' );
 
 						// Dismiss button.
 						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
@@ -310,7 +310,7 @@
 					if ( true === dismiss.show ) {
 
 						// Focus dismiss button.
-						noticeNode.find( '.sui-notice-actions button' ).focus();
+						noticeNode.find( '.sui-notice-actions button' ).trigger( 'focus' );
 
 						// Dismiss button.
 						noticeNode.find( '.sui-notice-actions button' ).on( 'click', function() {
