@@ -9,7 +9,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   }
 
   SUI.upload = function () {
-    $('.sui-2-10-7 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-10-8 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 

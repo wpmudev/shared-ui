@@ -233,7 +233,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // Check if dismiss button enabled.
           if (true === dismiss.show) {
             // Focus dismiss button.
-            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+            noticeNode.find('.sui-notice-actions button').trigger('focus'); // Dismiss button.
 
             noticeNode.find('.sui-notice-actions button').on('click', function () {
               SUI.closeNotice(noticeId);
@@ -252,7 +252,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // Check if dismiss button enabled.
           if (true === dismiss.show) {
             // Focus dismiss button.
-            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+            noticeNode.find('.sui-notice-actions button').trigger('focus'); // Dismiss button.
 
             noticeNode.find('.sui-notice-actions button').on('click', function () {
               SUI.closeNotice(noticeId);
@@ -271,7 +271,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           // Check if dismiss button enabled.
           if (true === dismiss.show) {
             // Focus dismiss button.
-            noticeNode.find('.sui-notice-actions button').focus(); // Dismiss button.
+            noticeNode.find('.sui-notice-actions button').trigger('focus'); // Dismiss button.
 
             noticeNode.find('.sui-notice-actions button').on('click', function () {
               SUI.closeNotice(noticeId);

@@ -66,7 +66,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           return;
         }
 
-        $listWrapper.find('.sui-multistrings-input input').focus();
+        $listWrapper.find('.sui-multistrings-input input').trigger('focus');
       });
       var $input = $listWrapper.find('.sui-multistrings-input input'),
           $textarea = $mainWrapper.find('textarea'),

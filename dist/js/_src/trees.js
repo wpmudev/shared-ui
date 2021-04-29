@@ -202,7 +202,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
           } // Focus content
 
 
-          content.focus();
+          content.trigger('focus');
           content.attr('tabindex', '-1');
         }
       });
@@ -222,7 +222,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
         btnAdd.show();
         btnAdd.removeAttr('aria-hidden');
-        btnAdd.focus();
+        btnAdd.trigger('focus');
         btnAdd.attr('tabindex', '-1');
       });
     }
@@ -313,8 +313,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-7 .sui-tree').length) {
-    $('.sui-2-10-7 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-10-8 .sui-tree').length) {
+    $('.sui-2-10-8 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }

@@ -6,14 +6,21 @@
 
 // Base
 @include body-class(true) {
-
 	font-family: $font;
 	font-weight: $font--weight;
 	font-size: $font--size;
 	line-height: $font--line-height;
 	color: $font-color;
 	letter-spacing: $font--letter-spacing;
-	margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+	
+	// FIX: Prevent SUI React modal from getting these margins.
+	&:not(.sui-modal) {
+		margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
+
+		@include media( max-width, md ) {
+			margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
+		}
+	}
 
 	* {
 		font-variant-ligatures: none;
@@ -24,11 +31,6 @@
 		-webkit-font-smoothing: antialiased;
 		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	}
-
-	@include media( max-width, md ) {
-		margin: $sui-gutter-md ($sui-gutter-md - 10px) 0 ($sui-gutter-md - 20px); // Account for padding from #wpcontent.
-	}
-
 
 	// Headings
 
