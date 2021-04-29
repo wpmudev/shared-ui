@@ -1,5 +1,6 @@
 V2.10.8
 - [Fix] Deprecated focus() function.
+- [Fix] Prevent SUI React Modal from getting wrapper margins.
 - [Fix] Side Navigation: Remove select bottom margin.
 - [Enhance] Side Navigation: Support RTL language.
 
