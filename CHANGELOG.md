@@ -1,4 +1,5 @@
 V2.10.8
+- [Fix] Deprecated focus() function.
 - [Fix] Side Navigation: Remove select bottom margin.
 - [Enhance] Side Navigation: Support RTL language.
 
