@@ -81,7 +81,7 @@
 					return;
 				}
 
-				$listWrapper.find( '.sui-multistrings-input input' ).focus();
+				$listWrapper.find( '.sui-multistrings-input input' ).trigger( 'focus' );
 			});
 
 			const $input = $listWrapper.find( '.sui-multistrings-input input' ),

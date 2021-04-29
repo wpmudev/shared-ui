@@ -247,7 +247,7 @@
 					}
 
 					// Focus content
-					content.focus();
+					content.trigger( 'focus' );
 					content.attr( 'tabindex', '-1' );
 
 				}
@@ -273,7 +273,7 @@
 				// Show button
 				btnAdd.show();
 				btnAdd.removeAttr( 'aria-hidden' );
-				btnAdd.focus();
+				btnAdd.trigger( 'focus' );
 				btnAdd.attr( 'tabindex', '-1' );
 
 			});
