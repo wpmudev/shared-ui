@@ -1,8 +1,9 @@
-V2.10.9
+v2.10.9
+- [Fix] Children side tabs are closing its parent side tab.
 - [Fix] Added overflow-wrap for sui-upload-file class to make the content not overflow the element.
 
 
-V2.10.8
+v2.10.8
 - [Fix] Deprecated focus() function.
 - [Fix] Prevent SUI React Modal from getting wrapper margins.
 - [Fix] Side Navigation: Remove select bottom margin.
