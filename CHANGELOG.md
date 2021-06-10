@@ -1,3 +1,7 @@
+V2.10.10
+- [Fix] Fixed dropdown 
+
+
 V2.10.9
 - [Fix] Added overflow-wrap for sui-upload-file class to make the content not overflow the element.
 
