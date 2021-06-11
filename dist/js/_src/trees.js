@@ -313,8 +313,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     return this;
   };
 
-  if (0 !== $('.sui-2-10-8 .sui-tree').length) {
-    $('.sui-2-10-8 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-10-9 .sui-tree').length) {
+    $('.sui-2-10-9 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }

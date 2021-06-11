@@ -19,7 +19,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     $this.on('click', function (e) {
       $alllabels.removeClass('active');
       $allinputs.removeProp('checked');
-      $wrapper.find('.sui-tabs-content>div[data-tab-content]').removeClass('active');
+      $wrapper.find('> .sui-tabs-content > div[data-tab-content]').removeClass('active');
       $label.addClass('active');
       $this.prop('checked', true);
       newContent = $wrapper.find('.sui-tabs-content div[data-tab-content="' + $data + '"]');
@@ -30,7 +30,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     });
   };
 
-  $('.sui-2-10-8 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-10-9 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);

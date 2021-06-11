@@ -23,7 +23,7 @@
 
 			$alllabels.removeClass( 'active' );
 			$allinputs.removeProp( 'checked' );
-			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).removeClass( 'active' );
+			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
 
 			$label.addClass( 'active' );
 			$this.prop( 'checked', true );
