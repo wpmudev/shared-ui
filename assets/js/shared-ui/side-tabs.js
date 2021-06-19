@@ -19,19 +19,28 @@
 			newContent
 			;
 
+		$this.on('load', function(){
+			$alllabels.attr( 'aria-selected',false );
+			$alllabels.first.prop( 'aria-selected',true );
+			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).prop( 'aria-selected',false );
+			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).first.prop( 'aria-selected',true );
+		})
 		$this.on( 'click', function( e ) {
 
 			$alllabels.removeClass( 'active' );
 			$allinputs.removeProp( 'checked' );
-			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
+			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).removeClass( 'active' );
+			$wrapper.find( '.sui-tabs-content>div[data-tab-content]' ).prop( 'aria-selected',false );
 
 			$label.addClass( 'active' );
 			$this.prop( 'checked', true );
-
+			$label.prop( 'aria-selected',true );
+			
 			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
 
 			if ( newContent.length ) {
 				newContent.addClass( 'active' );
+				newContent.prop( 'aria-selected',true );
 			}
 		});
 
