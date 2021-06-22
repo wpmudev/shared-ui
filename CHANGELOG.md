@@ -1,4 +1,5 @@
 v2.10.10
+- [Fix] Added a media query for sui-icons to make it change color on high contrast active
 - [Fix] Icons(span) inside the tab-itmes are made clickable.
 
 v2.10.9
