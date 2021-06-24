@@ -12,7 +12,6 @@
 
 		var $this 	   = $( element ),
 			$label     = $this.parent( 'label' ),
-			$span     = $this.parent( 'label > span' ),
 			$data      = $this.data( 'tab-menu' ),
 			$wrapper   = $this.closest( '.sui-side-tabs' ),
 			$alllabels = $wrapper.find( '>.sui-tabs-menu .sui-tab-item' ),
