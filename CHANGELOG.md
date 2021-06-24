@@ -1,67 +1,128 @@
-v2.10.10
-- [Fix] Fixed dropdown. The menu wraps the line.
+# Changelog
 
-v2.10.9
-- [Fix] Children side tabs are closing its parent side tab.
-- [Fix] Added overflow-wrap for sui-upload-file class to make the content not overflow the element.
+## Shared UI v2.10.10 (Unreleased)
 
+#### Bug Fixes
+* [#310](https://github.com/wpmudev/shared-ui/pull/310) 🐛 fix(dropdowns): The menu wraps the line. ([@Gowtham369](https://github.com/Gowtham369))
 
-v2.10.8
-- [Fix] Deprecated focus() function.
-- [Fix] Prevent SUI React Modal from getting wrapper margins.
-- [Fix] Side Navigation: Remove select bottom margin.
-- [Enhance] Side Navigation: Support RTL language.
+#### Committers: 1
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 
+## Shared UI v2.10.9
 
-v2.10.7
-- [Fix] Select: Selected items are not properly highlighted inside dropdown.
-- [Fix] Select: Multi-select search is unstyled and placed outside container.
-- [Enhance] Select: Use new color variables.
+#### Bug Fixes
+* 🐛 fix(side-tabs): Children side-tabs are closing its parent side-tab.
+* 🐛 fix(file-uploads): Make long URL names not overflow the element.
 
+#### Committers: 2
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-v2.10.6
-- [Fix] Select: Append dropdown to SUI body class instead of body tag.
+## Shared UI v2.10.8
 
+#### Improvements
+* 🐛 fix(side-navigation): Support RTL language.
 
-v2.10.5
-- [Fix] e.SUISelect2 is not a function.
-- [Fix] Broken icons on Select2 dropdown.
+#### Bug Fixes
+* 🐛 fix(multiple-strings): Deprecated focus() function.
+* 🐛 fix(notifications): Deprecated focus() function.
+* 🐛 fix(tree-selectors): Deprecated focus() function.
+* 🐛 fix(modals): Prevent SUI React Modal from getting wrapper margins.
+* 🐛 fix(side-navigation): Remove select bottom margin.
 
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-v2.10.4
-- [Fix] Upgrade to Select2 v4.1.0-rc.0
+## Shared UI v2.10.7
 
+#### Improvements
+* 🐛 fix(select): Use new color variables.
 
-v2.10.3
-- [Fix] Modals with slides fail to open
+#### Bug Fixes
+* 🐛 fix(select): Selected items are not properly highlighted inside dropdown.
+* 🐛 fix(select): Multi-select search is unstyled and placed outside container.
 
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-v2.10.2
-- [Fix] jQuery 3 and WordPress v5.6 compatibility.
-- [Fix] Selectors: Setting height for makes the modal jump on click.
+## Shared UI v2.10.6
 
+#### Bug Fixes
+* [#302](https://github.com/wpmudev/shared-ui/pull/302) 🐛 fix(select): Append dropdown to SUI body class instead of body tag.
 
-v2.10.1
-- [Fix] Remove UTF symbols on comments.
-- [Fix] Side Navigation: Icons are placed on next line.
+#### Committers: 1
+- Danae Millan ([@a-danae](https://github.com/a-danae))
 
+## Shared UI v2.10.5
 
-v2.10.0
-- [Fix] Select: Make element accessible for screen readers users.
-- [Fix] Select: Non-passive event listener to a scroll-blocking 'wheel' event.
-- [Fix] Select: Non-js element is already styled.
-- [Enhance] Select: Merge SUIselect2() with SUI.Select().
-			Dev Notes: Regular select (without JS init) is now styled too, and the only difference
-			you are going to find between both is the dropdown list that without JS looks un-styled.
-			For more info, please review the documentation https://wpmudev.github.io/shared-ui/select/
-			or ping @Leigh.
-- [Enhance] Select: Support RTL language.
-- [Enhance] Insert Variables: Now uses SUIselect2() only since SUI.Select() was removed.
-			Dev Notes: Changes done to select component affect this element too. For more info,
-			please review the documentation https://wpmudev.github.io/shared-ui/insert-variables/
-			or ping @Leigh.
-- [Enhance] Icons: Replace i selector for span.
-- [Enhance] Buttons: New design for focus state.
+#### Bug Fixes
+* 🐛 fix(select2): e.SUISelect2 is not a function.
+* 🐛 fix(select2): Broken icons on Select2 dropdown.
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Shared UI v2.10.4
+
+#### Improvements
+* 🐛 fix(select2): Upgrade to Select2 v4.1.0-rc.0
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Shared UI v2.10.3
+
+#### Bug Fixes
+* 🐛 fix(modals): Modals with slides fail to open.
+
+#### Committers: 1
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+
+## Shared UI v2.10.2
+
+#### Bug Fixes
+* 🐛 fix(dropdowns): jQuery 3 and WordPress v5.6 compatibility.
+* 🐛 fix(modals): jQuery 3 and WordPress v5.6 compatibility.
+* 🐛 fix(tabs): jQuery 3 and WordPress v5.6 compatibility.
+* 🐛 fix(tree-selectors): jQuery 3 and WordPress v5.6 compatibility.
+* 🐛 fix(select2): Setting height for makes the modal jump on click.
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Shared UI v2.10.1
+
+#### Bug Fixes
+* 🐛 fix(core): Remove UTF symbols on comments.
+* 🐛 fix(side-navigation): Icons are placed on next line.
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Shared UI v2.10.0
+
+#### Improvements
+* 🐛 fix(select): Merge `SUIselect2()` with `SUI.Select()`.
+  * **Dev Notes:** Regular select (without JS init) is now styled too, and the only difference you are going to find between both is the dropdown list that without JS looks un-styled. For more info, please review the documentation [https://wpmudev.github.io/shared-ui/select/](https://wpmudev.github.io/shared-ui/select/) or ping [@iamleigh](https://github.com/iamleigh).
+* 🐛 fix(select): Support RTL language.
+* 🐛 fix(insert-variables): Now uses `SUIselect2()` only since `SUI.Select()` was removed.
+  * **Dev Notes:** Changes done to select component affect this element too. For more info, please review the documentation [https://wpmudev.github.io/shared-ui/select/](https://wpmudev.github.io/shared-ui/select/) or ping [@iamleigh](https://github.com/iamleigh).
+* 🐛 fix(icons): Replace `i` selector for `span`.
+* 🐛 fix(buttons): New design for `:focus` state.
+
+#### Bug Fixes
+* 🐛 fix(select): Make element accessible for screen readers users.
+* 🐛 fix(select): Non-passive event listener to a scroll-blocking 'wheel' event.
+* 🐛 fix(select): Non-js element is already styled.
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+- - -
 
 v2.9.6
 - [Fix] Tabs: Tab's related radio not being checked since WP 5.5.0.
