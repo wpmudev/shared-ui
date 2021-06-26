@@ -1,3 +1,6 @@
+v2.10.10
+- [Fix] sanitizing to avoid Cross-site Scripting(XSS).
+
 v2.10.9
 - [Fix] Children side tabs are closing its parent side tab.
 - [Fix] Added overflow-wrap for sui-upload-file class to make the content not overflow the element.
