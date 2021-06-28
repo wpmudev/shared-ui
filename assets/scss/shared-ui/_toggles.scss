@@ -2,6 +2,7 @@
 
 	.sui-toggle {
 		display: block;
+		opacity: 1;
 
 		input {
 			@extend %sui-screen-reader-text;
@@ -68,7 +69,7 @@
 			border-radius: #{$toggle-height / 2};
 			background-color: palette(silver, medium);
 			transition: $transition;
-
+			opacity: 1;
 			&:before {
 				content: " ";
 				width: #{$toggle-height - 2px};
@@ -114,7 +115,7 @@
 	}
 
 	.sui-toggle-content {
-
+		opacity: 1;
 		&, &.sui-border-frame {
 			margin-left: #{$toggle-width + ($sui-gutter-md / 2)};
 		}
