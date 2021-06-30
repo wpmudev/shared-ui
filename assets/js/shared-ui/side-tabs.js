@@ -18,9 +18,6 @@
 			$allinputs = $alllabels.find( 'input' ),
 			newContent
 			;
-		$(window).on('load', function(){
-			$alllabels.children().css("pointer-events","none")
-		})
 		$this.on( 'click', function( e ) {
 
 			$alllabels.removeClass( 'active' );
@@ -28,7 +25,6 @@
 			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
 
 			$label.addClass( 'active' );
-			//This is to resolve the issue(SUI-125->https://incsub.atlassian.net/browse/SUI-125) To activate parent element while even clicking on span(icon)
 			$this.prop( 'checked', true );
 
 			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
