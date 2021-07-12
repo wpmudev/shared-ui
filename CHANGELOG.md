@@ -4,6 +4,7 @@
 
 #### Bug Fixes
 * [#310](https://github.com/wpmudev/shared-ui/pull/310) 🐛 fix(dropdowns): The menu wraps the line. ([@Gowtham369](https://github.com/Gowtham369))
+* [Fix] Icons(span) inside the tab-itmes are made clickable.
 
 #### Committers: 1
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))

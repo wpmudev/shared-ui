@@ -18,7 +18,6 @@
 			$allinputs = $alllabels.find( 'input' ),
 			newContent
 			;
-
 		$this.on( 'click', function( e ) {
 
 			$alllabels.removeClass( 'active' );
@@ -34,6 +33,7 @@
 				newContent.addClass( 'active' );
 			}
 		});
+
 
 	};
 
