@@ -1456,6 +1456,10 @@
   content: "ª";
 }
 
+.sui-2-10-9 .sui-icon-beehive:before {
+  content: "Ω";
+}
+
 .sui-2-10-9 .sui-wrap .sui-button, .sui-2-10-9 .sui-wrap .sui-button-icon,
 .sui-2-10-9 .sui-wrap a.sui-button,
 .sui-2-10-9 .sui-wrap a.sui-button-icon,
@@ -3826,7 +3830,6 @@
 
 @media (min-width: 783px) {
   .sui-2-10-9 .sui-wrap .sui-box.sui-box-sticky {
-    position: -webkit-sticky !important;
     position: sticky !important;
     top: 32px;
     z-index: 12;
@@ -7409,7 +7412,7 @@
   transition: all 0.3s ease;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sui-2-10-9 .sui-wrap select:not(.sui-select):not(.sui-variables) {
     background-image: url("../images/select-arrow@2x.png");
   }
@@ -7686,6 +7689,10 @@
 }
 
 .sui-2-10-9 .sui-wrap .sui-form-control::-webkit-input-placeholder, .sui-2-10-9 .sui-wrap .sui-multi-checkbox::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.sui-2-10-9 .sui-wrap .sui-form-control::-moz-placeholder, .sui-2-10-9 .sui-wrap .sui-multi-checkbox::-moz-placeholder {
   color: #AAAAAA;
 }
 
@@ -9256,6 +9263,13 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
   text-decoration: none;
 }
 
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > * span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] .sui-tab-item span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-menu > * span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > .sui-tabs-menu .sui-tab-item span {
+  pointer-events: none;
+}
+
 .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > *, .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > *:focus, .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > *:hover, .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > *:active, .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] > *:visited,
 .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] .sui-tab-item,
 .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs) > [data-tabs] .sui-tab-item:focus,
@@ -9377,6 +9391,13 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+}
+
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs).sui-tabs-overflow > [data-tabs] > * span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs).sui-tabs-overflow > [data-tabs] .sui-tab-item span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs).sui-tabs-overflow > .sui-tabs-menu > * span,
+.sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs).sui-tabs-overflow > .sui-tabs-menu .sui-tab-item span {
+  pointer-events: none;
 }
 
 .sui-2-10-9 .sui-wrap .sui-tabs:not(.sui-side-tabs).sui-tabs-overflow .sui-tabs-navigation {
@@ -9792,7 +9813,6 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
 
 @media (min-width: 1200px) {
   .sui-2-10-9 .sui-wrap .sui-row-with-sidenav .sui-sidenav-sticky {
-    position: -webkit-sticky !important;
     position: sticky !important;
     top: 47px;
     z-index: 11;
@@ -9863,6 +9883,7 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
           box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  white-space: nowrap;
 }
 
 .sui-2-10-9 .sui-wrap .sui-dropdown ul:before, .sui-2-10-9 .sui-wrap .sui-dropdown ul:after {
@@ -11534,7 +11555,7 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
   background-size: 50px 50px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sui-2-10-9 .sui-wrap .sui-cross-sell-modules .sui-cross-1 > span {
     background-image: url("../images/plugins-smush-icon@2x.png");
   }
@@ -11549,7 +11570,7 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
   background-size: 50px 50px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sui-2-10-9 .sui-wrap .sui-cross-sell-modules .sui-cross-2 > span {
     background-image: url("../images/plugins-defender-icon@2x.png");
   }
@@ -11564,7 +11585,7 @@ fieldset[disabled] .sui-2-10-9 .sui-wrap .sui-multi-checkbox:hover {
   background-size: 50px 50px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sui-2-10-9 .sui-wrap .sui-cross-sell-modules .sui-cross-3 > span {
     background-image: url("../images/plugins-smartcrawl-icon@2x.png");
   }
@@ -15904,6 +15925,10 @@ html.sui-has-overlay {
   color: #AAAAAA;
 }
 
+.sui-2-10-9 .sui-wrap select.sui-select + .sui-select .selection span[role="combobox"].select2-selection--multiple .select2-search.select2-search--inline .select2-search__field::-moz-placeholder {
+  color: #AAAAAA;
+}
+
 .sui-2-10-9 .sui-wrap select.sui-select + .sui-select .selection span[role="combobox"].select2-selection--multiple .select2-search.select2-search--inline .select2-search__field:-ms-input-placeholder {
   color: #AAAAAA;
 }
@@ -16197,6 +16222,10 @@ html.sui-has-overlay {
   color: #000000;
 }
 
+.sui-2-10-9 .sui-wrap.sui-color-accessible select.sui-select + .sui-select .selection span[role="combobox"].select2-selection--multiple .select2-selection__rendered .select2-search input::-moz-placeholder {
+  color: #000000;
+}
+
 .sui-2-10-9 .sui-wrap.sui-color-accessible select.sui-select + .sui-select .selection span[role="combobox"].select2-selection--multiple .select2-selection__rendered .select2-search input:-ms-input-placeholder {
   color: #000000;
 }
@@ -16319,6 +16348,10 @@ html.sui-has-overlay {
 }
 
 .sui-2-10-9 .sui-select.sui-select-dropdown-container--open .sui-select-dropdown .select2-search input::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.sui-2-10-9 .sui-select.sui-select-dropdown-container--open .sui-select-dropdown .select2-search input::-moz-placeholder {
   color: #AAAAAA;
 }
 
@@ -19088,6 +19121,10 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   color: #AAAAAA;
 }
 
+.sui-2-10-9 .sui-wrap select.sui-search + .select2 .select2-selection--multiple ul.select2-selection__rendered input.select2-search__field::-moz-placeholder {
+  color: #AAAAAA;
+}
+
 .sui-2-10-9 .sui-wrap select.sui-search + .select2 .select2-selection--multiple ul.select2-selection__rendered input.select2-search__field:-ms-input-placeholder {
   color: #AAAAAA;
 }
@@ -19385,21 +19422,19 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   background-color: #FFFFFF;
 }
 
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control::-webkit-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-webkit-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label::-webkit-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message::-webkit-input-placeholder {
+.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control::-webkit-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-webkit-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label::-webkit-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message::-webkit-input-placeholder {
   color: #555555;
 }
 
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control:-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox:-ms-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label:-ms-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message:-ms-input-placeholder {
+.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control::-moz-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-moz-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label::-moz-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message::-moz-placeholder {
   color: #555555;
 }
 
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control::-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-ms-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label::-ms-input-placeholder,
-.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message::-ms-input-placeholder {
+.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control:-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox:-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label:-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message:-ms-input-placeholder {
+  color: #555555;
+}
+
+.sui-2-10-9 .sui-wrap.sui-color-accessible .sui-form-control::-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-multi-checkbox::-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-label::-ms-input-placeholder, .sui-2-10-9 .sui-wrap.sui-color-accessible .sui-error-message::-ms-input-placeholder {
   color: #555555;
 }
 
