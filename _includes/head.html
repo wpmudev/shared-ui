@@ -9,4 +9,9 @@
 	<link id="wordpress-styles" rel="stylesheet" href="{{ '/assets/css/wordpress.min.css' | relative_url }}">
 	<link id="showcase-styles" rel="stylesheet" href="{{ '/assets/css/showcase.min.css' | relative_url }}">
 
+	{% if page.id == 'upgrade' %}
+	<!-- LOAD: DOM Purify -->
+	<script src="{{ 'assets/js/purify.min.js' || relative_url }}"></script>
+	{% endif %}
+
 </head>
