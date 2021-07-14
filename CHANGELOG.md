@@ -1,6 +1,6 @@
 # Changelog
 
-## Shared UI v2.10.9
+## Shared UI v2.10.10
 
 #### New
 * ✨ new(icons): Add `beehive` icon. ([@iamleigh](https://github.com/iamleigh))
