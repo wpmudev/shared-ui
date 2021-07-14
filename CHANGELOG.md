@@ -1,4 +1,4 @@
-## Shared UI v2.10.10 (Unreleased)
+## Shared UI v2.10.10
 
 #### New
 * ✨ new(icons): Add `beehive` icon. ([@iamleigh](https://github.com/iamleigh))
