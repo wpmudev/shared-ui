@@ -18,6 +18,7 @@
 			$allinputs = $alllabels.find( 'input' ),
 			newContent
 			;
+
 		$this.on( 'click', function( e ) {
 
 			$alllabels.removeClass( 'active' );
@@ -36,6 +37,7 @@
 
 
 	};
+
 
 	$( 'SUI_BODY_CLASS .sui-side-tabs label.sui-tab-item input' ).each( function() {
 		SUI.sideTabs( this );
