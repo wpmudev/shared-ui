@@ -10,10 +10,17 @@
 	text-rendering: auto;
 	display: inline-block;
 	color: $icon-color;
+	opacity: 1;
 
 	// Better Font Rendering
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	@media all and (-ms-high-contrast: none) {
+		color: $icon-color;
+	}
+	@media all and (-ms-high-contrast: active) {
+		color: $icon-lighter-color;
+	}
 }
 
 @mixin icon($position: before, $icon: false, $styles: true) {
@@ -216,6 +223,7 @@ $icons: (
 		align-x-left: "\e5",
 		logout: "\203a",
 		branda: "\aa",
+		beehive: "\3a9"
 );
 
 

@@ -1,19 +1,43 @@
-(function ($) {
-  var endpoint = 'https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org'; // Update the reviews with the live stats.
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-  $('.sui-2-10-9 .sui-reviews').each(function () {
-    var review = $(this);
-    $.get(endpoint, function (data) {
-      var stars = Math.round(data.stats.average_rating);
-      var starsBlock = review.find('.sui-reviews__stars')[0];
-      var i;
+(function ($) {
+  // Enable strict mode.
+  'use strict'; // Define global SUI object if it doesn't exist.
+
+  if ('object' !== _typeof(window.SUI)) {
+    window.SUI = {};
+  }
+
+  SUI.reviews = function (review, reviews, rating) {
+    if (reviews <= 0) {
+      return;
+    }
+
+    function init() {
+      var stars = Math.round(rating),
+          starsBlock = review.find('.sui-reviews__stars')[0],
+          i;
 
       for (i = 0; i < stars; i++) {
-        starsBlock.innerHTML += '<i class="sui-icon-star" aria-hidden="true"></i> ';
+        starsBlock.innerHTML += '<span class="sui-icon-star" aria-hidden="true"></span> ';
       }
 
-      review.find('.sui-reviews-rating')[0].innerHTML = data.stats.average_rating;
-      review.find('.sui-reviews-customer-count')[0].innerHTML = data.stats.total_reviews;
+      review.find('.sui-reviews-rating').replaceWith(rating);
+      review.find('.sui-reviews-customer-count').replaceWith(reviews);
+    }
+
+    init();
+    return this;
+  }; // Update the reviews with the live stats.
+
+
+  $('.sui-2-10-10 .sui-reviews').each(function () {
+    var review = $(this);
+    $.ajax({
+      url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
+      success: function success(data) {
+        SUI.reviews(review, data.stats.reviews, data.stats.average_rating);
+      }
     });
   });
 })(jQuery);

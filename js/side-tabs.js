@@ -35,7 +35,9 @@
 			}
 		});
 
+
 	};
+
 
 	$( 'SUI_BODY_CLASS .sui-side-tabs label.sui-tab-item input' ).each( function() {
 		SUI.sideTabs( this );
