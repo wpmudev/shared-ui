@@ -1,5 +1,13 @@
 # Changelog
 
+## Shared UI v2.10.11
+
+#### New
+* [#317](https://github.com/wpmudev/shared-ui/pull/317) ✨ new(icons): Add `async` icon. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Shared UI v2.10.10
 
 #### New
@@ -12,7 +20,7 @@
 * [#315](https://github.com/wpmudev/shared-ui/pull/315) 🐛 fix(toggles): Invisible on windows's high contrast mode. ([@Gowtham369](https://github.com/Gowtham369))
 * [#316](https://github.com/wpmudev/shared-ui/pull/316) 🐛 fix(reviews): Solve security bug. ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
