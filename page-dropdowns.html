@@ -17,6 +17,10 @@ is_searchable: true
 			</li>
 
 			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="alignment">Alignment</a>
+			</li>
+
+			<li class="sui-vertical-tab">
 				<a href="#" role="button" data-tab="documentation">Documentation</a>
 			</li>
 
@@ -29,6 +33,170 @@ is_searchable: true
 
 		<div class="sui-box-header">
 			<h3 class="sui-box-title">Samples</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Menu with Links</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Only text items</h3>
+
+					<div class="sui-border-frame">
+
+						<div class="sui-dropdown sui-dropdown-right">
+
+							<button aria-expanded="false"
+								class="sui-button-icon sui-dropdown-anchor"
+								aria-label="More Options">
+								<span class="sui-icon-widget-settings-config" aria-hidden="true"></span>
+							</button>
+
+							<ul>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									Menu Item
+								</a></li>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									Menu Item
+								</a></li>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									Menu Item
+								</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<h3 class="sui-label">Text with icon items</h3>
+
+					<div class="sui-border-frame">
+
+						<div class="sui-dropdown sui-dropdown-right">
+
+							<button aria-expanded="false"
+								class="sui-button-icon sui-dropdown-anchor"
+								aria-label="More Options">
+								<span class="sui-icon-widget-settings-config" aria-hidden="true"></span>
+							</button>
+
+							<ul>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</a></li>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</a></li>
+								<li><a href="https://premium.wpmudev.org/"
+									target="_blank">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Menu with Buttons</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Only text items</h3>
+
+					<div class="sui-border-frame">
+
+						<div class="sui-dropdown sui-dropdown-right">
+							<button aria-expanded="false"
+								class="sui-button-icon sui-dropdown-anchor"
+								aria-label="More Options">
+								<span class="sui-icon-widget-settings-config" aria-hidden="true"></span>
+							</button>
+							<ul>
+								<li><button onclick="activateButton(event)">
+									Menu Item
+								</a></li>
+								<li><button onclick="activateButton(event)">
+									Menu Item
+								</button></li>
+								<li><button onclick="activateButton(event)">
+									Menu Item
+								</button></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<h3 class="sui-label">Text with icon items</h3>
+
+					<div class="sui-border-frame">
+
+						<div class="sui-dropdown sui-dropdown-right">
+							<button aria-expanded="false"
+								class="sui-button-icon sui-dropdown-anchor"
+								aria-label="More Options">
+								<span class="sui-icon-widget-settings-config" aria-hidden="true"></span>
+							</button>
+							<ul>
+								<li><button onclick="activateButton(event)">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</a></li>
+								<li><button onclick="activateButton(event)">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</button></li>
+								<li><button onclick="activateButton(event)">
+									<span class="sui-icon-wpmudev-logo" aria-hidden="true"></span> Menu Item
+								</button></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<script>
+						function activateButton(evt) {
+							var button  = evt.target,
+								parent  = button.parentNode.parentNode,
+								buttons = parent.children;
+
+							for ( var i = 0; i < buttons.length; i++ ) {
+								buttons[i].classList.remove( 'active' );
+							}
+
+							button.parentNode.classList.add( 'active' );
+
+							evt.preventDefault();
+							evt.stopPropagation();
+						}
+					</script>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- DROPDOWNS: Alignment-->
+	<div class="sui-box" data-tab="alignment" style="display: none;">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">Alignment</h3>
 		</div>
 
 		<div class="sui-box-body">
@@ -85,7 +253,7 @@ is_searchable: true
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Left Menu</span>
+					<span class="sui-settings-label">Left</span>
 					<span class="sui-description">Menu will be left-aligned with the button.</span>
 				</div>
 
@@ -134,7 +302,7 @@ is_searchable: true
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Center Menu</span>
+					<span class="sui-settings-label">Center</span>
 					<span class="sui-description">Menu will be center-aligned with the button.</span>
 				</div>
 

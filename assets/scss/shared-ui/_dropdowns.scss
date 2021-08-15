@@ -14,14 +14,14 @@
 			right: -10px;
 			left: auto;
 			margin: 15px 0 0;
-			padding: 10px 0;
+			padding: 15px 0;
 			border: 1px solid palette(gray, lighter);
 			border-radius: $border-radius;
 			background-color: $white;
 			box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
 			transition: 0.3s ease;
 			white-space: nowrap;
-			
+
 			&:before,
 			&:after {
 				content: " ";
@@ -61,7 +61,7 @@
 					&:hover,
 					&:active {
 						margin: 0;
-						padding: 0 8px;
+						padding: 0 15px;
 						border: 0;
 						outline: none;
 						box-shadow: none;
@@ -77,20 +77,15 @@
 					transition: 0.3s ease;
 
 					&,
-					&:focus,
 					&:visited {
 						background-color: transparent;
-						color: palette(gray, light);
+						color: $grey;
 					}
 
 					&:hover,
-					&:active {
-						background-color: $silver;
-						color: palette(gray, dark);
-
-						[class*="sui-icon-"]:before {
-							color: palette(gray, dark);
-						}
+					&:focus {
+						background-color: rgba(51, 51, 51, 0.05);
+						color: $ironmike;
 					}
 
 					&.sui-option-red {
@@ -106,10 +101,6 @@
 						&:active {
 							background-color: palette(red, light);
 						}
-
-						[class*="sui-icon-"]:before {
-							color: inherit;
-						}
 					}
 				}
 
@@ -121,18 +112,17 @@
 
 					&:before {
 						display: block;
-						color: palette(gray, light);
+						color: inherit;
 						transition: 0.3s ease;
 					}
 				}
 
 				&.active,
 				&.current {
-					background-color: $silver;
-					color: palette(gray, dark);
 
-					[class*="sui-icon-"]:before {
-						color: palette(gray, dark);
+					a, button {
+						background-color: $grey;
+						color: $white;
 					}
 				}
 
