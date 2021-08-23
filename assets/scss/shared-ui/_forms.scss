@@ -14,52 +14,46 @@
 		width: 100%;
 		height: $form--input-height-base;
 		margin: 0;
-		padding: #{($form--input-height-base - ($form--input-line-height + 2px)) / 2} 14px;
-		border: 1px solid $form--input-border-color;
+		padding: 9px 14px;
+		border: 1px solid $overcast;
 		border-radius: $border-radius;
-		background-color: $form--input-bg-color;
+		background-color: $cloud;
 		background-image: none;
-		color: $form--input-color;
-		font: $form--input-font-weight #{$font--size}/#{$form--input-line-height} $font;
-		letter-spacing: $font--letter-spacing;
-		transition: 0.3s ease-in-out;
+		color: $nightrider;
+		font: 500 15px/20px $font;
+		letter-spacing: -0.25px;
+		transition: 0.2s ease-in-out;
+		outline: none;
+		box-shadow: none;
 
-		&,
-		&:hover,
-		&:focus,
-		&:active {
+		&::placeholder {
+			color: $fiftyshades;
+		}
+
+		&:hover {
+			border-color: $fiftyshades;
+			background-color: $white;
 			outline: none;
 			box-shadow: none;
 		}
 
-		&:hover,
 		&:focus {
-			border-color: $form--input-border-color-hover;
+			border-color: $blue;
 			background-color: $white;
-		}
+			outline: none;
+			box-shadow: 0 0 0 2px $blue-ghost;
 
-		&:focus {
-			background-color: $form--input-bg-color-focus;
-			color: $form--input-color-focus;
-		}
-
-		&::placeholder {
-			color: $form--input-placeholder-color;
+			&::placeholder {
+				color: $overcast;
+			}
 		}
 
 		// STATE: Disabled
 		&[disabled],
 		&.sui-disabled,
 		fieldset[disabled] & {
-			cursor: not-allowed;
-
-			&,
-			&:focus,
-			&:hover {
-				border-color: $form--input--disabled;
-				background-color: $form--input--disabled;
-				color: $form--input-color-disabled;
-			}
+			pointer-events: none;
+			color: $fiftyshades;
 		}
 
 		// FIX:
@@ -268,13 +262,17 @@
 		&.sui-form-field-error {
 
 			.sui-form-control {
-				border-bottom: 2px solid $form--input-border-color-error;
+				border-color: $red;
+
+				&:focus {
+					box-shadow: 0 0 0 2px $red-ghost;
+				}
 			}
 
 			.sui-control-with-icon {
 
 				[class*="sui-icon-"]:before {
-					color: $form--input-border-color-error;
+					color: $red;
 				}
 			}
 		}
