@@ -460,7 +460,7 @@ is_searchable: true
 
 			</div>
 
-			<div class="sui-box-settings-row">
+			<div class="sui-box-settings-row sui-flushed">
 
 				<div class="sui-box-settings-col-2">
 
@@ -487,6 +487,46 @@ is_searchable: true
 								data-tooltip="This option is enabled in the Email field settings">
 								<span class="sui-icon-info" aria-hidden="true"></span>
 							</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<label class="sui-settings-label sui-dark">Case #3</label>
+					<span class="sui-description">Tooltips are built using pseudo elements and so are icons. In order to correctly use a tooltip in an icon it is necessary to wrap it.</span>
+
+					<div class="sui-border-frame" style="margin-top: 10px;">
+
+						<label class="sui-settings-label">The Problem</label>
+						<span class="sui-description">By using the following markup to show tooltip on an icon, the result will be an empty/blank content among other issues. Although, for the purpose of this example the <code>[icon]</code> text was added where it should be an empty space since icons don't have content inside (between open and close tags).</span>
+
+						<div style="margin-top: 10px; margin-bottom: 30px;">
+							<span
+								class="sui-icon-info sui-tooltip"
+								data-tooltip="Hello, tooltip!"
+								aria-hidden="true"
+							>
+								[icon]
+							</span>
+						</div>
+
+						<label class="sui-settings-label">The Solution</label>
+						<span class="sui-description">Wrap the icon on an empty <code>div</code> or <code>span</code> and assign it the <code>tooltip</code> class and data.</span>
+
+						<div style="margin-top: 10px;">
+							<span
+								class="sui-tooltip"
+								data-tooltip="Hello, tooltip!"
+							>
+								<span class="sui-icon-info" aria-hidden="true"></span>
+							</span>
 						</div>
 
 					</div>
