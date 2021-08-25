@@ -1,5 +1,18 @@
 # Changelog
 
+## Shared UI v2.10.12
+
+#### Bug Fixes
+* [#319](https://github.com/wpmudev/shared-ui/pull/319) ([SUI-91](https://incsub.atlassian.net/browse/SUI-91)) 🐛 fix(labels): Update `sui-label` styles. ([@iamleigh](https://github.com/iamleigh))
+* [#320](https://github.com/wpmudev/shared-ui/pull/320) ([SUI-99](https://incsub.atlassian.net/browse/SUI-99)) 🐛 fix(sidenav): Text goes outside the box in other languages. ([@iamleigh](https://github.com/iamleigh))
+* [#321](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
+* [#322](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-61](https://incsub.atlassian.net/browse/SUI-61)) 🐛 new(input): We need styles for `input` focus state. ([@iamleigh](https://github.com/iamleigh))
+* [#323](https://github.com/wpmudev/shared-ui/pull/323) ([SUI-68](https://incsub.atlassian.net/browse/SUI-68)) 🐛 fix(toggle): We need focus state styles. ([@iamleigh](https://github.com/iamleigh))
+* [#324](https://github.com/wpmudev/shared-ui/pull/324) ([SUI-189](https://incsub.atlassian.net/browse/SUI-189)) 📝 docs(tooltips): Simple icon with tooltip special case. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Shared UI v2.10.11
 
 #### New

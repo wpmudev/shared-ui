@@ -7,13 +7,6 @@
 		input {
 			@extend %sui-screen-reader-text;
 
-			&:focus {
-
-				~ .sui-toggle-slider {
-					box-shadow: 0 0 0 5px palette(silver, default);
-				}
-			}
-
 			&:checked {
 
 				~ .sui-toggle-slider {
@@ -22,14 +15,6 @@
 					&:before {
 						transform: translateX(#{$toggle-width - ($toggle-height - 2px) - 2px});
 					}
-
-					&:hover {
-						box-shadow: 0 0 0 5px palette(blue, light);
-					}
-				}
-
-				&:focus ~ .sui-toggle-slider {
-					box-shadow: 0 0 0 5px palette(blue, light);
 				}
 			}
 
@@ -38,20 +23,51 @@
 				~ .sui-toggle-slider {
 					cursor: not-allowed;
 					opacity: 0.5;
-					background-color: $toggle-active-disabled-bg-color;
+					background-color: $overcast;
 
 					&:before {
-						background-color: $toggle-active-before-disabled-color;
-					}
-
-					&:hover {
-						box-shadow: none;
+						background-color: $fiftyshades;
 					}
 				}
 
 				~ .sui-description,
 				~ .sui-toggle-label {
 					cursor: initial;
+					pointer-events: none;
+				}
+			}
+
+			&:hover {
+
+				~ .sui-toggle-slider {
+					box-shadow: 0 0 0 5px $smoke;
+				}
+
+				&:checked ~ .sui-toggle-slider {
+					box-shadow: 0 0 0 5px $blue-ghost;
+				}
+
+				&:focus {
+					box-shadow: 0 0 0 5px $silver;
+
+					&:checked ~ .sui-toggle-slider {
+						box-shadow: 0 0 0 5px #D1EAF4;
+					}
+				}
+
+				&[disabled] ~ .sui-toggle-slider {
+					box-shadow: none;
+				}
+			}
+
+			&:focus {
+
+				~ .sui-toggle-slider {
+					box-shadow: 0 0 0 5px $silver;
+				}
+
+				&:checked ~ .sui-toggle-slider {
+					box-shadow: 0 0 0 5px #D1EAF4;
 				}
 			}
 		}
@@ -67,9 +83,10 @@
 			padding: 0;
 			border: 0;
 			border-radius: #{$toggle-height / 2};
-			background-color: palette(silver, medium);
+			background-color: $fiftyshades;
 			transition: $transition;
 			opacity: 1;
+
 			&:before {
 				content: " ";
 				width: #{$toggle-height - 2px};
@@ -80,10 +97,6 @@
 				border-radius: $toggle-height;
 				background-color: $white;
 				transition: 0.2s linear;
-			}
-
-			&:hover {
-				box-shadow: 0 0 0 5px palette(silver, default);
 			}
 
 			~ .sui-toggle-label,
