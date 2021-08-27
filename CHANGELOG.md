@@ -3,6 +3,7 @@
 ## Shared UI v2.10.13
 
 #### New
+* [#325](https://github.com/wpmudev/shared-ui/pull/325) ([SUI-225](https://incsub.atlassian.net/browse/SUI-225)) ✨ fix(upsells): Create new section. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
 
@@ -15,7 +16,7 @@
 
 #### Improvements
 * [#319](https://github.com/wpmudev/shared-ui/pull/319) ([SUI-91](https://incsub.atlassian.net/browse/SUI-91)) 🐛 fix(labels): Update `sui-label` styles. ([@iamleigh](https://github.com/iamleigh))
-* [#321](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
+* [#321](https://github.com/wpmudev/shared-ui/pull/321) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
 * [#322](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-61](https://incsub.atlassian.net/browse/SUI-61)) 🐛 new(input): We need styles for `input` focus state. ([@iamleigh](https://github.com/iamleigh))
 * [#323](https://github.com/wpmudev/shared-ui/pull/323) ([SUI-68](https://incsub.atlassian.net/browse/SUI-68)) 🐛 fix(toggle): We need focus state styles. ([@iamleigh](https://github.com/iamleigh))
 
