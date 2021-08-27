@@ -43,3 +43,22 @@
 		}
 	}
 }
+
+@include body-class($wrap: true, $rtl: true, $monochrome: false) {
+
+	.sui-upsell {
+
+		&__list {
+
+			li {
+				padding-right: 26px;
+				padding-left: 0;
+
+				[class*="sui-icon-"] {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+}
