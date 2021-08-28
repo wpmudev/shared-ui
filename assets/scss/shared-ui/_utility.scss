@@ -124,117 +124,114 @@
 		margin-right: $default-margin !important;
 	}
 
-	// ELEMENT: Padding
 	.sui-padding {
-		padding: $default-padding !important;
+		padding: $sui-gutter-md;
 
-		// MODIFIER: Top
-		&--top {
-			padding-top: $sui-gutter-md;
+		&--hidden-mobile {
 
-			&-mobile {
-
-				@include media(max-width, md) {
-					padding-top: $sui-gutter-md;
-				}
-			}
-
-			&-desktop {
-
-				@include media(min-width, md) {
-					padding-top: $sui-gutter;
-				}
-			}
-
-			@include media(min-width, md) {
-				padding-top: $sui-gutter;
+			@include media(max-width, md) {
+				padding: 0;
 			}
 		}
 
-		// ELEMENT: Bottom
-		&--bottom {
-			padding-bottom: $sui-gutter-md;
-
-			&-mobile {
-
-				@include media(max-width, md) {
-					padding-bottom: $sui-gutter-md;
-				}
-			}
-
-			&-desktop {
-
-				@include media(min-width, md) {
-					padding-bottom: $sui-gutter;
-				}
-			}
+		&--hidden-desktop {
 
 			@include media(min-width, md) {
-				padding-bottom: $sui-gutter;
+				padding: 0;
 			}
 		}
 
-		// ELEMENT: Left
-		&--left {
-			padding-left: $sui-gutter-md;
-
-			&-mobile {
-
-				@include media(max-width, md) {
-					padding-left: $sui-gutter-md;
-				}
-			}
-
-			&-desktop {
-
-				@include media(min-width, md) {
-					padding-left: $sui-gutter;
-				}
-			}
-
-			@include media(min-width, md) {
-				padding-left: $sui-gutter;
-			}
-		}
-
-		// ELEMENT: Right
-		&--right {
-			padding-right: $sui-gutter-md;
-
-			&-mobile {
-
-				@include media(max-width, md) {
-					padding-right: $sui-gutter-md;
-				}
-			}
-
-			&-desktop {
-
-				@include media(min-width, md) {
-					padding-right: $sui-gutter;
-				}
-			}
-
-			@include media(min-width, md) {
-				padding-right: $sui-gutter;
-			}
+		@include media(min-width, md) {
+			padding: $sui-gutter;
 		}
 	}
 
 	.sui-padding-top {
-		padding-top: $default-padding !important;
+		padding-top: $sui-gutter-md;
+
+		&--hidden-mobile {
+
+			@include media(max-width, md) {
+				padding-top: 0;
+			}
+		}
+
+		&--hidden-desktop {
+
+			@include media(min-width, md) {
+				padding-top: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			padding-top: $sui-gutter;
+		}
 	}
 
 	.sui-padding-bottom {
-		padding-bottom: $default-padding !important;
+		padding-bottom: $sui-gutter-md;
+
+		&--hidden-mobile {
+
+			@include media(max-width, md) {
+				padding-bottom: 0;
+			}
+		}
+
+		&--hidden-desktop {
+
+			@include media(min-width, md) {
+				padding-bottom: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			padding-bottom: $sui-gutter;
+		}
 	}
 
 	.sui-padding-left {
-		padding-left: $default-padding !important;
+		padding-left: $sui-gutter-md;
+
+		&--hidden-mobile {
+
+			@include media(max-width, md) {
+				padding-left: 0;
+			}
+		}
+
+		&--hidden-desktop {
+
+			@include media(min-width, md) {
+				padding-left: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			padding-left: $sui-gutter;
+		}
 	}
 
 	.sui-padding-right {
-		padding-right: $default-padding !important;
+		padding-right: $sui-gutter-md;
+
+		&--hidden-mobile {
+
+			@include media(max-width, md) {
+				padding-right: 0;
+			}
+		}
+
+		&--hidden-desktop {
+
+			@include media(min-width, md) {
+				padding-right: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			padding-right: $sui-gutter;
+		}
 	}
 }
 
