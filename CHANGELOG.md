@@ -7,7 +7,8 @@
 * [#326](https://github.com/wpmudev/shared-ui/pull/326) ([SUI-47](https://incsub.atlassian.net/browse/SUI-47)) ✨ new(upsells): Create widget component. ([@iamleigh](https://github.com/iamleigh))
 * [#327](https://github.com/wpmudev/shared-ui/pull/327) ([SUI-226](https://incsub.atlassian.net/browse/SUI-226)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### Improvements
+* [#330](https://github.com/wpmudev/shared-ui/pull/330) ([SUI-97](https://incsub.atlassian.net/browse/SUI-97)) 🐛 fix(icon-button): Increase ghost variation border width up to 2px. ([@iamleigh](https://github.com/iamleigh))
 
 #### Documentation
 * [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
