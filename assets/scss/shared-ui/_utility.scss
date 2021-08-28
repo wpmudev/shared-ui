@@ -124,56 +124,117 @@
 		margin-right: $default-margin !important;
 	}
 
+	// ELEMENT: Padding
 	.sui-padding {
 		padding: $default-padding !important;
+
+		// MODIFIER: Top
+		&--top {
+			padding-top: $sui-gutter-md;
+
+			&-mobile {
+
+				@include media(max-width, md) {
+					padding-top: $sui-gutter-md;
+				}
+			}
+
+			&-desktop {
+
+				@include media(min-width, md) {
+					padding-top: $sui-gutter;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-top: $sui-gutter;
+			}
+		}
+
+		// ELEMENT: Bottom
+		&--bottom {
+			padding-bottom: $sui-gutter-md;
+
+			&-mobile {
+
+				@include media(max-width, md) {
+					padding-bottom: $sui-gutter-md;
+				}
+			}
+
+			&-desktop {
+
+				@include media(min-width, md) {
+					padding-bottom: $sui-gutter;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-bottom: $sui-gutter;
+			}
+		}
+
+		// ELEMENT: Left
+		&--left {
+			padding-left: $sui-gutter-md;
+
+			&-mobile {
+
+				@include media(max-width, md) {
+					padding-left: $sui-gutter-md;
+				}
+			}
+
+			&-desktop {
+
+				@include media(min-width, md) {
+					padding-left: $sui-gutter;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-left: $sui-gutter;
+			}
+		}
+
+		// ELEMENT: Right
+		&--right {
+			padding-right: $sui-gutter-md;
+
+			&-mobile {
+
+				@include media(max-width, md) {
+					padding-right: $sui-gutter-md;
+				}
+			}
+
+			&-desktop {
+
+				@include media(min-width, md) {
+					padding-right: $sui-gutter;
+				}
+			}
+
+			@include media(min-width, md) {
+				padding-right: $sui-gutter;
+			}
+		}
 	}
 
 	.sui-padding-top {
 		padding-top: $default-padding !important;
 	}
 
-	.sui-padding--top {
-		padding-top: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-top: $sui-gutter;
-		}
-	}
-
 	.sui-padding-bottom {
 		padding-bottom: $default-padding !important;
-	}
-
-	.sui-padding--bottom {
-		padding-bottom: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-bottom: $sui-gutter;
-		}
 	}
 
 	.sui-padding-left {
 		padding-left: $default-padding !important;
 	}
 
-	.sui-padding--left {
-		padding-left: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-left: $sui-gutter;
-		}
-	}
-
 	.sui-padding-right {
 		padding-right: $default-padding !important;
-	}
-
-	.sui-padding--right {
-		padding-right: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-right: $sui-gutter;
-		}
 	}
 }
 
