@@ -14,6 +14,7 @@
 * [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
 * [#329](https://github.com/wpmudev/shared-ui/pull/329) ([SUI-87](https://incsub.atlassian.net/browse/SUI-87)) 📝 docs(notifications): Icons are incorrect. ([@iamleigh](https://github.com/iamleigh))
 * [#331](https://github.com/wpmudev/shared-ui/pull/331) ([SUI-228](https://incsub.atlassian.net/browse/SUI-228)) 📝 docs(upsells): Move "Upsells Box" section to the new "Upsells" category. ([@iamleigh](https://github.com/iamleigh))
+* [#332](https://github.com/wpmudev/shared-ui/pull/332) ([SUI-229](https://incsub.atlassian.net/browse/SUI-229)) 📝 docs(upsells): Rename "Upsells Box" page to "Settings Box". ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
