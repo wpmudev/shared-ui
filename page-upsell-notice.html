@@ -38,7 +38,7 @@ is_searchable: true
 
 						<div class="sui-box-body">
 
-							<p>Default element without additional classes. It takes spacing from its parent element as <code>sui-box-body</code>.</p>
+							<p>By default upsell notice doesn't have any spacing. Instead, it takes it from the parent element as in this example it takes it from <code>sui-box-body</code>.</p>
 
 							<div class="sui-upsell__notice">
 
@@ -86,16 +86,71 @@ is_searchable: true
 					<div class="sui-box">
 
 						<div class="sui-box-header">
-							<h3 class="sui-box-title">Notice | Flushed</h3>
+							<h3 class="sui-box-title">Notice | Modified</h3>
 						</div>
 
 						<div class="sui-box-body">
 
-							<p>This element uses <code>sui-upsell__notice--flushed</code> class to add inner spacing in case is needed.</p>
+							<p>In case you need to add spacing to the element you must use utility classes like:</p>
+
+							<table class="sui-table">
+
+								<thead>
+
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+
+								</thead>
+
+								<tbody>
+
+									<tr>
+										<td><code>sui-padding</code></td>
+										<td colspan="2">It adds 30px padding on desktop and 20px on mobiles respecting library default gutter.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-padding--hidden-mobile</code></td>
+										<td colspan="2">This modifier removes padding from mobiles only.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-padding--hidden-desktop</code></td>
+										<td colspan="2">This modifier removes padding from desktops only.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-padding-${position}</code></td>
+										<td colspan="2">It adds to (top/bottom/left/right) position a padding of 30px on desktop and 20px on mobiles respecting library default gutter.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-padding-${position}--hidden-mobile</code></td>
+										<td colspan="2">This modifier removes from (top/bottom/left/right) position the assigned padding on mobiles only.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-padding-${position}--hidden-desktop</code></td>
+										<td colspan="2">This modifier removes from (top/bottom/left/right) position the assigned padding on desktop only.</td>
+									</tr>
+
+								</tbody>
+
+								<tfoot>
+
+									<tr>
+										<td colspan="3"><strong>Reminder:</strong><br />Don't forget to replace <code>${position}</code> with the desired position (top/bottom/left/right). For example, <code>sui-padding-top</code>.</td>
+									</tr>
+
+								</tfoot>
+
+							</table>
 
 						</div>
 
-						<div class="sui-upsell__notice sui-upsell__notice--flushed">
+						<div class="sui-upsell__notice sui-padding-bottom sui-padding-bottom--hidden-desktop sui-padding-left sui-padding-right">
 
 							<div class="sui-upsell__notice-image" aria-hidden="true">
 								<img
