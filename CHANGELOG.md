@@ -6,11 +6,12 @@
 * [#325](https://github.com/wpmudev/shared-ui/pull/325) ([SUI-225](https://incsub.atlassian.net/browse/SUI-225)) ✨ new(upsells): Create new section. ([@iamleigh](https://github.com/iamleigh))
 * [#326](https://github.com/wpmudev/shared-ui/pull/326) ([SUI-47](https://incsub.atlassian.net/browse/SUI-47)) ✨ new(upsells): Create widget component. ([@iamleigh](https://github.com/iamleigh))
 * [#327](https://github.com/wpmudev/shared-ui/pull/327) ([SUI-226](https://incsub.atlassian.net/browse/SUI-226)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
-* [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
 
 #### Documentation
+* [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
+* [#329](https://github.com/wpmudev/shared-ui/pull/329) ([SUI-87](https://incsub.atlassian.net/browse/SUI-87)) 📝 docs(notifications): Icons are incorrect. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
