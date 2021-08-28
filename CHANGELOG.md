@@ -12,6 +12,7 @@
 
 #### Bug Fixes
 * [#333](https://github.com/wpmudev/shared-ui/pull/333) ([SUI-231](https://incsub.atlassian.net/browse/SUI-231)) 🐛 fix(upsells): Flushed notice doesn't have proper spacing on top. ([@iamleigh](https://github.com/iamleigh))
+* [#334](https://github.com/wpmudev/shared-ui/pull/334) ([SUI-128](https://incsub.atlassian.net/browse/SUI-128)) 🐛 fix(upsells): Notification character has a styling issue. ([@iamleigh](https://github.com/iamleigh))
 
 #### Documentation
 * [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
