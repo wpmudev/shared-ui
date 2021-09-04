@@ -56,7 +56,7 @@ is_searchable: true
 				<thead>
 
 					<tr>
-						<th>Class</th>
+						<th>Class / Modifier</th>
 						<th colspan="2">Description</th>
 					</tr>
 
@@ -70,35 +70,82 @@ is_searchable: true
 					</tr>
 
 					<tr>
-						<td><code>sui-padding--hidden-mobile</code></td>
-						<td colspan="2">This modifier removes padding from mobiles only.</td>
+						<td><code>sui-padding--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero.</td>
 					</tr>
 
 					<tr>
-						<td><code>sui-padding--hidden-desktop</code></td>
-						<td colspan="2">This modifier removes padding from desktops only.</td>
+						<td><code>sui-padding__desktop</code></td>
+						<td colspan="2">This modifier adds <strong>30px</strong> padding on desktop only.</td>
 					</tr>
 
 					<tr>
-						<td><code>sui-padding__${position}</code></td>
-						<td colspan="2">It adds to (top/bottom/left/right) position a padding of 30px on desktop and 20px on mobiles respecting library default gutter.</td>
+						<td><code>sui-padding__desktop--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero on desktop only.</td>
 					</tr>
 
 					<tr>
-						<td><code>sui-padding__${position}--hidden-mobile</code></td>
-						<td colspan="2">This modifier removes from (top/bottom/left/right) position the assigned padding on mobiles only.</td>
+						<td><code>sui-padding__mobile</code></td>
+						<td colspan="2">This modifier adds <strong>20px</strong> padding on mobiles only.</td>
 					</tr>
 
 					<tr>
-						<td><code>sui-padding__${position}--hidden-desktop</code></td>
-						<td colspan="2">This modifier removes from (top/bottom/left/right) position the assigned padding on desktop only.</td>
+						<td><code>sui-padding__mobile--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero on mobiles only.</td>
 					</tr>
 
 				</tbody>
 
 			</table>
 
-			<p class="sui-description"><strong>Reminder:</strong><br />Don't forget to replace <code>${position}</code> with the desired position (top/bottom/left/right). For example, <code>sui-padding__top</code>.</p>
+			<table class="sui-table">
+
+				<thead>
+
+					<tr>
+						<th>Class / Modifier</th>
+						<th colspan="2">Description</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td><code>sui-padding-${position}</code></td>
+						<td colspan="2">It adds 30px padding on desktop and 20px on mobiles respecting library default gutter.</td>
+					</tr>
+
+					<tr>
+						<td><code>sui-padding-${position}--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero.</td>
+					</tr>
+
+					<tr>
+						<td><code>sui-padding-${position}__desktop</code></td>
+						<td colspan="2">This modifier adds <strong>30px</strong> padding on desktop only.</td>
+					</tr>
+
+					<tr>
+						<td><code>sui-padding-${position}__desktop--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero on desktop only.</td>
+					</tr>
+
+					<tr>
+						<td><code>sui-padding-${position}__mobile</code></td>
+						<td colspan="2">This modifier adds <strong>20px</strong> padding on mobiles only.</td>
+					</tr>
+
+					<tr>
+						<td><code>sui-padding-${position}__mobile--hidden</code></td>
+						<td colspan="2">This modifier sets padding to zero on mobiles only.</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<p class="sui-description"><strong>Reminder:</strong><br />Don't forget to replace <code>${position}</code> with the position you desire to modify. Position could be replaced with: <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong> or <strong>left</strong> options. For example, <code>sui-padding-top</code>.</p>
 
 		</div>
 
