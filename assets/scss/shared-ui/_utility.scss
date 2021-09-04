@@ -1,3 +1,10 @@
+$positions: (
+	top,
+	right,
+	bottom,
+	left
+) !default;
+
 @include body-class(true) {
 
 	.sui-hidden {
@@ -131,105 +138,86 @@
 			padding: $sui-gutter;
 		}
 
-		&--hidden-mobile {
-
-			@include media(max-width, md) {
-				padding: 0;
-			}
-		}
-
-		&--hidden-desktop {
+		&--hidden {
+			padding: 0;
 
 			@include media(min-width, md) {
 				padding: 0;
 			}
 		}
-	}
 
-	.sui-padding__top {
-		padding-top: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-top: $sui-gutter;
-		}
-
-		&--hidden-mobile {
-
-			@include media(max-width, md) {
-				padding-top: 0;
-			}
-		}
-
-		&--hidden-desktop {
+		&__desktop {
 
 			@include media(min-width, md) {
-				padding-top: 0;
+				padding: $sui-gutter;
+			}
+
+			&--hidden {
+
+				@include media(min-width, md) {
+					padding: 0;
+				}
 			}
 		}
-	}
 
-	.sui-padding__bottom {
-		padding-bottom: $sui-gutter-md;
-
-		@include media(min-width, md) {
-			padding-bottom: $sui-gutter;
-		}
-
-		&--hidden-mobile {
+		&__mobile {
 
 			@include media(max-width, md) {
-				padding-bottom: 0;
+				padding: $sui-gutter-md;
 			}
-		}
 
-		&--hidden-desktop {
+			&--hidden {
 
-			@include media(min-width, md) {
-				padding-bottom: 0;
+				@include media(max-width, md) {
+					padding: 0;
+				}
 			}
 		}
 	}
 
-	.sui-padding__left {
-		padding-left: $sui-gutter-md;
+	@each $position in $positions {
 
-		@include media(min-width, md) {
-			padding-left: $sui-gutter;
-		}
-
-		&--hidden-mobile {
-
-			@include media(max-width, md) {
-				padding-left: 0;
-			}
-		}
-
-		&--hidden-desktop {
+		.sui-padding-#{$position} {
+			padding-#{$position}: $sui-gutter-md;
 
 			@include media(min-width, md) {
-				padding-left: 0;
+				padding-#{$position}: $sui-gutter;
 			}
-		}
-	}
 
-	.sui-padding__right {
-		padding-right: $sui-gutter-md;
+			&--hidden {
+				padding-#{$position}: 0;
 
-		@include media(min-width, md) {
-			padding-right: $sui-gutter;
-		}
-
-		&--hidden-mobile {
-
-			@include media(max-width, md) {
-				padding-right: 0;
+				@include media(min-width, md) {
+					padding-#{$position}: 0;
+				}
 			}
-		}
 
-		&--hidden-desktop {
+			&__desktop {
 
-			@include media(min-width, md) {
-				padding-right: 0;
+				@include media(min-width, md) {
+					padding-#{$position}: $sui-gutter;
+				}
+
+				&--hidden {
+
+					@include media(min-width, md) {
+						padding-#{$position}: 0;
+					}
+				}
+			}
+
+			&__mobile {
+
+				@include media(max-width, md) {
+					padding-#{$position}: $sui-gutter-md;
+				}
+
+				&--hidden {
+
+					@include media(max-width, md) {
+						padding-#{$position}: 0;
+					}
+				}
 			}
 		}
 	}
