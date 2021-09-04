@@ -34,38 +34,38 @@
 			}
 		}
 
-		&__notice {
+		&-notice {
 
 			@include media(min-width, md) {
 				display: flex;
 			}
-		}
 
-		&__notice-image {
-			margin-right: $sui-gutter-md;
+			&__image {
+				margin-right: $sui-gutter-md;
 
-			img {
-				display: block;
-				margin: 0 auto;
+				@include media(max-width, md) {
+					display: none;
+				}
+
+				@include media(min-width, md) {
+					flex: 0 0 auto;
+					align-self: flex-end;
+					margin-right: $sui-gutter;
+				}
+
+				img {
+					display: block;
+					margin: 0 auto;
+				}
 			}
 
-			@include media(max-width, md) {
-				display: none;
-			}
+			&__content {
 
-			@include media(min-width, md) {
-				flex: 0 0 auto;
-				align-self: flex-end;
-				margin-right: $sui-gutter;
-			}
-		}
-
-		&__notice-content {
-
-			@include media(min-width, md) {
-				flex: 1;
-				align-self: flex-start;
-				margin-bottom: $sui-gutter-md;
+				@include media(min-width, md) {
+					flex: 1;
+					align-self: flex-start;
+					margin-bottom: $sui-gutter-md;
+				}
 			}
 		}
 	}
