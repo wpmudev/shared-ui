@@ -2,7 +2,7 @@
 
 	.sui-upsell {
 
-		&__list {
+		&-list {
 			margin: 0;
 			padding: 0;
 			list-style: none;
@@ -75,7 +75,7 @@
 
 	.sui-upsell {
 
-		&__list {
+		&-list {
 
 			li {
 				padding-right: 26px;
@@ -88,13 +88,16 @@
 			}
 		}
 
-		&__notice-image {
-			margin-right: 0;
-			margin-left: $sui-gutter-md;
+		&-notice {
 
-			@include media(min-width, md) {
+			&__image {
 				margin-right: 0;
-				margin-left: $sui-gutter;
+				margin-left: $sui-gutter-md;
+
+				@include media(min-width, md) {
+					margin-right: 0;
+					margin-left: $sui-gutter;
+				}
 			}
 		}
 	}
@@ -104,7 +107,7 @@
 
 	.sui-upsell {
 
-		&__list {
+		&-list {
 
 			li {
 				color: $black;
