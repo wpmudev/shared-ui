@@ -1,13 +1,42 @@
 # Changelog
 
-## Shared UI v2.10.12
+## Shared UI v2.11.0
+
+#### New
+* [#325](https://github.com/wpmudev/shared-ui/pull/325) ([SUI-225](https://incsub.atlassian.net/browse/SUI-225)) ✨ new(upsells): Create new section. ([@iamleigh](https://github.com/iamleigh))
+* [#326](https://github.com/wpmudev/shared-ui/pull/326) ([SUI-47](https://incsub.atlassian.net/browse/SUI-47)) ✨ new(upsells): Create widget component. ([@iamleigh](https://github.com/iamleigh))
+* [#327](https://github.com/wpmudev/shared-ui/pull/327) ([SUI-226](https://incsub.atlassian.net/browse/SUI-226)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* [#330](https://github.com/wpmudev/shared-ui/pull/330) ([SUI-97](https://incsub.atlassian.net/browse/SUI-97)) 🐛 fix(icon-button): Increase ghost variation border width up to 2px. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
+* [#333](https://github.com/wpmudev/shared-ui/pull/333) ([SUI-231](https://incsub.atlassian.net/browse/SUI-231)) 🐛 fix(upsells): Flushed notice doesn't have proper spacing on top. ([@iamleigh](https://github.com/iamleigh))
+* [#334](https://github.com/wpmudev/shared-ui/pull/334) ([SUI-128](https://incsub.atlassian.net/browse/SUI-128)) 🐛 fix(upsells): Notification character has a styling issue. ([@iamleigh](https://github.com/iamleigh))
+
+#### Documentation
+* [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
+* [#329](https://github.com/wpmudev/shared-ui/pull/329) ([SUI-87](https://incsub.atlassian.net/browse/SUI-87)) 📝 docs(notifications): Icons are incorrect. ([@iamleigh](https://github.com/iamleigh))
+* [#331](https://github.com/wpmudev/shared-ui/pull/331) ([SUI-228](https://incsub.atlassian.net/browse/SUI-228)) 📝 docs(upsells): Move "Upsells Box" section to the new "Upsells" category. ([@iamleigh](https://github.com/iamleigh))
+* [#332](https://github.com/wpmudev/shared-ui/pull/332) ([SUI-229](https://incsub.atlassian.net/browse/SUI-229)) 📝 docs(upsells): Rename "Upsells Box" page to "Settings Box". ([@iamleigh](https://github.com/iamleigh))
+* [#334](https://github.com/wpmudev/shared-ui/pull/334) ([SUI-230](https://incsub.atlassian.net/browse/SUI-230)) 📝 docs(upsells): On "Settings Box" assign proper utility classes to notice. ([@iamleigh](https://github.com/iamleigh))
+* [#335](https://github.com/wpmudev/shared-ui/pull/335) ([SUI-234](https://incsub.atlassian.net/browse/SUI-234)) 📝 docs(utilities): Create new page. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Shared UI v2.10.12
+
+#### Improvements
 * [#319](https://github.com/wpmudev/shared-ui/pull/319) ([SUI-91](https://incsub.atlassian.net/browse/SUI-91)) 🐛 fix(labels): Update `sui-label` styles. ([@iamleigh](https://github.com/iamleigh))
-* [#320](https://github.com/wpmudev/shared-ui/pull/320) ([SUI-99](https://incsub.atlassian.net/browse/SUI-99)) 🐛 fix(sidenav): Text goes outside the box in other languages. ([@iamleigh](https://github.com/iamleigh))
-* [#321](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
+* [#321](https://github.com/wpmudev/shared-ui/pull/321) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
 * [#322](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-61](https://incsub.atlassian.net/browse/SUI-61)) 🐛 new(input): We need styles for `input` focus state. ([@iamleigh](https://github.com/iamleigh))
 * [#323](https://github.com/wpmudev/shared-ui/pull/323) ([SUI-68](https://incsub.atlassian.net/browse/SUI-68)) 🐛 fix(toggle): We need focus state styles. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* [#320](https://github.com/wpmudev/shared-ui/pull/320) ([SUI-99](https://incsub.atlassian.net/browse/SUI-99)) 🐛 fix(sidenav): Text goes outside the box in other languages. ([@iamleigh](https://github.com/iamleigh))
+
+#### Documentation
 * [#324](https://github.com/wpmudev/shared-ui/pull/324) ([SUI-189](https://incsub.atlassian.net/browse/SUI-189)) 📝 docs(tooltips): Simple icon with tooltip special case. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1

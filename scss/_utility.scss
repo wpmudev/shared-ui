@@ -1,3 +1,10 @@
+$positions: (
+	top,
+	right,
+	bottom,
+	left
+) !default;
+
 @include body-class(true) {
 
 	.sui-hidden {
@@ -125,23 +132,94 @@
 	}
 
 	.sui-padding {
-		padding: $default-padding !important;
+		padding: $sui-gutter-md;
+
+		@include media(min-width, md) {
+			padding: $sui-gutter;
+		}
+
+		&--hidden {
+			padding: 0;
+
+			@include media(min-width, md) {
+				padding: 0;
+			}
+		}
+
+		&__desktop {
+
+			@include media(min-width, md) {
+				padding: $sui-gutter;
+			}
+
+			&--hidden {
+
+				@include media(min-width, md) {
+					padding: 0;
+				}
+			}
+		}
+
+		&__mobile {
+
+			@include media(max-width, md) {
+				padding: $sui-gutter-md;
+			}
+
+			&--hidden {
+
+				@include media(max-width, md) {
+					padding: 0;
+				}
+			}
+		}
 	}
 
-	.sui-padding-top {
-		padding-top: $default-padding !important;
-	}
+	@each $position in $positions {
 
-	.sui-padding-bottom {
-		padding-bottom: $default-padding !important;
-	}
+		.sui-padding-#{$position} {
+			padding-#{$position}: $sui-gutter-md;
 
-	.sui-padding-left {
-		padding-left: $default-padding !important;
-	}
+			@include media(min-width, md) {
+				padding-#{$position}: $sui-gutter;
+			}
 
-	.sui-padding-right {
-		padding-right: $default-padding !important;
+			&--hidden {
+				padding-#{$position}: 0;
+
+				@include media(min-width, md) {
+					padding-#{$position}: 0;
+				}
+			}
+
+			&__desktop {
+
+				@include media(min-width, md) {
+					padding-#{$position}: $sui-gutter;
+				}
+
+				&--hidden {
+
+					@include media(min-width, md) {
+						padding-#{$position}: 0;
+					}
+				}
+			}
+
+			&__mobile {
+
+				@include media(max-width, md) {
+					padding-#{$position}: $sui-gutter-md;
+				}
+
+				&--hidden {
+
+					@include media(max-width, md) {
+						padding-#{$position}: 0;
+					}
+				}
+			}
+		}
 	}
 }
 
