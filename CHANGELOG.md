@@ -1,5 +1,18 @@
 # Changelog
 
+## Shared UI v2.11.1
+
+#### New
+
+#### Improvement
+
+#### Bug Fixes
+
+#### Documentation
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Shared UI v2.11.0
 
 #### New
