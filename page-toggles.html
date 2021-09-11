@@ -14,7 +14,7 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
-				<a href="#" role="button" data-tab="samples">Samples</a>
+				<a href="#" role="button" data-tab="preview">Preview</a>
 			</li>
 
 			<li class="sui-vertical-tab">
@@ -25,217 +25,157 @@ is_searchable: true
 
 	</div>
 
-	<!-- SECTION: Default -->
-	<div class="sui-box" data-tab="samples">
+	<!-- SECTION: Preview -->
+	<div data-tab="preview">
 
-		<div class="sui-box-header">
+		<div class="sui-row">
 
-			<h2 class="sui-box-title">Samples</h2>
+			<div class="sui-col-md-6">
 
-		</div>
+				<!-- BOX: States -->
+				<div class="sui-box">
 
-		<div class="sui-box-body">
-
-			<p>Toggles are usually used for on/off functions where the use case is simply turning something on or off. Optionally you can show sub-settings when the toggle is turned on.</p>
-
-			<!-- ROW: Basic -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-
-					<h3 class="sui-settings-label">Basic</h3>
-
-					<p class="sui-description">This mode uses only toggle button with label.</p>
-
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-form-field">
-
-						<label for="toggle-1" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-1"
-								aria-labelledby="toggle-1-label"
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-1-label" class="sui-toggle-label">Toggle Label</span>
-						</label>
-
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">States</h2>
 					</div>
 
-					<div class="sui-form-field">
+					<div class="sui-box-body">
 
-						<label for="toggle-1-disabled" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-1-disabled"
-								aria-labelledby="toggle-1-disabled-label"
-								disabled
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-1-disabled-label" class="sui-toggle-label">Toggle Label</span>
-						</label>
+						<p>Toggles are usually used for on/off functions where the use case is simply turning something on or off. Optionally you can show sub-settings when the toggle is turned on.</p>
 
-					</div>
+						<!-- ROW: Off - Default -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
 
-					<div class="sui-form-field">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Off - Default</h3>
+								<p class="sui-description">The default state for all inputs, and textareas.</p>
+							</div>
 
-						<label for="toggle-2" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-2"
-								aria-labelledby="toggle-2-label"
-								checked
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-2-label" class="sui-toggle-label">Toggle Label</span>
-						</label>
+							<div class="sui-box-settings-col-2">
 
-					</div>
+								<div class="sui-form-field">
 
-					<div class="sui-form-field">
+									<label for="toggle-1" class="sui-toggle">
 
-						<label for="toggle-2-disabled" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-2-disabled"
-								aria-labelledby="toggle-2-disabled-label"
-								checked
-								disabled
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-2-disabled-label" class="sui-toggle-label">Toggle Label</span>
-						</label>
+										<input
+											type="checkbox"
+											id="toggle-1"
+											aria-labelledby="toggle-1-label"
+										/>
 
-					</div>
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
 
-				</div>
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-1-label" class="sui-toggle-label">Toggle Label</span>
 
-			</div>
-
-			<!-- ROW: With Description -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-
-					<h3 class="sui-settings-label">With Description</h3>
-
-					<p class="sui-description">There are cases when you will need to include a brief description for the toggle button.</p>
-
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-form-field">
-
-						<label for="toggle-3" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-3"
-								aria-labelledby="toggle-3-label"
-								aria-describedby="toggle-3-description"
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-3-label" class="sui-toggle-label">Auto-Close pop-up</span>
-							<span id="toggle-3-description" class="sui-description">This will automatically close your pop-up after specified time.</span>
-						</label>
-
-					</div>
-
-					<div class="sui-form-field">
-
-						<label for="toggle-4" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-4"
-								aria-labelledby="toggle-4-label"
-								aria-describedby="toggle-4-description"
-								checked
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-4-label" class="sui-toggle-label">Close pop-up when clicked outside</span>
-							<span id="toggle-4-description" class="sui-description">This will close the pop-up when a user clicks anywhere outside of the pop-up.</span>
-						</label>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- ROW: Sub Settings -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-
-					<h3 class="sui-settings-label">Sub Settings</h3>
-
-					<p class="sui-description">When toggles are turned on, you can show sub-settings to users.</p>
-
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-form-field">
-
-						<label for="toggle-5" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-5"
-								aria-labelledby="toggle-5-label"
-								aria-describedby="toggle-5-description"
-								aria-controls="toggle-5-settings"
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-5-label" class="sui-toggle-label">Show Border</span>
-							<span id="toggle-5-description" class="sui-description">This will add a customizable border to your pop-up.</span>
-						</label>
-
-						<div tabindex="0" id="toggle-5-settings" class="sui-toggle-content sui-border-frame" aria-label="Edit your pop-up custom border settings." style="display: none;">
-
-							<div class="sui-row">
-
-								<div class="sui-col-md-4">
-
-									<div class="sui-form-field">
-
-										<label for="border-radius" id="border-radius-label" class="sui-label">Border radius</label>
-
-										<input type="number" value="5" min="0" id="border-radius" class="sui-form-control" aria-labelledby="border-radius-label" />
-
-									</div>
+									</label>
 
 								</div>
 
-								<div class="sui-col-md-4">
+							</div>
 
-									<div class="sui-form-field">
+						</div>
 
-										<label for="border-weight" id="border-weight-label" class="sui-label">Border weight</label>
+						<!-- ROW: Off - Disabled -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
 
-										<input type="number" value="2" min="0" id="border-weight" class="sui-form-control" aria-labelledby="border-weight-label" />
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Off - Disabled</h3>
+								<p class="sui-description">The toggle off & disabled state.</p>
+							</div>
 
-									</div>
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-2" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-2"
+											aria-labelledby="toggle-2-label"
+											disabled
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-2-label" class="sui-toggle-label">Toggle Label</span>
+
+									</label>
 
 								</div>
 
-								<div class="sui-col-md-4">
+							</div>
 
-									<div class="sui-form-field">
+						</div>
 
-										<label for="border-type" id="border-type-label" class="sui-label">Border type</label>
+						<!-- ROW: On - Active -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
 
-										<select id="border-type" aria-labelledby="border-type">
-											<option>Solid</option>
-											<option>Dotted</option>
-											<option>Dashed</option>
-											<option>Double</option>
-											<option>None</option>
-										</select>
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">On - Active</h3>
+								<p class="sui-description">The toggle on / active state.</p>
+							</div>
 
-									</div>
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-3" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-3"
+											aria-labelledby="toggle-3-label"
+											checked
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-3-label" class="sui-toggle-label">Toggle Label</span>
+
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- ROW: On - Disabled -->
+						<div class="sui-box-settings-row">
+
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">On - Disabled</h3>
+								<p class="sui-description">The toggle is on but in disabed state.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-4" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-4"
+											aria-labelledby="toggle-4-label"
+											disabled
+											checked
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-4-label" class="sui-toggle-label">Toggle Label</span>
+
+									</label>
 
 								</div>
 
@@ -245,45 +185,289 @@ is_searchable: true
 
 					</div>
 
-					<div class="sui-form-field">
+				</div>
 
-						<label for="toggle-6" class="sui-toggle">
-							<input
-								type="checkbox"
-								id="toggle-6"
-								aria-labelledby="toggle-6-label"
-								aria-describedby="toggle-6-description"
-								aria-controls="toggle-6-settings"
-								checked
-							/>
-							<span class="sui-toggle-slider" aria-hidden="true"></span>
-							<span id="toggle-6-label" class="sui-toggle-label">Enable custom size</span>
-							<span id="toggle-6-description" class="sui-description">Choose a custom size for your pop-up.</span>
-						</label>
+				<!-- BOX: Variations -->
+				<div class="sui-box">
 
-						<div tabindex="0" id="toggle-6-settings" class="sui-toggle-content sui-border-frame" aria-label="Set your pop-up custom size.">
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Variations</h2>
+					</div>
 
-							<div class="sui-row">
+					<div class="sui-box-body">
 
-								<div class="sui-col-md-6">
+						<p>Toggles can be used with and without description, or there might be cases when you just need the toggle without the label.</p>
 
-									<div class="sui-form-field">
+						<!-- ROW: Label - Default -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
 
-										<label for="custom-width" id="custom-width-label" class="sui-label">Width (px)</label>
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Label - Default</h3>
+								<p class="sui-description">By default toggles must have a label.</p>
+							</div>
 
-										<input type="number" value="5" min="0" id="custom-width" class="sui-form-control" aria-labelledby="custom-width-label" />
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-5" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-5"
+											aria-labelledby="toggle-5-label"
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-5-label" class="sui-toggle-label">Toggle Label</span>
+
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- ROW: Label - Hidden -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
+
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Label - Hidden</h3>
+								<p class="sui-description">The label is visually hidden but available for screen readers.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-6" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-6"
+											aria-labelledby="toggle-6-label"
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-6-label" class="sui-screen-reader-text">Toggle Label</span>
+
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- ROW: Description - Default -->
+						<div class="sui-box-settings-row">
+
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Description - Default</h3>
+								<p class="sui-description">The toggle with label and description.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-7" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-7"
+											aria-labelledby="toggle-7-label"
+											aria-describedby="toggle-7-description"
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-7-label" class="sui-toggle-label">Toggle Label</span>
+
+										<!-- ELEMENT: Toggle description. -->
+										<span id="toggle-7-description" class="sui-description">Toggle description goes here.</span>
+
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-col-md-6">
+
+				<!-- BOX: Settings -->
+				<div class="sui-box">
+
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Settings</h2>
+					</div>
+
+					<div class="sui-box-body">
+
+						<p>Some toggles may need to show additional settings when turned on.</p>
+
+						<!-- ROW: Off - Default -->
+						<div class="sui-box-settings-row" style="padding-bottom: 0; border-bottom: 0;">
+
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Off - Default</h3>
+								<p class="sui-description">The default state keeps the settings hidden.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-8" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-8"
+											aria-labelledby="toggle-8-label"
+											aria-describedby="toggle-8-description"
+											aria-controls="toggle-8-content"
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-8-label" class="sui-toggle-label">Toggle Label</span>
+
+										<!-- ELEMENT: Toggle description. -->
+										<span id="toggle-8-description" class="sui-description">Toggle description goes here.</span>
+
+									</label>
+
+									<div
+										tabindex="0"
+										id="toggle-8-content"
+										class="sui-toggle-content sui-border-frame"
+										aria-label="A brief description"
+										style="display: none;"
+									>
+
+										<div class="sui-row">
+
+											<div class="sui-col-md-6">
+
+												<div class="sui-form-field">
+
+													<label for="custom-width" id="custom-width-label" class="sui-label">Width (px)</label>
+
+													<input type="number" value="5" min="0" id="custom-width" class="sui-form-control" aria-labelledby="custom-width-label" />
+
+												</div>
+
+											</div>
+
+											<div class="sui-col-md-6">
+
+												<div class="sui-form-field">
+
+													<label for="custom-height" id="custom-height-label" class="sui-label">Height (px)</label>
+
+													<input type="number" value="2" min="0" id="custom-height" class="sui-form-control" aria-labelledby="custom-height-label" />
+
+												</div>
+
+											</div>
+
+										</div>
 
 									</div>
 
 								</div>
 
-								<div class="sui-col-md-6">
+							</div>
 
-									<div class="sui-form-field">
+						</div>
 
-										<label for="custom-height" id="custom-height-label" class="sui-label">Height (px)</label>
+						<!-- ROW: On - Active -->
+						<div class="sui-box-settings-row">
 
-										<input type="number" value="2" min="0" id="custom-height" class="sui-form-control" aria-labelledby="custom-height-label" />
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">On - Active</h3>
+								<p class="sui-description">Once toggle is active settings are shown.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+
+								<div class="sui-form-field">
+
+									<label for="toggle-9" class="sui-toggle">
+
+										<input
+											type="checkbox"
+											id="toggle-9"
+											aria-labelledby="toggle-9-label"
+											aria-describedby="toggle-9-description"
+											aria-controls="toggle-9-content"
+											checked
+										/>
+
+										<!-- ELEMENT: Toggle slider. -->
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+
+										<!-- ELEMENT: Toggle label. -->
+										<span id="toggle-9-label" class="sui-toggle-label">Toggle Label</span>
+
+										<!-- ELEMENT: Toggle description. -->
+										<span id="toggle-9-description" class="sui-description">Toggle description goes here.</span>
+
+									</label>
+
+									<div
+										tabindex="0"
+										id="toggle-9-content"
+										class="sui-toggle-content sui-border-frame"
+										aria-label="A brief description"
+									>
+
+										<div class="sui-row">
+
+											<div class="sui-col-md-6">
+
+												<div class="sui-form-field">
+
+													<label for="custom-width" id="custom-width-label" class="sui-label">Width (px)</label>
+
+													<input type="number" value="5" min="0" id="custom-width" class="sui-form-control" aria-labelledby="custom-width-label" />
+
+												</div>
+
+											</div>
+
+											<div class="sui-col-md-6">
+
+												<div class="sui-form-field">
+
+													<label for="custom-height" id="custom-height-label" class="sui-label">Height (px)</label>
+
+													<input type="number" value="2" min="0" id="custom-height" class="sui-form-control" aria-labelledby="custom-height-label" />
+
+												</div>
+
+											</div>
+
+										</div>
 
 									</div>
 
