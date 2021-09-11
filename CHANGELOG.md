@@ -5,6 +5,7 @@
 #### New
 
 #### Improvement
+* [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
 
