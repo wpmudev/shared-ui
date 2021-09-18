@@ -20,13 +20,19 @@
 			color: inherit;
 		}
 	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
 }
 
 %button-disabled {
 	&[disabled] {
 		pointer-events: none;
 		border-color: $silver;
-		background-color: $silver;
+		background: $silver;
 		color: $fiftyshades;
 	}
 }
@@ -35,249 +41,281 @@
 
 	.sui-button {
 		@extend %button-basics;
+		border-color: transparent;
+		background: $grey;
+		color: $white;
 
-		&__solid {
+		&:hover,
+		&:focus {
+			background: $ironmike;
+		}
 
-			&--grey {
-				border-color: $grey;
-				background-color: $grey;
+		&:focus {
+			border-color: $overcast;
+			box-shadow: 0 0 0 1px $overcast;
+		}
+
+		// MOD: Ghost.
+		@include modifier('ghost') {
+			border-color: $overcast;
+			background: transparent;
+			color: $grey;
+		}
+
+		// MOD: Light.
+		@include modifier('light') {
+			background: $haze;
+			color: $grey;
+		}
+
+		&--ghost,
+		&--light {
+
+			&:hover,
+			&:focus {
+				background: $grey;
 				color: $white;
-
-				&:hover {
-					border-color: $ironmike;
-					background-color: $ironmike;
-				}
-
-				&:focus {
-					border-color: $overcast;
-					background-color: $ironmike;
-					box-shadow: 0 0 0 1px $overcast;
-				}
 			}
 
-			&--blue {
-				border-color: $blue;
-				background-color: $blue;
-				color: $white;
+			&:hover {
+				border-color: $grey;
+			}
 
-				&:hover {
-					border-color: #1286B5;
-					background-color: #1286B5;
+			&:focus {
+				border-color: $overcast;
+				box-shadow: 0 0 0 1px $overcast;
+				color: $white;
+			}
+		}
+
+		// MOD: Blue.
+		@include modifier('blue') {
+
+			// MOD: Solid.
+			& {
+				background: $blue;
+
+				&:hover,
+				&:focus {
+					background: #1286B5;
 				}
 
 				&:focus {
 					border-color: $blue-ghost;
-					background-color: #1286B5;
 					box-shadow: 0 0 0 1px $blue-ghost;
 				}
 			}
 
-			&--red {
-				border-color: $red;
-				background-color: $red;
-				color: $white;
-
-				&:hover {
-					border-color: #E44B4B;
-					background-color: #E44B4B;
-				}
-
-				&:focus {
-					border-color: $red-ghost;
-					background-color: #E44B4B;
-					box-shadow: 0 0 0 1px $red-ghost;
-				}
-			}
-
-			&--purple {
-				border-color: $purple;
-				background-color: $purple;
-				color: $white;
-
-				&:hover {
-					border-color: #70018C;
-					background-color: #70018C;
-				}
-
-				&:focus {
-					border-color: $purple-ghost;
-					background-color: #70018C;
-					box-shadow: 0 0 0 1px $purple-ghost;
-				}
-			}
-
-			&--green {
-				border-color: $green;
-				background-color: $green;
-				color: $white;
-
-				&:hover {
-					border-color: #139E83;
-					background-color: #139E83;
-				}
-
-				&:focus {
-					border-color: $green-ghost;
-					background-color: #139E83;
-					box-shadow: 0 0 0 1px $green-ghost;
-				}
-			}
-		}
-
-		&__ghost {
-
-			&--grey {
-				border-color: $overcast;
-				background-color: transparent;
-				color: $grey;
-			}
-
-			&--blue {
+			// MOD: Ghost.
+			@include modifier('ghost') {
 				border-color: $blue-ghost;
-				background-color: transparent;
+				background: transparent;
 				color: $blue;
 			}
 
-			&--red {
-				border-color: $red-ghost;
-				background-color: transparent;
-				color: $red;
-			}
-
-			&--purple {
-				border-color: $purple-ghost;
-				background-color: transparent;
-				color: $purple;
-			}
-
-			&--green {
-				border-color: $green-ghost;
-				background-color: transparent;
-				color: $green;
-			}
-		}
-
-		&__light {
-
-			&--grey {
-				border-color: $haze;
-				background-color: $haze;
-				color: $grey;
-			}
-
-			&--blue {
-				border-color: $blue-ghost;
-				background-color: $blue-ghost;
+			// VAR: Light.
+			@include modifier('light') {
+				background: $blue-ghost;
 				color: $blue;
 			}
 
-			&--red {
-				border-color: $red-ghost;
-				background-color: $red-ghost;
-				color: $red;
-			}
+			&--ghost,
+			&--light {
 
-			&--purple {
-				border-color: $purple-ghost;
-				background-color: $purple-ghost;
-				color: $purple;
-			}
-
-			&--green {
-				border-color: $green-ghost;
-				background-color: $green-ghost;
-				color: $green;
-			}
-		}
-
-		&__ghost, &__light {
-
-			&--grey {
-
-				&:hover {
-					border-color: $grey;
-					background-color: $grey;
-					color: $white;
-				}
-
+				&:hover,
 				&:focus {
-					border-color: $overcast;
-					background-color: $grey;
-					box-shadow: 0 0 0 1px $overcast;
+					background: $blue;
 					color: $white;
 				}
-			}
-
-			&--blue {
 
 				&:hover {
 					border-color: $blue;
-					background-color: $blue;
-					color: $white;
 				}
 
 				&:focus {
 					border-color: $blue-ghost;
-					background-color: $blue;
 					box-shadow: 0 0 0 1px $blue-ghost;
-					color: $white;
-				}
-			}
-
-			&--red {
-
-				&:hover {
-					border-color: $red;
-					background-color: $red;
-					color: $white;
-				}
-
-				&:focus {
-					border-color: $red-ghost;
-					background-color: $red;
-					box-shadow: 0 0 0 1px $red-ghost;
-					color: $white;
-				}
-			}
-
-			&--purple {
-
-				&:hover {
-					border-color: $purple;
-					background-color: $purple;
-					color: $white;
-				}
-
-				&:focus {
-					border-color: $purple-ghost;
-					background-color: $purple;
-					box-shadow: 0 0 0 1px $purple-ghost;
-					color: $white;
-				}
-			}
-
-			&--green {
-
-				&:hover {
-					border-color: $green;
-					background-color: $green;
-					color: $white;
-				}
-
-				&:focus {
-					border-color: $green-ghost;
-					background-color: $green;
-					box-shadow: 0 0 0 1px $green-ghost;
-					color: $white;
 				}
 			}
 		}
 
-		&__solid, &__ghost, &__light {
+		// MOD: Red.
+		@include modifier('red') {
 
-			&--grey, &--blue, &--red, &--purple, &--green {
-				@extend %button-disabled;
+			// MOD: Solid.
+			& {
+				background: $red;
+
+				&:hover,
+				&:focus {
+					background: #E44B4B;
+				}
+
+				&:focus {
+					border-color: $red-ghost;
+					box-shadow: 0 0 0 1px $red-ghost;
+				}
 			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $red-ghost;
+				background: transparent;
+				color: $red;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $red-ghost;
+				color: $red;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $red;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $red;
+				}
+
+				&:focus {
+					border-color: $red-ghost;
+					box-shadow: 0 0 0 1px $red-ghost;
+				}
+			}
+		}
+
+		// MOD: Purple.
+		@include modifier('purple') {
+
+			// MOD: Solid.
+			& {
+				background: $purple;
+
+				&:hover,
+				&:focus {
+					background: #70018C;
+				}
+
+				&:focus {
+					border-color: $purple-ghost;
+					box-shadow: 0 0 0 1px $purple-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $purple-ghost;
+				background: transparent;
+				color: $purple;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $purple-ghost;
+				color: $purple;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $purple;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $purple;
+				}
+
+				&:focus {
+					border-color: $purple-ghost;
+					box-shadow: 0 0 0 1px $purple-ghost;
+				}
+			}
+		}
+
+		// MOD: Green.
+		@include modifier('green') {
+
+			// MOD: Solid.
+			& {
+				background: $green;
+
+				&:hover,
+				&:focus {
+					background: #139E83;
+				}
+
+				&:focus {
+					border-color: $green-ghost;
+					box-shadow: 0 0 0 1px $green-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $green-ghost;
+				background: transparent;
+				color: $green;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $green-ghost;
+				color: $green;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $green;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $green;
+				}
+
+				&:focus {
+					border-color: $green-ghost;
+					box-shadow: 0 0 0 1px $green-ghost;
+				}
+			}
+		}
+
+		@extend %button-disabled;
+	}
+
+	.sui-button {
+
+		&__text {
+			display: block;
+			text-align: center;
+		}
+
+		&__icon {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			[class*="sui-icon-"] {
+				display: block;
+			}
+		}
+
+		&--onload {
+			position: relative;
 		}
 	}
 
@@ -451,7 +489,7 @@
 
 	// 		[class*="sui-icon-"] {
 
-	// 			&:not(.sui-loading) {
+	// 			&:not(.sui-loading) {x	x	x
 	// 				margin-right: -7px;
 	// 				margin-left: 0;
 	// 			}
