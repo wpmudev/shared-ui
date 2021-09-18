@@ -1,8 +1,15 @@
 // Block
 // @param {String} $block - Block's name
-@mixin block($block) {
-	.#{$block} {
-		@content;
+@mixin block($block, $type: 'class') {
+	@if $type == 'id' {
+		#sui-#{$block} {
+			@content;
+		}
+	}
+	@else {
+		.sui-#{$block} {
+			@content;
+		}
 	}
 }
 
