@@ -54,8 +54,42 @@
 			});
 		}
 
+		function getNoticeType( radios, attr ) {
+			radios.each( function() {
+				const radio = $( this );
+
+				radio.on( 'click', function() {
+					const radio = $( this );
+					const row = radio.closest( '.sui-box-body' );
+					const button = row.find( '.show-notice' );
+					button.attr( 'data-notice-' + attr, radio.val() );
+				});
+			});
+		}
+
+		function noticeOption() {
+			const rows = $( '.notice-design-type' );
+
+			rows.each( function() {
+				const row = $( this );
+
+				// Notification Type
+				getNoticeType(
+					row.find( 'input[name="general-notice"]' ),
+					'open'
+				);
+
+				// Dismiss Button
+				getNoticeType(
+					row.find( 'input[name="general-dismiss"]' ),
+					'dismiss'
+				);
+			});
+		}
+
 		function init() {
 			randomColor( $( '#demo-multiline-random-button' ) );
+			noticeOption();
 		}
 
 		init();
