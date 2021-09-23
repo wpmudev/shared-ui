@@ -15,16 +15,6 @@ is_searchable: true
 
 	<div role="alert" id="float-notice-general" class="sui-notice" aria-live="assertive"></div>
 
-	<div role="alert" id="float-notice-informative" class="sui-notice sui-notice-blue" aria-live="assertive"></div>
-
-	<div role="alert" id="float-notice-success" class="sui-notice sui-notice-green" aria-live="assertive"></div>
-
-	<div role="alert" id="float-notice-warning" class="sui-notice sui-notice-yellow" aria-live="assertive"></div>
-
-	<div role="alert" id="float-notice-error" class="sui-notice sui-notice-red" aria-live="assertive"></div>
-
-	<div role="alert" id="float-notice-upsell" class="sui-notice sui-notice-purple" aria-live="assertive"></div>
-
 </div>
 
 <div class="sui-row-with-sidenav">
@@ -39,18 +29,6 @@ is_searchable: true
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="inline">Inline</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="float">Float</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="multiline">Multi-Line</a>
-			</li>
-
-			<li class="sui-vertical-tab">
 				<a href="#" role="button" data-tab="documentation">Documentation</a>
 			</li>
 
@@ -61,327 +39,207 @@ is_searchable: true
 	<!-- SECTION: Preview -->
 	<div data-tab="preview">
 
-		<div class="sui-box notice-design-type">
+		<div class="sui-row">
 
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">General Notifications</h2>
-			</div>
+			<div class="sui-col-md-6">
 
-			<div class="sui-box-body">
+				<!-- Preview Notification -->
+				<div class="sui-box notice-design-type">
 
-				<div
-					role="alert"
-					id="inline-notice-general"
-					class="sui-notice"
-					aria-live="assertive"
-				></div>
-
-				<div class="sui-border-frame">
-
-					<!-- Notification Type -->
-					<div class="sui-form-field" role="radiogroup" aria-labelledby="general-notice-group__label">
-
-						<h4 id="general-notice-group__label" class="sui-label">Notification Type</h4>
-
-						<label for="general-notice-option-1" class="sui-radio">
-
-							<input
-								type="radio"
-								name="general-notice"
-								value="float-notice-general"
-								id="general-notice-option-1"
-								aria-labelledby="general-notice-option-1__label"
-								checked
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="general-notice-option-1__label">Floating Notice</span>
-
-						</label>
-
-						<label for="general-notice-option-2" class="sui-radio">
-
-							<input
-								type="radio"
-								name="general-notice"
-								value="inline-notice-general"
-								id="general-notice-option-2"
-								aria-labelledby="general-notice-option-2__label"
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="general-notice-option-2__label">Inline Notice</span>
-
-						</label>
-
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Preview Notifications</h2>
 					</div>
 
-					<!-- Dismiss Button -->
-					<div class="sui-form-field" role="radiogroup" aria-labelledby="general-dismiss-group__label">
-
-						<h4 id="general-dismiss-group__label" class="sui-label">Dismiss Button</h4>
-
-						<label for="general-dismiss-option-1" class="sui-radio">
-
-							<input
-								type="radio"
-								name="general-dismiss"
-								value="true"
-								id="general-dismiss-option-1"
-								aria-labelledby="general-dismiss-option-1__label"
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="general-dismiss-option-1__label">Show</span>
-
-						</label>
-
-						<label for="general-dismiss-option-2" class="sui-radio">
-
-							<input
-								type="radio"
-								name="general-dismiss"
-								value="false"
-								id="general-dismiss-option-2"
-								aria-labelledby="general-dismiss-option-2__label"
-								checked
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="general-dismiss-option-2__label">Hide</span>
-
-						</label>
-
-					</div>
-
-				</div>
-
-				<button
-					class="sui-button show-notice"
-					data-notice-open="float-notice-general"
-					data-notice-message="<p>General text here.</p>"
-					data-notice-dismiss="false"
-				>Show</button>
-
-			</div>
-
-		</div>
-
-		<div class="sui-box notice-design-type">
-
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Informative Notifications</h2>
-			</div>
-
-			<div class="sui-box-body">
-
-				<div
-					role="alert"
-					id="inline-notice-informative"
-					class="sui-notice sui-notice-blue"
-					aria-live="assertive"
-				></div>
-
-				<div class="sui-border-frame">
-
-					<!-- Notification Type -->
-					<div class="sui-form-field" role="radiogroup" aria-labelledby="informative-notice-group__label">
-
-						<h4 id="informative-notice-group__label" class="sui-label">Notification Type</h4>
-
-						<label for="informative-notice-option-1" class="sui-radio">
-
-							<input
-								type="radio"
-								name="informative-notice"
-								value="float-notice-informative"
-								id="informative-notice-option-1"
-								aria-labelledby="informative-notice-option-1__label"
-								checked
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="informative-notice-option-1__label">Floating Notice</span>
-
-						</label>
-
-						<label for="informative-notice-option-2" class="sui-radio">
-
-							<input
-								type="radio"
-								name="informative-notice"
-								value="inline-notice-informative"
-								id="informative-notice-option-2"
-								aria-labelledby="informative-notice-option-2__label"
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="informative-notice-option-2__label">Inline Notice</span>
-
-						</label>
-
-					</div>
-
-					<!-- Dismiss Button -->
-					<div class="sui-form-field" role="radiogroup" aria-labelledby="informative-dismiss-group__label">
-
-						<h4 id="informative-dismiss-group__label" class="sui-label">Dismiss Button</h4>
-
-						<label for="informative-dismiss-option-1" class="sui-radio">
-
-							<input
-								type="radio"
-								name="informative-dismiss"
-								value="true"
-								id="informative-dismiss-option-1"
-								aria-labelledby="informative-dismiss-option-1__label"
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="informative-dismiss-option-1__label">Show</span>
-
-						</label>
-
-						<label for="informative-dismiss-option-2" class="sui-radio">
-
-							<input
-								type="radio"
-								name="informative-dismiss"
-								value="false"
-								id="informative-dismiss-option-2"
-								aria-labelledby="informative-dismiss-option-2__label"
-								checked
-							/>
-
-							<span aria-hidden="true"></span>
-
-							<span id="informative-dismiss-option-2__label">Hide</span>
-
-						</label>
-
-					</div>
-
-				</div>
-
-				<button
-					class="sui-button show-notice"
-					data-notice-open="float-notice-informative"
-					data-notice-message="<p>Informative text here.</p>"
-					data-notice-dismiss="false"
-				>Show</button>
-
-			</div>
-
-		</div>
-
-		<div class="sui-box">
-
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">General Notifications</h2>
-			</div>
-
-			<div class="sui-box-body">
-
-				<!-- ROW: Success Notifications -->
-				<div class="sui-box-settings-row">
-
-					<div class="sui-box-settings-col-1">
-						<h3 class="sui-settings-label">Success Notifications</h3>
-					</div>
-
-					<div class="sui-box-settings-col-2">
+					<div class="sui-box-body">
 
 						<div
 							role="alert"
-							id="inline-notice-success"
+							id="inline-notice-general"
 							class="sui-notice"
 							aria-live="assertive"
 						></div>
 
 						<div class="sui-border-frame">
 
-							<!-- Notification Type -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="success-notice-group__label">
+							<!-- Notification Design -->
+							<div class="sui-form-field" role="radiogroup" aria-labelledby="general-design-group__label">
 
-								<h4 id="success-notice-group__label" class="sui-label">Notification Type</h4>
+								<h4 id="general-design-group__label" class="sui-label">Notification Design</h4>
 
-								<label for="success-notice-option-1" class="sui-radio">
+								<label for="general-design-option-1" class="sui-radio">
 
 									<input
 										type="radio"
-										name="success-notice"
-										value="float-notice-success"
-										id="success-notice-option-1"
-										aria-labelledby="success-notice-option-1__label"
+										name="general-design"
+										value=""
+										id="general-design-option-1"
+										aria-labelledby="general-design-option-1__label"
 										checked
 									/>
 
 									<span aria-hidden="true"></span>
 
-									<span id="success-notice-option-1__label">Floating Notice</span>
+									<span id="general-design-option-1__label">General</span>
 
 								</label>
 
-								<label for="success-notice-option-2" class="sui-radio">
+								<label for="general-design-option-2" class="sui-radio">
 
 									<input
 										type="radio"
-										name="success-notice"
-										value="inline-notice-success"
-										id="success-notice-option-2"
-										aria-labelledby="success-notice-option-2__label"
+										name="general-design"
+										value="blue"
+										id="general-design-option-2"
+										aria-labelledby="general-design-option-2__label"
 									/>
 
 									<span aria-hidden="true"></span>
 
-									<span id="success-notice-option-2__label">Inline Notice</span>
+									<span id="general-design-option-2__label">Informative</span>
+
+								</label>
+
+								<label for="general-design-option-3" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-design"
+										value="green"
+										id="general-design-option-3"
+										aria-labelledby="general-design-option-3__label"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-design-option-3__label">Success</span>
+
+								</label>
+
+								<label for="general-design-option-4" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-design"
+										value="yellow"
+										id="general-design-option-4"
+										aria-labelledby="general-design-option-4__label"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-design-option-4__label">Warning</span>
+
+								</label>
+
+								<label for="general-design-option-5" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-design"
+										value="red"
+										id="general-design-option-5"
+										aria-labelledby="general-design-option-5__label"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-design-option-5__label">Error</span>
+
+								</label>
+
+								<label for="general-design-option-6" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-design"
+										value="purple"
+										id="general-design-option-6"
+										aria-labelledby="general-design-option-6__label"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-design-option-6__label">Upsell</span>
+
+								</label>
+
+							</div>
+
+							<!-- Notification Type -->
+							<div class="sui-form-field" role="radiogroup" aria-labelledby="general-notice-group__label">
+
+								<h4 id="general-notice-group__label" class="sui-label">Notification Type</h4>
+
+								<label for="general-notice-option-1" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-notice"
+										value="float-notice-general"
+										id="general-notice-option-1"
+										aria-labelledby="general-notice-option-1__label"
+										checked
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-notice-option-1__label">Floating Notice</span>
+
+								</label>
+
+								<label for="general-notice-option-2" class="sui-radio">
+
+									<input
+										type="radio"
+										name="general-notice"
+										value="inline-notice-general"
+										id="general-notice-option-2"
+										aria-labelledby="general-notice-option-2__label"
+									/>
+
+									<span aria-hidden="true"></span>
+
+									<span id="general-notice-option-2__label">Inline Notice</span>
 
 								</label>
 
 							</div>
 
 							<!-- Dismiss Button -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="success-dismiss-group__label">
+							<div class="sui-form-field" role="radiogroup" aria-labelledby="general-dismiss-group__label">
 
-								<h4 id="success-dismiss-group__label" class="sui-label">Dismiss Button</h4>
+								<h4 id="general-dismiss-group__label" class="sui-label">Dismiss Button</h4>
 
-								<label for="success-dismiss-option-1" class="sui-radio">
+								<label for="general-dismiss-option-1" class="sui-radio">
 
 									<input
 										type="radio"
-										name="success-dismiss"
+										name="general-dismiss"
 										value="true"
-										id="success-dismiss-option-1"
-										aria-labelledby="success-dismiss-option-1__label"
+										id="general-dismiss-option-1"
+										aria-labelledby="general-dismiss-option-1__label"
 									/>
 
 									<span aria-hidden="true"></span>
 
-									<span id="success-dismiss-option-1__label">Show</span>
+									<span id="general-dismiss-option-1__label">Show</span>
 
 								</label>
 
-								<label for="success-dismiss-option-2" class="sui-radio">
+								<label for="general-dismiss-option-2" class="sui-radio">
 
 									<input
 										type="radio"
-										name="success-dismiss"
+										name="general-dismiss"
 										value="false"
-										id="success-dismiss-option-2"
-										aria-labelledby="success-dismiss-option-2__label"
+										id="general-dismiss-option-2"
+										aria-labelledby="general-dismiss-option-2__label"
 										checked
 									/>
 
 									<span aria-hidden="true"></span>
 
-									<span id="success-dismiss-option-2__label">Hide</span>
+									<span id="general-dismiss-option-2__label">Hide</span>
 
 								</label>
 
@@ -390,621 +248,13 @@ is_searchable: true
 						</div>
 
 						<button
+							id="show-general-notice"
 							class="sui-button show-notice"
-							data-notice-open="float-notice-success"
-							data-notice-message="<p>Success text here.</p>"
+							data-notice-open="float-notice-general"
+							data-notice-message="<p>Sample text here.</p>"
 							data-notice-dismiss="false"
 						>Show</button>
 
-					</div>
-
-				</div>
-
-				<!-- ROW: Warning Notifications -->
-				<div class="sui-box-settings-row">
-
-					<div class="sui-box-settings-col-1">
-						<h3 class="sui-settings-label">Warning Notifications</h3>
-					</div>
-
-					<div class="sui-box-settings-col-2">
-
-						<div
-							role="alert"
-							id="inline-notice-warning"
-							class="sui-notice"
-							aria-live="assertive"
-						></div>
-
-						<div class="sui-border-frame">
-
-							<!-- Notification Type -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="warning-notice-group__label">
-
-								<h4 id="warning-notice-group__label" class="sui-label">Notification Type</h4>
-
-								<label for="warning-notice-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="warning-notice"
-										value="float-notice-warning"
-										id="warning-notice-option-1"
-										aria-labelledby="warning-notice-option-1__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="warning-notice-option-1__label">Floating Notice</span>
-
-								</label>
-
-								<label for="warning-notice-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="warning-notice"
-										value="inline-notice-warning"
-										id="warning-notice-option-2"
-										aria-labelledby="warning-notice-option-2__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="warning-notice-option-2__label">Inline Notice</span>
-
-								</label>
-
-							</div>
-
-							<!-- Dismiss Button -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="warning-dismiss-group__label">
-
-								<h4 id="warning-dismiss-group__label" class="sui-label">Dismiss Button</h4>
-
-								<label for="warning-dismiss-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="warning-dismiss"
-										value="true"
-										id="warning-dismiss-option-1"
-										aria-labelledby="warning-dismiss-option-1__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="warning-dismiss-option-1__label">Show</span>
-
-								</label>
-
-								<label for="warning-dismiss-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="warning-dismiss"
-										value="false"
-										id="warning-dismiss-option-2"
-										aria-labelledby="warning-dismiss-option-2__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="warning-dismiss-option-2__label">Hide</span>
-
-								</label>
-
-							</div>
-
-						</div>
-
-						<button
-							class="sui-button show-notice"
-							data-notice-open="float-notice-warning"
-							data-notice-message="<p>Warning text here.</p>"
-							data-notice-dismiss="false"
-						>Show</button>
-
-					</div>
-
-				</div>
-
-				<!-- ROW: Error Notifications -->
-				<div class="sui-box-settings-row">
-
-					<div class="sui-box-settings-col-1">
-						<h3 class="sui-settings-label">Error Notifications</h3>
-					</div>
-
-					<div class="sui-box-settings-col-2">
-
-						<div
-							role="alert"
-							id="inline-notice-error"
-							class="sui-notice"
-							aria-live="assertive"
-						></div>
-
-						<div class="sui-border-frame">
-
-							<!-- Notification Type -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="error-notice-group__label">
-
-								<h4 id="error-notice-group__label" class="sui-label">Notification Type</h4>
-
-								<label for="error-notice-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="error-notice"
-										value="float-notice-error"
-										id="error-notice-option-1"
-										aria-labelledby="error-notice-option-1__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="error-notice-option-1__label">Floating Notice</span>
-
-								</label>
-
-								<label for="error-notice-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="error-notice"
-										value="inline-notice-error"
-										id="error-notice-option-2"
-										aria-labelledby="error-notice-option-2__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="error-notice-option-2__label">Inline Notice</span>
-
-								</label>
-
-							</div>
-
-							<!-- Dismiss Button -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="error-dismiss-group__label">
-
-								<h4 id="error-dismiss-group__label" class="sui-label">Dismiss Button</h4>
-
-								<label for="error-dismiss-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="error-dismiss"
-										value="true"
-										id="error-dismiss-option-1"
-										aria-labelledby="error-dismiss-option-1__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="error-dismiss-option-1__label">Show</span>
-
-								</label>
-
-								<label for="error-dismiss-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="error-dismiss"
-										value="false"
-										id="error-dismiss-option-2"
-										aria-labelledby="error-dismiss-option-2__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="error-dismiss-option-2__label">Hide</span>
-
-								</label>
-
-							</div>
-
-						</div>
-
-						<button
-							class="sui-button show-notice"
-							data-notice-open="float-notice-error"
-							data-notice-message="<p>Error text here.</p>"
-							data-notice-dismiss="false"
-						>Show</button>
-
-					</div>
-
-				</div>
-
-				<!-- ROW: Upsell Notifications -->
-				<div class="sui-box-settings-row">
-
-					<div class="sui-box-settings-col-1">
-						<h3 class="sui-settings-label">Upsell Notifications</h3>
-					</div>
-
-					<div class="sui-box-settings-col-2">
-
-						<div
-							role="alert"
-							id="inline-notice-upsell"
-							class="sui-notice"
-							aria-live="assertive"
-						></div>
-
-						<div class="sui-border-frame">
-
-							<!-- Notification Type -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="upsell-notice-group__label">
-
-								<h4 id="upsell-notice-group__label" class="sui-label">Notification Type</h4>
-
-								<label for="upsell-notice-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="upsell-notice"
-										value="float-notice-upsell"
-										id="upsell-notice-option-1"
-										aria-labelledby="upsell-notice-option-1__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="upsell-notice-option-1__label">Floating Notice</span>
-
-								</label>
-
-								<label for="upsell-notice-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="upsell-notice"
-										value="inline-notice-upsell"
-										id="upsell-notice-option-2"
-										aria-labelledby="upsell-notice-option-2__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="upsell-notice-option-2__label">Inline Notice</span>
-
-								</label>
-
-							</div>
-
-							<!-- Dismiss Button -->
-							<div class="sui-form-field" role="radiogroup" aria-labelledby="upsell-dismiss-group__label">
-
-								<h4 id="upsell-dismiss-group__label" class="sui-label">Dismiss Button</h4>
-
-								<label for="upsell-dismiss-option-1" class="sui-radio">
-
-									<input
-										type="radio"
-										name="upsell-dismiss"
-										value="true"
-										id="upsell-dismiss-option-1"
-										aria-labelledby="upsell-dismiss-option-1__label"
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="upsell-dismiss-option-1__label">Show</span>
-
-								</label>
-
-								<label for="upsell-dismiss-option-2" class="sui-radio">
-
-									<input
-										type="radio"
-										name="upsell-dismiss"
-										value="false"
-										id="upsell-dismiss-option-2"
-										aria-labelledby="upsell-dismiss-option-2__label"
-										checked
-									/>
-
-									<span aria-hidden="true"></span>
-
-									<span id="upsell-dismiss-option-2__label">Hide</span>
-
-								</label>
-
-							</div>
-
-						</div>
-
-						<button
-							class="sui-button show-notice"
-							data-notice-open="float-notice-upsell"
-							data-notice-message="<p>Upsell text here.</p>"
-							data-notice-dismiss="false"
-						>Show</button>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- SECTION: Inline -->
-	<div class="sui-box" data-tab="inline" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Inline</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<label class="sui-label">Inline</label>
-
-			<div class="sui-notice" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Default</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-notice sui-notice-info" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Info</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-notice sui-notice-success" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-check sui-md" aria-hidden="true"></span>
-						<p>Success</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-notice sui-notice-warning" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
-						<p>Warning</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-notice sui-notice-error" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
-						<p>Error</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="sui-notice sui-notice-upsell">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Upsell</p>
-					</div>
-
-				</div>
-
-			</div>
-
-			<label class="sui-label">Inline - Dismissable</label>
-
-			<div id="demo-notice-inline-dismiss" class="sui-notice">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>User can click to the tick button to dismiss</p>
-					</div>
-
-					<div class="sui-notice-actions">
-
-						<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss">
-							<span class="sui-icon-check" aria-hidden="true"></span>
-							<span class="sui-screen-reader-text">Close this notice</span>
-						</button>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div id="demo-notice-inline-dismiss-tooltip" class="sui-notice">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>User can click to the tick button to dismiss</p>
-					</div>
-
-					<div class="sui-notice-actions">
-
-						<div class="sui-tooltip" data-tooltip="Dismiss">
-
-							<button class="sui-button-icon" data-notice-close="demo-notice-inline-dismiss-tooltip">
-								<span class="sui-icon-check" aria-hidden="true"></span>
-								<span class="sui-screen-reader-text">Close this notice</span>
-							</button>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- SECTION: Float -->
-	<div class="sui-box" data-tab="float" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Float</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<label class="sui-label">Floating</label>
-
-			<p style="margin-bottom: 30px;">
-				<button
-					class="sui-button sui-button-blue"
-					data-notice-open="float-example-1"
-					data-notice-paragraph-1="Floating notice dismisses itself after 3 seconds"
-					aria-label="Click to preview floating notice"
-				><span class="sui-icon-eye" aria-hidden="true"></span> Preview</button>
-			</p>
-
-			<label class="sui-label">Floating - Dismissable</label>
-
-			<p style="margin-bottom: 0;">
-				<button
-					class="sui-button sui-button-blue"
-					data-notice-open="float-example-2"
-					data-notice-paragraph-1="Floating notice stays visible until user clicks the tick button."
-					data-notice-dismiss="true"
-					aria-label="Click to preview floating notice with dismiss button"
-				><span class="sui-icon-eye" aria-hidden="true"></span> Preview</button>
-			</p>
-
-		</div>
-
-	</div>
-
-	<!-- SECTION: Multi-Line -->
-	<div class="sui-box" data-tab="multiline" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Multi-Line</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<label class="sui-label">Multi-Line</label>
-
-			<div class="sui-notice" style="margin-bottom: 10px;">
-				<div class="sui-notice-content">
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacinia, augue sit amet ullamcorper lacinia, sapien justo malesuada orci, nec pretium orci erat at ante.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="sui-notice">
-				<div class="sui-notice-content">
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-						<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-					</div>
-				</div>
-			</div>
-
-			<label class="sui-label">Multi-Line Dismissible</label>
-
-			<div id="demo-multiline-dismiss-1" class="sui-notice" style="margin-bottom: 10px;">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacinia, augue sit amet ullamcorper lacinia, sapien justo malesuada orci, nec pretium orci erat at ante.</p>
-					</div>
-
-					<div class="sui-notice-actions">
-
-						<button class="sui-button-icon" data-notice-close="demo-multiline-dismiss-1">
-							<span class="sui-icon-check" aria-hidden="true"></span>
-							<span class="sui-screen-reader-text">Close this notice</span>
-						</button>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div id="demo-multiline-dismiss-2" class="sui-notice">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-						<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-					</div>
-
-					<div class="sui-notice-actions">
-
-						<button class="sui-button-icon" data-notice-close="demo-multiline-dismiss-2">
-							<span class="sui-icon-check" aria-hidden="true"></span>
-							<span class="sui-screen-reader-text">Close this notice</span>
-						</button>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<label class="sui-label">Multi-Line with Action Button</label>
-
-			<div class="sui-notice">
-
-				<div class="sui-notice-content">
-
-					<div class="sui-notice-message">
-						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-						<p>This is a notice with an action button.</p>
-						<p><button id="demo-multiline-random-button" class="sui-button">I can be any colour</button></p>
 					</div>
 
 				</div>
@@ -1024,100 +274,52 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
-			<!-- ROW: Type of Notices. -->
+			<!-- ROW: Specifications -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<h3 class="sui-settings-label">Type of Notices</h3>
+					<h3 class="sui-settings-label">Specifications</h3>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<p style="padding: 5px 10px; border-radius: 4px; background-color: #FECF2F;"><span class="sui-icon-warning" aria-hidden="true"></span><strong style="color: #333;">Before you start adding notifications to your project, you need to learn the difference between both.</strong></p>
+					<table class="sui-table" style="max-width: 720px;">
 
-					<p>There are two types of notifications for your plugins: alert and static. Click on tabs below to learn more about them:</p>
+						<tbody>
 
-					<div class="sui-tabs sui-side-tabs">
+							<tr>
+								<td><strong>Version</strong></td>
+								<td><span class="sui-tag sui-tag-yellow">^2.7.0</span></td>
+								<td colspan="3">This is the minimum required version of SUI to use with this element in order for it to work properly.</td>
+							</tr>
 
-						<div role="tablist" class="sui-tabs-menu">
+							<tr>
+								<td><strong>Utilities</strong></td>
+								<td style="color: #FF6D6D; font-weight: 500;">
+									<span class="sui-icon-close sui-md sui-error" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Unsupported
+								</td>
+								<td colspan="3">This will tell you if the element supports the modifier classes listed on <a href="{{ site.baseurl }}/utilities/"><strong>Utilities</strong></a> page.</td>
+							</tr>
 
-							<button
-								type="button"
-								role="tab"
-								id="tab-alert"
-								class="sui-tab-item active"
-								aria-controls="tab-content-alert"
-								aria-selected="true"
-							>
-								Alert Notification
-							</button>
+							<tr>
+								<td><strong>Monochrome</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports the Colour Accessible option found on our plugins' Settings page.</td>
+							</tr>
 
-							<button
-								type="button"
-								role="tab"
-								id="tab-static"
-								class="sui-tab-item"
-								aria-controls="tab-content-static"
-								aria-selected="false"
-								tabindex="-1"
-							>
-								Static Notification
-							</button>
+							<tr>
+								<td><strong>RTL Language</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports right-to-left langues.</td>
+							</tr>
 
-						</div>
+						</tbody>
 
-						<div class="sui-tabs-content sui-tabs-content-lg">
-
-							<!-- TAB: Alert Notification. -->
-							<div
-								role="tabpanel"
-								tabindex="0"
-								id="tab-content-alert"
-								class="sui-tab-content active"
-								aria-labelledby="tab-alert"
-							>
-
-								<p><strong>Alert Notices</strong> are ARIA live regions, known for not being read by screen readers on page load. For them to be read, they need their region to be updated after the page has loaded.</p>
-
-								<p>In other words, a change needs to happen for <strong>Alert Notices</strong> to be recognized and read by screen readers. If the notice is shown on page load, this change needs to happen after the page has finished loading, that's when you need to trigger the function that will open the alert notification.</p>
-
-								<h4>Float Notification</h4>
-
-								<p>A floating notice can be an alert notification because it appears to notify users about a change that happened, for example: when the user successfully creates a new palette for Hustle plugin.</p>
-
-								<h4>Inline Notification</h4>
-
-								<p>An inline notice can also be an alert notification when it's not visually part of the content but appears when user interacts with the interface, for example: when the user tries to save a module without a title for it.</p>
-
-							</div>
-
-							<!-- TAB: Static Notification. -->
-							<div
-								role="tabpanel"
-								tabindex="0"
-								id="tab-content-static"
-								class="sui-tab-content"
-								aria-labelledby="tab-static"
-								hidden
-							>
-
-								<p><strong>Static Notices</strong> are not live regions but instead part of the page regular content. This also means that screen readers won't be able to read out loud its content when it appears, but instead the user must reach to it when navigating through content.</p>
-
-								<p>In other words, <strong>Static Notices</strong> is simply some visually highlighted text. It does not matter if a change happens, the screen reader won't be able to read it out loud because it's not a live region. Instead, users will have to access the notice as they would with regular content.</p>
-
-								<h4>Float Notification</h4>
-
-								<p>A floating notice can be an static notification but it's not recommended.</p>
-
-								<h4>Inline Notification</h4>
-
-								<p>Some times designers use notifications styles to highlight some text they need users to pay more attention to or just make a point. This notices won't need to appear after a user interaction, these will simply be there as part of the content.</p>
-
-							</div>
-
-						</div>
-
-					</div>
+					</table>
 
 				</div>
 
@@ -1132,49 +334,18 @@ is_searchable: true
 
 				<div class="sui-box-settings-col-2">
 
-					<div class="sui-tabs sui-side-tabs">
+					<!-- Alert Markup. -->
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-alert-markup"
+						class="sui-tab-content active"
+						aria-labelledby="tab-alert-markup"
+					>
 
-						<div role="tablist" class="sui-tabs-menu">
+						<h4>Float Notification</h4>
 
-							<button
-								type="button"
-								role="tab"
-								id="tab-alert-markup"
-								class="sui-tab-item active"
-								aria-controls="tab-content-alert-markup"
-								aria-selected="true"
-							>
-								Alert Notification
-							</button>
-
-							<button
-								type="button"
-								role="tab"
-								id="tab-static-markup"
-								class="sui-tab-item"
-								aria-controls="tab-content-static-markup"
-								aria-selected="false"
-								tabindex="-1"
-							>
-								Static Notification
-							</button>
-
-						</div>
-
-						<div class="sui-tabs-content sui-tabs-content-lg">
-
-							<!-- TAB: Alert Markup. -->
-							<div
-								role="tabpanel"
-								tabindex="0"
-								id="tab-content-alert-markup"
-								class="sui-tab-content active"
-								aria-labelledby="tab-alert-markup"
-							>
-
-								<h4>Float Notification</h4>
-
-								<div class="demo-code-block">
+						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;!-- END: .sui-header --&gt;
@@ -1200,11 +371,11 @@ is_searchable: true
 &lt;!-- START: Regular page content --&gt;
 </pre>
 
-								</div>
+						</div>
 
-								<h4>Inline Notification</h4>
+						<h4>Inline Notification</h4>
 
-								<div class="demo-code-block">
+						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div
@@ -1216,47 +387,6 @@ is_searchable: true
 	&lt;!-- Nothing should be placed here --&gt;
 &lt;/div&gt;
 </pre>
-
-								</div>
-
-							</div>
-
-							<!-- TAB: Static Markup. -->
-							<div
-								role="tabpanel"
-								tabindex="0"
-								id="tab-content-static-markup"
-								class="sui-tab-content"
-								aria-labelledby="tab-static-markup"
-								hidden
-							>
-
-								<div class="demo-code-block">
-
-<pre class="sui-code-snippet html">
-&lt;div
-	id=&quot;unique-id&quot;
-	class=&quot;sui-notice&quot;
-&gt;
-
-	&lt;div class=&quot;sui-notice-content&quot;&gt;
-
-		&lt;div class=&quot;sui-notice-message&quot;&gt;
-
-			&lt;span class=&quot;sui-notice-icon sui-icon-info sui-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-
-			&lt;p&gt;Hello, I am a notification.&lt;/p&gt;
-
-		&lt;/div&gt;
-
-	&lt;/div&gt;
-
-&lt;/div&gt;
-</pre>
-
-								</div>
-
-							</div>
 
 						</div>
 
