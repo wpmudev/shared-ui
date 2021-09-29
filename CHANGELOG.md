@@ -6,6 +6,7 @@
 
 #### Improvement
 * [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
+* [#343](https://github.com/wpmudev/shared-ui/pull/343) ([SUI-93](https://incsub.atlassian.net/browse/SUI-93)) 🐛 fix(typography): Descriptions need to be multi-line. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
 
@@ -15,7 +16,8 @@
 * [#338](https://github.com/wpmudev/shared-ui/pull/338) ([SUI-83](https://incsub.atlassian.net/browse/SUI-83)) 📝 docs(buttons): Review the use of the `role="button"` attribute. ([@iamleigh](https://github.com/iamleigh))
 * [#342](https://github.com/wpmudev/shared-ui/pull/342) ([SUI-236](https://incsub.atlassian.net/browse/SUI-236)) 📝 docs(notification): Clean-up and improve documentation. ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
 ## Shared UI v2.11.0
