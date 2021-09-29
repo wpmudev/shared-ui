@@ -14,6 +14,7 @@
 * [#336](https://github.com/wpmudev/shared-ui/pull/336) ([SUI-110](https://incsub.atlassian.net/browse/SUI-110)) 📝 docs(accordions): Toggles are using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
 * [#337](https://github.com/wpmudev/shared-ui/pull/337) ([SUI-109](https://incsub.atlassian.net/browse/SUI-109)) 📝 docs(tabs): Notification is using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
 * [#338](https://github.com/wpmudev/shared-ui/pull/338) ([SUI-83](https://incsub.atlassian.net/browse/SUI-83)) 📝 docs(buttons): Review the use of the `role="button"` attribute. ([@iamleigh](https://github.com/iamleigh))
+* [#341](https://github.com/wpmudev/shared-ui/pull/341) ([SUI-50](https://incsub.atlassian.net/browse/SUI-50)) 📝 docs(modals): Box accepts `0` spacing modifier. ([@iamleigh](https://github.com/iamleigh))
 * [#342](https://github.com/wpmudev/shared-ui/pull/342) ([SUI-236](https://incsub.atlassian.net/browse/SUI-236)) 📝 docs(notification): Clean-up and improve documentation. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 2
