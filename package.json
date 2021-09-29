@@ -49,7 +49,8 @@
 		"jquery": "^3.6.0",
 		"lodash.template": "^4.5.0",
 		"lunr": "0.7.2",
-		"pump": "^3.0.0"
+		"pump": "^3.0.0",
+		"webpack": "^3.11.0"
 	},
 	"eslintConfig": {
 		"extends": "wordpress",
@@ -111,8 +112,5 @@
 		"release:major": "npm version major --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
 		"release:premajor": "npm version premajor --preid=beta --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library",
 		"release:prerelease": "npm version prerelease --preid=beta --no-git-tag-version && npm run build:all && npm run publish:showcase && npm run publish:library"
-	},
-	"dependencies": {
-		"webpack": "^2.7.0"
 	}
 }
