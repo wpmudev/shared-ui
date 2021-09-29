@@ -12,7 +12,7 @@
 	line-height: $font--line-height;
 	color: $font-color;
 	letter-spacing: $font--letter-spacing;
-	
+
 	// FIX: Prevent SUI React modal from getting these margins.
 	&:not(.sui-modal) {
 		margin: $sui-gutter $sui-gutter 0 ($sui-gutter - 20px); // Account for padding from #wpcontent.
@@ -189,7 +189,30 @@
 	}
 }
 
+@include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
+	// BLOCK: Description.
+	.sui-description {
+		display: block;
+		margin: 5px 0;
+		color: $grey;
+		font: 400 13px/22px $font;
+		letter-spacing: $font--letter-spacing;
 
+		&:first-child {
+			margin-top: 0;
+		}
 
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
 
+@include body-class($wrap: true, $rtl: false, $monochrome: true) {
+
+	// BLOCK: Description.
+	.sui-description {
+		color: $black;
+	}
+}
