@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class {
 
 	// Range Datepicker.
@@ -207,7 +209,7 @@
 
 		// VARIATION: Show ranges.
 		&.show-ranges {
-			padding-top: #{($sui-gutter-md - 1px) + ($sui-gutter / 2) + 18px};
+			padding-top: #{($sui-gutter-md - 1px) + math.div($sui-gutter, 2) + 18px};
 
 			.ranges {
 				display: block;

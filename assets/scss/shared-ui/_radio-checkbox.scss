@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // HELPER: Radio
 %radio-checkbox {
 	user-select: none;
@@ -13,7 +15,7 @@
 			display: block;
 			flex-shrink: 0;
 			position: relative;
-			margin: #{($radio-checkbox--line-height - $radio-checkbox--size) / 2} 0;
+			margin: math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) 0;
 			border: 1px solid $radio-checkbox--border-color;
 			border-radius: $border-radius;
 			background-color: $radio-checkbox--background;
@@ -87,12 +89,12 @@
 
 	@include media(max-width, md) {
 		display: flex;
-		margin: 0 0 #{$sui-gutter-md / 2};
+		margin: 0 0 math.div($sui-gutter-md, 2);
 	}
 
 	@include media(min-width, md) {
 		display: inline-flex;
-		margin: 0 #{$sui-gutter / 2} 0 0;
+		margin: 0 math.div($sui-gutter, 2) 0 0;
 	}
 }
 
@@ -115,8 +117,8 @@
 					height: $radio-checkbox--check-size;
 					display: block;
 					position: absolute;
-					top: #{(($radio-checkbox--size - $radio-checkbox--check-size) / 2) - 1px};
-					left: #{(($radio-checkbox--size - $radio-checkbox--check-size) / 2) - 1px};
+					top: #{math.div(($radio-checkbox--size - $radio-checkbox--check-size), 2) - 1px};
+					left: #{math.div(($radio-checkbox--size - $radio-checkbox--check-size), 2) - 1px};
 					border-radius: $radio-checkbox--size;
 					background-color: $radio-checkbox--check-color;
 				}
@@ -145,7 +147,7 @@
 
 			@include media(min-width, md) {
 				display: flex;
-				margin: 0 0 #{$sui-gutter-md / 2};
+				margin: 0 0 math.div($sui-gutter-md, 2);
 			}
 		}
 
@@ -196,7 +198,7 @@
 		&.sui-radio-stacked {
 
 			+ * {
-	
+
 				@include media(min-width, md) {
 					margin-top: $sui-gutter;
 					margin-left: 0;
@@ -261,7 +263,7 @@
 
 			@include media(min-width, md) {
 				display: flex;
-				margin: 0 0 #{$sui-gutter-md / 2};
+				margin: 0 0 math.div($sui-gutter-md, 2);
 			}
 		}
 
@@ -312,7 +314,7 @@
 		&.sui-checkbox-stacked {
 
 			+ * {
-	
+
 				@include media(min-width, md) {
 					margin-top: $sui-gutter;
 					margin-left: 0;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // ELEMENT: Select.
 // $sui-wrap: true | $rtl: false
 @include body-class(true, false) {
@@ -180,15 +182,15 @@
 									&:-moz-placeholder {
 										color: $fiftyshades;
 									}
-					
+
 									&::-moz-placeholder {
 										color: $fiftyshades;
 									}
-					
+
 									&:-ms-input-placeholder {
 										color: $fiftyshades;
 									}
-					
+
 									&::-webkit-input-placeholder {
 										color: $fiftyshades;
 									}
@@ -276,7 +278,7 @@
 									left: 5px;
 									border-width: 1px;
 									border-style: solid;
-									border-radius: #{$border-radius / 2};
+									border-radius: math.div($border-radius, 2);
 									transform: translateY(-50%);
 								}
 
@@ -1068,7 +1070,7 @@
 									left: 10px;
 									border-width: 1px;
 									border-style: solid;
-									border-radius: #{$border-radius / 2};
+									border-radius: math.div($border-radius, 2);
 									transform: translateY(-50%);
 									text-align: center;
 								}
