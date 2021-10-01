@@ -6,8 +6,8 @@ $score-circle-circumference: 2 * pi() * $score-circle-radius;
 
 // Generate animation keyframes for score circles.
 @for $i from 1 through 100 {
-	$dash-length: #{math.div($score-circle-circumference, 100) * $i};
-	$gap-length: #{($dash-length * 100) - $i};
+	$dash-length: math.div($score-circle-circumference, 100) * $i;
+	$gap-length: $dash-length * 100 - $i;
 
 	@keyframes sui#{$i} {
 		to {
