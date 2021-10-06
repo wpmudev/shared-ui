@@ -8,8 +8,9 @@ permalink: /contributing/
 
 ## Install Required Packages
 
-1. Install node. It's recommended to install `nvm` to switch between node versions.
-2. Go to project root folder. Run `npm install` to install all required packages for the project.
+1. Install node v11.15.0. It's recommended to install `nvm` to switch between node versions.
+2. Install Ruby v2.7.2. It's recommended to install `rvm` to safely switch between ruby versions.
+3. Go to project root folder. Run `npm install` to install all required packages for the project.
 
 ## Initialize Local Showcase
 
@@ -24,18 +25,18 @@ Run `gem install bundler jekyll` to install missing [Jekyll](https://jekyllrb.co
 
 **Note:** Do not commit directly on `master`, `development` or `gh-pages` branches.
 
-1. Run `git checkout -b branch-name development` to create a new branch from `development` branch. You must give it a descriptive name, for example:
-	* `new/modal-box` for new features.
-	* `improve/modal-box` for improvements.
-	* `fix/modal-box` for bugfixing.
+1. Run `git checkout -b branch-name development` to create a new branch from `development` branch. You must give it a descriptive name based on the task you are working on, for example:
+	* `new/SUI-124` for new features.
+	* `fix/SUI-124` for bugfixing and improvements.
+	* `doc/SUI-124` for documentation.
 2. Commit and push your changes to your new branch: `git push -u development branch-name`.
 3. Update `CHANGELOG.md` file with the correct description of your changes. Include DEV NOTES where applicable.
-3. Once you're done with a task, file a Pull Request for your branch against `development` branch.
-4. Assign @iamleigh or @a-danae to review your code. **Note:** `CHANGELOG.md` must be updated in order for your changes to be approved.
+3. Once you're done with a task, file a Pull Request for your branch against `development` branch. Make sure PR name follows Conventional Commits guidelines.
+4. Assign your PR to @iamleigh for code review. **Note:** `CHANGELOG.md` must be updated in order for your changes to be approved.
 5. Once the Pull Request has been approved, it will be merged in `development` branch.
 6. You can delete your branch locally and make sure it does not longer exist remote.
 
-It's a good idea to create the Pull Request as soon as possible so everybody knows what's going on with the project.
+As soon as you start working with your task, it's a good idea to move it to "In Development" column on the JIRA board and as soon as you submit the Pull Request, move it to "Waiting for Merge" column so everybody knows what's going on with the project.
 
 ## Scoping Styles & Scripts
 
