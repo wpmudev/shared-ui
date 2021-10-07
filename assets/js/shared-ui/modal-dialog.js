@@ -370,8 +370,12 @@
 	 * @desc Hides the current top dialog, removes listeners of the top dialog,
 	 * restore listeners of a parent dialog if one was open under the one that
 	 * just closed, and sets focus on the element specified for focusAfterClosed.
+	 *
+	 * @param isAnimated
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
 	 */
-	aria.Dialog.prototype.close = function( isAnimated ) {
+	aria.Dialog.prototype.close = function( isAnimated = true ) {
 
 		let self = this;
 
