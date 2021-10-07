@@ -248,8 +248,12 @@
 	 * Default: true
 	 * Optional boolean parameter that when it's set to "true", it will enable closing the
 	 * dialog with the Esc key.
+	 *
+	 * @param isAnimated
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
 	 */
-	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask, isCloseOnEsc = true ) {
+	aria.Dialog = function( dialogId, focusAfterClosed, focusFirst, hasOverlayMask, isCloseOnEsc = true, isAnimated = true ) {
 
 		this.dialogNode = document.getElementById( dialogId );
 
@@ -342,8 +346,11 @@
 
 		this.addListeners();
 		aria.OpenDialogList.push( this );
-		this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
-		this.dialogNode.classList.remove( 'sui-content-fade-out' );
+
+		if ( isAnimated ) {
+			this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
+			this.dialogNode.classList.remove( 'sui-content-fade-out' );
+		}
 
 		if ( this.focusFirst ) {
 			this.focusFirst.focus();
@@ -364,7 +371,7 @@
 	 * restore listeners of a parent dialog if one was open under the one that
 	 * just closed, and sets focus on the element specified for focusAfterClosed.
 	 */
-	aria.Dialog.prototype.close = function() {
+	aria.Dialog.prototype.close = function( isAnimated ) {
 
 		let self = this;
 
@@ -378,8 +385,10 @@
 		this.preNode.parentNode.removeChild( this.preNode );
 		this.postNode.parentNode.removeChild( this.postNode );
 
-		this.dialogNode.classList.add( 'sui-content-fade-out' );
-		this.dialogNode.classList.remove( 'sui-content-fade-in' );
+		if ( isAnimated ) {
+			this.dialogNode.classList.add( 'sui-content-fade-out' );
+			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+		}
 
 		this.focusAfterClosed.focus();
 
@@ -524,8 +533,12 @@
 	 * Default: true
 	 * Optional boolean parameter that when it's set to "true", it will enable closing the
 	 * dialog with the Esc key.
+	 *
+	 * @param isAnimated
+	 * Default: true
+	 * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
 	 */
-	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true ) {
+	aria.Dialog.prototype.replace = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true, isAnimated = true ) {
 
 		let self = this;
 
@@ -535,7 +548,10 @@
 		aria.Utils.remove( this.preNode );
 		aria.Utils.remove( this.postNode );
 
-		this.dialogNode.classList.remove( 'sui-content-fade-in' );
+		if ( isAnimated ) {
+			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+		}
+
 		this.backdropNode.classList.remove( 'sui-active' );
 
 		setTimeout( function() {
