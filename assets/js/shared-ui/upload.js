@@ -20,7 +20,7 @@
 
 		});
 
-		// This will trigger whenever anyone clicks Upload Button
+		// This will trigger on click of upload button
 		$('.sui-upload-button').on('click', function(){
 			var parent = $(this).parent();
 			var file = parent.find('input[type="file"]');
@@ -29,7 +29,7 @@
 			file.trigger('click');
 		})
 
-		// Whenever file upload or changes it will trigger. 
+		// This will trigger after file uploads. 
 		$('.sui-upload input[type="file"]').on( 'change', function() {
 			var filename = $(this).val();
 			var parent = $(this).parent();
