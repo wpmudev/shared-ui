@@ -20,6 +20,37 @@
 
 		});
 
+		// This will trigger whenever anyone clicks Upload Button
+		$('.sui-upload-button').on('click', function(){
+			var parent = $(this).parent();
+			var file = parent.find('input[type="file"]');
+			
+			// This will open browser file upload explorer
+			file.trigger('click');
+		})
+
+		// Whenever file upload or changes it will trigger. 
+		$('.sui-upload input[type="file"]').on( 'change', function() {
+			var filename = $(this).val();
+			var parent = $(this).parent();
+			var imageContainer = parent.find('.sui-upload-image');
+			var lastIndex = filename.lastIndexOf("\\");
+			if (lastIndex >= 0) {
+				filename = filename.substring(lastIndex + 1);
+			}
+			if(imageContainer.length){
+				var reader = new FileReader();
+				var imagePreview = imageContainer.find('.sui-image-preview');
+				// var imageSrc = URL.createObjectURL(filename);
+				reader.onload = function (e) {
+					imagePreview.attr('style', 'background-image: url('+e.target.result+');');
+				}
+				reader.readAsDataURL($(this)[0].files[0]);
+			}
+			parent.find('.sui-upload-file > span').text(filename);
+			parent.addClass('sui-has_file');
+		});
+
 	};
 
 	SUI.upload();
