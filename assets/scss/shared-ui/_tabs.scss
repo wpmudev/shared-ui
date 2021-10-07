@@ -1,8 +1,6 @@
 @include body-class(true) {
-
 	// Tabs
 	.sui-tabs:not(.sui-side-tabs) {
-
 		> [data-tabs],
 		> .sui-tabs-menu {
 			display: flex;
@@ -60,13 +58,12 @@
 
 		> [data-panes],
 		> .sui-tabs-content {
-
 			> *,
 			> .sui-tab-content {
 				display: none;
 				margin-top: -1px;
 				padding: $sui-gutter-md 0 0;
-				border-top: 1px solid #E6E6E6;
+				border-top: 1px solid #e6e6e6;
 
 				&.active {
 					display: block;
@@ -80,7 +77,6 @@
 
 		// Flushed tabs
 		&.sui-tabs-flushed {
-
 			> [data-tabs],
 			> .sui-tabs-menu {
 				border-top-width: 0;
@@ -125,7 +121,7 @@
 				&--right {
 					background: rgba(255, 255, 255, 0.8);
 					pointer-events: all;
-					transition: all .2s;
+					transition: all 0.2s;
 				}
 				&--hidden {
 					visibility: hidden;
@@ -151,7 +147,6 @@
 
 				> [data-panes],
 				> .sui-tabs-content {
-
 					> *,
 					> .sui-tab-content {
 						padding-right: $sui-gutter-md;
@@ -227,7 +222,6 @@
 
 		> [data-panes],
 		> .sui-tabs-content {
-
 			> *,
 			> .sui-tab-content {
 				display: none;
@@ -235,7 +229,7 @@
 
 				&.sui-tab-boxed {
 					padding: $sui-gutter-md;
-					border: 1px solid #E6E6E6;
+					border: 1px solid #e6e6e6;
 					border-radius: $border-radius;
 
 					@include media(min-width, md) {
@@ -252,7 +246,6 @@
 			// This class will increase the space
 			// between data-tabs and data-panes.
 			&.sui-tabs-content-lg {
-
 				> *,
 				> .sui-tab-content {
 					margin-top: 30px;
@@ -270,9 +263,9 @@
 
 		// Removing unnecessary padding and border
 		// Important is given so that it can't be override by WordPress default CSS
-		.sui-form-field{
-			padding: 0 !important;
-			border: none !important;
+		div.sui-form-field {
+			padding: 0;
+			border: none;
 		}
 
 		@include media(min-width, md) {
@@ -282,9 +275,7 @@
 
 	// Flushed tabs inside box
 	.sui-box-body {
-
 		> .sui-tabs-flushed {
-
 			> [data-tabs],
 			> .sui-tabs-menu {
 				padding: 0 $sui-gutter-md;
@@ -296,7 +287,6 @@
 
 			> [data-panes],
 			> .sui-tabs-content {
-
 				> *,
 				> .sui-tab-content {
 					padding: $sui-gutter-md;
