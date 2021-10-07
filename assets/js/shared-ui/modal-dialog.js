@@ -347,6 +347,7 @@
 		this.addListeners();
 		aria.OpenDialogList.push( this );
 
+		// If isAnimated is set true then modal box will animate.
 		if ( isAnimated ) {
 			this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
 			this.dialogNode.classList.remove( 'sui-content-fade-out' );
@@ -389,6 +390,7 @@
 		this.preNode.parentNode.removeChild( this.preNode );
 		this.postNode.parentNode.removeChild( this.postNode );
 
+		// If isAnimated is set true then modal box will animate.
 		if ( isAnimated ) {
 			this.dialogNode.classList.add( 'sui-content-fade-out' );
 			this.dialogNode.classList.remove( 'sui-content-fade-in' );
@@ -552,6 +554,7 @@
 		aria.Utils.remove( this.preNode );
 		aria.Utils.remove( this.postNode );
 
+		// If isAnimated is set true then modal box will animate.
 		if ( isAnimated ) {
 			this.dialogNode.classList.remove( 'sui-content-fade-in' );
 		}
