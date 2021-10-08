@@ -550,6 +550,57 @@ is_searchable: true
 
 			</div>
 
+			<!-- ROW: JS -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">JS Function</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Sample JS</h3>
+					<p>If you want upload functionality to work make sure to use this script.</p>
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+// This will trigger on click of upload button
+$('.sui-upload-button').on('click', function(){
+	var parent = $(this).parent();
+	var file = parent.find('input[type="file"]');
+	// This will open browser file explorer
+	file.trigger('click');
+})
+
+// This will trigger after selecting file for upload. 
+$('.sui-upload input[type="file"]').on( 'change', function() {
+	var parent = $(this).parent();
+	var filename = $(this).val();
+	var imageContainer = parent.find('.sui-upload-image');
+	var lastIndex = filename.lastIndexOf("\\");
+	if (lastIndex >= 0) {
+		filename = filename.substring(lastIndex + 1);
+	}
+	// To show uploaded file preview.
+	if(imageContainer.length){
+		var reader = new FileReader();
+		var imagePreview = imageContainer.find('.sui-image-preview');
+		reader.onload = function (e) {
+			imagePreview.attr('style', 'background-image: url('+e.target.result+');');
+		}
+		reader.readAsDataURL($(this)[0].files[0]);
+	}
+	parent.find('.sui-upload-file > span').text(filename);
+	parent.addClass('sui-has_file');
+});
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
 			<!-- ROW: Behavior -->
 			<div class="sui-box-settings-row">
 
