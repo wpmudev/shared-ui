@@ -23,7 +23,7 @@
 
 		// ELEMENT: Overlay mask.
 		.sui-modal-overlay {
-			width: calc(100% - #{map-get($wordpress, adminmenu)});
+			width: calc(100% - #{map-get($wordpress, adminmenu)} - #{($browser-scrollbar-width)});
 			height: calc(100vh - #{map-get($wordpress, adminbar)});
 			position: fixed;
 			z-index: #{map-get($modal, z-index) - 1};
