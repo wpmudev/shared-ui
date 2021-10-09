@@ -442,9 +442,9 @@ function publishShowcase() {
 }
 
 /**
- * Compile Tasks.
+ * Export functions.
  *
- * @since 2.0.0
+ * @since 2.11.1
  */
 exports.build = gulp.series(
 	suiCss,
