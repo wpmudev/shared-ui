@@ -444,7 +444,7 @@ function publishShowcase() {
 /**
  * Export functions.
  *
- * @since 2.11.1
+ * @since 2.12.0
  */
 exports.build = gulp.series(
 	suiCss,
