@@ -275,14 +275,14 @@ function updateConfigVersion() {
 		.pipe( replace( /(suiver: ').*(')/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './_config.yml:' ) );
-			console.log( `Update SUI version to ${chalk.green( `suiver: ${version}` )}\n` );
+			console.log( `${chalk.green( 'suiver' )} has been updated to ${chalk.green( `${version}` )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}) )
 		.pipe( replace( /(suiclass: ').*(')/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( './_config.yml:' ) );
-			console.log( `Update SUI class to ${chalk.green( bodyClass )}\n` );
+			console.log( `${chalk.green( 'suiclass' )} suiclass has been updated to ${chalk.green( bodyClass )}\n` );
 
 			return `${p1}${bodyClass}${p2}`;
 		}) )
@@ -298,7 +298,7 @@ function updateVariablesVersion() {
 		.pipe( replace( /^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );
-			console.log( `$sui-version has been updated to ${chalk.green( version )}\n` );
+			console.log( `${chalk.green( '$sui-version' )} has been updated to ${chalk.green( version )}\n` );
 
 			return `${p1}${version}${p2}`;
 		}) )
