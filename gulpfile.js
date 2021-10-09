@@ -310,7 +310,7 @@ function updateVariablesVersion() {
 function copyMainLibrary() {
 
 	// README and other main files.
-	gulp.src([ './LICENSE', './README.md', './CHANGELOG.md', '.gitignore', 'package.json' ])
+	return gulp.src([ './LICENSE', './README.md', './CHANGELOG.md', '.gitignore', 'package.json' ])
 		.pipe( gulp.dest( './_dist/library/' ) )
 		;
 }
