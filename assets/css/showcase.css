@@ -8268,19 +8268,25 @@ fieldset[disabled] .sui-2-11-0 .sui-wrap .sui-multi-checkbox {
   color: #666666;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date {
+.sui-2-11-0 .sui-wrap .sui-date,
+.sui-2-11-0 .sui-wrap .sui-time {
   position: relative;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date .sui-form-control:first-child, .sui-2-11-0 .sui-wrap .sui-date .sui-multi-checkbox:first-child {
+.sui-2-11-0 .sui-wrap .sui-date .sui-form-control:first-child, .sui-2-11-0 .sui-wrap .sui-date .sui-multi-checkbox:first-child,
+.sui-2-11-0 .sui-wrap .sui-time .sui-form-control:first-child,
+.sui-2-11-0 .sui-wrap .sui-time .sui-multi-checkbox:first-child {
   padding-right: 40px;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date .sui-form-control:last-child, .sui-2-11-0 .sui-wrap .sui-date .sui-multi-checkbox:last-child {
+.sui-2-11-0 .sui-wrap .sui-date .sui-form-control:last-child, .sui-2-11-0 .sui-wrap .sui-date .sui-multi-checkbox:last-child,
+.sui-2-11-0 .sui-wrap .sui-time .sui-form-control:last-child,
+.sui-2-11-0 .sui-wrap .sui-time .sui-multi-checkbox:last-child {
   padding-left: 40px;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"] {
+.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"],
+.sui-2-11-0 .sui-wrap .sui-time [class*="sui-icon-"] {
   width: 30px;
   height: 30px;
   pointer-events: none;
@@ -8301,15 +8307,18 @@ fieldset[disabled] .sui-2-11-0 .sui-wrap .sui-multi-checkbox {
   top: 5px;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:before {
+.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:before,
+.sui-2-11-0 .sui-wrap .sui-time [class*="sui-icon-"]:before {
   display: block;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:first-child {
+.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:first-child,
+.sui-2-11-0 .sui-wrap .sui-time [class*="sui-icon-"]:first-child {
   left: 5px;
 }
 
-.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:last-child {
+.sui-2-11-0 .sui-wrap .sui-date [class*="sui-icon-"]:last-child,
+.sui-2-11-0 .sui-wrap .sui-time [class*="sui-icon-"]:last-child {
   right: 5px;
 }
 
@@ -17157,6 +17166,21 @@ html.sui-has-overlay {
   display: none;
   visibility: hidden;
   pointer-events: none;
+}
+
+.sui-2-11-0 .clock-timepicker {
+  width: 100%;
+}
+
+.sui-2-11-0 .clock-timepicker .time.sui-form-control, .sui-2-11-0 .clock-timepicker .sui-wrap .time.sui-multi-checkbox, .sui-2-11-0 .sui-wrap .clock-timepicker .time.sui-multi-checkbox {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.sui-2-11-0 .clock-timepicker .clock-timepicker-popup {
+  left: 0 !important;
+  position: absolute !important;
+  top: 100% !important;
 }
 
 .sui-2-11-0 .sui-wrap .sui-hidden {

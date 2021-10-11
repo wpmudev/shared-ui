@@ -14,28 +14,24 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
-				<a href="#" role="button" data-tab="single">Single Timepicker</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<!-- <a href="#" role="button" data-tab="range">Range Datepicker</a> -->
+				<a href="#" role="button" data-tab="single">Timepicker</a>
 			</li>
 
 		</ul>
 
 	</div>
 
-	<!-- TAB: Single Timepicker -->
+	<!-- TAB: Timepicker -->
 	<div class="sui-box" data-tab="single">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Single Timepicker</h2>
+			<h2 class="sui-box-title">Timepicker</h2>
 		</div>
 
 		<div class="sui-box-body">
 
 			<div class="sui-notice sui-notice-warning">
-				<p>The <strong>Shared UI Library</strong> supports styling for the timepicker, but to make it work you will need to include <a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a>.</p>
+				<p>The <strong>Shared UI Library</strong> supports styling for the timepicker, but to make it work you will need to include <a href="https://github.com/loebi-ch/jquery-clock-timepicker/" target="_blank">jQuery Timepicker plugin</a>.</p>
 			</div>
 
 			<div class="sui-tabs sui-side-tabs">
@@ -81,16 +77,17 @@ is_searchable: true
 
 							<label for="time-simple-default" id="time-simple-default--label" class="sui-label">Expiration Time</label>
 
-							<div class="sui-date">
+							<div class="sui-time">
 								<input
 									type="text"
-									placeholder="Pick a date"
+									value="00:00"
+									placeholder="Pick a time"
 									id="time-simple-default"
-									class="sui-form-control"
+									class="time sui-form-control"
 									aria-labelledby="time-simple-default--label"
 									aria-describedby="time-simple-default--message time-simple-default--error"
 								/>
-								<span class="sui-icon-calendar" aria-hidden="true"></span>
+								<span class="sui-icon-clock" aria-hidden="true"></span>
 							</div>
 
 							<span id="time-simple-default--error" class="sui-error-message"></span>
@@ -112,21 +109,21 @@ is_searchable: true
 
 						<div class="sui-form-field sui-form-field-error">
 
-							<label for="time-simple-error" id="time-simple-error--label" class="sui-label">Expiration Date</label>
+							<label for="time-simple-error" id="time-simple-error--label" class="sui-label">Expiration Time</label>
 
-							<div class="sui-date">
+							<div class="sui-time">
 								<input
 									type="text"
-									placeholder="Pick a date"
+									placeholder="Pick a time"
 									id="time-simple-error"
 									class="sui-form-control"
 									aria-labelledby="time-simple-error--label"
 									aria-describedby="time-simple-error--message time-simple-error--error"
 								/>
-								<span class="sui-icon-calendar" aria-hidden="true"></span>
+								<span class="sui-icon-clock" aria-hidden="true"></span>
 							</div>
 
-							<span id="time-simple-error--error" class="sui-error-message">Expiration time is empty or time inserted is not valid.</span>
+							<span id="time-simple-error--error" class="sui-error-message">Expiration time is not valid.</span>
 
 							<span id="time-simple-error--message" class="sui-description">Set an expiration time for your module.</span>
 
@@ -151,16 +148,17 @@ is_searchable: true
 
 	&lt;label for=&quot;unique-id&quot; id=&quot;unique-id--label&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;div class=&quot;sui-date&quot;&gt;
+	&lt;div class=&quot;sui-time&quot;&gt;
 		&lt;input
 			type=&quot;text&quot;
+			value=&quot;00:00&quot;
 			placeholder=&quot;Placeholder&quot;
 			id=&quot;unique-id&quot;
-			class=&quot;sui-form-control&quot;
+			class=&quot;time sui-form-control&quot;
 			aria-labelledby=&quot;unique-id--label&quot;
 			aria-describedby=&quot;unique-id--message unique-id--error&quot;
 		/&gt;
-		&lt;span class=&quot;sui-icon-calendar&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+		&lt;span class=&quot;sui-icon-clock&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 	&lt;/div&gt;
 
 	&lt;!-- NOTE: Print error message when error occurs and display message --&gt;
@@ -186,11 +184,11 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-$( '#unique-id' ).datepicker({
-	beforeShow: function( input, inst ) {
-		$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
-	},
-	'dateFormat': 'd MM yy'
+$( '#unique-id' ).clockTimePicker({
+	duration: true,
+	precision: 1,
+	vibrate: true,
+	required: true
 });
 </pre>
 
