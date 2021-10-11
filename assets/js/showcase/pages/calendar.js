@@ -28,6 +28,9 @@
 					$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 				},
 				'dateFormat': 'd MM yy'
+
+				// showOn: 'button',
+				// buttonText: 'Date Picker'
 			});
 		}
 
