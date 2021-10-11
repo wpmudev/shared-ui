@@ -208,7 +208,11 @@ You can use this attribute on an element that's placed "inside" modal.
 	* If 'true', pressing the ESC key closes the modal.
 	* If 'false', pressing the ESC key does nothing.
 	*
-	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask, isCloseOnEsc );
+	* @param isAnimated
+	* Default: true
+	* Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
+	*
+	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask, isCloseOnEsc,  );
 	*/
 	$( 'button' ).on( 'click', function() {
 
@@ -216,7 +220,8 @@ You can use this attribute on an element that's placed "inside" modal.
 			focusAfterClosed = this,
 			focusWhenOpen    = undefined,
 			hasOverlayMask   = false,
-			isCloseOnEsc     = true
+			isCloseOnEsc     = true,
+			isAnimated     	 = true
 		;
 
 		SUI.openModal(
@@ -224,7 +229,8 @@ You can use this attribute on an element that's placed "inside" modal.
 			focusAfterClosed,
 			focusWhenOpen,
 			hasOverlayMask,
-			isCloseOnEsc
+			isCloseOnEsc,
+			isAnimated
 		);
 
 	});
@@ -489,6 +495,10 @@ If 'false', pressing the ESC key does nothing.
 * If 'true', pressing the ESC key closes the modal.
 * If 'false', pressing the ESC key does nothing.
 *
+* @param isAnimated
+* Default: true
+* Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
+*
 * SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
 */
 ( function( $ ) {
@@ -499,10 +509,12 @@ If 'false', pressing the ESC key does nothing.
 			newFocusAfterClosed = 'element-unique-id',
 			newFocusFirst       = 'element-unique-id',
 			hasOverlayMask      = true,
-			isCloseOnEsc        = true
+			isCloseOnEsc        = true,
+			isAnimated        = true,
+
 			;
 
-		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
+		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated );
 
 	});
 
