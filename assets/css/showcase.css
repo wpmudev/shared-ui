@@ -658,26 +658,6 @@
   margin: 30px 0;
 }
 
-.sui-2-11-0 .sui-wrap .sui-description {
-  display: block;
-  margin: 5px 0;
-  color: #888888;
-  font: 400 13px/22px "Roboto", Arial, sans-serif;
-  letter-spacing: -0.25px;
-}
-
-.sui-2-11-0 .sui-wrap .sui-description:first-child {
-  margin-top: 0;
-}
-
-.sui-2-11-0 .sui-wrap .sui-description:last-child {
-  margin-bottom: 0;
-}
-
-.sui-2-11-0 .sui-wrap.sui-color-accessible .sui-description {
-  color: #000000;
-}
-
 .sui-2-11-0 [class*="sui-icon-"]:before, .sui-2-11-0 [class*="sui-icon-"]:after, .sui-2-11-0 .sui-wrap .sui-box-body .sui-upsell-row .sui-upsell-notice p:first-of-type:before, .sui-2-11-0 .sui-wrap .sui-box-selector input:checked + span:before, .sui-2-11-0 .sui-wrap .sui-checkbox input + span:before, .sui-2-11-0 .sui-wrap .sui-upload .sui-upload-image .sui-image-preview:before, .sui-2-11-0 .sui-wrap .sui-upload .sui-upload-file:before, .sui-2-11-0 .sui-wrap .sui-listing li:before, .sui-2-11-0 .sui-wrap .sui-pagination-active-filters .sui-active-filter .sui-active-filter-remove:before, .sui-2-11-0 .sui-wrap select.sui-select + .sui-select.sui-select-theme--search .selection span.select2-selection--multiple[role="combobox"]:before, .sui-2-11-0 .sui-select.sui-select-dropdown-container--open .sui-select-dropdown .select2-results .select2-results__options .select2-results__option.select2-results__message:before, .sui-2-11-0 #ui-datepicker-div.sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-prev:before, .sui-2-11-0 #ui-datepicker-div.sui-calendar .ui-datepicker-header .ui-corner-all.ui-datepicker-next:before, .sui-2-11-0 .daterangepicker .drp-calendar .table-condensed thead tr th.prev span:before,
 .sui-2-11-0 .daterangepicker .drp-calendar .table-condensed thead tr th.next span:before, .sui-2-11-0 .sui-wrap .sui-recipient .sui-recipient-name:before, .sui-2-11-0 .sui-wrap .sui-tree-fancy ul.ui-fancytree li[role="treeitem"] > span.fancytree-node > span.fancytree-expander:before, .sui-2-11-0 .sui-wrap .sui-tree-fancy ul.ui-fancytree li[role="treeitem"] > span.fancytree-node > span.fancytree-checkbox:before, .sui-2-11-0 .sui-wrap .sui-tree-fancy[data-tree="directory"] ul.ui-fancytree li[role="treeitem"] > span.fancytree-node > span.fancytree-icon:before, .sui-2-11-0 .sui-wrap .sui-tree li[role="treeitem"] span[role="button"]:before,
 .sui-2-11-0 .sui-wrap .sui-tree li[role="treeitem"] button[data-button] span[aria-hidden]:before,
@@ -3567,6 +3547,7 @@
 
 .sui-2-11-0 .sui-wrap .sui-toggle input[disabled] ~ .sui-toggle-slider {
   cursor: not-allowed;
+  opacity: 0.5;
   background-color: #DDDDDD;
 }
 
@@ -3653,6 +3634,10 @@
   display: block;
   font: 500 15px/22px "Roboto", Arial, sans-serif;
   letter-spacing: -0.25px;
+}
+
+.sui-2-11-0 .sui-wrap .sui-toggle .sui-description {
+  display: block;
 }
 
 .sui-2-11-0 .sui-wrap .sui-toggle + label,
@@ -4315,6 +4300,10 @@
 
 .sui-2-11-0 .sui-wrap .sui-box-body .sui-settings-label-with-tag .sui-tag.sui-tag-pro, .sui-2-11-0 .sui-wrap .sui-box-body .sui-settings-label-with-tag .sui-tag.sui-tag-beta {
   margin-top: 5px;
+}
+
+.sui-2-11-0 .sui-wrap .sui-box-body .sui-description {
+  line-height: 22px;
 }
 
 .sui-2-11-0 .sui-wrap .sui-box-body .sui-description + .sui-settings-box {
@@ -7906,6 +7895,7 @@ fieldset[disabled] .sui-2-11-0 .sui-wrap .sui-multi-checkbox {
   border-radius: 0 0 3px 3px;
 }
 
+.sui-2-11-0 .sui-wrap .sui-description,
 .sui-2-11-0 .sui-wrap .sui-multi-checkbox label {
   display: block;
   margin-top: 5px;
@@ -7916,14 +7906,19 @@ fieldset[disabled] .sui-2-11-0 .sui-wrap .sui-multi-checkbox {
   letter-spacing: -0.25px;
 }
 
+.sui-2-11-0 .sui-wrap .sui-description.sui-toggle-description,
 .sui-2-11-0 .sui-wrap .sui-multi-checkbox label.sui-toggle-description {
   margin-left: 48px;
 }
 
-.sui-2-11-0 .sui-wrap .sui-multi-checkbox label.sui-checkbox-description, .sui-2-11-0 .sui-wrap .sui-multi-checkbox label.sui-radio-description {
+.sui-2-11-0 .sui-wrap .sui-description.sui-checkbox-description, .sui-2-11-0 .sui-wrap .sui-description.sui-radio-description,
+.sui-2-11-0 .sui-wrap .sui-multi-checkbox label.sui-checkbox-description,
+.sui-2-11-0 .sui-wrap .sui-multi-checkbox label.sui-radio-description {
   margin: 0 27px 5px;
 }
 
+.sui-2-11-0 .sui-wrap .sui-description + .sui-form-field,
+.sui-2-11-0 .sui-wrap .sui-description + .sui-form-field-inline,
 .sui-2-11-0 .sui-wrap .sui-multi-checkbox label + .sui-form-field,
 .sui-2-11-0 .sui-wrap .sui-multi-checkbox label + .sui-form-field-inline {
   margin-top: 20px;
@@ -12104,6 +12099,13 @@ fieldset[disabled] .sui-2-11-0 .sui-wrap .sui-multi-checkbox {
 .sui-2-11-0 .sui-wrap .sui-accordion .sui-accordion-item-content {
   font-size: 13px;
   line-height: 22px;
+}
+
+.sui-2-11-0 .sui-wrap .sui-accordion .sui-accordion-item-body p,
+.sui-2-11-0 .sui-wrap .sui-accordion .sui-accordion-item-content p {
+  font-size: 13px;
+  line-height: 22px;
+  margin: 5px 0 10px;
 }
 
 .sui-2-11-0 .sui-wrap .sui-accordion .sui-accordion-item-body .sui-accordion-body-header,
@@ -16455,8 +16457,6 @@ html.sui-has-overlay {
   padding: 0;
   border: 0;
   list-style: none;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
 }
 
 .sui-2-11-0 .sui-select.sui-select-dropdown-container--open .sui-select-dropdown .select2-results .select2-results__options .select2-results__option {
@@ -19760,7 +19760,8 @@ This is used to give admin notices that are loaded outside of the .wrap but insi
   background: #FFFFFF;
 }
 
-.sui-2-11-0 .sui-wrap.sui-color-accessible .sui-settings-label, .sui-2-11-0 .sui-wrap.sui-color-accessible .sui-box-body .sui-settings-label-with-tag {
+.sui-2-11-0 .sui-wrap.sui-color-accessible .sui-settings-label, .sui-2-11-0 .sui-wrap.sui-color-accessible .sui-box-body .sui-settings-label-with-tag,
+.sui-2-11-0 .sui-wrap.sui-color-accessible .sui-description {
   color: #000000;
 }
 
