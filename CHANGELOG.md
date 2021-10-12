@@ -1,5 +1,29 @@
 # Changelog
 
+## Shared UI v2.11.1
+
+#### Improvement
+* [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
+* [#343](https://github.com/wpmudev/shared-ui/pull/343) ([SUI-93](https://incsub.atlassian.net/browse/SUI-93)) 🐛 fix(typography): Descriptions need to be multi-line. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* [#344](https://github.com/wpmudev/shared-ui/pull/344) ([SUI-90](https://incsub.atlassian.net/browse/SUI-90)) 🐛 fix(accordions): Remove paragraph overwriting styles. ([@iamleigh](https://github.com/iamleigh))
+* [#362](https://github.com/wpmudev/shared-ui/pull/362) ([SUI-102](https://incsub.atlassian.net/browse/SUI-102)) 🐛 fix(select): Option groups are misaligned. ([@creador-dev](https://github.com/creador-dev))
+
+#### Documentation
+* [#336](https://github.com/wpmudev/shared-ui/pull/336) ([SUI-110](https://incsub.atlassian.net/browse/SUI-110)) 📝 docs(accordions): Toggles are using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
+* [#337](https://github.com/wpmudev/shared-ui/pull/337) ([SUI-109](https://incsub.atlassian.net/browse/SUI-109)) 📝 docs(tabs): Notification is using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
+* [#338](https://github.com/wpmudev/shared-ui/pull/338) ([SUI-83](https://incsub.atlassian.net/browse/SUI-83)) 📝 docs(buttons): Review the use of the `role="button"` attribute. ([@iamleigh](https://github.com/iamleigh))
+* [#341](https://github.com/wpmudev/shared-ui/pull/341) ([SUI-50](https://incsub.atlassian.net/browse/SUI-50)) 📝 docs(modals): Box accepts `0` spacing modifier. ([@Gowtham369](https://github.com/Gowtham369))
+* [#342](https://github.com/wpmudev/shared-ui/pull/342) ([SUI-236](https://incsub.atlassian.net/browse/SUI-236)) 📝 docs(notification): Clean-up and improve documentation. ([@iamleigh](https://github.com/iamleigh))
+* [#359](https://github.com/wpmudev/shared-ui/pull/359) ([SUI-129](https://incsub.atlassian.net/browse/SUI-129)) 📝 docs(notifications): Add "link" to demo notice. ([@iamleigh](https://github.com/iamleigh))
+* [#361](https://github.com/wpmudev/shared-ui/pull/361) ([SUI-111](https://incsub.atlassian.net/browse/SUI-111)) 📝 docs(form-field): How is the `sui-form-field` class used. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 3
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## Shared UI v2.11.0
 
 #### New
