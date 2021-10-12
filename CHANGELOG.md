@@ -1,5 +1,13 @@
 # Changelog
 
+## Shared UI v2.11.2
+
+#### Bug Fixes
+* [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
+
+#### Committers: 1
+- Denis Lee ([@ilovedenis](https://github.com/ilovedenis))
+
 ## Shared UI v2.11.1
 
 #### Improvement
