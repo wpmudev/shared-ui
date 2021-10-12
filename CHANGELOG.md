@@ -18,6 +18,7 @@
 * [#341](https://github.com/wpmudev/shared-ui/pull/341) ([SUI-50](https://incsub.atlassian.net/browse/SUI-50)) 📝 docs(modals): Box accepts `0` spacing modifier. ([@Gowtham369](https://github.com/Gowtham369))
 * [#342](https://github.com/wpmudev/shared-ui/pull/342) ([SUI-236](https://incsub.atlassian.net/browse/SUI-236)) 📝 docs(notification): Clean-up and improve documentation. ([@iamleigh](https://github.com/iamleigh))
 * [#359](https://github.com/wpmudev/shared-ui/pull/359) ([SUI-129](https://incsub.atlassian.net/browse/SUI-129)) 📝 docs(notifications): Add "link" to demo notice. ([@iamleigh](https://github.com/iamleigh))
+* [#361](https://github.com/wpmudev/shared-ui/pull/361) ([SUI-111](https://incsub.atlassian.net/browse/SUI-111)) 📝 docs(form-field): How is the `sui-form-field` class used. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 2
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
