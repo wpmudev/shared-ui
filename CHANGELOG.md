@@ -3,10 +3,12 @@
 ## Shared UI v2.11.2
 
 #### Bug Fixes
+* [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
 * [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
 
-#### Committers: 1
+#### Committers: 2
 - Denis Lee ([@ilovedenis](https://github.com/ilovedenis))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## Shared UI v2.11.1
 
