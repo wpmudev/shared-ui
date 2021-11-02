@@ -3,6 +3,7 @@
 ## Shared UI v2.11.2
 
 #### Bug Fixes
+* [#347](https://github.com/wpmudev/shared-ui/pull/347) ([SUI-59](https://incsub.atlassian.net/browse/SUI-59)) 🐛 fix(radio): Fieldset element unnecessary styles removal. ([@creador-dev](https://github.com/creador-dev))
 * [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
 * [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
 
