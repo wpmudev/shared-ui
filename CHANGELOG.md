@@ -1,8 +1,17 @@
 # Changelog
 
-## Shared UI v2.11.1
+## Shared UI v2.11.2
 
-#### New
+#### Bug Fixes
+* [#347](https://github.com/wpmudev/shared-ui/pull/347) ([SUI-59](https://incsub.atlassian.net/browse/SUI-59)) 🐛 fix(radio): Fieldset element unnecessary styles removal. ([@creador-dev](https://github.com/creador-dev))
+* [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
+* [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
+
+#### Committers: 2
+- Denis Lee ([@ilovedenis](https://github.com/ilovedenis))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## Shared UI v2.11.1
 
 #### Improvement
 * [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
@@ -10,6 +19,7 @@
 
 #### Bug Fixes
 * [#344](https://github.com/wpmudev/shared-ui/pull/344) ([SUI-90](https://incsub.atlassian.net/browse/SUI-90)) 🐛 fix(accordions): Remove paragraph overwriting styles. ([@iamleigh](https://github.com/iamleigh))
+* [#362](https://github.com/wpmudev/shared-ui/pull/362) ([SUI-102](https://incsub.atlassian.net/browse/SUI-102)) 🐛 fix(select): Option groups are misaligned. ([@creador-dev](https://github.com/creador-dev))
 
 #### Documentation
 * [#336](https://github.com/wpmudev/shared-ui/pull/336) ([SUI-110](https://incsub.atlassian.net/browse/SUI-110)) 📝 docs(accordions): Toggles are using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
@@ -17,10 +27,13 @@
 * [#338](https://github.com/wpmudev/shared-ui/pull/338) ([SUI-83](https://incsub.atlassian.net/browse/SUI-83)) 📝 docs(buttons): Review the use of the `role="button"` attribute. ([@iamleigh](https://github.com/iamleigh))
 * [#341](https://github.com/wpmudev/shared-ui/pull/341) ([SUI-50](https://incsub.atlassian.net/browse/SUI-50)) 📝 docs(modals): Box accepts `0` spacing modifier. ([@Gowtham369](https://github.com/Gowtham369))
 * [#342](https://github.com/wpmudev/shared-ui/pull/342) ([SUI-236](https://incsub.atlassian.net/browse/SUI-236)) 📝 docs(notification): Clean-up and improve documentation. ([@iamleigh](https://github.com/iamleigh))
+* [#359](https://github.com/wpmudev/shared-ui/pull/359) ([SUI-129](https://incsub.atlassian.net/browse/SUI-129)) 📝 docs(notifications): Add "link" to demo notice. ([@iamleigh](https://github.com/iamleigh))
+* [#361](https://github.com/wpmudev/shared-ui/pull/361) ([SUI-111](https://incsub.atlassian.net/browse/SUI-111)) 📝 docs(form-field): How is the `sui-form-field` class used. ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 2
+#### Committers: 3
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## Shared UI v2.11.0
 
