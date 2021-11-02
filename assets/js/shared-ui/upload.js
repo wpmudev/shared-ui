@@ -21,9 +21,9 @@
 		});
 
 		// check whether element exist then execute js
-		if($( 'SUI_BODY_CLASS .sui-file-upload' ).length){
+		if($( 'SUI_BODY_CLASS .sui-file-browser' ).length){
 			// This will trigger on file change. 
-			$( 'SUI_BODY_CLASS .sui-file-upload input[type="file"]' ).on( 'change', function() {
+			$( 'SUI_BODY_CLASS .sui-file-browser input[type="file"]' ).on( 'change', function() {
 				var parent = $( this ).parent();
 				var filename = $( this ).val();
 				var imageContainer = parent.find( '.sui-upload-image' );
@@ -54,17 +54,17 @@
 			});
 
 			// This will trigger on click of upload button
-			$( 'SUI_BODY_CLASS .sui-file-upload .sui-upload-button' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser .sui-upload-button' ).on( 'click', function(){
 				selectFile($( this ));
 			});
 
 			// This will trigger when user wants to remove the selected upload file
-			$( 'SUI_BODY_CLASS .sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser [aria-label="Remove file"]' ).on( 'click', function(){
 				removeFile($( this ));
 			});
 
 			// This will trigger reupload of file
-			$( 'SUI_BODY_CLASS .sui-file-upload .sui-upload-image' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser .sui-upload-image' ).on( 'click', function(){
 				selectFile($( this ));
 			});
 

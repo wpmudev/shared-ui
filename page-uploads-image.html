@@ -565,7 +565,7 @@ is_searchable: true
 
 <pre class="sui-code-snippet js">
 // This will trigger on file change. 
-$( '.sui-file-upload input[type="file"]' ).on( 'change', function() {
+$( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
 	var filename = $( this ).val();
 	var imageContainer = parent.find( '.sui-upload-image' );
@@ -596,17 +596,17 @@ $( '.sui-file-upload input[type="file"]' ).on( 'change', function() {
 });
 
 // This will trigger on click of upload button
-$( '.sui-file-upload .sui-upload-button' ).on( 'click', function(){
+$( '.sui-file-browser .sui-upload-button' ).on( 'click', function(){
 	selectFile($( this ));
 });
 
 // This will trigger when user wants to remove the selected upload file
-$( '.sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
+$( '.sui-file-browser [aria-label="Remove file"]' ).on( 'click', function(){
 	removeFile($( this ));
 });
 
 // This will trigger reupload of file
-$( '.sui-file-upload .sui-upload-image' ).on( 'click', function(){
+$( '.sui-file-browser .sui-upload-image' ).on( 'click', function(){
 	selectFile($( this ));
 });
 
