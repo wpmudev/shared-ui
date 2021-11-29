@@ -2,6 +2,9 @@
 
 ## Shared UI v2.11.2
 
+#### New
+* [#374](https://github.com/wpmudev/shared-ui/pull/374) ([SUI-235](https://incsub.atlassian.net/browse/SUI-235)) ✨ new(icons): Add `site-health` and `import-export` icons. ([@iamleigh](https://github.com/iamleigh))
+
 #### Bug Fixes
 * [#347](https://github.com/wpmudev/shared-ui/pull/347) ([SUI-59](https://incsub.atlassian.net/browse/SUI-59)) 🐛 fix(radio): Fieldset element unnecessary styles removal. ([@creador-dev](https://github.com/creador-dev))
 * [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
@@ -9,6 +12,7 @@
 
 #### Committers: 2
 - Denis Lee ([@ilovedenis](https://github.com/ilovedenis))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## Shared UI v2.11.1
