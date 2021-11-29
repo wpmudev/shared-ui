@@ -30,7 +30,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
   };
 
-  $('.sui-2-11-1 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-11-2 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);

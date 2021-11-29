@@ -118,8 +118,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-11-1 .sui-accordion').length) {
-    $('.sui-2-11-1 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-11-2 .sui-accordion').length) {
+    $('.sui-2-11-2 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-11-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-11-2 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  $('.sui-2-11-1 .sui-slider').each(function () {
+  $('.sui-2-11-2 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-11-1 .sui-dropdown');
+      var $dropdowns = $('.sui-2-11-2 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-11-1 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-11-2 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2480,7 +2480,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-11-1 .sui-form-field').each(function () {
+    $('.sui-2-11-2 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2538,7 +2538,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-11-1 .sui-reviews').each(function () {
+  $('.sui-2-11-2 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
@@ -2570,7 +2570,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-11-1 .sui-circle-score').each(function () {
+  $('.sui-2-11-2 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -8125,7 +8125,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-1'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-2'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8138,7 +8138,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-1'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-2'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8156,7 +8156,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-1'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-2'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8174,7 +8174,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-1'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-2'),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -8187,7 +8187,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-1'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-11-2'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -8251,7 +8251,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
   };
 
-  $('.sui-2-11-1 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-11-2 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8689,12 +8689,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-11-1 .sui-tabs').length) {
+  if (0 !== $('.sui-2-11-2 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-11-1 .sui-tabs-navigation').each(function () {
+    $('.sui-2-11-2 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9014,8 +9014,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-11-1 .sui-tree').length) {
-    $('.sui-2-11-1 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-11-2 .sui-tree').length) {
+    $('.sui-2-11-2 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9031,14 +9031,75 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.upload = function () {
-    $('.sui-2-11-1 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-11-2 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
       if (file) {
         message.text(file.name);
       }
-    });
+    }); // This will trigger on file change. 
+
+    $('.sui-file-upload input[type="file"]').on('change', function () {
+      var parent = $(this).parent();
+      var filename = $(this).val();
+      var imageContainer = parent.find('.sui-upload-image');
+
+      if (filename) {
+        var lastIndex = filename.lastIndexOf("\\");
+
+        if (lastIndex >= 0) {
+          filename = filename.substring(lastIndex + 1); // To show uploaded file preview.
+
+          if (imageContainer.length) {
+            var reader = new FileReader();
+            var imagePreview = imageContainer.find('.sui-image-preview');
+
+            reader.onload = function (e) {
+              imagePreview.attr('style', 'background-image: url(' + e.target.result + ' );');
+            };
+
+            reader.readAsDataURL($(this)[0].files[0]);
+          }
+
+          parent.find('.sui-upload-file > span').text(filename);
+          parent.addClass('sui-has_file');
+        }
+      } else {
+        if (imageContainer.length) {
+          var imagePreview = imageContainer.find('.sui-image-preview');
+          imagePreview.attr('style', 'background-image: url();');
+        }
+
+        parent.find('.sui-upload-file > span').text('');
+        parent.removeClass('sui-has_file');
+      }
+    }); // This will trigger on click of upload button
+
+    $('.sui-file-upload .sui-upload-button').on('click', function () {
+      selectFile($(this));
+    }); // This will trigger when user wants to remove the selected upload file
+
+    $('.sui-file-upload [aria-label="Remove file"]').on('click', function () {
+      removeFile($(this));
+    }); // This will trigger reupload of file
+
+    $('.sui-file-upload .sui-upload-image').on('click', function () {
+      selectFile($(this));
+    }); // function to open browser file explorer for selecting file
+
+    function selectFile(element) {
+      var parent = element.closest('.sui-upload');
+      var file = parent.find('input[type="file"]');
+      file.trigger('click');
+    } // function to remove file
+
+
+    function removeFile(element) {
+      var parent = element.closest('.sui-upload');
+      var file = parent.find('input[type="file"]');
+      file.val('').change();
+    }
   };
 
   SUI.upload();
