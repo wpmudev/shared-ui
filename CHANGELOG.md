@@ -25,7 +25,7 @@
 * [#344](https://github.com/wpmudev/shared-ui/pull/344) ([SUI-90](https://incsub.atlassian.net/browse/SUI-90)) 🐛 fix(accordions): Remove paragraph overwriting styles. ([@iamleigh](https://github.com/iamleigh))
 * [#362](https://github.com/wpmudev/shared-ui/pull/362) ([SUI-102](https://incsub.atlassian.net/browse/SUI-102)) 🐛 fix(select): Option groups are misaligned. ([@creador-dev](https://github.com/creador-dev))
 
-#### Documentation
+#### 📝 Documentation
 * [#336](https://github.com/wpmudev/shared-ui/pull/336) ([SUI-110](https://incsub.atlassian.net/browse/SUI-110)) 📝 docs(accordions): Toggles are using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
 * [#337](https://github.com/wpmudev/shared-ui/pull/337) ([SUI-109](https://incsub.atlassian.net/browse/SUI-109)) 📝 docs(tabs): Notification is using an outdated markup. ([@iamleigh](https://github.com/iamleigh))
 * [#338](https://github.com/wpmudev/shared-ui/pull/338) ([SUI-83](https://incsub.atlassian.net/browse/SUI-83)) 📝 docs(buttons): Review the use of the `role="button"` attribute. ([@iamleigh](https://github.com/iamleigh))
@@ -53,7 +53,7 @@
 * [#333](https://github.com/wpmudev/shared-ui/pull/333) ([SUI-231](https://incsub.atlassian.net/browse/SUI-231)) 🐛 fix(upsells): Flushed notice doesn't have proper spacing on top. ([@iamleigh](https://github.com/iamleigh))
 * [#334](https://github.com/wpmudev/shared-ui/pull/334) ([SUI-128](https://incsub.atlassian.net/browse/SUI-128)) 🐛 fix(upsells): Notification character has a styling issue. ([@iamleigh](https://github.com/iamleigh))
 
-#### Documentation
+#### 📝 Documentation
 * [#328](https://github.com/wpmudev/shared-ui/pull/328) ([SUI-227](https://incsub.atlassian.net/browse/SUI-227)) 📝 docs(upsells): Rename "inline notice" into "notice". ([@iamleigh](https://github.com/iamleigh))
 * [#329](https://github.com/wpmudev/shared-ui/pull/329) ([SUI-87](https://incsub.atlassian.net/browse/SUI-87)) 📝 docs(notifications): Icons are incorrect. ([@iamleigh](https://github.com/iamleigh))
 * [#331](https://github.com/wpmudev/shared-ui/pull/331) ([SUI-228](https://incsub.atlassian.net/browse/SUI-228)) 📝 docs(upsells): Move "Upsells Box" section to the new "Upsells" category. ([@iamleigh](https://github.com/iamleigh))
@@ -75,7 +75,7 @@
 #### 🐛 Bug Fixes
 * [#320](https://github.com/wpmudev/shared-ui/pull/320) ([SUI-99](https://incsub.atlassian.net/browse/SUI-99)) 🐛 fix(sidenav): Text goes outside the box in other languages. ([@iamleigh](https://github.com/iamleigh))
 
-#### Documentation
+#### 📝 Documentation
 * [#324](https://github.com/wpmudev/shared-ui/pull/324) ([SUI-189](https://incsub.atlassian.net/browse/SUI-189)) 📝 docs(tooltips): Simple icon with tooltip special case. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
