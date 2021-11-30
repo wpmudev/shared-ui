@@ -17,7 +17,7 @@
 
 ## Shared UI v2.11.1
 
-#### Improvement
+#### 🚀 Improvements
 * [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
 * [#343](https://github.com/wpmudev/shared-ui/pull/343) ([SUI-93](https://incsub.atlassian.net/browse/SUI-93)) 🐛 fix(typography): Descriptions need to be multi-line. ([@iamleigh](https://github.com/iamleigh))
 
@@ -46,7 +46,7 @@
 * [#326](https://github.com/wpmudev/shared-ui/pull/326) ([SUI-47](https://incsub.atlassian.net/browse/SUI-47)) ✨ new(upsells): Create widget component. ([@iamleigh](https://github.com/iamleigh))
 * [#327](https://github.com/wpmudev/shared-ui/pull/327) ([SUI-226](https://incsub.atlassian.net/browse/SUI-226)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
 
-#### Improvements
+#### 🚀 Improvements
 * [#330](https://github.com/wpmudev/shared-ui/pull/330) ([SUI-97](https://incsub.atlassian.net/browse/SUI-97)) 🐛 fix(icon-button): Increase ghost variation border width up to 2px. ([@iamleigh](https://github.com/iamleigh))
 
 #### 🐛 Bug Fixes
@@ -66,7 +66,7 @@
 
 ## Shared UI v2.10.12
 
-#### Improvements
+#### 🚀 Improvements
 * [#319](https://github.com/wpmudev/shared-ui/pull/319) ([SUI-91](https://incsub.atlassian.net/browse/SUI-91)) 🐛 fix(labels): Update `sui-label` styles. ([@iamleigh](https://github.com/iamleigh))
 * [#321](https://github.com/wpmudev/shared-ui/pull/321) ([SUI-92](https://incsub.atlassian.net/browse/SUI-92)) 🐛 fix(dropdowns): Adjust padding and other styles. ([@iamleigh](https://github.com/iamleigh))
 * [#322](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-61](https://incsub.atlassian.net/browse/SUI-61)) 🐛 new(input): We need styles for `input` focus state. ([@iamleigh](https://github.com/iamleigh))
@@ -117,7 +117,7 @@
 
 ## Shared UI v2.10.8
 
-#### Improvements
+#### 🚀 Improvements
 * 🐛 fix(side-navigation): Support RTL language.
 
 #### 🐛 Bug Fixes
@@ -133,7 +133,7 @@
 
 ## Shared UI v2.10.7
 
-#### Improvements
+#### 🚀 Improvements
 * 🐛 fix(select): Use new color variables.
 
 #### 🐛 Bug Fixes
@@ -163,7 +163,7 @@
 
 ## Shared UI v2.10.4
 
-#### Improvements
+#### 🚀 Improvements
 * 🐛 fix(select2): Upgrade to Select2 v4.1.0-rc.0
 
 #### Committers: 2
@@ -202,7 +202,7 @@
 
 ## Shared UI v2.10.0
 
-#### Improvements
+#### 🚀 Improvements
 * 🐛 fix(select): Merge `SUIselect2()` with `SUI.Select()`.
   * **Dev Notes:** Regular select (without JS init) is now styled too, and the only difference you are going to find between both is the dropdown list that without JS looks un-styled. For more info, please review the documentation [https://wpmudev.github.io/shared-ui/select/](https://wpmudev.github.io/shared-ui/select/) or ping [@iamleigh](https://github.com/iamleigh).
 * 🐛 fix(select): Support RTL language.
