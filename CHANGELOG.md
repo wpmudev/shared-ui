@@ -10,7 +10,7 @@
 * [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
 * [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
 
-#### Committers: 2
+#### Committers: 3
 - Denis Lee ([@ilovedenis](https://github.com/ilovedenis))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
