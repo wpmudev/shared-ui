@@ -5,7 +5,7 @@
 #### ✨ New
 * [#374](https://github.com/wpmudev/shared-ui/pull/374) ([SUI-235](https://incsub.atlassian.net/browse/SUI-235)) ✨ new(icons): Add `site-health` and `import-export` icons. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#347](https://github.com/wpmudev/shared-ui/pull/347) ([SUI-59](https://incsub.atlassian.net/browse/SUI-59)) 🐛 fix(radio): Fieldset element unnecessary styles removal. ([@creador-dev](https://github.com/creador-dev))
 * [#350](https://github.com/wpmudev/shared-ui/pull/350) ([SUI-238](https://incsub.atlassian.net/browse/SUI-238)) 🐛 fix(file-uploads): Upload file function isn't working. ([@creador-dev](https://github.com/creador-dev))
 * [#351](https://github.com/wpmudev/shared-ui/pull/351) ([SUI-216](https://incsub.atlassian.net/browse/SUI-216)) 🐛 fix(tooltips): Admin menu overlapping tooltips. ([@ilovedenis](https://github.com/ilovedenis))
@@ -21,7 +21,7 @@
 * [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) 🐛 fix(toggles): Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
 * [#343](https://github.com/wpmudev/shared-ui/pull/343) ([SUI-93](https://incsub.atlassian.net/browse/SUI-93)) 🐛 fix(typography): Descriptions need to be multi-line. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#344](https://github.com/wpmudev/shared-ui/pull/344) ([SUI-90](https://incsub.atlassian.net/browse/SUI-90)) 🐛 fix(accordions): Remove paragraph overwriting styles. ([@iamleigh](https://github.com/iamleigh))
 * [#362](https://github.com/wpmudev/shared-ui/pull/362) ([SUI-102](https://incsub.atlassian.net/browse/SUI-102)) 🐛 fix(select): Option groups are misaligned. ([@creador-dev](https://github.com/creador-dev))
 
@@ -49,7 +49,7 @@
 #### Improvements
 * [#330](https://github.com/wpmudev/shared-ui/pull/330) ([SUI-97](https://incsub.atlassian.net/browse/SUI-97)) 🐛 fix(icon-button): Increase ghost variation border width up to 2px. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#333](https://github.com/wpmudev/shared-ui/pull/333) ([SUI-231](https://incsub.atlassian.net/browse/SUI-231)) 🐛 fix(upsells): Flushed notice doesn't have proper spacing on top. ([@iamleigh](https://github.com/iamleigh))
 * [#334](https://github.com/wpmudev/shared-ui/pull/334) ([SUI-128](https://incsub.atlassian.net/browse/SUI-128)) 🐛 fix(upsells): Notification character has a styling issue. ([@iamleigh](https://github.com/iamleigh))
 
@@ -72,7 +72,7 @@
 * [#322](https://github.com/wpmudev/shared-ui/pull/322) ([SUI-61](https://incsub.atlassian.net/browse/SUI-61)) 🐛 new(input): We need styles for `input` focus state. ([@iamleigh](https://github.com/iamleigh))
 * [#323](https://github.com/wpmudev/shared-ui/pull/323) ([SUI-68](https://incsub.atlassian.net/browse/SUI-68)) 🐛 fix(toggle): We need focus state styles. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#320](https://github.com/wpmudev/shared-ui/pull/320) ([SUI-99](https://incsub.atlassian.net/browse/SUI-99)) 🐛 fix(sidenav): Text goes outside the box in other languages. ([@iamleigh](https://github.com/iamleigh))
 
 #### Documentation
@@ -94,7 +94,7 @@
 #### ✨ New
 * ✨ new(icons): Add `beehive` icon. ([@iamleigh](https://github.com/iamleigh))
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#310](https://github.com/wpmudev/shared-ui/pull/310) 🐛 fix(dropdowns): The menu wraps the line. ([@Gowtham369](https://github.com/Gowtham369))
 * [#312](https://github.com/wpmudev/shared-ui/pull/312) 🐛 fix(tabs): Clicking icons inside is not updating tab status. ([@Gowtham369](https://github.com/Gowtham369))
 * [#313](https://github.com/wpmudev/shared-ui/pull/313) 🐛 fix(buttons): High contrast mode gives black icons on black background. ([@Gowtham369](https://github.com/Gowtham369))
@@ -107,7 +107,7 @@
 
 ## Shared UI v2.10.9
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(side-tabs): Children side-tabs are closing its parent side-tab.
 * 🐛 fix(file-uploads): Make long URL names not overflow the element.
 
@@ -120,7 +120,7 @@
 #### Improvements
 * 🐛 fix(side-navigation): Support RTL language.
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(multiple-strings): Deprecated focus() function.
 * 🐛 fix(notifications): Deprecated focus() function.
 * 🐛 fix(tree-selectors): Deprecated focus() function.
@@ -136,7 +136,7 @@
 #### Improvements
 * 🐛 fix(select): Use new color variables.
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(select): Selected items are not properly highlighted inside dropdown.
 * 🐛 fix(select): Multi-select search is unstyled and placed outside container.
 
@@ -145,7 +145,7 @@
 
 ## Shared UI v2.10.6
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * [#302](https://github.com/wpmudev/shared-ui/pull/302) 🐛 fix(select): Append dropdown to SUI body class instead of body tag.
 
 #### Committers: 1
@@ -153,7 +153,7 @@
 
 ## Shared UI v2.10.5
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(select2): e.SUISelect2 is not a function.
 * 🐛 fix(select2): Broken icons on Select2 dropdown.
 
@@ -172,7 +172,7 @@
 
 ## Shared UI v2.10.3
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(modals): Modals with slides fail to open.
 
 #### Committers: 1
@@ -180,7 +180,7 @@
 
 ## Shared UI v2.10.2
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(dropdowns): jQuery 3 and WordPress v5.6 compatibility.
 * 🐛 fix(modals): jQuery 3 and WordPress v5.6 compatibility.
 * 🐛 fix(tabs): jQuery 3 and WordPress v5.6 compatibility.
@@ -193,7 +193,7 @@
 
 ## Shared UI v2.10.1
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(core): Remove UTF symbols on comments.
 * 🐛 fix(side-navigation): Icons are placed on next line.
 
@@ -211,7 +211,7 @@
 * 🐛 fix(icons): Replace `i` selector for `span`.
 * 🐛 fix(buttons): New design for `:focus` state.
 
-#### Bug Fixes
+#### 🐛 Bug Fixes
 * 🐛 fix(select): Make element accessible for screen readers users.
 * 🐛 fix(select): Non-passive event listener to a scroll-blocking 'wheel' event.
 * 🐛 fix(select): Non-js element is already styled.
