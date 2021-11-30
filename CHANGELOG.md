@@ -1,6 +1,6 @@
 # Changelog
 
-## Shared UI v2.11.2
+## 2.11.2
 
 #### ✨ New
 * [#374](https://github.com/wpmudev/shared-ui/pull/374) ([SUI-235](https://incsub.atlassian.net/browse/SUI-235)) **icons:** Add `site-health` and `import-export` icons. ([@iamleigh](https://github.com/iamleigh))
@@ -15,7 +15,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## Shared UI v2.11.1
+## 2.11.1
 
 #### 🚀 Improvements
 * [#339](https://github.com/wpmudev/shared-ui/pull/339) ([SUI-55](https://incsub.atlassian.net/browse/SUI-55)) **toggles:** Improve disabled state for "on" and "off" modes. ([@iamleigh](https://github.com/iamleigh))
@@ -39,7 +39,7 @@
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## Shared UI v2.11.0
+## 2.11.0
 
 #### ✨ New
 * [#325](https://github.com/wpmudev/shared-ui/pull/325) ([SUI-225](https://incsub.atlassian.net/browse/SUI-225)) **upsells:** Create new section. ([@iamleigh](https://github.com/iamleigh))
@@ -64,7 +64,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.12
+## 2.10.12
 
 #### 🚀 Improvements
 * [#319](https://github.com/wpmudev/shared-ui/pull/319) ([SUI-91](https://incsub.atlassian.net/browse/SUI-91)) **labels:** Update `sui-label` styles. ([@iamleigh](https://github.com/iamleigh))
@@ -81,7 +81,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.11
+## 2.10.11
 
 #### ✨ New
 * [#317](https://github.com/wpmudev/shared-ui/pull/317) **icons:** Add `async` icon. ([@iamleigh](https://github.com/iamleigh))
@@ -89,7 +89,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.10
+## 2.10.10
 
 #### ✨ New
 * **icons:** Add `beehive` icon. ([@iamleigh](https://github.com/iamleigh))
@@ -105,7 +105,7 @@
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.9
+## 2.10.9
 
 #### 🐛 Bug Fixes
 * **side-tabs:** Children side-tabs are closing its parent side-tab.
@@ -115,7 +115,7 @@
 - Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.8
+## 2.10.8
 
 #### 🚀 Improvements
 * **side-navigation:** Support RTL language.
@@ -131,7 +131,7 @@
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.7
+## 2.10.7
 
 #### 🚀 Improvements
 * **select:** Use new color variables.
@@ -143,7 +143,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.6
+## 2.10.6
 
 #### 🐛 Bug Fixes
 * [#302](https://github.com/wpmudev/shared-ui/pull/302) **select:** Append dropdown to SUI body class instead of body tag.
@@ -151,7 +151,7 @@
 #### Committers: 1
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 
-## Shared UI v2.10.5
+## 2.10.5
 
 #### 🐛 Bug Fixes
 * **select2:** e.SUISelect2 is not a function.
@@ -161,7 +161,7 @@
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.4
+## 2.10.4
 
 #### 🚀 Improvements
 * **select2:** Upgrade to Select2 v4.1.0-rc.0
@@ -170,7 +170,7 @@
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.3
+## 2.10.3
 
 #### 🐛 Bug Fixes
 * **modals:** Modals with slides fail to open.
@@ -178,7 +178,7 @@
 #### Committers: 1
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 
-## Shared UI v2.10.2
+## 2.10.2
 
 #### 🐛 Bug Fixes
 * **dropdowns:** jQuery 3 and WordPress v5.6 compatibility.
@@ -191,7 +191,7 @@
 - Danae Millan ([@a-danae](https://github.com/a-danae))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.1
+## 2.10.1
 
 #### 🐛 Bug Fixes
 * **core:** Remove UTF symbols on comments.
@@ -200,7 +200,7 @@
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## Shared UI v2.10.0
+## 2.10.0
 
 #### 🚀 Improvements
 * **select:** Merge `SUIselect2()` with `SUI.Select()`.
