@@ -2,7 +2,7 @@
 
 ## Shared UI v2.11.2
 
-#### New
+#### ✨ New
 * [#374](https://github.com/wpmudev/shared-ui/pull/374) ([SUI-235](https://incsub.atlassian.net/browse/SUI-235)) ✨ new(icons): Add `site-health` and `import-export` icons. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
@@ -41,7 +41,7 @@
 
 ## Shared UI v2.11.0
 
-#### New
+#### ✨ New
 * [#325](https://github.com/wpmudev/shared-ui/pull/325) ([SUI-225](https://incsub.atlassian.net/browse/SUI-225)) ✨ new(upsells): Create new section. ([@iamleigh](https://github.com/iamleigh))
 * [#326](https://github.com/wpmudev/shared-ui/pull/326) ([SUI-47](https://incsub.atlassian.net/browse/SUI-47)) ✨ new(upsells): Create widget component. ([@iamleigh](https://github.com/iamleigh))
 * [#327](https://github.com/wpmudev/shared-ui/pull/327) ([SUI-226](https://incsub.atlassian.net/browse/SUI-226)) ✨ new(upsells): Create notice component. ([@iamleigh](https://github.com/iamleigh))
@@ -83,7 +83,7 @@
 
 ## Shared UI v2.10.11
 
-#### New
+#### ✨ New
 * [#317](https://github.com/wpmudev/shared-ui/pull/317) ✨ new(icons): Add `async` icon. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
@@ -91,7 +91,7 @@
 
 ## Shared UI v2.10.10
 
-#### New
+#### ✨ New
 * ✨ new(icons): Add `beehive` icon. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
