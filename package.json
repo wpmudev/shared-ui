@@ -25,12 +25,12 @@
 		"@babel/core": "^7.15.5",
 		"@babel/preset-env": "^7.15.6",
 		"@babel/register": "^7.15.3",
-		"@wordpress/eslint-plugin": "^9.1.2",
 		"chalk": "^4.1.2",
 		"chart.js": "^2.9.1",
 		"clipboard": "^2.0.6",
 		"cross-env": "^7.0.3",
 		"eslint": "^7.32.0",
+		"eslint-config-wordpress": "^2.0.0",
 		"fs": "0.0.1-security",
 		"gh-pages": "^3.2.3",
 		"gulp": "^4.0.2",
@@ -52,10 +52,12 @@
 		"webpack": "^5.57.1"
 	},
 	"eslintConfig": {
-		"extends": "wordpress",
+		"extends": [
+			"wordpress"
+		],
 		"parserOptions": {
 			"sourceType": "module",
-			"ecmaVersion": 2018
+			"ecmaVersion": 2021
 		},
 		"env": {
 			"es6": true
