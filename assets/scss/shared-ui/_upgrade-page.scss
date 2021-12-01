@@ -1,5 +1,142 @@
 @include body-class(true) {
 	.sui-upgrade-page {
+
+		&-highlight {
+			max-width: 600px;
+			position: relative;
+			margin: 0 auto;
+
+			&__container {
+				width: 100%;
+				display: flex;
+				flex-flow: row nowrap;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				transform: translateY(50%);
+				margin: 0 auto;
+				padding: $sui-gutter-md;
+				border-radius: $border-radius;
+				box-shadow: 0 0 20px rgba(0,0,0,0.05);
+				background: $white;
+			}
+
+			&__item {
+				min-width: 1px;
+				display: flex;
+				flex: 1;
+				flex-direction: column-reverse;
+				padding: 0 $sui-gutter-md;
+				text-align: center;
+
+				dt, dd {
+					margin: 0;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				dt {
+					margin-top: 10px;
+					color: $grey;
+					font: 500 12px/16px $font;
+					text-transform: uppercase;
+				}
+
+				dd {
+					margin-inline-start: 0;
+					color: $nightrider;
+					font: 400 24px/32px $font;
+
+					span {
+						vertical-align: bottom;
+						position: relative;
+						bottom: -3px;
+						font-size: 15px;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+
+		&-section {
+			margin: 0;
+			padding: 0 #{$sui-gutter * 2} #{$sui-gutter * 2};
+
+			&__header {
+				margin: 0 0 15px;
+				text-align: center;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				h2 {
+					font-family: $font;
+					font-size: 28px;
+					color: palette(gray, dark);
+					line-height: 40px;
+					margin-bottom: 0;
+				}
+
+				p {
+					margin-top: 5px;
+				}
+			}
+
+			&__container {
+				max-width: 720px;
+				margin: 0 auto;
+			}
+		}
+
+		&-features {
+			width: 100%;
+			max-width: 1140px;
+			margin: 0 auto;
+
+			&__container {
+				display: flex;
+				flex-flow: row wrap;
+				margin: -#{$sui-gutter};
+			}
+
+			&__item {
+				flex: 50%;
+				padding: $sui-gutter;
+
+				dt {
+					margin: 0;
+					color: $nightrider;
+					font: 700 18px/30px $font;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				dd {
+					margin: 10px 0 0;
+					margin-inline-start: 0;
+				}
+
+				[class*="sui-icon-"] {
+					margin: 0 0 10px;
+					padding: 12px;
+					border-radius: 100%;
+					background: $purple-ghost;
+					text-align: center;
+
+					&:before {
+						width: 20px;
+						height: 20px;
+						display: block;
+						margin: 0;
+						color: $purple;
+						font-size: 20px;
+						line-height: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.sui-upgrade-page {
 		background: #FAFAFA;
 		margin: -30px -30px 60px;
 		@media (max-width: 783px) {
@@ -68,7 +205,7 @@
 		}
 
 		/** Pro Features **/
-		&-features {
+		&-featuresOld {
 			&__header {
 				text-align: center;
 
