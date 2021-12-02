@@ -1,6 +1,8 @@
+@use "sass:math";
+
 @mixin generate-column-class($size) {
 	@for $i from $sui-total-grid-cols through 1 {
-		$width: percentage($i / $sui-total-grid-cols);
+		$width: percentage(math.div($i, $sui-total-grid-cols));
 		.sui-col-#{$size}-#{$i} {
 			width: $width;
 			max-width: $width;
@@ -16,22 +18,22 @@
 
 	%column {
 		min-height: 1px;
-		padding-left: ($sui-gutter / 2);
-		padding-right: ($sui-gutter / 2);
+		padding-left: math.div($sui-gutter, 2);
+		padding-right: math.div($sui-gutter, 2);
 		position: relative;
 
 		@include media( max-width, md ) {
-			padding-left: ($sui-gutter-md / 2);
-			padding-right: ($sui-gutter-md / 2);
+			padding-left: math.div($sui-gutter-md, 2);
+			padding-right: math.div($sui-gutter-md, 2);
 		}
 	}
 
 	.sui-row {
 		display: flex;
 		flex-flow: wrap;
-		margin-right: (-$sui-gutter / 2);
+		margin-right: -#{math.div($sui-gutter, 2)};
 		margin-bottom: $sui-gutter;
-		margin-left: (-$sui-gutter / 2);
+		margin-left: -#{math.div($sui-gutter, 2)};
 
 		&:last-child {
 			margin-bottom: 0;
@@ -42,9 +44,9 @@
 		}
 
 		@include media( max-width, md ) {
-			margin-right: (-$sui-gutter-md / 2);
+			margin-right: -#{math.div($sui-gutter-md, 2)};
 			margin-bottom: $sui-gutter-md;
-			margin-left: (-$sui-gutter-md / 2);
+			margin-left: -#{math.div($sui-gutter-md, 2)};
 		}
 	}
 
@@ -77,9 +79,9 @@
 	}
 
 	[class*="sui-col-lg-"] {
-		
+
 		&:last-child {
-			
+
 			@media (max-width: map-get($sui-breakpoints, 'lg')) {
 				margin-bottom: 0;
 			}
@@ -95,9 +97,9 @@
 	}
 
 	[class*="sui-col-md-"] {
-		
+
 		&:last-child {
-			
+
 			@media (max-width: map-get($sui-breakpoints, 'md')) {
 				margin-bottom: 0;
 			}
@@ -109,9 +111,9 @@
 	}
 
 	[class*="sui-col-sm-"] {
-		
+
 		&:last-child {
-			
+
 			@media (max-width: map-get($sui-breakpoints, 'sm')) {
 				margin-bottom: 0;
 			}
@@ -123,9 +125,9 @@
 	}
 
 	[class*="sui-col-xs-"] {
-		
+
 		&:last-child {
-			
+
 			@media (max-width: map-get($sui-breakpoints, 'xs')) {
 				margin-bottom: 0;
 			}

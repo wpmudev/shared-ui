@@ -43,17 +43,17 @@
 			});
 
 			// This will trigger on click of upload button
-			$( 'SUI_BODY_CLASS .sui-file-upload .sui-upload-button' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser .sui-upload-button' ).on( 'click', function(){
 				selectFile($( this ));
 			});
 
 			// This will trigger when user wants to remove the selected upload file
-			$( 'SUI_BODY_CLASS .sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser [aria-label="Remove file"]' ).on( 'click', function(){
 				removeFile($( this ));
 			});
 
 			// This will trigger reupload of file
-			$( 'SUI_BODY_CLASS .sui-file-upload .sui-upload-image' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-browser .sui-upload-image' ).on( 'click', function(){
 				selectFile($( this ));
 			});
 
