@@ -23,12 +23,13 @@
 
 		// ELEMENT: Overlay mask.
 		.sui-modal-overlay {
-			width: calc(100% - #{map-get($wordpress, adminmenu)} - #{($scrollbar--width)});
+			// width: calc(100% - 20px); 
 			height: calc(100vh - #{map-get($wordpress, adminbar)});
 			position: fixed;
 			z-index: #{map-get($modal, z-index) - 1};
 			top: map-get($wordpress, adminbar);
 			left: map-get($wordpress, adminmenu);
+			right: 20px;
 
 			&:hover {
 				cursor: pointer;
@@ -41,7 +42,7 @@
 			}
 		}
 
-		// ELEMENT: Content.
+		// ELEMENT: Content. 
 		.sui-modal-content {
 			width: 100%;
 			min-height: 0;
