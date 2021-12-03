@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	* {
@@ -62,7 +64,7 @@
 
 		// BOX: Status Bar
 		.sui-box-status {
-			padding: #{$sui-gutter / 2} $sui-gutter-md $sui-gutter-md;
+			padding: math.div($sui-gutter, 2) $sui-gutter-md $sui-gutter-md;
 
 			.sui-status {
 				display: flex;
@@ -118,11 +120,11 @@
 				+ .sui-actions {
 
 					@include media(max-width, md) {
-						margin-top: #{$sui-gutter / 2};
+						margin-top: math.div($sui-gutter, 2);
 					}
 
 					@include media(min-width, md) {
-						margin-left: #{$sui-gutter / 2};
+						margin-left: math.div($sui-gutter, 2);
 					}
 				}
 
@@ -140,7 +142,7 @@
 
 			@include media(min-width, md) {
 				display: flex;
-				padding: #{$sui-gutter / 2} $sui-gutter;
+				padding: math.div($sui-gutter, 2) $sui-gutter;
 			}
 		}
 
@@ -157,7 +159,7 @@
 				&:not(:last-child) {
 
 					@include media(min-width, md) {
-						margin-right: #{$sui-gutter / 2};
+						margin-right: math.div($sui-gutter, 2);
 					}
 				}
 
@@ -181,7 +183,7 @@
 					&:not(:last-child) {
 
 						@include media(min-width, md) {
-							margin-right: #{$sui-gutter / 2};
+							margin-right: math.div($sui-gutter, 2);
 						}
 					}
 
@@ -210,8 +212,8 @@
 		}
 
 		> .sui-box-search {
-			padding-top: #{$sui-gutter / 2};
-			padding-bottom: #{$sui-gutter / 2};
+			padding-top: math.div($sui-gutter, 2);
+			padding-bottom: math.div($sui-gutter, 2);
 
 			@include media(max-width, md) {
 				padding-right: $sui-gutter-md;
