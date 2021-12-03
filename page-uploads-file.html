@@ -64,7 +64,7 @@ is_searchable: true
 
 									<label class="sui-label">Upload file</label>
 
-									<div class="sui-upload sui-file-browser">
+									<div class="sui-upload sui-file-upload sui-file-browser">
 
 										<input type="file" value="" readonly="readonly">
 
@@ -212,7 +212,7 @@ is_searchable: true
 
 									<label id="default-single-label" class="sui-label">Upload file</label>
 
-									<div class="sui-upload sui-file-browser">
+									<div class="sui-upload sui-file-upload sui-file-browser">
 
 										<input type="file" value="" readonly="readonly">
 
@@ -320,7 +320,7 @@ is_searchable: true
 
 									<label class="sui-label">Upload image</label>
 
-									<div class="sui-upload sui-file-browser">
+									<div class="sui-upload sui-file-upload sui-file-browser">
 
 										<input type="file" value="" readonly="readonly">
 
@@ -396,7 +396,7 @@ is_searchable: true
 
 									<label class="sui-label">Upload image</label>
 
-									<div class="sui-upload sui-file-browser">
+									<div class="sui-upload sui-file-upload sui-file-browser">
 
 										<input type="file" value="" readonly="readonly">
 
@@ -507,7 +507,7 @@ is_searchable: true
 
 							<label class="sui-label">Upload file(s)</label>
 
-							<div class="sui-upload sui-file-browser">
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input type="file" value="" readonly="readonly">
 
@@ -564,7 +564,7 @@ is_searchable: true
 
 							</div>
 
-							<div class="sui-upload sui-file-browser">
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input type="file" value="" readonly="readonly">
 
@@ -702,7 +702,7 @@ $( '.sui-file-browser .sui-upload-button' ).on( 'click', function(){
 });
 
 // This will trigger when user wants to remove the selected upload file
-$( '.sui-file-browser [aria-label="Remove file"]' ).on( 'click', function(){
+$( '.sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
 	removeFile($( this ));
 });
 
