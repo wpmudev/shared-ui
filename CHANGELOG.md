@@ -12,3 +12,11 @@ All notable changes to this project will be documented in this file. See [Conven
 
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (Unreleased)
+
+#### 🚀 Improvements
+* **fix(upload-file):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
