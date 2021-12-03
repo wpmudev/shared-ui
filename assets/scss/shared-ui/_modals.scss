@@ -31,6 +31,10 @@
 			left: map-get($wordpress, adminmenu);
 			right: #{($scrollbar--width)};
 
+			@include media(max-width, md) {
+				right: 0;
+			}
+
 			&:hover {
 				cursor: pointer;
 				outline: none;
