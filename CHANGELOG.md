@@ -15,8 +15,11 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (Unreleased)
 
+#### ✨ New Features
+* **new(upload-files):** Enable drag and drop to upload files. [#370](https://github.com/wpmudev/shared-ui/pull/370) ([SUI-57](https://incsub.atlassian.net/browse/SUI-57)) ([@creador-dev](https://github.com/creador-dev))
+
 #### 🚀 Improvements
-* **fix(upload-file):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(upload-files):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
