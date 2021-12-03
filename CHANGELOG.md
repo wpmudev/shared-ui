@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.0](https://github.com/wpmudev/shared-ui/compare/v2.11.2...v2.12.0) (Unreleased)
+## [2.12.0](https://github.com/wpmudev/shared-ui/compare/v2.11.2...v2.12.0) (2021-12-03)
 
 #### 💥 Breaking Changes
 * **fix(gulp):** SASS deprecation warnings. [#376](https://github.com/wpmudev/shared-ui/pull/376) ([SUI-232](https://incsub.atlassian.net/browse/SUI-232)) ([@iamleigh](https://github.com/iamleigh))
@@ -15,8 +15,11 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (Unreleased)
 
+#### ✨ New Features
+* **new(upload-files):** Enable drag and drop to upload files. [#370](https://github.com/wpmudev/shared-ui/pull/370) ([SUI-57](https://incsub.atlassian.net/browse/SUI-57)) ([@creador-dev](https://github.com/creador-dev))
+
 #### 🚀 Improvements
-* **fix(upload-file):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(upload-files):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
