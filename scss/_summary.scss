@@ -1,16 +1,18 @@
+@use "sass:math";
+
 // Summary: Base styles.
 // $wrap: true | $rtl: false | $monochrome: false
 @include body-class(true, false) {
 
 	.sui-summary {
-		padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+		padding: math.div($sui-gutter-md, 2) $sui-gutter-md;
 
 		.sui-summary-image-space,
 		.sui-summary-segment {
-			padding: #{$sui-gutter-md / 2} 0;
+			padding: math.div($sui-gutter-md, 2) 0;
 
 			@include media(min-width, md) {
-				padding: 0 #{$sui-gutter / 2};
+				padding: 0 math.div($sui-gutter, 2);
 			}
 		}
 
@@ -32,8 +34,8 @@
 			.sui-list {
 
 				@include media(min-width, md) {
-					padding-right: #{$sui-gutter / 2};
-					padding-left: #{$sui-gutter / 2};
+					padding-right: math.div($sui-gutter, 2);
+					padding-left: math.div($sui-gutter, 2);
 				}
 			}
 
@@ -414,7 +416,7 @@
 		@include media(min-width, md) {
 			display: flex;
 			align-items: center;
-			padding: 0 #{$sui-gutter / 2};
+			padding: 0 math.div($sui-gutter, 2);
 		}
 	}
 }
@@ -435,7 +437,7 @@
 
 					@include media(min-width, md) {
 						padding-right: 0;
-						padding-left: #{$sui-gutter / 2};
+						padding-left: math.div($sui-gutter, 2);
 					}
 				}
 			}
@@ -446,7 +448,7 @@
 				.sui-summary-details {
 
 					@include media(min-width, md) {
-						padding-right: #{$sui-gutter / 2};
+						padding-right: math.div($sui-gutter, 2);
 						padding-left: 0;
 					}
 				}
