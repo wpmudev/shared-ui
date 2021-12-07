@@ -22,7 +22,7 @@
 
 		// check whether element exist then execute js
 		if($( 'SUI_BODY_CLASS .sui-file-browser' ).length){
-			// This will trigger on file change. 
+			// This will trigger on file change.
 			$( 'SUI_BODY_CLASS .sui-file-browser input[type="file"]' ).on( 'change', function() {
 				var parent = $( this ).parent();
 				var filename = $( this ).val();
@@ -50,7 +50,7 @@
 					}
 					parent.find( '.sui-upload-file > span' ).text( '' );
 					parent.removeClass( 'sui-has_file' );
-				}		
+				}
 			});
 
 			// This will trigger on click of upload button
