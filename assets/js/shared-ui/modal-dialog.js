@@ -351,6 +351,9 @@
 		if ( isAnimated ) {
 			this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
 			this.dialogNode.classList.remove( 'sui-content-fade-out' );
+		} else {
+			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+			this.dialogNode.classList.remove( 'sui-content-fade-out' );
 		}
 
 		if ( this.focusFirst ) {
@@ -394,6 +397,9 @@
 		if ( isAnimated ) {
 			this.dialogNode.classList.add( 'sui-content-fade-out' );
 			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+		} else {
+			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+			this.dialogNode.classList.remove( 'sui-content-fade-out' );
 		}
 
 		this.focusAfterClosed.focus();
@@ -556,7 +562,11 @@
 
 		// If isAnimated is set true then modal box will animate.
 		if ( isAnimated ) {
+			this.dialogNode.classList.add( 'sui-content-fade-in' ); // make visible
+			this.dialogNode.classList.remove( 'sui-content-fade-out' );
+		} else {
 			this.dialogNode.classList.remove( 'sui-content-fade-in' );
+			this.dialogNode.classList.remove( 'sui-content-fade-out' );
 		}
 
 		this.backdropNode.classList.remove( 'sui-active' );
@@ -664,7 +674,7 @@
 		}, 350 );
 
 		let focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-		let dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
+		let dialog = new aria.Dialog( newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated );
 
 	}; // end replace
 
@@ -856,16 +866,16 @@
 		}
 	}; // end trapFocus.
 
-	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc = true ) {
-		let dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc );
+	SUI.openModal = function( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc = true, isAnimated ) {
+		let dialog = new aria.Dialog( dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc, isAnimated );
 	}; // end openModal.
 
-	SUI.closeModal = function() {
+	SUI.closeModal = function( isAnimated ) {
 		let topDialog = aria.getCurrentDialog();
-		topDialog.close();
+		topDialog.close( isAnimated );
 	}; // end closeDialog.
 
-	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true  ) {
+	SUI.replaceModal = function( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc = true, isAnimated  ) {
 
 		let topDialog = aria.getCurrentDialog();
 
@@ -877,7 +887,7 @@
 		 *
 		 * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
 		 */
-		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
+		topDialog.replace( newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated );
 
 	}; // end replaceModal.
 
@@ -904,7 +914,7 @@
 
 		function init() {
 
-			let button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
+			let button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation, isAnimated;
 
 			buttonOpen    = $( '[data-modal-open]' );
 			buttonClose   = $( '[data-modal-close]' );
@@ -919,6 +929,7 @@
 				closeFocus  = button.attr( 'data-modal-close-focus' );
 				newFocus    = button.attr( 'data-modal-open-focus' );
 				overlayMask = button.attr( 'data-modal-mask' );
+				isAnimated = button.attr( 'data-modal-animated' );
 
 				let isCloseOnEsc = 'false' === button.attr( 'data-esc-close' ) ? false : true;
 
@@ -936,8 +947,14 @@
 					overlayMask = false;
 				}
 
+				if ( typeof undefined !== typeof isAnimated && false !== isAnimated && 'false' === isAnimated ) {
+					isAnimated = false;
+				} else {
+					isAnimated = true;
+				}
+
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.openModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
+					SUI.openModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated );
 				}
 
 				e.preventDefault();
@@ -969,7 +986,7 @@
 				}
 
 				if ( typeof undefined !== typeof modalId && false !== modalId && '' !== modalId ) {
-					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc );
+					SUI.replaceModal( modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated );
 				}
 
 				e.preventDefault();
@@ -1000,7 +1017,7 @@
 			});
 
 			buttonClose.on( 'click', function( e ) {
-				SUI.closeModal();
+				SUI.closeModal( isAnimated );
 				e.preventDefault();
 			});
 		}
