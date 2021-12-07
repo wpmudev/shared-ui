@@ -21,5 +21,8 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 🚀 Improvements
 * **fix(upload-files):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
 
+#### 🐛 Bug Fixes
+* **fix(modal):** Scroll bar triggers the closing action. [#372](https://github.com/wpmudev/shared-ui/pull/372) ([SUI-161](https://incsub.atlassian.net/browse/SUI-161)) ([@creador-dev](https://github.com/creador-dev))
+
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
