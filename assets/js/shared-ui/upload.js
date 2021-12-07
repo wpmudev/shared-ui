@@ -50,7 +50,7 @@
 					}
 					parent.find( '.sui-upload-file > span' ).text( '' );
 					parent.removeClass( 'sui-has_file' );
-				}		
+				}
 			});
 
 			// This will trigger on click of upload button
