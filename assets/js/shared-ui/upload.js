@@ -59,7 +59,7 @@
 			});
 
 			// This will trigger when user wants to remove the selected upload file
-			$( 'SUI_BODY_CLASS .sui-file-browser [aria-label="Remove file"]' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
 				removeFile($( this ));
 			});
 
