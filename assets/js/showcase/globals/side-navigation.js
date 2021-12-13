@@ -24,10 +24,20 @@
 				dataBox = wrapper.find( 'div[data-tab="' + dataNav + '"]' )
 				;
 
+			parent.find( 'li a' ).attr({
+				'tabindex': '-1',
+				'aria-selected': 'false'
+			});
 			parent.find( 'li' ).removeClass( 'current' );
 			button.parent().addClass( 'current' );
+			button.attr({
+				'tabindex': '0',
+				'aria-selected': 'true'
+			});
 
+			content.attr({ 'aria-hidden': 'true' });
 			content.hide();
+			dataBox.attr({ 'aria-hidden': 'false' });
 			dataBox.show();
 
 		}

@@ -12,19 +12,19 @@ is_searchable: true
 		<!-- Navigation -->
 		<div class="sui-sidenav" role="navigation">
 
-			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+			<ul class="sui-vertical-tabs sui-sidenav-hide-md" role="tablist">
 
 				<li class="sui-vertical-tab current">
-					<a href="#" role="button" data-tab="section-1">Section 1</a>
+					<a href="#" role="tab" aria-selected="true" tabindex="0" data-tab="section-1">Section 1</a>
 				</li>
 
 				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-2">Section 2</a>
+					<a href="#" role="tab" aria-selected="false" tabindex="-1" data-tab="section-2">Section 2</a>
 					<span class="sui-tag sui-tag-warning">4</span>
 				</li>
 
 				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-3">Section 3</a>
+					<a href="#" role="tab" aria-selected="false" tabindex="-1" data-tab="section-3">Section 3</a>
 					<span class="sui-icon-check-tick" aria-hidden="true"></span>
 				</li>
 
@@ -53,10 +53,10 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 1 -->
-		<div class="sui-box" data-tab="section-1">
+		<div class="sui-box" tabindex="0" role="tabpanel" aria-hidden="false" data-tab="section-1">
 
 			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 1</h1>
+				<h1 class="sui-box-title" role="heading">Section 1</h1>
 			</div>
 
 			<div class="sui-box-body">
@@ -68,10 +68,10 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 2 -->
-		<div class="sui-box" data-tab="section-2" style="display: none;">
+		<div class="sui-box" tabindex="0" role="tabpanel" aria-hidden="true" data-tab="section-2" style="display: none;">
 
 			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 2</h1>
+				<h1 class="sui-box-title" role="heading">Section 2</h1>
 			</div>
 
 			<div class="sui-box-body">
@@ -83,10 +83,10 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 3 -->
-		<div class="sui-box" data-tab="section-3" style="display: none;">
+		<div class="sui-box" tabindex="0" role="tabpanel" aria-hidden="true" data-tab="section-3" style="display: none;">
 
 			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 3</h1>
+				<h1 class="sui-box-title" role="heading">Section 3</h1>
 			</div>
 
 			<div class="sui-box-body">
