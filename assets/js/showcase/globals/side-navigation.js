@@ -26,14 +26,17 @@
 
 			parent.find( 'li a' ).attr({
 				'tabindex': '-1',
-				'aria-selected': 'false'
+				'aria-selected': 'false',
+				'active': 'false'
 			});
 			parent.find( 'li' ).removeClass( 'current' );
 			button.parent().addClass( 'current' );
 			button.attr({
 				'tabindex': '0',
-				'aria-selected': 'true'
+				'aria-selected': 'true',
+				'active': 'true'
 			});
+			button.focus();
 
 			content.attr({ 'aria-hidden': 'true' });
 			content.hide();
@@ -51,6 +54,22 @@
 				e.preventDefault();
 				e.stopPropagation();
 
+			});
+
+			// change content tab on arrow click
+			$( '.sui-vertical-tabs' ).on( 'keydown', 'a', function( e ) {
+				var prev = $( this ).parent().prev().find( 'a' );
+				var next = $( this ).parent().next().find( 'a' );
+				if ( 37 === e.keyCode || 38 === e.keyCode ) {
+					if ( prev.length ) {
+						prev.trigger( 'click' );
+					}
+				} else if ( 39 === e.keyCode || 40 === e.keyCode ) {
+					if ( next.length ) {
+						next.trigger( 'click' );
+					}
+				}
+				e.preventDefault();
 			});
 		}
 
