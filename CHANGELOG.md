@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. See [Conven
 * **new(upload-files):** Enable drag and drop to upload files. [#370](https://github.com/wpmudev/shared-ui/pull/370) ([SUI-57](https://incsub.atlassian.net/browse/SUI-57)) ([@creador-dev](https://github.com/creador-dev))
 * **new(checkbox):** Focus state styles. [#385](https://github.com/wpmudev/shared-ui/pull/385) ([SUI-67](https://incsub.atlassian.net/browse/SUI-67)) ([@creador-dev](https://github.com/creador-dev))
 * **new(radio):** Focus state styles. [#385](https://github.com/wpmudev/shared-ui/pull/385) ([SUI-64](https://incsub.atlassian.net/browse/SUI-64)) ([@creador-dev](https://github.com/creador-dev))
+* **new(modal):** Add option for disabling open/close modal effects. [#383](https://github.com/wpmudev/shared-ui/pull/383) ([SUI-112](https://incsub.atlassian.net/browse/SUI-112)) ([@creador-dev](https://github.com/creador-dev))
 
 #### 🚀 Improvements
 * **fix(upload-files):** Function must run only when a specific class or attribute is added. [#369](https://github.com/wpmudev/shared-ui/pull/369) ([SUI-242](https://incsub.atlassian.net/browse/SUI-242)) ([@creador-dev](https://github.com/creador-dev))
