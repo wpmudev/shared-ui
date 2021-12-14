@@ -404,3 +404,27 @@
 		}
 	}
 }
+
+@include body-class(false) {
+	&.rtl .sui-wrap {	
+		.sui-tree-fancy[data-tree=selector] ul.ui-fancytree li[role=treeitem] ul[role=group],
+		.sui-tree-fancy[data-tree=directory] ul.ui-fancytree li[role=treeitem] ul[role=group] {
+			padding-left: 0;
+		}
+
+		.sui-tree-fancy[data-tree=selector] ul.ui-fancytree li[role=treeitem] {
+			ul[role=group]{
+				padding-right: 26px;
+			}
+
+			&>span.fancytree-node>span.fancytree-checkbox~span.fancytree-title {
+				margin-left: 0;
+				margin-right: 10px;
+			}
+		} 
+	
+		.sui-tree-fancy[data-tree=directory] ul.ui-fancytree li[role=treeitem] ul[role=group] {
+			padding-right: 20px;
+		}
+	}
+}
