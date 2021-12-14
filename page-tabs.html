@@ -552,20 +552,52 @@ is_searchable: true
 						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;div class="sui-side-tabs sui-tabs"&gt;
+&lt;div class=&quot;sui-side-tabs&quot;&gt;
 
-	&lt;div data-tabs&gt;
-		&lt;div class="active"&gt;Tab 1&lt;/div&gt;
-		&lt;div&gt;Tab 2&lt;/div&gt;
-		&lt;div&gt;Tab 3&lt;/div&gt;
-		&lt;div&gt;Tab 4&lt;/div&gt;
+	&lt;div class=&quot;sui-tabs-menu&quot;&gt;
+		&lt;label class=&quot;sui-tab-item active&quot; class=&quot;active&quot;&gt;
+			&lt;input type=&quot;radio&quot; data-tab-menu=&quot;get-tab-1&quot; checked=&quot;checked&quot; &gt;
+			Tab 1
+		&lt;/label&gt;
+		&lt;label class=&quot;sui-tab-item&quot;&gt;
+			&lt;input type=&quot;radio&quot; data-tab-menu=&quot;get-tab-2&quot;&gt;
+			Tab 2
+		&lt;/label&gt;
+		&lt;label class=&quot;sui-tab-item&quot;&gt;
+			&lt;input type=&quot;radio&quot; data-tab-menu=&quot;get-tab-3&quot;&gt;
+			Tab 3
+		&lt;/label&gt;
+		&lt;label class=&quot;sui-tab-item&quot;&gt;
+			&lt;input type=&quot;radio&quot; data-tab-menu=&quot;get-tab-4&quot;&gt;
+			Tab 4
+		&lt;/label&gt;
 	&lt;/div&gt;
 
 	&lt;div data-panes&gt;
-		&lt;div class="sui-tab-boxed active"&gt;&lt;p&gt;Content. Tab 1.&lt;/p&gt;&lt;/div&gt;
-		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
-		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
-		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
+		&lt;div 
+			class=&quot;sui-tab-content sui-tab-boxed active&quot; 
+			data-tab-content=&quot;get-tab-1&quot;
+		&gt;
+				&lt;p&gt;Content. Tab 1.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div 
+			class=&quot;sui-tab-content sui-tab-boxed&quot; 
+			data-tab-content=&quot;get-tab-2&quot;
+		&gt;
+				&lt;p&gt;Content. Tab 2.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div 
+			class=&quot;sui-tab-content sui-tab-boxed&quot; 
+			data-tab-content=&quot;get-tab-3&quot;
+		&gt;
+				&lt;p&gt;Content. Tab 3.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div 
+			class=&quot;sui-tab-content sui-tab-boxed&quot; 
+			data-tab-content=&quot;get-tab-4&quot;
+		&gt;
+				&lt;p&gt;Content. Tab 4.&lt;/p&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 
 &lt;/div&gt;
