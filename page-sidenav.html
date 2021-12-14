@@ -110,16 +110,16 @@ is_searchable: true
 		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
 
 			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
 			&lt;/li&gt;
 
 			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
 			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
 			&lt;/li&gt;
 
 			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
 			&lt;span class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 			&lt;/li&gt;
 
@@ -138,13 +138,13 @@ is_searchable: true
 	&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 1 (Current) --&gt;
-	&lt;div class=&quot;sui-box&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;false&quot; &gt;...&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 2 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;true&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 3 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;true&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
 
 &lt;/section&gt;
 </pre>
