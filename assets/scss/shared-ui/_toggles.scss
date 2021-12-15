@@ -128,3 +128,25 @@
 		}
 	}
 }
+
+@include body-class($wrap: true, $rtl: true) {
+	
+	.sui-toggle {
+		
+		.sui-toggle-slider {
+			float: right;
+			
+			~ .sui-toggle-label,
+			~ .sui-description {
+				margin-left: 0;
+				margin-right: #{$toggle-width + ($sui-gutter-md / 2)};
+			}
+		}
+		
+		+ label,
+		+ .sui-toggle-label {
+			margin-left: 0;
+			margin-right: #{$sui-gutter-md / 2};
+		}
+	}
+}

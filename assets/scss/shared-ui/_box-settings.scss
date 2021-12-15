@@ -205,3 +205,33 @@
 		}
 	}
 }
+
+@include body-class($wrap: true, $rtl: true) {
+
+	.sui-box-body {
+		// ELEMENT: Row
+		.sui-box-settings-row {
+
+			[class*="sui-box-settings-col-"] {
+
+				+ div {
+
+					@include media(min-width, md) {
+						margin-right: $sui-gutter;
+					}
+				}
+			}
+		}
+
+		.sui-settings-label {
+
+			&-with-tag {
+		
+				.sui-tag {
+					margin-left: 0;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
