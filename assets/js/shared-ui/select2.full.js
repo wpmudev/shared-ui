@@ -1811,7 +1811,7 @@
 				'<li class="select2-selection__choice">' +
 					'<button type="button" class="select2-selection__choice__remove" ' +
 					'tabindex="-1">' +
-					'<span aria-hidden="true">&times;</span>' +
+						'<span class="sui-icon-close" aria-hidden="true"></span>' +
 					'</button>' +
 					'<span class="select2-selection__choice__display"></span>' +
 				'</li>'
