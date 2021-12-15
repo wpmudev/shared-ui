@@ -1796,6 +1796,7 @@
 				var $rendered = this.$selection.find('.select2-selection__rendered');
 				$rendered.empty();
 				$rendered.removeAttr('title');
+				$rendered.removeClass('has-option-selected');
 			};
 
 			MultipleSelection.prototype.display = function (data, container) {
@@ -1870,7 +1871,7 @@
 
 				var $rendered = this.$selection.find('.select2-selection__rendered');
 
-				$rendered.append($selections);
+				$rendered.append($selections).addClass('has-option-selected');
 			};
 
 			return MultipleSelection;
