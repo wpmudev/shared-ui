@@ -107,7 +107,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });

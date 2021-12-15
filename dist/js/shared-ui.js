@@ -118,8 +118,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-0 .sui-accordion').length) {
-    $('.sui-2-12-0 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-1 .sui-accordion').length) {
+    $('.sui-2-12-1 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-0 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-1 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  $('.sui-2-12-0 .sui-slider').each(function () {
+  $('.sui-2-12-1 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-12-0 .sui-dropdown');
+      var $dropdowns = $('.sui-2-12-1 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-12-0 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-12-1 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -791,11 +791,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * Default: true
    * Optional boolean parameter that when it's set to "true", it will enable closing the
    * dialog with the Esc key.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog = function (dialogId, focusAfterClosed, focusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
     this.dialogNode = document.getElementById(dialogId);
 
     if (null === this.dialogNode) {
@@ -878,10 +883,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     this.addListeners();
-    aria.OpenDialogList.push(this);
-    this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+    aria.OpenDialogList.push(this); // If isAnimated is set true then modal box will animate.
 
-    this.dialogNode.classList.remove('sui-content-fade-out');
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
 
     if (this.focusFirst) {
       this.focusFirst.focus();
@@ -899,10 +910,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * @desc Hides the current top dialog, removes listeners of the top dialog,
    * restore listeners of a parent dialog if one was open under the one that
    * just closed, and sets focus on the element specified for focusAfterClosed.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog.prototype.close = function () {
+    var isAnimated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var self = this; // Trigger the 'close' event at the beginning of the closing process.
 
     var closeEvent = new Event('close');
@@ -910,9 +926,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     aria.OpenDialogList.pop();
     this.removeListeners();
     this.preNode.parentNode.removeChild(this.preNode);
-    this.postNode.parentNode.removeChild(this.postNode);
-    this.dialogNode.classList.add('sui-content-fade-out');
-    this.dialogNode.classList.remove('sui-content-fade-in');
+    this.postNode.parentNode.removeChild(this.postNode); // If isAnimated is set true then modal box will animate.
+
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-out');
+      this.dialogNode.classList.remove('sui-content-fade-in');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
+
     this.focusAfterClosed.focus();
     setTimeout(function () {
       self.backdropNode.classList.remove('sui-active');
@@ -1040,17 +1063,31 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * Default: true
    * Optional boolean parameter that when it's set to "true", it will enable closing the
    * dialog with the Esc key.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog.prototype.replace = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
     var self = this;
     aria.OpenDialogList.pop();
     this.removeListeners();
     aria.Utils.remove(this.preNode);
-    aria.Utils.remove(this.postNode);
-    this.dialogNode.classList.remove('sui-content-fade-in');
+    aria.Utils.remove(this.postNode); // If isAnimated is set true then modal box will animate.
+
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
+
     this.backdropNode.classList.remove('sui-active');
     setTimeout(function () {
       var slides = self.dialogNode.querySelectorAll('.sui-modal-slide');
@@ -1142,7 +1179,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
     }, 350);
     var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
+    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated);
   }; // end replace
 
   /**
@@ -1325,18 +1362,20 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.openModal = function (dialogId, focusAfterClosed, focusFirst, dialogOverlay) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
-    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc);
+    var isAnimated = arguments.length > 5 ? arguments[5] : undefined;
+    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc, isAnimated);
   }; // end openModal.
 
 
-  SUI.closeModal = function () {
+  SUI.closeModal = function (isAnimated) {
     var topDialog = aria.getCurrentDialog();
-    topDialog.close();
+    topDialog.close(isAnimated);
   }; // end closeDialog.
 
 
   SUI.replaceModal = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 ? arguments[5] : undefined;
     var topDialog = aria.getCurrentDialog();
     /**
      * BUG #1:
@@ -1347,7 +1386,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
      */
 
-    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
+    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated);
   }; // end replaceModal.
 
 
@@ -1368,7 +1407,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.modalDialog = function () {
     function init() {
-      var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
+      var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation, isAnimated;
       buttonOpen = $('[data-modal-open]');
       buttonClose = $('[data-modal-close]');
       buttonReplace = $('[data-modal-replace]');
@@ -1380,6 +1419,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         closeFocus = button.attr('data-modal-close-focus');
         newFocus = button.attr('data-modal-open-focus');
         overlayMask = button.attr('data-modal-mask');
+        isAnimated = button.attr('data-modal-animated');
         var isCloseOnEsc = 'false' === button.attr('data-esc-close') ? false : true;
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) === _typeof(closeFocus) || false === closeFocus || '' === closeFocus) {
@@ -1396,8 +1436,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           overlayMask = false;
         }
 
+        if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(isAnimated) && false !== isAnimated && 'false' === isAnimated) {
+          isAnimated = false;
+        } else {
+          isAnimated = true;
+        }
+
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.openModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
+          SUI.openModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated);
         }
 
         e.preventDefault();
@@ -1425,7 +1471,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
+          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated);
         }
 
         e.preventDefault();
@@ -1451,7 +1497,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         e.preventDefault();
       });
       buttonClose.on('click', function (e) {
-        SUI.closeModal();
+        SUI.closeModal(isAnimated);
         e.preventDefault();
       });
     }
@@ -2480,7 +2526,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-12-0 .sui-form-field').each(function () {
+    $('.sui-2-12-1 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2538,7 +2584,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-12-0 .sui-reviews').each(function () {
+  $('.sui-2-12-1 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
@@ -2570,7 +2616,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-12-0 .sui-circle-score').each(function () {
+  $('.sui-2-12-1 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -4169,7 +4215,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             originalEvent: evt
           });
         });
-        this.$selection.on('click', '.select2-selection__choice__remove', function (evt) {
+        this.$selection.on('click', '.sui-button-icon', function (evt) {
           // Ignore the event if it is disabled
           if (self.isDisabled()) {
             return;
@@ -4183,7 +4229,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             data: data
           });
         });
-        this.$selection.on('keydown', '.select2-selection__choice__remove', function (evt) {
+        this.$selection.on('keydown', '.sui-button-icon', function (evt) {
           // Ignore the event if it is disabled
           if (self.isDisabled()) {
             return;
@@ -4197,6 +4243,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         var $rendered = this.$selection.find('.select2-selection__rendered');
         $rendered.empty();
         $rendered.removeAttr('title');
+        $rendered.removeClass('has-option-selected');
       };
 
       MultipleSelection.prototype.display = function (data, container) {
@@ -4206,7 +4253,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       };
 
       MultipleSelection.prototype.selectionContainer = function () {
-        var $container = $('<li class="select2-selection__choice">' + '<button type="button" class="select2-selection__choice__remove" ' + 'tabindex="-1">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<span class="select2-selection__choice__display"></span>' + '</li>');
+        var $container = $('<li class="select2-selection__choice">' + '<span class="select2-selection__choice__display"></span>' + '<button type="button" class="sui-button-icon" ' + 'tabindex="-1">' + '<span class="sui-icon-close sui-sm" aria-hidden="true"></span>' + '</button>' + '</li>');
         return $container;
       };
 
@@ -4240,7 +4287,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }
 
           var removeItem = this.options.get('translations').get('removeItem');
-          var $remove = $selection.find('.select2-selection__choice__remove');
+          var $remove = $selection.find('.sui-button-icon');
           $remove.attr('title', removeItem());
           $remove.attr('aria-label', removeItem());
           $remove.attr('aria-describedby', selectionId);
@@ -4249,7 +4296,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
 
         var $rendered = this.$selection.find('.select2-selection__rendered');
-        $rendered.append($selections);
+        $rendered.append($selections).addClass('has-option-selected');
       };
 
       return MultipleSelection;
@@ -8125,7 +8172,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-0'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-1'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8138,7 +8185,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-0'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-1'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8156,7 +8203,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-0'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-1'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8174,7 +8221,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-0'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-1'),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -8187,7 +8234,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-0'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-1'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -8251,7 +8298,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
   };
 
-  $('.sui-2-12-0 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-1 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8689,12 +8736,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-0 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-1 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-0 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-1 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9014,8 +9061,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-0 .sui-tree').length) {
-    $('.sui-2-12-0 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-12-1 .sui-tree').length) {
+    $('.sui-2-12-1 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9031,26 +9078,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.upload = function () {
-    $('.sui-2-12-0 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-12-1 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
       if (file) {
         message.text(file.name);
       }
-    }); // This will trigger on file change. 
+    }); // check whether element exist then execute js
 
-    $('.sui-file-upload input[type="file"]').on('change', function () {
-      var parent = $(this).parent();
-      var filename = $(this).val();
-      var imageContainer = parent.find('.sui-upload-image');
+    if ($('.sui-2-12-1 .sui-file-upload').length) {
+      // function to set uploaded file
+      var uploadedFile = function uploadedFile(element, file, filename) {
+        var parent = element.closest('.sui-upload');
+        var imageContainer = parent.find('.sui-upload-image');
 
-      if (filename) {
-        var lastIndex = filename.lastIndexOf("\\");
-
-        if (lastIndex >= 0) {
-          filename = filename.substring(lastIndex + 1); // To show uploaded file preview.
-
+        if (filename) {
           if (imageContainer.length) {
             var reader = new FileReader();
             var imagePreview = imageContainer.find('.sui-image-preview');
@@ -9059,46 +9102,98 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
               imagePreview.attr('style', 'background-image: url(' + e.target.result + ' );');
             };
 
-            reader.readAsDataURL($(this)[0].files[0]);
+            reader.readAsDataURL(file);
           }
 
           parent.find('.sui-upload-file > span').text(filename);
           parent.addClass('sui-has_file');
         }
-      } else {
-        if (imageContainer.length) {
-          var imagePreview = imageContainer.find('.sui-image-preview');
-          imagePreview.attr('style', 'background-image: url();');
+      }; // function to open browser file explorer for selecting file
+
+
+      var selectFile = function selectFile(element) {
+        var parent = element.closest('.sui-upload');
+        var file = parent.find('input[type="file"]');
+        file.trigger('click');
+      }; // function to remove file
+
+
+      var removeFile = function removeFile(element) {
+        var parent = element.closest('.sui-upload');
+        var file = parent.find('input[type="file"]');
+        file.val('').change();
+      };
+
+      // This will trigger on file change. 
+      $('.sui-2-12-1 .sui-file-browser input[type="file"]').on('change', function () {
+        var parent = $(this).parent();
+        var filename = $(this).val();
+        var imageContainer = parent.find('.sui-upload-image');
+
+        if (filename) {
+          var lastIndex = filename.lastIndexOf("\\");
+
+          if (lastIndex >= 0) {
+            filename = filename.substring(lastIndex + 1); // To show uploaded file preview.
+
+            if (imageContainer.length) {
+              var reader = new FileReader();
+              var imagePreview = imageContainer.find('.sui-image-preview');
+
+              reader.onload = function (e) {
+                imagePreview.attr('style', 'background-image: url(' + e.target.result + ' );');
+              };
+
+              reader.readAsDataURL($(this)[0].files[0]);
+            }
+
+            parent.find('.sui-upload-file > span').text(filename);
+            parent.addClass('sui-has_file');
+          }
+        } else {
+          if (imageContainer.length) {
+            var imagePreview = imageContainer.find('.sui-image-preview');
+            imagePreview.attr('style', 'background-image: url();');
+          }
+
+          parent.find('.sui-upload-file > span').text('');
+          parent.removeClass('sui-has_file');
         }
+      }); // This will trigger on click of upload button
 
-        parent.find('.sui-upload-file > span').text('');
-        parent.removeClass('sui-has_file');
+      $('.sui-2-12-1 .sui-file-browser .sui-upload-button').on('click', function () {
+        selectFile($(this));
+      }); // This will trigger when user wants to remove the selected upload file
+
+      $('.sui-2-12-1 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
+        removeFile($(this));
+      }); // This will trigger reupload of file
+
+      $('.sui-2-12-1 .sui-file-browser .sui-upload-image').on('click', function () {
+        selectFile($(this));
+      }); // upload drag and drop functionality
+
+      var isAdvancedUpload = function () {
+        var div = document.createElement('div');
+        return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
+      }();
+
+      var uploadArea = $('.sui-2-12-1 .sui-upload-button');
+
+      if (isAdvancedUpload) {
+        var droppedFiles = false;
+        uploadArea.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }).on('dragover dragenter', function () {
+          uploadArea.addClass('sui-is-dragover');
+        }).on('dragleave dragend drop', function () {
+          uploadArea.removeClass('sui-is-dragover');
+        }).on('drop', function (e) {
+          droppedFiles = e.originalEvent.dataTransfer.files;
+          uploadedFile($(this), droppedFiles[0], droppedFiles[0].name);
+        });
       }
-    }); // This will trigger on click of upload button
-
-    $('.sui-file-upload .sui-upload-button').on('click', function () {
-      selectFile($(this));
-    }); // This will trigger when user wants to remove the selected upload file
-
-    $('.sui-file-upload [aria-label="Remove file"]').on('click', function () {
-      removeFile($(this));
-    }); // This will trigger reupload of file
-
-    $('.sui-file-upload .sui-upload-image').on('click', function () {
-      selectFile($(this));
-    }); // function to open browser file explorer for selecting file
-
-    function selectFile(element) {
-      var parent = element.closest('.sui-upload');
-      var file = parent.find('input[type="file"]');
-      file.trigger('click');
-    } // function to remove file
-
-
-    function removeFile(element) {
-      var parent = element.closest('.sui-upload');
-      var file = parent.find('input[type="file"]');
-      file.val('').change();
     }
   };
 

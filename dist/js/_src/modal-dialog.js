@@ -224,11 +224,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * Default: true
    * Optional boolean parameter that when it's set to "true", it will enable closing the
    * dialog with the Esc key.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog = function (dialogId, focusAfterClosed, focusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
     this.dialogNode = document.getElementById(dialogId);
 
     if (null === this.dialogNode) {
@@ -311,10 +316,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }
 
     this.addListeners();
-    aria.OpenDialogList.push(this);
-    this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+    aria.OpenDialogList.push(this); // If isAnimated is set true then modal box will animate.
 
-    this.dialogNode.classList.remove('sui-content-fade-out');
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
 
     if (this.focusFirst) {
       this.focusFirst.focus();
@@ -332,10 +343,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * @desc Hides the current top dialog, removes listeners of the top dialog,
    * restore listeners of a parent dialog if one was open under the one that
    * just closed, and sets focus on the element specified for focusAfterClosed.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog.prototype.close = function () {
+    var isAnimated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var self = this; // Trigger the 'close' event at the beginning of the closing process.
 
     var closeEvent = new Event('close');
@@ -343,9 +359,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     aria.OpenDialogList.pop();
     this.removeListeners();
     this.preNode.parentNode.removeChild(this.preNode);
-    this.postNode.parentNode.removeChild(this.postNode);
-    this.dialogNode.classList.add('sui-content-fade-out');
-    this.dialogNode.classList.remove('sui-content-fade-in');
+    this.postNode.parentNode.removeChild(this.postNode); // If isAnimated is set true then modal box will animate.
+
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-out');
+      this.dialogNode.classList.remove('sui-content-fade-in');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
+
     this.focusAfterClosed.focus();
     setTimeout(function () {
       self.backdropNode.classList.remove('sui-active');
@@ -473,17 +496,31 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * Default: true
    * Optional boolean parameter that when it's set to "true", it will enable closing the
    * dialog with the Esc key.
+   *
+   * @param isAnimated
+   * Default: true
+   * Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
    */
 
 
   aria.Dialog.prototype.replace = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
     var self = this;
     aria.OpenDialogList.pop();
     this.removeListeners();
     aria.Utils.remove(this.preNode);
-    aria.Utils.remove(this.postNode);
-    this.dialogNode.classList.remove('sui-content-fade-in');
+    aria.Utils.remove(this.postNode); // If isAnimated is set true then modal box will animate.
+
+    if (isAnimated) {
+      this.dialogNode.classList.add('sui-content-fade-in'); // make visible
+
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    } else {
+      this.dialogNode.classList.remove('sui-content-fade-in');
+      this.dialogNode.classList.remove('sui-content-fade-out');
+    }
+
     this.backdropNode.classList.remove('sui-active');
     setTimeout(function () {
       var slides = self.dialogNode.querySelectorAll('.sui-modal-slide');
@@ -575,7 +612,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
     }, 350);
     var focusAfterClosed = newFocusAfterClosed || this.focusAfterClosed;
-    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
+    var dialog = new aria.Dialog(newDialogId, focusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated);
   }; // end replace
 
   /**
@@ -758,18 +795,20 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.openModal = function (dialogId, focusAfterClosed, focusFirst, dialogOverlay) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
-    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc);
+    var isAnimated = arguments.length > 5 ? arguments[5] : undefined;
+    var dialog = new aria.Dialog(dialogId, focusAfterClosed, focusFirst, dialogOverlay, isCloseOnEsc, isAnimated);
   }; // end openModal.
 
 
-  SUI.closeModal = function () {
+  SUI.closeModal = function (isAnimated) {
     var topDialog = aria.getCurrentDialog();
-    topDialog.close();
+    topDialog.close(isAnimated);
   }; // end closeDialog.
 
 
   SUI.replaceModal = function (newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask) {
     var isCloseOnEsc = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+    var isAnimated = arguments.length > 5 ? arguments[5] : undefined;
     var topDialog = aria.getCurrentDialog();
     /**
      * BUG #1:
@@ -780,7 +819,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
      * if ( topDialog.dialogNode.contains( document.activeElement ) ) { ... }
      */
 
-    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc);
+    topDialog.replace(newDialogId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated);
   }; // end replaceModal.
 
 
@@ -801,7 +840,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.modalDialog = function () {
     function init() {
-      var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation;
+      var button, buttonOpen, buttonClose, buttonReplace, buttonSlide, overlayMask, modalId, slideId, closeFocus, newFocus, animation, isAnimated;
       buttonOpen = $('[data-modal-open]');
       buttonClose = $('[data-modal-close]');
       buttonReplace = $('[data-modal-replace]');
@@ -813,6 +852,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         closeFocus = button.attr('data-modal-close-focus');
         newFocus = button.attr('data-modal-open-focus');
         overlayMask = button.attr('data-modal-mask');
+        isAnimated = button.attr('data-modal-animated');
         var isCloseOnEsc = 'false' === button.attr('data-esc-close') ? false : true;
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) === _typeof(closeFocus) || false === closeFocus || '' === closeFocus) {
@@ -829,8 +869,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           overlayMask = false;
         }
 
+        if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(isAnimated) && false !== isAnimated && 'false' === isAnimated) {
+          isAnimated = false;
+        } else {
+          isAnimated = true;
+        }
+
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.openModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
+          SUI.openModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated);
         }
 
         e.preventDefault();
@@ -858,7 +904,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
 
         if ((typeof undefined === "undefined" ? "undefined" : _typeof(undefined)) !== _typeof(modalId) && false !== modalId && '' !== modalId) {
-          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc);
+          SUI.replaceModal(modalId, closeFocus, newFocus, overlayMask, isCloseOnEsc, isAnimated);
         }
 
         e.preventDefault();
@@ -884,7 +930,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         e.preventDefault();
       });
       buttonClose.on('click', function (e) {
-        SUI.closeModal();
+        SUI.closeModal(isAnimated);
         e.preventDefault();
       });
     }

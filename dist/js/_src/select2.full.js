@@ -1593,7 +1593,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             originalEvent: evt
           });
         });
-        this.$selection.on('click', '.select2-selection__choice__remove', function (evt) {
+        this.$selection.on('click', '.sui-button-icon', function (evt) {
           // Ignore the event if it is disabled
           if (self.isDisabled()) {
             return;
@@ -1607,7 +1607,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             data: data
           });
         });
-        this.$selection.on('keydown', '.select2-selection__choice__remove', function (evt) {
+        this.$selection.on('keydown', '.sui-button-icon', function (evt) {
           // Ignore the event if it is disabled
           if (self.isDisabled()) {
             return;
@@ -1621,6 +1621,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         var $rendered = this.$selection.find('.select2-selection__rendered');
         $rendered.empty();
         $rendered.removeAttr('title');
+        $rendered.removeClass('has-option-selected');
       };
 
       MultipleSelection.prototype.display = function (data, container) {
@@ -1630,7 +1631,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       };
 
       MultipleSelection.prototype.selectionContainer = function () {
-        var $container = $('<li class="select2-selection__choice">' + '<button type="button" class="select2-selection__choice__remove" ' + 'tabindex="-1">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<span class="select2-selection__choice__display"></span>' + '</li>');
+        var $container = $('<li class="select2-selection__choice">' + '<span class="select2-selection__choice__display"></span>' + '<button type="button" class="sui-button-icon" ' + 'tabindex="-1">' + '<span class="sui-icon-close sui-sm" aria-hidden="true"></span>' + '</button>' + '</li>');
         return $container;
       };
 
@@ -1664,7 +1665,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           }
 
           var removeItem = this.options.get('translations').get('removeItem');
-          var $remove = $selection.find('.select2-selection__choice__remove');
+          var $remove = $selection.find('.sui-button-icon');
           $remove.attr('title', removeItem());
           $remove.attr('aria-label', removeItem());
           $remove.attr('aria-describedby', selectionId);
@@ -1673,7 +1674,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
 
         var $rendered = this.$selection.find('.select2-selection__rendered');
-        $rendered.append($selections);
+        $rendered.append($selections).addClass('has-option-selected');
       };
 
       return MultipleSelection;
