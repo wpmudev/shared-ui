@@ -93,8 +93,8 @@ is_searchable: true
 						<div class="sui-form-field">
 
 							<label class="sui-label">Featured image</label>
-
-							<div class="sui-upload">
+              
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
 									type="file"
@@ -141,7 +141,7 @@ is_searchable: true
 
 							<label class="sui-label">Featured image</label>
 
-							<div class="sui-upload">
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
 									type="file"
@@ -291,7 +291,7 @@ is_searchable: true
 
 							<label class="sui-label">Featured image</label>
 
-							<div class="sui-upload">
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
 									type="file"
@@ -368,8 +368,7 @@ is_searchable: true
 
 							</div>
 
-							<div class="sui-upload">
-
+							<div class="sui-upload sui-file-upload sui-file-browser">
 								<input
 									type="file"
 									value=""
@@ -445,7 +444,7 @@ is_searchable: true
 
 							</div>
 
-							<div class="sui-upload">
+							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
 									type="file"
@@ -505,7 +504,7 @@ is_searchable: true
 
 	&lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
 
-	&lt;div class=&quot;sui-upload&quot;&gt;
+	&lt;div class=&quot;sui-upload sui-file-upload sui-file-browser&quot;&gt;
 
 		&lt;input
 			type=&quot;file&quot;
@@ -565,7 +564,7 @@ is_searchable: true
 
 <pre class="sui-code-snippet js">
 // This will trigger on file change. 
-$( '.sui-file-upload input[type="file"]' ).on( 'change', function() {
+$( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
 	var filename = $( this ).val();
 	var imageContainer = parent.find( '.sui-upload-image' );
@@ -596,7 +595,7 @@ $( '.sui-file-upload input[type="file"]' ).on( 'change', function() {
 });
 
 // This will trigger on click of upload button
-$( '.sui-file-upload .sui-upload-button' ).on( 'click', function(){
+$( '.sui-file-browser .sui-upload-button' ).on( 'click', function(){
 	selectFile($( this ));
 });
 
@@ -606,7 +605,7 @@ $( '.sui-file-upload [aria-label="Remove file"]' ).on( 'click', function(){
 });
 
 // This will trigger reupload of file
-$( '.sui-file-upload .sui-upload-image' ).on( 'click', function(){
+$( '.sui-file-browser .sui-upload-image' ).on( 'click', function(){
 	selectFile($( this ));
 });
 
@@ -643,6 +642,10 @@ function removeFile(element) {
 					<p>1. When clicking on <code>.sui-upload-button</code> element, we should open WordPress Media Library or browser files finder for user to select the desired file to be uploaded.</p>
 
 					<p>2. When clicking on <code>.sui-upload-file > button</code> we should remove / clear uploaded image.</p>
+
+					<p>3. To make upload functionality work add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
+					
+					<p>4. If you want default browser finder make sure to use this script and add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
 
 				</div>
 
