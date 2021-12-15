@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (Unreleased)
+## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (2021-12-15)
 
 #### ✨ New Features
 * **new(upload-files):** Enable drag and drop to upload files. [#370](https://github.com/wpmudev/shared-ui/pull/370) ([SUI-57](https://incsub.atlassian.net/browse/SUI-57)) ([@creador-dev](https://github.com/creador-dev))
