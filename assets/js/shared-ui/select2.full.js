@@ -1759,7 +1759,7 @@
 
 				this.$selection.on(
 				'click',
-				'.select2-selection__choice__remove',
+				'.sui-button-icon',
 				function (evt) {
 					// Ignore the event if it is disabled
 					if (self.isDisabled()) {
@@ -1780,7 +1780,7 @@
 
 				this.$selection.on(
 				'keydown',
-				'.select2-selection__choice__remove',
+				'.sui-button-icon',
 				function (evt) {
 					// Ignore the event if it is disabled
 					if (self.isDisabled()) {
@@ -1810,7 +1810,7 @@
 				var $container = $(
 				'<li class="select2-selection__choice">' +
 					'<span class="select2-selection__choice__display"></span>' +
-					'<button type="button" class="sui-button-icon select2-selection__choice__remove" ' +
+					'<button type="button" class="sui-button-icon" ' +
 					'tabindex="-1">' +
 						'<span class="sui-icon-close sui-sm" aria-hidden="true"></span>' +
 					'</button>' +
