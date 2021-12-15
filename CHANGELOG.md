@@ -17,6 +17,9 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 🐛 Bug Fixes
 * **fix(modal):** Scroll bar triggers the closing action. [#372](https://github.com/wpmudev/shared-ui/pull/372) ([SUI-161](https://incsub.atlassian.net/browse/SUI-161)) ([@creador-dev](https://github.com/creador-dev))
 
+#### 🏠 Internal
+* **fix(gulp):** Not publishing to Github when release. [#391](https://github.com/wpmudev/shared-ui/pull/391) ([SUI-161](https://incsub.atlassian.net/browse/SUI-161)) ([@iamleigh](https://github.com/iamleigh))
+
 #### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
