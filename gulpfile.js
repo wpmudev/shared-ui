@@ -1,7 +1,7 @@
 'use strict';
 
 // Import `src` and `dest` from gulp for use in the task.
-const { src, dest } = require( 'gulp' );
+const { src, dest, task } = require( 'gulp' );
 
 /**
  * Supported Packages
@@ -22,7 +22,7 @@ const replace      = require( 'gulp-replace' );
 const sass         = require( 'gulp-sass' )( require( 'sass' ) );
 const uglify       = require( 'gulp-uglify-es' ).default;
 const babel        = require( 'gulp-babel' );
-const ghpages      = require( 'gh-pages' );
+const ghPages      = require('gulp-gh-pages');
 
 /**
  * WPMU DEV Banner
@@ -418,28 +418,26 @@ function copyComponents() {
  */
 
 // Release library.
-function publishLibrary() {
-
-	return ghpages.publish( '_dist/library/', {
+task(
+	'publishLibrary',
+	() => src( './_dist/library/**/**/*' ).pipe( ghPages({
+		remoteUrl: 'https://github.com/wpmudev/shared-ui.git',
 		branch: 'master',
-		repo: 'https://github.com/wpmudev/shared-ui.git',
-		dest: '',
 		dotfiles: true,
 		message: '📦 Shared UI v' + getVersion()
-	});
-}
+	}) )
+);
 
 // Release showcase.
-function publishShowcase() {
-
-	return ghpages.publish( '_dist/showcase/', {
+task(
+	'publishShowcase',
+	() => src( './_dist/showcase/**/**/*' ).pipe( ghPages({
+		remoteUrl: 'https://github.com/wpmudev/shared-ui.git',
 		branch: 'gh-pages',
-		repo: 'https://github.com/wpmudev/shared-ui.git',
-		dest: '',
 		dotfiles: true,
 		message: '📦 Shared UI Showcase with SUI v' + getVersion()
-	});
-}
+	}) )
+);
 
 /**
  * Export functions.
@@ -474,6 +472,5 @@ exports.copy = gulp.series(
 		copyComponents
 	)
 );
+
 exports.watch = watch;
-exports.publishLibrary = publishLibrary;
-exports.publishShowcase = publishShowcase;
