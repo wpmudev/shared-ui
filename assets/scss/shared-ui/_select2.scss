@@ -125,28 +125,6 @@
 									text-overflow: ellipsis;
 									white-space: nowrap;
 								}
-
-								.select2-selection__choice__remove {
-									width: 26px;
-									height: 26px;
-									cursor: pointer;
-									display: flex;
-									flex-flow: column nowrap;
-									align-items: center;
-									justify-content: center;
-									margin: 0;
-									padding: 0;
-									border: 0;
-									border-top-left-radius: $border-radius;
-									border-bottom-left-radius: $border-radius;
-									background-color: #5E5E5E;
-									color: $overcast;
-									text-align: center;
-
-									span {
-										display: block;
-									}
-								}
 							}
 						}
 
@@ -207,6 +185,45 @@
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							background-color: $white;
+						}
+					}
+				}
+			}
+
+			&:not(.sui-select-theme--search) .selection {
+
+				span[role="combobox"] {
+
+					// TYPE: Multi Select.
+					&.select2-selection--multiple {
+
+						// Options.
+						.select2-selection__rendered {
+
+							.select2-selection__choice {
+
+								.sui-button-icon {
+									width: 26px;
+									height: 26px;
+									cursor: pointer;
+									display: flex;
+									flex-flow: column nowrap;
+									align-items: center;
+									justify-content: center;
+									margin: 0;
+									padding: 0;
+									border: 0;
+									border-top-left-radius: 0;
+									border-bottom-left-radius: 0;
+									background-color: #5E5E5E;
+									color: $overcast;
+									text-align: center;
+
+									&:focus {
+										box-shadow: none;
+									}
+								}
+							}
 						}
 					}
 				}
@@ -327,10 +344,6 @@
 									color: $nightrider;
 									font: 500 15px/22px $font;
 									letter-spacing: $font--letter-spacing;
-
-									+ .select2-search {
-										display: none;
-									}
 								}
 
 								&.has-option-selected {
@@ -758,7 +771,7 @@
 							.select2-selection__choice {
 								background-color: $black;
 
-								.select2-selection__choice__remove {
+								.sui-button-icon {
 									background-color: $black;
 									color: $white;
 								}
@@ -783,7 +796,7 @@
 								.select2-selection__choice {
 									color: $black;
 
-									.select2-selection__choice__remove {
+									.sui-button-icon {
 										color: $black;
 									}
 								}
