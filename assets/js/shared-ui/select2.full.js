@@ -1858,7 +1858,7 @@
 
 				var removeItem = this.options.get('translations').get('removeItem');
 
-				var $remove = $selection.find('.select2-selection__choice__remove');
+				var $remove = $selection.find('.sui-button-icon');
 
 				$remove.attr('title', removeItem());
 				$remove.attr('aria-label', removeItem());
