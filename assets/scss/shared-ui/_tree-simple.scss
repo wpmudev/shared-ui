@@ -633,26 +633,24 @@ $tree--file-type: (
 
 }
 
-@include body-class(false) {
-	&.rtl .sui-wrap {	
-		.sui-tree[data-tree=selector] li[role=treeitem] ul[role=group],
-		.sui-tree[data-tree=directory] li[role=treeitem] ul[role=group] {
-			padding-left: 0;
+@include body-class($wrap: true, $rtl: true) {
+	.sui-tree[data-tree=selector] li[role=treeitem] ul[role=group],
+	.sui-tree[data-tree=directory] li[role=treeitem] ul[role=group] {
+		padding-left: 0;
+	}
+
+	.sui-tree[data-tree=selector] li[role=treeitem] {
+		ul[role=group]{
+			padding-right: 26px;
 		}
 
-		.sui-tree[data-tree=selector] li[role=treeitem] {
-			ul[role=group]{
-				padding-right: 26px;
-			}
-
-			&>.sui-tree-node>.sui-node-checkbox+span {
-				margin-left: 0;
-				margin-right: 10px;
-			}
-		} 
-	
-		.sui-tree[data-tree=directory] li[role=treeitem] ul[role=group] {
-			padding-right: 20px;
+		&>.sui-tree-node>.sui-node-checkbox+span {
+			margin-left: 0;
+			margin-right: 10px;
 		}
+	} 
+
+	.sui-tree[data-tree=directory] li[role=treeitem] ul[role=group] {
+		padding-right: 20px;
 	}
 }
