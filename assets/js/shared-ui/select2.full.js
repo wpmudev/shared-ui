@@ -1810,9 +1810,9 @@
 				var $container = $(
 				'<li class="select2-selection__choice">' +
 					'<span class="select2-selection__choice__display"></span>' +
-					'<button type="button" class="select2-selection__choice__remove" ' +
+					'<button type="button" class="sui-button-icon select2-selection__choice__remove" ' +
 					'tabindex="-1">' +
-						'<span class="sui-icon-close" aria-hidden="true"></span>' +
+						'<span class="sui-icon-close sui-sm" aria-hidden="true"></span>' +
 					'</button>' +
 				'</li>'
 				);
