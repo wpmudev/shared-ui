@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.13.1](https://github.com/wpmudev/shared-ui/compare/v2.13.0...v2.13.1) (Unreleased)
+
+#### 🐛 Bug Fixes
+* **fix(calendar):** Ranges overlapping the calendar after a certain amount. [#297](https://github.com/wpmudev/shared-ui/pull/297) ([SUI-85](https://incsub.atlassian.net/browse/SUI-85)) ([@iamleigh](https://github.com/iamleigh))
+* **fix(calendar):** Looking off in mobile. [#298](https://github.com/wpmudev/shared-ui/pull/298) ([SUI-84](https://incsub.atlassian.net/browse/SUI-84)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [2.13.0](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.13.0) (Unreleased)
 
 #### 💥 Breaking Changes
