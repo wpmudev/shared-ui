@@ -216,6 +216,51 @@ is_searchable: true
 
 				</div>
 
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Default(radio input)</span>
+						<span class="sui-description">Tab options with radio inputs instead of buttons.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<label for="sample-new-tab-1" role="tab" class="sui-tab-item active" aria-controls="sample-tab-new-1" aria-selected="true">
+									<input type="radio" id="sample-new-tab-1" checked="checked" />
+									Tab 1
+								</label>
+								<label for="sample-new-tab-2" role="tab" class="sui-tab-item" aria-controls="sample-tab-new-2" aria-selected="false" tabindex="-1">
+									<input type="radio" id="sample-new-tab-2" />
+									Tab 2
+								</label>
+								<label for="sample-new-tab-3" role="tab" class="sui-tab-item" aria-controls="sample-tab-new-3" aria-selected="false" tabindex="-1">
+									<input type="radio" id="sample-new-tab-3" />
+									Tab 3								
+								</label>
+								<label for="sample-new-tab-4" role="tab" class="sui-tab-item" aria-controls="sample-tab-new-4" aria-selected="false" tabindex="-1">
+									<input type="radio" id="sample-new-tab-4" />
+									Tab 4
+								</label>
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="sample-tab-new-1" class="sui-tab-content active" aria-labelledby="sample-tab-1"><p>Content. Tab 1.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-new-2" class="sui-tab-content" aria-labelledby="sample-tab-2" hidden><p>Content. Tab 2.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-new-3" class="sui-tab-content" aria-labelledby="sample-tab-3" hidden><p>Content. Tab 3.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-new-4" class="sui-tab-content" aria-labelledby="sample-tab-4" hidden><p>Content. Tab 4.</p></div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
 			</div>
 
 		</div>
@@ -566,6 +611,98 @@ is_searchable: true
 		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 2.&lt;/p&gt;&lt;/div&gt;
 		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 3.&lt;/p&gt;&lt;/div&gt;
 		&lt;div class="sui-tab-boxed"&gt;&lt;p&gt;Content. Tab 4.&lt;/p&gt;&lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Default (radio input)</span>
+						<span class="sui-description">Tab options with radio inputs instead of buttons.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs&quot;&gt;
+
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;!--
+		NOTE(S):
+
+		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
+		problems when submitting the form.
+
+		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
+
+		3. Unique IDs are a must for button tab and its content.
+		--&gt;
+
+		&lt;label 
+			for=&quot;tab-unique-id&quot; 
+			role=&quot;tab&quot; 
+			class=&quot;sui-tab-item active&quot; 
+			aria-controls=&quot;tab-content-unique-id&quot; 
+			aria-selected=&quot;true&quot;
+		&gt;
+			&lt;input 
+				type=&quot;radio&quot;
+				id=&quot;tab-unique-id&quot;
+				checked=&quot;checked&quot;
+			/&gt;
+			Tab 1
+		&lt;/label&gt;
+
+		&lt;label 
+			for=&quot;tab-unique-id&quot; 
+			role=&quot;tab&quot;
+			class=&quot;sui-tab-item&quot;
+			aria-controls=&quot;tab-content-unique-id&quot;
+			aria-selected=&quot;true&quot;
+		&gt;
+			&lt;input 
+				type=&quot;radio&quot;
+				id=&quot;tab-unique-id&quot;
+			/&gt;
+			Tab 2
+		&lt;/label&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			tabindex=&quot;0&quot;
+			id=&quot;tab-content-unique-id&quot;
+			class=&quot;sui-tab-content active&quot;
+			aria-labelledby=&quot;tab-unique-id&quot;
+		&gt;
+			&lt;p&gt;Content. Active Tab.&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			tabindex=&quot;0&quot;
+			id=&quot;tab-content-unique-id&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;tab-unique-id&quot;
+			hidden
+		&gt;
+			&lt;p&gt;Content. Inactive Tab.&lt;/p&gt;
+		&lt;/div&gt;
+
 	&lt;/div&gt;
 
 &lt;/div&gt;

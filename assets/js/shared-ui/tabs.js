@@ -240,9 +240,11 @@
 		function activateTab( tab ) {
 
 			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
-				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
+				wrapper = $( tab ).closest( '.sui-tabs' ),
+				panels   = wrapper.find( '> .sui-tabs-content > [role="tabpanel"]' ),
 				controls = $( tab ).attr( 'aria-controls' ),
-				panel    = $( '#' + controls )
+				panel    = $( '#' + controls ),
+				radiobtn = $( tab ).find( 'input' )
 				;
 
 			deactivateTabs( tabs, panels );
@@ -253,6 +255,9 @@
 
 			panel.addClass( 'active' );
 			panel.prop( 'hidden', false );
+
+			wrapper.find( 'input' ).prop( 'checked', false );
+			radiobtn.prop( 'checked', true );
 
 		}
 
