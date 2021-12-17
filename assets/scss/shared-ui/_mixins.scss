@@ -1,3 +1,42 @@
+// Block
+// @param {String} $block - Block's name
+@mixin block($block, $type: 'class') {
+	@if $type == 'id' {
+		#sui-#{$block} {
+			@content;
+		}
+	}
+	@else {
+		.sui-#{$block} {
+			@content;
+		}
+	}
+}
+
+// Block Element
+// @param {String} $element - Element's name
+@mixin element($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+// Block Modifier
+// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+// Block Variable
+// @param {String} $variable - Variable's name
+@mixin variable($variable) {
+	&-#{$variable} {
+		@content;
+	}
+}
+
 // ==================================================
 // Generates the required versioned body class.
 //

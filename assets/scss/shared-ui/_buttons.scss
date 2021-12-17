@@ -1,10 +1,329 @@
+%button-basics {
+	cursor: pointer;
+	padding: 5px 14px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: $border-radius;
+	outline: none;
+	box-shadow: none;
+	font: 500 12px/16px $font;
+	letter-spacing: -0.25px;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: $transition;
+
+	[class*="sui-icon-"] {
+		vertical-align: middle;
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+%button-disabled {
+	&[disabled] {
+		pointer-events: none;
+		border-color: $silver;
+		background: $silver;
+		color: $fiftyshades;
+	}
+}
+
 @include body-class(true) {
+
+	.sui-button {
+		@extend %button-basics;
+		border-color: transparent;
+		background: $grey;
+		color: $white;
+
+		&:hover,
+		&:focus {
+			background: $ironmike;
+		}
+
+		&:focus {
+			border-color: $overcast;
+			box-shadow: 0 0 0 1px $overcast;
+		}
+
+		// MOD: Ghost.
+		@include modifier('ghost') {
+			border-color: $overcast;
+			background: transparent;
+			color: $grey;
+		}
+
+		// MOD: Light.
+		@include modifier('light') {
+			background: $haze;
+			color: $grey;
+		}
+
+		&--ghost,
+		&--light {
+
+			&:hover,
+			&:focus {
+				background: $grey;
+				color: $white;
+			}
+
+			&:hover {
+				border-color: $grey;
+			}
+
+			&:focus {
+				border-color: $overcast;
+				box-shadow: 0 0 0 1px $overcast;
+				color: $white;
+			}
+		}
+
+		// MOD: Blue.
+		@include modifier('blue') {
+
+			// MOD: Solid.
+			& {
+				background: $blue;
+
+				&:hover,
+				&:focus {
+					background: #1286B5;
+				}
+
+				&:focus {
+					border-color: $blue-ghost;
+					box-shadow: 0 0 0 1px $blue-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $blue-ghost;
+				background: transparent;
+				color: $blue;
+			}
+
+			// VAR: Light.
+			@include modifier('light') {
+				background: $blue-ghost;
+				color: $blue;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $blue;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $blue;
+				}
+
+				&:focus {
+					border-color: $blue-ghost;
+					box-shadow: 0 0 0 1px $blue-ghost;
+				}
+			}
+		}
+
+		// MOD: Red.
+		@include modifier('red') {
+
+			// MOD: Solid.
+			& {
+				background: $red;
+
+				&:hover,
+				&:focus {
+					background: #E44B4B;
+				}
+
+				&:focus {
+					border-color: $red-ghost;
+					box-shadow: 0 0 0 1px $red-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $red-ghost;
+				background: transparent;
+				color: $red;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $red-ghost;
+				color: $red;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $red;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $red;
+				}
+
+				&:focus {
+					border-color: $red-ghost;
+					box-shadow: 0 0 0 1px $red-ghost;
+				}
+			}
+		}
+
+		// MOD: Purple.
+		@include modifier('purple') {
+
+			// MOD: Solid.
+			& {
+				background: $purple;
+
+				&:hover,
+				&:focus {
+					background: #70018C;
+				}
+
+				&:focus {
+					border-color: $purple-ghost;
+					box-shadow: 0 0 0 1px $purple-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $purple-ghost;
+				background: transparent;
+				color: $purple;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $purple-ghost;
+				color: $purple;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $purple;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $purple;
+				}
+
+				&:focus {
+					border-color: $purple-ghost;
+					box-shadow: 0 0 0 1px $purple-ghost;
+				}
+			}
+		}
+
+		// MOD: Green.
+		@include modifier('green') {
+
+			// MOD: Solid.
+			& {
+				background: $green;
+
+				&:hover,
+				&:focus {
+					background: #139E83;
+				}
+
+				&:focus {
+					border-color: $green-ghost;
+					box-shadow: 0 0 0 1px $green-ghost;
+				}
+			}
+
+			// MOD: Ghost.
+			@include modifier('ghost') {
+				border-color: $green-ghost;
+				background: transparent;
+				color: $green;
+			}
+
+			// MOD: Light.
+			@include modifier('light') {
+				background: $green-ghost;
+				color: $green;
+			}
+
+			&--ghost,
+			&--light {
+
+				&:hover,
+				&:focus {
+					background: $green;
+					color: $white;
+				}
+
+				&:hover {
+					border-color: $green;
+				}
+
+				&:focus {
+					border-color: $green-ghost;
+					box-shadow: 0 0 0 1px $green-ghost;
+				}
+			}
+		}
+
+		@extend %button-disabled;
+	}
+
+	.sui-button {
+
+		&__text {
+			display: block;
+			text-align: center;
+		}
+
+		&__icon {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			[class*="sui-icon-"] {
+				display: block;
+			}
+		}
+
+		&--onload {
+			position: relative;
+		}
+	}
 
 	.sui-button,
 	a.sui-button,
 	button.sui-button {
 
-		&, &-icon {
+		&-icon {
 			cursor: pointer;
 			display: inline-block;
 			position: relative;
@@ -123,253 +442,253 @@
 	}
 
 	// VARIATION: Buttons with text
-	.sui-button,
-	a.sui-button,
-	button.sui-button {
-		width: auto;
-		min-width: 80px;
-		padding: 5px 14px;
-		background-color: map-get($button-background, default);
-		color: map-get($button-text-color, default);
-		font: 500 12px/16px $font;
-		letter-spacing: $font--letter-spacing;
-		text-transform: uppercase;
+	// .sui-button,
+	// a.sui-button,
+	// button.sui-button {
+	// 	width: auto;
+	// 	min-width: 80px;
+	// 	padding: 5px 14px;
+	// 	background-color: map-get($button-background, default);
+	// 	color: map-get($button-text-color, default);
+	// 	font: 500 12px/16px $font;
+	// 	letter-spacing: $font--letter-spacing;
+	// 	text-transform: uppercase;
 
-		[class*="sui-icon-"] {
-			vertical-align: middle;
+	// 	[class*="sui-icon-"] {
+	// 		vertical-align: middle;
 
-			&:not(.sui-loading) {
-				width: 22px;
-				position: relative;
-				top: -1px;
-				margin-left: -7px;
-			}
-		}
+	// 		&:not(.sui-loading) {
+	// 			width: 22px;
+	// 			position: relative;
+	// 			top: -1px;
+	// 			margin-left: -7px;
+	// 		}
+	// 	}
 
-		&:hover,
-		&:focus {
-			background-color: darken(map-get($button-background, default), 10%);
-		}
+	// 	&:hover,
+	// 	&:focus {
+	// 		background-color: darken(map-get($button-background, default), 10%);
+	// 	}
 
-		&:focus {
-			outline: none;
-			box-shadow: 0 0 0 2px map-get($button-shadow, default);
-		}
+	// 	&:focus {
+	// 		outline: none;
+	// 		box-shadow: 0 0 0 2px map-get($button-shadow, default);
+	// 	}
 
-		&.disabled,
-		&:disabled,
-		&[disabled],
-		&.sui-button-onload,
-		&.sui-button-onload-text {
-			background-color: $button-disabled--background;
-			color: $button-disabled--color;
-		}
+	// 	&.disabled,
+	// 	&:disabled,
+	// 	&[disabled],
+	// 	&.sui-button-onload,
+	// 	&.sui-button-onload-text {
+	// 		background-color: $button-disabled--background;
+	// 		color: $button-disabled--color;
+	// 	}
 
-		// VARIATION: Button with right icon
-		&.sui-button-icon-right {
+	// 	// VARIATION: Button with right icon
+	// 	&.sui-button-icon-right {
 
-			[class*="sui-icon-"] {
+	// 		[class*="sui-icon-"] {
 
-				&:not(.sui-loading) {
-					margin-right: -7px;
-					margin-left: 0;
-				}
-			}
-		}
+	// 			&:not(.sui-loading) {x	x	x
+	// 				margin-right: -7px;
+	// 				margin-left: 0;
+	// 			}
+	// 		}
+	// 	}
 
-		// VARIATION: Colorize buttons
-		@each $color in $button-colors {
+	// 	// VARIATION: Colorize buttons
+	// 	@each $color in $button-colors {
 
-			&.sui-button-#{"" + $color} {
-				background-color: map-get($button-background, $color);
-				color: map-get($button-text-color, $color);
+	// 		&.sui-button-#{"" + $color} {
+	// 			background-color: map-get($button-background, $color);
+	// 			color: map-get($button-text-color, $color);
 
-				&:hover,
-				&:focus {
-					background-color: darken(map-get($button-background, $color), 10%);
-				}
+	// 			&:hover,
+	// 			&:focus {
+	// 				background-color: darken(map-get($button-background, $color), 10%);
+	// 			}
 
-				&:focus {
-					outline: none;
-					box-shadow: 0 0 0 2px map-get($button-shadow, $color);
-				}
+	// 			&:focus {
+	// 				outline: none;
+	// 				box-shadow: 0 0 0 2px map-get($button-shadow, $color);
+	// 			}
 
-				&.disabled,
-				&:disabled,
-				&[disabled],
-				&.sui-button-onload,
-				&.sui-button-onload-text {
-					background-color: $button-disabled--background;
-					color: $button-disabled--color;
-				}
-			}
-		}
+	// 			&.disabled,
+	// 			&:disabled,
+	// 			&[disabled],
+	// 			&.sui-button-onload,
+	// 			&.sui-button-onload-text {
+	// 				background-color: $button-disabled--background;
+	// 				color: $button-disabled--color;
+	// 			}
+	// 		}
+	// 	}
 
-		// VARIATION: Upsell button
-		&.sui-button-upsell {
-			width: auto;
-			height: 26px;
-			padding: 4px 14px;
-			border-color: $button-upsell--border-static;
-			border-radius: 14px;
-			background-color: transparent;
-			color: $button-upsell--color-static;
-			line-height: 14px;
-			text-transform: none;
+	// 	// VARIATION: Upsell button
+	// 	&.sui-button-upsell {
+	// 		width: auto;
+	// 		height: 26px;
+	// 		padding: 4px 14px;
+	// 		border-color: $button-upsell--border-static;
+	// 		border-radius: 14px;
+	// 		background-color: transparent;
+	// 		color: $button-upsell--color-static;
+	// 		line-height: 14px;
+	// 		text-transform: none;
 
-			&:hover,
-			&:focus {
-				opacity: 1;
-				border-color: $button-upsell--border-active;
-				background-color: $button-upsell--border-active;
-				color: $button-upsell--color-active;
-			}
+	// 		&:hover,
+	// 		&:focus {
+	// 			opacity: 1;
+	// 			border-color: $button-upsell--border-active;
+	// 			background-color: $button-upsell--border-active;
+	// 			color: $button-upsell--color-active;
+	// 		}
 
-			&:focus {
-				outline: none;
-				box-shadow: 0 0 0 2px $purple-ghost;
-			}
-		}
+	// 		&:focus {
+	// 			outline: none;
+	// 			box-shadow: 0 0 0 2px $purple-ghost;
+	// 		}
+	// 	}
 
-		// VARIATION: Dashed button
-		&.sui-button-dashed {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-width: 1px;
-			border-style: dashed;
-			border-color: $button-dashed--border;
-			background-color: $button-dashed--background;
-			color: $button-dashed--color;
-			line-height: 18px;
+	// 	// VARIATION: Dashed button
+	// 	&.sui-button-dashed {
+	// 		width: 100%;
+	// 		display: flex;
+	// 		align-items: center;
+	// 		justify-content: center;
+	// 		border-width: 1px;
+	// 		border-style: dashed;
+	// 		border-color: $button-dashed--border;
+	// 		background-color: $button-dashed--background;
+	// 		color: $button-dashed--color;
+	// 		line-height: 18px;
 
-			&.sui-lg {
-				height: $button-dashed-height-lg;
+	// 		&.sui-lg {
+	// 			height: $button-dashed-height-lg;
 
-				@include media(max-width, md) {
-					height: $button-dashed-height-md;
-				}
-			}
+	// 			@include media(max-width, md) {
+	// 				height: $button-dashed-height-md;
+	// 			}
+	// 		}
 
-			@include media(max-width, md) {
-				height: $button-dashed-height-md;
-			}
+	// 		@include media(max-width, md) {
+	// 			height: $button-dashed-height-md;
+	// 		}
 
-			@include media(min-width, md) {
-				height: $button-dashed-height;
-			}
-		}
+	// 		@include media(min-width, md) {
+	// 			height: $button-dashed-height;
+	// 		}
+	// 	}
 
-		// VARIATION: Ghost button
-		&.sui-button-ghost {
-			border-color: map-get($button-border, default);
-			background-color: transparent;
-			color: map-get($button-background, default);
+	// 	// VARIATION: Ghost button
+	// 	&.sui-button-ghost {
+	// 		border-color: map-get($button-border, default);
+	// 		background-color: transparent;
+	// 		color: map-get($button-background, default);
 
-			&:hover,
-			&:focus {
-				border-color: map-get($button-background, default);
-				background-color: map-get($button-background, default);
-				color: map-get($button-text-color, default);
-			}
+	// 		&:hover,
+	// 		&:focus {
+	// 			border-color: map-get($button-background, default);
+	// 			background-color: map-get($button-background, default);
+	// 			color: map-get($button-text-color, default);
+	// 		}
 
-			&:focus {
-				outline: none;
-				box-shadow: 0 0 0 2px map-get($button-shadow, default);
-			}
+	// 		&:focus {
+	// 			outline: none;
+	// 			box-shadow: 0 0 0 2px map-get($button-shadow, default);
+	// 		}
 
-			&.disabled,
-			&:disabled,
-			&[disabled],
-			&.sui-button-onload,
-			&.sui-button-onload-text {
-				border-color: $button-disabled--background;
-				background-color: $button-disabled--background;
-				color: $button-disabled--color;
-			}
+	// 		&.disabled,
+	// 		&:disabled,
+	// 		&[disabled],
+	// 		&.sui-button-onload,
+	// 		&.sui-button-onload-text {
+	// 			border-color: $button-disabled--background;
+	// 			background-color: $button-disabled--background;
+	// 			color: $button-disabled--color;
+	// 		}
 
-			@each $color in $button-colors {
+	// 		@each $color in $button-colors {
 
-				&.sui-button-#{"" + $color} {
-					border-color: map-get($button-border, $color);
-					color: map-get($button-background, $color);
+	// 			&.sui-button-#{"" + $color} {
+	// 				border-color: map-get($button-border, $color);
+	// 				color: map-get($button-background, $color);
 
-					&:hover,
-					&:focus {
-						border-color: map-get($button-background, $color);
-						background-color: map-get($button-background, $color);
-						color: map-get($button-text-color, $color);
-					}
+	// 				&:hover,
+	// 				&:focus {
+	// 					border-color: map-get($button-background, $color);
+	// 					background-color: map-get($button-background, $color);
+	// 					color: map-get($button-text-color, $color);
+	// 				}
 
-					&:focus {
-						outline: none;
-						box-shadow: 0 0 0 2px map-get($button-shadow, $color);
-					}
+	// 				&:focus {
+	// 					outline: none;
+	// 					box-shadow: 0 0 0 2px map-get($button-shadow, $color);
+	// 				}
 
-					&.disabled,
-					&:disabled,
-					&[disabled],
-					&.sui-button-onload {
-						border-color: $button-disabled--background;
-						background-color: $button-disabled--background;
-						color: $button-disabled--color;
-					}
-				}
-			}
-		}
+	// 				&.disabled,
+	// 				&:disabled,
+	// 				&[disabled],
+	// 				&.sui-button-onload {
+	// 					border-color: $button-disabled--background;
+	// 					background-color: $button-disabled--background;
+	// 					color: $button-disabled--color;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
 
-		// VARIATION: Compound button
-		&.sui-button-compound {
+	// 	// VARIATION: Compound button
+	// 	&.sui-button-compound {
 
-			.sui-compound-desktop {
+	// 		.sui-compound-desktop {
 
-				@include media(max-width, md) {
-					display: none;
-				}
+	// 			@include media(max-width, md) {
+	// 				display: none;
+	// 			}
 
-				@include media(min-width, md) {
-					display: block;
-				}
-			}
+	// 			@include media(min-width, md) {
+	// 				display: block;
+	// 			}
+	// 		}
 
-			.sui-compound-mobile {
+	// 		.sui-compound-mobile {
 
-				[class*="sui-icon-"] {
+	// 			[class*="sui-icon-"] {
 
-					@include media(max-width, md) {
-						margin-right: 0;
-						margin-left: 0;
-					}
-				}
+	// 				@include media(max-width, md) {
+	// 					margin-right: 0;
+	// 					margin-left: 0;
+	// 				}
+	// 			}
 
-				@include media(max-width, md) {
-					display: block;
-				}
+	// 			@include media(max-width, md) {
+	// 				display: block;
+	// 			}
 
-				@include media(min-width, md) {
-					display: none;
-				}
-			}
+	// 			@include media(min-width, md) {
+	// 				display: none;
+	// 			}
+	// 		}
 
-			@include media(max-width, md) {
-				min-width: 44px;
-				padding-right: 5px;
-				padding-left: 5px;
-			}
-		}
+	// 		@include media(max-width, md) {
+	// 			min-width: 44px;
+	// 			padding-right: 5px;
+	// 			padding-left: 5px;
+	// 		}
+	// 	}
 
-		// SIZE: Large
-		&.sui-button-lg {
-			padding: 8px 20px;
-			font-size: 15px;
-			line-height: 20px;
+	// 	// SIZE: Large
+	// 	&.sui-button-lg {
+	// 		padding: 8px 20px;
+	// 		font-size: 15px;
+	// 		line-height: 20px;
 
-			[class*="sui-icon-"] {
-				font-size: 16px;
-			}
-		}
-	}
+	// 		[class*="sui-icon-"] {
+	// 			font-size: 16px;
+	// 		}
+	// 	}
+	// }
 
 	// VARIATION: Buttons with icons (only)
 	// This variation it's not related and must not be used with .sui-button class
