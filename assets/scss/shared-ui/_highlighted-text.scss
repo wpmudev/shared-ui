@@ -1,0 +1,72 @@
+@include body-class(true) {
+	.sui-highlighted-text {
+
+		.sui-highlight-content {
+			display: flex;
+			align-items: flex-start;
+			margin: 0;
+			padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
+			border: 0;
+			border-radius: $border-radius;
+			background-color: $white;
+			box-shadow: inset 2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
+
+			p {
+				margin: 0 0 #{$sui-gutter-md / 2};
+				padding: 0;
+				border: 0;
+				color: palette(gray, dark);
+				font-size: 13px;
+				line-height: 22px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			.sui-highlight-message {
+				flex: 1;
+				position: relative;
+				padding: 5px 0 3px;
+			}
+		}
+		
+		mark::before {
+			content: ' [highlight text start] ';
+		}
+		
+		mark::after {
+			content: ' [highlight text end] ';
+		}
+		  
+		/* Hide the text created in the CSS content property */
+		mark::before,
+		mark::after {
+			clip-path: inset(100%);
+			clip: rect(1px, 1px, 1px, 1px);
+			height: 1px;
+			overflow: hidden;
+			position: absolute;
+			white-space: nowrap;
+			width: 1px;
+		}
+	}
+}
+
+// RTL Support.
+@include body-class(true, true) {
+
+	.sui-highlighted-text {
+		direction: rtl;
+
+		.sui-highlight-content {
+			flex-direction: row;
+			box-shadow: inset -2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
+
+			p {
+				padding-right: #{$sui-gutter - 4px};
+				padding-left: 0;
+			}
+		}
+	}
+}
