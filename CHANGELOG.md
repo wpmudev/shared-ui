@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.2](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.12.2) (2021-12-23)
+
+#### 🐛 Bug Fixes
+* **fix:** RTL styles not being applied. [#405](https://github.com/wpmudev/shared-ui/pull/405) ([SUI-278](https://incsub.atlassian.net/browse/SUI-278)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [2.12.1](https://github.com/wpmudev/shared-ui/compare/v2.12.0...v2.12.1) (2021-12-15)
 
 #### ✨ New Features
