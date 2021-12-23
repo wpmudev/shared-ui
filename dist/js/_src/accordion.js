@@ -113,8 +113,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-1 .sui-accordion').length) {
-    $('.sui-2-12-1 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-2 .sui-accordion').length) {
+    $('.sui-2-12-2 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
