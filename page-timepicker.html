@@ -1,0 +1,205 @@
+---
+layout: default
+title: Timepicker
+permalink: /timepicker/
+id: timepicker
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="single">Timepicker</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Timepicker -->
+	<div class="sui-box" data-tab="single">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Timepicker</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-notice sui-notice-warning">
+				<p>The <strong>Shared UI Library</strong> supports styling for the timepicker, but to make it work you will need to include <a href="https://github.com/loebi-ch/jquery-clock-timepicker/" target="_blank">jQuery Timepicker plugin</a>.</p>
+			</div>
+
+			<div class="sui-tabs sui-side-tabs">
+
+				<div role="tablist" class="sui-tabs-menu">
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-single-default"
+						class="sui-tab-item active"
+						aria-controls="tab-content-single-default"
+						aria-selected="true"
+					>
+						Default State
+					</button>
+
+					<button
+						type="button"
+						role="tab"
+						id="tab-single-error"
+						class="sui-tab-item"
+						aria-controls="tab-content-single-error"
+						aria-selected="false"
+						tabindex="-1"
+					>
+						Error State
+					</button>
+
+				</div>
+
+				<div class="sui-tabs-content sui-tabs-content-lg">
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-single-default"
+						class="sui-tab-content active"
+						aria-labelledby="tab-single-default"
+					>
+
+						<div class="sui-form-field">
+
+							<label for="time-simple-default" id="time-simple-default--label" class="sui-label">Expiration Time</label>
+
+							<div class="sui-time">
+								<input
+									type="text"
+									value="00:00"
+									placeholder="Pick a time"
+									id="time-simple-default"
+									class="time sui-form-control"
+									aria-labelledby="time-simple-default--label"
+									aria-describedby="time-simple-default--message time-simple-default--error"
+								/>
+								<span class="sui-icon-clock" aria-hidden="true"></span>
+							</div>
+
+							<span id="time-simple-default--error" class="sui-error-message"></span>
+
+							<span id="time-simple-default--message" class="sui-description">Set an expiration time for your module.</span>
+
+						</div>
+
+					</div>
+
+					<div
+						role="tabpanel"
+						tabindex="0"
+						id="tab-content-single-error"
+						class="sui-tab-content"
+						aria-labelledby="tab-single-error"
+						hidden
+					>
+
+						<div class="sui-form-field sui-form-field-error">
+
+							<label for="time-simple-error" id="time-simple-error--label" class="sui-label">Expiration Time</label>
+
+							<div class="sui-time">
+								<input
+									type="text"
+									placeholder="Pick a time"
+									id="time-simple-error"
+									class="sui-form-control"
+									aria-labelledby="time-simple-error--label"
+									aria-describedby="time-simple-error--message time-simple-error--error"
+								/>
+								<span class="sui-icon-clock" aria-hidden="true"></span>
+							</div>
+
+							<span id="time-simple-error--error" class="sui-error-message">Expiration time is not valid.</span>
+
+							<span id="time-simple-error--message" class="sui-description">Set an expiration time for your module.</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">HTML Markup</h3>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;unique-id--label&quot; class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+
+	&lt;div class=&quot;sui-time&quot;&gt;
+		&lt;input
+			type=&quot;text&quot;
+			value=&quot;00:00&quot;
+			placeholder=&quot;Placeholder&quot;
+			id=&quot;unique-id&quot;
+			class=&quot;time sui-form-control&quot;
+			aria-labelledby=&quot;unique-id--label&quot;
+			aria-describedby=&quot;unique-id--message unique-id--error&quot;
+		/&gt;
+		&lt;span class=&quot;sui-icon-clock&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;/div&gt;
+
+	&lt;!-- NOTE: Print error message when error occurs and display message --&gt;
+	&lt;span id=&quot;unique-id--error&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;unique-id--message&quot; class=&quot;sui-description&quot;&gt;Field message goes here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<h3 class="sui-label">Sample JS</h3>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+$( '#unique-id' ).clockTimePicker({
+	duration: true,
+	precision: 1,
+	vibrate: true,
+	required: true
+});
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
