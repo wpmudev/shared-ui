@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-multistrings-aria {
@@ -11,7 +13,7 @@
 		flex-wrap: wrap;
 		align-items: flex-start;
 		margin: 0;
-		padding: #{($sui-gutter-md / 2) - 2px};
+		padding: #{math.div($sui-gutter-md, 2) - 2px};
 		border: 1px solid palette(gray, lighter);
 		border-radius: $border-radius;
 		background-color: #FAFAFA;

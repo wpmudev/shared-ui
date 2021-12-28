@@ -142,6 +142,14 @@ Default: true
 Handles whether the ESC key closes the modal.
 If 'true', pressing the ESC key closes the modal.
 If 'false', pressing the ESC key does nothing.
+
+6. data-modal-animated 
+true|false
+Default: true
+Handles whether the modal is animated.
+If 'true', modal will be animated.
+If 'false', modal will not be animated.
+
 --&gt;
 &lt;button
 	data-modal-open=&quot;unique-id&quot;
@@ -149,6 +157,7 @@ If 'false', pressing the ESC key does nothing.
 	data-modal-close-focus=&quot;focused-element-id&quot;
 	data-modal-mask=&quot;true&quot;
 	data-esc-close=&quot;true&quot;
+	data-modal-animated=&quot;true&quot;
 &gt;
 	Open Modal
 &lt;/button&gt;
@@ -208,7 +217,11 @@ You can use this attribute on an element that's placed "inside" modal.
 	* If 'true', pressing the ESC key closes the modal.
 	* If 'false', pressing the ESC key does nothing.
 	*
-	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask, isCloseOnEsc );
+	* @param isAnimated
+	* Default: true
+	* Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
+	*
+	* SUI.openModal( modalId, focusAfterClosed, focusWhenOpen, hasOverlayMask, isCloseOnEsc, isAnimated );
 	*/
 	$( 'button' ).on( 'click', function() {
 
@@ -216,7 +229,8 @@ You can use this attribute on an element that's placed "inside" modal.
 			focusAfterClosed = this,
 			focusWhenOpen    = undefined,
 			hasOverlayMask   = false,
-			isCloseOnEsc     = true
+			isCloseOnEsc     = true,
+			isAnimated     	 = true
 		;
 
 		SUI.openModal(
@@ -224,7 +238,8 @@ You can use this attribute on an element that's placed "inside" modal.
 			focusAfterClosed,
 			focusWhenOpen,
 			hasOverlayMask,
-			isCloseOnEsc
+			isCloseOnEsc,
+			isAnimated
 		);
 
 	});
@@ -442,6 +457,14 @@ Default: true
 Handles whether the ESC key closes the modal.
 If 'true', pressing the ESC key closes the modal.
 If 'false', pressing the ESC key does nothing.
+
+6. data-modal-animated 
+true|false
+Default: true
+Handles whether the modal is animated.
+If 'true', modal will be animated.
+If 'false', modal will not be animated.
+
 --&gt;
 &lt;button
 	data-modal-replace=&quot;unique-id&quot;
@@ -449,6 +472,7 @@ If 'false', pressing the ESC key does nothing.
 	data-modal-close-focus=&quot;element-unique-id&quot;
 	data-modal-replace-mask=&quot;true&quot;
 	data-esc-close=&quot;true&quot;
+	data-modal-animated=&quot;true&quot;
 &gt;
 &lt;/button&gt;
 </pre>
@@ -457,7 +481,7 @@ If 'false', pressing the ESC key does nothing.
 
 				<label class="sui-label" style="margin-bottom: 5px;">JS Actions</label>
 
-				<span class="sui-description" style="margin-bottom: 10px;">There are times when you need to excecute some actions with JS during moda open/close. For those cases is recommended to use JS functions when to trigger modal open/close action.</span>
+				<span class="sui-description" style="margin-bottom: 10px;">There are times when you need to excecute some actions with JS during modal open/close. For those cases is recommended to use JS functions when to trigger modal open/close action.</span>
 
 				<div class="demo-code-block">
 
@@ -489,7 +513,11 @@ If 'false', pressing the ESC key does nothing.
 * If 'true', pressing the ESC key closes the modal.
 * If 'false', pressing the ESC key does nothing.
 *
-* SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
+* @param isAnimated
+* Default: true
+* Optional boolean parameter that when it's set to "true", it will enable animation in dialog box.
+*
+* SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated );
 */
 ( function( $ ) {
 
@@ -499,10 +527,12 @@ If 'false', pressing the ESC key does nothing.
 			newFocusAfterClosed = 'element-unique-id',
 			newFocusFirst       = 'element-unique-id',
 			hasOverlayMask      = true,
-			isCloseOnEsc        = true
+			isCloseOnEsc        = true,
+			isAnimated        = true,
+
 			;
 
-		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc );
+		SUI.replaceModal( newModalId, newFocusAfterClosed, newFocusFirst, hasOverlayMask, isCloseOnEsc, isAnimated );
 
 	});
 
@@ -2592,6 +2622,306 @@ If not chosen the slide intro animation will be fade in.
 								</div>
 
 								<img src="{{ site.baseurl }}/assets/images/beehive-footer.png" srcset="{{ site.baseurl }}/assets/images/beehive-footer.png 1x, {{ site.baseurl }}/assets/images/beehive-footer@2x.png 2x" class="sui-image sui-image-center" aria-hidden="true">
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Modal without animation. -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-2">
+
+					<p class="sui-settings-label sui-dark">7. Modal without animation</p>
+
+					<p class="sui-description">This sample was to show a modal without open/close animation.</p>
+
+					<p><a href="https://projects.invisionapp.com/d/main#/console/18284199/379922849/preview" target="_blank">( Review original design )</a></p>
+
+					<p style="margin-bottom: 0;"><button id="demo-dialog--sample-hubspot-open" class="sui-button" data-modal-open="demo-dialog--sample-no-animation" data-modal-mask="true" data-modal-animated="false">Show Sample Modal</button></p>
+
+					<!-- MODAL: HubSpot Integration (Step 1) -->
+					<div class="sui-modal sui-modal-lg">
+
+						<div
+							role="dialog"
+							id="demo-dialog--sample-no-animation"
+							class="sui-modal-content"
+							aria-modal="true"
+							aria-labelledby="demo-dialog--sample-hubspot-contact-title"
+							aria-describedby="demo-dialog--sample-hubspot-contact-desc"
+						>
+
+							<div class="sui-box">
+
+								<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--100">
+
+									<figure class="sui-box-logo" aria-hidden="true">
+
+										<img
+											src="{{ site.baseurl }}/assets/images/hubspot-logo.png"
+											srcset="{{ site.baseurl }}/assets/images/hubspot-logo.png 1x, {{ site.baseurl }}/assets/images/hubspot-logo@2x.png 2x"
+										/>
+
+									</figure>
+
+									<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+										<span class="sui-icon-close sui-md" aria-hidden="true"></span>
+										<span class="sui-screen-reader-text">Close this modal</span>
+									</button>
+
+									<h3 id="demo-dialog--sample-hubspot-contact-title" class="sui-box-title sui-lg">Create Contact</h3>
+
+									<p id="demo-dialog--sample-hubspot-contact-desc" class="sui-description">Let's start with choosing the HubSpot list and matching up your form fields with the default HubSpot contact fields to make sure we’re sending data to the right place.</p>
+
+								</div>
+
+								<div class="sui-box-body">
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-list" id="demo-dialog--sample-hubspot-list-label" class="sui-label">HubSpot List (optional) <span class="sui-label-note">Static list only</span></label>
+
+										<select id="demo-dialog--sample-hubspot-list" aria-labelledby="demo-dialog--sample-hubspot-list-label" aria-required="true">
+											<option value="">Select a list</option>
+											<option value="list-1">List #1</option>
+											<option value="list-2">List #2</option>
+											<option value="list-3">List #3</option>
+										</select>
+
+										<span class="sui-description">You can optionally add the contact to a static HubSpot list. Leave it empty to create a contact without adding it to a list.</span>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-map" id="demo-dialog--sample-hubspot-map-label" class="sui-label">Field Mapping</label>
+
+										<table id="demo-dialog--sample-hubspot-map" class="sui-table" style="margin-top: 5px;" aria-labelledby="demo-dialog--sample-hubspot-map-label">
+
+											<thead>
+												<tr>
+													<th>HubSpot Fields</th>
+													<th>Forminator Fields</th>
+												</tr>
+											</thead>
+
+											<tbody>
+
+												<!-- FIELD: Email Address -->
+												<tr>
+													<td id="demo-dialog--sample-hubspot-map-email" class="sui-table-item-title" aria-required="true">Email Address</td>
+													<td><select aria-labelledby="demo-dialog--sample-hubspot-map-email">
+														<option value="">None</option>
+														<option value="">Email Address | email-1</option>
+													</select></td>
+												</tr>
+
+												<!-- FIELD: First Name -->
+												<tr>
+													<td id="demo-dialog--sample-hubspot-map-fname" class="sui-table-item-title">First Name</td>
+													<td><select aria-labelledby="demo-dialog--sample-hubspot-map-fname">
+														<option value="">None</option>
+														<option value="name-1-prefix">Prefix | name-1-prefix</option>
+														<option value="name-1-first-name">First Name | name-1-first-name</option>
+														<option value="name-1-last-name">Last Name | name-1-last-name</option>
+														<option value="input-1">Job Title | input-1</option>
+														<option value="textarea-1">Additional Notes | textarea-1</option>
+													</select></td>
+												</tr>
+
+												<!-- FIELD: Last Name -->
+												<tr>
+													<td id="demo-dialog--sample-hubspot-map-lname" class="sui-table-item-title">Last Name</td>
+													<td><select aria-labelledby="demo-dialog--sample-hubspot-map-lname">
+														<option value="">None</option>
+														<option value="name-1-prefix">Prefix | name-1-prefix</option>
+														<option value="name-1-first-name">First Name | name-1-first-name</option>
+														<option value="name-1-last-name">Last Name | name-1-last-name</option>
+														<option value="input-1">Job Title | input-1</option>
+														<option value="textarea-1">Additional Notes | textarea-1</option>
+													</select></td>
+												</tr>
+
+												<!-- FIELD: Job Title -->
+												<tr>
+													<td id="demo-dialog--sample-hubspot-map-job" class="sui-table-item-title">Job Title</td>
+													<td><select aria-labelledby="demo-dialog--sample-hubspot-map-job">
+														<option value="">None</option>
+														<option value="name-1-prefix">Prefix | name-1-prefix</option>
+														<option value="name-1-first-name">First Name | name-1-first-name</option>
+														<option value="name-1-last-name">Last Name | name-1-last-name</option>
+														<option value="input-1">Job Title | input-1</option>
+														<option value="textarea-1">Additional Notes | textarea-1</option>
+													</select></td>
+												</tr>
+
+											</tbody>
+
+										</table>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-footer sui-flatten sui-content-right">
+									<button role="button" class="sui-button" data-modal-replace="demo-dialog--sample-hubspot-ticket" data-modal-close-focus="demo-dialog--sample-hubspot-open" data-modal-animated="false">Continue</button>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- MODAL: HubSpot Integration (Step 2) -->
+					<div class="sui-modal sui-modal-md">
+
+						<div
+							role="dialog"
+							id="demo-dialog--sample-hubspot-ticket"
+							class="sui-modal-content"
+							aria-modal="true"
+							aria-labelledby="demo-dialog--sample-hubspot-ticket-title"
+							aria-describedby="demo-dialog--sample-hubspot-ticket-desc"
+						>
+
+							<div class="sui-box">
+
+								<div class="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-bottom--30 sui-spacing-sides--50">
+
+									<figure class="sui-box-logo" aria-hidden="true">
+
+										<img
+											src="{{ site.baseurl }}/assets/images/hubspot-logo.png"
+											srcset="{{ site.baseurl }}/assets/images/hubspot-logo.png 1x, {{ site.baseurl }}/assets/images/hubspot-logo@2x.png 2x"
+										/>
+
+									</figure>
+
+									<button class="sui-button-icon sui-button-float--right" data-modal-close="">
+										<span class="sui-icon-close sui-md" aria-hidden="true"></span>
+										<span class="sui-screen-reader-text">Close this modal</span>
+									</button>
+
+									<button class="sui-button-icon sui-button-float--left" data-modal-replace="demo-dialog--sample-hubspot-contact" data-modal-replace-mask="true">
+										<span class="sui-icon-chevron-left sui-md" aria-hidden="true"></span>
+										<span class="sui-screen-reader-text">Go back to create contact</span>
+									</button>
+
+									<h3 id="demo-dialog--sample-hubspot-ticket-title" class="sui-box-title sui-lg">Create Ticket</h3>
+
+									<p id="demo-dialog--sample-hubspot-ticket-desc" class="sui-description">In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission.</p>
+
+								</div>
+
+								<div class="demo-modal-toggle">
+
+									<label for="demo-dialog--sample-hubspot-ticket-toggle" class="sui-toggle">
+										<input
+											type="checkbox"
+											id="demo-dialog--sample-hubspot-ticket-toggle"
+											aria-labelledby="demo-dialog--sample-hubspot-ticket-toggle-label"
+										/>
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+									</label>
+
+									<label for="demo-dialog--sample-hubspot-ticket-toggle" id="demo-dialog--sample-hubspot-ticket-toggle-label" class="sui-toggle-label">Create a HubSpot ticket for each submission</label>
+
+								</div>
+
+								<div class="sui-box-body sui-hidden" aria-hidden="true" tabindex="-1">
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-pipeline" id="demo-dialog--sample-hubspot-pipeline-label" class="sui-label">Pipeline</label>
+
+										<select id="demo-dialog--sample-hubspot-pipeline" aria-labelledby="demo-dialog--sample-hubspot-pipeline-label">
+											<option value="1">Support Requests</option>
+										</select>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-ticket-status" id="demo-dialog--sample-hubspot-ticket-status-label" class="sui-label">Ticket Status</label>
+
+										<select id="demo-dialog--sample-hubspot-ticket-status" aria-labelledby="demo-dialog--sample-hubspot-ticket-status-label">
+											<option value="new">New</option>
+											<option value="closed">Closed</option>
+											<option value="waiting-us">Waiting on us</option>
+											<option value="waiting-contact">Waiting on contact</option>
+										</select>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-ticket-name" id="demo-dialog--sample-hubspot-ticket-name-label" class="sui-label">Ticket Name</label>
+
+										<input
+											type="text"
+											placeholder="New inquery from {first-name}"
+											id="demo-dialog--sample-hubspot-ticket-name"
+											class="sui-form-control"
+											aria-labelledby="demo-dialog--sample-hubspot-ticket-name-label"
+										/>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-ticket-name" id="demo-dialog--sample-hubspot-ticket-name-label" class="sui-label">Ticket Name</label>
+
+										<input
+											type="text"
+											placeholder="New inquery from {first-name}"
+											id="demo-dialog--sample-hubspot-ticket-name"
+											class="sui-form-control"
+											aria-labelledby="demo-dialog--sample-hubspot-ticket-name-label"
+										/>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-ticket-description" id="demo-dialog--sample-hubspot-ticket-description-label" class="sui-label">Ticket Description</label>
+
+										<textarea
+											type="text"
+											placeholder="New inquery from {first-name}"
+											id="demo-dialog--sample-hubspot-ticket-description"
+											class="sui-form-control"
+											aria-labelledby="demo-dialog--sample-hubspot-ticket-description-label"
+										></textarea>
+
+									</div>
+
+									<div class="sui-form-field">
+
+										<label for="demo-dialog--sample-hubspot-file" id="demo-dialog--sample-hubspot-file-label" class="sui-label">Supported File (optional)</label>
+
+										<select id="demo-dialog--sample-hubspot-file" aria-labelledby="demo-dialog--sample-hubspot-file-label">
+											<option value="file-upload-1">Upload PDF | file-upload-1</option>
+											<option value="file-upload-2">Upload JPG (optional) | file-upload-2</option>
+										</select>
+
+									</div>
+
+								</div>
+
+								<div class="sui-box-footer sui-flatten sui-content-right sui-spacing-top--30">
+									<button id="demo-dialog--sample-hubspot-ticket-activate" class="sui-button sui-button-blue">
+										<span class="sui-loading-text">Activate</span>
+										<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
+									</button>
+								</div>
 
 							</div>
 
