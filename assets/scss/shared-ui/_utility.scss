@@ -223,6 +223,13 @@ $positions: (
 	}
 }
 
+@include body-class($wrap: true, $rtl: true) {
+	.sui-actions-left {
+		margin-left: 0;
+		margin-right: 10px;
+	}
+}
+
 // Loop through breakpoints & generate hidden utility classes.
 @for $i from 1 through length($sui-breakpoints) {
 	$size: nth(nth($sui-breakpoints, $i), 1);
