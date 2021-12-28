@@ -1,4 +1,6 @@
-$sui-version: '2.11.1';
+@use "sass:math";
+
+$sui-version: '2.12.2';
 $sui-wrap-class: 'sui-wrap';
 
 // Import Google Fonts
@@ -245,6 +247,8 @@ $wordpress: (
 	adminmenu-sm: 36px, // Size for folded admin menu.
 ) !default;
 
+$scrollbar--width: 20px !default;
+
 $modal: (
 	z-index:     13,
 ) !default;
@@ -300,7 +304,7 @@ $toggle-font-height: 22px !default;
 // Datepicker - (_calendar.scss)
 
 $calendar: (
-	padding:       #{($sui-gutter / 2) - 1px},
+	padding:       #{math.div($sui-gutter, 2) - 1px},
 	border-width:  1px,
 	border-style:  solid,
 	border-color:  palette(gray, lighter),
