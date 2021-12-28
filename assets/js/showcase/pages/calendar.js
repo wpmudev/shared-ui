@@ -18,12 +18,19 @@
 			return;
 		}
 
+		// update message for screen reader accessibility
+		function updateDate() {
+			var message = ' ' + $( '.ui-state-hover' ).html() + ' ' + $( '.ui-datepicker-month' ).html() + ' ' + $( '.ui-datepicker-year' ).html();
+			$( '#liveRegion' ).html( message );
+		}
+
 		function calendarSimple( element ) {
 
 			element = $( element );
 
 			element.datepicker({
 				minDate: -5,
+				onSelect: updateDate,
 				beforeShow: function( input, inst ) {
 					$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 				},
