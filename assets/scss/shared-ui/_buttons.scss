@@ -180,7 +180,7 @@
 		// VARIATION: Colorize buttons
 		@each $color in $button-colors {
 
-			&.sui-button-#{$color} {
+			&.sui-button-#{"" + $color} {
 				background-color: map-get($button-background, $color);
 				color: map-get($button-text-color, $color);
 
@@ -291,7 +291,7 @@
 
 			@each $color in $button-colors {
 
-				&.sui-button-#{$color} {
+				&.sui-button-#{"" + $color} {
 					border-color: map-get($button-border, $color);
 					color: map-get($button-background, $color);
 
@@ -417,7 +417,7 @@
 
 		@each $color in $button-colors {
 
-			&.sui-button-#{$color} {
+			&.sui-button-#{"" + $color} {
 				color: map-get($button-icon--color, $color);
 
 				&:hover,
@@ -471,7 +471,7 @@
 
 			@each $color in $button-colors {
 
-				&.sui-button-#{$color} {
+				&.sui-button-#{"" + $color} {
 					border-color: map-get($button-icon--border, $color);
 
 					&:hover,
@@ -525,7 +525,7 @@
 
 			@each $color in $button-colors {
 
-				&.sui-button-#{$color} {
+				&.sui-button-#{"" + $color} {
 					background-color: map-get($button-icon--background-filled, $color);
 					color: map-get($button-icon--color-filled, $color);
 
