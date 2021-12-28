@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class {
 
 	// NOTE: New modal.
@@ -23,12 +25,17 @@
 
 		// ELEMENT: Overlay mask.
 		.sui-modal-overlay {
-			width: calc(100% - #{map-get($wordpress, adminmenu)});
+			// width: calc(100% - #{map-get($wordpress, adminmenu)});
 			height: calc(100vh - #{map-get($wordpress, adminbar)});
 			position: fixed;
 			z-index: #{map-get($modal, z-index) - 1};
 			top: map-get($wordpress, adminbar);
 			left: map-get($wordpress, adminmenu);
+			right: #{($scrollbar--width)};
+
+			@include media(max-width, md) {
+				right: 0;
+			}
 
 			&:hover {
 				cursor: pointer;
@@ -41,7 +48,7 @@
 			}
 		}
 
-		// ELEMENT: Content.
+		// ELEMENT: Content. 
 		.sui-modal-content {
 			width: 100%;
 			min-height: 0;
@@ -124,6 +131,11 @@
 		.sui-box {
 			box-shadow: none;
 
+			// ELEMENT: Icon
+			[class*=sui-icon-] + .sui-box-title{
+				margin-top: 15px;
+			}
+
 			// ELEMENT: Box Title.
 			.sui-box-title {
 
@@ -133,10 +145,10 @@
 				}
 
 				+ .sui-description {
-					margin-top: #{$sui-gutter / 2};
+					margin-top: math.div($sui-gutter, 2);
 
 					@include media(max-width, md) {
-						margin-top: #{$sui-gutter-md / 2};
+						margin-top: math.div($sui-gutter-md, 2);
 					}
 				}
 			}
@@ -193,7 +205,7 @@
 				.sui-box-banner {
 					width: auto;
 					max-width: none;
-					margin-top: -#{$sui-gutter / 2};
+					margin-top: -#{math.div($sui-gutter, 2)};
 					margin-right: -#{$sui-gutter};
 					margin-bottom: #{$sui-gutter + 10px};
 					margin-left: -#{$sui-gutter};
@@ -201,7 +213,7 @@
 					border-top-right-radius: $border-radius;
 
 					@include media(max-width, md) {
-						margin-top: -#{$sui-gutter-md / 2};
+						margin-top: -#{math.div($sui-gutter-md, 2)};
 						margin-right: -#{$sui-gutter-md};
 						margin-bottom: #{$sui-gutter-md + 10px};
 						margin-left: -#{$sui-gutter-md};
@@ -211,7 +223,7 @@
 				// ELEMENT: Box Logo.
 				.sui-box-logo {
 					position: absolute;
-					top: -#{map-get($modal-logo, size) / 2};
+					top: -#{math.div(map-get($modal-logo, size), 2)};
 					left: 50%;
 					transform: translateX(-50%);
 				}
@@ -666,7 +678,7 @@
 			@each $name, $size in $modal-steps {
 
 				&.sui-#{$name} {
-					padding: #{(30px - $size) / 2} 0;
+					padding: math.div((30px - $size), 2) 0;
 
 					a,
 					span,
