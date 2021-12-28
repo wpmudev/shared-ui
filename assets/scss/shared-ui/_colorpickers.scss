@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-colorpicker-wrap {
@@ -71,7 +73,7 @@
 				input {
 					width: 100%;
 					height: $colorpicker--input-height;
-					padding: #{($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)) / 2} #{$colorpicker--button-size + 10px};
+					padding: math.div(($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)), 2) #{$colorpicker--button-size + 10px};
 					color: $colorpicker--color;
 					font: $font--medium #{$colorpicker--input-font-size}/#{$colorpicker--input-line-height} $font;
 					letter-spacing: $font--letter-spacing;
@@ -134,7 +136,7 @@
 					width: 100% !important;
 					height: $colorpicker--input-height;
 					margin: 0;
-					padding: #{($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)) / 2} 11px;
+					padding: math.div(($colorpicker--input-height - $colorpicker--input-line-height - ($colorpicker--border-width * 2)), 2) 11px;
 					border: $colorpicker--border-width solid $colorpicker--border-color;
 					border-radius: $border-radius;
 					background-color: $colorpicker--background;
@@ -244,7 +246,7 @@
 					.iris-slider {
 						width: $colorpicker--iris-palette-size !important;
 						margin-left: 10px !important;
-						border-radius: #{$border-radius / 2};
+						border-radius: math.div($border-radius, 2);
 
 						@include media(max-width, md) {
 							height: $colorpicker--iris-square-size-sm !important;
@@ -304,11 +306,11 @@
 						}
 
 						@include media(max-width, md) {
-							margin-left: #{($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)) / 6} !important;
+							margin-left: math.div(($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)), 6) !important;
 						}
 
 						@include media(min-width, md) {
-							margin-left: #{($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)) / 6} !important;
+							margin-left: math.div(($colorpicker--iris-square-size - ($colorpicker--iris-palette-size * 7)), 6) !important;
 						}
 					}
 
@@ -327,8 +329,8 @@
 						width: $colorpicker--iris-square-handle-size;
 						height: $colorpicker--iris-square-handle-size;
 						opacity: 1;
-						top: -#{($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size) / 2};
-						left: -#{($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size) / 2};
+						top: -#{math.div($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size, 2)};
+						left: -#{math.div($colorpicker--iris-square-handle-size - $colorpicker--iris-square-value-size, 2)};
 						border-width: $colorpicker--iris-square-handle-border-width;
 						border-color: $colorpicker--iris-square-handle-border-color;
 						border-radius: 100%;

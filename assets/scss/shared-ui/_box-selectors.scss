@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-box-selectors {
@@ -11,22 +13,22 @@
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 0;
-			margin-right: -#{$box-selectors--spacing / 2};
+			margin-right: -#{math.div($box-selectors--spacing, 2)};
 			margin-bottom: 0;
-			margin-left: -#{$box-selectors--spacing / 2};
+			margin-left: -#{math.div($box-selectors--spacing, 2)};
 			padding: 0;
 			border: 0;
 
 			li {
 				margin: 0;
-				padding: #{$box-selectors--spacing / 2};
+				padding: math.div($box-selectors--spacing, 2);
 				border: 0;
 			}
 
 			&.sui-spacing-slim {
 
 				li {
-					padding: #{$box-selectors--spacing / 4};
+					padding: math.div($box-selectors--spacing, 4);
 				}
 			}
 		}
@@ -65,11 +67,11 @@
 		}
 
 		@include media(max-width, md) {
-			padding: #{$sui-gutter-md - ($box-selectors--spacing / 2)} $sui-gutter-md;
+			padding: #{$sui-gutter-md - math.div($box-selectors--spacing, 2)} $sui-gutter-md;
 		}
 
 		@include media(min-width, md) {
-			padding: #{$sui-gutter - ($box-selectors--spacing / 2)} $sui-gutter;
+			padding: #{$sui-gutter - math.div($box-selectors--spacing, 2)} $sui-gutter;
 		}
 	}
 
@@ -111,8 +113,8 @@
 			+ span {
 				display: flex;
 				align-items: center;
-				padding-top: #{(($box-selector--height - $box-selector--line-height) / 2) - 1px};
-				padding-bottom: #{(($box-selector--height - $box-selector--line-height) / 2) - 1px};
+				padding-top: #{math.div($box-selector--height - $box-selector--line-height, 2) - 1px};
+				padding-bottom: #{math.div($box-selector--height - $box-selector--line-height, 2) - 1px};
 				font-size: $box-selector--font-size;
 				line-height: $box-selector--line-height;
 				font-weight: $font--medium;
@@ -170,8 +172,8 @@
 						position: absolute;
 						top: -1px;
 						right: -1px;
-						border-top: #{$box-selector--ribbon-height / 2} solid $box-selector--ribbon-background;
-						border-left: #{$box-selector--ribbon-height / 2} solid transparent;
+						border-top: math.div($box-selector--ribbon-height, 2) solid $box-selector--ribbon-background;
+						border-left: math.div($box-selector--ribbon-height, 2) solid transparent;
 					}
 
 					[class*="sui-icon"]:before {
