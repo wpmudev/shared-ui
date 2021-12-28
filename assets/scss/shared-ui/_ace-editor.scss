@@ -1,9 +1,11 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-ace-selectors {
 		display: flex;
 		flex-wrap: wrap;
-		margin-bottom: #{$sui-gutter-md / 2};
+		margin-bottom: math.div($sui-gutter-md, 2);
 		margin-left: -5px;
 
 		.sui-selector {
@@ -44,7 +46,7 @@
 		}
 
 		@include media(min-width, md) {
-			margin-bottom: #{$sui-gutter / 2};
+			margin-bottom: math.div($sui-gutter, 2);
 		}
 	}
 
