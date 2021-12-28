@@ -1,6 +1,5 @@
 @include body-class(true) {
 	.sui-highlighted {
-
 		.sui-highlighted__content {
 			display: flex;
 			align-items: flex-start;
@@ -106,21 +105,101 @@
 			width: 1px;
 		}
 	}
+
+	// VARIATION: Color Accessibility.
+	&.sui-color-accessible {
+
+		.sui-highlighted {
+
+			.sui-highlighted__content {
+				box-shadow: inset 2px 0 0 0 $black, inset 0 0 0 1px palette(silver, soft);
+
+				p {
+					color: $black;
+				}
+
+				mark{
+					background-color: $black;
+					color: $white;
+				}
+			}			
+
+			&.sui-highlighted--blue,
+			&.sui-highlighted--green,
+			&.sui-highlighted--yellow,
+			&.sui-highlighted--red,
+			&.sui-highlighted--purple {
+
+				mark{
+					background-color: $black;
+					color: $white;
+				}
+			}
+		}
+	}
+
 }
 
 // RTL Support.
 @include body-class(true, true) {
 
-	.sui-highlighted-text {
+	.sui-highlighted {
 		direction: rtl;
 
-		.sui-highlight-content {
+		.sui-highlighted__content {
 			flex-direction: row;
 			box-shadow: inset -2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
 
 			p {
 				padding-right: #{$sui-gutter - 4px};
 				padding-left: 0;
+			}
+		}
+
+		// colors variants
+		&.sui-highlighted--blue {
+			.sui-highlighted__content{
+				box-shadow: inset -2px 0 0 0 $blue, inset 0 0 0 1px palette(silver, soft);
+			}		
+		}
+
+		&.sui-highlighted--green {
+			.sui-highlighted__content{
+				box-shadow: inset -2px 0 0 0 $green, inset 0 0 0 1px palette(silver, soft);
+			}		
+		}
+
+		&.sui-highlighted--red {
+			.sui-highlighted__content{
+				box-shadow: inset -2px 0 0 0 $red, inset 0 0 0 1px palette(silver, soft);
+			}		
+		}
+
+		&.sui-highlighted--yellow {
+			.sui-highlighted__content{
+				box-shadow: inset -2px 0 0 0 palette(yellow, default), inset 0 0 0 1px palette(silver, soft);
+			}			
+		}
+		
+		&.sui-highlighted--purple {
+			.sui-highlighted__content{
+				box-shadow: inset -2px 0 0 0 palette(purple, default), inset 0 0 0 1px palette(silver, soft);
+			}
+		}
+
+	}
+
+	// VARIATION: Color Accessibility.
+	&.sui-color-accessible {
+
+		.sui-highlighted {
+
+			.sui-highlighted__content {
+				box-shadow: inset -2px 0 0 0 $black, inset 0 0 0 1px palette(silver, soft);
+
+				p {
+					color: $black;
+				}
 			}
 		}
 	}
