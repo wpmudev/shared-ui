@@ -7,8 +7,12 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 💥 Breaking Changes
 * **fix(upgrade):** Revamp markup to add video section. [#378](https://github.com/wpmudev/shared-ui/pull/378) ([SUI-49](https://incsub.atlassian.net/browse/SUI-49)) ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### 📝 Documentation
+* **docs(showcase):** Set correct icon markup. [#403](https://github.com/wpmudev/shared-ui/pull/403) ([SUI-276](https://incsub.atlassian.net/browse/SUI-276)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [2.12.2](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.12.2) (2021-12-23)
 
