@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true, false) {
 
 	.sui-list {
@@ -23,7 +25,7 @@
 			letter-spacing: $font--letter-spacing;
 
 			[class*="sui-list-"] {
-				padding: 0 #{$sui-gutter-md / 2};
+				padding: 0 math.div($sui-gutter-md, 2);
 
 				&:first-child {
 					padding-left: 0;
@@ -42,7 +44,7 @@
 				}
 
 				@include media(min-width, md) {
-					padding: 0 #{$sui-gutter / 2};
+					padding: 0 math.div($sui-gutter, 2);
 				}
 			}
 
@@ -117,20 +119,20 @@
 
 				&:first-child {
 					padding-right: 0;
-					padding-left: #{$sui-gutter-md / 2};
+					padding-left: math.div($sui-gutter-md, 2);
 
 					@include media(min-width, md) {
 						padding-right: 0;
-						padding-left: #{$sui-gutter / 2};
+						padding-left: math.div($sui-gutter, 2);
 					}
 				}
 
 				&:last-child {
-					padding-right: #{$sui-gutter-md / 2};
+					padding-right: math.div($sui-gutter-md, 2);
 					padding-left: 0;
 
 					@include media(min-width, md) {
-						padding-right: #{$sui-gutter / 2};
+						padding-right: math.div($sui-gutter, 2);
 						padding-left: 0;
 					}
 				}

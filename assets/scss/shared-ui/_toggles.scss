@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-toggle {
@@ -78,10 +80,10 @@
 			float: left;
 			display: block;
 			position: relative;
-			margin: #{($toggle-font-height - $toggle-height) / 2} 0;
+			margin: math.div(($toggle-font-height - $toggle-height), 2) 0;
 			padding: 0;
 			border: 0;
-			border-radius: #{$toggle-height / 2};
+			border-radius: math.div($toggle-height, 2);
 			background-color: $fiftyshades;
 			transition: $transition;
 			opacity: 1;
@@ -100,7 +102,7 @@
 
 			~ .sui-toggle-label,
 			~ .sui-description {
-				margin-left: #{$toggle-width + ($sui-gutter-md / 2)};
+				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 			}
 		}
 
@@ -116,7 +118,7 @@
 		+ .sui-toggle-label {
 			position: relative;
 			top: -3px;
-			margin-left: #{$sui-gutter-md / 2};
+			margin-left: math.div($sui-gutter-md, 2);
 			font-weight: 500;
 		}
 	}
@@ -124,7 +126,7 @@
 	.sui-toggle-content {
 		opacity: 1;
 		&, &.sui-border-frame {
-			margin-left: #{$toggle-width + ($sui-gutter-md / 2)};
+			margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 		}
 	}
 }
