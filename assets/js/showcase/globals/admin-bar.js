@@ -12,7 +12,8 @@
 
 			element.on( 'click', function( e ) {
 
-				let button  = $( this ),
+				let html    = $( 'html' ),
+					button  = $( this ),
 					styles  = $( '#wordpress-styles' ),
 					hrefcss = styles.attr( 'href' ),
 					newcss  = hrefcss.replace( 'wordpress', 'wordpress-rtl' ),
@@ -20,17 +21,17 @@
 					;
 
 				const isButtonActive = button.hasClass( 'active' );
-				const isBodyActive   = ( 0 < $( 'body[dir]' ).length && 'rtl' === body.attr( 'dir' ) );
+				const isBodyActive   = $( 'body' ).hasClass( 'rtl' );
 
 				if ( isButtonActive && isBodyActive ) {
+					html.removeAttr( 'dir' );
 					body.removeClass( 'rtl' );
-					body.removeAttr( 'dir' );
 					styles.attr( 'href', oldcss );
 					button.removeClass( 'active' );
 					button.attr( 'title', 'Activate right-to-left language support' );
 				} else {
+					html.attr( 'dir', 'rtl' );
 					body.addClass( 'rtl' );
-					body.attr( 'dir', 'rtl' );
 					styles.attr( 'href', newcss );
 					button.addClass( 'active' );
 					button.attr( 'title', 'Deactivate right-to-left language support' );
