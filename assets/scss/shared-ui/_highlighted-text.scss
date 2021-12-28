@@ -1,7 +1,7 @@
 @include body-class(true) {
-	.sui-highlighted-text {
+	.sui-highlighted {
 
-		.sui-highlight-content {
+		.sui-highlighted__content {
 			display: flex;
 			align-items: flex-start;
 			margin: 0;
@@ -24,10 +24,64 @@
 				}
 			}
 
-			.sui-highlight-message {
+			.sui-highlighted__message {
 				flex: 1;
 				position: relative;
 				padding: 5px 0 3px;
+			}
+
+			mark{
+				background-color: palette(gray, light);
+			}
+		}
+
+		// colors variants
+		&.sui-highlighted--blue {
+			.sui-highlighted__content{
+				box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px palette(silver, soft);
+			}
+			mark {
+				background-color: $blue;
+				color: $white;
+			}			
+		}
+
+		&.sui-highlighted--green {
+			.sui-highlighted__content{
+				box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px palette(silver, soft);
+			}
+			mark {
+				background-color: $green;
+				color: $white;
+			}			
+		}
+
+		&.sui-highlighted--red {
+			.sui-highlighted__content{
+				box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px palette(silver, soft);
+			}
+			mark {
+				background-color: $red;
+				color: $white;
+			}			
+		}
+
+		&.sui-highlighted--yellow {
+			.sui-highlighted__content{
+				box-shadow: inset 2px 0 0 0 palette(yellow, default), inset 0 0 0 1px palette(silver, soft);
+			}
+			mark {
+				background-color: palette(yellow, default);
+			}			
+		}
+		
+		&.sui-highlighted--purple {
+			.sui-highlighted__content{
+				box-shadow: inset 2px 0 0 0 palette(purple, default), inset 0 0 0 1px palette(silver, soft);
+			}
+			mark {
+				background-color: palette(purple, default);
+				color: $white;
 			}
 		}
 		

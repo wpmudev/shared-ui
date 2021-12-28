@@ -33,7 +33,7 @@ is_searchable: true
 			<div class="sui-col-md-12">
 
 				<!-- Preview highlighted -->
-				<div class="sui-box sui-highlighted-text">
+				<div class="sui-box">
 
 					<div class="sui-box-header">
 						<h2 class="sui-box-title">Sample</h2>
@@ -42,10 +42,80 @@ is_searchable: true
 					<div class="sui-box-body">
 						<p>The highlighted text component is meant to be used to mark or highlight text.</p>
 
-						<div id="sui-highlight-text" class="sui-highlighted-text">
-							<div class="sui-highlight-content">
-								<div class="sui-highlight-message">
-									<p>General text here. <mark>Links in the notification</mark>.</p>
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Default</span>
+								<div id="sui-highlighted-text" class="sui-highlighted">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Add class <code>.sui-highlighted--blue</code></span>
+								<div id="sui-highlighted-text" class="sui-highlighted sui-highlighted--blue">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Add class <code>.sui-highlighted--green</code></span>
+								<div id="sui-highlighted-text" class="sui-highlighted sui-highlighted--green">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Add class <code>.sui-highlighted--red</code></span>
+								<div id="sui-highlighted-text" class="sui-highlighted sui-highlighted--red">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Add class <code>.sui-highlighted--yellow</code>.</span>
+								<div id="sui-highlighted-text" class="sui-highlighted sui-highlighted--yellow">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-2">
+								<span class="sui-description">Add class <code>.sui-highlighted--purple</code>.</span>
+								<div id="sui-highlighted-text" class="sui-highlighted sui-highlighted--purple">
+									<div class="sui-highlighted__content">
+										<div class="sui-highlighted__message">
+											<p>General text here. <mark>Links in the notification</mark>.</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -87,21 +157,20 @@ is_searchable: true
 						aria-labelledby="tab-alert-markup"
 					>
 
-						<p>To use <strong>highlighted text</strong> add class <code>sui-highlighted-text</code>, also do not forget to add <code>&lt;mark&gt;&lt;/mark&gt;</code> tag outside the text which needs to be highlighted.</p>
-						<p>By default background color of highlighted text will be yellow to modify use <code>background-color: yellow;</code> and to modify the color of text use <code>color: black;</code>.</p>
+						<p>To use <strong>highlighted text</strong> add class <code>sui-highlighted</code>, also do not forget to add <code>&lt;mark&gt;&lt;/mark&gt;</code> tag outside the text which needs to be highlighted.</p>
 
 						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;!-- Highlighted text --&gt;
 
-&lt;div id=&quot;unique-id&quot; class=&quot;sui-highlighted-text&quot;&gt;
+&lt;div id=&quot;unique-id&quot; class=&quot;sui-highlighted sui-highlighted--blue&quot;&gt;
 	
-	&lt;div class=&quot;sui-highlight-content&quot;&gt;
+	&lt;div class=&quot;sui-highlighted__content&quot;&gt;
 		
-		&lt;div class=&quot;sui-highlight-message&quot;&gt;
+		&lt;div class=&quot;sui-highlighted__message&quot;&gt;
 		
-			&lt;p&gt;General text here. &lt;mark style=&quot;background-color: red; color: white;&quot;&gt;Links in the notification&lt;/mark&gt;.&lt;/p&gt;
+			&lt;p&gt;General text here. &lt;mark&gt;Links in the notification&lt;/mark&gt;.&lt;/p&gt;
 		
 		&lt;/div&gt;
 	
