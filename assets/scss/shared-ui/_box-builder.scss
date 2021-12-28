@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-box-builder {
@@ -85,7 +87,7 @@
 				+ .sui-button,
 				+ .sui-dropdown,
 				+ .sui-button-icon {
-					margin-left: #{$box-builder--field-spacing / 2};
+					margin-left: math.div($box-builder--field-spacing, 2);
 				}
 			}
 
@@ -95,12 +97,12 @@
 
 				.sui-form-field-row {
 					display: flex;
-					margin: 0 0 #{$sui-gutter-md / 2};
+					margin: 0 0 math.div($sui-gutter-md, 2);
 					align-items: center;
 
 					.sui-form-field {
 						flex: 1;
-						margin: 0 #{$sui-gutter-md / 2};
+						margin: 0 math.div($sui-gutter-md, 2);
 
 						&:first-child {
 							margin-left: 0;
@@ -127,11 +129,11 @@
 				background-color: $box-builder--field-border;
 
 				&:not(:last-child) {
-					margin-right: #{$box-builder--field-spacing / 2};
+					margin-right: math.div($box-builder--field-spacing, 2);
 				}
 
 				&:not(:first-child) {
-					margin-left: #{$box-builder--field-spacing / 2};
+					margin-left: math.div($box-builder--field-spacing, 2);
 				}
 
 				// FIX: Dropdown
@@ -224,14 +226,14 @@
 
 				@include media(max-width, md) {
 					min-height: $box-builder--field-height-md;
-					padding-top: #{$sui-gutter-md / 2};
-					padding-bottom: #{$sui-gutter-md / 2};
+					padding-top: math.div($sui-gutter-md, 2);
+					padding-bottom: math.div($sui-gutter-md, 2);
 				}
 
 				@include media(min-width, md) {
 					min-height: $box-builder--field-height;
-					padding-top: #{$sui-gutter / 2};
-					padding-bottom: #{$sui-gutter / 2};
+					padding-top: math.div($sui-gutter, 2);
+					padding-bottom: math.div($sui-gutter, 2);
 				}
 			}
 
@@ -247,14 +249,14 @@
 
 					@include media(max-width, md) {
 						min-height: $box-builder--field-height-md;
-						padding-top: #{$sui-gutter-md / 2};
-						padding-bottom: #{$sui-gutter-md / 2};
+						padding-top: math.div($sui-gutter-md, 2);
+						padding-bottom: math.div($sui-gutter-md, 2);
 					}
 
 					@include media(min-width, md) {
 						min-height: $box-builder--field-height;
-						padding-top: #{$sui-gutter / 2};
-						padding-bottom: #{$sui-gutter / 2};
+						padding-top: math.div($sui-gutter, 2);
+						padding-bottom: math.div($sui-gutter, 2);
 					}
 				}
 
@@ -328,14 +330,14 @@
 
 					@include media(max-width, md) {
 						min-height: $box-builder--field-height-md;
-						padding-top: #{$sui-gutter-md / 2};
-						padding-bottom: #{$sui-gutter-md / 2};
+						padding-top: math.div($sui-gutter-md, 2);
+						padding-bottom: math.div($sui-gutter-md, 2);
 					}
 
 					@include media(min-width, md) {
 						min-height: $box-builder--field-height;
-						padding-top: #{$sui-gutter / 2};
-						padding-bottom: #{$sui-gutter / 2};
+						padding-top: math.div($sui-gutter, 2);
+						padding-bottom: math.div($sui-gutter, 2);
 					}
 
 					+ .sui-field-actions {
@@ -364,13 +366,13 @@
 						}
 
 						@include media(max-width, md) {
-							padding-top: #{$sui-gutter-md / 2};
-							padding-bottom: #{$sui-gutter-md / 2};
+							padding-top: math.div($sui-gutter-md, 2);
+							padding-bottom: math.div($sui-gutter-md, 2);
 						}
 
 						@include media(min-width, md) {
-							padding-top: #{$sui-gutter / 2};
-							padding-bottom: #{$sui-gutter / 2};
+							padding-top: math.div($sui-gutter, 2);
+							padding-bottom: math.div($sui-gutter, 2);
 						}
 					}
 				}
@@ -406,17 +408,17 @@
 					border-top: 1px solid palette(silver, soft);
 
 					@include media(max-width, md) {
-						margin-top: #{$sui-gutter-md / 2};
+						margin-top: math.div($sui-gutter-md, 2);
 						margin-right: -#{$sui-gutter-md};
 						margin-left: -#{$sui-gutter-md};
-						padding: #{$sui-gutter-md / 2} $sui-gutter-md 0;
+						padding: math.div($sui-gutter-md, 2) $sui-gutter-md 0;
 					}
 
 					@include media(min-width, md) {
-						margin-top: #{$sui-gutter / 2};
+						margin-top: math.div($sui-gutter, 2);
 						margin-right: -#{$sui-gutter};
 						margin-left: -#{$sui-gutter};
-						padding: #{$sui-gutter / 2} $sui-gutter 0;
+						padding: math.div($sui-gutter, 2) $sui-gutter 0;
 					}
 				}
 			}
@@ -511,11 +513,11 @@
 					+ * {
 
 						@include media(max-width, md) {
-							margin-left: #{$sui-gutter-md / 2};
+							margin-left: math.div($sui-gutter-md, 2);
 						}
 
 						@include media(min-width, md) {
-							margin-left: #{$sui-gutter / 2};
+							margin-left: math.div($sui-gutter, 2);
 						}
 					}
 
@@ -535,11 +537,11 @@
 			}
 
 			@include media(max-width, md) {
-				padding: #{$sui-gutter-md / 2} $sui-gutter-md;
+				padding: math.div($sui-gutter-md, 2) $sui-gutter-md;
 			}
 
 			@include media(min-width, md) {
-				padding: #{$sui-gutter / 2} $sui-gutter;
+				padding: math.div($sui-gutter, 2) $sui-gutter;
 			}
 		}
 
