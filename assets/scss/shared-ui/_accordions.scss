@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-accordion {
@@ -36,7 +38,7 @@
 						display: flex;
 						align-items: center;
 						flex: 1;
-						padding: 0 #{($sui-gutter-md / 2) - 1px};
+						padding: 0 #{math.div($sui-gutter-md, 2) - 1px};
 
 						&:first-child {
 							padding-left: #{$sui-gutter-md - 1px};
@@ -55,8 +57,8 @@
 						}
 
 						@include media(min-width, md) {
-							padding-right: #{($sui-gutter / 2) - 1px};
-							padding-left: #{($sui-gutter / 2) - 1px};
+							padding-right: #{math.div($sui-gutter, 2) - 1px};
+							padding-left: #{math.div($sui-gutter, 2) - 1px};
 						}
 					}
 
@@ -70,8 +72,8 @@
 					@for $i from 1 through $accordion--grid {
 
 						.sui-accordion-col-#{$i} {
-							min-width: #{(100% * $i) / $accordion--grid};
-							flex-basis: #{(100% * $i) / $accordion--grid};
+							min-width: math.div((100% * $i), $accordion--grid);
+							flex-basis: math.div((100% * $i), $accordion--grid);
 						}
 					}
 				}
@@ -181,7 +183,7 @@
 							align-items: flex-start;
 
 							+ span {
-								margin-left: #{$sui-gutter-md / 2};
+								margin-left: math.div($sui-gutter-md, 2);
 							}
 						}
 
@@ -602,8 +604,8 @@
 
 							@include media(max-width, md) {
 								display: block;
-								bottom: #{($sui-gutter-md / 2) + 7px};
-								left: #{($sui-gutter-md / 2) - 1px};
+								bottom: #{math.div($sui-gutter-md, 2) + 7px};
+								left: #{math.div($sui-gutter-md, 2) - 1px};
 								position: absolute;
 							}
 						}
