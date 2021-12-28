@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-notice {
@@ -7,14 +9,14 @@
 			display: flex;
 			align-items: flex-start;
 			margin: 0;
-			padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
+			padding: #{math.div($sui-gutter-md, 2) + 1px} $sui-gutter-md;
 			border: 0;
 			border-radius: $border-radius;
 			background-color: $white;
 			box-shadow: inset 2px 0 0 0 palette(silver, medium), inset 0 0 0 1px palette(silver, soft);
 
 			p {
-				margin: 0 0 #{$sui-gutter-md / 2};
+				margin: 0 0 math.div($sui-gutter-md, 2);
 				padding: 0;
 				border: 0;
 				color: palette(gray, dark);
@@ -67,8 +69,8 @@
 
 				+ .sui-notice-actions {
 					flex: 0 0 auto;
-					margin-right: -#{($sui-gutter-md / 2) - 1px};
-					margin-left: #{$sui-gutter-md / 2};
+					margin-right: -#{math.div($sui-gutter-md, 2) - 1px};
+					margin-left: math.div($sui-gutter-md, 2);
 				}
 			}
 		}
@@ -150,14 +152,14 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		padding: #{$sui-gutter-md / 2};
+		padding: math.div($sui-gutter-md, 2);
 
 		.sui-notice {
 			width: 100%;
 			max-width: 600px;
 			pointer-events: initial;
 			z-index: 1;
-			margin: 0 auto #{$sui-gutter-md / 2};
+			margin: 0 auto math.div($sui-gutter-md, 2);
 
 			.sui-notice-content {
 				box-shadow: 0 5px 25px 0 rgba(0,0,0,0.15), inset 2px 0 0 0 palette(silver, medium);
@@ -294,8 +296,8 @@
 				}
 
 				+ .sui-notice-actions {
-					margin-right: #{$sui-gutter-md / 2};
-					margin-left: -#{($sui-gutter-md / 2) - 1px};
+					margin-right: math.div($sui-gutter-md, 2);
+					margin-left: -#{math.div($sui-gutter-md, 2) - 1px};
 				}
 			}
 		}

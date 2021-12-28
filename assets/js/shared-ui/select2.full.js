@@ -1759,7 +1759,7 @@
 
 				this.$selection.on(
 				'click',
-				'.select2-selection__choice__remove',
+				'.sui-button-icon',
 				function (evt) {
 					// Ignore the event if it is disabled
 					if (self.isDisabled()) {
@@ -1780,7 +1780,7 @@
 
 				this.$selection.on(
 				'keydown',
-				'.select2-selection__choice__remove',
+				'.sui-button-icon',
 				function (evt) {
 					// Ignore the event if it is disabled
 					if (self.isDisabled()) {
@@ -1796,6 +1796,7 @@
 				var $rendered = this.$selection.find('.select2-selection__rendered');
 				$rendered.empty();
 				$rendered.removeAttr('title');
+				$rendered.removeClass('has-option-selected');
 			};
 
 			MultipleSelection.prototype.display = function (data, container) {
@@ -1808,11 +1809,11 @@
 			MultipleSelection.prototype.selectionContainer = function () {
 				var $container = $(
 				'<li class="select2-selection__choice">' +
-					'<button type="button" class="select2-selection__choice__remove" ' +
-					'tabindex="-1">' +
-					'<span aria-hidden="true">&times;</span>' +
-					'</button>' +
 					'<span class="select2-selection__choice__display"></span>' +
+					'<button type="button" class="sui-button-icon" ' +
+					'tabindex="-1">' +
+						'<span class="sui-icon-close sui-sm" aria-hidden="true"></span>' +
+					'</button>' +
 				'</li>'
 				);
 
@@ -1857,7 +1858,7 @@
 
 				var removeItem = this.options.get('translations').get('removeItem');
 
-				var $remove = $selection.find('.select2-selection__choice__remove');
+				var $remove = $selection.find('.sui-button-icon');
 
 				$remove.attr('title', removeItem());
 				$remove.attr('aria-label', removeItem());
@@ -1870,7 +1871,7 @@
 
 				var $rendered = this.$selection.find('.select2-selection__rendered');
 
-				$rendered.append($selections);
+				$rendered.append($selections).addClass('has-option-selected');
 			};
 
 			return MultipleSelection;

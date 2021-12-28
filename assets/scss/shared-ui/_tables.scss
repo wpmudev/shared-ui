@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	.sui-table {
@@ -23,11 +25,11 @@
 					color: $table--th-color;
 					text-align: left;
 				}
-			
+
 				th, td {
 					height: 40px;
 					vertical-align: middle;
-					padding: 5px #{($sui-gutter-md / 2) - $table--border-width};
+					padding: 5px #{math.div($sui-gutter-md, 2) - $table--border-width};
 					border: 0;
 					border-bottom: $table--border-width $table--border-style $table--border-color;
 
@@ -46,11 +48,11 @@
 							padding-right: #{$sui-gutter - $table--border-width};
 						}
 					}
-	
+
 					@include media(min-width, md) {
 						height: 60px;
-						padding-right: #{($sui-gutter / 2) - $table--border-width};
-						padding-left: #{($sui-gutter / 2) - $table--border-width};
+						padding-right: #{math.div($sui-gutter, 2) - $table--border-width};
+						padding-left: #{math.div($sui-gutter, 2) - $table--border-width};
 					}
 				}
 			}
