@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include body-class(true) {
 
 	// ELEMENT: List of pages
@@ -117,7 +119,7 @@
 	// ELEMENT: Filtering form
 	.sui-pagination-filter {
 		display: none;
-		margin: #{$sui-gutter-md / 2} 0;
+		margin: math.div($sui-gutter-md, 2) 0;
 		border: 1px solid palette(silver, soft);
 		border-radius: $border-radius;
 
@@ -221,7 +223,7 @@
 
 			+ button,
 			+ .sui-pagination-results {
-				margin-left: #{$sui-gutter / 2};
+				margin-left: math.div($sui-gutter, 2);
 			}
 		}
 
@@ -233,7 +235,7 @@
 
 			+ button,
 			+ .sui-pagination {
-				margin-left: #{$sui-gutter / 2};
+				margin-left: math.div($sui-gutter, 2);
 			}
 		}
 
