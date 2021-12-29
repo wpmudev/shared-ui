@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $palettes: (
 	mono: (
 		white:       #FFFFFF,
@@ -14,54 +16,54 @@ $palettes: (
 	),
 	blue: (
 		default: #17A8E3,
-		ghost:   #E1F6FF,
+		light:   #E1F6FF,
 		dark:    #1286B5,
 	),
 	red: (
 		default: #FF6D6D,
-		ghost:   #FFE5E9,
+		light:   #FFE5E9,
 		dark:    #E44B4B,
 	),
 	purple: (
 		default: #8D00B1,
-		ghost:   #F9E1FF,
+		light:   #F9E1FF,
 		dark:    #70018C,
 	),
 	green: (
 		default: #1ABC9C,
-		ghost:   #D1F1EA,
+		light:   #D1F1EA,
 		dark:    #139E83,
 	),
 ) !default;
 
 // Monochromatic colours.
-$white:       palette(mono, white);
-$cloud:       palette(mono, cloud);
-$haze:        palette(mono, haze);
-$smoke:       palette(mono, smoke);
-$silver:      palette(mono, silver);
-$overcast:    palette(mono, overcast);
-$fiftyshades: palette(mono, fiftyshades);
-$grey:        palette(mono, grey);
-$ironmike:    palette(mono, ironmike);
-$nightrider:  palette(mono, nightrider);
+$white:       map.get($palettes, mono, white);
+$cloud:       map.get($palettes, mono, cloud);
+$haze:        map.get($palettes, mono, haze);
+$smoke:       map.get($palettes, mono, smoke);
+$silver:      map.get($palettes, mono, silver);
+$overcast:    map.get($palettes, mono, overcast);
+$fiftyshades: map.get($palettes, mono, fiftyshades);
+$grey:        map.get($palettes, mono, grey);
+$ironmike:    map.get($palettes, mono, ironmike);
+$nightrider:  map.get($palettes, mono, nightrider);
 
 // Solid colours.
-$blue:   palette(blue);
-$red:    palette(red);
-$purple: palette(purple);
-$green:  palette(green);
+$blue:   map.get($palettes, blue, default);
+$red:    map.get($palettes, red, default);
+$purple: map.get($palettes, purple, default);
+$green:  map.get($palettes, green, default);
 
 // Ghost colours.
-$blue-ghost:   palette(blue, ghost);
-$green-ghost:  palette(green, ghost);
-$yellow-ghost: palette(yellow, ghost);
-$red-ghost:    palette(red, ghost);
-$purple-ghost: palette(purple, ghost);
+$blue-ghost:   map.get($palettes, blue, light);
+$green-ghost:  map.get($palettes, green, light);
+$yellow-ghost: map.get($palettes, yellow, light);
+$red-ghost:    map.get($palettes, red, light);
+$purple-ghost: map.get($palettes, purple, light);
 
 // Dark colours.
-$blue-dark:   palette(blue, dark);
-$green-dark:  palette(green, dark);
-$yellow-dark: palette(yellow, dark);
-$red-dark:    palette(red, dark);
-$purple-dark: palette(purple, dark);
+$blue-dark:   map.get($palettes, blue, dark);
+$green-dark:  map.get($palettes, green, dark);
+$yellow-dark: map.get($palettes, yellow, dark);
+$red-dark:    map.get($palettes, red, dark);
+$purple-dark: map.get($palettes, purple, dark);

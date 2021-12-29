@@ -1,0 +1,124 @@
+@use 'sass:map';
+@use './mixins/bem' as *;
+@use './_sui-button/mixins';
+@use './_sui-button/button-text-theme';
+@use './_sui-button/button-solid-theme';
+@use './_sui-button/button-light-theme';
+@use './_sui-button/button-ghost-theme';
+
+%button-basics {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 5px 14px;
+	border: 2px solid transparent;
+	border-radius: $border-radius;
+	outline: 1px solid transparent;
+	background: transparent;
+	box-shadow: none;
+	font: 500 12px/16px $font;
+	letter-spacing: -0.25px;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: $transition;
+}
+
+%button-disabled {
+	pointer-events: none;
+	border-color: $silver;
+	background: $silver;
+	color: $fiftyshades;
+}
+
+$button-sizes: (
+	md: 50px,
+	lg: 60px,
+	xl: 70px,
+);
+
+@include body-class(true) {
+
+	@include block('button') {
+		@extend %button-basics;
+		color: $grey;
+
+		&:hover {
+			border-color: $haze;
+			background: $haze;
+		}
+
+		&:focus {
+			border-color: $silver;
+			outline-color: $silver;
+			background: $haze;
+		}
+
+		&[disabled] {
+			@extend %button-disabled;
+		}
+
+		// ELM: Label.
+		@include element('label') {
+			display: block;
+		}
+
+		// ELM: Icon.
+		@include element('icon') {
+
+			&--left,
+			&--right {
+				flex: 0 0 auto;
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
+
+			@include modifier('left') {
+				margin-right: 5px;
+			}
+
+			@include modifier('right') {
+				margin-left: 5px;
+			}
+		}
+
+		// MOD: Dashed button.
+		@include modifier('dashed') {
+			border-style: dashed;
+
+			&:focus {
+				border-style: solid;
+			}
+		}
+
+		// MOD: Button sizes.
+		@each $label, $size in $button-sizes {
+
+			@include modifier($label) {
+				line-height: #{$size - 14px};
+			}
+		}
+
+		// MOD: Full width.
+		@include modifier('full-width') {
+			width: 100%;
+			display: flex;
+		}
+
+		// MOD: Colourized text button.
+		@include mixins.button-theme(button-text-theme.$palette);
+
+		// MOD: Colourized solid button.
+		@include mixins.button-theme(button-solid-theme.$palette, 'solid');
+
+		// MOD: Colourized light button.
+		@include mixins.button-theme(button-light-theme.$palette, 'light');
+
+		// MOD: Colourized ghost button.
+		@include mixins.button-theme(button-ghost-theme.$palette, 'ghost');
+	}
+}
