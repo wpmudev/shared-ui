@@ -1,10 +1,14 @@
+@use 'sass:math';
+
 @include body-class(true) {
 	.sui-highlighted {
+		margin: 0 0 $sui-gutter;
+
 		.sui-highlighted__content {
 			display: flex;
 			align-items: flex-start;
 			margin: 0;
-			padding: #{($sui-gutter-md / 2) + 1px} $sui-gutter-md;
+			padding: #{math.div($sui-gutter-md, 2) + 1px} $sui-gutter-md;
 			border: 0;
 			border-radius: $border-radius;
 			background-color: $white;
@@ -23,10 +27,50 @@
 				}
 			}
 
+			.sui-highlighted__icon {
+				width: 30px;
+				display: block;
+				color: palette(gray, light);
+				text-align: center;
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+
+				~ *:not(.sui-notice-icon) {
+					padding-left: #{$sui-gutter - 4px};
+				}
+			}
+
 			.sui-highlighted__message {
 				flex: 1;
 				position: relative;
 				padding: 5px 0 3px;
+
+				.sui-highlighted__icon {
+					position: absolute;
+					top: 8px;
+					left: -7px;
+
+					&.sui-sm {
+						top: 9px;
+					}
+
+					&.sui-md {
+						top: 7px;
+					}
+
+					&.sui-lg {
+						top: 5px;
+					}
+				}
+
+				+ .sui-highlighted__actions {
+					flex: 0 0 auto;
+					margin-right: -#{math.div($sui-gutter-md, 2) - 1px};
+					margin-left: math.div($sui-gutter-md, 2);
+				}
 			}
 
 			mark{
@@ -38,7 +82,12 @@
 		&.sui-highlighted--blue {
 			.sui-highlighted__content{
 				box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-highlighted__icon {
+					color: $blue;
+				}
 			}
+			
 			mark {
 				background-color: $blue;
 				color: $white;
@@ -48,7 +97,12 @@
 		&.sui-highlighted--green {
 			.sui-highlighted__content{
 				box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-highlighted__icon {
+					color: $green;
+				}
 			}
+			
 			mark {
 				background-color: $green;
 				color: $white;
@@ -58,7 +112,12 @@
 		&.sui-highlighted--red {
 			.sui-highlighted__content{
 				box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px palette(silver, soft);
+
+				.sui-highlighted__icon {
+					color: $red;
+				}
 			}
+			
 			mark {
 				background-color: $red;
 				color: $white;
@@ -68,7 +127,12 @@
 		&.sui-highlighted--yellow {
 			.sui-highlighted__content{
 				box-shadow: inset 2px 0 0 0 palette(yellow, default), inset 0 0 0 1px palette(silver, soft);
+				
+				.sui-highlighted__icon {
+					color: palette(yellow, default);
+				}
 			}
+			
 			mark {
 				background-color: palette(yellow, default);
 			}			
@@ -77,11 +141,20 @@
 		&.sui-highlighted--purple {
 			.sui-highlighted__content{
 				box-shadow: inset 2px 0 0 0 palette(purple, default), inset 0 0 0 1px palette(silver, soft);
+				
+				.sui-highlighted__icon {
+					color: palette(purple, default);
+				}
 			}
+			
 			mark {
 				background-color: palette(purple, default);
 				color: $white;
 			}
+		}
+
+		&:last-child {
+			margin: 0;
 		}
 		
 		// for accessibility purposes screen readers will read this text
@@ -153,6 +226,19 @@
 			p {
 				padding-right: #{$sui-gutter - 4px};
 				padding-left: 0;
+			}
+
+			.sui-highlighted__message {
+
+				.sui-highlighted__icon {
+					left: auto;
+					right: -7px;
+				}
+
+				+ .sui-highlighted__actions {
+					margin-right: math.div($sui-gutter-md, 2);
+					margin-left: -#{math.div($sui-gutter-md, 2) - 1px};
+				}
 			}
 		}
 
