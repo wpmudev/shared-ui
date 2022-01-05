@@ -38,7 +38,7 @@ $button-sizes: (
 	xl: 70px,
 );
 
-@include body-class(true) {
+@include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 	@include block('button') {
 		@extend %button-basics;
@@ -120,5 +120,25 @@ $button-sizes: (
 
 		// MOD: Colourized ghost button.
 		@include mixins.button-theme(button-ghost-theme.$palette, 'ghost');
+	}
+}
+
+@include body-class($wrap: true, $rtl: true, $monochrome: false) {
+
+	@include block('button') {
+
+		// ELM: Icon.
+		@include element('icon') {
+
+			@include modifier('left') {
+				margin-left: 5px;
+				margin-right: 0;
+			}
+
+			@include modifier('right') {
+				margin-left: 0;
+				margin-right: 5px;
+			}
+		}
 	}
 }
