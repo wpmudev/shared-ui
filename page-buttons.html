@@ -2,6 +2,7 @@
 layout: default
 title: Buttons
 permalink: /buttons/
+id: buttons
 is_searchable: true
 ---
 
@@ -14,6 +15,14 @@ is_searchable: true
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="docs">Documentation</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="preview2">Preview 2</a>
 			</li>
 
 			<li class="sui-vertical-tab">
@@ -45,7 +54,254 @@ is_searchable: true
 	</div>
 
 	<!-- TAB: Preview -->
-	<div data-tab="preview">
+	<div class="sui-box" data-tab="preview">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<h3 style="margin: 0;">Interactive Demo</h3>
+
+			<p style="margin: 0;">Buttons are used everywhere across all designs to highlight actions. Generally, the rule is one Solid coloured button per screen, where the Ghost buttons can be used more freely throughout screens as a secondary actrion.</p>
+
+			<p style="margin-top: 0;">The demo below lets you preview the button component, its variations, and configuration options. Each tab displays a different type of button.</p>
+
+			<div class="showcase-demo">
+
+				<!-- Configs -->
+				<div class="showcase-demo__options">
+
+					<fieldset data-option="color">
+
+						<legend>Color</legend>
+
+						<select class="sui-select-sm">
+							<option value="">Grey (Default)</option>
+							<option value="blue">Blue</option>
+							<option value="red">Red</option>
+							<option value="purple">Purple</option>
+							<option value="green">Green</option>
+						</select>
+
+					</fieldset>
+
+					<fieldset data-option="width">
+
+						<legend>Width</legend>
+
+						<input type="radio" name="button-option--width" value="" checked=""> Default<br>
+						<input type="radio" name="button-option--width" value="full-width"> Full Width
+
+					</fieldset>
+
+					<fieldset data-option="height">
+
+						<legend>Height</legend>
+
+						<input type="radio" name="button-option--height" value="" checked=""> 30px (Default)<br>
+						<input type="radio" name="button-option--height" value="md"> 50px<br>
+						<input type="radio" name="button-option--height" value="lg"> 60px<br>
+						<input type="radio" name="button-option--height" value="xl"> 70px
+
+					</fieldset>
+
+					<fieldset data-option="icon">
+
+						<legend>Leading icon</legend>
+
+						<input type="radio" name="button-option--icon" value="" checked=""> None<br>
+						<input type="radio" name="button-option--icon" value="left"> Left<br>
+						<input type="radio" name="button-option--icon" value="right"> Right
+
+					</fieldset>
+
+				</div>
+
+				<!-- Tabs -->
+				<div class="showcase-demo__content">
+
+					<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
+
+						<div tabindex="-1" class="sui-tabs-navigation">
+							<button type="button" class="sui-button-icon sui-tabs-navigation--left sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-left"></span>
+							</button>
+							<button type="button" class="sui-button-icon sui-tabs-navigation--right sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-right"></span>
+							</button>
+						</div>
+
+						<div role="tablist" class="sui-tabs-menu">
+
+							<button type="button" role="tab" id="tab-demo-button-solid" class="sui-tab-item active" aria-controls="tab-content-demo-button-solid" aria-selected="true">
+								Solid
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-solid-light" class="sui-tab-item" aria-controls="tab-content-demo-button-solid-light" aria-selected="false" tabindex="-1">
+								Solid Light
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-ghost" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost" aria-selected="false" tabindex="-1">
+								Ghost
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-ghost-dashed" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost-dashed" aria-selected="false" tabindex="-1">
+								Ghost Dashed
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-text" class="sui-tab-item" aria-controls="tab-content-demo-button-text" aria-selected="false" tabindex="-1">
+								Text
+							</button>
+
+						</div>
+
+						<div class="sui-tabs-content">
+
+							<!-- TAB: Solid -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid" class="sui-tab-content active" aria-labelledby="tab-demo-button-solid">
+
+								<div class="showcase-demo__preview" data-type="solid">
+
+									<button class="sui-button sui-button--solid">
+										<span class="sui-button__label">Button</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: Solid Light -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid-light" class="sui-tab-content" aria-labelledby="tab-demo-button-solid-light">
+
+								<div class="showcase-demo__preview" data-type="light">
+
+									<button class="sui-button sui-button--light">
+										<span class="sui-button__label">Button</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: Ghost -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost">
+
+								<div class="showcase-demo__preview" data-type="ghost">
+
+									<button class="sui-button sui-button--ghost">
+										<span class="sui-button__label">Button</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: Ghost Dashed -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost-dashed" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost-dashed">
+
+								<div class="showcase-demo__preview" data-type="ghost">
+
+									<button class="sui-button sui-button--ghost sui-button--dashed">
+										<span class="sui-button__label">Button</span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<!-- TAB: Text -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-text" class="sui-tab-content" aria-labelledby="tab-demo-button-text">
+
+								<div class="showcase-demo__preview" data-type="text">
+
+									<button class="sui-button">
+										<span class="sui-button__label">Button</span>
+									</button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="docs" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Specifications</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<table class="sui-table" style="max-width: 720px;">
+
+						<tbody>
+
+							<tr>
+								<td><strong>Version</strong></td>
+								<td><span class="sui-tag sui-tag-yellow">^2.11.0</span></td>
+								<td colspan="3">This is the minimum required version of SUI to use with this element in order for it to work properly.</td>
+							</tr>
+
+							<tr>
+								<td><strong>Utilities</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports the global modifier classes listed on <a href="/shared-ui/utilities/"><strong>Utilities</strong></a> page.</td>
+							</tr>
+
+							<tr>
+								<td><strong>Monochrome</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports the Colour Accessible option found on our plugins' Settings page.</td>
+							</tr>
+
+							<tr>
+								<td><strong>RTL Language</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports right-to-left langues.</td>
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Preview 2 -->
+	<div data-tab="preview2" style="display: none;">
 
 		<div class="sui-row">
 
