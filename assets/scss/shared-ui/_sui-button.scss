@@ -152,7 +152,7 @@ $button-sizes: (
 }
 
 @include body-class($wrap: true, $monochrome: true) { 
-	%button-basics {
+	@include block('button') {
 		color: $accessible-light;
 		background: $accessible-dark;
 		border-color: $accessible-dark;
