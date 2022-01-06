@@ -2,6 +2,7 @@
 layout: default
 title: Buttons
 permalink: /buttons/
+id: buttons
 is_searchable: true
 ---
 
@@ -17,15 +18,7 @@ is_searchable: true
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="regular">Regular</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="colors">Colorizing</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="with-icon">Text + Icon</a>
+				<a href="#" role="button" data-tab="docs">Documentation</a>
 			</li>
 
 			<li class="sui-vertical-tab">
@@ -36,10 +29,6 @@ is_searchable: true
 				<a href="#" role="button" data-tab="compound">Compound</a>
 			</li>
 
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="dashed">Dashed</a>
-			</li>
-
 		</ul>
 
 	</div>
@@ -48,1142 +37,170 @@ is_searchable: true
 	<div class="sui-box" data-tab="preview">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Buttons</h2>
+			<h2 class="sui-box-title">Preview</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<p>Buttons are used everywhere across all designs to highlight actions. Generally, the rule is one Solid coloured button per screen, where the Ghost buttons can be used more freely throughout screens as a secondary actrion.</p>
+			<h3 style="margin: 0;">Interactive Demo</h3>
 
-			<!-- ROW: Solid -->
-			<div class="sui-row">
+			<p style="margin: 0;">Buttons are used everywhere across all designs to highlight actions. Generally, the rule is one Solid coloured button per screen, where the Ghost buttons can be used more freely throughout screens as a secondary actrion.</p>
 
-				<div class="sui-col-md-2">
+			<p style="margin-top: 0;">The demo below lets you preview the button component, its variations, and configuration options. Each tab displays a different type of button.</p>
 
-					<div style="margin-bottom: 30px;">
-						<span style="color: #333; font-size: 15px; line-height: 20px; font-weight: 700;">Solid</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Active</span>
-					</div>
-					<div>
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Disabled</span>
-					</div>
+			<div class="showcase-demo">
 
-				</div>
+				<!-- Configs -->
+				<div class="showcase-demo__options">
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Grey</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button" disabled>Button</button>
-					</div>
-				</div>
+					<fieldset data-option="color">
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Blue</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--blue">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--blue" disabled>Button</button>
-					</div>
-				</div>
+						<legend>Color</legend>
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Red</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--red">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--red" disabled>Button</button>
-					</div>
-				</div>
+						<select class="sui-select-sm">
+							<option value="">Grey (Default)</option>
+							<option value="blue">Blue</option>
+							<option value="red">Red</option>
+							<option value="purple">Purple</option>
+							<option value="green">Green</option>
+						</select>
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Purple</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--purple">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--purple" disabled>Button</button>
-					</div>
-				</div>
+					</fieldset>
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Green</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--green">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--green" disabled>Button</button>
-					</div>
-				</div>
+					<fieldset data-option="width">
 
-			</div>
+						<legend>Width</legend>
 
-			<hr />
+						<input type="radio" name="button-option--width" value="" checked=""> Default<br>
+						<input type="radio" name="button-option--width" value="full-width"> Full Width
 
-			<!-- ROW: Ghost -->
-			<div class="sui-row">
+					</fieldset>
 
-				<div class="sui-col-md-2">
+					<fieldset data-option="height">
 
-					<div style="margin-bottom: 30px;">
-						<span style="color: #333; font-size: 15px; line-height: 20px; font-weight: 700;">Ghost</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Active</span>
-					</div>
-					<div>
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Disabled</span>
-					</div>
+						<legend>Height</legend>
+
+						<input type="radio" name="button-option--height" value="" checked=""> 30px (Default)<br>
+						<input type="radio" name="button-option--height" value="md"> 50px<br>
+						<input type="radio" name="button-option--height" value="lg"> 60px<br>
+						<input type="radio" name="button-option--height" value="xl"> 70px
+
+					</fieldset>
+
+					<fieldset data-option="icon">
+
+						<legend>Leading icon</legend>
+
+						<input type="radio" name="button-option--icon" value="" checked=""> None<br>
+						<input type="radio" name="button-option--icon" value="left"> Left<br>
+						<input type="radio" name="button-option--icon" value="right"> Right
+
+					</fieldset>
 
 				</div>
 
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Grey</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Blue</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-blue">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-blue" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Red</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-red">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-red" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Purple</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-purple">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-purple" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Green</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-green">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-green" disabled>Button</button>
-					</div>
-				</div>
-
-			</div>
-
-			<hr />
-
-			<!-- ROW: Ghost Dashed -->
-			<div class="sui-row">
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #333; font-size: 15px; line-height: 20px; font-weight: 700;">Ghost Dashed</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Active</span>
-					</div>
-					<div>
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Disabled</span>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Grey</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost sui-button--dashed">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost sui-button--dashed" disabled>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Blue</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-blue sui-button--dashed">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-blue sui-button--dashed" disabled>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Red</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-red sui-button--dashed">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-red sui-button--dashed" disabled>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Purple</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-purple sui-button--dashed">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-purple sui-button--dashed" disabled>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Green</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--ghost-green sui-button--dashed">
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--ghost-green sui-button--dashed" disabled>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-
-				</div>
-
-			</div>
-
-			<hr />
-
-			<!-- ROW: Light -->
-			<div class="sui-row">
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #333; font-size: 15px; line-height: 20px; font-weight: 700;">Light</span>
-					</div>
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Active</span>
-					</div>
-
-					<div>
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Disabled</span>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Grey</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--light">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--light" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Blue</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--light-blue">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--light-blue" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Red</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--light-red">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--light-red" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Purple</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--light-purple">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--light-purple" disabled>Button</button>
-					</div>
-				</div>
-
-				<div class="sui-col-md-2">
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Green</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--light-green">Button</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--light-green" disabled>Button</button>
-					</div>
-				</div>
-
-			</div>
-
-			<hr />
-
-			<!-- ROW: Lead Icon -->
-			<div class="sui-row">
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #333; font-size: 15px; line-height: 20px; font-weight: 700;">Lead Icon</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Left Icon</span>
-					</div>
-					<div>
-						<span style="color: #888; font-size: 15px; line-height: 30px; font-weight: 700;">Right Icon</span>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Grey</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button">
-							<span class="sui-button__icon--left sui-icon-plus sui-sm" aria-hidden="true"></span>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button">
-							<span class="sui-button__label">Button</span>
-							<span class="sui-button__icon--right sui-icon-plus sui-sm" aria-hidden="true"></span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Blue</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--blue">
-							<span class="sui-button__icon--left sui-icon-plus sui-sm" aria-hidden="true"></span>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--blue">
-							<span class="sui-button__label">Button</span>
-							<span class="sui-button__icon--right sui-icon-plus sui-sm" aria-hidden="true"></span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Red</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--red">
-							<span class="sui-button__icon--left sui-icon-plus sui-sm" aria-hidden="true"></span>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--red">
-							<span class="sui-button__label">Button</span>
-							<span class="sui-button__icon--right sui-icon-plus sui-sm" aria-hidden="true"></span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Purple</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--purple">
-							<span class="sui-button__icon--left sui-icon-plus sui-sm" aria-hidden="true"></span>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--purple">
-							<span class="sui-button__label">Button</span>
-							<span class="sui-button__icon--right sui-icon-plus sui-sm" aria-hidden="true"></span>
-						</button>
-					</div>
-
-				</div>
-
-				<div class="sui-col-md-2">
-
-					<div style="margin-bottom: 30px;">
-						<span style="color: #AAA; font-size: 15px; line-height: 20px; font-weight: 700;">Green</span>
-					</div>
-					<div style="margin-bottom: 30px;">
-						<button class="sui-button sui-button--green">
-							<span class="sui-button__icon--left sui-icon-plus sui-sm" aria-hidden="true"></span>
-							<span class="sui-button__label">Button</span>
-						</button>
-					</div>
-					<div>
-						<button class="sui-button sui-button--green">
-							<span class="sui-button__label">Button</span>
-							<span class="sui-sm sui-button__icon--right sui-icon-plus" aria-hidden="true"></span>
-						</button>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Regular -->
-	<div class="sui-box" data-tab="regular" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Regular Button</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<!-- SECTION: Default -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Default</span>
-					<span class="sui-description" style="margin-bottom: 10px;">The class <code>sui-button</code> determines the base markup for any button that contains text.</span>
-
-					<button class="sui-button">Button</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SECTION: Outlined -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Outlined</span>
-					<span class="sui-description" style="margin-bottom: 10px;">This variation can come with border only and transparent background. For those cases you can make use of <code>sui-button--ghost</code> class.</span>
-
-					<button class="sui-button sui-button__ghost--grey">Button</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button__ghost--grey&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SECTION: Large -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Large</span>
-					<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need to make use of bigger buttons, to achieve this you can add <code>sui-button-lg</code> class.</span>
-
-					<button class="sui-button sui-button-lg">Button</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SECTION: Disabled -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Disabled</span>
-					<span class="sui-description" style="margin-bottom: 10px;">As simple as it sounds, you can add <code>disabled</code> attribute to button element or <code>disabled</code> class if you are using link element.</span>
-
-					<button class="sui-button" disabled>Regular Button</button>
-					<button class="sui-button sui-button--ghost" disabled>Outlined Button</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot; disabled&gt;Button&lt;/button&gt;
-&lt;a role=&quot;button&quot; class=&quot;sui-button disabled&quot;&gt;Button&lt;/a&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Colorizing -->
-	<div class="sui-box" data-tab="colors" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Colorize Buttons</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<p>There are some cases when you gonna need buttons with specific colors, to achieve this you can add <code>sui-button-{color_name}</code> extra class.</p>
-
-			<p>To try each button color variation click on the options below:</p>
-
-			<div class="sui-tabs sui-side-tabs">
-
-				<div data-tabs>
-					<div class="active">Blue</div>
-					<div>Green</div>
-					<div>Red</div>
-					<div>Orange</div>
-					<div>Yellow</div>
-					<div>Purple</div>
-					<div>White</div>
-				</div>
-
-				<div class="sui-tabs-content-lg" data-panes>
-
-					<!-- COLOR: Blue -->
-					<div class="active">
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button--blue">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--blue&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
+				<!-- Tabs -->
+				<div class="showcase-demo__content">
+
+					<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
+
+						<div tabindex="-1" class="sui-tabs-navigation">
+							<button type="button" class="sui-button-icon sui-tabs-navigation--left sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-left"></span>
+							</button>
+							<button type="button" class="sui-button-icon sui-tabs-navigation--right sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-right"></span>
+							</button>
+						</div>
+
+						<div role="tablist" class="sui-tabs-menu">
+
+							<button type="button" role="tab" id="tab-demo-button-solid" class="sui-tab-item active" aria-controls="tab-content-demo-button-solid" aria-selected="true">
+								Solid
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-solid-light" class="sui-tab-item" aria-controls="tab-content-demo-button-solid-light" aria-selected="false" tabindex="-1">
+								Solid Light
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-ghost" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost" aria-selected="false" tabindex="-1">
+								Ghost
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-ghost-dashed" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost-dashed" aria-selected="false" tabindex="-1">
+								Ghost Dashed
+							</button>
+
+							<button type="button" role="tab" id="tab-demo-button-text" class="sui-tab-item" aria-controls="tab-content-demo-button-text" aria-selected="false" tabindex="-1">
+								Text
+							</button>
 
 						</div>
 
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
+						<div class="sui-tabs-content">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+							<!-- TAB: Solid -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid" class="sui-tab-content active" aria-labelledby="tab-demo-button-solid">
 
-							<button class="sui-button sui-button--ghost sui-button--blue">Button</button>
+								<div class="showcase-demo__preview" data-type="solid">
 
-							<div class="demo-code-block" style="margin-top: 10px;">
+									<button class="sui-button sui-button--solid">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--blue&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button--blue sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--blue sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Solid Light -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid-light" class="sui-tab-content" aria-labelledby="tab-demo-button-solid-light">
 
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="light">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+									<button class="sui-button sui-button--light">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button--blue" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button--blue" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--blue&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--blue&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Ghost -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost">
 
-					</div>
+								<div class="showcase-demo__preview" data-type="ghost">
 
-					<!-- COLOR: Green -->
-					<div>
+									<button class="sui-button sui-button--ghost">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button--green">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--green&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Ghost Dashed -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost-dashed" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost-dashed">
 
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="ghost">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+									<button class="sui-button sui-button--ghost sui-button--dashed">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button--ghost sui-button--green">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--green&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Text -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-text" class="sui-tab-content" aria-labelledby="tab-demo-button-text">
 
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="text">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+									<button class="sui-button">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button--green sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--green sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button--green" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button--green" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--green&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--green&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Red -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button--red">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--red&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button--ghost sui-button--red">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--red&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button--red sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--red sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button--red" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button--red" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--red&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--red&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Orange -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button--orange">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--orange&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button--ghost sui-button--orange">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--orange&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button--orange sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--orange sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button--orange" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button--orange" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--orange&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--orange&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Yellow -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-yellow">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button--ghost sui-button-yellow">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button-yellow&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-yellow sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-yellow" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button-yellow" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Purple -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button--purple">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--purple&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button--ghost sui-button--purple">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--purple&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button--purple sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--purple sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button--purple" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button--purple" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--purple&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button--purple&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: White -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-white">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button--ghost sui-button-white">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--ghost sui-button-white&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-white sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-white" disabled>Default Button</button>
-							<button class="sui-button sui-button--ghost sui-button-white" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button--ghost sui-button-white&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
@@ -1199,36 +216,572 @@ is_searchable: true
 
 	</div>
 
-	<!-- TAB: Text + Icon -->
-	<div class="sui-box" data-tab="with-icon" style="display: none;">
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="docs" style="display: none;">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Button with Icon</h2>
+			<h2 class="sui-box-title">Documentation</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<!-- SECTION: Left Icon -->
+			<!-- ROW: Specifications -->
 			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Specifications</h3>
+				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<span class="sui-settings-label sui-dark">Left Icon</span>
-					<span class="sui-description" style="margin-bottom: 10px;">You don't need an extra class, just place the icon at left of the text and it will align correctly.</span>
+					<table class="sui-table" style="max-width: 720px;">
 
-					<button class="sui-button"><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+						<tbody>
 
-					<button class="sui-button sui-button--ghost"><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+							<tr>
+								<td><strong>Version</strong></td>
+								<td><span class="sui-tag sui-tag-yellow">^2.13.0</span></td>
+								<td colspan="3">This is the minimum required version of SUI to use with this element in order for it to work properly.</td>
+							</tr>
 
-					<button class="sui-button" disabled><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+							<tr>
+								<td><strong>Utilities</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports the global modifier classes listed on <a href="/shared-ui/utilities/"><strong>Utilities</strong></a> page.</td>
+							</tr>
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+							<tr>
+								<td><strong>Monochrome</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports the Colour Accessible option found on our plugins' Settings page.</td>
+							</tr>
+
+							<tr>
+								<td><strong>RTL Language</strong></td>
+								<td style="color: #1ABC9C; font-weight: 500;">
+									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+								</td>
+								<td colspan="3">This will tell you if the element supports right-to-left langues.</td>
+							</tr>
+
+						</tbody>
+
+					</table>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: Implementation -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Implementation</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-side-tabs sui-tabs">
+
+						<div data-tabs>
+							<div class="active">Text Button</div>
+							<div>Solid Button</div>
+							<div>Light Button</div>
+							<div>Ghost Button</div>
+							<div>Dashed Button</div>
+							<div>More Variations</div>
+						</div>
+
+						<div data-panes>
+
+							<!-- TAB: Text Button -->
+							<div class="active" style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Text Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons have less visual prominence, so should be used for low emphasis actions.</p>
+
+								<button class="sui-button">
+									<span class="sui-button__label">Text Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;button class=&quot;sui-button&quot;&gt;
-	&lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Button
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
 &lt;/button&gt;
 </pre>
+
+								</div>
+
+								<button class="sui-button sui-button--icon-leading">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Text Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--icon-leading&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--icon-trailing">
+									<span class="sui-button__label">Text Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--icon-trailing&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Text Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Solid Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Solid Button</h4>
+								<p class="sui-description" style="margin-top: 0;">This is the most prominent button because of its contrasting surface color. It is also used as a primary action button.</p>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid sui-button--icon-leading">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid sui-button--icon-leading&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid sui-button--icon-trailing">
+									<span class="sui-button__label">Solid Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid sui-button--icon-trailing&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Solid Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--solid</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--solid-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--solid-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--solid-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--solid-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Light Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Light Button</h4>
+								<p class="sui-description" style="margin-top: 0;">To make it less visually prominent, this button has a lighter background color and darker label color. They're still used for final or unblocking actions in a flow, but may be better when these actions don't require quite so much emphasis.</p>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light sui-button--icon-leading">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light sui-button--icon-leading&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light sui-button--icon-trailing">
+									<span class="sui-button__label">Light Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light sui-button--icon-trailing&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Light Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--light</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--light-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--light-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--light-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--light-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Ghost Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Ghost Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons are for actions that need attention but aren't the primary action, such as "View all". This is also the button used to give someone the oportunity to change their mind or escape the flow.</p>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost sui-button--icon-leading">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost sui-button--icon-leading&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost sui-button--icon-trailing">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost sui-button--icon-trailing&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Ghost Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--ghost</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--ghost-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--ghost-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--ghost-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--ghost-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Dashed Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Dashed Button</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">It is a ghost button with dashed border. Currently used as secondary button in the <a href="{{ site.baseurl }}/builder/">Builder</a> element.</p>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost sui-button--icon-leading">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost sui-button--icon-leading&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost sui-button--icon-trailing">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost sui-button--icon-trailing&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Dashed Button Color Variations</h5>
+
+								<p class="sui-description" style="margin-top: 0;">Color variations are the same used on <strong>Ghost Button</strong>. The only difference is that this button has always present the class: <code>sui-button--dashed</code>.</p>
+
+							</div>
+
+							<!-- TAB: More Variations -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Disabled</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To disable a button, add the <code>disabled</code> attribute directly to the <code>button</code> element.</p>
+
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__label">Disabled</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Disabled Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					</div>
 
@@ -1236,29 +789,76 @@ is_searchable: true
 
 			</div>
 
-			<!-- SECTION: Right Icon -->
+			<!-- ROW: API -->
 			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">CSS Classes</h3>
+				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<span class="sui-settings-label sui-dark">Right Icon</span>
-					<span class="sui-description" style="margin-bottom: 10px;">Use <code>sui-button-icon-right</code> class to add the correct spacing between text and icon when you place the icon at right of the text.</span>
+					<table class="sui-table">
 
-					<button class="sui-button sui-button-icon-right">Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+						<thead>
 
-					<button class="sui-button sui-button--ghost sui-button-icon-right">Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+							<tr>
+								<th>CSS Class</th>
+								<th colspan="2">Description</th>
+							</tr>
 
-					<button class="sui-button sui-button-icon-right" disabled>Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+						</thead>
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+						<tbody>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-icon-right&quot;&gt;
-	Button &lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-&lt;/button&gt;
-</pre>
+							<tr>
+								<td><code>sui-button</code></td>
+								<td colspan="2"><strong>Mandatory.</strong> Defaults to a text button.</td>
+							</tr>
 
-					</div>
+							<tr>
+								<td><code>sui-button--md</code></td>
+								<td colspan="2">Styles a button that has 50px height.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button--lg</code></td>
+								<td colspan="2">Styles a button that has 60px height.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button--xl</code></td>
+								<td colspan="2">Styles a button that has 70px height.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button--full-width</code></td>
+								<td colspan="2">Styles a button that occupies the full width of its container.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button__icon-leading</code></td>
+								<td colspan="2">Styles a button with a leading (left) icon.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button__icon-trailing</code></td>
+								<td colspan="2">Styles a button with a trailing (right) icon.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button__label</code></td>
+								<td colspan="2"><strong>Mandatory.</strong> Indicates the element containing the button's text label.</td>
+							</tr>
+
+							<tr>
+								<td><code>sui-button__icon</code></td>
+								<td colspan="2">Indicates the element containing the button's icon.</td>
+							</tr>
+
+						</tbody>
+
+					</table>
 
 				</div>
 
@@ -1643,79 +1243,6 @@ To put this button on "loading" state just include
 </pre>
 
 						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Dashed -->
-	<div class="sui-box" data-tab="dashed" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Dashed Button</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<div class="sui-notice sui-notice-warning">
-
-				<p>This button is used with <a href="/page-builder.html">builder</a> element and always have a 100% width and 60px height. It's made this big to highlight so users can easily click on it to perform an action like adding a new element.</p>
-
-			</div>
-
-			<!-- SECTION: Default -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Default – 60px Height</span>
-
-					<button class="sui-button sui-button--ghost sui-button--dashed sui-button--lg sui-button--full-width">
-						<span class="sui-icon-plus sui-md sui-button__icon--left" aria-hidden="true"></span>
-						Dashed Button
-					</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button--ghost sui-button--dashed sui-button--full-width sui-button--lg&quot;&gt;
-	&lt;span class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-	Dashed Button
-&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SECTION: Large -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Large – 70px Height</span>
-
-					<button class="sui-button sui-button--ghost sui-button--dashed sui-button--xl sui-button--full-width">
-						<span class="sui-icon-plus" aria-hidden="true"></span>
-						Dashed Button
-					</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button--dashed sui-button--dashed sui-button--full-width sui-button--xl&quot;&gt;
-	&lt;span class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-	Dashed Button
-&lt;/button&gt;
-</pre>
 
 					</div>
 
