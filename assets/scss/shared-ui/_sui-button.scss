@@ -150,3 +150,20 @@ $button-sizes: (
 		}
 	}
 }
+
+@include body-class($wrap: true, $monochrome: true) { 
+	%button-basics {
+		color: $accessible-light;
+		background: $accessible-dark;
+		border-color: $accessible-dark;
+		&:hover{
+			background: $nightrider;
+			border-color: $nightrider;
+		}
+		&:focus{
+			outline: $black;
+			border-color: $black;
+			background: $nightrider;
+		}
+	}
+}
