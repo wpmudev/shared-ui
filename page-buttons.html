@@ -292,47 +292,489 @@ is_searchable: true
 
 			</div>
 
-			<!-- ROW: Text Button -->
+			<!-- ROW: Implementation -->
 			<div class="sui-box-settings-row">
 
 				<div class="sui-box-settings-col-1">
-					<h3 class="sui-settings-label">Text Button</h3>
-					<p class="sui-description">These buttons have less visual prominence, so should be used for low emphasis actions.</p>
+					<h3 class="sui-settings-label">Implementation</h3>
 				</div>
 
 				<div class="sui-box-settings-col-2">
 
-					<h4 class="sui-label">Markup</h4>
+					<div class="sui-side-tabs sui-tabs">
 
-					<div class="demo-code-block">
+						<div data-tabs>
+							<div class="active">Text Button</div>
+							<div>Solid Button</div>
+							<div>Light Button</div>
+							<div>Ghost Button</div>
+							<div>Dashed Button</div>
+						</div>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot;&gt; ... &lt;/button&gt;
-</pre>
+						<div data-panes>
 
-					</div>
+							<!-- TAB: Text Button -->
+							<div class="sui-tab-boxed active">
 
-				</div>
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Text Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons have less visual prominence, so should be used for low emphasis actions.</p>
 
-			</div>
+								<button class="sui-button">
+									<span class="sui-button__label">Text Button</span>
+								</button>
 
-			<!-- ROW: Solid Button -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<h3 class="sui-settings-label">Solid Button</h3>
-					<p class="sui-description">This is the most prominent button because of its contrasting surface color.</p>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<h4 class="sui-label">Markup</h4>
-
-					<div class="demo-code-block">
+								<div class="demo-code-block" style="margin-top: 15px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--solid&quot;&gt; ... &lt;/button&gt;
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+&lt;/button&gt;
 </pre>
+
+								</div>
+
+								<button class="sui-button">
+									<span class="sui-button__icon--left sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Text Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__icon--left sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button">
+									<span class="sui-button__label">Text Button</span>
+									<span class="sui-button__icon--right sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon--right sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Text Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Solid Button -->
+							<div class="sui-tab-boxed">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Solid Button</h4>
+								<p class="sui-description" style="margin-top: 0;">This is the most prominent button because of its contrasting surface color. It is also used as a primary action button.</p>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__icon--left sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__icon--left sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Solid Button</span>
+									<span class="sui-button__icon--right sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon--right sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Solid Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--solid</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--solid-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--solid-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--solid-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--solid-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Light Button -->
+							<div class="sui-tab-boxed">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Light Button</h4>
+								<p class="sui-description" style="margin-top: 0;">To make it less visually prominent, this button has a lighter background color and darker label color. They're still used for final or unblocking actions in a flow, but may be better when these actions don't require quite so much emphasis.</p>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__icon--left sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__icon--left sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Light Button</span>
+									<span class="sui-button__icon--right sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon--right sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Light Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--light</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--light-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--light-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--light-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--light-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Ghost Button -->
+							<div class="sui-tab-boxed">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Ghost Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons are for actions that need attention but aren't the primary action, such as "View all". This is also the button used to give someone the oportunity to change their mind or escape the flow.</p>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__icon--left sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__icon--left sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon--right sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon--right sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Ghost Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--ghost</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--ghost-blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--ghost-red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--ghost-purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--ghost-green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Dashed Button -->
+							<div class="sui-tab-boxed">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Dashed Button</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">It is a ghost button with dashed border. Currently used as secondary button in the <a href="{{ site.baseurl }}/builder/">Builder</a> element.</p>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__icon--left sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__icon--left sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon--right sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon--right sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Dashed Button Color Variations</h5>
+
+								<p class="sui-description" style="margin-top: 0;">Color variations are the same used on <strong>Ghost Button</strong>. The only difference is that this button has always present the class: <code>sui-button--dashed</code>.</p>
+
+							</div>
+
+						</div>
 
 					</div>
 
