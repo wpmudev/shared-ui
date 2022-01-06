@@ -1993,25 +1993,7 @@ is_searchable: true
 							<!-- TAB: More Variations -->
 							<div style="margin-top: 30px;">
 
-								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Disabled</h4>
-								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To disable a button, add the <code>disabled</code> attribute directly to the <code>button</code> element.</p>
-
-								<button class="sui-button sui-button--solid" disabled>
-									<span class="sui-button__label">Disabled</span>
-								</button>
-
-								<div class="demo-code-block" style="margin-top: 15px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
-	&lt;span class=&quot;sui-button__label&quot;&gt;Disabled Button&lt;/span&gt;
-&lt;/button&gt;
-</pre>
-
-								</div>
-
-								<hr>
-
+								<!-- Compound Button -->
 								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Compound Button</h4>
 								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">In some parts of the design you are going to find buttons transformed from text to icon buttons or vice-versa. You just need to make use of class modifiers available on <a href="{{ site.baseurl }}/utilities/"><strong>Utilities</strong></a> page.</p>
 
@@ -2048,6 +2030,48 @@ is_searchable: true
 &lt;button class=&quot;sui-button sui-button--solid&quot; aria-label=&quot;Sample Button&quot;&gt;
 	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-md sui-hidden-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 	&lt;span class=&quot;sui-button__label sui-hidden-md sui-hidden-lg sui-hidden-xl&quot;&gt;Sample Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<hr>
+
+								<!-- Loading -->
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Loading</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To set a button on "loading" state, it is necessary to add <code>sui-button--loading</code> class and <code>disable</code> it.</p>
+
+								<button class="sui-button sui-button--solid sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__loader sui-icon-loader sui-loading sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<hr>
+
+								<!-- Disabled -->
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Disabled</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To disable a button, add the <code>disabled</code> attribute directly to the <code>button</code> element.</p>
+
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__label">Disabled</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Disabled Button&lt;/span&gt;
 &lt;/button&gt;
 </pre>
 
