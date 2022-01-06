@@ -66,22 +66,26 @@ $button-sizes: (
 
 		// ELM: Icon.
 		@include element('icon') {
+			flex: 0 0 auto;
 
-			&--left,
-			&--right {
-				flex: 0 0 auto;
-
-				&:before {
-					display: block;
-					color: inherit;
-				}
+			&:before {
+				display: block;
+				color: inherit;
 			}
+		}
 
-			@include modifier('left') {
+		// MOD: Leading icon.
+		@include modifier('icon-leading') {
+
+			.sui-button__icon {
 				margin-right: 5px;
 			}
+		}
 
-			@include modifier('right') {
+		// MOD: Trailing icon.
+		@include modifier('icon-trailing') {
+
+			.sui-button__icon {
 				margin-left: 5px;
 			}
 		}
@@ -127,15 +131,19 @@ $button-sizes: (
 
 	@include block('button') {
 
-		// ELM: Icon.
-		@include element('icon') {
+		// MOD: Leading icon.
+		@include modifier('icon-leading') {
 
-			@include modifier('left') {
+			.sui-button__icon {
 				margin-left: 5px;
 				margin-right: 0;
 			}
+		}
 
-			@include modifier('right') {
+		// MOD: Trailing icon.
+		@include modifier('icon-trailing') {
+
+			.sui-button__icon {
 				margin-left: 0;
 				margin-right: 5px;
 			}
