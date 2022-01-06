@@ -47,13 +47,13 @@
 			if ( ! $.isEmptyObject( uniqueCategories ) ) {
 
 				// Create wrapper.
-				list.prepend( '<div class="icons-list-filter"></div>' );
+				list.prepend( '<div class="sui-tabs sui-side-tabs"><div class="icons-list-filter" role="tablist" data-tabs></div></div>' );
 
 				// Set "all" filter.
-				list.find( '.icons-list-filter' ).append( '<button data-filter-show="all" disabled>All</button>' );
+				list.find( '.icons-list-filter' ).append( '<button class="sui-tab-item active" role="tab" data-filter-show="all" disabled>All</button>' );
 
 				$.each( uniqueCategories, function( i, el ) {
-					list.find( '.icons-list-filter' ).append( '<button data-filter-show="' + el + '">' + el + '</button>' );
+					list.find( '.icons-list-filter' ).append( '<button class="sui-tab-item" role="tab" data-filter-show="' + el + '">' + el + '</button>' );
 				});
 			}
 		}
@@ -153,6 +153,10 @@
 
 				filter.removeAttr( 'disabled' );
 				button.attr( 'disabled', true );
+
+				// add remove active class
+				filter.removeClass( 'active' );
+				button.addClass( 'active' );
 
 				e.stopPropagation();
 				e.preventDefault();
