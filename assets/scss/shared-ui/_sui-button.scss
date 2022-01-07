@@ -178,19 +178,35 @@ $button-sizes: (
 	}
 }
 
-@include body-class($wrap: true, $monochrome: true) { 
+@include body-class($wrap: true, $rtl: false, $monochrome: true) { 
 	@include block('button') {
-		color: $accessible-light;
-		background: $accessible-dark;
-		border-color: $accessible-dark;
-		&:hover{
-			background: $nightrider;
-			border-color: $nightrider;
+		color: $accessible-dark;
+		
+		&.sui-button--solid,
+		&[class*="sui-button--solid-"],
+		&.sui-button--light,
+		&[class*="sui-button--light-"],
+		&[disabled],
+		&:hover {
+			background: $accessible-dark;
+			border-color: $accessible-dark;
+			color: $accessible-light;
 		}
-		&:focus{
-			outline: $black;
-			border-color: $black;
+
+		&.sui-button--ghost,
+		&[class*="sui-button--ghost-"] {
+			border-color: $accessible-dark;
+		}
+
+		&:hover {
+			box-shadow: 0 3px 6px 1px rgba(0,0,0,0.2);
+		}
+
+		&:focus {
+			outline: $ironmike;
+			border-color: $ironmike;
 			background: $nightrider;
+			color: $accessible-light;
 		}
 	}
 }
