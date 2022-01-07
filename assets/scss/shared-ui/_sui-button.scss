@@ -74,6 +74,33 @@ $button-sizes: (
 			}
 		}
 
+		// ELM: Loader.
+		@include element('loader') {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			&:before {
+				display: block;
+				color: inherit;
+			}
+		}
+
+		// MOD: Loading state.
+		@include modifier('loading') {
+
+			.sui-button__icon,
+			.sui-button__label {
+				opacity: 0;
+			}
+
+			.sui-button__loader {
+				display: block;
+			}
+		}
+
 		// MOD: Leading icon.
 		@include modifier('icon-leading') {
 
