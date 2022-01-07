@@ -1,10 +1,13 @@
 @use 'sass:map';
 @use './mixins/bem' as *;
 @use './_sui-button/mixins';
-@use './_sui-button/button-text-theme';
-@use './_sui-button/button-solid-theme';
-@use './_sui-button/button-light-theme';
-@use './_sui-button/button-ghost-theme';
+@use './_sui-button/button-theme-text';
+@use './_sui-button/button-theme-solid';
+@use './_sui-button/button-theme-light';
+@use './_sui-button/button-theme-ghost';
+
+$button--height: 50, 60, 70;
+$button__label--height: 14;
 
 %button-basics {
 	cursor: pointer;
@@ -12,7 +15,7 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	padding: 5px 14px;
+	padding: 5px #{$button__label--height + 'px'};
 	border: 2px solid transparent;
 	border-radius: $border-radius;
 	outline: 1px solid transparent;
@@ -31,12 +34,6 @@
 	background: $silver;
 	color: $fiftyshades;
 }
-
-$button-sizes: (
-	md: 50px,
-	lg: 60px,
-	xl: 70px,
-);
 
 @include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
@@ -127,10 +124,10 @@ $button-sizes: (
 		}
 
 		// MOD: Button sizes.
-		@each $label, $size in $button-sizes {
+		@each $value in $button--height {
 
-			@include modifier($label) {
-				line-height: #{$size - 14px};
+			@include modifier('height-' + $value) {
+				line-height: #{($value - $button__label--height) + 'px'};
 			}
 		}
 
@@ -141,16 +138,16 @@ $button-sizes: (
 		}
 
 		// MOD: Colourized text button.
-		@include mixins.button-theme(button-text-theme.$palette);
+		@include mixins.button-theme(button-theme-text.$palette);
 
 		// MOD: Colourized solid button.
-		@include mixins.button-theme(button-solid-theme.$palette, 'solid');
+		@include mixins.button-theme(button-theme-solid.$palette, 'solid');
 
 		// MOD: Colourized light button.
-		@include mixins.button-theme(button-light-theme.$palette, 'light');
+		@include mixins.button-theme(button-theme-light.$palette, 'light');
 
 		// MOD: Colourized ghost button.
-		@include mixins.button-theme(button-ghost-theme.$palette, 'ghost');
+		@include mixins.button-theme(button-theme-ghost.$palette, 'ghost');
 	}
 }
 
