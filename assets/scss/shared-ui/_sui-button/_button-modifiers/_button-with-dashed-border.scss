@@ -1,0 +1,11 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-with-dashed-border() {
+	@include modifier('dashed') {
+		border-style: dashed;
+
+		&:focus {
+			border-style: solid;
+		}
+	}
+}

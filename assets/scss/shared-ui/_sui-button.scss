@@ -25,10 +25,10 @@ $height--props: (
 		@include component.button-loader();
 
 		// Button modifiers.
-		@include modifier.button-dashed();
-		@include modifier.button-leading-icon();
-		@include modifier.button-trailing-icon();
-		@include modifier.button-loading-state();
+		@include modifier.button-with-icon(leading);
+		@include modifier.button-with-icon(trailing);
+		@include modifier.button-with-dashed-border();
+		@include modifier.button-with-loading-state();
 
 		@include tool.button-size-constructor(width, $width--options);
 		@include tool.button-size-constructor(height, $height--options, $height--props);

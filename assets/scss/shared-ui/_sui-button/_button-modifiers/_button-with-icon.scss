@@ -1,0 +1,24 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-with-icon($position) {
+	@if $position == leading {
+		@include modifier('icon-leading') {
+			.sui-button__icon {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	@else if $position == trailing {
+		@include modifier('icon-trailing') {
+			.sui-button__icon {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	@else {
+		@warn "You need include a value for #{$position}." +
+		"It could be either leading or trailing.";
+	}
+}
