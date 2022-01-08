@@ -1,0 +1,37 @@
+@use '../_mixins/bem' as *;
+
+// ELM: Label.
+@mixin button-label {
+	@include element('label') {
+		display: block;
+		flex: 0 0 auto;
+	}
+}
+
+// ELM: Icon.
+@mixin button-icon {
+	@include element('icon') {
+		flex: 0 0 auto;
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+	}
+}
+
+// ELM: Loader.
+@mixin button-loader {
+	@include element('loader') {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+	}
+}

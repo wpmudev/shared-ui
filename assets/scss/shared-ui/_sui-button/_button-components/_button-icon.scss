@@ -1,0 +1,12 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-icon {
+	@include element('icon') {
+		flex: 0 0 auto;
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+	}
+}

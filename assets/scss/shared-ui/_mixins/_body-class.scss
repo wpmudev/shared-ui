@@ -1,0 +1,71 @@
+@use '../_helpers/variables' as *;
+@use '../_mixins/string-replace' as *;
+
+// ==================================================
+// Generates the required versioned body class.
+//
+// $wrap: false
+// $rtl: false
+// $monochrome: false
+// ==================================================
+@mixin body-class($wrap: false, $rtl: false, $monochrome: false) {
+
+	$formatted-version: str-replace($sui-version, '.', '-');
+
+	@if ( $wrap and $sui-wrap-class ) {
+
+		@if $rtl {
+
+			.sui-#{$formatted-version}.rtl {
+
+				.#{$sui-wrap-class} {
+
+					@if $monochrome {
+
+						&.sui-color-accessible {
+							@content;
+						}
+					}
+
+					@else {
+						@content;
+					}
+				}
+			}
+		}
+
+		@else {
+
+			.sui-#{$formatted-version} .#{$sui-wrap-class} {
+
+				@if $monochrome {
+
+					&.sui-color-accessible {
+						@content;
+					}
+				}
+
+				@else {
+					@content;
+				}
+			}
+		}
+	}
+
+	@else {
+
+		@if $rtl {
+
+			.sui-#{$formatted-version}.rtl {
+				@content;
+			}
+		}
+
+		@else {
+
+			.sui-#{$formatted-version} {
+				@content;
+			}
+		}
+	}
+}

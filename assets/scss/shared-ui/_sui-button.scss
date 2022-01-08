@@ -1,153 +1,36 @@
 @use 'sass:map';
-@use './mixins/bem' as *;
-@use './_sui-button/mixins';
-@use './_sui-button/button-theme-text';
-@use './_sui-button/button-theme-solid';
-@use './_sui-button/button-theme-light';
-@use './_sui-button/button-theme-ghost';
+@use './_mixins/bem' as *;
+@use './_sui-button/button-components' as component;
+@use './_sui-button/button-utilities' as tool;
+@use './_sui-button/button-themes' as palette;
+@use './_sui-button/button-modifiers' as modifier;
 
-$button--height: 50, 60, 70;
-$button__label--height: 14;
-
-%button-basics {
-	cursor: pointer;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	padding: 5px #{$button__label--height + 'px'};
-	border: 2px solid transparent;
-	border-radius: $border-radius;
-	outline: 1px solid transparent;
-	background: transparent;
-	box-shadow: none;
-	font: 500 12px/16px $font;
-	letter-spacing: -0.25px;
-	text-transform: uppercase;
-	text-decoration: none;
-	transition: $transition;
-}
-
-%button-disabled {
-	pointer-events: none;
-	border-color: $silver;
-	background: $silver;
-	color: $fiftyshades;
-}
+$width--options: full;
+$height--options: 50, 60, 70;
+$height--props: (
+	line-height: 14
+);
 
 @include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 	@include block('button') {
-		@extend %button-basics;
-		color: $grey;
+		@include component.button-container($height: 30);
+		@include component.button-label();
+		@include component.button-icon();
+		@include component.button-loader();
 
-		&:hover {
-			border-color: $haze;
-			background: $haze;
-		}
+		@include modifier.button-dashed();
+		@include modifier.button-leading-icon();
+		@include modifier.button-trailing-icon();
+		@include modifier.button-loading-state();
 
-		&:focus {
-			border-color: $silver;
-			outline-color: $silver;
-			background: $haze;
-		}
+		@include tool.button-size-constructor(width, $width--options);
+		@include tool.button-size-constructor(height, $height--options, $height--props);
 
-		&[disabled] {
-			@extend %button-disabled;
-		}
-
-		// ELM: Label.
-		@include element('label') {
-			display: block;
-		}
-
-		// ELM: Icon.
-		@include element('icon') {
-			flex: 0 0 auto;
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-		}
-
-		// ELM: Loader.
-		@include element('loader') {
-			display: none;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-		}
-
-		// MOD: Loading state.
-		@include modifier('loading') {
-
-			.sui-button__icon,
-			.sui-button__label {
-				opacity: 0;
-			}
-
-			.sui-button__loader {
-				display: block;
-			}
-		}
-
-		// MOD: Leading icon.
-		@include modifier('icon-leading') {
-
-			.sui-button__icon {
-				margin-right: 5px;
-			}
-		}
-
-		// MOD: Trailing icon.
-		@include modifier('icon-trailing') {
-
-			.sui-button__icon {
-				margin-left: 5px;
-			}
-		}
-
-		// MOD: Dashed button.
-		@include modifier('dashed') {
-			border-style: dashed;
-
-			&:focus {
-				border-style: solid;
-			}
-		}
-
-		// MOD: Button sizes.
-		@each $value in $button--height {
-
-			@include modifier('height-' + $value) {
-				line-height: #{($value - $button__label--height) + 'px'};
-			}
-		}
-
-		// MOD: Full width.
-		@include modifier('full-width') {
-			width: 100%;
-			display: flex;
-		}
-
-		// MOD: Colourized text button.
-		@include mixins.button-theme(button-theme-text.$palette);
-
-		// MOD: Colourized solid button.
-		@include mixins.button-theme(button-theme-solid.$palette, 'solid');
-
-		// MOD: Colourized light button.
-		@include mixins.button-theme(button-theme-light.$palette, 'light');
-
-		// MOD: Colourized ghost button.
-		@include mixins.button-theme(button-theme-ghost.$palette, 'ghost');
+		@include tool.button-theme-constructor(default, palette.$button-theme-text);
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-solid, 'solid');
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-light, 'light');
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-ghost, 'ghost');
 	}
 }
 
