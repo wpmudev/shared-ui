@@ -6,6 +6,8 @@
 @use './_sui-button/button-modifiers' as modifier;
 
 $width--options: full;
+
+$height--default: 30;
 $height--options: 50, 60, 70;
 $height--props: (
 	line-height: 14
@@ -14,7 +16,7 @@ $height--props: (
 @include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 	@include block('button') {
-		@include component.button-container($height: 30);
+		@include component.button-container($height--default);
 		@include component.button-label();
 		@include component.button-icon();
 		@include component.button-loader();
