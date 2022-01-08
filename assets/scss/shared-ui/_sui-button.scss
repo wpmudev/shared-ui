@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use './_mixins/bem' as *;
 @use './_sui-button/button-elements' as component;
-@use './_sui-button/button-utilities' as tool;
 @use './_sui-button/button-themes' as palette;
 @use './_sui-button/button-modifiers' as modifier;
 
@@ -25,18 +24,16 @@ $height--props: (
 		@include component.button-loader();
 
 		// Button modifiers.
-		@include modifier.button-with-icon(leading);
-		@include modifier.button-with-icon(trailing);
-		@include modifier.button-with-dashed-border();
-		@include modifier.button-with-loading-state();
-
-		@include tool.button-size-constructor(width, $width--options);
-		@include tool.button-size-constructor(height, $height--options, $height--props);
-
-		@include tool.button-theme-constructor(default, palette.$button-theme-text);
-		@include tool.button-theme-constructor(modifier, palette.$button-theme-solid, 'solid');
-		@include tool.button-theme-constructor(modifier, palette.$button-theme-light, 'light');
-		@include tool.button-theme-constructor(modifier, palette.$button-theme-ghost, 'ghost');
+		@include modifier.button-border-constructor(dashed);
+		@include modifier.button-icon-constructor(leading);
+		@include modifier.button-icon-constructor(trailing);
+		@include modifier.button-state-constructor(loading);
+		@include modifier.button-size-constructor(width, $width--options);
+		@include modifier.button-size-constructor(height, $height--options, $height--props);
+		@include modifier.button-theme-constructor(default, palette.$button-theme-text);
+		@include modifier.button-theme-constructor(modifier, palette.$button-theme-solid, 'solid');
+		@include modifier.button-theme-constructor(modifier, palette.$button-theme-light, 'light');
+		@include modifier.button-theme-constructor(modifier, palette.$button-theme-ghost, 'ghost');
 	}
 }
 
