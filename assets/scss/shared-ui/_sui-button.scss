@@ -16,11 +16,15 @@ $height--props: (
 @include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 	@include block('button') {
+		// Button main styles.
 		@include component.button-container($height--default);
+
+		// Button elements.
 		@include component.button-label();
 		@include component.button-icon();
 		@include component.button-loader();
 
+		// Button modifiers.
 		@include modifier.button-dashed();
 		@include modifier.button-leading-icon();
 		@include modifier.button-trailing-icon();
