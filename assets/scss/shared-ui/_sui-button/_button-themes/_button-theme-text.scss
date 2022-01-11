@@ -1,7 +1,25 @@
 @use 'sass:color' as nan;
-@use '../_helpers/colors' as color;
+@use '../../_helpers/colors' as color;
 
-$palette: (
+$button-theme-text: (
+	'grey': (
+		static: (
+			color: color.$grey
+		),
+		hover: (
+			border: color.$haze,
+			background: color.$haze
+		),
+		focus: (
+			border: color.$silver,
+			background: color.$haze
+		),
+		disabled: (
+			border: color.$silver,
+			background: color.$silver,
+			color: color.$fiftyshades
+		)
+	),
 	'blue': (
 		static: (
 			color: color.$blue

@@ -100,15 +100,15 @@
 						var button = $( this ).find( '.sui-button' );
 
 						button
-							.removeClass( 'sui-button--md' )
-							.removeClass( 'sui-button--lg' )
-							.removeClass( 'sui-button--xl' );
+							.removeClass( 'sui-button--height-50' )
+							.removeClass( 'sui-button--height-60' )
+							.removeClass( 'sui-button--height-70' );
 
 						switch ( option.val() ) {
-							case 'md':
-							case 'lg':
-							case 'xl':
-								button.addClass( 'sui-button--' + option.val() );
+							case '50':
+							case '60':
+							case '70':
+								button.addClass( 'sui-button--height-' + option.val() );
 								break;
 						}
 					});

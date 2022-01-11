@@ -1,0 +1,37 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-icon-constructor($position, $spacing: 5, $reverse: false) {
+
+	@if $position == leading or $position == trailing {
+		@include modifier(#{'icon-' + $position}) {
+			.sui-button__icon {
+				@if $position == leading {
+					@if $reverse == true {
+						margin-left: #{$spacing + 'px'};
+						margin-right: 0;
+					}
+					@else {
+						margin-left: 0;
+						margin-right: #{$spacing + 'px'};
+					}
+				}
+
+				@else if $position == trailing {
+					@if $reverse == true {
+						margin-left: 0;
+						margin-right: #{$spacing + 'px'};
+					}
+					@else {
+						margin-left: #{$spacing + 'px'};
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	@else {
+		@warn "You need include a value for #{$position}." +
+		"It could be either leading or trailing.";
+	}
+}
