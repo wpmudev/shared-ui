@@ -1,191 +1,46 @@
 @use 'sass:map';
-@use './mixins/bem' as *;
-@use './_sui-button/mixins';
-@use './_sui-button/button-text-theme';
-@use './_sui-button/button-solid-theme';
-@use './_sui-button/button-light-theme';
-@use './_sui-button/button-ghost-theme';
+@use './_mixins/bem' as *;
+@use './_sui-button/button-elements' as component;
+@use './_sui-button/button-themes' as palette;
+@use './_sui-button/_button-utilities/button-utilities' as tool;
 
-%button-basics {
-	cursor: pointer;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	padding: 5px 14px;
-	border: 2px solid transparent;
-	border-radius: $border-radius;
-	outline: 1px solid transparent;
-	background: transparent;
-	box-shadow: none;
-	font: 500 12px/16px $font;
-	letter-spacing: -0.25px;
-	text-transform: uppercase;
-	text-decoration: none;
-	transition: $transition;
-}
+$block-name: button;
 
-%button-disabled {
-	pointer-events: none;
-	border-color: $silver;
-	background: $silver;
-	color: $fiftyshades;
-}
+@use './_sui-button/_button-modifiers/button-modifiers' as sui-button--revise;
 
-$button-sizes: (
-	md: 50px,
-	lg: 60px,
-	xl: 70px,
-);
+$height--default: 30;
 
 @include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 	@include block('button') {
-		@extend %button-basics;
-		color: $grey;
+		// Button main styles.
+		@include component.button-container($height--default);
 
-		&:hover {
-			border-color: $haze;
-			background: $haze;
-		}
+		// Button elements.
+		@include component.button-label();
+		@include component.button-icon();
+		@include component.button-loader();
 
-		&:focus {
-			border-color: $silver;
-			outline-color: $silver;
-			background: $haze;
-		}
-
-		&[disabled] {
-			@extend %button-disabled;
-		}
-
-		// ELM: Label.
-		@include element('label') {
-			display: block;
-		}
-
-		// ELM: Icon.
-		@include element('icon') {
-			flex: 0 0 auto;
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-		}
-
-		// ELM: Loader.
-		@include element('loader') {
-			display: none;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-
-			&:before {
-				display: block;
-				color: inherit;
-			}
-		}
-
-		// MOD: Loading state.
-		@include modifier('loading') {
-
-			.sui-button__icon,
-			.sui-button__label {
-				opacity: 0;
-			}
-
-			.sui-button__loader {
-				display: block;
-			}
-		}
-
-		// MOD: Leading icon.
-		@include modifier('icon-leading') {
-
-			.sui-button__icon {
-				margin-right: 5px;
-			}
-		}
-
-		// MOD: Trailing icon.
-		@include modifier('icon-trailing') {
-
-			.sui-button__icon {
-				margin-left: 5px;
-			}
-		}
-
-		// MOD: Dashed button.
-		@include modifier('dashed') {
-			border-style: dashed;
-
-			&:focus {
-				border-style: solid;
-			}
-		}
-
-		// MOD: Button sizes.
-		@each $label, $size in $button-sizes {
-
-			@include modifier($label) {
-				line-height: #{$size - 14px};
-			}
-		}
-
-		// MOD: Full width.
-		@include modifier('full-width') {
-			width: 100%;
-			display: flex;
-		}
-
-		// MOD: Colourized text button.
-		@include mixins.button-theme(button-text-theme.$palette);
-
-		// MOD: Colourized solid button.
-		@include mixins.button-theme(button-solid-theme.$palette, 'solid');
-
-		// MOD: Colourized light button.
-		@include mixins.button-theme(button-light-theme.$palette, 'light');
-
-		// MOD: Colourized ghost button.
-		@include mixins.button-theme(button-ghost-theme.$palette, 'ghost');
+		// Button modifiers.
+		@include tool.button-border-constructor(dashed);
+		@include tool.button-state-constructor(loading);
+		@include tool.button-theme-constructor(default, palette.$button-theme-text);
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-solid, 'solid');
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-light, 'light');
+		@include tool.button-theme-constructor(modifier, palette.$button-theme-ghost, 'ghost');
 	}
 }
 
-@include body-class($wrap: true, $rtl: true, $monochrome: false) {
-
-	@include block('button') {
-
-		// MOD: Leading icon.
-		@include modifier('icon-leading') {
-
-			.sui-button__icon {
-				margin-left: 5px;
-				margin-right: 0;
-			}
-		}
-
-		// MOD: Trailing icon.
-		@include modifier('icon-trailing') {
-
-			.sui-button__icon {
-				margin-left: 0;
-				margin-right: 5px;
-			}
-		}
-	}
-}
+// Button modifiers.
+@include sui-button--revise.button-icon($block-name);
+@include sui-button--revise.button-size($block-name);
 
 @include body-class($wrap: true, $rtl: false, $monochrome: true) { 
 	@include block('button') {
 		color: $accessible-dark;
-		
-		&.sui-button--solid,
-		&[class*="sui-button--solid-"],
-		&.sui-button--light,
-		&[class*="sui-button--light-"],
+
+		&[class*="sui-button--solid"],
+		&[class*="sui-button--light"],
 		&[disabled],
 		&:hover {
 			background: $accessible-dark;
@@ -193,8 +48,7 @@ $button-sizes: (
 			color: $accessible-light;
 		}
 
-		&.sui-button--ghost,
-		&[class*="sui-button--ghost-"] {
+		&[class*="sui-button--ghost"] {
 			border-color: $accessible-dark;
 		}
 
@@ -209,4 +63,4 @@ $button-sizes: (
 			color: $accessible-light;
 		}
 	}
-}
+} 
