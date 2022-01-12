@@ -39,8 +39,13 @@ $height--default: 30;
 	@include block('button') {
 		color: $accessible-dark;
 
+		&[class*="sui-button--light"]{
+			background: $smoke;
+			color: $accessible-dark;
+			border-color: $smoke;
+		}
+
 		&[class*="sui-button--solid"],
-		&[class*="sui-button--light"],
 		&[disabled],
 		&:hover {
 			background: $accessible-dark;
@@ -49,7 +54,9 @@ $height--default: 30;
 		}
 
 		&[class*="sui-button--ghost"] {
+			background: $accessible-light;
 			border-color: $accessible-dark;
+			color: $accessible-dark;
 		}
 
 		&:hover {
