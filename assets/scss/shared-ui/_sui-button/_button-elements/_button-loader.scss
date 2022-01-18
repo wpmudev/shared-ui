@@ -1,0 +1,16 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-loader {
+	@include element('loader') {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+	}
+}

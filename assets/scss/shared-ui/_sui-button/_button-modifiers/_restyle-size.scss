@@ -1,0 +1,28 @@
+@use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
+@use '../_button-utilities/build-size' as tool;
+
+/// Build component size styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-size($block) {
+
+	$width--options: full;
+
+	$height--options: 50, 60, 70;
+	$height--props: (
+		line-height: 14
+	);
+
+	@include body-class($wrap: true, $rtl: false, $monochrome: false) {
+
+		@include block($block) {
+
+			// Build width variations.
+			@include tool.button-size-constructor(width, $width--options);
+
+			// Build height variations.
+			@include tool.button-size-constructor(height, $height--options, $height--props);
+		}
+	}
+}
