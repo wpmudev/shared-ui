@@ -221,6 +221,17 @@ $positions: (
 			}
 		}
 	}
+
+	@include block('opacity') {
+
+		@include modifier('on') {
+			opacity: 1;
+		}
+
+		@include modifier('off') {
+			opacity: 0;
+		}
+	}
 }
 
 // Loop through breakpoints & generate hidden utility classes.
