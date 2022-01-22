@@ -198,7 +198,9 @@
 				}
 
 				@if map.has-key($palette, $colour, disabled) {
-					&[disabled] {
+					&[disabled],
+					&:disabled,
+					&.disabled {
 						@if map.has-key($palette, $colour, disabled, border) {
 							border-color: map.get($palette, $colour, disabled, border);
 						}
@@ -254,6 +256,24 @@
 								color: map.get($palette, $colour, focus, color);
 							}
 						}
+					}
+				}
+			}
+		}
+
+		@else if $system == disabled-container {
+
+			@if $colour == 'grey' {
+
+				@if map.has-key($palette, $colour, disabled) {
+					@if map.has-key($palette, $colour, disabled, border) {
+						border-color: map.get($palette, $colour, disabled, border);
+					}
+					@if map.has-key($palette, $colour, disabled, background) {
+						background: map.get($palette, $colour, disabled, background);
+					}
+					@if map.has-key($palette, $colour, disabled, color) {
+						color: map.get($palette, $colour, disabled, color);
 					}
 				}
 			}
