@@ -1,0 +1,22 @@
+@use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
+@use '../_button-utilities/build-border' as sui-button--tool;
+
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-design--type($block) {
+
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: false) {
+
+		@include block($block) {
+
+			// Build button with dashed border.
+			@include sui-button--tool.button-border-constructor(dashed);
+		}
+	}
+
+	// DIR: Right-to-Left.
+	// No need.
+}
