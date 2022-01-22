@@ -1,16 +1,31 @@
 @use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
 
-@mixin button-loader {
-	@include element('loader') {
-		display: none;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-loader($block) {
 
-		&:before {
-			display: block;
-			color: inherit;
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: false) {
+
+		@include block($block) {
+
+			@include element('loader') {
+				display: none;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
 		}
 	}
+
+	// DIR: Right-to-Left.
+	// No need.
 }

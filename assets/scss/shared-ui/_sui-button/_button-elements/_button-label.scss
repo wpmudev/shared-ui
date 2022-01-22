@@ -1,8 +1,23 @@
 @use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
 
-@mixin button-label {
-	@include element('label') {
-		display: block;
-		flex: 0 0 auto;
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-label($block) {
+
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: false) {
+
+		@include block($block) {
+
+			@include element('label') {
+				display: block;
+				flex: 0 0 auto;
+			}
+		}
 	}
+
+	// DIR: Right-to-Left.
+	// No need.
 }
