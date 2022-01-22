@@ -8,7 +8,7 @@
 // $rtl: false
 // $monochrome: false
 // ==================================================
-@mixin body-class($wrap: false, $rtl: false, $monochrome: false) {
+@mixin body-class($wrap: false, $rtl: false, $monochrome: null) {
 
 	$formatted-version: str-replace($sui-version, '.', '-');
 
@@ -20,9 +20,16 @@
 
 				.#{$sui-wrap-class} {
 
-					@if $monochrome {
+					@if $monochrome == true {
 
 						&.sui-color-accessible {
+							@content;
+						}
+					}
+
+					@else if $monochrome == false {
+
+						&:not(.sui-color-accessible) {
 							@content;
 						}
 					}
@@ -38,9 +45,16 @@
 
 			.sui-#{$formatted-version} .#{$sui-wrap-class} {
 
-				@if $monochrome {
+				@if $monochrome == true {
 
 					&.sui-color-accessible {
+						@content;
+					}
+				}
+
+				@else if $monochrome == false {
+
+					&:not(.sui-color-accessible) {
 						@content;
 					}
 				}
