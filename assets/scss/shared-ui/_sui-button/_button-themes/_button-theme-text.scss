@@ -73,3 +73,28 @@ $button-theme-text: (
 		)
 	),
 );
+
+// mono color styling for buttons
+$text-monostyle: (
+	static: (
+		color: color.$black,
+	),
+	hover: (
+		border: color.$black,
+		background: color.$black
+	),
+	focus: (
+		outline: color.$ironmike,
+		border-color: color.$ironmike,
+		background: color.$nightrider,
+		color: color.$white
+	),
+);
+
+$button-theme-text-mono: (
+	'grey': $text-monostyle,
+	'blue': $text-monostyle,
+	'red': $text-monostyle,
+	'purple': $text-monostyle,
+	'green': $text-monostyle,
+);

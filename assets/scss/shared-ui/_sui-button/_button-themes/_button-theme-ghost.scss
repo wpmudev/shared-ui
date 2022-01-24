@@ -82,3 +82,30 @@ $button-theme-ghost: (
 		)
 	),
 );
+
+// mono color styling for buttons
+$ghost-monostyle: (
+	static: (
+		border: color.$black,
+		background: color.$white,
+		color: color.$black
+	),
+	hover: (
+		border: color.$black,
+		background: color.$black
+	),
+	focus: (
+		outline: color.$ironmike,
+		border-color: color.$ironmike,
+		background: color.$nightrider,
+		color: color.$white
+	),
+);
+
+$button-theme-ghost-mono: (
+	'grey': $ghost-monostyle,
+	'blue': $ghost-monostyle,
+	'red': $ghost-monostyle,
+	'purple': $ghost-monostyle,
+	'green': $ghost-monostyle,
+);

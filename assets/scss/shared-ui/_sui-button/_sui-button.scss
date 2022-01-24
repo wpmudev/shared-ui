@@ -16,3 +16,40 @@ $block-name: button;
 @include sui-button--modifier.button-design--type($block-name);
 @include sui-button--modifier.button-design--color($block-name);
 @include sui-button--modifier.button-state($block-name);
+
+// @include body-class($wrap: true, $rtl: false, $monochrome: true) { 
+// 	@include block('button') {
+// 		color: $accessible-dark;
+
+// 		&[class*="sui-button--light"]{
+// 			background: $smoke;
+// 			color: $accessible-dark;
+// 			border-color: $smoke;
+// 		}
+
+// 		&[class*="sui-button--ghost"] {
+// 			background: $accessible-light;
+// 			border-color: $accessible-dark;
+// 			color: $accessible-dark;
+// 		}
+
+// 		&[class*="sui-button--solid"],
+// 		&[disabled],
+// 		&:hover {
+// 			background: $accessible-dark;
+// 			border-color: $accessible-dark;
+// 			color: $accessible-light;
+// 		}
+
+// 		&:hover {
+// 			box-shadow: 0 3px 6px 1px rgba(0,0,0,0.2);
+// 		}
+
+// 		&:focus {
+// 			outline: $ironmike;
+// 			border-color: $ironmike;
+// 			background: $nightrider;
+// 			color: $accessible-light;
+// 		}
+// 	}
+// } 
