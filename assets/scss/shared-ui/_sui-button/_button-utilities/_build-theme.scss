@@ -179,6 +179,9 @@
 						@if map.has-key($palette, $colour, hover, color) {
 							color: map.get($palette, $colour, hover, color);
 						}
+						@if map.has-key($palette, $colour, hover, box-shadow) {
+							box-shadow: map.get($palette, $colour, hover, box-shadow);
+						}
 					}
 				}
 
@@ -193,6 +196,9 @@
 						}
 						@if map.has-key($palette, $colour, focus, color) {
 							color: map.get($palette, $colour, focus, color);
+						}
+						@if map.has-key($palette, $colour, focus, box-shadow) {
+							box-shadow: map.get($palette, $colour, focus, box-shadow);
 						}
 					}
 				}

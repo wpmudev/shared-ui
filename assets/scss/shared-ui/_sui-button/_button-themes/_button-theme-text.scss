@@ -75,26 +75,47 @@ $button-theme-text: (
 );
 
 // mono color styling for buttons
-$text-monostyle: (
-	static: (
-		color: color.$black,
-	),
-	hover: (
-		border: color.$black,
-		background: color.$black
-	),
-	focus: (
-		outline: color.$ironmike,
-		border-color: color.$ironmike,
-		background: color.$nightrider,
-		color: color.$white
-	),
-);
-
 $button-theme-text-mono: (
-	'grey': $text-monostyle,
-	'blue': $text-monostyle,
-	'red': $text-monostyle,
-	'purple': $text-monostyle,
-	'green': $text-monostyle,
+	'grey': (
+		static: (
+			color: color.$black,
+		),
+		hover: (
+			border: color.$black,
+			background: color.$black,
+			color: color.$white,
+			box-shadow: 0px 0px 0px 2px color.$fiftyshades,
+		),
+		focus: (
+			background: color.$black,
+			color: color.$white,
+			border: color.$white,
+			box-shadow: 0px 0px 0px 3px color.$black,
+		),
+		disabled: (
+			border: color.$black,
+			background: color.$black,
+			color: color.$white
+		)
+	),
+	'blue': (
+		static: (
+			color: color.$black,
+		),
+	),
+	'red': (
+		static: (
+			color: color.$black,
+		),
+	),
+	'purple': (
+		static: (
+			color: color.$black,
+		),
+	),
+	'green': (
+		static: (
+			color: color.$black,
+		),
+	),
 );
