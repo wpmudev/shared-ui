@@ -41,4 +41,35 @@
 
 	// DIR: Right-to-Left.
 	// No need.
+
+	// DIR: Monochrome.
+	@include body-class($wrap: true, $rtl: false, $monochrome: true) {
+
+		@include block($block) {
+
+			// Build text button.
+			@include sui-button--tool.button-theme-constructor(default, sui-button--palette.$button-theme-text-mono);
+
+			// // Build solid button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-solid-mono, 'solid');
+
+			// Build light button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-light-mono, 'light');
+
+			// // Build ghost button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-ghost-mono, 'ghost');
+		}
+
+		// Disabled container.
+		*[disabled],
+		*:disabled,
+		*.disabled {
+
+			@include block($block) {
+				
+				// Set disabled button styles.
+				@include sui-button--tool.button-theme-constructor(disabled-container, sui-button--palette.$button-theme-text-mono);
+			}
+		}
+	}
 }
