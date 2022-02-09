@@ -22,12 +22,12 @@
 		$this.on( 'click', function( e ) {
 			$alllabels.removeClass( 'active' );
 			$allinputs.attr( 'checked', false );
-			$allinputs.attr( 'aria-selected', false );
+			$alllabels.attr( 'aria-selected', false );
 			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
 
 			$label.addClass( 'active' );
 			$this.attr( 'checked', true );
-			$this.attr( 'aria-selected', true );
+			$label.attr( 'aria-selected', true );
 
 			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
 
