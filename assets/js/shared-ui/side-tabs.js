@@ -20,13 +20,14 @@
 			;
 
 		$this.on( 'click', function( e ) {
-
 			$alllabels.removeClass( 'active' );
-			$allinputs.removeProp( 'checked' );
+			$allinputs.attr( 'checked', false );
+			$allinputs.attr( 'aria-selected', false );
 			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
 
 			$label.addClass( 'active' );
-			$this.prop( 'checked', true );
+			$this.attr( 'checked', true );
+			$this.attr( 'aria-selected', true );
 
 			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
 
