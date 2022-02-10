@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.13...v2.12.4) (Unreleased)
+
+#### 🏠 Internal
+* **fix(snyk):** Duplicated import in package.json file. [#455](https://github.com/wpmudev/shared-ui/pull/455) ([SUI-298](https://incsub.atlassian.net/browse/SUI-298)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [2.12.2](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.12.2) (2021-12-23)
 
 #### 🐛 Bug Fixes
