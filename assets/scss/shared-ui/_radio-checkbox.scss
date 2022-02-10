@@ -112,6 +112,7 @@
 	@include media(max-width, md) {
 		display: flex;
 		margin: 0 0 math.div($sui-gutter-md, 2);
+		max-width: fit-content;
 	}
 
 	@include media(min-width, md) {
@@ -275,6 +276,7 @@
 		// VARIATION: Stacked
 		// To pile one element per-line
 		&.sui-checkbox-stacked {
+			max-width: fit-content;
 
 			&:last-child {
 
