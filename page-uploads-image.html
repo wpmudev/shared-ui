@@ -563,6 +563,20 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
+// function to open browser file explorer for selecting file
+const selectFile = function (element) {
+	var parent = element.closest( '.sui-upload' );
+	var file = parent.find( 'input[type="file"]' );
+	file.trigger( 'click' );
+}
+
+// function to remove file
+const removeFile = function (element) {
+	var parent = element.closest( '.sui-upload' );
+	var file = parent.find( 'input[type="file"]' );
+	file.val('').change();
+}
+
 // This will trigger on file change. 
 $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
@@ -609,19 +623,6 @@ $( '.sui-file-browser .sui-upload-image' ).on( 'click', function(){
 	selectFile($( this ));
 });
 
-// function to open browser file explorer for selecting file
-function selectFile(element) {
-	var parent = element.closest( '.sui-upload' );
-	var file = parent.find( 'input[type="file"]' );
-	file.trigger( 'click' );
-}
-
-// function to remove file
-function removeFile(element) {
-	var parent = element.closest( '.sui-upload' );
-	var file = parent.find( 'input[type="file"]' );
-	file.val('').change();
-}
 </pre>
 
 					</div>
