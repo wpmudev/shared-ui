@@ -38,19 +38,15 @@
 			display: block;
 
 			&.left {
-				@include media(min-width, sm) {
-					float: left;
-				}
+				float: left;
 			}
 
 			&.right {
-				@include media(min-width, sm) {
-					float: right;
-				}
+				float: right;
 			}
 
 			.table-condensed {
-				margin: 0 auto;
+				margin: 0;
 				padding: 0;
 				border: 0;
 				border-spacing: 0;
@@ -205,27 +201,23 @@
 			}
 
 			+ .drp-calendar {
-				@include media(min-width, sm) {
-					margin-left: 10px;
-					padding-left: 10px;
-					border-left: 1px solid palette(silver, soft);
-				}
-			}
-
-			@include media(max-width, sm) {
-				margin-top: 15px;
+				margin-left: 10px;
+				padding-left: 10px;
+				border-left: 1px solid palette(silver, soft);
 			}
 		}
 
 		// VARIATION: Show ranges.
 		&.show-ranges {
-			padding-top: $sui-gutter-md;
+			padding-top: #{($sui-gutter-md - 1px) + math.div($sui-gutter, 2) + 18px};
 
 			.ranges {
 				display: block;
 				flex: 0 0 auto;
-				margin: 0 auto;
-				max-width: calc((#{$calendar-cell} * 14) + 20px);
+				position: absolute;
+				top: $sui-gutter-md;
+				right: 0;
+				left: 0;
 
 				ul {
 					width: 100%;
@@ -244,7 +236,7 @@
 					li {
 						cursor: pointer;
 						display: block;
-						margin: 3px 5px;
+						margin: 0 5px;
 						padding: 3px 10px;
 						border: 0;
 						border-radius: 10px;
@@ -272,10 +264,6 @@
 							margin-right: 0;
 						}
 					}
-				}
-
-				@include media(max-width, sm) {
-					max-width: calc(#{$calendar-cell} * 7);
 				}
 			}
 		}
