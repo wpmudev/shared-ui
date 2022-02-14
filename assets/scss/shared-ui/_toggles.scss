@@ -5,7 +5,6 @@
 	.sui-toggle {
 		display: block;
 		opacity: 1;
-		max-width: fit-content;
 
 		input {
 			@extend %sui-screen-reader-text;
@@ -74,6 +73,11 @@
 			}
 		}
 
+		label {
+			display: block;
+			max-width: fit-content;
+		}
+
 		// ELEMENT: Slider.
 		.sui-toggle-slider {
 			width: $toggle-width;
@@ -101,10 +105,13 @@
 				transition: 0.2s linear;
 			}
 
-			~ .sui-toggle-label,
-			~ .sui-description {
+			~ .sui-toggle-label {
 				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 			}
+		}
+
+		.sui-description {
+			margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 		}
 
 		// ELEMENT: Label.
