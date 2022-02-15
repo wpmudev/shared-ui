@@ -12,10 +12,10 @@
 			width: $radio-checkbox--size;
 			height: $radio-checkbox--size;
 			cursor: pointer;
-			display: block;
+			display: inline-block;
 			flex-shrink: 0;
 			position: relative;
-			margin: math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) 0;
+			margin: math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) -3px math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) 0;
 			border: 1px solid $radio-checkbox--border-color;
 			border-radius: $border-radius;
 			background-color: $radio-checkbox--background;
@@ -111,8 +111,7 @@
 
 	@include media(max-width, md) {
 		display: flex;
-		margin: 0 0 math.div($sui-gutter-md, 2);
-		max-width: fit-content;
+		margin: 0 0 math.div($sui-gutter-md, 2)
 	}
 
 	@include media(min-width, md) {
@@ -196,7 +195,7 @@
 
 		img {
 			display: block;
-			margin: 0;
+			margin: 0 auto;
 			padding: 0;
 			border: 0;
 
@@ -276,7 +275,6 @@
 		// VARIATION: Stacked
 		// To pile one element per-line
 		&.sui-checkbox-stacked {
-			max-width: fit-content;
 
 			&:last-child {
 
@@ -313,7 +311,7 @@
 
 		img {
 			display: block;
-			margin: 0;
+			margin: 0 auto;
 			padding: 0;
 			border: 0;
 
