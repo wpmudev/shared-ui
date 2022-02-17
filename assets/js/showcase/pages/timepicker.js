@@ -26,7 +26,8 @@
 				duration: true,
 				precision: 1,
 				vibrate: true,
-				required: true
+				required: true,
+				alwaysSelectHoursFirst: true
 
 			});
 		}
