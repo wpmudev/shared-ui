@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.3](https://github.com/wpmudev/shared-ui/compare/v2.12.2...v2.12.3) (2022-MM-DD)
+
+#### 🐛 Bug Fixes
+* **fix(select2):** Multi-select with fixed height. [#461](https://github.com/wpmudev/shared-ui/pull/461) ([SUI-177](https://incsub.atlassian.net/browse/SUI-177)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.2](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.12.2) (2021-12-23)
 
 #### 🐛 Bug Fixes
