@@ -348,28 +348,15 @@
 
 			switch ( key ) {
 
-				case keys.end :
-
+				case keys.end:
+				case keys.home:
 					event.preventDefault();
-
-					// Actiavte last tab.
-					// focusLastTab();
-
-					break;
-
-				case keys.home :
-
-					event.preventDefault();
-
-					// Activate first tab.
-					// focusFirstTab();
-
 					break;
 
 				// Up and down are in keydown
 				// because we need to prevent page scroll.
-				case keys.up :
-				case keys.down :
+				case keys.up:
+				case keys.down:
 					determineOrientation( event, index, tablist );
 					break;
 			}
