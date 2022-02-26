@@ -7,7 +7,9 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 🐛 Bug Fixes
 * **fix(modals):** When the title gets center-aligned, it cuts off with an ellipsis. [#448](https://github.com/wpmudev/shared-ui/pull/448) ([SUI-175](https://incsub.atlassian.net/browse/SUI-175)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(select2):** Multi-select with fixed height. [#461](https://github.com/wpmudev/shared-ui/pull/461) ([SUI-177](https://incsub.atlassian.net/browse/SUI-177)) ([@creador-dev](https://github.com/creador-dev))
-* **fix(color-picker):** Auto-fill does whatever it wants. [#462](https://github.com/wpmudev/shared-ui/pull/462) ([SUI-175](https://incsub.atlassian.net/browse/SUI-175)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 📝 Documentation
+* **docs(color-picker):** Auto-fill does whatever it wants. [#462](https://github.com/wpmudev/shared-ui/pull/462) ([SUI-175](https://incsub.atlassian.net/browse/SUI-175)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
