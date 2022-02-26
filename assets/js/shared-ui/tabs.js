@@ -56,7 +56,7 @@
         function onClick( groupIndex, itemIndex ) {
             setNodes( groupIndex, itemIndex );
 
-            setCallback( indexGroup, indexItem );
+            setCallback();
         }
 
         function setNodes( groupIndex, itemIndex ) {
