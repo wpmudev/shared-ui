@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file. See [Conven
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
-## [2.12.3](https://github.com/wpmudev/shared-ui/compare/v2.12.2...v2.12.3) (2022-MM-DD)
+## [2.12.3](https://github.com/wpmudev/shared-ui/compare/v2.12.2...v2.12.3) (2022-02-25)
 
 #### 🐛 Bug Fixes
 * **fix(modals):** When the title gets center-aligned, it cuts off with an ellipsis. [#448](https://github.com/wpmudev/shared-ui/pull/448) ([SUI-175](https://incsub.atlassian.net/browse/SUI-175)) ([@creador-dev](https://github.com/creador-dev))
