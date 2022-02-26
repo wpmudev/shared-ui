@@ -120,7 +120,9 @@
             }
         }
 
-        return init( config );
+        init( config );
+
+		return;
     };
 
 	SUI.tabsOverflow = function( $el ) {
