@@ -4,6 +4,7 @@
 %radio-checkbox {
 	user-select: none;
 	align-items: flex-start;
+	max-width: fit-content;
 
 	input {
 		@extend %sui-screen-reader-text;
@@ -12,10 +13,10 @@
 			width: $radio-checkbox--size;
 			height: $radio-checkbox--size;
 			cursor: pointer;
-			display: inline-block;
+			display: block;
 			flex-shrink: 0;
 			position: relative;
-			margin: math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) -3px math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) 0;
+			margin: math.div(($radio-checkbox--line-height - $radio-checkbox--size), 2) 0;
 			border: 1px solid $radio-checkbox--border-color;
 			border-radius: $border-radius;
 			background-color: $radio-checkbox--background;
@@ -195,7 +196,7 @@
 
 		img {
 			display: block;
-			margin: 0 auto;
+			margin: 0;
 			padding: 0;
 			border: 0;
 
@@ -311,7 +312,7 @@
 
 		img {
 			display: block;
-			margin: 0 auto;
+			margin: 0;
 			padding: 0;
 			border: 0;
 
