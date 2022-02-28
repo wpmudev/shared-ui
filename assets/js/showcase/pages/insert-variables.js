@@ -28,8 +28,11 @@
 					wrapper = select.closest( '.sui-insert-variables' ),
 					input   = wrapper.find( 'input, textarea' )
 					;
-
+				if ( ! select.val() ) {
+					return;
+				}
 				input.val( input.val() + select.val() );
+				select.val( null ).trigger( 'change' );
 			});
 		}
 
