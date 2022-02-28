@@ -22,38 +22,6 @@
 
 		// check whether element exist then execute js
 		if($( 'SUI_BODY_CLASS .sui-file-upload' ).length){
-			// function to set uploaded file
-			const uploadedFile = function (element, file, filename){
-				var parent = element.closest( '.sui-upload' );
-				var imageContainer = parent.find( '.sui-upload-image' );
-				if(filename) {
-					if( imageContainer.length ){
-						var reader = new FileReader();
-						var imagePreview = imageContainer.find( '.sui-image-preview' );
-						reader.onload = function ( e ) {
-							imagePreview.attr( 'style', 'background-image: url('+e.target.result+' );' );
-						}
-						reader.readAsDataURL(file);
-					}
-					parent.find( '.sui-upload-file > span' ).text(filename);
-					parent.addClass( 'sui-has_file' );
-				}
-			}
-
-			// function to open browser file explorer for selecting file
-			const selectFile = function(element) {
-				var parent = element.closest( '.sui-upload' );
-				var file = parent.find( 'input[type="file"]' );
-				file.trigger( 'click' );
-			}
-
-			// function to remove file
-			const removeFile = function(element) {
-				var parent = element.closest( '.sui-upload' );
-				var file = parent.find( 'input[type="file"]' );
-				file.val('').change();
-			}
-
 			// This will trigger on file change. 
 			$( 'SUI_BODY_CLASS .sui-file-browser input[type="file"]' ).on( 'change', function() {
 				var parent = $( this ).parent();
@@ -125,6 +93,38 @@
 					droppedFiles = e.originalEvent.dataTransfer.files;
 					uploadedFile( $( this ), droppedFiles[0], droppedFiles[0].name);
 				});
+			}
+
+			// function to set uploaded file
+			const uploadedFile = function (element, file, filename){
+				var parent = element.closest( '.sui-upload' );
+				var imageContainer = parent.find( '.sui-upload-image' );
+				if(filename) {
+					if( imageContainer.length ){
+						var reader = new FileReader();
+						var imagePreview = imageContainer.find( '.sui-image-preview' );
+						reader.onload = function ( e ) {
+							imagePreview.attr( 'style', 'background-image: url('+e.target.result+' );' );
+						}
+						reader.readAsDataURL(file);
+					}
+					parent.find( '.sui-upload-file > span' ).text(filename);
+					parent.addClass( 'sui-has_file' );
+				}
+			}
+
+			// function to open browser file explorer for selecting file
+			const selectFile = function(element) {
+				var parent = element.closest( '.sui-upload' );
+				var file = parent.find( 'input[type="file"]' );
+				file.trigger( 'click' );
+			}
+
+			// function to remove file
+			const removeFile = function(element) {
+				var parent = element.closest( '.sui-upload' );
+				var file = parent.find( 'input[type="file"]' );
+				file.val('').change();
 			}
 		}
 
