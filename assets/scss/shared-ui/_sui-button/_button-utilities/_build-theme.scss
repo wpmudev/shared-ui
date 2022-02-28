@@ -1,0 +1,287 @@
+@use 'sass:map';
+@use '../../_mixins/bem' as *;
+
+@mixin button-theme-constructor($system, $palette, $prefix: null) {
+
+	@each $colour, $state in $palette {
+
+		$name: $colour;
+
+		@if $prefix != null {
+			$name: $prefix + '-' + $colour;
+
+			@if $colour == 'grey' {
+				$name: $prefix;
+			}
+		}
+
+		@if $system == block {
+
+			@include block($name) {
+				@if map.has-key($palette, $colour, static) {
+					@if map.has-key($palette, $colour, static, border) {
+						border-color: map.get($palette, $colour, static, border);
+					}
+					@if map.has-key($palette, $colour, static, background) {
+						background: map.get($palette, $colour, static, background);
+					}
+					@if map.has-key($palette, $colour, static, color) {
+						color: map.get($palette, $colour, static, color);
+					}
+				}
+
+				@if map.has-key($palette, $colour, hover) {
+					&:hover {
+						@if map.has-key($palette, $colour, hover, border) {
+							border-color: map.get($palette, $colour, hover, border);
+						}
+						@if map.has-key($palette, $colour, hover, background) {
+							background: map.get($palette, $colour, hover, background);
+						}
+						@if map.has-key($palette, $colour, hover, color) {
+							color: map.get($palette, $colour, hover, color);
+						}
+					}
+				}
+
+				@if map.has-key($palette, $colour, focus) {
+					&:focus {
+						@if map.has-key($palette, $colour, focus, border) {
+							border-color: map.get($palette, $colour, focus, border);
+							outline-color: map.get($palette, $colour, focus, border);
+						}
+						@if map.has-key($palette, $colour, focus, background) {
+							background: map.get($palette, $colour, focus, background);
+						}
+						@if map.has-key($palette, $colour, focus, color) {
+							color: map.get($palette, $colour, focus, color);
+						}
+					}
+				}
+			}
+		}
+
+		@else if $system == element {
+
+			@include element($name) {
+				@if map.has-key($palette, $colour, static) {
+					@if map.has-key($palette, $colour, static, border) {
+						border-color: map.get($palette, $colour, static, border);
+					}
+					@if map.has-key($palette, $colour, static, background) {
+						background: map.get($palette, $colour, static, background);
+					}
+					@if map.has-key($palette, $colour, static, color) {
+						color: map.get($palette, $colour, static, color);
+					}
+				}
+
+				@if map.has-key($palette, $colour, hover) {
+					&:hover {
+						@if map.has-key($palette, $colour, hover, border) {
+							border-color: map.get($palette, $colour, hover, border);
+						}
+						@if map.has-key($palette, $colour, hover, background) {
+							background: map.get($palette, $colour, hover, background);
+						}
+						@if map.has-key($palette, $colour, hover, color) {
+							color: map.get($palette, $colour, hover, color);
+						}
+					}
+				}
+
+				@if map.has-key($palette, $colour, focus) {
+					&:focus {
+						@if map.has-key($palette, $colour, focus, border) {
+							border-color: map.get($palette, $colour, focus, border);
+							outline-color: map.get($palette, $colour, focus, border);
+						}
+						@if map.has-key($palette, $colour, focus, background) {
+							background: map.get($palette, $colour, focus, background);
+						}
+						@if map.has-key($palette, $colour, focus, color) {
+							color: map.get($palette, $colour, focus, color);
+						}
+					}
+				}
+			}
+		}
+
+		@else if $system == modifier {
+
+			@include modifier($name) {
+				@if map.has-key($palette, $colour, static) {
+					@if map.has-key($palette, $colour, static, border) {
+						border-color: map.get($palette, $colour, static, border);
+					}
+					@if map.has-key($palette, $colour, static, background) {
+						background: map.get($palette, $colour, static, background);
+					}
+					@if map.has-key($palette, $colour, static, color) {
+						color: map.get($palette, $colour, static, color);
+					}
+				}
+
+				@if map.has-key($palette, $colour, hover) {
+					&:hover {
+						@if map.has-key($palette, $colour, hover, border) {
+							border-color: map.get($palette, $colour, hover, border);
+						}
+						@if map.has-key($palette, $colour, hover, background) {
+							background: map.get($palette, $colour, hover, background);
+						}
+						@if map.has-key($palette, $colour, hover, color) {
+							color: map.get($palette, $colour, hover, color);
+						}
+					}
+				}
+
+				@if map.has-key($palette, $colour, focus) {
+					&:focus {
+						@if map.has-key($palette, $colour, focus, border) {
+							border-color: map.get($palette, $colour, focus, border);
+							outline-color: map.get($palette, $colour, focus, border);
+						}
+						@if map.has-key($palette, $colour, focus, background) {
+							background: map.get($palette, $colour, focus, background);
+						}
+						@if map.has-key($palette, $colour, focus, color) {
+							color: map.get($palette, $colour, focus, color);
+						}
+					}
+				}
+			}
+		}
+
+		@else if $system == default {
+
+			@if $colour == 'grey' {
+				@if map.has-key($palette, $colour, static) {
+					@if map.has-key($palette, $colour, static, border) {
+						border-color: map.get($palette, $colour, static, border);
+					}
+					@if map.has-key($palette, $colour, static, background) {
+						background: map.get($palette, $colour, static, background);
+					}
+					@if map.has-key($palette, $colour, static, color) {
+						color: map.get($palette, $colour, static, color);
+					}
+				}
+
+				@if map.has-key($palette, $colour, hover) {
+					&:hover {
+						@if map.has-key($palette, $colour, hover, border) {
+							border-color: map.get($palette, $colour, hover, border);
+						}
+						@if map.has-key($palette, $colour, hover, background) {
+							background: map.get($palette, $colour, hover, background);
+						}
+						@if map.has-key($palette, $colour, hover, color) {
+							color: map.get($palette, $colour, hover, color);
+						}
+					}
+				}
+
+				@if map.has-key($palette, $colour, focus) {
+					&:focus {
+						@if map.has-key($palette, $colour, focus, border) {
+							border-color: map.get($palette, $colour, focus, border);
+							outline-color: map.get($palette, $colour, focus, border);
+						}
+						@if map.has-key($palette, $colour, focus, background) {
+							background: map.get($palette, $colour, focus, background);
+						}
+						@if map.has-key($palette, $colour, focus, color) {
+							color: map.get($palette, $colour, focus, color);
+						}
+					}
+				}
+
+				@if map.has-key($palette, $colour, disabled) {
+					&[disabled],
+					&:disabled,
+					&.disabled {
+						@if map.has-key($palette, $colour, disabled, border) {
+							border-color: map.get($palette, $colour, disabled, border);
+						}
+						@if map.has-key($palette, $colour, disabled, background) {
+							background: map.get($palette, $colour, disabled, background);
+						}
+						@if map.has-key($palette, $colour, disabled, color) {
+							color: map.get($palette, $colour, disabled, color);
+						}
+					}
+				}
+			}
+
+			@else {
+
+				@include modifier($name) {
+					@if map.has-key($palette, $colour, static) {
+						@if map.has-key($palette, $colour, static, border) {
+							border-color: map.get($palette, $colour, static, border);
+						}
+						@if map.has-key($palette, $colour, static, background) {
+							background: map.get($palette, $colour, static, background);
+						}
+						@if map.has-key($palette, $colour, static, color) {
+							color: map.get($palette, $colour, static, color);
+						}
+					}
+
+					@if map.has-key($palette, $colour, hover) {
+						&:hover {
+							@if map.has-key($palette, $colour, hover, border) {
+								border-color: map.get($palette, $colour, hover, border);
+							}
+							@if map.has-key($palette, $colour, hover, background) {
+								background: map.get($palette, $colour, hover, background);
+							}
+							@if map.has-key($palette, $colour, hover, color) {
+								color: map.get($palette, $colour, hover, color);
+							}
+						}
+					}
+
+					@if map.has-key($palette, $colour, focus) {
+						&:focus {
+							@if map.has-key($palette, $colour, focus, border) {
+								border-color: map.get($palette, $colour, focus, border);
+								outline-color: map.get($palette, $colour, focus, border);
+							}
+							@if map.has-key($palette, $colour, focus, background) {
+								background: map.get($palette, $colour, focus, background);
+							}
+							@if map.has-key($palette, $colour, focus, color) {
+								color: map.get($palette, $colour, focus, color);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@else if $system == disabled-container {
+
+			@if $colour == 'grey' {
+
+				@if map.has-key($palette, $colour, disabled) {
+					@if map.has-key($palette, $colour, disabled, border) {
+						border-color: map.get($palette, $colour, disabled, border);
+					}
+					@if map.has-key($palette, $colour, disabled, background) {
+						background: map.get($palette, $colour, disabled, background);
+					}
+					@if map.has-key($palette, $colour, disabled, color) {
+						color: map.get($palette, $colour, disabled, color);
+					}
+				}
+			}
+		}
+
+		@else {
+			@warn "Unfortunately, no type of system could be retrieved from `#{$system}`. "
+			+ "Use either `block`, `element`, `modifier`, or `default`.";
+		}
+	}
+}

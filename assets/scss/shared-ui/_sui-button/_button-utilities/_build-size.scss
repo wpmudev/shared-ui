@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use '../../_mixins/bem' as *;
+
+@mixin button-size-constructor($type, $options, $props: null) {
+
+	@if $type == width or $type == height {
+
+		@each $value in $options {
+
+			// MOD: Full size.
+			@if $value == full {
+
+				@include modifier(#{'full-' + $type}) {
+
+					@if $type == width {
+						width: 100%;
+						display: flex;
+					}
+
+					@else if $type == height {
+						height: 100%;
+					}
+				}
+			}
+
+			// MOD: Fixed size.
+			@else {
+
+				@include modifier($type + '-' + $value) {
+					$line-height: #{$value + 'px'};
+
+					@if $props != null and map.has-key($props, line-height) {
+						$line-height: #{($value - map.get($props, line-height)) + 'px'};
+					}
+
+					@if $type == width {
+						width: #{$value + 'px'};
+					}
+
+					@else if $type == height {
+						line-height: $line-height;
+					}
+				}
+			}
+		}
+	}
+
+	@else {
+		@warn "The type #{$type} chosen doesn't match available options."
+	}
+}

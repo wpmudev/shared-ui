@@ -1,0 +1,56 @@
+@use 'sass:math';
+@use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
+@use '../../_helpers/variables' as *;
+
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-container($block, $height: 30, $line-height: 16) {
+
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: null) {
+
+		@include block($block) {
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			padding: #{math.div(($height - $line-height - 4), 2) + 'px'} 14px;
+			border: 2px solid transparent;
+			border-radius: $element--border-radius;
+			outline: 1px solid transparent;
+			background: transparent;
+			box-shadow: none;
+			font: $font--medium 12px/#{$line-height + 'px'} $font;
+			letter-spacing: $font--letter-spacing;
+			text-transform: uppercase;
+			text-decoration: none;
+			transition: $transition;
+
+			&[disabled],
+			&:disabled,
+			&.disabled {
+				pointer-events: none;
+			}
+		}
+
+		*[disabled],
+		*:disabled,
+		*.disabled {
+
+			@include block($block) {
+				pointer-events: none;
+			}
+		}
+	}
+
+	// DIR: Right-to-Left.
+	@include body-class($wrap: true, $rtl: true, $monochrome: false) {
+
+		@include block($block) {
+			flex-direction: row-reverse;
+		}
+	}
+}

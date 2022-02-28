@@ -1,0 +1,35 @@
+@use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
+@use '../_button-utilities/build-icon' as sui-button--tool;
+
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-icon($block) {
+
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: null) {
+
+		@include block($block) {
+
+			// Build leading icon variation.
+			@include sui-button--tool.button-icon-constructor($position: leading, $spacing: 5);
+
+			// Build trailing icon variation.
+			@include sui-button--tool.button-icon-constructor($position: trailing, $spacing: 5);
+		}
+	}
+
+	// DIR: Right-to-Left.
+	@include body-class($wrap: true, $rtl: true, $monochrome: null) {
+
+		@include block($block) {
+
+			// Build leading icon variation.
+			@include sui-button--tool.button-icon-constructor($position: leading, $spacing: 5, $reverse: true);
+
+			// Build trailing icon variation.
+			@include sui-button--tool.button-icon-constructor($position: trailing, $spacing: 5, $reverse: true);
+		}
+	}
+}

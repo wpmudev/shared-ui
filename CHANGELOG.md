@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 #### 📝 Documentation
 * **docs(showcase):** Set correct icon markup. [#403](https://github.com/wpmudev/shared-ui/pull/403) ([SUI-276](https://incsub.atlassian.net/browse/SUI-276)) ([@creador-dev](https://github.com/creador-dev))
+* **docs(buttons):** Update the markup around the whole showcase to match latest changes. [#440](https://github.com/wpmudev/shared-ui/pull/440) ([SUI-285](https://incsub.atlassian.net/browse/SUI-285)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))

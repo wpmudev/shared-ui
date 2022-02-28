@@ -1,0 +1,16 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-state-constructor($type) {
+	@if $type == loading {
+		@include modifier('loading') {
+			.sui-button__icon,
+			.sui-button__label {
+				opacity: 0;
+			}
+
+			.sui-button__loader {
+				display: block;
+			}
+		}
+	}
+}

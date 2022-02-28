@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @include body-class {
 
 	.showcase-component {
@@ -69,6 +71,17 @@
 			background-image: linear-gradient(45deg, rgb(249, 249, 250) 25%, transparent 25%), linear-gradient(135deg, rgb(249, 249, 250) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgb(249, 249, 250) 75%), linear-gradient(135deg, transparent 75%, rgb(249, 249, 250) 75%);
 			background-size: 20px 20px;
 			background-position: 0px 0px, 10px 0px, 10px -10px, 0px 10px;
+
+			&.nobg {
+				background-image: none;
+				background-color: #f1f1f1;
+			}
+
+			&.center {
+				padding-top: 80px;
+				padding-bottom: 80px;
+				text-align: center;
+			}
 		}
 
 		.showcase-component-code {
@@ -151,6 +164,105 @@
 
 		@include media(min-width, md) {
 			padding-right: 200px;
+		}
+	}
+
+	.showcase-demo {
+		border: 1px solid $silver;
+		border-radius: $border-radius;
+		background: $white;
+
+		@include media(min-width, md) {
+			display: flex;
+			flex-flow: row-reverse nowrap;
+		}
+
+		// ELEMENT: Options.
+		@include element('options') {
+			padding: math.div($sui-gutter-md, 2);
+			border-bottom: 1px solid $silver;
+
+			fieldset {
+				margin: 0 0 10px;
+
+				legend {
+					color: palette(gray, dark);
+					font: 500 14px/22px $font;
+					letter-spacing: $font--letter-spacing;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				flex: 0 0 200px;
+				border-left: 1px solid $silver;
+				border-bottom: 0;
+			}
+		}
+
+		// ELEMENT: Content.
+		@include element('content') {
+
+			@include media(min-width, md) {
+				min-width: 1px;
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+			}
+
+			.sui-tabs {
+
+				@include media(min-width, md) {
+					min-height: 1px;
+					display: flex;
+					flex: 1;
+					flex-direction: column;
+				}
+
+				.sui-tabs-menu {
+					padding-left: $sui-gutter !important;
+					padding-right: $sui-gutter !important;
+				}
+
+				.sui-tabs-content {
+
+					@include media(min-width, md) {
+						min-height: 1px;
+						display: flex;
+						flex: 1;
+						flex-direction: column;
+					}
+
+					.sui-tab-content.active {
+						padding-top: 0;
+						background: $white;
+						// background: #f1f1f1;
+
+						@include media(min-width, md) {
+							min-height: 100%;
+							display: flex !important;
+							flex: 1;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+						}
+					}
+				}
+			}
+		}
+
+		// ELEMENT: Preview.
+		@include element('preview') {
+			padding: $sui-gutter-md;
+			text-align: center;
+
+			@include media(min-width, md) {
+				width: 100%;
+				flex: 0 0 auto;
+			}
 		}
 	}
 }
