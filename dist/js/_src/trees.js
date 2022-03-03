@@ -313,8 +313,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-3 .sui-tree').length) {
-    $('.sui-2-12-3 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-12-4 .sui-tree').length) {
+    $('.sui-2-12-4 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }

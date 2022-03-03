@@ -96,12 +96,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           placeholder = '',
           ariaLabel = '',
           ariaDescription = '';
+      var dataPlaceholder = textarea.attr('placeholder');
+      var dataLabel = textarea.attr('data-field-label');
 
-      if ('undefined' !== typeof textarea.attr('placeholder') && '' !== textarea.attr('placeholder')) {
-        placeholder = ' placeholder="' + textarea.attr('placeholder') + '"';
+      if ('undefined' !== typeof dataPlaceholder && '' !== dataPlaceholder) {
+        placeholder = ' placeholder="' + dataPlaceholder + '"';
       }
 
-      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+      if ('undefined' !== typeof dataLabel && '' !== dataLabel) {
         ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
         textarea.attr('aria-labelledby', uniqid + '-label');
       } else {
@@ -112,7 +114,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         textarea.attr('aria-labelledby', uniqid + '-label');
       }
 
-      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+      if ('undefined' !== typeof dataLabel && '' !== dataLabel) {
         ariaDescription = ' aria-describedby="' + uniqid + '-description"';
       } else {
         if (textarea.closest('.sui-form-field').find('.sui-label').length) {

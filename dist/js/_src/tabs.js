@@ -51,7 +51,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     function onClick(groupIndex, itemIndex) {
       setNodes(groupIndex, itemIndex);
-      setCallback(indexGroup, indexItem);
+      setCallback();
     }
 
     function setNodes(groupIndex, itemIndex) {
@@ -114,7 +114,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
     }
 
-    return init(config);
+    init(config);
+    return;
   };
 
   SUI.tabsOverflow = function ($el) {
@@ -307,15 +308,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       switch (key) {
         case keys.end:
-          event.preventDefault(); // Actiavte last tab.
-          // focusLastTab();
-
-          break;
-
         case keys.home:
-          event.preventDefault(); // Activate first tab.
-          // focusFirstTab();
-
+          event.preventDefault();
           break;
         // Up and down are in keydown
         // because we need to prevent page scroll.
@@ -369,12 +363,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-3 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-4 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-3 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-4 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }

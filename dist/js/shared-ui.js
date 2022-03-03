@@ -118,8 +118,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-3 .sui-accordion').length) {
-    $('.sui-2-12-3 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-4 .sui-accordion').length) {
+    $('.sui-2-12-4 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -233,7 +233,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-3 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-4 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -509,7 +509,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  $('.sui-2-12-3 .sui-slider').each(function () {
+  $('.sui-2-12-4 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -525,7 +525,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-12-3 .sui-dropdown');
+      var $dropdowns = $('.sui-2-12-4 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -546,7 +546,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-12-3 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-12-4 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -1606,12 +1606,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           placeholder = '',
           ariaLabel = '',
           ariaDescription = '';
+      var dataPlaceholder = textarea.attr('placeholder');
+      var dataLabel = textarea.attr('data-field-label');
 
-      if ('undefined' !== typeof textarea.attr('placeholder') && '' !== textarea.attr('placeholder')) {
-        placeholder = ' placeholder="' + textarea.attr('placeholder') + '"';
+      if ('undefined' !== typeof dataPlaceholder && '' !== dataPlaceholder) {
+        placeholder = ' placeholder="' + dataPlaceholder + '"';
       }
 
-      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+      if ('undefined' !== typeof dataLabel && '' !== dataLabel) {
         ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
         textarea.attr('aria-labelledby', uniqid + '-label');
       } else {
@@ -1622,7 +1624,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         textarea.attr('aria-labelledby', uniqid + '-label');
       }
 
-      if ('undefinded' !== typeof textarea.attr('data-field-label') && '' !== textarea.attr('data-field-label')) {
+      if ('undefined' !== typeof dataLabel && '' !== dataLabel) {
         ariaDescription = ' aria-describedby="' + uniqid + '-description"';
       } else {
         if (textarea.closest('.sui-form-field').find('.sui-label').length) {
@@ -2526,7 +2528,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-12-3 .sui-form-field').each(function () {
+    $('.sui-2-12-4 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2584,7 +2586,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-12-3 .sui-reviews').each(function () {
+  $('.sui-2-12-4 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
@@ -2616,7 +2618,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-12-3 .sui-circle-score').each(function () {
+  $('.sui-2-12-4 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -8172,7 +8174,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-3'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-4'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8185,7 +8187,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-3'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-4'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8203,7 +8205,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-3'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-4'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8221,7 +8223,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-3'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-4'),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -8234,7 +8236,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-3'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-4'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -8298,7 +8300,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
   };
 
-  $('.sui-2-12-3 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-4 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8418,7 +8420,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     function onClick(groupIndex, itemIndex) {
       setNodes(groupIndex, itemIndex);
-      setCallback(indexGroup, indexItem);
+      setCallback();
     }
 
     function setNodes(groupIndex, itemIndex) {
@@ -8481,7 +8483,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
     }
 
-    return init(config);
+    init(config);
+    return;
   };
 
   SUI.tabsOverflow = function ($el) {
@@ -8674,15 +8677,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       switch (key) {
         case keys.end:
-          event.preventDefault(); // Actiavte last tab.
-          // focusLastTab();
-
-          break;
-
         case keys.home:
-          event.preventDefault(); // Activate first tab.
-          // focusFirstTab();
-
+          event.preventDefault();
           break;
         // Up and down are in keydown
         // because we need to prevent page scroll.
@@ -8736,12 +8732,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-3 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-4 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-3 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-4 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9061,8 +9057,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-3 .sui-tree').length) {
-    $('.sui-2-12-3 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-12-4 .sui-tree').length) {
+    $('.sui-2-12-4 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9078,7 +9074,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   }
 
   SUI.upload = function () {
-    $('.sui-2-12-3 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-12-4 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
@@ -9087,45 +9083,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
     }); // check whether element exist then execute js
 
-    if ($('.sui-2-12-3 .sui-file-upload').length) {
-      // function to set uploaded file
-      var uploadedFile = function uploadedFile(element, file, filename) {
-        var parent = element.closest('.sui-upload');
-        var imageContainer = parent.find('.sui-upload-image');
-
-        if (filename) {
-          if (imageContainer.length) {
-            var reader = new FileReader();
-            var imagePreview = imageContainer.find('.sui-image-preview');
-
-            reader.onload = function (e) {
-              imagePreview.attr('style', 'background-image: url(' + e.target.result + ' );');
-            };
-
-            reader.readAsDataURL(file);
-          }
-
-          parent.find('.sui-upload-file > span').text(filename);
-          parent.addClass('sui-has_file');
-        }
-      }; // function to open browser file explorer for selecting file
-
-
-      var selectFile = function selectFile(element) {
-        var parent = element.closest('.sui-upload');
-        var file = parent.find('input[type="file"]');
-        file.trigger('click');
-      }; // function to remove file
-
-
-      var removeFile = function removeFile(element) {
-        var parent = element.closest('.sui-upload');
-        var file = parent.find('input[type="file"]');
-        file.val('').change();
-      };
-
+    if ($('.sui-2-12-4 .sui-file-upload').length) {
       // This will trigger on file change. 
-      $('.sui-2-12-3 .sui-file-browser input[type="file"]').on('change', function () {
+      $('.sui-2-12-4 .sui-file-browser input[type="file"]').on('change', function () {
         var parent = $(this).parent();
         var filename = $(this).val();
         var imageContainer = parent.find('.sui-upload-image');
@@ -9161,15 +9121,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
       }); // This will trigger on click of upload button
 
-      $('.sui-2-12-3 .sui-file-browser .sui-upload-button').on('click', function () {
+      $('.sui-2-12-4 .sui-file-browser .sui-upload-button').on('click', function () {
         selectFile($(this));
       }); // This will trigger when user wants to remove the selected upload file
 
-      $('.sui-2-12-3 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
+      $('.sui-2-12-4 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
         removeFile($(this));
       }); // This will trigger reupload of file
 
-      $('.sui-2-12-3 .sui-file-browser .sui-upload-image').on('click', function () {
+      $('.sui-2-12-4 .sui-file-browser .sui-upload-image').on('click', function () {
         selectFile($(this));
       }); // upload drag and drop functionality
 
@@ -9178,7 +9138,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
       }();
 
-      var uploadArea = $('.sui-2-12-3 .sui-upload-button');
+      var uploadArea = $('.sui-2-12-4 .sui-upload-button');
 
       if (isAdvancedUpload) {
         var droppedFiles = false;
@@ -9193,7 +9153,43 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           droppedFiles = e.originalEvent.dataTransfer.files;
           uploadedFile($(this), droppedFiles[0], droppedFiles[0].name);
         });
-      }
+      } // function to set uploaded file
+
+
+      var uploadedFile = function uploadedFile(element, file, filename) {
+        var parent = element.closest('.sui-upload');
+        var imageContainer = parent.find('.sui-upload-image');
+
+        if (filename) {
+          if (imageContainer.length) {
+            var reader = new FileReader();
+            var imagePreview = imageContainer.find('.sui-image-preview');
+
+            reader.onload = function (e) {
+              imagePreview.attr('style', 'background-image: url(' + e.target.result + ' );');
+            };
+
+            reader.readAsDataURL(file);
+          }
+
+          parent.find('.sui-upload-file > span').text(filename);
+          parent.addClass('sui-has_file');
+        }
+      }; // function to open browser file explorer for selecting file
+
+
+      var selectFile = function selectFile(element) {
+        var parent = element.closest('.sui-upload');
+        var file = parent.find('input[type="file"]');
+        file.trigger('click');
+      }; // function to remove file
+
+
+      var removeFile = function removeFile(element) {
+        var parent = element.closest('.sui-upload');
+        var file = parent.find('input[type="file"]');
+        file.val('').change();
+      };
     }
   };
 

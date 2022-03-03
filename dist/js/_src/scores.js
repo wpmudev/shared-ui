@@ -20,7 +20,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-12-3 .sui-circle-score').each(function () {
+  $('.sui-2-12-4 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
