@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.13...v2.12.4) (Unreleased)
+## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.3...v2.12.4) (2022-03-03)
 
 #### 🐛 Bug Fixes
 * **fix(uploads):** Hoisting of functions declared in blocks is handled differently in different browsers. [#458](https://github.com/wpmudev/shared-ui/pull/458) ([SUI-302](https://incsub.atlassian.net/browse/SUI-302)) ([@creador-dev](https://github.com/creador-dev))
