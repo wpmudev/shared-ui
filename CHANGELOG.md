@@ -5,16 +5,22 @@ All notable changes to this project will be documented in this file. See [Conven
 ## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.13...v2.12.4) (Unreleased)
 
 #### 🐛 Bug Fixes
+* **fix(uploads):** Hoisting of functions declared in blocks is handled differently in different browsers. [#458](https://github.com/wpmudev/shared-ui/pull/458) ([SUI-302](https://incsub.atlassian.net/browse/SUI-302)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(tabs):** Function `init` has no return statements. [#464](https://github.com/wpmudev/shared-ui/pull/464) ([SUI-310](https://incsub.atlassian.net/browse/SUI-310)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(multistrings):** Undefined is not a possible return value of `typeof`. [#465](https://github.com/wpmudev/shared-ui/pull/465) ([SUI-309](https://incsub.atlassian.net/browse/SUI-309)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(tabs):** Function `setCallback` takes 0 parameter(s). [#466](https://github.com/wpmudev/shared-ui/pull/466) ([SUI-312](https://incsub.atlassian.net/browse/SUI-312)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(tabs):** On `keyDownEventListener` the body of `case` clause duplicates. [#467](https://github.com/wpmudev/shared-ui/pull/467) ([SUI-313](https://incsub.atlassian.net/browse/SUI-313)) ([@iamleigh](https://github.com/iamleigh))
+* **fix(modals):** If statement have duplicate bodies. [#469](https://github.com/wpmudev/shared-ui/pull/469) ([SUI-311](https://incsub.atlassian.net/browse/SUI-311)) ([@iamleigh](https://github.com/iamleigh))
+
+#### 🚀 Improvements
+* **fix(select):** Use arrow function instead of anonymous function. [#70](https://github.com/wpmudev/shared-ui/pull/470) ([SUI-318](https://incsub.atlassian.net/browse/SUI-318)) ([@iamleigh](https://github.com/iamleigh))
 
 #### 🏠 Internal
 * **fix(snyk):** Duplicated import in package.json file. [#455](https://github.com/wpmudev/shared-ui/pull/455) ([SUI-298](https://incsub.atlassian.net/browse/SUI-298)) ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [2.12.3](https://github.com/wpmudev/shared-ui/compare/v2.12.2...v2.12.3) (2022-02-25)
 
