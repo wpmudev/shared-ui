@@ -244,7 +244,6 @@
 			},
 			minimumResultsForSearch: hasSearch
 		});
-		select.val( null ).trigger( 'change' );
 	};
 
 	$( '.sui-select' ).each( function() {

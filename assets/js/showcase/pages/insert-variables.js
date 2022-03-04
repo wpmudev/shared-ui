@@ -28,12 +28,17 @@
 					wrapper = select.closest( '.sui-insert-variables' ),
 					input   = wrapper.find( 'input, textarea' )
 					;
-				if ( ! select.val() ) {
-					return;
-				}
+
 				input.val( input.val() + select.val() );
-				select.val( null ).trigger( 'change' );
+				clearSelection( select );
 			});
+		}
+
+		function clearSelection( select ) {
+			if ( ! select.val() ) {
+				return;
+			}
+			select.val( null ).trigger( 'change' );
 		}
 
 		function init() {
