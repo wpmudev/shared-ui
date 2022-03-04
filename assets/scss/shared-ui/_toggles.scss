@@ -3,7 +3,7 @@
 @include body-class(true) {
 
 	.sui-toggle {
-		display: block;
+		display: inline-block;
 		opacity: 1;
 
 		input {
@@ -73,10 +73,6 @@
 			}
 		}
 
-		label {
-			display: inline-block;
-		}
-
 		// ELEMENT: Slider.
 		.sui-toggle-slider {
 			width: $toggle-width;
@@ -104,13 +100,10 @@
 				transition: 0.2s linear;
 			}
 
-			~ .sui-toggle-label {
+			~ .sui-toggle-label,
+			~ .sui-description {
 				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 			}
-		}
-
-		.sui-description {
-			margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 		}
 
 		// ELEMENT: Label.
