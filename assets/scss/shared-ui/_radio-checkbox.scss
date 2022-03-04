@@ -46,6 +46,10 @@
 				margin-bottom: auto;
 				margin-left: 10px;
 			}
+
+			@include media(max-width, md) {
+				display: inline-block;
+			}
 		}
 
 		&:hover,
@@ -110,7 +114,8 @@
 	}
 
 	@include media(max-width, md) {
-		display: flex;
+		// display: flex;
+		display: table;
 		margin: 0 0 math.div($sui-gutter-md, 2);
 	}
 
@@ -168,8 +173,7 @@
 			}
 
 			@include media(min-width, md) {
-				display: inline-flex;
-				width: 100%;
+				display: flex;
 				margin: 0 0 math.div($sui-gutter-md, 2);
 			}
 		}
@@ -277,6 +281,10 @@
 		// To pile one element per-line
 		&.sui-checkbox-stacked {
 
+			input + span {
+				display: inline-block;
+			}
+
 			&:last-child {
 
 				@include media(min-width, md) {
@@ -285,7 +293,7 @@
 			}
 
 			@include media(min-width, md) {
-				display: flex;
+				display: table;
 				margin: 0 0 math.div($sui-gutter-md, 2);
 			}
 		}
