@@ -131,12 +131,12 @@
 
         function overflowing() {
             if ( tabs[0].scrollWidth > tabs.width() ) {
-                if (10 >= tabs.scrollLeft() ) {
+                if (0 >= tabs.scrollLeft() ) {
                     leftButton.addClass( 'sui-tabs-navigation--hidden' );
                 } else {
                     leftButton.removeClass( 'sui-tabs-navigation--hidden' );
                 }
-                reachedEnd( 10 );
+                reachedEnd( 0 );
                 return true;
             } else {
                 leftButton.addClass( 'sui-tabs-navigation--hidden' );
