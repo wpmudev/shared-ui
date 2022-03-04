@@ -4,7 +4,6 @@
 %radio-checkbox {
 	user-select: none;
 	align-items: flex-start;
-	max-width: fit-content;
 
 	input {
 		@extend %sui-screen-reader-text;
@@ -169,7 +168,8 @@
 			}
 
 			@include media(min-width, md) {
-				display: flex;
+				display: inline-flex;
+				width: 100%;
 				margin: 0 0 math.div($sui-gutter-md, 2);
 			}
 		}
