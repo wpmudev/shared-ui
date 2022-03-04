@@ -30,11 +30,11 @@
 					;
 
 				input.val( input.val() + select.val() );
-				clearSelection( select );
+				clearSelectedOption( select );
 			});
 		}
 
-		function clearSelection( select ) {
+		function clearSelectedOption( select ) {
 			if ( ! select.val() ) {
 				return;
 			}
