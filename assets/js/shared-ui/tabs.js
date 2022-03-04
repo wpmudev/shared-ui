@@ -131,7 +131,7 @@
 
         function overflowing() {
             if ( tabs[0].scrollWidth > tabs.width() ) {
-                if (0 >= tabs.scrollLeft() ) {
+                if ( 0 === tabs.scrollLeft() ) {
                     leftButton.addClass( 'sui-tabs-navigation--hidden' );
                 } else {
                     leftButton.removeClass( 'sui-tabs-navigation--hidden' );
