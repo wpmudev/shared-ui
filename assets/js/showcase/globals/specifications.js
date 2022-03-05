@@ -3,23 +3,101 @@
 	// Enable strict mode.
     'use strict';
 
-	const row = document.getElementById( 'showcase-specs' );
-	row.classList.add( 'sui-box-settings-row' );
+	const createLeftColumn = () => {
+		const column = document.createElement( 'div' );
+		column.classList.add( 'sui-box-settings-col-1' );
+		column.innerHTML = '<h3 class="sui-settings-label">Specifications</h3>';
 
-	// Create left column.
-	const colLeft = document.createElement( 'div' );
-	colLeft.classList.add( 'sui-box-settings-col-1' );
-	colLeft.innerHTML = '<h3 class="sui-settings-label">Specifications</h3>';
+		return column;
+	};
 
-	// Create right column.
-	const colRight = document.createElement( 'div' );
-	colRight.classList.add( 'sui-box-settings-col-2' );
+	const createRightColumn = ( row ) => {
+		const column = document.createElement( 'div' );
+		column.classList.add( 'sui-box-settings-col-2' );
 
-	// Create the specifications table.
-	const table = document.createElement( 'table' );
-	const tbody = document.createElement( 'tbody' );
-	table.classList.add( 'sui-table' );
-	table.style.maxWidth = '720px';
+		// Append table to right column.
+		column.appendChild( createTable( row ) );
+
+		return column;
+	};
+
+	const createTable = ( row ) => {
+		const table = document.createElement( 'table' );
+		const tbody = document.createElement( 'tbody' );
+		table.classList.add( 'sui-table' );
+		table.style.maxWidth = '720px';
+
+		// Create the "version" row.
+		const hasVersion = row.hasAttribute( 'version' );
+		const getVersion = row.getAttribute( 'version' );
+		const checkVersion = hasVersion && 'string' === typeof getVersion && '' !== getVersion;
+
+		if ( checkVersion ) {
+			tbody.appendChild(
+				createVersionRow( getVersion )
+			);
+		}
+
+		// Create the "utilities" row.
+		const hasUtilities = row.hasAttribute( 'utilities' );
+		const getUtilities = row.getAttribute( 'utilities' );
+		const checkUtilities = hasUtilities && 'string' === typeof getUtilities && '' !== getUtilities;
+		const isUtilitiesSupported = 'supported' === getUtilities;
+
+		const hasUtilitiesPage = row.hasAttribute( 'utilities-page' );
+		const getUtilitiesPage = row.getAttribute( 'utilities-page' );
+		const checkUtilitiesPage = hasUtilitiesPage && 'string' === typeof getUtilitiesPage && '' !== getUtilitiesPage;
+		const showUtilitiesDescription = checkUtilitiesPage ?
+			`This will tell you if the element supports the modifier classes listed on <a href="${ row.getAttribute( 'utilities-page' ) }"><strong>Utilities</strong></a> page.` :
+			'This will tell you if the element supports the modifier classes listed on <strong>Utilities</strong> page.';
+
+		if ( checkUtilities ) {
+			tbody.appendChild(
+				createSupportRow(
+					'Utilities',
+					isUtilitiesSupported ? true : false,
+					showUtilitiesDescription
+				)
+			);
+		}
+
+		// Create the "monochrome" row.
+		const hasMonochrome = row.hasAttribute( 'monochrome' );
+		const getMonochrome = row.getAttribute( 'monochrome' );
+		const checkMonochrome = hasMonochrome && 'string' === typeof getMonochrome && '' !== getMonochrome;
+		const isMonochromeSupported = 'supported' === getMonochrome;
+
+		if ( checkMonochrome ) {
+			tbody.appendChild(
+				createSupportRow(
+					'Monochrome',
+					isMonochromeSupported ? true : false,
+					'This will tell you if the element supports the Colour Accessible option found on our plugins\' Settings page.'
+				)
+			);
+		}
+
+		// Create the "RTL" row.
+		const hasRTL = row.hasAttribute( 'rtl-lang' );
+		const getRTL = row.getAttribute( 'rtl-lang' );
+		const checkRTL = hasRTL && 'string' === typeof getRTL && '' !== getRTL;
+		const isRTLSupported = 'supported' === getRTL;
+
+		if ( checkRTL ) {
+			tbody.appendChild(
+				createSupportRow(
+					'RTL Language',
+					isRTLSupported ? true : false,
+					'This will tell you if the element supports right-to-left langues.'
+				)
+			);
+		}
+
+		// Append table body.
+		table.appendChild( tbody );
+
+		return table;
+	};
 
 	const createVersionRow = ( minVersion ) => {
 		const row = document.createElement( 'tr' );
@@ -71,79 +149,22 @@
 		return row;
 	};
 
-	// Create the "version" row.
-	const hasVersion = row.hasAttribute( 'version' );
-	const getVersion = row.getAttribute( 'version' );
-	const checkVersion = hasVersion && 'string' === typeof getVersion && '' !== getVersion;
+	const loadSpecifications = ( elementId ) => {
 
-	if ( checkVersion ) {
-		tbody.appendChild(
-			createVersionRow( getVersion )
-		);
-	}
+		// Get element.
+		const row = document.getElementById( elementId );
 
-	// Create the "utilities" row.
-	const hasUtilities = row.hasAttribute( 'utilities' );
-	const getUtilities = row.getAttribute( 'utilities' );
-	const checkUtilities = hasUtilities && 'string' === typeof getUtilities && '' !== getUtilities;
-	const isUtilitiesSupported = 'supported' === getUtilities;
+		// Check if element exists.
+		if ( 'undefined' === typeof row || null === row ) {
+			return;
+		}
 
-	const hasUtilitiesPage = row.hasAttribute( 'utilities-page' );
-	const getUtilitiesPage = row.getAttribute( 'utilities-page' );
-	const checkUtilitiesPage = hasUtilitiesPage && 'string' === typeof getUtilitiesPage && '' !== getUtilitiesPage;
-	const showUtilitiesDescription = checkUtilitiesPage ?
-		`This will tell you if the element supports the modifier classes listed on <a href="${ row.getAttribute( 'utilities-page' ) }"><strong>Utilities</strong></a> page.` :
-		'This will tell you if the element supports the modifier classes listed on <strong>Utilities</strong> page.';
+		row.appendChild( createLeftColumn() );
+		row.appendChild( createRightColumn( row ) );
+		row.classList.add( 'sui-box-settings-row' );
 
-	if ( checkUtilities ) {
-		tbody.appendChild(
-			createSupportRow(
-				'Utilities',
-				isUtilitiesSupported ? true : false,
-				showUtilitiesDescription
-			)
-		);
-	}
+	};
 
-	// Create the "monochrome" row.
-	const hasMonochrome = row.hasAttribute( 'monochrome' );
-	const getMonochrome = row.getAttribute( 'monochrome' );
-	const checkMonochrome = hasMonochrome && 'string' === typeof getMonochrome && '' !== getMonochrome;
-	const isMonochromeSupported = 'supported' === getMonochrome;
-
-	if ( checkMonochrome ) {
-		tbody.appendChild(
-			createSupportRow(
-				'Monochrome',
-				isMonochromeSupported ? true : false,
-				'This will tell you if the element supports the Colour Accessible option found on our plugins\' Settings page.'
-			)
-		);
-	}
-
-	// Create the "RTL" row.
-	const hasRTL = row.hasAttribute( 'rtl-lang' );
-	const getRTL = row.getAttribute( 'rtl-lang' );
-	const checkRTL = hasRTL && 'string' === typeof getRTL && '' !== getRTL;
-	const isRTLSupported = 'supported' === getRTL;
-
-	if ( checkRTL ) {
-		tbody.appendChild(
-			createSupportRow(
-				'RTL Language',
-				isRTLSupported ? true : false,
-				'This will tell you if the element supports right-to-left langues.'
-			)
-		);
-	}
-
-	// Append table body.
-	table.appendChild( tbody );
-
-	// Append table to right column.
-	colRight.appendChild( table );
-
-	row.appendChild( colLeft );
-	row.appendChild( colRight );
+	loadSpecifications( 'showcase-specs' );
 
 }( jQuery ) );
