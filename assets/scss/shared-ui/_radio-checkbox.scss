@@ -46,10 +46,6 @@
 				margin-bottom: auto;
 				margin-left: 10px;
 			}
-
-			@include media(max-width, md) {
-				display: inline-block;
-			}
 		}
 
 		&:hover,
@@ -114,7 +110,7 @@
 	}
 
 	@include media(max-width, md) {
-		display: table;
+		display: flex;
 		margin: 0 0 math.div($sui-gutter-md, 2);
 	}
 
@@ -264,6 +260,10 @@
 					font-size: $radio-checkbox--icon-size;
 					text-align: center;
 				}
+
+				@include media(max-width, md) {
+					display: inline-block;
+				}
 			}
 
 			&:disabled,
@@ -308,6 +308,10 @@
 					font-size: $radio-checkbox--font-size-sm;
 				}
 			}
+		}
+
+		@include media(max-width, md) {
+			display: table;
 		}
 	}
 
