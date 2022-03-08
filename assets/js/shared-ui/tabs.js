@@ -415,6 +415,36 @@
 
 		return this;
 
+	}; 
+
+	SUI.tabsWithRadio = function( element ) {
+
+		var $this 	   = $( element ),
+			$label     = $this.parent( 'label' ),
+			$data      = $this.data( 'tab-menu' ),
+			$wrapper   = $this.closest( '.sui-tabs' ),
+			$alllabels = $wrapper.find( '>.sui-tabs-menu .sui-tab-item' ),
+			$allinputs = $alllabels.find( 'input' ),
+			newContent
+			;
+
+		$this.on( 'click', function( e ) {
+
+			$alllabels.removeClass( 'active' );
+			$allinputs.removeProp( 'checked' );
+			$wrapper.find( '> .sui-tabs-content > div[data-tab-content]' ).removeClass( 'active' );
+
+			$label.addClass( 'active' );
+			$this.prop( 'checked', true );
+
+			newContent = $wrapper.find( '.sui-tabs-content div[data-tab-content="' + $data + '"]' );
+
+			if ( newContent.length ) {
+				newContent.addClass( 'active' );
+			}
+		});
+
+
 	};
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
@@ -424,6 +454,11 @@
 
 		// Support legacy tabs.
 		SUI.suiTabs();
+
+		// Support tabs with radio buttons.
+		$( 'SUI_BODY_CLASS .sui-tabs label.sui-tab-item input' ).each( function() {
+			SUI.tabsWithRadio( this );
+		});
 
 		$( 'SUI_BODY_CLASS .sui-tabs-navigation' ).each( function() {
 			SUI.tabsOverflow( $( this ) );
