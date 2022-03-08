@@ -417,7 +417,7 @@
 
 	}; 
 
-	SUI.tabsWithRadio = function( element ) {
+	SUI.tabsWithRadioInput = function( element ) {
 
 		var $this 	   = $( element ),
 			$label     = $this.parent( 'label' ),
@@ -456,7 +456,7 @@
 
 		// Support tabs with radio buttons.
 		$( 'SUI_BODY_CLASS .sui-tabs label.sui-tab-item input' ).each( function() {
-			SUI.tabsWithRadio( this );
+			SUI.tabsWithRadioInput( this );
 		});
 
 		$( 'SUI_BODY_CLASS .sui-tabs-navigation' ).each( function() {
