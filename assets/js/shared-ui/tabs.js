@@ -444,7 +444,6 @@
 			}
 		});
 
-
 	};
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
