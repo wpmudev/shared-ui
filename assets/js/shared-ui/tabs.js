@@ -56,7 +56,7 @@
         function onClick( groupIndex, itemIndex ) {
             setNodes( groupIndex, itemIndex );
 
-            setCallback( indexGroup, indexItem );
+            setCallback();
         }
 
         function setNodes( groupIndex, itemIndex ) {
@@ -120,7 +120,9 @@
             }
         }
 
-        return init( config );
+        init( config );
+
+		return;
     };
 
 	SUI.tabsOverflow = function( $el ) {
@@ -240,11 +242,9 @@
 		function activateTab( tab ) {
 
 			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
-				wrapper = $( tab ).closest( '.sui-tabs' ),
-				panels   = wrapper.find( '> .sui-tabs-content > [role="tabpanel"]' ),
+				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
 				controls = $( tab ).attr( 'aria-controls' ),
-				panel    = $( '#' + controls ),
-				radiobtn = $( tab ).find( 'input' )
+				panel    = $( '#' + controls )
 				;
 
 			deactivateTabs( tabs, panels );
@@ -255,9 +255,6 @@
 
 			panel.addClass( 'active' );
 			panel.prop( 'hidden', false );
-
-			wrapper.find( 'input' ).prop( 'checked', false );
-			radiobtn.prop( 'checked', true );
 
 		}
 
@@ -351,28 +348,15 @@
 
 			switch ( key ) {
 
-				case keys.end :
-
+				case keys.end:
+				case keys.home:
 					event.preventDefault();
-
-					// Actiavte last tab.
-					// focusLastTab();
-
-					break;
-
-				case keys.home :
-
-					event.preventDefault();
-
-					// Activate first tab.
-					// focusFirstTab();
-
 					break;
 
 				// Up and down are in keydown
 				// because we need to prevent page scroll.
-				case keys.up :
-				case keys.down :
+				case keys.up:
+				case keys.down:
 					determineOrientation( event, index, tablist );
 					break;
 			}
