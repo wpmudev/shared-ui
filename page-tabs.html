@@ -65,18 +65,34 @@ is_searchable: true
 						<div class="sui-tabs">
 
 							<div role="tablist" class="sui-tabs-menu">
-								<button type="button" role="tab" id="sample-tab-1" class="sui-tab-item active" aria-controls="sample-tab-content-1" aria-selected="true">Tab 1</button>
-								<button type="button" role="tab" id="sample-tab-2" class="sui-tab-item" aria-controls="sample-tab-content-2" aria-selected="false" tabindex="-1">Tab 2</button>
-								<button type="button" role="tab" id="sample-tab-3" class="sui-tab-item" aria-controls="sample-tab-content-3" aria-selected="false" tabindex="-1">Tab 3</button>
-								<button type="button" role="tab" id="sample-tab-4" class="sui-tab-item" aria-controls="sample-tab-content-4" aria-selected="false" tabindex="-1">Tab 4</button>
+								<label for="sample-tab-1" class="sui-tab-item active">
+									<input type="radio" name="tab-default" value="Tab 1" id="sample-tab-1" aria-controls="sample-tab-content-1" data-tab-menu="get-sample-tab-content-1" checked="checked">Tab 1
+								</label>
+								<label for="sample-tab-2" class="sui-tab-item">
+									<input type="radio" name="tab-default" value="Tab 2" id="sample-tab-2" aria-controls="sample-tab-content-2" data-tab-menu="get-sample-tab-content-2">Tab 2
+								</label>
+								<label for="sample-tab-3" class="sui-tab-item">
+									<input type="radio" name="tab-default" value="Tab 3" id="sample-tab-3" aria-controls="sample-tab-content-3" data-tab-menu="get-sample-tab-content-3">Tab 3
+								</label>
+								<label for="sample-tab-4" class="sui-tab-item">
+									<input type="radio" name="tab-default" value="Tab 4" id="sample-tab-4" aria-controls="sample-tab-content-4" data-tab-menu="get-sample-tab-content-4">Tab 4
+								</label>
 							</div>
 
 							<div class="sui-tabs-content">
 
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-1" class="sui-tab-content active" aria-labelledby="sample-tab-1"><p>Content. Tab 1.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-2" class="sui-tab-content" aria-labelledby="sample-tab-2" hidden><p>Content. Tab 2.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-3" class="sui-tab-content" aria-labelledby="sample-tab-3" hidden><p>Content. Tab 3.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-4" class="sui-tab-content" aria-labelledby="sample-tab-4" hidden><p>Content. Tab 4.</p></div>
+								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-sample-tab-content-1" id="sample-tab-content-1" tabindex="0">
+									<p>Content. Tab 1.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-2" id="sample-tab-content-2" tabindex="0">
+									<p>Content. Tab 2.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-3" id="sample-tab-content-3" tabindex="0">
+									<p>Content. Tab 3.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-4" id="sample-tab-content-4" tabindex="0">
+									<p>Content. Tab 4.</p>
+								</div>
 
 							</div>
 
@@ -108,18 +124,36 @@ is_searchable: true
 										<div class="sui-tabs sui-tabs-flushed">
 
 											<div role="tablist" class="sui-tabs-menu">
-												<button type="button" role="tab" id="sample-tab-21" class="sui-tab-item active" aria-controls="sample-tab-content-21" aria-selected="true">Tab 1</button>
-												<button type="button" role="tab" id="sample-tab-22" class="sui-tab-item" aria-controls="sample-tab-content-22" aria-selected="false" tabindex="-1">Tab 2</button>
-												<button type="button" role="tab" id="sample-tab-23" class="sui-tab-item" aria-controls="sample-tab-content-23" aria-selected="false" tabindex="-1">Tab 3</button>
-												<button type="button" role="tab" id="sample-tab-24" class="sui-tab-item" aria-controls="sample-tab-content-24" aria-selected="false" tabindex="-1">Tab 4</button>
+												
+												<label for="sample-tab-21" class="sui-tab-item active">
+													<input type="radio" name="tab-flushed-1" value="Tab 1" id="sample-tab-21" aria-controls="sample-tab-content-21" data-tab-menu="get-sample-tab-content-21" checked="checked">Tab 1
+												</label>
+												<label for="sample-tab-22" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-1" value="Tab 2" id="sample-tab-22" aria-controls="sample-tab-content-22" data-tab-menu="get-sample-tab-content-22">Tab 2
+												</label>
+												<label for="sample-tab-23" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-1" value="Tab 3" id="sample-tab-23" aria-controls="sample-tab-content-23" data-tab-menu="get-sample-tab-content-23">Tab 3
+												</label>
+												<label for="sample-tab-24" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-1" value="Tab 4" id="sample-tab-24" aria-controls="sample-tab-content-24" data-tab-menu="get-sample-tab-content-24">Tab 4
+												</label>
+
 											</div>
 
 											<div class="sui-tabs-content">
-
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-21" class="sui-tab-content active" aria-labelledby="sample-tab-21"><p>Content. Tab 1.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-22" class="sui-tab-content" aria-labelledby="sample-tab-22" hidden><p>Content. Tab 2.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-23" class="sui-tab-content" aria-labelledby="sample-tab-23" hidden><p>Content. Tab 3.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-24" class="sui-tab-content" aria-labelledby="sample-tab-24" hidden><p>Content. Tab 4.</p></div>
+												
+												<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-sample-tab-content-21" id="sample-tab-content-21" tabindex="0">
+													<p>Content. Tab 1.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-22" id="sample-tab-content-22" tabindex="0">
+													<p>Content. Tab 2.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-23" id="sample-tab-content-23" tabindex="0">
+													<p>Content. Tab 3.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-24" id="sample-tab-content-24" tabindex="0">
+													<p>Content. Tab 4.</p>
+												</div>
 
 											</div>
 
@@ -140,18 +174,34 @@ is_searchable: true
 										<div class="sui-tabs sui-tabs-flushed">
 
 											<div role="tablist" class="sui-tabs-menu">
-												<button type="button" role="tab" id="sample-tab-31" class="sui-tab-item active" aria-controls="sample-tab-content-31" aria-selected="true">Tab 1</button>
-												<button type="button" role="tab" id="sample-tab-32" class="sui-tab-item" aria-controls="sample-tab-content-32" aria-selected="false" tabindex="-1">Tab 2</button>
-												<button type="button" role="tab" id="sample-tab-33" class="sui-tab-item" aria-controls="sample-tab-content-33" aria-selected="false" tabindex="-1">Tab 3</button>
-												<button type="button" role="tab" id="sample-tab-34" class="sui-tab-item" aria-controls="sample-tab-content-34" aria-selected="false" tabindex="-1">Tab 4</button>
+												<label for="sample-tab-31" class="sui-tab-item active">
+													<input type="radio" name="tab-flushed-2" value="Tab 1" id="sample-tab-31" aria-controls="sample-tab-content-31" data-tab-menu="get-sample-tab-content-31" checked="checked">Tab 1
+												</label>
+												<label for="sample-tab-32" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-2" value="Tab 2" id="sample-tab-32" aria-controls="sample-tab-content-32" data-tab-menu="get-sample-tab-content-32">Tab 2
+												</label>
+												<label for="sample-tab-33" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-2" value="Tab 3" id="sample-tab-33" aria-controls="sample-tab-content-33" data-tab-menu="get-sample-tab-content-33">Tab 3
+												</label>
+												<label for="sample-tab-34" class="sui-tab-item">
+													<input type="radio" name="tab-flushed-2" value="Tab 4" id="sample-tab-34" aria-controls="sample-tab-content-34" data-tab-menu="get-sample-tab-content-34">Tab 4
+												</label>
 											</div>
 
 											<div class="sui-tabs-content">
 
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-31" class="sui-tab-content active" aria-labelledby="sample-tab-31"><p>Content. Tab 1.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-32" class="sui-tab-content" aria-labelledby="sample-tab-32" hidden><p>Content. Tab 2.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-33" class="sui-tab-content" aria-labelledby="sample-tab-33" hidden><p>Content. Tab 3.</p></div>
-												<div role="tabpanel" tabindex="0" id="sample-tab-content-34" class="sui-tab-content" aria-labelledby="sample-tab-34" hidden><p>Content. Tab 4.</p></div>
+												<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-sample-tab-content-31" id="sample-tab-content-31" tabindex="0">
+													<p>Content. Tab 1.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-32" id="sample-tab-content-32" tabindex="0">
+													<p>Content. Tab 2.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-33" id="sample-tab-content-33" tabindex="0">
+													<p>Content. Tab 3.</p>
+												</div>
+												<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-34" id="sample-tab-content-34" tabindex="0">
+													<p>Content. Tab 4.</p>
+												</div>
 
 											</div>
 
@@ -191,22 +241,46 @@ is_searchable: true
 							</div>
 
 							<div role="tablist" class="sui-tabs-menu">
-								<button type="button" role="tab" id="sample-tab-41" class="sui-tab-item active" aria-controls="sample-tab-content-41" aria-selected="true">Admin Area</button>
-								<button type="button" role="tab" id="sample-tab-42" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Emails</button>
-								<button type="button" role="tab" id="sample-tab-43" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Front-End</button>
-								<button type="button" role="tab" id="sample-tab-44" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Settings</button>
-								<button type="button" role="tab" id="sample-tab-45" class="sui-tab-item" aria-controls="sample-tab-content-41" aria-selected="false" tabindex="-1">Utilites</button>
-								<button type="button" role="tab" id="sample-tab-46" class="sui-tab-item" aria-controls="sample-tab-content-42" aria-selected="false" tabindex="-1">Widgets</button>
-								<button type="button" role="tab" id="sample-tab-47" class="sui-tab-item" aria-controls="sample-tab-content-43" aria-selected="false" tabindex="-1">Users</button>
-								<button type="button" role="tab" id="sample-tab-48" class="sui-tab-item" aria-controls="sample-tab-content-44" aria-selected="false" tabindex="-1">Extras</button>
+								<label for="sample-tab-41" class="sui-tab-item active">
+									<input type="radio" name="tab-overflow" value="Admin Area" id="sample-tab-41" aria-controls="sample-tab-content-41" data-tab-menu="get-sample-tab-content-41" checked="checked">Admin Area
+								</label>
+								<label for="sample-tab-42" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Emails" id="sample-tab-42" aria-controls="sample-tab-content-42" data-tab-menu="get-sample-tab-content-42">Emails
+								</label>
+								<label for="sample-tab-43" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Front-End" id="sample-tab-43" aria-controls="sample-tab-content-43" data-tab-menu="get-sample-tab-content-43">Front-End
+								</label>
+								<label for="sample-tab-44" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Settings" id="sample-tab-44" aria-controls="sample-tab-content-44" data-tab-menu="get-sample-tab-content-44">Settings
+								</label>
+								<label for="sample-tab-45" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Utilites" id="sample-tab-45" aria-controls="sample-tab-content-44" data-tab-menu="get-sample-tab-content-44">Utilites
+								</label>
+								<label for="sample-tab-46" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Widgets" id="sample-tab-46" aria-controls="sample-tab-content-44" data-tab-menu="get-sample-tab-content-44">Widgets
+								</label>
+								<label for="sample-tab-47" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Users" id="sample-tab-47" aria-controls="sample-tab-content-44" data-tab-menu="get-sample-tab-content-44">Users
+								</label>
+								<label for="sample-tab-48" class="sui-tab-item">
+									<input type="radio" name="tab-overflow" value="Extras" id="sample-tab-48" aria-controls="sample-tab-content-44" data-tab-menu="get-sample-tab-content-44">Extras
+								</label>
 							</div>
 
 							<div class="sui-tabs-content">
 
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-41" class="sui-tab-content active" aria-labelledby="sample-tab-41"><p>Content. Tab 1.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-42" class="sui-tab-content" aria-labelledby="sample-tab-42" hidden><p>Content. Tab 2.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-43" class="sui-tab-content" aria-labelledby="sample-tab-43" hidden><p>Content. Tab 3.</p></div>
-								<div role="tabpanel" tabindex="0" id="sample-tab-content-44" class="sui-tab-content" aria-labelledby="sample-tab-44" hidden><p>Content. Tab 4.</p></div>
+								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-sample-tab-content-41" id="sample-tab-content-41" tabindex="0">
+									<p>Content. Tab 1.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-42" id="sample-tab-content-42" tabindex="0">
+									<p>Content. Tab 2.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-43" id="sample-tab-content-43" tabindex="0">
+									<p>Content. Tab 3.</p>
+								</div>
+								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-sample-tab-content-44" id="sample-tab-content-44" tabindex="0">
+									<p>Content. Tab 4.</p>
+								</div>
 
 							</div>
 
@@ -281,39 +355,39 @@ is_searchable: true
 							<div class="sui-tabs-menu">
 
 								<label for="hustle-feature-image-cover-1" class="sui-tab-item active">
-									<input type="radio" name="feature_image_fit-1" value="cover" id="hustle-feature-image-cover-1" data-tab-menu="get-tab-cover" checked="checked">Cover
+									<input type="radio" name="feature_image_fit-1" value="cover" id="hustle-feature-image-cover-1" aria-controls="hustle-feature-image-content-1" data-tab-menu="get-tab-cover" checked="checked">Cover
 								</label>
 
 								<label for="hustle-feature-image-fill-1" class="sui-tab-item">
-									<input type="radio" name="feature_image_fit-1" value="fill" id="hustle-feature-image-fill-1" data-tab-menu="get-tab-fill">Fill
+									<input type="radio" name="feature_image_fit-1" value="fill" id="hustle-feature-image-fill-1" aria-controls="hustle-feature-image-content-2" data-tab-menu="get-tab-fill">Fill
 								</label>
 
 								<label for="hustle-feature-image-contain-1" class="sui-tab-item">
-									<input type="radio" name="feature_image_fit-1" value="contain" id="hustle-feature-image-contain-1" data-tab-menu="get-tab-contain">Contain
+									<input type="radio" name="feature_image_fit-1" value="contain" id="hustle-feature-image-contain-1" aria-controls="hustle-feature-image-content-3" data-tab-menu="get-tab-contain">Contain
 								</label>
 
 								<label for="hustle-feature-image-none-1" class="sui-tab-item">
-									<input type="radio" name="feature_image_fit-1" value="none" id="hustle-feature-image-none-1" data-tab-menu="get-tab-none">None
+									<input type="radio" name="feature_image_fit-1" value="none" id="hustle-feature-image-none-1" aria-controls="hustle-feature-image-content-4" data-tab-menu="get-tab-none">None
 								</label>
 
 							</div>
 
 							<div class="sui-tabs-content">
 
-								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="get-tab-cover">
+								<div class="sui-tab-content sui-tab-boxed active" id="hustle-feature-image-content-1" data-tab-content="get-tab-cover" tabindex="0">
 									<p>Content for "Cover" tab.</p>
 								</div>
 
-								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-fill">
-										<p>Content for "Fill" tab.</p>
+								<div class="sui-tab-content sui-tab-boxed" id="hustle-feature-image-content-2" data-tab-content="get-tab-fill" tabindex="0">
+									<p>Content for "Fill" tab.</p>
 								</div>
 
-								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-contain">
-										<p>Content for "Contain" tab.</p>
+								<div class="sui-tab-content sui-tab-boxed" id="hustle-feature-image-content-3" data-tab-content="get-tab-contain" tabindex="0">
+									<p>Content for "Contain" tab.</p>
 								</div>
 
-								<div class="sui-tab-content sui-tab-boxed" data-tab-content="get-tab-none">
-										<p>Content for "None" tab.</p>
+								<div class="sui-tab-content sui-tab-boxed" id="hustle-feature-image-content-4" data-tab-content="get-tab-none" tabindex="0">
+									<p>Content for "None" tab.</p>
 								</div>
 
 							</div>
@@ -327,7 +401,7 @@ is_searchable: true
 							<div class="sui-tabs-menu">
 
 								<label for="hustle-feature-image-cover" class="sui-tab-item active">
-									<input type="radio" name="feature_image_fit" value="cover" id="hustle-feature-image-cover" data-tab-menu="hustle-focus-image" checked="checked">Cover
+									<input type="radio" name="feature_image_fit" value="cover" id="hustle-feature-image-cover" aria-controls="hustle-focus-image-content" data-tab-menu="hustle-focus-image" checked="checked">Cover
 								</label>
 
 								<label for="hustle-feature-image-fill" class="sui-tab-item">
@@ -335,7 +409,7 @@ is_searchable: true
 								</label>
 
 								<label for="hustle-feature-image-contain" class="sui-tab-item">
-									<input type="radio" name="feature_image_fit" value="contain" id="hustle-feature-image-contain" data-tab-menu="hustle-focus-image">Contain
+									<input type="radio" name="feature_image_fit" value="contain" id="hustle-feature-image-contain" aria-controls="hustle-focus-image-content" data-tab-menu="hustle-focus-image">Contain
 								</label>
 
 								<label for="hustle-feature-image-none" class="sui-tab-item">
@@ -346,7 +420,7 @@ is_searchable: true
 
 							<div class="sui-tabs-content">
 
-								<div class="sui-tab-content sui-tab-boxed active" data-tab-content="hustle-focus-image">
+								<div class="sui-tab-content sui-tab-boxed active" id="hustle-focus-image-content" data-tab-content="hustle-focus-image">
 									<p>Content for tabs "Cover" and "Contain".</p>
 								</div>
 
@@ -521,7 +595,7 @@ is_searchable: true
 				<div class="sui-box-settings-row">
 
 					<div class="sui-box-settings-col-1">
-						<span class="sui-settings-label">Tab buttons with radio inputs.</span>
+						<span class="sui-settings-label">Tab with radio inputs.</span>
 						<span class="sui-description">This is the markup required for tabs with radio inputs.</span>
 					</div>
 
