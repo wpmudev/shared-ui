@@ -3,7 +3,10 @@
 	// Enable strict mode.
     'use strict';
 
-	const createLeftColumn = () => {
+	let specs = specs || {};
+	specs.Utils = specs.Utils || {};
+
+	specs.Utils.createLeftColumn = () => {
 		const column = document.createElement( 'div' );
 		column.classList.add( 'sui-box-settings-col-1' );
 		column.innerHTML = '<h3 class="sui-settings-label">Specifications</h3>';
@@ -11,7 +14,7 @@
 		return column;
 	};
 
-	const createRightColumn = ( row ) => {
+	specs.Utils.createRightColumn = ( row ) => {
 		const column = document.createElement( 'div' );
 		column.classList.add( 'sui-box-settings-col-2' );
 
@@ -159,8 +162,8 @@
 			return;
 		}
 
-		row.appendChild( createLeftColumn() );
-		row.appendChild( createRightColumn( row ) );
+		row.appendChild( specs.Utils.createLeftColumn() );
+		row.appendChild( specs.Utils.createRightColumn( row ) );
 		row.classList.add( 'sui-box-settings-row' );
 
 	};
