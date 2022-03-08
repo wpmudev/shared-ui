@@ -14,12 +14,20 @@
 		return column;
 	};
 
-	specs.Utils.createRightColumn = ( row ) => {
+	specs.Utils.createRightColumn = ( row, hasTitle = false ) => {
 		const column = document.createElement( 'div' );
 		column.classList.add( 'sui-box-settings-col-2' );
 
+		const title = document.createElement( 'h3' );
+		title.classList.add( 'sui-settings-label', 'sui-dark' );
+		title.textContent = 'Specifications';
+
+		if ( hasTitle ) {
+			column.appendChild( title );
+		}
+
 		// Append table to right column.
-		column.appendChild( createTable( row ) );
+		column.appendChild( createTable( row, title ) );
 
 		return column;
 	};
@@ -162,8 +170,13 @@
 			return;
 		}
 
-		row.appendChild( specs.Utils.createLeftColumn() );
-		row.appendChild( specs.Utils.createRightColumn( row ) );
+		if ( row.hasAttribute( 'single-column' ) ) {
+			row.appendChild( specs.Utils.createRightColumn( row, true ) );
+		} else {
+			row.appendChild( specs.Utils.createLeftColumn() );
+			row.appendChild( specs.Utils.createRightColumn( row ) );
+		}
+
 		row.classList.add( 'sui-box-settings-row' );
 
 	};
