@@ -39,22 +39,9 @@
 		table.style.maxWidth = '720px';
 
 		// Create the "version" row.
-		const hasVersion = row.hasAttribute( 'version' );
-		const getVersion = row.getAttribute( 'version' );
-		const checkVersion = hasVersion && 'string' === typeof getVersion && '' !== getVersion;
-
-		if ( checkVersion ) {
-			tbody.appendChild(
-				createVersionRow( getVersion )
-			);
-		}
+		createVersion( tbody, row );
 
 		// Create the "utilities" row.
-		const hasUtilities = row.hasAttribute( 'utilities' );
-		const getUtilities = row.getAttribute( 'utilities' );
-		const checkUtilities = hasUtilities && 'string' === typeof getUtilities && '' !== getUtilities;
-		const isUtilitiesSupported = 'supported' === getUtilities;
-
 		const hasUtilitiesPage = row.hasAttribute( 'utilities-page' );
 		const getUtilitiesPage = row.getAttribute( 'utilities-page' );
 		const checkUtilitiesPage = hasUtilitiesPage && 'string' === typeof getUtilitiesPage && '' !== getUtilitiesPage;
@@ -62,47 +49,37 @@
 			`This will tell you if the element supports the modifier classes listed on <a href="${ row.getAttribute( 'utilities-page' ) }"><strong>Utilities</strong></a> page.` :
 			'This will tell you if the element supports the modifier classes listed on <strong>Utilities</strong> page.';
 
-		if ( checkUtilities ) {
-			tbody.appendChild(
-				createSupportRow(
-					'Utilities',
-					isUtilitiesSupported ? true : false,
-					showUtilitiesDescription
-				)
-			);
-		}
+		createSupport(
+			tbody,
+			row,
+			{
+				id: 'utilities',
+				title: 'Utilities',
+				description: showUtilitiesDescription
+			}
+		);
 
 		// Create the "monochrome" row.
-		const hasMonochrome = row.hasAttribute( 'monochrome' );
-		const getMonochrome = row.getAttribute( 'monochrome' );
-		const checkMonochrome = hasMonochrome && 'string' === typeof getMonochrome && '' !== getMonochrome;
-		const isMonochromeSupported = 'supported' === getMonochrome;
-
-		if ( checkMonochrome ) {
-			tbody.appendChild(
-				createSupportRow(
-					'Monochrome',
-					isMonochromeSupported ? true : false,
-					'This will tell you if the element supports the Colour Accessible option found on our plugins\' Settings page.'
-				)
-			);
-		}
+		createSupport(
+			tbody,
+			row,
+			{
+				id: 'monochrome',
+				title: 'Monochrome',
+				description: 'This will tell you if the element supports the Colour Accessible option found on our plugins\' Settings page.'
+			}
+		);
 
 		// Create the "RTL" row.
-		const hasRTL = row.hasAttribute( 'rtl-lang' );
-		const getRTL = row.getAttribute( 'rtl-lang' );
-		const checkRTL = hasRTL && 'string' === typeof getRTL && '' !== getRTL;
-		const isRTLSupported = 'supported' === getRTL;
-
-		if ( checkRTL ) {
-			tbody.appendChild(
-				createSupportRow(
-					'RTL Language',
-					isRTLSupported ? true : false,
-					'This will tell you if the element supports right-to-left langues.'
-				)
-			);
-		}
+		createSupport(
+			tbody,
+			row,
+			{
+				id: 'rtl-lang',
+				title: 'RTL Language',
+				description: 'This will tell you if the element supports right-to-left langues.'
+			}
+		);
 
 		// Append table body.
 		table.appendChild( tbody );
@@ -133,7 +110,21 @@
 		return row;
 	};
 
-	const createSupportRow = ( titleName, supportStatus = false, descriptionText ) => {
+	const createVersion = ( tbody, row ) => {
+		const hasVersion = row.hasAttribute( 'version' );
+		const getVersion = row.getAttribute( 'version' );
+		const checkVersion = hasVersion && 'string' === typeof getVersion && '' !== getVersion;
+
+		tbody.appendChild(
+			createVersionRow(
+				checkVersion ? getVersion : '2.0.0'
+			)
+		);
+
+		return tbody;
+	};
+
+	const createSupportRow = ( titleName, status = false, descriptionText ) => {
 		const row = document.createElement( 'tr' );
 
 		const title = document.createElement( 'th' );
@@ -143,11 +134,25 @@
 		row.appendChild( title );
 
 		const support = document.createElement( 'td' );
-		const supportIcon = supportStatus ? 'sui-icon-check sui-success' : 'sui-icon-close sui-error';
-		const supportLabel = supportStatus ? 'Supported' : 'Unsupported';
-		support.style.color = supportStatus ? '#1ABC9C' : '#FF6D6D';
 		support.style.fontWeight = '500';
-		support.innerHTML = '<span class="' + supportIcon + ' sui-md" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> ' + supportLabel;
+
+		let supportIcon = 'sui-icon-pause';
+		let supportLabel = 'Not Apply';
+
+		if ( 'boolean' === typeof status ) {
+			if ( status ) {
+				supportIcon = 'sui-icon-check sui-success';
+				supportLabel = 'Supported';
+			} else {
+				supportIcon = 'sui-icon-close sui-error';
+				supportLabel = 'Unsupported';
+			}
+
+			support.style.color = status ? '#1ABC9C' : '#FF6D6D';
+		}
+
+		support.innerHTML =
+			'<span class="' + supportIcon + ' sui-md" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> ' + supportLabel;
 
 		row.appendChild( support );
 
@@ -158,6 +163,41 @@
 		row.appendChild( description );
 
 		return row;
+	};
+
+	const createSupport = ( tbody, row, mode ) => {
+		const source = Object.assign(
+			{
+				id: 'undefined',
+				title: 'Undefined',
+				description: ''
+			},
+			mode
+		);
+
+		const hasMode = row.hasAttribute( source.id );
+		const getMode = row.getAttribute( source.id );
+		const checkMode = hasMode && 'string' === typeof getMode && '' !== getMode;
+
+		let support = null;
+
+		if ( checkMode ) {
+			if ( 'true' === getMode ) {
+				support = true;
+			} else if ( 'false' === getMode ) {
+				support = false;
+			}
+		}
+
+		tbody.appendChild(
+			createSupportRow(
+				source.title,
+				support,
+				source.description
+			)
+		);
+
+		return tbody;
 	};
 
 	const loadSpecifications = ( elementId ) => {
