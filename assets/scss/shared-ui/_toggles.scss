@@ -5,6 +5,7 @@
 	.sui-toggle {
 		display: inline-block;
 		opacity: 1;
+		pointer-events: none;
 
 		input {
 			@extend %sui-screen-reader-text;
@@ -79,7 +80,8 @@
 			height: $toggle-height;
 			float: left;
 			display: block;
-			position: relative;
+			position: absolute;
+			top: 0;
 			margin: math.div(($toggle-font-height - $toggle-height), 2) 0;
 			padding: 0;
 			border: 0;
@@ -87,6 +89,7 @@
 			background-color: $fiftyshades;
 			transition: $transition;
 			opacity: 1;
+			pointer-events: all;
 
 			&:before {
 				content: " ";
@@ -103,14 +106,20 @@
 			~ .sui-toggle-label,
 			~ .sui-description {
 				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
+				pointer-events: all;
 			}
 		}
 
 		// ELEMENT: Label.
 		.sui-toggle-label {
-			display: block;
 			font: 500 #{$toggle-font-size}/#{$toggle-font-height} $font;
 			letter-spacing: $font--letter-spacing;
+			display: inline-block;
+		}
+
+		// ELEMENT: Description.
+		.sui-toggle-description {
+			display: block;
 		}
 
 		// Support for old markup.
@@ -120,6 +129,7 @@
 			top: -3px;
 			margin-left: math.div($sui-gutter-md, 2);
 			font-weight: 500;
+			pointer-events: all;
 		}
 	}
 
