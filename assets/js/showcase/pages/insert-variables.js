@@ -29,16 +29,18 @@
 					input   = wrapper.find( 'input, textarea' )
 					;
 
-				input.val( input.val() + select.val() );
-				clearSelectedOption( select );
-			});
-		}
+				// If the select is empty, remove the input value
+				if ( ! select.val() ) {
+					return;
+				}
 
-		function clearSelectedOption( select ) {
-			if ( ! select.val() ) {
-				return;
-			}
-			select.val( null ).trigger( 'change' );
+				input.val( input.val() + select.val() );
+			}).on( 'select2:opening', function() {
+
+				let select = $( this );
+
+				select.val( null ).trigger( 'change' );
+			});
 		}
 
 		function init() {
