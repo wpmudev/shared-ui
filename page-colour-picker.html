@@ -1,0 +1,43 @@
+---
+layout: default
+title: Colour Picker
+permalink: /colour-picker/
+id: colour-picker
+is_searchable: true
+---
+
+<section class="sui-row-with-sidenav">
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<p>WordPress ships with default colour picker <a href="https://automattic.github.io/Iris/" target="_blank">Iris</a> which have issues of colour auto-fill. So to fix that issue we have to remove <code>onkeyup</code> listener.</p>
+            <p>1.Create a javascript file and add below code.</p>
+<pre class="sui-code-snippet">
+(function ($) {
+    $('.sui-colorpicker-input').keyup(function(){
+        $(this).off('keyup');
+    });
+})(jQuery);    
+</pre>
+
+            <p>2.Include javascript file in plugin this code will add that script file at the end of page after iris.js. It is important to call script the end of page then it will override the default <code>onkeyup</code> function.</p>
+<pre class="sui-code-snippet html">
+function my_scripts() {
+    wp_register_script('my-script', plugin_dir_url( __FILE__ ) . 'SCRIPT.JS','','1.1', true);
+    wp_enqueue_script('my-script');
+}
+add_action( 'admin_enqueue_scripts', 'my_scripts' );
+</pre>
+			
+		</div>
+
+	</div>
+
+</section>
