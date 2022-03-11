@@ -29,7 +29,8 @@
 						background-color: $sidenav-tab-active-bg-color;
 						border-radius: 20px;
 
-						a {
+						a, 
+						button {
 							color: $sidenav-tab-active-color;
 						}
 					}
@@ -54,11 +55,29 @@
 					}
 				}
 
-				a {
+				a, 
+				button {
 					display: block;
 					color: $sidenav-tab-color;
 					font-weight: 500;
 					transition: 0.3s ease;
+
+					&:hover,
+					&:focus {
+						color: $sidenav-tab-color-hover;
+					}
+				}
+
+				button {
+					font-size: 15px;
+					line-height: 1.5em;
+					text-align: left;
+					width: 100%;
+					cursor: pointer;
+					border: 0;
+					padding: 0;
+					background: 0 0;
+					outline: 0;
 
 					&:hover,
 					&:focus {
@@ -74,7 +93,8 @@
 						background-color: transparent;
 						line-height: auto;
 
-						a {
+						a, 
+						button {
 							padding: 5px 15px;
 							border-radius: 20px;
 							background-color: transparent;

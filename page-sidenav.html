@@ -10,7 +10,7 @@ is_searchable: true
 	<div class="sui-row-with-sidenav">
 
 		<!-- Navigation -->
-		<div class="sui-sidenav" role="navigation">
+		<!-- <div class="sui-sidenav" role="navigation">
 
 			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
@@ -50,10 +50,30 @@ is_searchable: true
 
 			</div>
 
+		</div> -->
+
+		<div class="sui-sidenav" role="navigation">
+			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+
+				<li class="sui-vertical-tab current">
+					<button data-tab="section-1" role="tab" aria-selected="true" aria-controls="section-content-1" tabindex="0" id="section-1">Section 1</button>
+				</li>
+
+				<li class="sui-vertical-tab">
+					<button data-tab="section-2" role="tab" aria-selected="false" aria-controls="section-content-2" tabindex="-1" id="section-2">Section 2</button>
+					<span class="sui-tag sui-tag-warning">4</span>
+				</li>
+
+				<li class="sui-vertical-tab">
+					<button data-tab="section-3" role="tab" aria-selected="false" aria-controls="section-content-3" tabindex="-1" id="section-3">Section 3</button>
+					<span class="sui-icon-check-tick" aria-hidden="true"></span>
+				</li>
+
+			</ul>
 		</div>
 
 		<!-- SECTION: 1 -->
-		<div class="sui-box" data-tab="section-1">
+		<div class="sui-box" data-tab="section-1" tabindex="0" id="section-1-content" aria-labelledby="section-1">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 1</h1>
@@ -68,7 +88,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 2 -->
-		<div class="sui-box" data-tab="section-2" style="display: none;">
+		<div class="sui-box" data-tab="section-2" style="display: none;" tabindex="0" id="section-2-content" aria-labelledby="section-2">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 2</h1>
@@ -83,7 +103,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 3 -->
-		<div class="sui-box" data-tab="section-3" style="display: none;">
+		<div class="sui-box" data-tab="section-3" style="display: none;" tabindex="0" role="tabpanel" id="section-2-content" aria-labelledby="section-3">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 3</h1>
