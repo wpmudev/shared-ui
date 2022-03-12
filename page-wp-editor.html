@@ -5,17 +5,50 @@ permalink: /wp-editor/
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<div class="sui-notice sui-notice-warning">
-			<p>You will either need to use <code>dist/css/sui-wp-editor.min.css</code> or compile <code>scss/sui-wp-editor.scss</code> to use the SUI WP Editor styles within your plugin.</p>
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="configuration">Configuration</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- TAB: Configuration -->
+	<div class="sui-box" data-tab="configuration">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Configuration</h2>
 		</div>
 
-		<p style="margin-bottom: 10px;">The following code snippet is a sample on how to call the file on <code>wp_editor</code>.</p>
+		<div class="sui-box-body">
 
-		<div class="demo-code-block">
+			<div id="inline-notice-general" class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>You will either need to use <code>dist/css/sui-wp-editor.min.css</code> or compile <code>scss/sui-wp-editor.scss</code> to use the SUI WP Editor styles within your plugin.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<p style="margin-bottom: 10px;">The following code snippet is a sample on how to call the file on <code>wp_editor</code>.</p>
+
+			<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;?php
@@ -51,20 +84,30 @@ $editor_css = '&lt;style&gt;' . $editor_css. '&lt;/style&gt;';
 &lt;/div&gt;
 </pre>
 
+			</div>
+
 		</div>
-
-		<hr />
-
-		<!-- ROW: Specifications -->
-		<div
-			id="showcase-specs"
-			version="2.3.7"
-			utilities="false"
-			utilities-page="{{ site.baseurl }}/utilities/"
-			monochrome="true"
-			single-column
-		></div>
 
 	</div>
 
-</article>
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+				<div
+					id="showcase-specs"
+					version="2.3.8"
+					utilities-page="{{ site.baseurl }}/utilities/"
+				></div>
+
+		</div>
+
+	</div>
+
+</section>
