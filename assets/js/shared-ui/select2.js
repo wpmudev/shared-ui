@@ -268,4 +268,10 @@
 		SUI.select.initVars( select );
 
 	});
+
+	// add accessible class to the select.
+	if ( $( '.sui-color-accessible' ).length ) {
+		$( 'body' ).addClass( 'sui-select-accessible' );
+	}
+
 }( jQuery ) );
