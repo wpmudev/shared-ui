@@ -22,7 +22,7 @@
 
 			element = $( element );
 
-			// clear select items intially when the page is loaded
+			// clear select items intially when the select2 is loaded
 			clearVariables( element );
 
 			element.on( 'change', function() {
