@@ -22,6 +22,9 @@
 
 			element = $( element );
 
+			// clear select items intially when the page is loaded
+			clearVariables( element );
+
 			element.on( 'change', function() {
 
 				let select  = $( this ),
@@ -35,12 +38,17 @@
 				}
 
 				input.val( input.val() + select.val() );
-			}).on( 'select2:opening', function() {
+			}).on( 'select2:closing', function() {
 
-				let select = $( this );
+				clearVariables( $( this ) );
 
-				select.val( null ).trigger( 'change' );
 			});
+		}
+
+		function clearVariables( element ) {
+			let select = element;
+
+			select.val( null ).trigger( 'change' );
 		}
 
 		function init() {
