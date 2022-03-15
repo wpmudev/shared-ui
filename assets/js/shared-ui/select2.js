@@ -270,7 +270,7 @@
 	});
 
 	// add accessible class to the select.
-	if ( $( '.sui-color-accessible' ).length ) {
+	if ( $( '.sui-color-accessible' ).length && $( '.sui-select' ).length ) {
 		$( 'body' ).addClass( 'sui-select-accessible' );
 	}
 
