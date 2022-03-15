@@ -33,9 +33,7 @@
 					;
 
 				input.val( input.val() + select.val() );
-			});
-
-			element.on( 'select2:close', function() {
+			}).on( 'select2:close', function() {
 				clearVariables( $( this ) );
 			});
 		}
