@@ -3,12 +3,12 @@
 @include body-class(true) {
 
 	.sui-toggle {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
 		position: relative;
-		display: inline-block;
 		opacity: 1;
 		pointer-events: none;
-		min-height: 22px;
-		min-width: 34px;
 
 		input {
 			@extend %sui-screen-reader-text;
@@ -84,6 +84,7 @@
 			float: left;
 			display: block;
 			position: absolute;
+			left: 0;
 			top: 0;
 			margin: math.div(($toggle-font-height - $toggle-height), 2) 0;
 			padding: 0;
@@ -108,6 +109,7 @@
 
 			~ .sui-toggle-label,
 			~ .sui-description {
+				align-self: flex-start;
 				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
 				pointer-events: all;
 			}
@@ -115,14 +117,9 @@
 
 		// ELEMENT: Label.
 		.sui-toggle-label {
-			display: inline-block;
+			display: block;
 			font: 500 #{$toggle-font-size}/#{$toggle-font-height} $font;
 			letter-spacing: $font--letter-spacing;
-		}
-
-		// ELEMENT: Description.
-		.sui-toggle-description {
-			display: block;
 		}
 
 		// Support for old markup.
@@ -132,7 +129,6 @@
 			top: -3px;
 			margin-left: math.div($sui-gutter-md, 2);
 			font-weight: 500;
-			pointer-events: all;
 		}
 	}
 
