@@ -23,7 +23,7 @@
 			element = $( element );
 
 			// clear select items intially when the select2 is loaded
-			clearVariables( element );
+			element.val( null );
 
 			element.on( 'change', function() {
 
@@ -34,13 +34,8 @@
 
 				input.val( input.val() + select.val() );
 			}).on( 'select2:close', function() {
-				clearVariables( $( this ) );
+				$( this ).val( null );
 			});
-		}
-
-		function clearVariables( element ) {
-			let select = element;
-			select.val( null );
 		}
 
 		function init() {
