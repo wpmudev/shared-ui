@@ -32,23 +32,17 @@
 					input   = wrapper.find( 'input, textarea' )
 					;
 
-				// If the select is empty, remove the input value
-				if ( ! select.val() ) {
-					return;
-				}
-
 				input.val( input.val() + select.val() );
-			}).on( 'select2:closing', function() {
+			});
 
+			element.on( 'select2:close', function() {
 				clearVariables( $( this ) );
-
 			});
 		}
 
 		function clearVariables( element ) {
 			let select = element;
-
-			select.val( null ).trigger( 'change' );
+			select.val( null );
 		}
 
 		function init() {
