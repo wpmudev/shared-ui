@@ -11,22 +11,10 @@ is_searchable: true
 
 		<!-- Navigation -->
 		<div class="sui-sidenav" role="navigation">
-			<div class="sui-vertical-tabs sui-sidenav-hide-md">
-
-				<div class="sui-vertical-tab current">
-					<button data-tab="section-1" aria-selected="true" aria-controls="section-content-1" id="section-1">Section 1</button>
-				</div>
-
-				<div class="sui-vertical-tab">
-					<button data-tab="section-2" aria-selected="false" aria-controls="section-content-2" id="section-2">Section 2</button>
-					<span class="sui-tag sui-tag-warning">4</span>
-				</div>
-
-				<div class="sui-vertical-tab">
-					<button data-tab="section-3" aria-selected="false" aria-controls="section-content-3" id="section-3">Section 3</button>
-					<span class="sui-icon-check-tick" aria-hidden="true"></span>
-				</div>
-
+			<div class="sui-vertical-tabs sui-sidenav-hide-md" role="tablist">
+				<button id="section-1" class="sui-vertical-tab current" role="tab" aria-selected="true" aria-controls="section-1-content">Section 1</button>
+				<button id="section-2" class="sui-vertical-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="section-2-content">Section 2 <span class="sui-tag sui-tag-warning">4</span></button>
+				<button id="section-3" class="sui-vertical-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="section-3-content">Section 3 <span class="sui-icon-check-tick" aria-hidden="true"></span></button>
 			</div>
 
 			<div class="sui-sidenav-settings">
@@ -40,9 +28,9 @@ is_searchable: true
 					<label class="sui-label">Navigate</label>
 
 					<select class="sui-select">
-						<option value="#section-1">Section 1</option>
-						<option value="#section-2">Section 2</option>
-						<option value="#section-3">Section 3</option>
+						<option value="section-1">Section 1</option>
+						<option value="section-2">Section 2</option>
+						<option value="section-3">Section 3</option>
 					</select>
 
 				</div>
@@ -52,7 +40,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 1 -->
-		<div class="sui-box" data-tab="section-1" tabindex="0" id="section-1-content" aria-labelledby="section-1">
+		<div id="section-1-content" class="sui-box" role="tabpanel" tabindex="0" aria-labelledby="section-1">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 1</h1>
@@ -67,7 +55,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 2 -->
-		<div class="sui-box" data-tab="section-2" tabindex="0" id="section-2-content" aria-labelledby="section-2" style="display: none;">
+		<div id="section-2-content" class="sui-box" role="tabpanel" tabindex="0" aria-labelledby="section-2" style="display: none;" hidden>
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 2</h1>
@@ -82,7 +70,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 3 -->
-		<div class="sui-box" data-tab="section-3" tabindex="0" role="tabpanel" id="section-2-content" aria-labelledby="section-3" style="display: none;">
+		<div id="section-3-content" class="sui-box" role="tabpanel" tabindex="0" aria-labelledby="section-3" style="display: none;" hidden>
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 3</h1>
