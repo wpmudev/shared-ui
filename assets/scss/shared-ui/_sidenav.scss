@@ -25,14 +25,10 @@
 					line-height: 1.5em;
 					list-style: none;
 
-					&.current {
+					&.active {
 						background-color: $sidenav-tab-active-bg-color;
 						border-radius: 20px;
 						color: $sidenav-tab-active-color;
-
-						a {
-							color: $sidenav-tab-active-color;
-						}
 					}
 
 					.sui-tag,
@@ -56,8 +52,7 @@
 					}
 				}
 
-				button,
-				a {
+				button{
 					display: block;
 					color: $sidenav-tab-color;
 					font-weight: 500;
@@ -95,13 +90,12 @@
 						background-color: transparent;
 						line-height: auto;
 
-						a, 
 						button {
 							padding: 5px 15px;
 							border-radius: 20px;
 							background-color: transparent;
 
-							&.current {
+							&.active {
 								background-color: $sidenav-tab-active-bg-color;
 								color: $sidenav-tab-active-color;
 							}
@@ -183,6 +177,15 @@
 				width: $sidenav-width;
 				display: table-cell;
 				padding-right: $sui-gutter;
+			}
+		}
+
+		// sui tab content css
+		[role="tabpanel"] {
+			display: none;
+			
+			&.active {
+				display: block;
 			}
 		}
 
