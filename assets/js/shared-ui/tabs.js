@@ -439,8 +439,17 @@
 	if ( 0 !== $( 'SUI_BODY_CLASS .sui-sidenav-wrapper' ).length ) {
 		
 		var elem = '.sui-sidenav-wrapper';
+		var suiselect = $( elem ).find( '.sui-select' );
 		
 		SUI.tabs('', elem);
+
+		// sui select nav onselect change.
+		suiselect.each( function() {
+			$( this ).on( 'change', function() {
+				var btnId = $( '#' + $( this ).val() );
+				btnId.trigger( 'click' );
+			});
+		});
     }
 
 }( jQuery ) );
