@@ -202,6 +202,7 @@
 				// Trigger events on click.
 				tabs.on( 'click', function( e ) {
 					clickEventListener( e );
+
 				// Trigger events when pressing key.
 				}).on( 'keydown', function( e ) {
 					index = $( this ).index();
