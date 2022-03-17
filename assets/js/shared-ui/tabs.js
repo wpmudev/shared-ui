@@ -248,10 +248,12 @@
 				;
 
 			deactivateTabs( tabs, panels );
+			$( tab ).closest( '[role="tablist"]' ).find( 'input[type="radio"]' ).prop( 'checked', false );
 
 			$( tab ).addClass( 'active' );
 			$( tab ).removeAttr( 'tabindex' );
 			$( tab ).attr( 'aria-selected', true );
+			$( tab ).next( 'input' ).prop( 'checked', true );
 
 			panel.addClass( 'active' );
 			panel.prop( 'hidden', false );
