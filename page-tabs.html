@@ -89,6 +89,46 @@ is_searchable: true
 				<div class="sui-box-settings-row">
 
 					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Tabs With Inputs</span>
+						<span class="sui-description">The standard state for any tabs where they are already in a padded container.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="sample-tab-dashboard" class="sui-tab-item active" aria-controls="sample-tab-content-dashboard" aria-selected="true">Dashboard</button>
+								<input aria-hidden="true" type="radio" name="sample-1" value="sample-tab-dashboard" class="sui-screen-reader-text" aria-label="Dashboard" checked="checked" />
+
+								<button type="button" role="tab" id="sample-tab-modules" class="sui-tab-item" aria-controls="sample-tab-content-modules" aria-selected="false" tabindex="-1">Modules</button>
+								<input aria-hidden="true" type="radio" name="sample-1" value="sample-tab-modules" class="sui-screen-reader-text" aria-label="Modules" />
+
+								<button type="button" role="tab" id="sample-tab-entries" class="sui-tab-item" aria-controls="sample-tab-content-entries" aria-selected="false" tabindex="-1">Entries</button>
+								<input aria-hidden="true" type="radio" name="sample-1" value="sample-tab-entries" class="sui-screen-reader-text" aria-label="Modules" />
+
+								<button type="button" role="tab" id="sample-tab-settings" class="sui-tab-item" aria-controls="sample-tab-content-settings" aria-selected="false" tabindex="-1">Settings</button>
+								<input aria-hidden="true" type="radio" name="sample-1" value="sample-tab-settings" class="sui-screen-reader-text" aria-label="Settings" />
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-dashboard" class="sui-tab-content active" aria-labelledby="sample-tab-dashboard"><p>Content. Tab 1.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-modules" class="sui-tab-content" aria-labelledby="sample-tab-modules" hidden><p>Content. Tab 2.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-entries" class="sui-tab-content" aria-labelledby="sample-tab-entries" hidden><p>Content. Tab 3.</p></div>
+								<div role="tabpanel" tabindex="0" id="sample-tab-content-settings" class="sui-tab-content" aria-labelledby="sample-tab-settings" hidden><p>Content. Tab 4.</p></div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
 						<span class="sui-settings-label">Flush</span>
 						<span class="sui-description">For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides.</span>
 					</div>
