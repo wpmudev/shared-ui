@@ -227,11 +227,13 @@
 		}
 
 		// Deactivate all tabs and tab panels.
-		function deactivateTabs( tabs, panels ) {
+		function deactivateTabs( tabs, panels, inputs ) {
 
 			tabs.removeClass( 'active' );
 			tabs.attr( 'tabindex', '-1' );
 			tabs.attr( 'aria-selected', false );
+
+			inputs.prop( 'checked', false );
 
 			panels.removeClass( 'active' );
 			panels.prop( 'hidden', true );
@@ -242,18 +244,20 @@
 		function activateTab( tab ) {
 
 			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
+				inputs   = $( tab ).closest( '[role="tablist"]' ).find( 'input[type="radio"]' ),
 				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
 				controls = $( tab ).attr( 'aria-controls' ),
+				input    = $( tab ).next( 'input[type="radio"]' ),
 				panel    = $( '#' + controls )
 				;
 
-			deactivateTabs( tabs, panels );
-			$( tab ).closest( '[role="tablist"]' ).find( 'input[type="radio"]' ).prop( 'checked', false );
+			deactivateTabs( tabs, panels, inputs );
 
 			$( tab ).addClass( 'active' );
 			$( tab ).removeAttr( 'tabindex' );
 			$( tab ).attr( 'aria-selected', true );
-			$( tab ).next( 'input' ).prop( 'checked', true );
+
+			input.prop( 'checked', true );
 
 			panel.addClass( 'active' );
 			panel.prop( 'hidden', false );
