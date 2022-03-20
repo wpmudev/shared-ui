@@ -1,0 +1,613 @@
+---
+layout: default
+title: Side Tabs
+permalink: /side-tabs/
+is_searchable: true
+---
+
+<section>
+
+	<div class="sui-row-with-sidenav">
+
+		<!-- Navigation -->
+		<div class="sui-sidenav">
+
+			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
+				<li class="sui-vertical-tab current">
+					<a href="#" data-tab="preview">Preview</a>
+				</li>
+				<li class="sui-vertical-tab">
+					<a href="#" data-tab="documentation">Documentation</a>
+				</li>
+			</ul>
+
+		</div>
+
+		<!-- SECTION: Preview -->
+		<div class="sui-box" data-tab="preview">
+
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Preview</h2>
+			</div>
+
+			<div class="sui-box-body">
+
+				<div class="sui-notice sui-notice-warning">
+
+					<div class="sui-notice-content">
+
+						<div class="sui-notice-message">
+
+							<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+							<p>If you are using individual js components, <code>tabs.js</code> file is required.</p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- Simple Tabs -->
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Simple Tabs</span>
+						<span class="sui-description">These are regular tabs pointing each to its own content.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs sui-side-tabs">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="metrics__tab" class="sui-tab-item active" aria-controls="metrics__content" aria-selected="true">Metrics</button>
+								<button type="button" role="tab" id="audits__tab" class="sui-tab-item" aria-controls="audits__content" aria-selected="false" tabindex="-1">Audits</button>
+								<button type="button" role="tab" id="diagnostics__tab" class="sui-tab-item" aria-controls="diagnostics__content" aria-selected="false" tabindex="-1">Diagnostics</button>
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="metrics__content" class="sui-tab-content active" aria-labelledby="metrics__tab">
+									<div class="sui-border-frame">
+										<h4>Metrics</h4>
+										<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper.</p>
+									</div>
+								</div>
+								<div role="tabpanel" tabindex="0" id="audits__content" class="sui-tab-content" aria-labelledby="audits__tab" hidden>
+									<div class="sui-border-frame">
+										<h4>Audits</h4>
+										<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+									</div>
+								</div>
+								<div role="tabpanel" tabindex="0" id="diagnostics__content" class="sui-tab-content" aria-labelledby="diagnostics__tab" hidden>
+									<div class="sui-border-frame">
+										<h4>Diagnostics</h4>
+										<p>Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.</p>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- Radio Button Tabs -->
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<span class="sui-settings-label">Radio Button Tabs</span>
+						<span class="sui-description">These are simple tabs with radio inputs.</span>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs sui-side-tabs">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="default__tab" class="sui-tab-item active" aria-controls="default__content" aria-selected="true">Default</button>
+								<input type="radio" name="form-design" value="default" class="sui-screen-reader-text" aria-label="Default" aria-hidden="true" checked="checked" />
+
+								<button type="button" role="tab" id="flat__tab" class="sui-tab-item" aria-controls="flat__content" aria-selected="false" tabindex="-1">Flat</button>
+								<input type="radio" name="form-design" value="flat" class="sui-screen-reader-text" aria-label="Flat" aria-hidden="true" />
+
+								<button type="button" role="tab" id="bold__tab" class="sui-tab-item" aria-controls="bold__content" aria-selected="false" tabindex="-1">Bold</button>
+								<input type="radio" name="form-design" value="bold" class="sui-screen-reader-text" aria-label="Bold" aria-hidden="true" />
+
+								<button type="button" role="tab" id="material__tab" class="sui-tab-item" aria-controls="material__content" aria-selected="false" tabindex="-1">Material</button>
+								<input type="radio" name="form-design" value="material" class="sui-screen-reader-text" aria-label="Material" aria-hidden="true" />
+
+								<button type="button" role="tab" id="none__tab" class="sui-tab-item" aria-selected="false" tabindex="-1">None</button>
+								<input type="radio" name="form-design" value="none" class="sui-screen-reader-text" aria-label="None" aria-hidden="true" />
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="default__content" class="sui-tab-content active" aria-labelledby="default__tab">
+									<div class="sui-border-frame">
+										<h4>Default</h4>
+										<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper.</p>
+									</div>
+								</div>
+								<div role="tabpanel" tabindex="0" id="flat__content" class="sui-tab-content" aria-labelledby="flat__tab" hidden>
+									<div class="sui-border-frame">
+										<h4>Flat</h4>
+										<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+									</div>
+								</div>
+								<div role="tabpanel" tabindex="0" id="bold__content" class="sui-tab-content" aria-labelledby="bold__tab" hidden>
+									<div class="sui-border-frame">
+										<h4>Bold</h4>
+										<p>Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.</p>
+									</div>
+								</div>
+								<div role="tabpanel" tabindex="0" id="material__content" class="sui-tab-content" aria-labelledby="material__tab" hidden>
+									<div class="sui-border-frame">
+										<h4>Material</h4>
+										<p>Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-notice sui-notice-warning" style="margin-bottom: 10px;">
+
+					<div class="sui-notice-content">
+
+						<div class="sui-notice-message">
+
+							<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+							<p>If you are using individual js components, <code>side-tabs.js</code> file is required.</p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="sui-notice sui-notice-warning">
+
+					<div class="sui-notice-content">
+
+						<div class="sui-notice-message">
+
+							<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+							<p>If DOM already initialized, make sure to call <code>SUI.sideTabs( this )</code> function for each <code>.sui-side-tabs label.sui-tab-item input</code> element.</p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- Radio Buttons Only -->
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<h3 class="sui-settings-label">Radio Buttons Only</h3>
+						<p class="sui-description">Input radio buttons styled as tab selectors with no content to show.</p>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-side-tabs">
+
+							<div class="sui-tabs-menu">
+
+								<label id="hustle-feature-image-left-label" for="hustle-feature-image-left" class="sui-tab-item active">
+									<input type="radio" name="feature_image_position" value="left" id="hustle-feature-image-left" checked="checked">
+									Yes
+								</label>
+
+								<label id="hustle-feature-image-right-label" for="hustle-feature-image-right" class="sui-tab-item">
+									<input type="radio" name="feature_image_position" value="right" id="hustle-feature-image-right">
+									No
+								</label>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- SECTION: Documentation -->
+		<div class="sui-box" data-tab="documentation" style="display: none;">
+
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Documentation</h2>
+			</div>
+
+			<div class="sui-box-body">
+
+				<!-- ROW: Specifications -->
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<h3 class="sui-settings-label">Specifications</h3>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<table class="sui-table" style="max-width: 720px;">
+
+							<tbody>
+
+								<tr>
+									<td><strong>Version</strong></td>
+									<td><span class="sui-tag sui-tag-yellow">^2.12.5</span></td>
+									<td colspan="3">This is the minimum required version of SUI to use with this element in order for it to work properly.</td>
+								</tr>
+
+								<tr>
+									<td><strong>Utilities</strong></td>
+									<td style="color: #1ABC9C; font-weight: 500;">
+										<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+									</td>
+									<td colspan="3">This will tell you if the element supports the modifier classes listed on <a href="/shared-ui/utilities/"><strong>Utilities</strong></a> page.</td>
+								</tr>
+
+								<tr>
+									<td><strong>Monochrome</strong></td>
+									<td style="color: #1ABC9C; font-weight: 500;">
+										<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+									</td>
+									<td colspan="3">This will tell you if the element supports the Colour Accessible option found on our plugins' Settings page.</td>
+								</tr>
+
+								<tr>
+									<td><strong>RTL Language</strong></td>
+									<td style="color: #1ABC9C; font-weight: 500;">
+										<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
+									</td>
+									<td colspan="3">This will tell you if the element supports right-to-left langues.</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</div>
+
+				<!-- ROW: Sample Markup -->
+				<div class="sui-box-settings-row">
+
+					<div class="sui-box-settings-col-1">
+						<h3 class="sui-settings-label">Sample Markup</h3>
+					</div>
+
+					<div class="sui-box-settings-col-2">
+
+						<div class="sui-tabs sui-tabs-flushed">
+
+							<div role="tablist" class="sui-tabs-menu">
+								<button type="button" role="tab" id="simple-tabs" class="sui-tab-item active" style="padding-top: 0;" aria-controls="simple-tabs__content" aria-selected="true">Simple Tabs</button>
+								<button type="button" role="tab" id="radio-tabs" class="sui-tab-item" style="padding-top: 0;" aria-controls="radio-tabs__content" aria-selected="false" tabindex="-1">Radio Tabs</button>
+								<button type="button" role="tab" id="radio-only" class="sui-tab-item" style="padding-top: 0;" aria-controls="radio-only__content" aria-selected="false" tabindex="-1">Radio Only</button>
+							</div>
+
+							<div class="sui-tabs-content">
+
+								<div role="tabpanel" tabindex="0" id="simple-tabs__content" class="sui-tab-content active" aria-labelledby="simple-tabs">
+
+									<div class="sui-notice sui-notice-warning">
+
+										<div class="sui-notice-content">
+
+											<div class="sui-notice-message">
+
+												<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+												<p>If you are using individual js components, <code>tabs.js</code> file is required. For more info go to <a href="/shared-ui/tabs/">tabs documentation</a>.</p>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs sui-side-tabs&quot;&gt;
+
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;!--
+		NOTE(S):
+
+		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
+		problems when submitting the form.
+
+		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
+
+		3. Unique IDs are a must for button tab and its content.
+		--&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;one__tab&quot;
+			class=&quot;sui-tab-item active&quot;
+			aria-controls=&quot;one__content&quot;
+			aria-selected=&quot;true&quot;&gt;
+			Tab 1
+		&lt;/button&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;two__tab&quot;
+			class=&quot;sui-tab-item&quot;
+			aria-controls=&quot;two__content&quot;
+			aria-selected=&quot;false&quot;
+			tabindex=&quot;-1&quot;&gt;
+			Tab 2
+		&lt;/button&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			id=&quot;one__content&quot;
+			class=&quot;sui-tab-content active&quot;
+			aria-labelledby=&quot;one__tab&quot;
+			tabindex=&quot;0&quot;&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 1&lt;/p&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			id=&quot;two__content&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;two__tab&quot;
+			tabindex=&quot;0&quot;
+			hidden&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 2&lt;/p&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+		&lt;div
+			role=&quot;tabpanel&quot;
+			id=&quot;sample-tab__three--content&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;sample-tab__three&quot;
+			tabindex=&quot;0&quot;
+			hidden&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 3&lt;/p&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+								<div role="tabpanel" tabindex="0" id="radio-tabs__content" class="sui-tab-content" aria-labelledby="radio-tabs" hidden>
+
+									<div class="sui-notice sui-notice-warning">
+
+										<div class="sui-notice-content">
+
+											<div class="sui-notice-message">
+
+												<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+												<p>If you are using individual js components, <code>tabs.js</code> file is required.</p>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-tabs sui-side-tabs&quot;&gt;
+
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;!--
+		NOTE(S):
+
+		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
+		problems when submitting the form.
+
+		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
+
+		3. Unique IDs are a must for button tab and its content.
+		--&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;one__tab&quot;
+			class=&quot;sui-tab-item active&quot;
+			aria-controls=&quot;one__content&quot;
+			aria-selected=&quot;true&quot;&gt;
+			Tab 1
+		&lt;/button&gt;
+		&lt;input
+			type=&quot;radio&quot;
+			name=&quot;sample-tabs&quot;
+			value=&quot;one&quot;
+			class=&quot;sui-screen-reader-text&quot;
+			aria-label=&quot;Tab 1&quot;
+			aria-hidden=&quot;true&quot;
+			checked=&quot;checked&quot; /&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;two__tab&quot;
+			class=&quot;sui-tab-item&quot;
+			aria-controls=&quot;two__content&quot;
+			aria-selected=&quot;false&quot;
+			tabindex=&quot;-1&quot;&gt;
+			Tab 2
+		&lt;/button&gt;
+		&lt;input
+			type=&quot;radio&quot;
+			name=&quot;sample-tabs&quot;
+			value=&quot;two&quot;
+			class=&quot;sui-screen-reader-text&quot;
+			aria-label=&quot;Tab 2&quot;
+			aria-hidden=&quot;true&quot; /&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+
+		&lt;div role=&quot;tabpanel&quot;
+			id=&quot;one__content&quot;
+			class=&quot;sui-tab-content active&quot;
+			aria-labelledby=&quot;one__tab&quot;
+			tabindex=&quot;0&quot;&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 1&lt;/p&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+		&lt;div role=&quot;tabpanel&quot;
+			id=&quot;two__content&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;two__tab&quot;
+			tabindex=&quot;0&quot;
+			hidden&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 2&lt;/p&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+								<div role="tabpanel" tabindex="0" id="radio-only__content" class="sui-tab-content" aria-labelledby="radio-only" hidden>
+
+									<div class="sui-notice sui-notice-warning" style="margin-bottom: 10px;">
+
+										<div class="sui-notice-content">
+
+											<div class="sui-notice-message">
+
+												<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+												<p>If you are using individual js components, <code>side-tabs.js</code> file is required.</p>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="sui-notice sui-notice-warning">
+
+										<div class="sui-notice-content">
+
+											<div class="sui-notice-message">
+
+												<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+
+												<p>If DOM already initialized, make sure to call <code>SUI.sideTabs( this )</code> function for each <code>.sui-side-tabs label.sui-tab-item input</code> element.</p>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-side-tabs&quot;&gt;
+
+	&lt;div class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;label id=&quot;one__label&quot; for=&quot;one__option&quot; class=&quot;sui-tab-item active&quot;&gt;
+			&lt;input
+				type=&quot;radio&quot;
+				name=&quot;sample-tabs&quot;
+				value=&quot;one&quot;
+				id=&quot;one__option&quot;
+				checked=&quot;checked&quot;&gt;
+			Option 1
+		&lt;/label&gt;
+
+		&lt;label id=&quot;two__label&quot; for=&quot;two__option&quot; class=&quot;sui-tab-item&quot;&gt;
+			&lt;input
+				type=&quot;radio&quot;
+				name=&quot;sample-tabs&quot;
+				value=&quot;two&quot;
+				id=&quot;two__option&quot;&gt;
+			Option 2
+		&lt;/label&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
