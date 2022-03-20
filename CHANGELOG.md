@@ -7,10 +7,12 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 🐛 Bug Fixes
 * **fix(select):** The dropdown list is not changing colours when High Contrast Mode is enabled. [#474](https://github.com/wpmudev/shared-ui/pull/474) ([SUI-100](https://incsub.atlassian.net/browse/SUI-100)) ([@creador-dev](https://github.com/creador-dev))
 
-#### 📝 Documentation
-* **docs(showcase):** Add `alt` tags to all sample images. [#420](https://github.com/wpmudev/shared-ui/pull/420) ([SUI-2](https://incsub.atlassian.net/browse/SUI-2)) ([@creador-dev](https://github.com/creador-dev))
+#### 🏠 Internal
+* **fix(showcase):** Add `alt` tags to all sample images. [#420](https://github.com/wpmudev/shared-ui/pull/420) ([SUI-2](https://incsub.atlassian.net/browse/SUI-2)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(showcase):** Add an accessibility state table or similar to keep track of SUI elements status. [#476](https://github.com/wpmudev/shared-ui/pull/476) ([SUI-34](https://incsub.atlassian.net/browse/SUI-34)) ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [2.12.5](https://github.com/wpmudev/shared-ui/compare/v2.12.4...v2.12.5) (2022-03-19)
