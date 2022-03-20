@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file. See [Conven
 * **fix(insert-variables):** Dropdown shouldn't store the option selected. [#468](https://github.com/wpmudev/shared-ui/pull/468) ([SUI-294](https://incsub.atlassian.net/browse/SUI-294)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(checkbox):** Clickable area is too long. [#472](https://github.com/wpmudev/shared-ui/pull/472) ([SUI-300](https://incsub.atlassian.net/browse/SUI-300)) ([@creador-dev](https://github.com/creador-dev))
 
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.3...v2.12.4) (2022-03-03)
 
 #### 🚀 Improvements
