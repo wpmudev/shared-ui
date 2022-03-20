@@ -1,4 +1,4 @@
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 (function ($) {
   // Enable strict mode.
@@ -211,10 +211,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     } // Deactivate all tabs and tab panels.
 
 
-    function deactivateTabs(tabs, panels) {
+    function deactivateTabs(tabs, panels, inputs) {
       tabs.removeClass('active');
       tabs.attr('tabindex', '-1');
       tabs.attr('aria-selected', false);
+      inputs.prop('checked', false);
       panels.removeClass('active');
       panels.prop('hidden', true);
     } // Activate current tab panel.
@@ -222,13 +223,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     function activateTab(tab) {
       var tabs = $(tab).closest('[role="tablist"]').find('[role="tab"]'),
+          inputs = $(tab).closest('[role="tablist"]').find('input[type="radio"]'),
           panels = $(tab).closest('.sui-tabs').find('> .sui-tabs-content > [role="tabpanel"]'),
           controls = $(tab).attr('aria-controls'),
+          input = $(tab).next('input[type="radio"]'),
           panel = $('#' + controls);
-      deactivateTabs(tabs, panels);
+      deactivateTabs(tabs, panels, inputs);
       $(tab).addClass('active');
       $(tab).removeAttr('tabindex');
       $(tab).attr('aria-selected', true);
+      input.prop('checked', true);
       panel.addClass('active');
       panel.prop('hidden', false);
     } // When a "tablist" aria-orientation is set to vertical,
@@ -363,12 +367,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return this;
   };
 
-  if (0 !== $('.sui-2-12-4 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-5 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-4 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-5 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }

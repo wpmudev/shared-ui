@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.5](https://github.com/wpmudev/shared-ui/compare/v2.12.4...v2.12.5) (2022-03-19)
+
+#### 🚀 Improvements
+* **fix(tabs):** Enable radio inputs for side-tab buttons. [#481](https://github.com/wpmudev/shared-ui/pull/481) ([SUI-7](https://incsub.atlassian.net/browse/SUI-7)) ([@iamleigh](https://github.com/iamleigh))
+
+#### 🐛 Bug Fixes
+* **fix(toggle):** Clickable area is too long. [#457](https://github.com/wpmudev/shared-ui/pull/457) ([SUI-180](https://incsub.atlassian.net/browse/SUI-180)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(tabs):** Overflow flushed tabs menu doesn't have enough space to place navigation buttons. [#441](https://github.com/wpmudev/shared-ui/pull/441) ([SUI-282](https://incsub.atlassian.net/browse/SUI-282)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(insert-variables):** Dropdown shouldn't store the option selected. [#468](https://github.com/wpmudev/shared-ui/pull/468) ([SUI-294](https://incsub.atlassian.net/browse/SUI-294)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(checkbox):** Clickable area is too long. [#472](https://github.com/wpmudev/shared-ui/pull/472) ([SUI-300](https://incsub.atlassian.net/browse/SUI-300)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.4](https://github.com/wpmudev/shared-ui/compare/v2.12.3...v2.12.4) (2022-03-03)
+
+#### 🚀 Improvements
+* **fix(select):** Use arrow function instead of anonymous function. [#470](https://github.com/wpmudev/shared-ui/pull/470) ([SUI-318](https://incsub.atlassian.net/browse/SUI-318)) ([@iamleigh](https://github.com/iamleigh))
 
 #### 🐛 Bug Fixes
 * **fix(uploads):** Hoisting of functions declared in blocks is handled differently in different browsers. [#458](https://github.com/wpmudev/shared-ui/pull/458) ([SUI-302](https://incsub.atlassian.net/browse/SUI-302)) ([@creador-dev](https://github.com/creador-dev))
@@ -11,9 +29,6 @@ All notable changes to this project will be documented in this file. See [Conven
 * **fix(tabs):** Function `setCallback` takes 0 parameter(s). [#466](https://github.com/wpmudev/shared-ui/pull/466) ([SUI-312](https://incsub.atlassian.net/browse/SUI-312)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(tabs):** On `keyDownEventListener` the body of `case` clause duplicates. [#467](https://github.com/wpmudev/shared-ui/pull/467) ([SUI-313](https://incsub.atlassian.net/browse/SUI-313)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(modals):** If statement have duplicate bodies. [#469](https://github.com/wpmudev/shared-ui/pull/469) ([SUI-311](https://incsub.atlassian.net/browse/SUI-311)) ([@iamleigh](https://github.com/iamleigh))
-
-#### 🚀 Improvements
-* **fix(select):** Use arrow function instead of anonymous function. [#70](https://github.com/wpmudev/shared-ui/pull/470) ([SUI-318](https://incsub.atlassian.net/browse/SUI-318)) ([@iamleigh](https://github.com/iamleigh))
 
 #### 🏠 Internal
 * **fix(snyk):** Duplicated import in package.json file. [#455](https://github.com/wpmudev/shared-ui/pull/455) ([SUI-298](https://incsub.atlassian.net/browse/SUI-298)) ([@iamleigh](https://github.com/iamleigh))
