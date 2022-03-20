@@ -23,6 +23,7 @@ $tree--file-type: (
 	performance: 'performance',
 );
 
+// $sui-wrap: true | $rtl: false
 @include body-class(true) {
 
 	.sui-tree {
@@ -626,6 +627,62 @@ $tree--file-type: (
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+}
+
+// $sui-wrap: true | $rtl: true
+@include body-class(true, true) {
+	
+	.sui-tree {
+		direction: rtl;
+
+		// TREE: RTL Selector
+		&[data-tree="selector"] {
+
+			li[role="treeitem"] {
+
+				> .sui-tree-node {
+
+					> .sui-node-checkbox {
+
+						+ span {
+							margin-right: 10px;
+						}
+					}
+				}
+				
+				ul[role="group"] {
+					padding-right: 26px;
+				}
+			}
+		}
+
+		// TREE: RTL Directory Browser
+		&[data-tree="directory"] {
+
+			li[role="treeitem"] {
+
+				> .sui-tree-node {
+
+					> span[role="button"],
+					> button[data-button] span[aria-hidden] {
+
+						&:first-child {
+							margin-left: 0;
+							margin-right: -10px;
+						}
+					}
+
+					> span[aria-hidden] {
+						margin: 7px 10px 7px 5px;
+					}
+				}
+
+				ul[role="group"] {
+					padding-right: 20px;
 				}
 			}
 		}
