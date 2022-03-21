@@ -20,7 +20,7 @@
 
 					var $button = $( this ),
 						$input  = $button.parent().find( 'input' ),
-						$icon   = $button.find( '.sui-icon' )
+						$icon   = $button.find( '> span' )
 						;
 
 					$button.parent().toggleClass( 'sui-password-visible' );
