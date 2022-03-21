@@ -208,13 +208,28 @@
 
 @include body-class($wrap: true, $rtl: true) {
 
-	.sui-box-settings-row,
-	.sui-box-settings-slim-row {
-	
-		select:not(.sui-select):not(.sui-variables) {
-			padding-right: 14px;
-			padding-left: 40px;
-			background-position: 14px;
+	.sui-box-body {
+		.sui-box-settings-row,
+		.sui-box-settings-slim-row {
+		
+			select:not(.sui-select):not(.sui-variables) {
+				padding-right: 14px;
+				padding-left: 40px;
+				background-position: 14px;
+			}
+
+			[data-clipboard-target] {
+				left: 15px;
+				right: auto;
+			}
+		}
+
+	}
+
+	.sui-box-header {
+		.sui-actions-left {
+			margin-left: auto;
+			margin-right: 10px;
 		}
 	}
 }
