@@ -6,39 +6,86 @@ id: code-editor
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<div class="sui-form-field">
+		<ul class="sui-vertical-tabs">
 
-			<label class="sui-label">Sample selectors</label>
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-			<div class="sui-ace-selectors">
-				<a href="#" class="sui-selector" data-selector="body">Body</a>
-				<a href="#" class="sui-selector" data-selector="header">Header</a>
-				<a href="#" class="sui-selector" data-selector="section">Section</a>
-				<a href="#" class="sui-selector" data-selector="article">Article</a>
-				<a href="#" class="sui-selector" data-selector="footer">Footer</a>
-			</div>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
 
-			<label class="sui-label">Other selectors</label>
+		</ul>
 
-			<div class="sui-ace-selectors">
-				<a href="#" class="sui-selector" data-selector=".sample-1">Sample Class #1</a>
-				<a href="#" class="sui-selector" data-selector=".sample-2">Sample Class #2</a>
-				<a href="#" class="sui-selector" data-selector=".sample-3">Sample Class #3</a>
-				<a href="#" class="sui-selector" data-selector=".sample-4">Sample Class #4</a>
-				<a href="#" class="sui-selector" data-selector=".sample-5">Sample Class #5</a>
-			</div>
+	</div>
 
-			<div id="sui-ace-editor">.hustle-modal .hustle-modal-container {
+	<!-- SECTION: Preview -->
+	<div class="sui-box" data-tab="preview">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-form-field">
+
+				<label class="sui-label">Sample selectors</label>
+
+				<div class="sui-ace-selectors">
+					<a href="#" class="sui-selector" data-selector="body">Body</a>
+					<a href="#" class="sui-selector" data-selector="header">Header</a>
+					<a href="#" class="sui-selector" data-selector="section">Section</a>
+					<a href="#" class="sui-selector" data-selector="article">Article</a>
+					<a href="#" class="sui-selector" data-selector="footer">Footer</a>
+				</div>
+
+				<label class="sui-label">Other selectors</label>
+
+				<div class="sui-ace-selectors">
+					<a href="#" class="sui-selector" data-selector=".sample-1">Sample Class #1</a>
+					<a href="#" class="sui-selector" data-selector=".sample-2">Sample Class #2</a>
+					<a href="#" class="sui-selector" data-selector=".sample-3">Sample Class #3</a>
+					<a href="#" class="sui-selector" data-selector=".sample-4">Sample Class #4</a>
+					<a href="#" class="sui-selector" data-selector=".sample-5">Sample Class #5</a>
+				</div>
+
+<div id="sui-ace-editor">.hustle-modal .hustle-modal-container {
 	background-color: #FF6D6D;
 	color: #FFFFFF;
 }</div>
+
+			</div>
 
 		</div>
 
 	</div>
 
-</article>
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
+
+		</div>
+
+	</div>
+
+</section>

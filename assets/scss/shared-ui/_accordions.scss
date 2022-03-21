@@ -494,6 +494,9 @@
 
 						+ .sui-accordion-item-content {
 							display: table-row;
+							position: relative;
+							visibility: visible;
+							z-index: 0;
 						}
 					}
 
@@ -531,7 +534,9 @@
 				}
 
 				> .sui-accordion-item-content {
-					display: none;
+					visibility: hidden;
+					position: absolute;
+					z-index: -1;
 					background-color: $accordion--content-bg-color;
 
 					th, td {
