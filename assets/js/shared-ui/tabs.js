@@ -436,9 +436,9 @@
 		});
     }
 
-	if ( 0 !== $( 'SUI_BODY_CLASS .sui-sidenav-wrapper' ).length ) {
+	if ( 0 !== $( 'SUI_BODY_CLASS .sui-row-with-sidenav' ).length ) {
 		
-		var elem = '.sui-sidenav-wrapper';
+		var elem = '.sui-row-with-sidenav';
 		var suiselect = $( elem ).find( '.sui-select' );
 		
 		SUI.tabs('', elem);
