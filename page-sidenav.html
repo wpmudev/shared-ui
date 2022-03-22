@@ -88,7 +88,23 @@ is_searchable: true
 
 	</div>
 
-	<div class="demo-code-block">
+	<div class="sui-box">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">Documentation</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-box-settings-row">
+				
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Base Structure</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;section class=&quot;sui-row-with-sidenav&quot;&gt;
@@ -181,6 +197,61 @@ is_searchable: true
 
 &lt;/section&gt;
 </pre>
+
+					</div>
+
+				</div>
+
+			</div>
+			
+			<!-- ROW: Advanced Usage -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Advanced Usage</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+SUI.tabs({
+	callback: function( tab, panel ) {
+		console.log( tab );
+		console.log( panel );
+	}
+});
+</pre>
+
+					</div>
+
+					<p><code>callback</code></p>
+
+					<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>panel (tab content)</code>.</p>
+
+					<p>To get all tabs within the group you can do this inside the anonymous function:</p>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+var wrapper = tab.closest( '.sui-row-with-sidenav' ),
+tablist = tab.closest( '[role=&quot;tablist&quot;]' ),
+tabs    = tablist.find( '> .sui-tab-item' ),
+panels  = wrapper.find( '> .sui-tabs-content > [role=&quot;tabpanel&quot;]' )
+;
+
+console.log( tabs );
+console.log( panels );
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>	
+			
+		</div>
 
 	</div>
 
