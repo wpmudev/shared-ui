@@ -195,9 +195,9 @@
         });
 	};
 
-	SUI.tabs = function( config ) {
+	SUI.tabs = function( config, elem ) {
 
-		var tablist = $( '.sui-tabs > div[role="tablist"]' );
+		var tablist = $( elem ).find( 'div[role="tablist"]' );
 		var data    = config;
 
 		// For easy reference.
@@ -245,7 +245,7 @@
 
 			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
 				inputs   = $( tab ).closest( '[role="tablist"]' ).find( 'input[type="radio"]' ),
-				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
+				panels   = $( tab ).closest( elem ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
 				controls = $( tab ).attr( 'aria-controls' ),
 				input    = $( tab ).next( 'input[type="radio"]' ),
 				panel    = $( '#' + controls )
@@ -281,6 +281,10 @@
 					event.preventDefault();
 					proceed = true;
 				}
+			} else if ( '.sui-sidenav-wrapper' === elem && (keys.up === key || keys.down === key) ) {
+
+				event.preventDefault();
+				proceed = true;
 			} else {
 
 				if ( keys.left === key || keys.right === key ) {
@@ -388,7 +392,7 @@
 
 		function init() {
 
-			var tabgroup = tablist.closest( '.sui-tabs' );
+			var tabgroup = tablist.closest( elem );
 
 			// Run the function for each group of tabs to prevent conflicts
 			// when having child tabs.
@@ -397,8 +401,8 @@
 				var tabs, index;
 
 				tabgroup = $( this );
-				tablist  = tabgroup.find( '> [role="tablist"]' );
-				tabs     = tablist.find( '> [role="tab"]' );
+				tablist  = tabgroup.find( '[role="tablist"]' );
+				tabs     = tablist.find( '[role="tab"]' );
 
 				// Trigger events on click.
 				tabs.on( 'click', function( e ) {
@@ -425,14 +429,32 @@
 
     if ( 0 !== $( 'SUI_BODY_CLASS .sui-tabs' ).length ) {
 
+		var elem = '.sui-tabs';
+
 		// Support tabs new markup.
-		SUI.tabs();
+		SUI.tabs('', elem);
 
 		// Support legacy tabs.
 		SUI.suiTabs();
 
 		$( 'SUI_BODY_CLASS .sui-tabs-navigation' ).each( function() {
 			SUI.tabsOverflow( $( this ) );
+		});
+    }
+
+	if ( 0 !== $( 'SUI_BODY_CLASS .sui-row-with-sidenav' ).length ) {
+		
+		var elem = '.sui-row-with-sidenav';
+		var suiselect = $( elem ).find( '.sui-select' );
+		
+		SUI.tabs('', elem);
+
+		// sui select nav onselect change.
+		suiselect.each( function() {
+			$( this ).on( 'change', function() {
+				var btnId = $( '#' + $( this ).val() );
+				btnId.trigger( 'click' );
+			});
 		});
     }
 
