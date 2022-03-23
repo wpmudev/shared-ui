@@ -4,6 +4,7 @@
 %radio-checkbox {
 	user-select: none;
 	align-items: flex-start;
+	pointer-events: none;
 
 	input {
 		@extend %sui-screen-reader-text;
@@ -21,6 +22,7 @@
 			background-color: $radio-checkbox--background;
 			transition: 0.3s ease;
 			z-index: 1;
+			pointer-events: all;
 
 			&:before {
 				opacity: 0;
@@ -35,6 +37,7 @@
 				font-size: $radio-checkbox--font-size;
 				line-height: $radio-checkbox--line-height;
 				font-weight: $font--medium;
+				pointer-events: all;
 
 				&.sui-description-sm {
 					font-size: $radio-checkbox--font-size-sm;
