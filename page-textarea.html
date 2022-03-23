@@ -5,35 +5,59 @@ permalink: /textarea/
 is_searchable: true
 ---
 
-<section class="sui-box">
+<div class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<div class="sui-tabs sui-side-tabs">
+		<ul class="sui-vertical-tabs">
 
-			<div role="tablist" data-tabs>
-				<div id="tab-state-default" class="active" role="tab">Default State</div>
-				<div id="tab-state-error" role="tab">Error State</div>
-			</div>
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-			<div class="sui-tabs-content-lg" data-panes>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
 
-				<!-- TAB: Default State -->
-				<div class="active" role="tabpanel" aria-labelledby="tab-state-default">
+		</ul>
 
-					<div class="sui-form-field">
+	</div>
 
-						<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+	<!-- SECTION: Preview -->
+	<div class="sui-box" data-tab="preview">
 
-						<textarea placeholder="Enter a placeholder" id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-message textarea-default-description"></textarea>
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
+		</div>
 
-						<span id="textarea-default-message" class="sui-error-message" style="display: none;"></span>
+		<div class="sui-box-body">
 
-						<span id="textarea-default-description" class="sui-description">This is textarea field description.</span>
+			<div class="sui-tabs sui-side-tabs">
 
-					</div>
+				<div role="tablist" data-tabs>
+					<div id="tab-state-default" class="active" role="tab">Default State</div>
+					<div id="tab-state-error" role="tab">Error State</div>
+				</div>
 
-					<div class="demo-code-block">
+				<div class="sui-tabs-content-lg" data-panes>
+
+					<!-- TAB: Default State -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-state-default">
+
+						<div class="sui-form-field">
+
+							<label for="textarea-default" id="textarea-default-label" class="sui-label">Label</label>
+
+							<textarea placeholder="Enter a placeholder" id="textarea-default" class="sui-form-control" aria-labelledby="textarea-default-label" aria-describedby="textarea-default-message textarea-default-description"></textarea>
+
+							<span id="textarea-default-message" class="sui-error-message" style="display: none;"></span>
+
+							<span id="textarea-default-description" class="sui-description">This is textarea field description.</span>
+
+						</div>
+
+						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field&quot;&gt;
@@ -60,26 +84,26 @@ is_searchable: true
 &lt;/div&gt;
 </pre>
 
-					</div>
-
-				</div>
-
-				<!-- TAB: Error State -->
-				<div role="tabpanel" aria-labelledby="tab-state-error">
-
-					<div class="sui-form-field sui-form-field-error">
-
-						<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
-
-						<textarea placeholder="Enter a placeholder" id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
-
-						<span id="textarea-error-message" class="sui-error-message">This is an error message.</span>
-
-						<span id="textarea-error-description" class="sui-description">This is textarea field description.</span>
+						</div>
 
 					</div>
 
-					<div class="demo-code-block">
+					<!-- TAB: Error State -->
+					<div role="tabpanel" aria-labelledby="tab-state-error">
+
+						<div class="sui-form-field sui-form-field-error">
+
+							<label for="textarea-error" id="textarea-error-label" class="sui-label">Label</label>
+
+							<textarea placeholder="Enter a placeholder" id="textarea-error" class="sui-form-control" aria-labelledby="textarea-error-label" aria-describedby="textarea-error-message textarea-error-description"></textarea>
+
+							<span id="textarea-error-message" class="sui-error-message">This is an error message.</span>
+
+							<span id="textarea-error-description" class="sui-description">This is textarea field description.</span>
+
+						</div>
+
+						<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-form-field sui-form-field-error&quot;&gt;
@@ -106,6 +130,8 @@ is_searchable: true
 &lt;/div&gt;
 </pre>
 
+						</div>
+
 					</div>
 
 				</div>
@@ -116,4 +142,25 @@ is_searchable: true
 
 	</div>
 
-</section>
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
+
+		</div>
+
+	</div>
+
+</div>
