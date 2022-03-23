@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 #### 🐛 Bug Fixes
 * **fix(toggles):** Slider element not aligning correctly when label or description or both are not present. [#482](https://github.com/wpmudev/shared-ui/pull/482) ([SUI-325](https://incsub.atlassian.net/browse/SUI-325)) ([@iamleigh](https://github.com/iamleigh))
+* **fix(toggles):** Not registering the event in React with a mapped `onChange` event. [#484](https://github.com/wpmudev/shared-ui/pull/484) ([SUI-327](https://incsub.atlassian.net/browse/SUI-327)) ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
