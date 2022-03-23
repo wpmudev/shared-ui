@@ -577,3 +577,21 @@
 		}
 	}
 }
+
+@include body-class(false) {
+	&.sui-select-accessible {
+		
+		.sui-select .sui-select-dropdown {
+			border-color: $accessible-dark !important;
+		}
+
+		.select2-results__option {
+			color: $accessible-dark !important;
+		}
+		
+		.select2-results__option--selected{
+			background-color: $accessible-dark !important;
+			color: $accessible-light !important;
+		}
+	}
+}
