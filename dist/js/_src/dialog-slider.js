@@ -263,7 +263,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  $('.sui-2-12-5 .sui-slider').each(function () {
+  $('.sui-2-12-6 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
