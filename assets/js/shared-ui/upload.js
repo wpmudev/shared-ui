@@ -96,7 +96,7 @@
 			}
 
 			// function to set uploaded file
-			function uploadedFile(element, file, filename){
+			const uploadedFile = function (element, file, filename){
 				var parent = element.closest( '.sui-upload' );
 				var imageContainer = parent.find( '.sui-upload-image' );
 				if(filename) {
@@ -114,14 +114,14 @@
 			}
 
 			// function to open browser file explorer for selecting file
-			function selectFile(element) {
+			const selectFile = function(element) {
 				var parent = element.closest( '.sui-upload' );
 				var file = parent.find( 'input[type="file"]' );
 				file.trigger( 'click' );
 			}
 
 			// function to remove file
-			function removeFile(element) {
+			const removeFile = function(element) {
 				var parent = element.closest( '.sui-upload' );
 				var file = parent.find( 'input[type="file"]' );
 				file.val('').change();
