@@ -110,11 +110,14 @@
 				ariaDescription = ''
 				;
 
-			if ( 'undefined' !== typeof textarea.attr( 'placeholder' ) && '' !== textarea.attr( 'placeholder' ) ) {
-				placeholder = ' placeholder="' + textarea.attr( 'placeholder' ) + '"';
+			const dataPlaceholder = textarea.attr( 'placeholder' );
+			const dataLabel = textarea.attr( 'data-field-label' );
+
+			if ( 'undefined' !== typeof dataPlaceholder && '' !== dataPlaceholder ) {
+				placeholder = ' placeholder="' + dataPlaceholder + '"';
 			}
 
-			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
+			if ( 'undefined' !== typeof dataLabel && '' !== dataLabel ) {
 				ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
 				textarea.attr( 'aria-labelledby', uniqid + '-label' );
 			} else {
@@ -127,7 +130,7 @@
 
 			}
 
-			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
+			if ( 'undefined' !== typeof dataLabel && '' !== dataLabel ) {
 				ariaDescription = ' aria-describedby="' + uniqid + '-description"';
 			} else {
 

@@ -321,9 +321,10 @@
 						}
 
 						// Focus error field.
-						if ( '' === clientId.val() && '' === clientSe.val() ) {
-							clientId.focus();
-						} else if ( '' === clientId.val() && '' !== clientSe.val() ) {
+						if (
+							( '' === clientId.val() && '' === clientSe.val() ) ||
+							( '' === clientId.val() && '' !== clientSe.val() )
+						) {
 							clientId.focus();
 						} else if ( '' !== clientId.val() && '' === clientSe.val() ) {
 							clientSe.focus();
