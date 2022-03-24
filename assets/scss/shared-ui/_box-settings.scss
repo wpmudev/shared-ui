@@ -223,7 +223,11 @@
 		}
 
 		[class*=sui-box-settings-col-] + div {
-			margin-left: 0;
+
+			@include media(min-width, md) {
+				margin-left: 0;
+				margin-right: $sui-gutter;
+			}
 		}
 	}
 
