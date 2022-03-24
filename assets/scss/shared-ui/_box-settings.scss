@@ -4,6 +4,7 @@
 
 		// ELEMENT: Row
 		.sui-box-settings-row {
+			display: flex;
 			position: relative;
 			margin-bottom: $sui-gutter;
 			padding-bottom: $sui-gutter;
@@ -51,13 +52,14 @@
 				}
 			}
 
-			@include media(min-width, md) {
-				display: flex;
+			@include media(max-width, md) {
+				display: block;
 			}
 		}
 
 		// ELEMENT: Row (Slim)
 		.sui-box-settings-slim-row {
+			display: flex;
 			position: relative;
 			margin-bottom: $sui-gutter-md;
 
@@ -90,8 +92,8 @@
 				margin-bottom: 0;
 			}
 
-			@include media(min-width, md) {
-				display: flex;
+			@include media(max-width, md) {
+				display: block;
 			}
 		}
 
@@ -106,7 +108,6 @@
 
 			@include media(max-width, md) {
 				max-width: 100%;
-				flex: unset;
 			}
 		}
 
