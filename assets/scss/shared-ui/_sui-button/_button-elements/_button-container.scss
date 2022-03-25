@@ -14,10 +14,11 @@
 		@include block($block) {
 			cursor: pointer;
 			display: inline-flex;
+			flex-direction: row;
 			align-items: center;
 			justify-content: center;
 			position: relative;
-			padding: #{math.div(($height - $line-height - 4), 2) + 'px'} 14px;
+			padding: #{math.div(($height - $line-height - 4), 2) + 'px'} 11px;
 			border: 2px solid transparent;
 			border-radius: $element--border-radius;
 			outline: 1px solid transparent;
@@ -47,10 +48,5 @@
 	}
 
 	// DIR: Right-to-Left.
-	@include body-class($wrap: true, $rtl: true, $monochrome: false) {
-
-		@include block($block) {
-			flex-direction: row-reverse;
-		}
-	}
+	// No need.
 }
