@@ -22,6 +22,9 @@
 
 			element = $( element );
 
+			// clear select items intially when the select2 is loaded
+			element.val( null );
+
 			element.on( 'change', function() {
 
 				let select  = $( this ),
@@ -30,6 +33,8 @@
 					;
 
 				input.val( input.val() + select.val() );
+			}).on( 'select2:close', function() {
+				$( this ).val( null );
 			});
 		}
 

@@ -99,7 +99,75 @@ is_searchable: true
 								<span class="sui-icon-plus" aria-hidden="true"></span>
 								Insert Button
 							</button>
-	
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- SECTION: Complex Header -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+
+					<span class="sui-settings-label">Complex Header</span>
+					<span class="sui-description">Some projects require extra settings on box builder fields, for those cases you are going to find useful this element variation.</span>
+
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<div class="sui-builder-conditions">
+
+								<div class="sui-builder-conditions-rule">
+
+									<span class="sui-builder-text">Show element if</span>
+
+									<select class="sui-select sui-select-sm sui-select-inline" data-width="80">
+										<option>all</option>
+										<option>any</option>
+										<option>none</option>
+									</select>
+
+									<span class="sui-builder-text">of the following conditions are met.</span>
+
+								</div>
+
+								<div class="sui-builder-conditions-actions">
+									<button class="sui-button-icon sui-button-red">
+										<span class="sui-icon-trash" aria-hidden="true"></span>
+										<span class="sui-screen-reader-text">Delete Condition</span>
+									</button>
+								</div>
+
+							</div>
+
+							<div class="sui-builder-options sui-options-inline">
+
+
+								<span class="sui-builder-text">Apply on</span>
+
+								<label for="sample-apply-on-inline-content" class="sui-checkbox sui-checkbox-sm">
+									<input type="checkbox" id="sample-apply-on-inline-content" />
+									<span aria-hidden="true"></span>
+									<span>Inline Content</span>
+								</label>
+
+								<label for="sample-apply-on-widget" class="sui-checkbox sui-checkbox-sm">
+									<input type="checkbox" id="sample-apply-on-widget" />
+									<span aria-hidden="true"></span>
+									<span>Widget</span>
+								</label>
+
+							</div>
+
 						</div>
 	
 						<div class="sui-box-builder-footer">
@@ -998,27 +1066,35 @@ is_searchable: true
 					</div>
 	
 				</div>
-	
-				<!-- SECTION: Message with Image -->
-				<div class="sui-box-settings-row">
-	
-					<div class="sui-box-settings-col-1">
-	
-						<span class="sui-settings-label sui-dark">Message with Image</span>
-	
-					</div>
-	
-					<div class="sui-box-settings-col-2">
-	
-						<div class="sui-box-builder">
-	
-							<div class="sui-box-builder-header">
-	
-								<button class="sui-button sui-button-purple">
-									<span class="sui-icon-plus" aria-hidden="true"></span>
-									Insert Button
-								</button>
-	
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-box-builder">
+
+						<div class="sui-box-builder-header">
+
+							<button class="sui-button sui-button-purple">
+								<span class="sui-icon-plus" aria-hidden="true"></span>
+								Insert Button
+							</button>
+
+						</div>
+
+						<div class="sui-box-builder-body">
+
+							<div class="sui-builder-fields"></div>
+
+							<button class="sui-button sui-button-dashed">
+								<span class="sui-icon-plus" aria-hidden="true"></span>
+								Insert Button
+							</button>
+
+							<div class="sui-box-builder-message-block">
+
+								<span class="sui-box-builder-message">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+
+								<img src="assets/images/hummingbird-upsell-minify.png" srcset="assets/images/hummingbird-upsell-minify.png 1x, assets/images/hummingbird-upsell-minify@2x.png 2x" class="sui-image sui-image-center" aria-hidden="true" alt="" />
+
 							</div>
 	
 							<div class="sui-box-builder-body">
@@ -1049,26 +1125,38 @@ is_searchable: true
 			</div>
 	
 		</div>
-	
-		<!-- TAB: Documentation -->
-		<div class="sui-box" data-tab="documentation" style="display: none;">
-	
-			<div class="sui-box-header">
-				<h2 class="sui-box-title">Documentation</h2>
-			</div>
-	
-			<div class="sui-box-body">
-	
-				<div class="sui-box-settings-row">
-	
-					<div class="sui-box-settings-col-1">
-						<span class="sui-settings-label">Base Structure</span>
-					</div>
-	
-					<div class="sui-box-settings-col-2">
-	
-						<div class="demo-code-block">
-	
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.9"
+				utilities="false"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Base Structure</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
 <pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-box-builder&quot;&gt;
 

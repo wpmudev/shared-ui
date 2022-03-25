@@ -140,7 +140,7 @@
 							select
 								.removeAttr( 'data-placeholder' ) // Remove placeholder attribute.
 								.find( 'option' )
-								.filter( function() {
+								.filter( () => {
 									return ! this.value || 0 === $.trim( this.value ).length; // Find empty option.
 								})
 								.remove() // Remove empty option.
