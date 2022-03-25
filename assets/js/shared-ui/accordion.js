@@ -46,13 +46,8 @@
 					;
 
 				var button 		= $( this ).find( '.sui-accordion-open-indicator > .sui-screen-reader-text' ),
-					buttonText 	= button.text(),
-					dataContent = button.data('content');
-
-				if ( button.length && dataContent && buttonText ) {
-					button.html(dataContent);
-					button.data('content', buttonText);
-				}
+					buttonText 	= button?.text(),
+					dataContent = button?.data('content');
 
 				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
 					return true;
@@ -103,6 +98,12 @@
 							tableContent.addClass( 'sui-accordion-item--open' );
 						}
 					}
+				}
+
+				// Change button accessiblity content based on accordin open and close.
+				if ( dataContent ) {
+					button.html(dataContent);
+					button.data('content', buttonText);
 				}
 
 				event.stopPropagation();
