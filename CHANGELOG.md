@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ## [2.12.7](https://github.com/wpmudev/shared-ui/compare/v2.12.6...v2.12.7) (Unreleased)
 
+#### 🚀 Improvements
+* **fix(selectors):** Improve the element for better accessibility. [#427](https://github.com/wpmudev/shared-ui/pull/427) ([SUI-6](https://incsub.atlassian.net/browse/SUI-6)) ([@creador-dev](https://github.com/creador-dev))
+
 #### 🐛 Bug Fixes
 * **fix(select):** The dropdown list is not changing colours when High Contrast Mode is enabled. [#474](https://github.com/wpmudev/shared-ui/pull/474) ([SUI-100](https://incsub.atlassian.net/browse/SUI-100)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(settings-row):** Improve component in RTL mode. [#475](https://github.com/wpmudev/shared-ui/pull/475) ([SUI-275](https://incsub.atlassian.net/browse/SUI-275)) ([@creador-dev](https://github.com/creador-dev))
