@@ -45,7 +45,9 @@
 					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' )
 					;
 
-				var button = $( this ).find( '.sui-accordion-open-indicator > .sui-screen-reader-text' );
+				var button 		= $( this ).find( '.sui-accordion-open-indicator > .sui-screen-reader-text' ),
+					buttonText 	= button?.text(),
+					dataContent = button?.data('content');
 
 				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
 					return true;
@@ -56,15 +58,12 @@
 
 					if ( flexItem.hasClass( 'sui-accordion-item--disabled' ) ) {
 						flexItem.removeClass( 'sui-accordion-item--open' );
-						button.html( 'Open Settings' );
 					} else {
 
 						if ( flexItem.hasClass( 'sui-accordion-item--open' ) ) {
 							flexItem.removeClass( 'sui-accordion-item--open' );
-							button.html( 'Open Settings' );
 						} else {
 							flexItem.addClass( 'sui-accordion-item--open' );
-							button.html( 'Close Settings' );
 						}
 					}
 
@@ -89,19 +88,22 @@
 
 					if ( tableItem.hasClass( 'sui-accordion-item--disabled' ) ) {
 						tableContent.removeClass( 'sui-accordion-item--open' );
-						button.html( 'Open Settings' );
 					} else {
 
 						if ( tableItem.hasClass( 'sui-accordion-item--open' ) ) {
 							tableItem.removeClass( 'sui-accordion-item--open' );
 							tableContent.removeClass( 'sui-accordion-item--open' );
-							button.html( 'Open Settings' );
 						} else {
 							tableItem.addClass( 'sui-accordion-item--open' );
 							tableContent.addClass( 'sui-accordion-item--open' );
-							button.html( 'Close Settings' );
 						}
 					}
+				}
+
+				// Change button accessiblity content based on accordin open and close.
+				if ( dataContent ) {
+					button.html(dataContent);
+					button.data('content', buttonText);
 				}
 
 				event.stopPropagation();
