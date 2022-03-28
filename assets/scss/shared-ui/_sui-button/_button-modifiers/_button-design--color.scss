@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @use '../../_mixins/bem' as *;
 @use '../../_mixins/body-class' as *;
 @use '../_button-themes/button-themes' as sui-button--palette;
@@ -8,7 +10,7 @@
 /// @param {String} $block - Main block name
 @mixin button-design--color($block) {
 
-	// DIR: Left-to-Right.
+	// Multicoloured.
 	@include body-class($wrap: true, $rtl: false, $monochrome: false) {
 
 		@include block($block) {
@@ -17,13 +19,13 @@
 			@include sui-button--tool.button-theme-constructor(default, sui-button--palette.$button-theme-text);
 
 			// Build solid button.
-			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-solid, 'solid');
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-solid, 'solid');
 
 			// Build light button.
-			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-light, 'light');
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-light, 'light');
 
 			// Build ghost button.
-			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-ghost, 'ghost');
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-ghost, 'ghost');
 		}
 
 		// Disabled container.
@@ -34,11 +36,19 @@
 			@include block($block) {
 
 				// Set disabled button styles.
-				@include sui-button--tool.button-theme-constructor(disabled-container, sui-button--palette.$button-theme-text);
+				@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'default', false);
 			}
 		}
 	}
 
-	// DIR: Right-to-Left.
-	// No need.
+	// Monochrome.
+	@include body-class($wrap: true, $rtl: false, $monochrome: true) {
+
+		@include block($block) {
+			@include sui-button--tool.button-build-theme(none, sui-button--palette.$button-theme-text, null, true);
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-solid, 'solid', true);
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-light, 'light', true);
+			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-ghost, 'ghost', true);
+		}
+	}
 }
