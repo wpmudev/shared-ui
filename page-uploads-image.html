@@ -93,7 +93,7 @@ is_searchable: true
 						<div class="sui-form-field">
 
 							<label class="sui-label">Featured image</label>
-              
+
 							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
@@ -488,6 +488,15 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.4"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="false"
+				rtl-lang="true"
+			></div>
+
 			<!-- ROW: Markup -->
 			<div class="sui-box-settings-row">
 
@@ -563,7 +572,7 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-// This will trigger on file change. 
+// This will trigger on file change.
 $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
 	var filename = $( this ).val();
@@ -591,7 +600,7 @@ $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 		}
 		parent.find( '.sui-upload-file > span' ).text( '' );
 		parent.removeClass( 'sui-has_file' );
-	}		
+	}
 });
 
 // This will trigger on click of upload button
@@ -644,7 +653,7 @@ function removeFile(element) {
 					<p>2. When clicking on <code>.sui-upload-file > button</code> we should remove / clear uploaded image.</p>
 
 					<p>3. To make upload functionality work add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
-					
+
 					<p>4. If you want default browser finder make sure to use this script and add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
 
 				</div>
