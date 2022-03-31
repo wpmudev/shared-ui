@@ -32,6 +32,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             flexParent = flexItem.parent();
         var tableItem = $(this),
             tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content');
+        var button = $(this).find('.sui-accordion-open-indicator > .sui-screen-reader-text'),
+            buttonText = button === null || button === void 0 ? void 0 : button.text(),
+            dataContent = button === null || button === void 0 ? void 0 : button.data('content');
 
         if (clickedTarget.closest('.sui-accordion-item-action').length) {
           return true;
@@ -76,6 +79,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
               tableContent.addClass('sui-accordion-item--open');
             }
           }
+        } // Change button accessiblity content based on accordin open and close.
+
+
+        if (dataContent) {
+          button.html(dataContent);
+          button.data('content', buttonText);
         }
 
         event.stopPropagation();
@@ -113,8 +122,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-6 .sui-accordion').length) {
-    $('.sui-2-12-6 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-7 .sui-accordion').length) {
+    $('.sui-2-12-7 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
