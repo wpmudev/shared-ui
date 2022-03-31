@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.8](https://github.com/wpmudev/shared-ui/compare/v2.12.7...v2.12.8) (Unreleased)
+
+#### 🐛 Bug Fixes
+* **fix(input):** Hide option doesn't show when clicking on the icon in the password input. [#417](https://github.com/wpmudev/shared-ui/pull/417) ([SUI-154](https://incsub.atlassian.net/browse/SUI-154)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.7](https://github.com/wpmudev/shared-ui/compare/v2.12.6...v2.12.7) (2022-03-31)
 
 #### 🚀 Improvements
