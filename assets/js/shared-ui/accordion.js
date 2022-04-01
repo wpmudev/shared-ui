@@ -38,7 +38,7 @@
 				var flexHeader = $( this ),
 					flexItem   = flexHeader.parent(),
 					flexChart  = flexItem.find( '.sui-chartjs-animated' ),
-					flexParent = flexItem.parent()
+					flexParent = flexItem.parent(),
 					flexContent = flexHeader.next( '.sui-accordion-item-body' )
 					;
 
