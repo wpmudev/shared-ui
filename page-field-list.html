@@ -5,83 +5,109 @@ permalink: /field-list/
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation" aria-label="Page Options">
 
-		<div class="sui-field-list">
+		<ul class="sui-vertical-tabs">
 
-			<div class="sui-field-list-header">
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-				<h3 class="sui-field-list-title">Link To</h3>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
 
-				<p class="sui-description">Choose content you want to convert to links.</p>
+		</ul>
 
-			</div>
+	</div>
 
-			<div class="sui-field-list-body">
+	<!-- SECTION: Preview -->
+	<div class="sui-box" data-tab="preview">
 
-				<div class="sui-field-list-item">
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
+		</div>
 
-					<label
-						class="sui-field-list-item-label"
-						for="toggle-1"
-					>
-						Posts
-					</label>
+		<div class="sui-box-body">
 
-					<label class="sui-toggle">
-						<input type="checkbox" id="toggle-1" />
-						<span class="sui-toggle-slider"></span>
-					</label>
+			<div class="sui-field-list">
 
-				</div>
+				<div class="sui-field-list-header">
 
-				<div class="sui-field-list-item">
+					<h3 class="sui-field-list-title">Link To</h3>
 
-					<label
-						class="sui-field-list-item-label"
-						for="toggle-2"
-					>
-						Pages
-					</label>
-
-					<label class="sui-toggle">
-						<input type="checkbox" id="toggle-2" />
-						<span class="sui-toggle-slider"></span>
-					</label>
+					<p class="sui-description">Choose content you want to convert to links.</p>
 
 				</div>
 
-				<div class="sui-field-list-item">
+				<div class="sui-field-list-body">
 
-					<label
-						class="sui-field-list-item-label"
-						for="toggle-3"
-					>
-						Categories
-					</label>
+					<div class="sui-field-list-item">
 
-					<label class="sui-toggle">
-						<input type="checkbox" id="toggle-3" />
-						<span class="sui-toggle-slider"></span>
-					</label>
+						<label
+							class="sui-field-list-item-label"
+							for="toggle-1"
+						>
+							Posts
+						</label>
 
-				</div>
+						<label class="sui-toggle">
+							<input type="checkbox" id="toggle-1" />
+							<span class="sui-toggle-slider"></span>
+						</label>
 
-				<div class="sui-field-list-item">
+					</div>
 
-					<label
-						class="sui-field-list-item-label"
-						for="toggle-4"
-					>
-						Tags
-					</label>
+					<div class="sui-field-list-item">
 
-					<label class="sui-toggle">
-						<input type="checkbox" id="toggle-4" />
-						<span class="sui-toggle-slider"></span>
-					</label>
+						<label
+							class="sui-field-list-item-label"
+							for="toggle-2"
+						>
+							Pages
+						</label>
+
+						<label class="sui-toggle">
+							<input type="checkbox" id="toggle-2" />
+							<span class="sui-toggle-slider"></span>
+						</label>
+
+					</div>
+
+					<div class="sui-field-list-item">
+
+						<label
+							class="sui-field-list-item-label"
+							for="toggle-3"
+						>
+							Categories
+						</label>
+
+						<label class="sui-toggle">
+							<input type="checkbox" id="toggle-3" />
+							<span class="sui-toggle-slider"></span>
+						</label>
+
+					</div>
+
+					<div class="sui-field-list-item">
+
+						<label
+							class="sui-field-list-item-label"
+							for="toggle-4"
+						>
+							Tags
+						</label>
+
+						<label class="sui-toggle">
+							<input type="checkbox" id="toggle-4" />
+							<span class="sui-toggle-slider"></span>
+						</label>
+
+					</div>
 
 				</div>
 
@@ -89,9 +115,38 @@ is_searchable: true
 
 		</div>
 
-		<div class="demo-code-block" style="margin-top: 15px;">
+	</div>
 
-<pre class="sui-code-snippet html" style="max-height: 400px;">
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities="true"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="false"
+			></div>
+
+			<!-- ROW: Markup -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Markup</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
 &lt;div class=&quot;sui-field-list&quot;&gt;
 
 	&lt;div class=&quot;sui-field-list-header&quot;&gt;
@@ -125,8 +180,14 @@ is_searchable: true
 &lt;/div&gt;
 </pre>
 
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
 
-</article>
+</section>

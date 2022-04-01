@@ -5,54 +5,147 @@ permalink: /labels/
 is_searchable: true
 ---
 
-<section class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Side Navigation -->
+	<div class="sui-sidenav">
 
-		<p>Labels styles can get applied using <code>sui-label</code> class but it's better to use them with form fields.</p>
+		<ul class="sui-vertical-tabs">
 
-		<div class="sui-form-field sui-input-md">
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-			<label for="default-sample" id="default-sample-label" class="sui-label">Default label</label>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Dcoumentation</a>
+			</li>
 
-			<input id="default-sample" class="sui-form-control" aria-labelledby="default-sample-label" />
+		</ul>
 
+	</div>
+
+	<!-- SECTION: Preview. -->
+	<div class="sui-box" data-tab="preview">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
 		</div>
 
-		<div class="sui-form-field sui-input-md">
+		<div class="sui-box-body">
 
-			<label for="link-sample" id="link-sample-label" class="sui-label">Type your password <a href="#" class="sui-label-link">or recover it</a></label>
+			<p>Labels styles can get applied using <code>sui-label</code> class but it's better to use them with form fields.</p>
 
-			<input id="link-sample" class="sui-form-control" aria-labelledby="link-sample-label" />
+			<div class="sui-box-settings-row">
 
-		</div>
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Default</h3>
+				</div>
 
-		<div class="sui-form-field sui-input-md">
+				<div class="sui-box-settings-col-2">
 
-			<label for="note-sample" id="note-sample-label" class="sui-label">Insert a value <span class="sui-label-note">in pixels</span></label>
+					<div class="sui-form-field sui-input-md">
 
-			<input id="note-sample" class="sui-form-control" aria-labelledby="note-sample-label" />
+						<label for="default-sample" id="default-sample-label" class="sui-label">Label Sample</label>
 
-		</div>
+						<input id="default-sample" class="sui-form-control" aria-labelledby="default-sample-label" />
 
-		<div class="demo-code-block">
+					</div>
+
+					<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy html">
-&lt;!-- Default label --&gt;
 &lt;label class=&quot;sui-label&quot;&gt;Label&lt;/label&gt;
+</pre>
 
-&lt;!-- Label with link (at right) --&gt;
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Helper Link</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-form-field sui-input-md">
+
+						<label for="link-sample" id="link-sample-label" class="sui-label">Label Sample <a href="#" class="sui-label-link">with helper link</a></label>
+
+						<input id="link-sample" class="sui-form-control" aria-labelledby="link-sample-label" />
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
 &lt;label class=&quot;sui-label&quot;&gt;
 	Label
 	&lt;a href=&quot;#&quot; class=&quot;sui-label-link&quot;&gt;Side link&lt;/a&gt;
 &lt;/label&gt;
+</pre>
 
-&lt;!-- Label with note (at right) --&gt;
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Side Note</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-form-field sui-input-md">
+
+						<label for="note-sample" id="note-sample-label" class="sui-label">Label Sample <span class="sui-label-note">with side note</span></label>
+
+						<input id="note-sample" class="sui-form-control" aria-labelledby="note-sample-label" />
+
+					</div>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet sui-no-copy html">
 &lt;label class=&quot;sui-label&quot;&gt;
 	Label
 	&lt;span class=&quot;sui-label-note&quot;&gt;Side note&lt;/span&gt;
 &lt;/label&gt;
 </pre>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation. -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities="true"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="false"
+			></div>
 
 		</div>
 

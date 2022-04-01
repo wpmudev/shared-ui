@@ -5,132 +5,164 @@ permalink: /scores/
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<div class="sui-notice sui-notice-warning">
-			<p>If you are using individual js components, <code>scores.js</code> is required.</p>
-		</div>
+		<ul class="sui-vertical-tabs">
 
-		<p>These are animated gauges on page load for scoring. You gonna find gauges in three different colors that each represent three different states. Gauges also come in two different sizes, regular and large.</p>
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-		<p>To try each score color variation click on the options below:</p>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
 
-		<div class="sui-tabs sui-side-tabs">
+		</ul>
 
-			<div role="tablist" data-tabs>
-				<div id="tab-score-error" class="active" role="tab">Error</div>
-				<div id="tab-score-warning" role="tab">Warning</div>
-				<div id="tab-score-success" role="tab">Success</div>
+	</div>
+
+	<!-- SECTION: Preview -->
+	<div class="sui-box" data-tab="preview">
+
+		<div class="sui-box-body">
+
+			<!-- JS Warning -->
+			<div class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>If you are using individual js components, <code>scores.js</code> is required.</p>
+					</div>
+
+				</div>
+
 			</div>
 
-			<div class="sui-tabs-content-lg" data-panes>
+			<p>These are animated gauges on page load for scoring. You gonna find gauges in three different colors that each represent three different states. Gauges also come in two different sizes, regular and large.</p>
 
-				<!-- STATE: Error -->
-				<div class="active" role="tabpanel" aria-labelledby="tab-score-error">
+			<p>To try each score color variation click on the options below:</p>
 
-					<div class="sui-form-field">
+			<div class="sui-tabs sui-side-tabs">
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+				<div role="tablist" data-tabs>
+					<div id="tab-score-error" class="active" role="tab">Error</div>
+					<div id="tab-score-warning" role="tab">Warning</div>
+					<div id="tab-score-success" role="tab">Success</div>
+				</div>
 
-						<div class="sui-circle-score sui-grade-f" data-score="15"></div>
+				<div class="sui-tabs-content-lg" data-panes>
 
-						<div class="demo-code-block" style="margin-top: 10px;">
+					<!-- STATE: Error -->
+					<div class="active" role="tabpanel" aria-labelledby="tab-score-error">
+
+						<div class="sui-form-field">
+
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+
+							<div class="sui-circle-score sui-grade-f" data-score="15"></div>
+
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-grade-f&quot; data-score="15"&gt;&lt;/div&gt;
 </pre>
 
+							</div>
+
 						</div>
 
-					</div>
+						<div class="sui-form-field">
 
-					<div class="sui-form-field">
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+							<div class="sui-circle-score sui-circle-score-lg sui-grade-f" data-score="15"></div>
 
-						<div class="sui-circle-score sui-circle-score-lg sui-grade-f" data-score="15"></div>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-circle-score-lg sui-grade-f&quot; data-score="15"&gt;&lt;/div&gt;
 </pre>
 
+							</div>
+
 						</div>
 
 					</div>
 
-				</div>
+					<!-- STATE: Warning -->
+					<div role="tabpanel" aria-labelledby="tab-score-warning">
 
-				<!-- STATE: Warning -->
-				<div role="tabpanel" aria-labelledby="tab-score-warning">
+						<div class="sui-form-field">
 
-					<div class="sui-form-field">
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+							<div class="sui-circle-score sui-grade-c" data-score="55"></div>
 
-						<div class="sui-circle-score sui-grade-c" data-score="55"></div>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-grade-c&quot; data-score="55"&gt;&lt;/div&gt;
 </pre>
 
+							</div>
+
 						</div>
 
-					</div>
+						<div class="sui-form-field">
 
-					<div class="sui-form-field">
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+							<div class="sui-circle-score sui-circle-score-lg sui-grade-c" data-score="55"></div>
 
-						<div class="sui-circle-score sui-circle-score-lg sui-grade-c" data-score="55"></div>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-circle-score-lg sui-grade-c&quot; data-score="55"&gt;&lt;/div&gt;
 </pre>
 
+							</div>
+
 						</div>
 
 					</div>
 
-				</div>
+					<!-- STATE: Success -->
+					<div role="tabpanel" aria-labelledby="tab-score-success">
 
-				<!-- STATE: Success -->
-				<div role="tabpanel" aria-labelledby="tab-score-success">
+						<div class="sui-form-field">
 
-					<div class="sui-form-field">
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
+							<div class="sui-circle-score sui-grade-a" data-score="95"></div>
 
-						<div class="sui-circle-score sui-grade-a" data-score="95"></div>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-grade-a&quot; data-score="95"&gt;&lt;/div&gt;
 </pre>
 
+							</div>
+
 						</div>
 
-					</div>
+						<div class="sui-form-field">
 
-					<div class="sui-form-field">
+							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
 
-						<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+							<div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="95"></div>
 
-						<div class="sui-circle-score sui-circle-score-lg sui-grade-a" data-score="95"></div>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
+							<div class="demo-code-block" style="margin-top: 10px;">
 
 <pre class="sui-code-snippet sui-no-copy html">
 &lt;div class=&quot;sui-circle-score sui-circle-score-lg sui-grade-a&quot; data-score="95"&gt;&lt;/div&gt;
 </pre>
+
+							</div>
 
 						</div>
 
@@ -144,4 +176,25 @@ is_searchable: true
 
 	</div>
 
-</article>
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
+
+		</div>
+
+	</div>
+
+</section>

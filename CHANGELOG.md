@@ -2,13 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.8](https://github.com/wpmudev/shared-ui/compare/v2.12.7...v2.12.8) (Unreleased)
+
+#### 🐛 Bug Fixes
+* **fix(input):** Hide option doesn't show when clicking on the icon in the password input. [#417](https://github.com/wpmudev/shared-ui/pull/417) ([SUI-154](https://incsub.atlassian.net/browse/SUI-154)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [2.12.7](https://github.com/wpmudev/shared-ui/compare/v2.12.6...v2.12.7) (2022-03-31)
+
+#### 🚀 Improvements
+* **fix(selectors):** Improve the element for better accessibility. [#427](https://github.com/wpmudev/shared-ui/pull/427) ([SUI-6](https://incsub.atlassian.net/browse/SUI-6)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(builder):** Screen reader does not navigate correctly through the component. [#432](https://github.com/wpmudev/shared-ui/pull/432) ([SUI-5](https://incsub.atlassian.net/browse/SUI-5)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fixes
+* **fix(code-editor):** ACE conflict with WPBakery Page Builder. [#414](https://github.com/wpmudev/shared-ui/pull/414) ([SUI-190](https://incsub.atlassian.net/browse/SUI-190)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(code-snippet):** "Copy" button triggers the form submission. [#453](https://github.com/wpmudev/shared-ui/pull/453) ([SUI-133](https://incsub.atlassian.net/browse/SUI-133)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(select):** The dropdown list is not changing colours when High Contrast Mode is enabled. [#474](https://github.com/wpmudev/shared-ui/pull/474) ([SUI-100](https://incsub.atlassian.net/browse/SUI-100)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(settings-row):** Improve component in RTL mode. [#475](https://github.com/wpmudev/shared-ui/pull/475) ([SUI-275](https://incsub.atlassian.net/browse/SUI-275)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🏠 Internal
+* **fix(showcase):** Add `alt` tags to all sample images. [#420](https://github.com/wpmudev/shared-ui/pull/420) ([SUI-2](https://incsub.atlassian.net/browse/SUI-2)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(showcase):** Add an accessibility state table or similar to keep track of SUI elements status. [#476](https://github.com/wpmudev/shared-ui/pull/476) ([SUI-34](https://incsub.atlassian.net/browse/SUI-34)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [2.12.6](https://github.com/wpmudev/shared-ui/compare/v2.12.5...v2.12.6) (2022-03-22)
+
+#### 🐛 Bug Fixes
+* **fix(toggles):** Slider element not aligning correctly when label or description or both are not present. [#482](https://github.com/wpmudev/shared-ui/pull/482) ([SUI-325](https://incsub.atlassian.net/browse/SUI-325)) ([@iamleigh](https://github.com/iamleigh))
+* **fix(toggles):** Not registering the event in React with a mapped `onChange` event. [#484](https://github.com/wpmudev/shared-ui/pull/484) ([SUI-327](https://incsub.atlassian.net/browse/SUI-327)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [2.12.5](https://github.com/wpmudev/shared-ui/compare/v2.12.4...v2.12.5) (2022-03-19)
 
 #### 🚀 Improvements
 * **fix(tabs):** Enable radio inputs for side-tab buttons. [#481](https://github.com/wpmudev/shared-ui/pull/481) ([SUI-7](https://incsub.atlassian.net/browse/SUI-7)) ([@iamleigh](https://github.com/iamleigh))
 
 #### 🐛 Bug Fixes
-* **fix(toggle):** Clickable area is too long. [#457](https://github.com/wpmudev/shared-ui/pull/457) ([SUI-180](https://incsub.atlassian.net/browse/SUI-180)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(toggles):** Clickable area is too long. [#457](https://github.com/wpmudev/shared-ui/pull/457) ([SUI-180](https://incsub.atlassian.net/browse/SUI-180)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(tabs):** Overflow flushed tabs menu doesn't have enough space to place navigation buttons. [#441](https://github.com/wpmudev/shared-ui/pull/441) ([SUI-282](https://incsub.atlassian.net/browse/SUI-282)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(insert-variables):** Dropdown shouldn't store the option selected. [#468](https://github.com/wpmudev/shared-ui/pull/468) ([SUI-294](https://incsub.atlassian.net/browse/SUI-294)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(checkbox):** Clickable area is too long. [#472](https://github.com/wpmudev/shared-ui/pull/472) ([SUI-300](https://incsub.atlassian.net/browse/SUI-300)) ([@creador-dev](https://github.com/creador-dev))
