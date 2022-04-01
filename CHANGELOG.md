@@ -17,6 +17,8 @@ All notable changes to this project will be documented in this file. See [Conven
 * **fix(builder):** Screen reader does not navigate correctly through the component. [#432](https://github.com/wpmudev/shared-ui/pull/432) ([SUI-5](https://incsub.atlassian.net/browse/SUI-5)) ([@creador-dev](https://github.com/creador-dev))
 
 #### 🐛 Bug Fixes
+* **fix(code-editor):** ACE conflict with WPBakery Page Builder. [#414](https://github.com/wpmudev/shared-ui/pull/414) ([SUI-190](https://incsub.atlassian.net/browse/SUI-190)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(code-snippet):** "Copy" button triggers the form submission. [#453](https://github.com/wpmudev/shared-ui/pull/453) ([SUI-133](https://incsub.atlassian.net/browse/SUI-133)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(select):** The dropdown list is not changing colours when High Contrast Mode is enabled. [#474](https://github.com/wpmudev/shared-ui/pull/474) ([SUI-100](https://incsub.atlassian.net/browse/SUI-100)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(settings-row):** Improve component in RTL mode. [#475](https://github.com/wpmudev/shared-ui/pull/475) ([SUI-275](https://incsub.atlassian.net/browse/SUI-275)) ([@creador-dev](https://github.com/creador-dev))
 
