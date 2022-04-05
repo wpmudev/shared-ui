@@ -38,7 +38,8 @@
 				var flexHeader = $( this ),
 					flexItem   = flexHeader.parent(),
 					flexChart  = flexItem.find( '.sui-chartjs-animated' ),
-					flexParent = flexItem.parent()
+					flexParent = flexItem.parent(),
+					flexContent = flexHeader.next( '.sui-accordion-item-body' )
 					;
 
 				var tableItem    = $( this ),
@@ -64,6 +65,7 @@
 							flexItem.removeClass( 'sui-accordion-item--open' );
 						} else {
 							flexItem.addClass( 'sui-accordion-item--open' );
+							flexContent.attr( 'tabindex', '0' ).trigger('focus');
 						}
 					}
 
@@ -96,6 +98,7 @@
 						} else {
 							tableItem.addClass( 'sui-accordion-item--open' );
 							tableContent.addClass( 'sui-accordion-item--open' );
+							tableContent.attr( 'tabindex', '0' ).trigger( 'focus' );
 						}
 					}
 				}
