@@ -7,8 +7,10 @@ All notable changes to this project will be documented in this file. See [Conven
 #### 🐛 Bug Fixes
 * **fix(input):** Hide option doesn't show when clicking on the icon in the password input. [#417](https://github.com/wpmudev/shared-ui/pull/417) ([SUI-154](https://incsub.atlassian.net/browse/SUI-154)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(builder):** Select dropdown list appears behind checkbox items. [#487](https://github.com/wpmudev/shared-ui/pull/487) ([SUI-328](https://incsub.atlassian.net/browse/SUI-328)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(upgrade-page):** Styling issues between the upgrade page and the recommended plugins notice. [#490](https://github.com/wpmudev/shared-ui/pull/490) ([SUI-149](https://incsub.atlassian.net/browse/SUI-149)) ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [2.12.7](https://github.com/wpmudev/shared-ui/compare/v2.12.6...v2.12.7) (2022-03-31)
