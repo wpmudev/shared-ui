@@ -16,27 +16,29 @@
 		@include block($block) {
 
 			// Build text button.
-			@include sui-button--tool.button-theme-constructor(default, sui-button--palette.$button-theme-text);
+			@include sui-button--tool.button-theme-constructor(block, sui-button--palette.$button-theme-text);
 
 			// Build solid button.
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-solid, 'solid');
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-solid, 'solid');
 
 			// Build light button.
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-light, 'light');
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-light, 'light');
 
 			// Build ghost button.
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-ghost, 'ghost');
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-ghost, 'ghost');
+
+			// Build disabled button.
+			@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'grey');
+
 		}
 
-		// Disabled container.
+		// Build disabled button when container is disabled.
 		*[disabled],
 		*:disabled,
 		*.disabled {
 
 			@include block($block) {
-
-				// Set disabled button styles.
-				@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'default', false);
+				@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'grey', false);
 			}
 		}
 	}
@@ -45,10 +47,32 @@
 	@include body-class($wrap: true, $rtl: false, $monochrome: true) {
 
 		@include block($block) {
-			@include sui-button--tool.button-build-theme(none, sui-button--palette.$button-theme-text, null, true);
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-solid, 'solid', true);
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-light, 'light', true);
-			@include sui-button--tool.button-build-theme(modifier, sui-button--palette.$button-theme-ghost, 'ghost', true);
+
+			// Build text button.
+			@include sui-button--tool.button-theme-constructor(block, sui-button--palette.$button-theme-text, null, true);
+
+			// Build solid button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-solid, 'solid', true);
+
+			// Build light button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-light, 'light', true);
+
+			// Build ghost button.
+			@include sui-button--tool.button-theme-constructor(modifier, sui-button--palette.$button-theme-ghost, 'ghost', true);
+
+			// Build disabled button.
+			@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'black');
+
+		}
+
+		// Build disabled button when container is disabled.
+		*[disabled],
+		*:disabled,
+		*.disabled {
+
+			@include block($block) {
+				@include sui-button--tool.button-build-state-disabled(sui-button--palette.$button-theme-text, 'black', false);
+			}
 		}
 	}
 }
