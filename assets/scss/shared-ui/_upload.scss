@@ -22,7 +22,7 @@
 			}
 		}
 
-		.sui-upload-image {
+		.sui-upload__image {
 			width: $file-upload--image-size;
 			height: $file-upload--image-size;
 			flex: 0 0 auto;
@@ -32,21 +32,21 @@
 			border: $file-upload--image-border-width $file-upload--image-border-style $file-upload--image-border-color;
 			border-radius: $border-radius;
 
-			[class*="sui-image-"] {
+			[class*="sui-upload__image--"] {
 				width: #{$file-upload--image-size - (($file-upload--image-border-width * 2) + ($file-upload--image-padding * 2))};
 				height: #{$file-upload--image-size - (($file-upload--image-border-width * 2) + ($file-upload--image-padding * 2))};
 				display: block;
 				border-radius: #{$border-radius - $file-upload--image-padding};
 			}
 
-			.sui-image-mask {
+			.sui-upload__image--mask {
 				background-color: $file-upload--image-mask-background;
 				background-image: linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white), linear-gradient(45deg, $white 25%, transparent 25%, transparent 75%, $white 75%, $white);
 				background-size: 12px 12px;
 				background-position: 0 0, 6px 6px;
 			}
 
-			.sui-image-preview {
+			.sui-upload__image--preview {
 				cursor: pointer;
 				display: none;
 				position: absolute;
@@ -93,12 +93,12 @@
 				}
 			}
 
-			~ .sui-upload-button,
-			~ .sui-upload-file {
+			~ .sui-upload__file,
+			~ .sui-upload__button {
 				margin-left: 5px;
 			}
 
-			~ .sui-upload-file {
+			~ .sui-upload__file {
 				max-width: calc(100% - #{$file-upload--image-size + 5px});
 				cursor: initial;
 				padding-left: 19px;
@@ -114,7 +114,7 @@
 			}
 		}
 
-		.sui-upload-file {
+		.sui-upload__file {
 			max-width: 100%;
 			cursor: pointer;
 			flex: 0 0 auto;
@@ -184,7 +184,7 @@
 			}
 		}
 
-		.sui-upload-button {
+		.sui-upload__button {
 			margin: 0;
 			padding: 11px 19px;
 			border: $file-upload--add-border-width $file-upload--add-border-style $file-upload--add-border-color;
@@ -219,20 +219,20 @@
 		}
 
 		// STATUS: File uploaded
-		&.sui-has_file {
+		&.sui-upload--has-file {
 
-			.sui-upload-image {
+			.sui-upload__image {
 
-				.sui-image-preview {
+				.sui-upload__image--preview {
 					display: block;
 				}
 			}
 
-			.sui-upload-file {
+			.sui-upload__file {
 				display: block;
 			}
 
-			.sui-upload-button {
+			.sui-upload__button {
 				display: none;
 			}
 		}

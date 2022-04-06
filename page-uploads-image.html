@@ -94,28 +94,24 @@ is_searchable: true
 
 							<label class="sui-label">Featured image</label>
 
-							<div class="sui-upload sui-file-upload sui-file-browser">
+							<div class="sui-upload sui-upload--file sui-upload--browser">
 
-								<input
-									type="file"
-									value=""
-									readonly="readonly"
-								/>
-
-								<div class="sui-upload-image" aria-hidden="true">
-									<div class="sui-image-mask"></div>
-									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								<div class="sui-upload__image" aria-hidden="true">
+									<div class="sui-upload__image--mask"></div>
+									<div role="button" class="sui-upload__image--preview" style="background-image: url('');"></div>
 								</div>
-
-								<button class="sui-upload-button">
+							
+								<button class="sui-upload__button" id="uploadbtn" tabindex="-1">
 									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload image
 								</button>
 
-								<div class="sui-upload-file">
+								<input type="file" readonly="readonly" id="fileupload" aria-labelledby="uploadbtn" aria-controls="filename">
 
-									<span></span>
+								<div class="sui-upload__file">
 
-									<button class="sui-upload-button--remove"
+									<span id="filename" tabindex="0"></span>
+
+									<button class="sui-upload__button--remove"
 										aria-label="Remove file">
 										<span class="sui-icon-close" aria-hidden="true"></span>
 									</button>
@@ -141,22 +137,18 @@ is_searchable: true
 
 							<label class="sui-label">Featured image</label>
 
-							<div class="sui-upload sui-file-upload sui-file-browser">
+							<div class="sui-upload sui-upload--file sui-upload--browser">
 
-								<input
-									type="file"
-									value=""
-									readonly="readonly"
-								/>
-
-								<div class="sui-upload-image" aria-hidden="true">
-									<div class="sui-image-mask"></div>
-									<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+								<div class="sui-upload__image" aria-hidden="true">
+									<div class="sui-upload__image--mask"></div>
+									<div role="button" class="sui-upload__image--preview" style="background-image: url('');"></div>
 								</div>
-
-								<button class="sui-upload-button">
+							
+								<button class="sui-upload__button" id="uploadbtn" tabindex="-1">
 									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload image
 								</button>
+
+								<input type="file" readonly="readonly" id="fileupload" aria-labelledby="uploadbtn" aria-controls="filename">
 
 							</div>
 
@@ -181,28 +173,24 @@ is_searchable: true
 
 							<label class="sui-label">Featured image</label>
 
-							<div class="sui-upload sui-has_file">
+							<div class="sui-upload sui-upload--file sui-upload--browser sui-upload--has-file">
 
-								<input
-									type="file"
-									value="filename.jpg"
-									readonly="readonly"
-								/>
-
-								<div class="sui-upload-image" aria-hidden="true">
-									<div class="sui-image-mask"></div>
-									<div role="button" class="sui-image-preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
+								<div class="sui-upload__image" aria-hidden="true">
+									<div class="sui-upload__image--mask"></div>
+									<div role="button" class="sui-upload__image--preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
 								</div>
-
-								<button class="sui-upload-button">
+							
+								<button class="sui-upload__button" id="uploadbtn" tabindex="-1">
 									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload image
 								</button>
 
-								<div class="sui-upload-file">
+								<input type="file" value="filename.jpg" readonly="readonly" id="fileupload" aria-labelledby="uploadbtn" aria-controls="filename">
 
-									<span>filename.jpg</span>
+								<div class="sui-upload__file">
 
-									<button class="sui-upload-button--remove"
+									<span id="filename" tabindex="0">filename.jpg</span>
+
+									<button class="sui-upload__button--remove"
 										aria-label="Remove file">
 										<span class="sui-icon-close" aria-hidden="true"></span>
 									</button>
