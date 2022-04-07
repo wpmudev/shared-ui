@@ -51,7 +51,7 @@
                 // build markup
                 this.$element.wrap( '<div class="sui-code-snippet-wrapper"></div>' );
                 this._clipboardId = this.generateUniqueId();
-                button            = '<button type="button" class="sui-button sui-button--solid" id="sui-code-snippet-button-' + this._clipboardId + '" data-clipboard-target="#sui-code-snippet-' + this._clipboardId + '">' + this.settings.copyText + '</button>';
+                button            = '<button type="button" class="sui-button sui-button--solid" id="sui-code-snippet-button-' + this._clipboardId + '" data-clipboard-target="#sui-code-snippet-' + this._clipboardId + '"><span class="sui-button__label">' + this.settings.copyText + '</span></button>';
                 this.$element.attr( 'id', 'sui-code-snippet-' + this._clipboardId ).after( button );
                 this._clipboardJs = new ClipboardJS( '#sui-code-snippet-button-' + this._clipboardId );
 
