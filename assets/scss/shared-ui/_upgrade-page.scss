@@ -1,6 +1,7 @@
 @use "sass:math";
 
 @include body-class(true) {
+
 	.sui-upgrade {
 
 		&__page {
@@ -11,7 +12,20 @@
 			}
 
 			&:not(:first-child) {
-				margin-top: $sui-gutter;
+				margin-top: $sui-gutter-md;
+
+				@include media(min-width, md) {
+					margin-top: $sui-gutter;
+				}
+			}
+		}
+
+		&__container {
+			max-width: 1140px;
+			margin: auto;
+			display: flex;
+			@media (max-width: 800px) {
+				flex-wrap: wrap;
 			}
 		}
 
