@@ -29,7 +29,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         var flexHeader = $(this),
             flexItem = flexHeader.parent(),
             flexChart = flexItem.find('.sui-chartjs-animated'),
-            flexParent = flexItem.parent();
+            flexParent = flexItem.parent(),
+            flexContent = flexHeader.next('.sui-accordion-item-body');
         var tableItem = $(this),
             tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content');
         var button = $(this).find('.sui-accordion-open-indicator > .sui-screen-reader-text'),
@@ -49,6 +50,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
               flexItem.removeClass('sui-accordion-item--open');
             } else {
               flexItem.addClass('sui-accordion-item--open');
+              flexContent.attr('tabindex', '0').trigger('focus');
             }
           } // CHECK: Accordion Blocks
 
@@ -77,6 +79,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             } else {
               tableItem.addClass('sui-accordion-item--open');
               tableContent.addClass('sui-accordion-item--open');
+              tableContent.attr('tabindex', '0').trigger('focus');
             }
           }
         } // Change button accessiblity content based on accordin open and close.
@@ -122,8 +125,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-7 .sui-accordion').length) {
-    $('.sui-2-12-7 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-8 .sui-accordion').length) {
+    $('.sui-2-12-8 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.8](https://github.com/wpmudev/shared-ui/compare/v2.12.7...v2.12.8) (Unreleased)
+
+#### 🚀 Improvements
+* **fix(accordions):** Focus on content when accordion opens. [#489](https://github.com/wpmudev/shared-ui/pull/489) ([SUI-330](https://incsub.atlassian.net/browse/SUI-330)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fixes
+* **fix(input):** Hide option doesn't show when clicking on the icon in the password input. [#417](https://github.com/wpmudev/shared-ui/pull/417) ([SUI-154](https://incsub.atlassian.net/browse/SUI-154)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(builder):** Select dropdown list appears behind checkbox items. [#487](https://github.com/wpmudev/shared-ui/pull/487) ([SUI-328](https://incsub.atlassian.net/browse/SUI-328)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(upgrade-page):** Styling issues between the upgrade page and the recommended plugins notice. [#490](https://github.com/wpmudev/shared-ui/pull/490) ([SUI-149](https://incsub.atlassian.net/browse/SUI-149)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.7](https://github.com/wpmudev/shared-ui/compare/v2.12.6...v2.12.7) (2022-03-31)
 
 #### 🚀 Improvements
@@ -9,6 +23,8 @@ All notable changes to this project will be documented in this file. See [Conven
 * **fix(builder):** Screen reader does not navigate correctly through the component. [#432](https://github.com/wpmudev/shared-ui/pull/432) ([SUI-5](https://incsub.atlassian.net/browse/SUI-5)) ([@creador-dev](https://github.com/creador-dev))
 
 #### 🐛 Bug Fixes
+* **fix(code-editor):** ACE conflict with WPBakery Page Builder. [#414](https://github.com/wpmudev/shared-ui/pull/414) ([SUI-190](https://incsub.atlassian.net/browse/SUI-190)) ([@creador-dev](https://github.com/creador-dev))
+* **fix(code-snippet):** "Copy" button triggers the form submission. [#453](https://github.com/wpmudev/shared-ui/pull/453) ([SUI-133](https://incsub.atlassian.net/browse/SUI-133)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(select):** The dropdown list is not changing colours when High Contrast Mode is enabled. [#474](https://github.com/wpmudev/shared-ui/pull/474) ([SUI-100](https://incsub.atlassian.net/browse/SUI-100)) ([@creador-dev](https://github.com/creador-dev))
 * **fix(settings-row):** Improve component in RTL mode. [#475](https://github.com/wpmudev/shared-ui/pull/475) ([SUI-275](https://incsub.atlassian.net/browse/SUI-275)) ([@creador-dev](https://github.com/creador-dev))
 

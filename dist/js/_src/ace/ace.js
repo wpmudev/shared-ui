@@ -11709,7 +11709,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     if (!window.ace) window.ace = a;
 
     for (var key in a) {
-      if (a.hasOwnProperty(key)) window.ace[key] = a[key];
+      if (a.hasOwnProperty(key) && !window.ace[key]) window.ace[key] = a[key];
     }
   });
 })();

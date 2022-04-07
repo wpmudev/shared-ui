@@ -45,7 +45,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         // build markup
         this.$element.wrap('<div class="sui-code-snippet-wrapper"></div>');
         this._clipboardId = this.generateUniqueId();
-        button = '<button class="sui-button" id="sui-code-snippet-button-' + this._clipboardId + '" data-clipboard-target="#sui-code-snippet-' + this._clipboardId + '">' + this.settings.copyText + '</button>';
+        button = '<button type="button" class="sui-button" id="sui-code-snippet-button-' + this._clipboardId + '" data-clipboard-target="#sui-code-snippet-' + this._clipboardId + '">' + this.settings.copyText + '</button>';
         this.$element.attr('id', 'sui-code-snippet-' + this._clipboardId).after(button);
         this._clipboardJs = new ClipboardJS('#sui-code-snippet-button-' + this._clipboardId); // attach events
 
@@ -107,7 +107,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-7 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-8 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
