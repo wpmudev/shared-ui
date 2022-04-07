@@ -27,6 +27,7 @@
 			@else {
 
 				@include modifier($type + '-' + $value) {
+					$height: #{$value + 'px'};
 					$line-height: #{$value + 'px'};
 
 					@if $props != null and map.has-key($props, line-height) {
@@ -38,6 +39,7 @@
 					}
 
 					@else if $type == height {
+						height: $height;
 						line-height: $line-height;
 					}
 				}
