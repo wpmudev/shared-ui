@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.13.0](https://github.com/wpmudev/shared-ui/compare/v2.12.1...v2.13.0) (Unreleased)
+## [2.13.0](https://github.com/wpmudev/shared-ui/compare/v2.12.8...v2.13.0) (Unreleased)
 
 #### 💥 Breaking Changes
 * **fix(upgrade):** Revamp markup to add video section. [#378](https://github.com/wpmudev/shared-ui/pull/378) ([SUI-49](https://incsub.atlassian.net/browse/SUI-49)) ([@iamleigh](https://github.com/iamleigh))
@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file. See [Conven
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [2.12.8](https://github.com/wpmudev/shared-ui/compare/v2.12.7...v2.12.8) (Unreleased)
+## [2.12.8](https://github.com/wpmudev/shared-ui/compare/v2.12.7...v2.12.8) (2022-04-07)
 
 #### 🚀 Improvements
 * **fix(accordions):** Focus on content when accordion opens. [#489](https://github.com/wpmudev/shared-ui/pull/489) ([SUI-330](https://incsub.atlassian.net/browse/SUI-330)) ([@creador-dev](https://github.com/creador-dev))
