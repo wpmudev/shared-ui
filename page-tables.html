@@ -5,55 +5,110 @@ permalink: /tables/
 is_searchable: true
 ---
 
-<article class="sui-box">
+<section class="sui-row-with-sidenav">
 
-	<div class="sui-box-body">
+	<!-- Navigation -->
+	<div class="sui-sidenav" role="navigation">
 
-		<p>Add <code>sui-table</code> class to style correctly your table element.</p>
+		<ul class="sui-vertical-tabs">
 
-		<table class="sui-table">
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
 
-			<thead>
-				<tr>
-					<th>Title A</th>
-					<th>Title B</th>
-					<th>Title C</th>
-				</tr>
-			</thead>
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
 
-			<tbody>
+		</ul>
 
-				<tr>
-					<td class="sui-table-item-title">Row Title</td>
-					<td>Row content...</td>
-					<td><input type="text" class="sui-form-control" /></td>
-				</tr>
+	</div>
 
-				<tr>
-					<td class="sui-table-item-title">Row Title</td>
-					<td>Row content...</td>
-					<td><input type="text" class="sui-form-control" /></td>
-				</tr>
+	<!-- SECTION: Preview -->
+	<div class="sui-box" data-tab="preview">
 
-				<tr>
-					<td class="sui-table-item-title">Row Title</td>
-					<td>Row content...</td>
-					<td><input type="text" class="sui-form-control" /></td>
-				</tr>
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Preview</h2>
+		</div>
 
-			</tbody>
+		<div class="sui-box-body">
 
-			<tfoot>
-				<tr>
-					<td colspan="3" style="text-align: right;">
-						<button class="sui-button sui-button-blue">Save Changes</button>
-					</td>
-				</tr>
-			</tfoot>
+			<p>Add <code>sui-table</code> class to style correctly your table element.</p>
 
-		</table>
+			<table class="sui-table">
 
-		<div class="demo-code-block" style="margin-top: 15px;">
+				<thead>
+					<tr>
+						<th>Title A</th>
+						<th>Title B</th>
+						<th>Title C</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td class="sui-table-item-title">Row Title</td>
+						<td>Row content...</td>
+						<td><input type="text" class="sui-form-control" /></td>
+					</tr>
+
+					<tr>
+						<td class="sui-table-item-title">Row Title</td>
+						<td>Row content...</td>
+						<td><input type="text" class="sui-form-control" /></td>
+					</tr>
+
+					<tr>
+						<td class="sui-table-item-title">Row Title</td>
+						<td>Row content...</td>
+						<td><input type="text" class="sui-form-control" /></td>
+					</tr>
+
+				</tbody>
+
+				<tfoot>
+					<tr>
+						<td colspan="3" style="text-align: right;">
+							<button class="sui-button sui-button-blue">Save Changes</button>
+						</td>
+					</tr>
+				</tfoot>
+
+			</table>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities="false"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="false"
+			></div>
+
+			<!-- ROW: Markup -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Markup</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;table class=&quot;sui-table&quot;&gt;
@@ -89,8 +144,14 @@ is_searchable: true
 &lt;/table&gt;
 </pre>
 
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
 
-</article>
+</section>

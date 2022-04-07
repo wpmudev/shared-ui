@@ -1,13 +1,24 @@
 @use "sass:math";
 
 @include body-class(true) {
-	.sui-upgrade {
+	.sui-upgrade-page {
+		background: #FAFAFA;
+		margin: -30px -30px 60px;
 
-		&__page {
-			margin: -#{$sui-gutter-md} -#{math.div($sui-gutter-md, 2)} 0;
+		@media (max-width: 783px) {
+			margin: -21px -10px 0;
+		}
 
-			@include media(min-width, md) {
-				margin: -#{$sui-gutter} -#{$sui-gutter} 0;
+		&:not(:first-child) {
+			margin-top: 30px;
+		}
+
+		&__container {
+			max-width: 1140px;
+			margin: auto;
+			display: flex;
+			@media (max-width: 800px) {
+				flex-wrap: wrap;
 			}
 		}
 

@@ -7,8 +7,8 @@
                     }
                     if (!window.ace)
                         window.ace = a;
-                    for (var key in a) if (a.hasOwnProperty(key))
-                        window.ace[key] = a[key];
+                    for (var key in a) 
+                        if (a.hasOwnProperty(key) && !window.ace[key]) window.ace[key] = a[key];
                 });
             })();
         

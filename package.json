@@ -1,6 +1,6 @@
 {
 	"name": "@wpmudev/shared-ui",
-	"version": "2.12.1",
+	"version": "2.12.8",
 	"description": "For internal use in WPMU DEV plugins",
 	"private": false,
 	"author": "WPMU DEV (https://wpmudev.com/)",
@@ -106,13 +106,13 @@
 		"watch:showcase": "bundler exec jekyll serve --watch",
 		"publish:library": "npm run clean:ghpages && gulp publishLibrary",
 		"publish:showcase": "npm run clean:ghpages && gulp publishShowcase",
-		"publish": "npm run build && npm run clean:ghpages && gulp publishShowcase && gulp publishLibrary",
-		"release:patch": "npm version patch --no-git-tag-version && npm run publish",
-		"release:prepatch": "npm version prepatch --preid=beta --no-git-tag-version && npm run publish",
-		"release:minor": "npm version minor --no-git-tag-version && npm run publish",
-		"release:preminor": "npm version preminor --preid=beta --no-git-tag-version && npm run publish",
-		"release:major": "npm version major --no-git-tag-version && npm run publish",
-		"release:premajor": "npm version premajor --preid=beta --no-git-tag-version && npm run publish",
-		"release:prerelease": "npm version prerelease --preid=beta --no-git-tag-version && npm run publish"
+		"publish:all": "npm run build && npm run clean:ghpages && gulp publishShowcase && gulp publishLibrary",
+		"release:patch": "npm version patch --no-git-tag-version && npm run publish:all",
+		"release:prepatch": "npm version prepatch --preid=beta --no-git-tag-version && npm run publish:all",
+		"release:minor": "npm version minor --no-git-tag-version && npm run publish:all",
+		"release:preminor": "npm version preminor --preid=beta --no-git-tag-version && npm run publish:all",
+		"release:major": "npm version major --no-git-tag-version && npm run publish:all",
+		"release:premajor": "npm version premajor --preid=beta --no-git-tag-version && npm run publish:all",
+		"release:prerelease": "npm version prerelease --preid=beta --no-git-tag-version && npm run publish:all"
 	}
 }

@@ -163,6 +163,7 @@
 					}
 				}
 
+				&:focus,
 				&:hover {
 					background-color: $box-builder--notice-background;
 				}
@@ -585,6 +586,10 @@
 
 				.sui-hover-show {
 					opacity: 0;
+					
+					&:focus{
+						opacity: 1;
+					}
 				}
 
 				&:hover {
@@ -817,6 +822,16 @@
 			@include media(min-width, md) {
 				margin-bottom: $sui-gutter;
 			}
+		}
+	}
+}
+
+@include body-class(false) {
+
+	.sui-select {
+
+		&.sui-select-dropdown-container--open {
+			z-index: 1;
 		}
 	}
 }
