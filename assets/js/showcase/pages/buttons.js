@@ -127,19 +127,15 @@
 					preview.each( function() {
 						var button = $( this ).find( '.sui-button' );
 
-						button.removeClass( 'sui-button--icon-leading' );
-						button.removeClass( 'sui-button--icon-trailing' );
 						button.find( '.sui-button__icon' ).remove();
 
 						switch ( option.val() ) {
 							case 'leading':
-								button.addClass( 'sui-button--icon-leading' );
 								button.prepend(
 									'<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>'
 								);
 								break;
 							case 'trailing':
-								button.addClass( 'sui-button--icon-trailing' );
 								button.append(
 									'<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>'
 								);
