@@ -5,7 +5,7 @@
 		display: flex;
 		align-items: flex-start;
 		margin: 0;
-		padding: #{math.div($sui-gutter-md, 2) + 1px} $sui-gutter-md;
+		padding: #{math.div($sui-gutter-md, 2) + 6px} $sui-gutter-md #{math.div($sui-gutter-md, 2) + 4px};
 		border: 0;
 		border-radius: $border-radius;
 		background-color: $white;
@@ -96,7 +96,7 @@
 }
 
 // Monochrome support.
-@include body-class($wrap: false, $rtl: false, $monochrome: true) {
+@include body-class($wrap: true, $rtl: false, $monochrome: true) {
 	.sui-spotlight {
 		box-shadow: inset 2px 0 0 0 $black, inset 0 0 0 1px $silver;
 
@@ -144,7 +144,7 @@
 }
 
 // RTL monochrome support.
-@include body-class($wrap: false, $rtl: true, $monochrome: true) {
+@include body-class($wrap: true, $rtl: true, $monochrome: true) {
 	.sui-spotlight {
 		box-shadow: inset -2px 0 0 0 $black, inset 0 0 0 1px $silver;
 
