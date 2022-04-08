@@ -8,8 +8,12 @@ All notable changes to this project will be documented in this file. See [Conven
 * **fix(calendar):** Ranges overlapping the calendar after a certain amount. [#297](https://github.com/wpmudev/shared-ui/pull/297) ([SUI-85](https://incsub.atlassian.net/browse/SUI-85)) ([@iamleigh](https://github.com/iamleigh))
 * **fix(calendar):** Looking off in mobile. [#298](https://github.com/wpmudev/shared-ui/pull/298) ([SUI-84](https://incsub.atlassian.net/browse/SUI-84)) ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Docs
+* **docs(slide-modal):** Slide modal example doesn't work. [#424](https://github.com/wpmudev/shared-ui/pull/424) ([SUI-134](https://incsub.atlassian.net/browse/SUI-134)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [2.13.0](https://github.com/wpmudev/shared-ui/compare/v2.12.8...v2.13.0) (Unreleased)
 
