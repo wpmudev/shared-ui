@@ -11,7 +11,11 @@
 			}
 
 			&:not(:first-child) {
-				margin-top: $sui-gutter;
+				margin-top: $sui-gutter-md;
+
+				@include media(min-width, md) {
+					margin-top: $sui-gutter;
+				}
 			}
 		}
 
