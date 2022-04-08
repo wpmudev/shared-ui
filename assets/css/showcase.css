@@ -14594,14 +14594,18 @@ html.sui-has-overlay {
 .sui-2-12-8 .daterangepicker .drp-calendar {
   display: block;
 }
-.sui-2-12-8 .daterangepicker .drp-calendar.left {
-  float: left;
+@media (min-width: 480px) {
+  .sui-2-12-8 .daterangepicker .drp-calendar.left {
+    float: left;
+  }
 }
-.sui-2-12-8 .daterangepicker .drp-calendar.right {
-  float: right;
+@media (min-width: 480px) {
+  .sui-2-12-8 .daterangepicker .drp-calendar.right {
+    float: right;
+  }
 }
 .sui-2-12-8 .daterangepicker .drp-calendar .table-condensed {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: 0;
   border-spacing: 0;
@@ -14729,23 +14733,28 @@ html.sui-has-overlay {
 .sui-2-12-8 .daterangepicker .drp-calendar .table-condensed tbody tr td.disabled {
   text-decoration: line-through;
 }
-.sui-2-12-8 .daterangepicker .drp-calendar + .drp-calendar {
-  margin-left: 10px;
-  padding-left: 10px;
-  border-left: 1px solid #E6E6E6;
+@media (min-width: 480px) {
+  .sui-2-12-8 .daterangepicker .drp-calendar + .drp-calendar {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #E6E6E6;
+  }
+}
+@media (max-width: 479px) {
+  .sui-2-12-8 .daterangepicker .drp-calendar {
+    margin-top: 15px;
+  }
 }
 .sui-2-12-8 .daterangepicker.show-ranges {
-  padding-top: 52px;
+  padding-top: 20px;
 }
 .sui-2-12-8 .daterangepicker.show-ranges .ranges {
   display: block;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  position: absolute;
-  top: 20px;
-  right: 0;
-  left: 0;
+  margin: 0 auto;
+  max-width: calc((30px * 14) + 20px);
 }
 .sui-2-12-8 .daterangepicker.show-ranges .ranges ul {
   width: 100%;
@@ -14770,7 +14779,7 @@ html.sui-has-overlay {
 .sui-2-12-8 .daterangepicker.show-ranges .ranges ul li {
   cursor: pointer;
   display: block;
-  margin: 0 5px;
+  margin: 3px 5px;
   padding: 3px 10px;
   border: 0;
   border-radius: 10px;
@@ -14792,6 +14801,11 @@ html.sui-has-overlay {
 }
 .sui-2-12-8 .daterangepicker.show-ranges .ranges ul li:last-child {
   margin-right: 0;
+}
+@media (max-width: 479px) {
+  .sui-2-12-8 .daterangepicker.show-ranges .ranges {
+    max-width: calc(30px * 7);
+  }
 }
 .sui-2-12-8 .daterangepicker.auto-apply .drp-buttons {
   display: none;
