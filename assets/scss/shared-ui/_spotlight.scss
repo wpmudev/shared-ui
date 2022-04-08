@@ -1,0 +1,155 @@
+@use 'sass:math';
+
+@include body-class(true) {
+	.sui-spotlight {	
+		display: flex;
+		align-items: flex-start;
+		margin: 0;
+		padding: #{math.div($sui-gutter-md, 2) + 1px} $sui-gutter-md;
+		border: 0;
+		border-radius: $border-radius;
+		background-color: $white;
+		box-shadow: inset 2px 0 0 0 $fiftyshades, inset 0 0 0 1px $silver;
+
+		p {
+			margin: 0 0 math.div($sui-gutter-md, 2);
+			padding: 0;
+			border: 0;
+			color: $nightrider;
+			font-size: 13px;
+			line-height: 22px;
+			width: 100%;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.sui-spotlight__icon {
+		display: block;
+		color: $grey;
+		text-align: center;
+		float: left;
+		position: relative;
+		top: 2px;
+		margin-right: #{$sui-gutter - 20px};
+
+		&:before {
+			display: block;
+			color: inherit;
+		}
+
+		&.sui-sm {
+			top: 4px;
+		}
+
+		&.sui-md {
+			top: 2px;
+		}
+
+		&.sui-lg {
+			top: 1px;
+		}
+	}
+
+	// colors variants
+	.sui-spotlight--blue {
+		box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px $silver;		
+	}
+
+	.sui-spotlight__icon--blue {
+		color: $blue;
+	}
+
+	.sui-spotlight--green {
+		box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight__icon--green {
+		color: $green;
+	}
+
+	.sui-spotlight--red {
+		box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight__icon--red {
+		color: $red;
+	}
+
+	.sui-spotlight--yellow {
+		box-shadow: inset 2px 0 0 0 $yellow, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight__icon--yellow {
+		color: $yellow;
+	}
+	
+	.sui-spotlight--purple {
+		box-shadow: inset 2px 0 0 0 $purple, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight__icon--purple {
+		color: $purple;
+	}
+}
+
+// Monochrome support.
+@include body-class($wrap: false, $rtl: false, $monochrome: true) {
+	.sui-spotlight {
+		box-shadow: inset 2px 0 0 0 $black, inset 0 0 0 1px $silver;
+
+		p {
+			color: $black;
+			background-color: $white;
+		}
+	}
+}
+
+// RTL Support.
+@include body-class($wrap: true, $rtl: true, $monochrome: null) {
+
+	.sui-spotlight {
+		direction: rtl;
+		flex-direction: row;
+		box-shadow: inset -2px 0 0 0 $fiftyshades, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight__icon {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	// colors variants
+	.sui-spotlight--blue {
+		box-shadow: inset -2px 0 0 0 $blue, inset 0 0 0 1px $silver;
+	}
+
+	.sui-spotlight--green {
+		box-shadow: inset -2px 0 0 0 $green, inset 0 0 0 1px $silver;		
+	}
+
+	.sui-spotlight--red {
+		box-shadow: inset -2px 0 0 0 $red, inset 0 0 0 1px $silver;		
+	}
+
+	.sui-spotlight--yellow {
+		box-shadow: inset -2px 0 0 0 $yellow, inset 0 0 0 1px $silver;			
+	}
+	
+	.sui-spotlight--purple {
+		box-shadow: inset -2px 0 0 0 $purple, inset 0 0 0 1px $silver;
+	}
+}
+
+// RTL monochrome support.
+@include body-class($wrap: false, $rtl: true, $monochrome: true) {
+	.sui-spotlight {
+		box-shadow: inset -2px 0 0 0 $black, inset 0 0 0 1px $silver;
+
+		p {
+			color: $black;
+		}
+	}
+}
