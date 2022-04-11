@@ -17,14 +17,13 @@
 			if ( file ) {
 				message.text( file.name );
 			}
-
 		});
 
 		// check whether element exist then execute js
-		if($( 'SUI_BODY_CLASS .sui-upload--file' ).length){
+		if($( 'SUI_BODY_CLASS .sui-upload--file' ).length) {
 			// This will trigger on file change. 
 			$( 'SUI_BODY_CLASS .sui-upload--browser input[type="file"]' ).on( 'change', function() {
-				var parent = $( this ).closest( '.sui-upload' );;
+				var parent = $( this ).closest( '.sui-upload' );
 				var filename = $( this ).val();
 				var imageContainer = parent.find( '.sui-upload__image' );
 				if(filename) {
@@ -54,7 +53,7 @@
 			});
 
 			// This will trigger on click of upload button
-			$( 'SUI_BODY_CLASS .sui-upload--browser .sui-upload__button' ).on( 'click', function(){
+			$( 'SUI_BODY_CLASS .sui-upload--browser .sui-upload__button--upload' ).on( 'click', function(){
 				selectFile($( this ));
 			});
 

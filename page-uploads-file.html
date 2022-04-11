@@ -62,29 +62,30 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Upload file</label>
+									<label id="label-1" class="sui-label">Upload file</label>
 
-									<div class="sui-upload sui-file-upload sui-file-browser">
+									<div class="sui-upload sui-upload--file sui-upload--browser">
 
-										<input type="file" value="" readonly="readonly">
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+										<input type="file" value="" readonly="readonly"  id="fileupload-1" aria-labelledby="label-1" aria-describedby="description-1" aria-controls="filename-1"/>
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span></span>
-
-											<button aria-label="Remove file">
-												<span class="sui-icon-close" aria-hidden="true"></span>
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-1" tabindex="0"></span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
+												<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for files upload element.</span>
+									<span id="description-1" class="sui-description">This is a description for files upload element.</span>
 
 								</div>
 
@@ -134,29 +135,30 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label id="default-single-label" class="sui-label">Upload file</label>
+									<label id="label-2" class="sui-label">Upload file</label>
 
-									<div class="sui-upload sui-has_file">
+									<div class="sui-upload sui-upload--file sui-upload--browser sui-upload--has-file">
 
-										<input type="file" value="example-file.pdf" readonly="readonly">
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+										<input type="file" value="example-file.pdf" readonly="readonly" aria-labelledby="label-2" aria-describedby="description-2" aria-controls="filename-2"/>
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span>example-file.pdf</span>
-
-											<button aria-label="Remove file">
-												<span class="sui-icon-close" aria-hidden="true"></span>
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-2" tabindex="0">example-file.pdf</span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
+												<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for files upload element.</span>
+									<span id="description-2" class="sui-description">This is a description for files upload element.</span>
 
 								</div>
 
@@ -210,29 +212,30 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label id="default-single-label" class="sui-label">Upload file</label>
+									<label id="label-3" class="sui-label">Upload file</label>
 
-									<div class="sui-upload sui-file-upload sui-file-browser">
+									<div class="sui-upload sui-upload--file sui-upload--browser">
 
-										<input type="file" value="" readonly="readonly">
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+										<input type="file" value="" readonly="readonly" aria-labelledby="label-3" aria-describedby="description-3" aria-controls="filename-3"/>
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span></span>
-
-											<button aria-label="Remove file">
-												<span class="sui-icon-close" aria-hidden="true"></span>
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-3" tabindex="0"></span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
+												<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for files upload element.</span>
+									<span id="description-3" class="sui-description">This is a description for files upload element.</span>
 
 									<div class="sui-notice sui-notice-error" style="margin-top: 5px;">
 										<p>Whoops, only .pdf and .doc filetypes are allowed.</p>
@@ -318,34 +321,35 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Upload image</label>
+									<label id="label-4" class="sui-label">Upload image</label>
 
-									<div class="sui-upload sui-file-upload sui-file-browser">
+									<div class="sui-upload sui-upload--file sui-upload--browser">
 
-										<input type="file" value="" readonly="readonly">
-
-										<div class="sui-upload-image" aria-hidden="true">
-											<div class="sui-image-mask"></div>
-											<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+										<div class="sui-upload__image" aria-hidden="true">
+											<div class="sui-upload__image--mask"></div>
+											<div role="button" class="sui-upload__image--preview" style="background-image: url('');"></div>
 										</div>
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-button__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span></span>
-
-											<button aria-label="Remove file">
+		
+										<input type="file" readonly="readonly" aria-labelledby="label-4" aria-describedby="description-4" aria-controls="filename-4">
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-4" tabindex="0"></span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
 												<span class="sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for image upload element.</span>
+									<span id="description-4" class="sui-description">This is a description for image upload element.</span>
 
 								</div>
 
@@ -356,34 +360,35 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Upload image</label>
+									<label id="label-5" class="sui-label">Upload image</label>
 
-									<div class="sui-upload sui-has_file">
+									<div class="sui-upload sui-upload--file sui-upload--browser sui-upload--has-file">
 
-										<input type="file" value="example-image.jpg" readonly="readonly">
-
-										<div class="sui-upload-image" aria-hidden="true">
-											<div class="sui-image-mask"></div>
-											<div role="button" class="sui-image-preview" style="background-image: url('assets/images/plugins-smartcrawl.jpg');"></div>
+										<div class="sui-upload__image" aria-hidden="true">
+											<div class="sui-upload__image--mask"></div>
+											<div role="button" class="sui-upload__image--preview" style="background-image: url('{{ site.baseurl }}/assets/images/plugins-smartcrawl.jpg');"></div>
 										</div>
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span>example-image.jpg</span>
-
-											<button aria-label="Remove file">
-												<span class="sui-icon-close" aria-hidden="true"></span>
+		
+										<input type="file" value="example-image.jpg" readonly="readonly" aria-labelledby="label-5" aria-describedby="description-5" aria-controls="filename-5">
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-5" tabindex="0">example-image.jpg</span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
+												<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for image upload element.</span>
+									<span id="description-5" class="sui-description">This is a description for image upload element.</span>
 
 								</div>
 
@@ -394,34 +399,35 @@ is_searchable: true
 
 								<div class="sui-form-field">
 
-									<label class="sui-label">Upload image</label>
+									<label id="label-6" class="sui-label">Upload image</label>
 
-									<div class="sui-upload sui-file-upload sui-file-browser">
+									<div class="sui-upload sui-upload--file sui-upload--browser">
 
-										<input type="file" value="" readonly="readonly">
-
-										<div class="sui-upload-image" aria-hidden="true">
-											<div class="sui-image-mask"></div>
-											<div role="button" class="sui-image-preview" style="background-image: url('');"></div>
+										<input type="file" value="" readonly="readonly" aria-labelledby="label-6" aria-describedby="description-6" aria-controls="filename-6" />
+		
+										<div class="sui-upload__image" aria-hidden="true">
+											<div class="sui-upload__image--mask"></div>
+											<div role="button" class="sui-upload__image--preview" style="background-image: url('');"></div>
 										</div>
-
-										<button class="sui-upload-button">
-											<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+									
+										<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+											<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 										</button>
-
-										<div class="sui-upload-file">
-
-											<span></span>
-
-											<button aria-label="Remove file">
-												<span class="sui-icon-close" aria-hidden="true"></span>
+		
+										<div class="sui-upload__file">
+		
+											<span class="sui-upload__filename" id="filename-6" tabindex="0"></span>
+		
+											<button class="sui-upload__button sui-upload__button--remove"
+												aria-label="Remove file">
+												<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 											</button>
-
+		
 										</div>
-
+		
 									</div>
 
-									<span class="sui-description">This is a description for image upload element.</span>
+									<span id="description-6" class="sui-description">This is a description for image upload element.</span>
 
 									<div class="sui-notice sui-notice-error" style="margin-top: 5px;">
 										<p>Whoops, only .png and .jpg filetypes are allowed.</p>
@@ -505,29 +511,30 @@ is_searchable: true
 
 						<div class="sui-form-field">
 
-							<label class="sui-label">Upload file(s)</label>
+							<label id="label-7" class="sui-label">Upload file(s)</label>
 
-							<div class="sui-upload sui-file-upload sui-file-browser">
+							<div class="sui-upload sui-upload--file sui-upload--browser">
 
-								<input type="file" value="" readonly="readonly">
+								<input type="file" value="" readonly="readonly" aria-labelledby="label-7" aria-describedby="description-7" aria-controls="filename-7" />
 
-								<button class="sui-upload-button">
-									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+								<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+									<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 								</button>
 
-								<div class="sui-upload-file">
+								<div class="sui-upload__file">
 
-									<span></span>
+									<span class="sui-upload__filename" id="filename-7" tabindex="0"></span>
 
-									<button aria-label="Remove file">
-										<span class="sui-icon-close" aria-hidden="true"></span>
+									<button class="sui-upload__button sui-upload__button--remove"
+										aria-label="Remove file">
+										<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
 									</button>
 
 								</div>
 
 							</div>
 
-							<span class="sui-description">This is a description for multiple files upload element.</span>
+							<span id="description-7" class="sui-description">This is a description for multiple files upload element.</span>
 
 						</div>
 
@@ -542,21 +549,43 @@ is_searchable: true
 
 						<div class="sui-form-field">
 
-							<label class="sui-label">Upload file(s)</label>
+							<label id="label-8" class="sui-label">Upload file(s)</label>
 
-							<div class="sui-upload sui-has_file">
+							<div class="sui-upload sui-upload--file sui-upload--browser sui-upload--has-file">
 
-								<input type="file" value="example-file.pdf" readonly="readonly">
+								<input type="file" value="example-image.pdf" readonly="readonly" aria-labelledby="label-8" aria-describedby="description-8" aria-controls="filename-8">
 
-								<button class="sui-upload-button">
-									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+								<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+									<span class="sui-upload__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
 								</button>
 
-								<div class="sui-upload-file">
+								<div class="sui-upload__file">
 
-									<span>example-file.pdf</span>
+									<span class="sui-upload__filename" id="filename-8" tabindex="0">example-image.pdf</span>
 
-									<button aria-label="Remove file">
+									<button class="sui-upload__button sui-upload__button--remove"
+										aria-label="Remove file">
+										<span class="sui-upload__icon--remove sui-icon-close" aria-hidden="true"></span>
+									</button>
+
+								</div>
+
+							</div>
+
+							<div class="sui-upload sui-upload--file sui-upload--browser">
+							
+								<button class="sui-upload__button sui-upload__button--upload" tabindex="-1">
+									<span class="sui-button__icon--upload sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
+								</button>
+
+								<input type="file" readonly="readonly" aria-labelledby="label-8" aria-describedby="description-8" aria-controls="filename-9">
+
+								<div class="sui-upload__file">
+
+									<span class="sui-upload__filename" id="filename-9" tabindex="0"></span>
+
+									<button class="sui-upload__button sui-upload__button--remove"
+										aria-label="Remove file">
 										<span class="sui-icon-close" aria-hidden="true"></span>
 									</button>
 
@@ -564,27 +593,7 @@ is_searchable: true
 
 							</div>
 
-							<div class="sui-upload sui-file-upload sui-file-browser">
-
-								<input type="file" value="" readonly="readonly">
-
-								<button class="sui-upload-button">
-									<span class="sui-icon-upload-cloud" aria-hidden="true"></span> Upload file
-								</button>
-
-								<div class="sui-upload-file">
-
-									<span></span>
-
-									<button aria-label="Remove file">
-										<span class="sui-icon-close" aria-hidden="true"></span>
-									</button>
-
-								</div>
-
-							</div>
-
-							<span class="sui-description">This is a description for multiple files upload element.</span>
+							<span id="description-8" class="sui-description">This is a description for multiple files upload element.</span>
 
 						</div>
 
