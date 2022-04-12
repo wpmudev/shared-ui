@@ -1,5 +1,13 @@
 @use 'sass:math';
 
+$colours: (
+	"blue": $blue, 
+	"green": $green, 
+	"red": $red, 
+	"yellow": $yellow, 
+	"purple": $purple
+);
+
 @include body-class(true) {
 	.sui-spotlight {	
 		display: flex;
@@ -54,44 +62,13 @@
 	}
 
 	// colors variants
-	.sui-spotlight--blue {
-		box-shadow: inset 2px 0 0 0 $blue, inset 0 0 0 1px $silver;		
-	}
-
-	.sui-spotlight__icon--blue {
-		color: $blue;
-	}
-
-	.sui-spotlight--green {
-		box-shadow: inset 2px 0 0 0 $green, inset 0 0 0 1px $silver;
-	}
-
-	.sui-spotlight__icon--green {
-		color: $green;
-	}
-
-	.sui-spotlight--red {
-		box-shadow: inset 2px 0 0 0 $red, inset 0 0 0 1px $silver;
-	}
-
-	.sui-spotlight__icon--red {
-		color: $red;
-	}
-
-	.sui-spotlight--yellow {
-		box-shadow: inset 2px 0 0 0 $yellow, inset 0 0 0 1px $silver;
-	}
-
-	.sui-spotlight__icon--yellow {
-		color: $yellow;
-	}
-	
-	.sui-spotlight--purple {
-		box-shadow: inset 2px 0 0 0 $purple, inset 0 0 0 1px $silver;
-	}
-
-	.sui-spotlight__icon--purple {
-		color: $purple;
+	@each $name, $colour in $colours {
+		.sui-spotlight--#{$name} {
+			box-shadow: inset 2px 0 0 0 $colour, inset 0 0 0 1px $silver;
+			.sui-spotlight__icon {
+				color: $colour;
+			}
+		}
 	}
 }
 
@@ -122,24 +99,10 @@
 	}
 
 	// colors variants
-	.sui-spotlight--blue {
-		box-shadow: inset -2px 0 0 0 $blue, inset 0 0 0 1px $silver;
-	}
-
-	.sui-spotlight--green {
-		box-shadow: inset -2px 0 0 0 $green, inset 0 0 0 1px $silver;		
-	}
-
-	.sui-spotlight--red {
-		box-shadow: inset -2px 0 0 0 $red, inset 0 0 0 1px $silver;		
-	}
-
-	.sui-spotlight--yellow {
-		box-shadow: inset -2px 0 0 0 $yellow, inset 0 0 0 1px $silver;			
-	}
-	
-	.sui-spotlight--purple {
-		box-shadow: inset -2px 0 0 0 $purple, inset 0 0 0 1px $silver;
+	@each $name, $colour in $colours {
+		.sui-spotlight--#{$name} {
+			box-shadow: inset -2px 0 0 0 $colour, inset 0 0 0 1px $silver;
+		}
 	}
 }
 
