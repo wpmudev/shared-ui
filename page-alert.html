@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Notifications
-permalink: /notifications/
-id: notifications
+title: Alert
+permalink: /alert/
+id: alert
 is_searchable: true
 ---
 
@@ -43,12 +43,12 @@ is_searchable: true
 				<div class="sui-box notice-design-type">
 
 					<div class="sui-box-header">
-						<h2 class="sui-box-title">Preview Notifications</h2>
+						<h2 class="sui-box-title">Preview</h2>
 					</div>
 
 					<div class="sui-box-body">
 
-						<p>The notification component is an alert box often used when you need to make sure information comes through to the user. It will take the focus away from the current window forcing the browser to read the message.</p>
+						<p>This alert box is often used when you need to make sure information comes through to the user. It will take the focus away from the current window forcing the browser to read the message.</p>
 
 						<div
 							role="alert"
@@ -59,10 +59,10 @@ is_searchable: true
 
 						<div class="sui-border-frame">
 
-							<!-- Notification Design -->
+							<!-- Alert Design -->
 							<div class="sui-form-field" role="radiogroup" aria-labelledby="general-design-group__label">
 
-								<h4 id="general-design-group__label" class="sui-label">Notification Design</h4>
+								<h4 id="general-design-group__label" class="sui-label">Alert Design</h4>
 
 								<label for="general-design-option-1" class="sui-radio">
 
@@ -163,10 +163,10 @@ is_searchable: true
 
 							</div>
 
-							<!-- Notification Type -->
+							<!-- Alert Type -->
 							<div class="sui-form-field" role="radiogroup" aria-labelledby="general-notice-group__label">
 
-								<h4 id="general-notice-group__label" class="sui-label">Notification Type</h4>
+								<h4 id="general-notice-group__label" class="sui-label">Alert Type</h4>
 
 								<label for="general-notice-option-1" class="sui-radio">
 
@@ -249,7 +249,7 @@ is_searchable: true
 							id="show-general-notice"
 							class="sui-button show-notice"
 							data-notice-open="float-notice-general"
-							data-notice-message="<p>General text here. <a href='#'>Links in the notification</a>.</p>"
+							data-notice-message="<p>General text here. <a href='#'>Sample link</a>.</p>"
 							data-notice-dismiss="false"
 						>Show</button>
 
@@ -281,57 +281,6 @@ is_searchable: true
 				rtl-lang="true"
 			></div>
 
-			<!-- ROW: Specifications -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<h3 class="sui-settings-label">Specifications</h3>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<table class="sui-table" style="max-width: 720px;">
-
-						<tbody>
-
-							<tr>
-								<td><strong>Version</strong></td>
-								<td><span class="sui-tag sui-tag-yellow">^2.7.0</span></td>
-								<td colspan="3">This is the minimum required version of SUI to use with this element in order for it to work properly.</td>
-							</tr>
-
-							<tr>
-								<td><strong>Utilities</strong></td>
-								<td style="color: #FF6D6D; font-weight: 500;">
-									<span class="sui-icon-close sui-md sui-error" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Unsupported
-								</td>
-								<td colspan="3">This will tell you if the element supports the modifier classes listed on <a href="{{ site.baseurl }}/utilities/"><strong>Utilities</strong></a> page.</td>
-							</tr>
-
-							<tr>
-								<td><strong>Monochrome</strong></td>
-								<td style="color: #1ABC9C; font-weight: 500;">
-									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
-								</td>
-								<td colspan="3">This will tell you if the element supports the Colour Accessible option found on our plugins' Settings page.</td>
-							</tr>
-
-							<tr>
-								<td><strong>RTL Language</strong></td>
-								<td style="color: #1ABC9C; font-weight: 500;">
-									<span class="sui-icon-check sui-md sui-success" style="position: relative; top: 2px; margin-right: 0;" aria-hidden="true"></span> Supported
-								</td>
-								<td colspan="3">This will tell you if the element supports right-to-left langues.</td>
-							</tr>
-
-						</tbody>
-
-					</table>
-
-				</div>
-
-			</div>
-
 			<!-- ROW: Required Markup. -->
 			<div class="sui-box-settings-row">
 
@@ -350,7 +299,7 @@ is_searchable: true
 						aria-labelledby="tab-alert-markup"
 					>
 
-						<h4>Float Notification</h4>
+						<h4>Floating Alert</h4>
 
 						<div class="demo-code-block">
 
@@ -380,7 +329,7 @@ is_searchable: true
 
 						</div>
 
-						<h4>Inline Notification</h4>
+						<h4>Inline Alert</h4>
 
 						<div class="demo-code-block">
 
@@ -408,7 +357,7 @@ is_searchable: true
 
 				<div class="sui-box-settings-col-1">
 					<h3 class="sui-settings-label">Alert Actions</h3>
-					<p class="sui-description">These are required actions for <strong style="color: #333;">Alert Notifications</strong> to make them appear when needed.</p>
+					<p class="sui-description">These are required actions for <strong style="color: #333;">Alerts</strong> to make them appear when needed.</p>
 				</div>
 
 				<div class="sui-box-settings-col-2">
@@ -526,7 +475,7 @@ const noticeId = 'unique-id';
 													<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy js">
-const noticeMessage = '&lt;p&gt;Hello, I am a notification.&lt;/p&gt;';
+const noticeMessage = '&lt;p&gt;Hello, I am an alert.&lt;/p&gt;';
 </pre>
 
 													</div>
@@ -569,12 +518,12 @@ const noticeOptions = {};
 
 													<h5 style="font-size: 14px;">Type</h5>
 
-													<p>You can leave this option empty to get the default (gray) notification or use: <code>info</code> for blue notification, <code>success</code> for green notification, <code>warning</code> for yellow notification, <code>error</code> for red notification or <code>upsell</code> for purple notification.</p>
+													<p>You can leave this option empty to get the default (gray) alert or use: <code>info</code> for blue alert, <code>success</code> for green alert, <code>warning</code> for yellow alert, <code>error</code> for red alert or <code>upsell</code> for purple alert.</p>
 
 													<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy js">
-noticeOptions.type = 'success'; // To show a green (success) notification.
+noticeOptions.type = 'success'; // To show a green (success) alert.
 </pre>
 
 													</div>
@@ -775,7 +724,7 @@ SUI.closeNotice( 'unique-id' );
 													<div class="demo-code-block">
 
 <pre class="sui-code-snippet sui-no-copy html">
-&lt;button data-notice-message=&quot;&lt;p&gt;Hello, I am a notification.&lt;/p&gt;&quot;&gt;Show Notice&lt;/button&gt;
+&lt;button data-notice-message=&quot;&lt;p&gt;Hello, I am an alert.&lt;/p&gt;&quot;&gt;Show Notice&lt;/button&gt;
 </pre>
 
 													</div>
@@ -842,7 +791,7 @@ SUI.closeNotice( 'unique-id' );
 
 												<div class="sui-box-body">
 
-													<p>This attribute will allow you to enable the dimiss button on notifications and will disable the auto-close option.</p>
+													<p>This attribute will allow you to enable the dimiss button on alerts and will disable the auto-close option.</p>
 
 													<div class="demo-code-block">
 
@@ -897,7 +846,7 @@ SUI.closeNotice( 'unique-id' );
 
 													</div>
 
-													<p>When auto-close is enabled for notifications, you can overwrite its timeout property for the notice to take more or less time to vanish. The timeout value needs to be entered in milliseconds.</p>
+													<p>When auto-close is enabled for alerts, you can overwrite its timeout property for the notice to take more or less time to vanish. The timeout value needs to be entered in milliseconds.</p>
 
 													<div class="demo-code-block">
 
@@ -922,7 +871,7 @@ SUI.closeNotice( 'unique-id' );
 
 								<h4>Close Notice</h4>
 
-								<p>Even when there's no need to close a notification with an external element, you can still do it with the attribute below.</p>
+								<p>Even when there's no need to close an alert with an external element, you can still do it with the attribute below.</p>
 
 								<div class="demo-code-block">
 
