@@ -181,7 +181,7 @@
 
 	$( 'body' ).ready( function() {
 
-		DEMO.pageNotifications( 'notifications' );
+		DEMO.pageNotifications( 'alert' );
 
 	});
 
