@@ -32,7 +32,6 @@
 						'default',
 						'blue',
 						'green',
-						'yellow',
 						'purple',
 						'red'
 					];
@@ -49,7 +48,7 @@
 				button.removeClass();
 
 				// Print new class.
-				button.addClass( 'sui-button sui-button-' + randomColor );
+				button.addClass( 'sui-button sui-button--solid' + ( 'default' !== randomColor ? ' sui-button--' + randomColor : '' ) );
 
 			});
 		}

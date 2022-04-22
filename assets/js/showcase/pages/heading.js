@@ -62,8 +62,8 @@
 				;
 
 			var markup = '<div class="sui-actions-right">' +
-				'<button id="no-action" class="sui-button sui-button--solid-blue">' +
-					'Sample Button' +
+				'<button id="no-action" class="sui-button sui-button--solid sui-button--blue">' +
+					'<span class="sui-button__label">Sample Button</span>' +
 				'</button>' +
 			'</div>';
 

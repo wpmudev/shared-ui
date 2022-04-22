@@ -61,7 +61,7 @@
 					suiBox = button.closest( '.sui-box' )
 					;
 
-				button.addClass( 'sui-button-onload' );
+				button.addClass( 'sui-button--loading' );
 				suiBox.find( 'input, textarea, select, button' ).attr( 'disabled', true );
 
 				setTimeout( function() {
@@ -69,7 +69,7 @@
 				}, 1000 );
 
 				setTimeout( function() {
-					button.removeClass( 'sui-button-onload' );
+					button.removeClass( 'sui-button--loading' );
 					suiBox.find( 'input, textarea, select, button' ).attr( 'disabled', false );
 					suiBox.find( 'input, textarea, select, button' ).removeAttr( 'disabled' );
 				}, 1500 );
@@ -212,7 +212,7 @@
 
 				// Add loading state to button.
 				button.attr( 'disabled', true );
-				button.addClass( 'sui-button-onload' );
+				button.addClass( 'sui-button--loading' );
 
 				setTimeout( function() {
 
@@ -252,7 +252,7 @@
 
 					// Remove button loading state.
 					button.removeAttr( 'disabled' );
-					button.removeClass( 'sui-button-onload' );
+					button.removeClass( 'sui-button--loading' );
 
 				}, 1000 );
 
@@ -273,7 +273,7 @@
 
 				// Add loading state to button.
 				button.attr( 'disabled', true );
-				button.addClass( 'sui-button-onload' );
+				button.addClass( 'sui-button--loading' );
 
 				setTimeout( function() {
 
@@ -333,7 +333,7 @@
 
 					// Remove button loading state.
 					button.removeAttr( 'disabled' );
-					button.removeClass( 'sui-button-onload' );
+					button.removeClass( 'sui-button--loading' );
 
 				}, 1000 );
 
@@ -403,13 +403,13 @@
 
 				var button = $( this );
 
-				button.addClass( 'sui-button-onload' );
+				button.addClass( 'sui-button--loading' );
 				button.attr( 'disabled', true );
 
 				setTimeout( function() {
 
 					button.removeAttr( 'disabled' );
-					button.removeClass( 'sui-button-onload' );
+					button.removeClass( 'sui-button--loading' );
 
 					SUI.replaceModal(
 						'demo-dialog--sample-beehive-onboard', // newModalId
@@ -459,7 +459,7 @@
 				modal.find( '.sui-error-message' ).addClass( 'sui-hidden' );
 				modal.find( 'input, textarea' ).val( '' );
 				modal.find( '.sui-button' ).stop( true, true );
-				modal.find( '.sui-button' ).removeClass( 'sui-button-onload' );
+				modal.find( '.sui-button' ).removeClass( 'sui-button--loading' );
 				modal.find( '.sui-button' ).removeAttr( 'disabled' );
 				modal.closest( '.sui-box-body' ).find( '[role="alert"]' ).hide();
 				modal.closest( '.sui-box-body' ).find( '[role="alert"]' ).empty();
@@ -477,7 +477,7 @@
 						panel.find( '.sui-error-message' ).addClass( 'sui-hidden' );
 						panel.find( 'input, textarea' ).val( '' );
 						panel.find( '.sui-button' ).stop( true, true );
-						panel.find( '.sui-button' ).removeClass( 'sui-button-onload' );
+						panel.find( '.sui-button' ).removeClass( 'sui-button--loading' );
 						panel.find( '.sui-button' ).removeAttr( 'disabled' );
 						panel.closest( '.sui-box-body' ).find( '[role="alert"]' ).hide();
 						panel.closest( '.sui-box-body' ).find( '[role="alert"]' ).empty();

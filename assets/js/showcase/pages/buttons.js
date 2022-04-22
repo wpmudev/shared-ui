@@ -100,11 +100,13 @@
 						var button = $( this ).find( '.sui-button' );
 
 						button
+							.removeClass( 'sui-button--height-40' )
 							.removeClass( 'sui-button--height-50' )
 							.removeClass( 'sui-button--height-60' )
 							.removeClass( 'sui-button--height-70' );
 
 						switch ( option.val() ) {
+							case '40':
 							case '50':
 							case '60':
 							case '70':
