@@ -1,0 +1,214 @@
+---
+layout: default
+title: Spotlight
+permalink: /spotlight/
+id: spotlight
+is_searchable: true
+---
+
+<div class="sui-row-with-sidenav">
+
+	<!-- Navigation -->
+	<div class="sui-sidenav">
+
+		<ul class="sui-vertical-tabs">
+
+			<li class="sui-vertical-tab current">
+				<a href="#" role="button" data-tab="preview">Preview</a>
+			</li>
+
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+	<!-- SECTION: Preview -->
+	<div data-tab="preview">
+
+		<div class="sui-row">
+
+			<div class="sui-col-md-12">
+
+				<!-- Preview spotlight -->
+				<div class="sui-box">
+
+					<div class="sui-box-header">
+						<h2 class="sui-box-title">Preview</h2>
+					</div>
+
+					<div class="sui-box-body">
+
+						<p>This component is a simple box that highlights its content for regular users. The screen reader will interpretate it as a regular content. But if you need instead to alert users about something, the <a href="{{ site.baseurl }}/alert-notice/"><strong>Alert Notice</strong></a> component does the trick and is compatible with <strong>screen readers</strong>.</p>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Default</h3>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div id="sui-spotlight-message-1" class="sui-spotlight">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Informative</h3>
+
+								<p class="sui-description">This variation comes in blue color and helps to inform users about something important.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<p>Include <code>sui-spotlight--blue</code> class name.</p>
+
+								<div id="sui-spotlight-message-2" class="sui-spotlight sui-spotlight--blue">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Success</h3>
+
+								<p class="sui-description">The green spotlight box represents a positive or successful message.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<p>Include <code>sui-spotlight--green</code> class name.</p>
+
+								<div id="sui-spotlight-message-3" class="sui-spotlight sui-spotlight--green">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Error</h3>
+
+								<p class="sui-description">Use the red spotlight box to highlight an error message.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<p>Include <code>sui-spotlight--red</code> class name.</p>
+
+								<div id="sui-spotlight-message-4" class="sui-spotlight sui-spotlight--red">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Warning</h3>
+
+								<p class="sui-description">This variation paints the spotlight box in yellow represeting a warning. The user needs to be aware.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<p>Include <code>sui-spotlight--yellow</code> class name.</p>
+
+								<div id="sui-spotlight-message-5" class="sui-spotlight sui-spotlight--yellow">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<h3 class="sui-settings-label">Upsell</h3>
+
+								<p class="sui-description">Use the purple spotlight box when you want to upsell.</p>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<p>Include <code>sui-spotlight--purple</code> class name.</p>
+
+								<div id="sui-spotlight-message-6" class="sui-spotlight sui-spotlight--purple">
+									<span class="sui-spotlight__icon sui-icon-info sui-md" aria-hidden="true"></span>
+									<div class="sui-spotlight__message">
+										<p>General text here. <a href="#">Sample link</a>.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.13.0"
+				utilities="true"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
+
+			<!-- ROW: HTML Markup -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Sample Markup</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+<pre class="sui-code-snippet html">
+&lt;div id=&quot;unique-id&quot; class=&quot;sui-spotlight&quot;&gt;
+
+	&lt;span class=&quot;sui-spotlight__icon sui-icon-info sui-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+
+	&lt;div class=&quot;sui-spotlight__message&quot;&gt;
+		&lt;p&gt;General text here. &lt;a href=&quot;#&quot;&gt;Sample link&lt;/a&gt;.&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
