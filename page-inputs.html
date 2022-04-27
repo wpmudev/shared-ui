@@ -49,6 +49,7 @@ is_searchable: true
 
 				<div role="tablist" data-tabs>
 					<div id="tab-default-basics" class="active" role="tab">Default State</div>
+					<div id="tab-disabled-basics" role="tab">Disabled State</div>
 					<div id="tab-error-basics" role="tab">Error State</div>
 				</div>
 
@@ -88,6 +89,60 @@ is_searchable: true
 		class=&quot;sui-form-control&quot;
 		aria-labelledby=&quot;label-unique-id&quot;
 		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+	/&gt;
+
+	&lt;!--
+	NOTE:
+	Notice error message element it is empty. This because content should be printed
+	when error happens and not before to avoid screenreaders confusing users.
+	--&gt;
+	&lt;span id=&quot;error-unique-id&quot; class=&quot;sui-error-message&quot; style=&quot;display: none;&quot; role=&quot;alert&quot;&gt;&lt;/span&gt;
+
+	&lt;span id=&quot;description-unique-id&quot; class=&quot;sui-description&quot;&gt;Enter description here.&lt;/span&gt;
+
+&lt;/div&gt;
+</pre>
+
+						</div>
+
+					</div>
+
+					<!-- TAB: Default State -->
+					<div role="tabpanel" aria-labelledby="tab-disabled-basics">
+
+						<div class="sui-form-field">
+
+							<label for="input-default" id="input-default-label" class="sui-label">Country</label>
+
+							<input
+								placeholder="E.g. Argentina"
+								id="input-default"
+								class="sui-form-control"
+								aria-labelledby="input-default-label"
+								aria-describedby="input-default-message input-default-description"
+								disabled
+							/>
+
+							<span id="input-default-message" class="sui-error-message" style="display: none;" role="alert"></span>
+
+							<span id="input-default-description" class="sui-description">Insert a country name that starts with A letter.</span>
+
+						</div>
+
+						<div class="demo-code-block">
+
+<pre class="sui-code-snippet html">
+&lt;div class=&quot;sui-form-field&quot;&gt;
+
+	&lt;label for=&quot;unique-id&quot; id=&quot;label-unique-id&quot; class=&quot;sui-label&quot;&gt;Field Label&lt;/label&gt;
+
+	&lt;input
+		placeholder=&quot;Placeholder&quot;
+		id=&quot;unique-id&quot;
+		class=&quot;sui-form-control&quot;
+		aria-labelledby=&quot;label-unique-id&quot;
+		aria-describedby=&quot;error-unique-id description-unique-id&quot;
+		disabled
 	/&gt;
 
 	&lt;!--
