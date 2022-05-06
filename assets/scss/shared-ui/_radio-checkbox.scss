@@ -377,4 +377,36 @@
 			margin: 0 0 0 math.div($sui-gutter, 2);
 		}
 	}
+
+	.sui-checkbox {
+		&.sui-checkbox-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				margin: 0 0 math.div($sui-gutter-md, 2);
+			}
+		}
+	}
+
+	.sui-radio {
+		&.sui-radio-stacked {
+
+			&:last-child {
+
+				@include media(min-width, md) {
+					margin: 0;
+				}
+			}
+
+			@include media(min-width, md) {
+				margin: 0 0 math.div($sui-gutter-md, 2);
+			}
+		}
+	}
 }
