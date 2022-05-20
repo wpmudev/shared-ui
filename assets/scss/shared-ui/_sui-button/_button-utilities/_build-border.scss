@@ -1,0 +1,11 @@
+@use '../../_mixins/bem' as *;
+
+@mixin button-border-constructor($style: solid) {
+	@include modifier($style) {
+		border-style: $style;
+
+		&:focus {
+			border-style: solid; // Reset border style on focus.
+		}
+	}
+}

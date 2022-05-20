@@ -1,0 +1,96 @@
+@use 'sass:color' as nan;
+@use '../../_helpers/colors' as color;
+
+$button-theme-text: (
+	'grey': (
+		static: (
+			color: color.$grey
+		),
+		hover: (
+			border: color.$haze,
+			background: color.$haze
+		),
+		focus: (
+			border: color.$silver,
+			background: color.$haze
+		),
+		disabled: (
+			border: color.$silver,
+			background: color.$silver,
+			color: color.$fiftyshades
+		)
+	),
+	'blue': (
+		static: (
+			color: color.$blue
+		),
+		hover: (
+			border: color.$blue-ghost,
+			background: color.$blue-ghost
+		),
+		focus: (
+			border: darken(color.$blue-ghost, 5%),
+			background: color.$blue-ghost
+		)
+	),
+	'red': (
+		static: (
+			color: color.$red
+		),
+		hover: (
+			border: color.$red-ghost,
+			background: color.$red-ghost
+		),
+		focus: (
+			border: darken(color.$red-ghost, 5%),
+			background: color.$red-ghost
+		)
+	),
+	'purple': (
+		static: (
+			color: color.$purple
+		),
+		hover: (
+			border: color.$purple-ghost,
+			background: color.$purple-ghost
+		),
+		focus: (
+			border: darken(color.$purple-ghost, 5%),
+			background: color.$purple-ghost
+		)
+	),
+	'green': (
+		static: (
+			color: color.$green
+		),
+		hover: (
+			border: color.$green-ghost,
+			background: color.$green-ghost
+		),
+		focus: (
+			border: darken(color.$green-ghost, 5%),
+			background: color.$green-ghost
+		)
+	),
+	'black': (
+		static: (
+			border: color.$white,
+			background: transparent,
+			color: color.$black
+		),
+		hover: (
+			border: color.$black,
+			background: color.$white
+		),
+		focus: (
+			border: color.$black,
+			background: color.$black,
+			color: color.$white
+		),
+		disabled: (
+			border: color.$silver,
+			background: color.$silver,
+			color: color.$fiftyshades
+		)
+	),
+);

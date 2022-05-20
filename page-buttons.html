@@ -2,6 +2,7 @@
 layout: default
 title: Buttons
 permalink: /buttons/
+id: buttons
 is_searchable: true
 ---
 
@@ -13,685 +14,188 @@ is_searchable: true
 		<ul class="sui-vertical-tabs">
 
 			<li class="sui-vertical-tab current">
-				<a href="#" role="button" data-tab="regular">Regular</a>
+				<a href="#" role="button" data-tab="live-demo">Live Demo</a>
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="colors">Colorizing</a>
+				<a href="#" role="button" data-tab="preview">Full Preview</a>
 			</li>
 
 			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="with-icon">Text + Icon</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="loading">Loading</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="compound">Compound</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="dashed">Dashed</a>
-			</li>
-
-			<li class="sui-vertical-tab">
-				<a href="#" role="button" data-tab="documentation">Documentation</a>
+				<a href="#" role="button" data-tab="docs">Documentation</a>
 			</li>
 
 		</ul>
 
 	</div>
 
-	<!-- TAB: Regular -->
-	<div class="sui-box" data-tab="regular">
+	<!-- TAB: Live Demo -->
+	<div class="sui-box" data-tab="live-demo">
 
 		<div class="sui-box-header">
-			<h2 class="sui-box-title">Regular Button</h2>
+			<h2 class="sui-box-title">Interactive Demo</h2>
 		</div>
 
 		<div class="sui-box-body">
 
-			<!-- SECTION: Default -->
-			<div class="sui-box-settings-row">
+			<p style="margin: 0;">Buttons are used everywhere across all designs to highlight actions. Generally, the rule is one Solid coloured button per screen, where the Ghost buttons can be used more freely throughout screens as a secondary actrion.</p>
 
-				<div class="sui-box-settings-col-2">
+			<p style="margin-top: 0;">The demo below lets you preview the button component, its variations, and configuration options. Each tab displays a different type of button.</p>
 
-					<span class="sui-settings-label sui-dark">Default</span>
-					<span class="sui-description" style="margin-bottom: 10px;">The class <code>sui-button</code> determines the base markup for any button that contains text.</span>
+			<div class="showcase-demo">
 
-					<button class="sui-button">Button</button>
+				<!-- Configs -->
+				<div class="showcase-demo__options">
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+					<fieldset data-option="color">
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot;&gt;Button&lt;/button&gt;
-</pre>
+						<legend>Color</legend>
 
-					</div>
+						<select class="sui-select-sm">
+							<option value="">Grey (Default)</option>
+							<option value="blue">Blue</option>
+							<option value="red">Red</option>
+							<option value="purple">Purple</option>
+							<option value="green">Green</option>
+						</select>
 
-				</div>
+					</fieldset>
 
-			</div>
+					<fieldset data-option="width">
 
-			<!-- SECTION: Outlined -->
-			<div class="sui-box-settings-row">
+						<legend>Width</legend>
 
-				<div class="sui-box-settings-col-2">
+						<input type="radio" name="button-option--width" value="" checked=""> Default<br>
+						<input type="radio" name="button-option--width" value="full-width"> Full Width
 
-					<span class="sui-settings-label sui-dark">Outlined</span>
-					<span class="sui-description" style="margin-bottom: 10px;">This variation can come with border only and transparent background. For those cases you can make use of <code>sui-button-ghost</code> class.</span>
+					</fieldset>
 
-					<button class="sui-button sui-button-ghost">Button</button>
+					<fieldset data-option="height">
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+						<legend>Height</legend>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost&quot;&gt;Button&lt;/button&gt;
-</pre>
+						<input type="radio" name="button-option--height" value="" checked=""> 30px (Default)<br>
+						<input type="radio" name="button-option--height" value="40"> 40px<br>
+						<input type="radio" name="button-option--height" value="50"> 50px<br>
+						<input type="radio" name="button-option--height" value="60"> 60px<br>
+						<input type="radio" name="button-option--height" value="70"> 70px
 
-					</div>
+					</fieldset>
 
-				</div>
+					<fieldset data-option="icon">
 
-			</div>
+						<legend>Leading icon</legend>
 
-			<!-- SECTION: Large -->
-			<div class="sui-box-settings-row">
+						<input type="radio" name="button-option--icon" value="" checked=""> None<br>
+						<input type="radio" name="button-option--icon" value="leading"> Leading icon<br>
+						<input type="radio" name="button-option--icon" value="trailing"> Trailing icon
 
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Large</span>
-					<span class="sui-description" style="margin-bottom: 10px;">There are some cases when you gonna need to make use of bigger buttons, to achieve this you can add <code>sui-button-lg</code> class.</span>
-
-					<button class="sui-button sui-button-lg">Button</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-					</div>
+					</fieldset>
 
 				</div>
 
-			</div>
+				<!-- Tabs -->
+				<div class="showcase-demo__content">
 
-			<!-- SECTION: Disabled -->
-			<div class="sui-box-settings-row">
+					<div class="sui-tabs sui-tabs-flushed sui-tabs-overflow">
 
-				<div class="sui-box-settings-col-2">
+						<div tabindex="-1" class="sui-tabs-navigation">
+							<button type="button" class="sui-button-icon sui-tabs-navigation--left sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-left"></span>
+							</button>
+							<button type="button" class="sui-button-icon sui-tabs-navigation--right sui-tabs-navigation--hidden">
+								<span class="sui-icon-chevron-right"></span>
+							</button>
+						</div>
 
-					<span class="sui-settings-label sui-dark">Disabled</span>
-					<span class="sui-description" style="margin-bottom: 10px;">As simple as it sounds, you can add <code>disabled</code> attribute to button element or <code>disabled</code> class if you are using link element.</span>
+						<div role="tablist" class="sui-tabs-menu">
 
-					<button class="sui-button" disabled>Regular Button</button>
-					<button class="sui-button sui-button-ghost" disabled>Outlined Button</button>
+							<button type="button" role="tab" id="tab-demo-button-solid" class="sui-tab-item active" aria-controls="tab-content-demo-button-solid" aria-selected="true">
+								Solid
+							</button>
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+							<button type="button" role="tab" id="tab-demo-button-solid-light" class="sui-tab-item" aria-controls="tab-content-demo-button-solid-light" aria-selected="false" tabindex="-1">
+								Solid Light
+							</button>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot; disabled&gt;Button&lt;/button&gt;
-&lt;a role=&quot;button&quot; class=&quot;sui-button disabled&quot;&gt;Button&lt;/a&gt;
-</pre>
+							<button type="button" role="tab" id="tab-demo-button-ghost" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost" aria-selected="false" tabindex="-1">
+								Ghost
+							</button>
 
-					</div>
+							<button type="button" role="tab" id="tab-demo-button-ghost-dashed" class="sui-tab-item" aria-controls="tab-content-demo-button-ghost-dashed" aria-selected="false" tabindex="-1">
+								Ghost Dashed
+							</button>
 
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Colorizing -->
-	<div class="sui-box" data-tab="colors" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Colorize Buttons</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<p>There are some cases when you gonna need buttons with specific colors, to achieve this you can add <code>sui-button-{color_name}</code> extra class.</p>
-
-			<p>To try each button color variation click on the options below:</p>
-
-			<div class="sui-tabs sui-side-tabs">
-
-				<div data-tabs>
-					<div class="active">Blue</div>
-					<div>Green</div>
-					<div>Red</div>
-					<div>Orange</div>
-					<div>Yellow</div>
-					<div>Purple</div>
-					<div>White</div>
-				</div>
-
-				<div class="sui-tabs-content-lg" data-panes>
-
-					<!-- COLOR: Blue -->
-					<div class="active">
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-blue">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-blue&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
+							<button type="button" role="tab" id="tab-demo-button-text" class="sui-tab-item" aria-controls="tab-content-demo-button-text" aria-selected="false" tabindex="-1">
+								Text
+							</button>
 
 						</div>
 
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
+						<div class="sui-tabs-content">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+							<!-- TAB: Solid -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid" class="sui-tab-content active" aria-labelledby="tab-demo-button-solid">
 
-							<button class="sui-button sui-button-ghost sui-button-blue">Button</button>
+								<div class="showcase-demo__preview" data-type="solid">
 
-							<div class="demo-code-block" style="margin-top: 10px;">
+									<button class="sui-button sui-button--solid">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-blue&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-blue sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-blue sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Solid Light -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-solid-light" class="sui-tab-content" aria-labelledby="tab-demo-button-solid-light">
 
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="light">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
+									<button class="sui-button sui-button--light">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button-blue" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-blue" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-blue&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-blue&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Ghost -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost">
 
-					</div>
+								<div class="showcase-demo__preview" data-type="ghost">
 
-					<!-- COLOR: Green -->
-					<div>
+									<button class="sui-button sui-button--ghost">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-green">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-green&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Ghost Dashed -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-ghost-dashed" class="sui-tab-content" aria-labelledby="tab-demo-button-ghost-dashed">
 
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="ghost">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
+									<button class="sui-button sui-button--ghost sui-button--dashed">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button-ghost sui-button-green">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-green&quot;&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
-						</div>
+							<!-- TAB: Text -->
+							<div tabindex="0" role="tabpanel" id="tab-content-demo-button-text" class="sui-tab-content" aria-labelledby="tab-demo-button-text">
 
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
+								<div class="showcase-demo__preview" data-type="text">
 
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
+									<button class="sui-button">
+										<span class="sui-button__label">Button</span>
+									</button>
 
-							<button class="sui-button sui-button-green sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-green sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-green" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-green" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-green&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-green&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Red -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-red">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-red&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button-ghost sui-button-red">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-red&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-red sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-red sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-red" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-red" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-red&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-red&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Orange -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-orange">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-orange&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button-ghost sui-button-orange">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-orange&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-orange sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-orange sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-orange" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-orange" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-orange&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-orange&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Yellow -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-yellow">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button-ghost sui-button-yellow">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-yellow&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-yellow sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-yellow" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-yellow" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-yellow&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: Purple -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-purple">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-purple&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button-ghost sui-button-purple">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-purple&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-purple sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-purple sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-purple" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-purple" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-purple&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-purple&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- COLOR: White -->
-					<div>
-
-						<!-- SECTION: Default -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Default</span>
-
-							<button class="sui-button sui-button-white">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Outlined -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Outlined</span>
-
-							<button class="sui-button sui-button-ghost sui-button-white">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-white&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Large -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Large</span>
-
-							<button class="sui-button sui-button-white sui-button-lg">Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white sui-button-lg&quot;&gt;Button&lt;/button&gt;
-</pre>
-
-							</div>
-
-						</div>
-
-						<!-- SECTION: Disabled -->
-						<div class="sui-form-field">
-
-							<span class="sui-settings-label" style="margin-bottom: 10px;">Disabled</span>
-
-							<button class="sui-button sui-button-white" disabled>Default Button</button>
-							<button class="sui-button sui-button-ghost sui-button-white" disabled>Outlined Button</button>
-
-							<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-white&quot; disabled&gt;Button&lt;/button&gt;
-&lt;button class=&quot;sui-button sui-button-ghost sui-button-white&quot; disabled&gt;Button&lt;/button&gt;
-</pre>
+								</div>
 
 							</div>
 
@@ -707,527 +211,982 @@ is_searchable: true
 
 	</div>
 
-	<!-- TAB: Text + Icon -->
-	<div class="sui-box" data-tab="with-icon" style="display: none;">
+	<!-- TAB: Full Preview -->
+	<div data-tab="preview" style="display: none;">
 
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Button with Icon</h2>
-		</div>
+		<!-- Button Design -->
+		<div class="sui-box">
 
-		<div class="sui-box-body">
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Button Design</h2>
+			</div>
 
-			<!-- SECTION: Left Icon -->
-			<div class="sui-box-settings-row">
+			<div class="sui-box-body">
 
-				<div class="sui-box-settings-col-2">
+				<!-- DESIGN: Text (Default) -->
+				<table class="showcase-table showcase-table--compare">
 
-					<span class="sui-settings-label sui-dark">Left Icon</span>
-					<span class="sui-description" style="margin-bottom: 10px;">You don't need an extra class, just place the icon at left of the text and it will align correctly.</span>
+					<caption>Text <span class="sui-tag sui-tag-sm sui-tag-yellow" style="margin-left: 5px;">Default</span></caption>
 
-					<button class="sui-button"><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
 
-					<button class="sui-button sui-button-ghost"><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+					<tbody>
 
-					<button class="sui-button" disabled><span class="sui-icon-academy" aria-hidden="true"></span> Button</button>
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--blue">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--red">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--purple">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--green">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button&quot;&gt;
-	&lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Button
-&lt;/button&gt;
-</pre>
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--blue" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--red" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--purple" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--green" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
 
-					</div>
+					</tbody>
 
-				</div>
+				</table>
+
+				<!-- DESIGN: Solid -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Solid</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
+
+					<tbody>
+
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<!-- DESIGN: Light -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Light</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
+
+					<tbody>
+
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--blue">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--red">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--purple">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--green">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--light sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--light" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--blue" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--red" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--purple" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--light sui-button--green" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<!-- DESIGN: Ghost -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Ghost</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
+
+					<tbody>
+
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--ghost" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<!-- DESIGN: Ghost Dashed -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Ghost Dashed</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
+
+					<tbody>
+
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--dashed">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue sui-button--dashed">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red sui-button--dashed">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple sui-button--dashed">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green sui-button--dashed">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--dashed sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue sui-button--dashed sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red sui-button--dashed sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple sui-button--dashed sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green sui-button--dashed sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--dashed" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--blue sui-button--dashed" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--red sui-button--dashed" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--purple sui-button--dashed" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--ghost sui-button--green sui-button--dashed" disabled>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
 
 			</div>
 
-			<!-- SECTION: Right Icon -->
-			<div class="sui-box-settings-row">
+		</div>
 
-				<div class="sui-box-settings-col-2">
+		<!-- Button with Icon -->
+		<div class="sui-box">
 
-					<span class="sui-settings-label sui-dark">Right Icon</span>
-					<span class="sui-description" style="margin-bottom: 10px;">Use <code>sui-button-icon-right</code> class to add the correct spacing between text and icon when you place the icon at right of the text.</span>
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Button with Icon</h2>
+			</div>
 
-					<button class="sui-button sui-button-icon-right">Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+			<div class="sui-box-body">
 
-					<button class="sui-button sui-button-ghost sui-button-icon-right">Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+				<!-- DESIGN: Leading Icon -->
+				<table class="showcase-table showcase-table--compare">
 
-					<button class="sui-button sui-button-icon-right" disabled>Button <span class="sui-icon-academy" aria-hidden="true"></span></button>
+					<caption>Leading Icon</caption>
 
-					<div class="demo-code-block" style="margin-top: 10px;">
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
 
-<pre class="sui-code-snippet sui-no-copy html">
-&lt;button class=&quot;sui-button sui-button-icon-right&quot;&gt;
-	Button &lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-&lt;/button&gt;
-</pre>
+					<tbody>
 
-					</div>
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
 
-				</div>
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--loading" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green" disabled>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<!-- DESIGN: Trailing Icon -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Trailing Icon</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Grey</th>
+						<th scope="col">Blue</th>
+						<th scope="col">Red</th>
+						<th scope="col">Purple</th>
+						<th scope="col">Green</th>
+					</thead>
+
+					<tbody>
+
+						<!-- STATE: Active -->
+						<tr>
+							<th scope="row" class="showcase-table__lead">Enabled</th>
+							<td>
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue">
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red">
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple">
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green">
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Loading -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Loading</th>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+						<!-- STATE: Disabled -->
+						<tr class="showcase-table__row">
+							<th scope="row" class="showcase-table__lead">Disabled</th>
+							<td>
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--blue" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--red" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--purple" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+							<td>
+								<button class="sui-button sui-button--solid sui-button--green" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
 
 			</div>
 
 		</div>
 
-	</div>
+		<!-- Button Size -->
+		<div class="sui-box">
 
-	<!-- TAB: Loading -->
-	<div class="sui-box" data-tab="loading" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Loading Button</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<!-- ROW: Loader Only -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Loader Only</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<!-- Text Only -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label sui-dark">Default</span>
-
-						<button type="button" class="sui-button">
-							<span class="sui-loading-text">Button</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-						</button>
-
-						<button type="button" class="sui-button sui-button-onload">
-							<span class="sui-loading-text">Button</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;!--
-NOTE:
-To put this button on "loading" state just include
-`sui-button-onload` class next to `sui-button`.
---&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;
-
-	&lt;!-- Content Wrapper --&gt;
-	&lt;span class=&quot;sui-loading-text&quot;&gt;Button&lt;/span&gt;
-
-	&lt;!-- Spinning loading icon --&gt;
-	&lt;span class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- Text + Icon -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label sui-dark">Text with Icon</span>
-
-						<button type="button" class="sui-button">
-							<span class="sui-loading-text">
-								<span class="sui-icon-academy" aria-hidden="true"></span> Button
-							</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-						</button>
-
-						<button type="button" class="sui-button sui-button-onload">
-							<span class="sui-loading-text">
-								<span class="sui-icon-academy" aria-hidden="true"></span> Button
-							</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;!--
-NOTE:
-To put this button on "loading" state just include
-`sui-button-onload` class next to `sui-button`.
---&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button&quot;&gt;
-
-	&lt;!-- Content Wrapper --&gt;
-	&lt;span class=&quot;sui-loading-text&quot;&gt;
-	&lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Button
-	&lt;/span&gt;
-
-	&lt;!-- Spinning loading icon --&gt;
-	&lt;span class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-				</div>
-
+			<div class="sui-box-header">
+				<h2 class="sui-box-title">Button Size</h2>
 			</div>
 
-			<!-- ROW: Loader with Text -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">Loader with Text</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<!-- Text Only -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label sui-dark">Default</span>
-
-						<button type="button" class="sui-button" aria-live="polite">
-							<span class="sui-button-text-default">Button</span>
-							<span class="sui-button-text-onload">
-								<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-								Loading State
-							</span>
-						</button>
-
-						<button type="button" class="sui-button sui-button-onload-text" aria-live="polite">
-							<span class="sui-button-text-default">Button</span>
-							<span class="sui-button-text-onload">
-								<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-								Loading State
-							</span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;!--
-NOTE:
-1. To put this button on "loading" state just include
-`sui-button-onload-text` class next to `sui-button`.
-2. If button is inside a container with `aria-live="polite"`,
-there's no need on adding it again. You can safely remove that
-attribute from button.
---&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button&quot; aria-live=&quot;polite&quot;&gt;
-
-	&lt;!-- Default State Content --&gt;
-	&lt;span class=&quot;sui-button-text-default&quot;&gt;Button&lt;/span&gt;
-
-	&lt;!-- Loading State Content --&gt;
-	&lt;span class=&quot;sui-button-text-onload&quot;&gt;
-		&lt;span class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-		Loading State
-	&lt;/span&gt;
+			<div class="sui-box-body">
+
+				<!-- DESIGN: Width -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Width</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Class Name</th>
+						<th scope="col" class="showcase-table__preview">Preview</th>
+					</thead>
+
+					<tbody>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">Default</th>
+							<td>-</td>
+							<td class="showcase-table__preview">
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">Full Width</th>
+							<td><code>sui-button--full-width</code></td>
+							<td colspan="2">
+								<button class="sui-button sui-button--solid sui-button--full-width">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<!-- DESIGN: Height -->
+				<table class="showcase-table showcase-table--compare">
+
+					<caption>Height</caption>
+
+					<thead>
+						<th class="showcase-table__lead" aria-hidden="true"></th>
+						<th scope="col">Class Name</th>
+						<th scope="col" colspan="2">Preview</th>
+					</thead>
+
+					<tbody>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">30px <span class="sui-tag sui-tag-sm sui-tag-yellow" style="margin-left: 5px;">Default</span></th>
+							<td><code>-</code></td>
+							<td colspan="2" class="showcase-table__preview">
+								<button class="sui-button sui-button--solid sui-button--full-width">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">40px</th>
+							<td><code>sui-button--height-40</code></td>
+							<td colspan="2" class="showcase-table__preview">
+								<button class="sui-button sui-button--solid sui-button--full-width sui-button--height-40">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">50px</th>
+							<td><code>sui-button--height-50</code></td>
+							<td colspan="2" class="showcase-table__preview">
+								<button class="sui-button sui-button--solid sui-button--full-width sui-button--height-50">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th scope="row" class="showcase-table__lead">60px</th>
+							<td><code>sui-button--height-60</code></td>
+							<td colspan="2" class="showcase-table__preview">
+								<button class="sui-button sui-button--solid sui-button--full-width sui-button--height-60">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th scope="row">70px</th>
+							<td><code>sui-button--height-70</code></td>
+							<td colspan="2" class="showcase-table__preview">
+								<button class="sui-button sui-button--solid sui-button--full-width sui-button--height-70">
+									<span class="sui-button__label">Button</span>
+								</button>
+							</td>
+						</tr>
 
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- Text + Icon -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label sui-dark">Default</span>
-
-						<button type="button" class="sui-button" aria-live="polite">
-							<span class="sui-button-text-default">
-								<span class="sui-icon-academy" aria-hidden="true"></span> Button
-							</span>
-							<span class="sui-button-text-onload">
-								<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-								Loading State
-							</span>
-						</button>
-
-						<button type="button" class="sui-button sui-button-onload-text" aria-live="polite">
-							<span class="sui-button-text-default">
-								<span class="sui-icon-academy" aria-hidden="true"></span> Button
-							</span>
-							<span class="sui-button-text-onload">
-								<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-								Loading State
-							</span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;!--
-NOTE:
-1. To put this button on "loading" state just include
-`sui-button-onload-text` class next to `sui-button`.
-2. If button is inside a container with `aria-live="polite"`,
-there's no need on adding it again. You can safely remove that
-attribute from button.
---&gt;
-&lt;button type=&quot;button&quot; class=&quot;sui-button&quot; aria-live=&quot;polite&quot;&gt;
-
-	&lt;!-- Default State Content --&gt;
-	&lt;span class=&quot;sui-button-text-default&quot;&gt;
-		&lt;span class=&quot;sui-icon-academy&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Button
-	&lt;/span&gt;
+					</tbody>
 
-	&lt;!-- Loading State Content --&gt;
-	&lt;span class=&quot;sui-button-text-onload&quot;&gt;
-		&lt;span class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-		Loading State
-	&lt;/span&gt;
-
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Compound -->
-	<div class="sui-box" data-tab="compound" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Compound Button</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-					<span class="sui-settings-label">About</span>
-					<span class="sui-description">In some parts of the design you gonna find buttons transformed into icons only buttons on small screens.</span>
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<!-- SECTION: Regular Button -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label">Regular Button</span>
-
-						<span class="sui-description" style="margin-bottom: 10px;">This is the basic structure of a compound button, text with icon on desktop and icon only on small screens.</span>
-
-						<button type="button" class="sui-button sui-button-compound">
-							<span class="sui-compound-desktop" aria-hidden="true">
-								<span class="sui-icon-academy"></span>
-								Compound Button
-							</span>
-							<span class="sui-compound-mobile" aria-hidden="true">
-								<span class="sui-icon-academy"></span>
-							</span>
-							<span class="sui-screen-reader-text">Compound Button</span>
-						</button>
-
-						<button type="button" class="sui-button sui-button-icon-right sui-button-compound">
-							<span class="sui-compound-desktop" aria-hidden="true">
-								Compound Button
-								<span class="sui-icon-academy"></span>
-							</span>
-							<span class="sui-compound-mobile" aria-hidden="true">
-								<span class="sui-icon-academy"></span>
-							</span>
-							<span class="sui-screen-reader-text">Compound Button</span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-compound&quot;&gt;
-
-	&lt;!-- Content for large screens --&gt;
-	&lt;span class=&quot;sui-compound-desktop&quot; aria-hidden=&quot;true&quot;&gt;
-	&lt;span class=&quot;sui-icon-academy&quot;&gt;&lt;/span&gt;
-	Compound Button
-	&lt;/span&gt;
-
-	&lt;!-- Content for small screens --&gt;
-	&lt;span class=&quot;sui-compound-mobile&quot; aria-hidden=&quot;true&quot;&gt;
-	&lt;span class=&quot;sui-icon-academy&quot;&gt;&lt;/span&gt;
-	&lt;/span&gt;
-
-	&lt;!-- Button label for screen readers --&gt;
-	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
-
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-					<!-- SECTION: Loading Button -->
-					<div class="sui-form-field">
-
-						<span class="sui-settings-label">Loading Button</span>
-
-						<span class="sui-description" style="margin-bottom: 10px;">This is a regular compound button that includes an icon spinning animation when an action is being performed, e.g. when saving changes.</span>
-
-						<span class="sui-label">Button on default state:</span>
-
-						<button class="sui-button sui-button-compound">
-							<span class="sui-loading-text" aria-hidden="true">
-								<span class="sui-compound-desktop">
-									<span class="sui-icon-academy"></span>
-									Compound Button
-								</span>
-								<span class="sui-compound-mobile">
-									<span class="sui-icon-academy"></span>
-								</span>
-							</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-							<span class="sui-screen-reader-text">Compound Button</span>
-						</button>
-
-						<span class="sui-label" style="margin-top: 15px;">Button on loading state:</span>
-
-						<button class="sui-button sui-button-compound sui-button-onload">
-							<span class="sui-loading-text" aria-hidden="true">
-								<span class="sui-compound-desktop">
-									<span class="sui-icon-academy"></span>
-									Compound Button
-								</span>
-								<span class="sui-compound-mobile">
-									<span class="sui-icon-academy"></span>
-								</span>
-							</span>
-							<span class="sui-icon-loader sui-loading" aria-hidden="true"></span>
-							<span class="sui-screen-reader-text">Compound Button</span>
-						</button>
-
-						<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;!--
-NOTE:
-To put this button on "loading" state just include
-`sui-button-onload` class next to `sui-button`.
---&gt;
-&lt;button class=&quot;sui-button sui-button-compound&quot;&gt;
-
-	&lt;!-- Content Wrapper --&gt;
-	&lt;span class=&quot;sui-loading-text&quot; aria-hidden=&quot;true&quot;&gt;
-
-		&lt;!-- Content for large screens --&gt;
-		&lt;span class=&quot;sui-compound-desktop&quot;&gt;
-		&lt;span class=&quot;sui-icon-academy&quot;&gt;&lt;/span&gt;
-		Compound Button
-		&lt;/span&gt;
-
-		&lt;!-- Content for small screens --&gt;
-		&lt;span class=&quot;sui-compound-mobile&quot;&gt;
-		&lt;span class=&quot;sui-icon-academy&quot;&gt;&lt;/span&gt;
-		&lt;/span&gt;
-
-	&lt;/span&gt;
-
-	&lt;!-- Spinning loading icon --&gt;
-	&lt;span class=&quot;sui-icon-loader sui-loading&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-
-	&lt;!-- Button label for screen readers --&gt;
-	&lt;span class=&quot;sui-screen-reader-text&quot;&gt;Compound Button&lt;/span&gt;
-
-&lt;/button&gt;
-</pre>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- TAB: Dashed -->
-	<div class="sui-box" data-tab="dashed" style="display: none;">
-
-		<div class="sui-box-header">
-			<h2 class="sui-box-title">Dashed Button</h2>
-		</div>
-
-		<div class="sui-box-body">
-
-			<div class="sui-notice sui-notice-warning">
-
-				<p>This button is used with <a href="/page-builder.html">builder</a> element and always have a 100% width and 60px height. It's made this big to highlight so users can easily click on it to perform an action like adding a new element.</p>
-
-			</div>
-
-			<!-- SECTION: Default -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Default – 60px Height</span>
-
-					<button class="sui-button sui-button-dashed">
-						<span class="sui-icon-plus" aria-hidden="true"></span>
-						Dashed Button
-					</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-dashed&quot;&gt;
-	&lt;span class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-	Dashed Button
-&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- SECTION: Large -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-2">
-
-					<span class="sui-settings-label sui-dark">Large – 70px Height</span>
-
-					<button class="sui-button sui-button-dashed sui-lg">
-						<span class="sui-icon-plus" aria-hidden="true"></span>
-						Dashed Button
-					</button>
-
-					<div class="demo-code-block" style="margin-top: 10px;">
-
-<pre class="sui-code-snippet html">
-&lt;button type=&quot;button&quot; class=&quot;sui-button sui-button-dashed sui-lg&quot;&gt;
-	&lt;span class=&quot;sui-icon-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-	Dashed Button
-&lt;/button&gt;
-</pre>
-
-					</div>
-
-				</div>
+				</table>
 
 			</div>
 
@@ -1236,7 +1195,7 @@ To put this button on "loading" state just include
 	</div>
 
 	<!-- TAB: Documentation -->
-	<div class="sui-box" data-tab="documentation" style="display: none;">
+	<div class="sui-box" data-tab="docs" style="display: none;">
 
 		<div class="sui-box-header">
 			<h2 class="sui-box-title">Documentation</h2>
@@ -1247,10 +1206,691 @@ To put this button on "loading" state just include
 			<!-- ROW: Specifications -->
 			<div
 				id="showcase-specs"
-				version="2.2.1"
+				version="2.13.0"
 				utilities-page="{{ site.baseurl }}/utilities/"
 				monochrome="true"
+				rtl-lang="true"
 			></div>
+
+			<!-- ROW: Implementation -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">Implementation</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="sui-side-tabs sui-tabs">
+
+						<div data-tabs>
+							<div class="active">Text Button</div>
+							<div>Solid Button</div>
+							<div>Light Button</div>
+							<div>Ghost Button</div>
+							<div>Dashed Button</div>
+							<div>More Variations</div>
+						</div>
+
+						<div data-panes>
+
+							<!-- TAB: Text Button -->
+							<div class="active" style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Text Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons have less visual prominence, so should be used for low emphasis actions.</p>
+
+								<button class="sui-button">
+									<span class="sui-button__label">Text Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Text Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button">
+									<span class="sui-button__label">Text Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Text Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Text Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Solid Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Solid Button</h4>
+								<p class="sui-description" style="margin-top: 0;">This is the most prominent button because of its contrasting surface color. It is also used as a primary action button.</p>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Solid Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--solid">
+									<span class="sui-button__label">Solid Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Solid Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Solid Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--solid</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--solid sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--solid sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--solid sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--solid sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Light Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Light Button</h4>
+								<p class="sui-description" style="margin-top: 0;">To make it less visually prominent, this button has a lighter background color and darker label color. They're still used for final or unblocking actions in a flow, but may be better when these actions don't require quite so much emphasis.</p>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Light Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--light">
+									<span class="sui-button__label">Light Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--light&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Light Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Light Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--light</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--light sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--light sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--light sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--light sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Ghost Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Ghost Button</h4>
+								<p class="sui-description" style="margin-top: 0;">These buttons are for actions that need attention but aren't the primary action, such as "View all". This is also the button used to give someone the oportunity to change their mind or escape the flow.</p>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Ghost Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Ghost Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Ghost Button Color Variations</h5>
+
+								<table class="sui-table" style="margin-top: 10px;">
+
+									<thead>
+										<tr>
+											<th>Color Name</th>
+											<th colspan="2">CSS Class</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr>
+											<th>Grey (Default)</th>
+											<td colspan="2"><code>sui-button--ghost</code></td>
+										</tr>
+
+										<tr>
+											<th>Blue</th>
+											<td colspan="2"><code>sui-button--ghost sui-button--blue</code></td>
+										</tr>
+
+										<tr>
+											<th>Red</th>
+											<td colspan="2"><code>sui-button--ghost sui-button--red</code></td>
+										</tr>
+
+										<tr>
+											<th>Purple</th>
+											<td colspan="2"><code>sui-button--ghost sui-button--purple</code></td>
+										</tr>
+
+										<tr>
+											<th>Green</th>
+											<td colspan="2"><code>sui-button--ghost sui-button--green</code></td>
+										</tr>
+
+									</tbody>
+
+									<tfoot>
+
+										<tr>
+											<td colspan="3"><strong>Note:</strong> Color classes listed here cannot be used together. That means, if you need a blue button, you must replace the default class with the blue class and vice-versa.</td>
+										</tr>
+
+									</tfoot>
+
+								</table>
+
+							</div>
+
+							<!-- TAB: Dashed Button -->
+							<div style="margin-top: 30px;">
+
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Dashed Button</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">It is a ghost button with dashed border. Currently used as secondary button in the <a href="{{ site.baseurl }}/builder/">Builder</a> element.</p>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+									<span class="sui-button__label">Dashed Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<button class="sui-button sui-button--dashed sui-button--ghost">
+									<span class="sui-button__label">Ghost Button</span>
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--dashed sui-button--ghost&quot;&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Dashed Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Dashed Button Color Variations</h5>
+
+								<p class="sui-description" style="margin-top: 0;">Color variations are the same used on <strong>Ghost Button</strong>. The only difference is that this button has always present the class: <code>sui-button--dashed</code>.</p>
+
+							</div>
+
+							<!-- TAB: More Variations -->
+							<div style="margin-top: 30px;">
+
+								<!-- Compound Button -->
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Compound Button</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">In some parts of the design you are going to find buttons transformed from text to icon buttons or vice-versa. You just need to make use of class modifiers available on <a href="{{ site.baseurl }}/utilities/"><strong>Utilities</strong></a> page.</p>
+
+								<h5 class="sui-settings-label">Label button into icon button</h5>
+								<p class="sui-description" style="margin-bottom: 15px;">In the following example you will see a label-only button that gets transformed into an icon-only button.</p>
+
+								<button class="sui-button sui-button--solid" aria-label="Sample Button">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-md sui-hidden-md sui-hidden-lg sui-hidden-xl" aria-hidden="true"></span>
+									<span class="sui-button__label sui-hidden-sm">Sample Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; aria-label=&quot;Sample Button&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-md sui-hidden-md sui-hidden-lg sui-hidden-xl&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label sui-hidden-sm&quot;&gt;Sample Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<h5 class="sui-settings-label">Icon button into label button</h5>
+								<p class="sui-description" style="margin-bottom: 15px;">In the following example you will see an icon-only button that gets transformed into a label-only button.</p>
+
+								<button class="sui-button sui-button--solid" aria-label="Sample Button">
+									<span class="sui-button__icon sui-icon-wpmudev-logo sui-md sui-hidden-sm" aria-hidden="true"></span>
+									<span class="sui-button__label sui-hidden-md sui-hidden-lg sui-hidden-xl">Sample Button</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; aria-label=&quot;Sample Button&quot;&gt;
+	&lt;span class=&quot;sui-button__icon sui-icon-wpmudev-logo sui-md sui-hidden-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;sui-button__label sui-hidden-md sui-hidden-lg sui-hidden-xl&quot;&gt;Sample Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<hr>
+
+								<!-- Loading -->
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Loading</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To set a button on "loading" state, it is necessary to add <code>sui-button--loading</code> class and <code>disable</code> it.</p>
+
+								<button class="sui-button sui-button--solid sui-button--loading" disabled>
+									<span class="sui-button__label">Button</span>
+									<span class="sui-button__loader sui-icon-loader sui-loading sui-sm" aria-hidden="true"></span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Button&lt;/span&gt;
+	&lt;span class=&quot;sui-button__loader sui-icon-loader sui-loading sui-sm&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+								<hr>
+
+								<!-- Disabled -->
+								<h4 class="sui-settings-label sui-dark" style="font-size: 18px;">Disabled</h4>
+								<p class="sui-description" style="margin-top: 0; margin-bottom: 30px;">To disable a button, add the <code>disabled</code> attribute directly to the <code>button</code> element.</p>
+
+								<button class="sui-button sui-button--solid" disabled>
+									<span class="sui-button__label">Disabled</span>
+								</button>
+
+								<div class="demo-code-block" style="margin-top: 15px;">
+
+<pre class="sui-code-snippet sui-no-copy html">
+&lt;button class=&quot;sui-button sui-button--solid&quot; disabled&gt;
+	&lt;span class=&quot;sui-button__label&quot;&gt;Disabled Button&lt;/span&gt;
+&lt;/button&gt;
+</pre>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- ROW: API -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<h3 class="sui-settings-label">CSS Classes</h3>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<table class="showcase-table">
+
+						<tr>
+
+							<td>
+
+								<table class="showcase-table showcase-table--nested">
+
+									<caption>Elements</caption>
+
+									<tr>
+										<th>CSS Class</th>
+										<th colspan="2">Description</th>
+									</tr>
+
+									<tr>
+										<td><code>sui-button</code></td>
+										<td colspan="2"><strong>Mandatory.</strong> Defaults to a text button.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button__label</code></td>
+										<td colspan="2"><strong>Mandatory.</strong> Indicates the element containing the button's text label.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button__icon</code></td>
+										<td colspan="2">Indicates the element containing the button's icon.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button__loader</code></td>
+										<td colspan="2">Indicates the element containing the button's loading icon.</td>
+									</tr>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+
+								<table class="showcase-table showcase-table--nested">
+
+									<caption>Modifiers</caption>
+
+									<tr>
+										<th>CSS Class</th>
+										<th colspan="2">Description</th>
+									</tr>
+
+									<tr>
+										<td><code>sui-button--50</code></td>
+										<td colspan="2">Styles a button that has 50px height.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button--60</code></td>
+										<td colspan="2">Styles a button that has 60px height.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button--70</code></td>
+										<td colspan="2">Styles a button that has 70px height.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button--full-width</code></td>
+										<td colspan="2">Styles a button that occupies the full width of its container.</td>
+									</tr>
+
+									<tr>
+										<td><code>sui-button--loading</code></td>
+										<td colspan="2">Styles a button showing the loader icon and visually hidding other content from it.</td>
+									</tr>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+					</table>
+
+				</div>
+
+			</div>
 
 		</div>
 

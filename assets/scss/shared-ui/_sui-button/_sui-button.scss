@@ -1,0 +1,17 @@
+@use './_button-elements/button-elements' as sui-button--element;
+@use './_button-modifiers/button-modifiers' as sui-button--modifier;
+
+// Define block name.
+$block-name: button;
+
+// Button elements.
+@include sui-button--element.button-container($block-name);
+@include sui-button--element.button-label($block-name);
+@include sui-button--element.button-icon($block-name);
+@include sui-button--element.button-loader($block-name);
+
+// Button modifiers.
+@include sui-button--modifier.button-size($block-name);
+@include sui-button--modifier.button-design--type($block-name);
+@include sui-button--modifier.button-design--color($block-name);
+@include sui-button--modifier.button-state($block-name);

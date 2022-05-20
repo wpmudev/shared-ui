@@ -1,0 +1,28 @@
+@use '../../_mixins/bem' as *;
+@use '../../_mixins/body-class' as *;
+
+/// Build component icon styles.
+/// @author WPMU DEV
+/// @param {String} $block - Main block name
+@mixin button-icon($block) {
+
+	// DIR: Left-to-Right.
+	@include body-class($wrap: true, $rtl: false, $monochrome: null) {
+
+		@include block($block) {
+
+			@include element('icon') {
+				flex: 0 0 auto;
+				margin: 0 3px;
+
+				&:before {
+					display: block;
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	// DIR: Right-to-Left.
+	// No need.
+}

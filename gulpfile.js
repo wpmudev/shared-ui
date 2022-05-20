@@ -30,7 +30,7 @@ const ghPages      = require('gulp-gh-pages');
 const banner = [
 	'/*!',
 	' * WPMU DEV Shared UI',
-	' * Copyright 2018 - 2021 Incsub (https://incsub.com)',
+	' * Copyright 2018 - 2022 Incsub (https://incsub.com)',
 	' * Licensed under GPL v3 (http://www.gnu.org/licenses/gpl-3.0.html)',
 	' */',
 	''
@@ -291,7 +291,10 @@ function updateVariablesVersion() {
 
 	const version = getVersion();
 
-	return gulp.src( library.source.styles + '_variables.scss' )
+	return gulp.src([
+		library.source.styles + '_variables.scss',
+		library.source.styles + '_helpers/_variables.scss',
+	])
 		.pipe( replace( /^(\$sui-version: ').*(';)$/gm, function( match, p1, p2 ) {
 
 			console.log( chalk.magentaBright( '\n./scss/_variables.scss:' ) );

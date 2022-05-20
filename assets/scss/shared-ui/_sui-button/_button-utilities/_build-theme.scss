@@ -1,0 +1,178 @@
+@use 'sass:map';
+@use '../../_mixins/bem' as *;
+
+@mixin button-build-state-static($palette, $colour) {
+
+	@if map.has-key($palette, $colour, static) {
+		@if map.has-key($palette, $colour, static, border) {
+			border-color: map.get($palette, $colour, static, border);
+		}
+		@if map.has-key($palette, $colour, static, background) {
+			background: map.get($palette, $colour, static, background);
+		}
+		@if map.has-key($palette, $colour, static, color) {
+			color: map.get($palette, $colour, static, color);
+		}
+	}
+}
+
+@mixin button-build-state-hover($palette, $colour) {
+
+	@if map.has-key($palette, $colour, hover) {
+		&:hover {
+			@if map.has-key($palette, $colour, hover, border) {
+				border-color: map.get($palette, $colour, hover, border);
+			}
+			@if map.has-key($palette, $colour, hover, background) {
+				background: map.get($palette, $colour, hover, background);
+			}
+			@if map.has-key($palette, $colour, hover, color) {
+				color: map.get($palette, $colour, hover, color);
+			}
+		}
+	}
+}
+
+@mixin button-build-state-focus($palette, $colour) {
+
+	@if map.has-key($palette, $colour, focus) {
+		&:focus {
+			@if map.has-key($palette, $colour, focus, border) {
+				border-color: map.get($palette, $colour, focus, border);
+				outline-color: map.get($palette, $colour, focus, border);
+			}
+			@if map.has-key($palette, $colour, focus, background) {
+				background: map.get($palette, $colour, focus, background);
+			}
+			@if map.has-key($palette, $colour, focus, color) {
+				color: map.get($palette, $colour, focus, color);
+			}
+		}
+	}
+}
+
+@mixin button-build-state-disabled($palette, $colour, $wrapper: true) {
+
+	@if map.has-key($palette, $colour, disabled) {
+
+		@if $wrapper {
+			&[disabled],
+			&:disabled,
+			&.disabled {
+				@if map.has-key($palette, $colour, disabled, border) {
+					border-color: map.get($palette, $colour, disabled, border);
+				}
+				@if map.has-key($palette, $colour, disabled, background) {
+					background: map.get($palette, $colour, disabled, background);
+				}
+				@if map.has-key($palette, $colour, disabled, color) {
+					color: map.get($palette, $colour, disabled, color);
+				}
+			}
+		}
+
+		@else {
+			@if map.has-key($palette, $colour, disabled, border) {
+				border-color: map.get($palette, $colour, disabled, border);
+			}
+			@if map.has-key($palette, $colour, disabled, background) {
+				background: map.get($palette, $colour, disabled, background);
+			}
+			@if map.has-key($palette, $colour, disabled, color) {
+				color: map.get($palette, $colour, disabled, color);
+			}
+		}
+	}
+}
+
+@mixin button-build-system-none($palette, $colour) {
+	@include button-build-state-static($palette, $colour);
+	@include button-build-state-hover($palette, $colour);
+	@include button-build-state-focus($palette, $colour);
+}
+
+@mixin button-build-system-block($palette, $colour, $wrapper: true, $name: '') {
+
+	@if $wrapper {
+
+		@include block($name) {
+
+			@if $colour == 'grey' {
+				@include button-build-system-none($palette, $colour);
+			}
+
+			@else {
+				@include modifier($colour) {
+					@include button-build-system-none($palette, $colour);
+				}
+			}
+		}
+	}
+
+	@else {
+
+		@if $colour == 'grey' {
+			@include button-build-system-none($palette, $colour);
+		}
+
+		@else {
+			@include modifier($colour) {
+				@include button-build-system-none($palette, $colour);
+			}
+		}
+	}
+}
+
+@mixin button-build-system-modifier($palette, $colour, $name) {
+
+	@include modifier($name) {
+
+		@if $colour == 'grey' {
+			@include button-build-system-none($palette, $colour);
+		}
+
+		@else {
+			&.sui-button--#{$colour} {
+				@include button-build-system-none($palette, $colour);
+			}
+		}
+	}
+}
+
+@mixin button-theme-constructor($system, $palette, $prefix: null, $monochrome: false) {
+
+	@if $monochrome {
+
+		// BEM: Block.
+		@if $system == block {
+			@include button-build-system-none($palette, 'black');
+		}
+
+		// BEM: Modifier.
+		@else if $system == modifier {
+
+			@include modifier($prefix) {
+				@include button-build-system-none($palette, 'black');
+			}
+		}
+	}
+
+	@else {
+
+		@each $colour, $state in $palette {
+
+			@if $colour != 'black' {
+
+				// BEM: Block.
+				@if $system == block {
+					@include button-build-system-block($palette, $colour, false);
+				}
+
+				// BEM: Modifier.
+				@else if $system == modifier {
+					@include button-build-system-modifier($palette, $colour, $prefix);
+				}
+			}
+		}
+	}
+}
