@@ -38,15 +38,19 @@
 			display: block;
 
 			&.left {
-				float: left;
+				@include media(min-width, sm) {
+					float: left;
+				}
 			}
 
 			&.right {
-				float: right;
+				@include media(min-width, sm) {
+					float: right;
+				}
 			}
 
 			.table-condensed {
-				margin: 0;
+				margin: 0 auto;
 				padding: 0;
 				border: 0;
 				border-spacing: 0;
@@ -201,9 +205,15 @@
 			}
 
 			+ .drp-calendar {
-				margin-left: 10px;
-				padding-left: 10px;
-				border-left: 1px solid palette(silver, soft);
+				@include media(min-width, sm) {
+					margin-left: 10px;
+					padding-left: 10px;
+					border-left: 1px solid palette(silver, soft);
+				}
+			}
+
+			@include media(max-width, sm) {
+				margin-top: 15px;
 			}
 		}
 
@@ -236,7 +246,7 @@
 					li {
 						cursor: pointer;
 						display: block;
-						margin: 0 5px;
+						margin: 3px 5px;
 						padding: 3px 10px;
 						border: 0;
 						border-radius: 10px;
