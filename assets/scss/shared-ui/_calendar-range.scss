@@ -219,15 +219,13 @@
 
 		// VARIATION: Show ranges.
 		&.show-ranges {
-			padding-top: #{($sui-gutter-md - 1px) + math.div($sui-gutter, 2) + 18px};
+			padding-top: $sui-gutter-md;
 
 			.ranges {
 				display: block;
 				flex: 0 0 auto;
-				position: absolute;
-				top: $sui-gutter-md;
-				right: 0;
-				left: 0;
+				margin: 0 auto;
+				max-width: calc((#{$calendar-cell} * 14) + 20px);
 
 				ul {
 					width: 100%;
@@ -274,6 +272,10 @@
 							margin-right: 0;
 						}
 					}
+				}
+
+				@include media(max-width, sm) {
+					max-width: calc(#{$calendar-cell} * 7);
 				}
 			}
 		}
