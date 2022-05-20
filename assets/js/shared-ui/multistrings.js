@@ -155,10 +155,10 @@
 
 			html += '<li title="' + itemName + '">';
 
-				html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
+				html += '<span class="sui-icon-page sui-sm" aria-hidden="true"></span>';
 				html += itemName;
 				html += '<button class="sui-button-close">';
-					html += '<i class="sui-icon-close" aria-hidden="true"></i>';
+					html += '<span class="sui-icon-close" aria-hidden="true"></span>';
 					html += '<span class="sui-screen-reader-text">Delete</span>';
 				html += '</button>';
 

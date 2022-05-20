@@ -159,7 +159,7 @@
 
 						innerHTML += '<button class="sui-button-icon">';
 
-							innerHTML += '<i class="sui-icon-check" aria-hidden="true"></i>';
+							innerHTML += '<span class="sui-icon-check" aria-hidden="true"></span>';
 
 							if ( '' !== dismiss.label ) {
 								innerHTML += '<span class="sui-screen-reader-text">' + dismiss.label + '</span>';
