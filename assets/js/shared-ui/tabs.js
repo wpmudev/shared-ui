@@ -56,7 +56,7 @@
         function onClick( groupIndex, itemIndex ) {
             setNodes( groupIndex, itemIndex );
 
-            setCallback( indexGroup, indexItem );
+            setCallback();
         }
 
         function setNodes( groupIndex, itemIndex ) {
@@ -120,7 +120,9 @@
             }
         }
 
-        return init( config );
+        init( config );
+
+		return;
     };
 
 	SUI.tabsOverflow = function( $el ) {
@@ -225,11 +227,13 @@
 		}
 
 		// Deactivate all tabs and tab panels.
-		function deactivateTabs( tabs, panels ) {
+		function deactivateTabs( tabs, panels, inputs ) {
 
 			tabs.removeClass( 'active' );
 			tabs.attr( 'tabindex', '-1' );
 			tabs.attr( 'aria-selected', false );
+
+			inputs.prop( 'checked', false );
 
 			panels.removeClass( 'active' );
 			panels.prop( 'hidden', true );
@@ -240,16 +244,20 @@
 		function activateTab( tab ) {
 
 			var tabs     = $( tab ).closest( '[role="tablist"]' ).find( '[role="tab"]' ),
+				inputs   = $( tab ).closest( '[role="tablist"]' ).find( 'input[type="radio"]' ),
 				panels   = $( tab ).closest( '.sui-tabs' ).find( '> .sui-tabs-content > [role="tabpanel"]' ),
 				controls = $( tab ).attr( 'aria-controls' ),
+				input    = $( tab ).next( 'input[type="radio"]' ),
 				panel    = $( '#' + controls )
 				;
 
-			deactivateTabs( tabs, panels );
+			deactivateTabs( tabs, panels, inputs );
 
 			$( tab ).addClass( 'active' );
 			$( tab ).removeAttr( 'tabindex' );
 			$( tab ).attr( 'aria-selected', true );
+
+			input.prop( 'checked', true );
 
 			panel.addClass( 'active' );
 			panel.prop( 'hidden', false );
@@ -346,28 +354,15 @@
 
 			switch ( key ) {
 
-				case keys.end :
-
+				case keys.end:
+				case keys.home:
 					event.preventDefault();
-
-					// Actiavte last tab.
-					// focusLastTab();
-
-					break;
-
-				case keys.home :
-
-					event.preventDefault();
-
-					// Activate first tab.
-					// focusFirstTab();
-
 					break;
 
 				// Up and down are in keydown
 				// because we need to prevent page scroll.
-				case keys.up :
-				case keys.down :
+				case keys.up:
+				case keys.down:
 					determineOrientation( event, index, tablist );
 					break;
 			}

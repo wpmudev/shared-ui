@@ -4,6 +4,7 @@
 
 		// ELEMENT: Row
 		.sui-box-settings-row {
+			display: flex;
 			position: relative;
 			margin-bottom: $sui-gutter;
 			padding-bottom: $sui-gutter;
@@ -51,13 +52,14 @@
 				}
 			}
 
-			@include media(min-width, md) {
-				display: flex;
+			@include media(max-width, md) {
+				display: block;
 			}
 		}
 
 		// ELEMENT: Row (Slim)
 		.sui-box-settings-slim-row {
+			display: flex;
 			position: relative;
 			margin-bottom: $sui-gutter-md;
 
@@ -90,8 +92,8 @@
 				margin-bottom: 0;
 			}
 
-			@include media(min-width, md) {
-				display: flex;
+			@include media(max-width, md) {
+				display: block;
 			}
 		}
 
@@ -102,6 +104,10 @@
 
 			.sui-settings-label {
 				color: palette(gray, dark);
+			}
+
+			@include media(max-width, md) {
+				max-width: 100%;
 			}
 		}
 
@@ -202,6 +208,39 @@
 					padding-left: $sui-gutter;
 				}
 			}
+		}
+	}
+}
+
+@include body-class($wrap: true, $rtl: true) {
+
+	.sui-box-settings-row,
+	.sui-box-settings-slim-row {
+	
+		select:not(.sui-select):not(.sui-variables) {
+			padding-right: 14px;
+			padding-left: 40px;
+			background-position: 14px;
+		}
+
+		[data-clipboard-target] {
+			left: 15px;
+			right: auto;
+		}
+
+		[class*=sui-box-settings-col-] + div {
+
+			@include media(min-width, md) {
+				margin-left: 0;
+				margin-right: $sui-gutter;
+			}
+		}
+	}
+
+	.sui-box-header {
+		.sui-actions-left {
+			margin-left: auto;
+			margin-right: 10px;
 		}
 	}
 }

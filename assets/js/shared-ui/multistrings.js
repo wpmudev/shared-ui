@@ -110,11 +110,14 @@
 				ariaDescription = ''
 				;
 
-			if ( 'undefined' !== typeof textarea.attr( 'placeholder' ) && '' !== textarea.attr( 'placeholder' ) ) {
-				placeholder = ' placeholder="' + textarea.attr( 'placeholder' ) + '"';
+			const dataPlaceholder = textarea.attr( 'placeholder' );
+			const dataLabel = textarea.attr( 'data-field-label' );
+
+			if ( 'undefined' !== typeof dataPlaceholder && '' !== dataPlaceholder ) {
+				placeholder = ' placeholder="' + dataPlaceholder + '"';
 			}
 
-			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
+			if ( 'undefined' !== typeof dataLabel && '' !== dataLabel ) {
 				ariaLabel = ' aria-labelledby="' + uniqid + '-label"';
 				textarea.attr( 'aria-labelledby', uniqid + '-label' );
 			} else {
@@ -127,7 +130,7 @@
 
 			}
 
-			if ( 'undefinded' !== typeof textarea.attr( 'data-field-label' ) && '' !== textarea.attr( 'data-field-label' ) ) {
+			if ( 'undefined' !== typeof dataLabel && '' !== dataLabel ) {
 				ariaDescription = ' aria-describedby="' + uniqid + '-description"';
 			} else {
 
@@ -152,10 +155,10 @@
 
 			html += '<li title="' + itemName + '">';
 
-				html += '<i class="sui-icon-page sui-sm" aria-hidden="true"></i>';
+				html += '<span class="sui-icon-page sui-sm" aria-hidden="true"></span>';
 				html += itemName;
 				html += '<button class="sui-button-close">';
-					html += '<i class="sui-icon-close" aria-hidden="true"></i>';
+					html += '<span class="sui-icon-close" aria-hidden="true"></span>';
 					html += '<span class="sui-screen-reader-text">Delete</span>';
 				html += '</button>';
 
