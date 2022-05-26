@@ -66,6 +66,11 @@
 
 				&:before {
 					opacity: 1;
+					
+					@media (forced-colors: active), (-ms-high-contrast: active) {
+						forced-color-adjust: none;
+						background-color: $accessible-dark;
+					}
 				}
 			}
 
@@ -122,9 +127,6 @@
 		margin: 0 math.div($sui-gutter, 2) 0 0;
 	}
 
-	@media (forced-colors: active) {
-		forced-color-adjust: none;
-	}
 }
 
 @include body-class(true) {
