@@ -25,13 +25,10 @@
 					line-height: 1.5em;
 					list-style: none;
 
-					&.current {
+					&.active {
 						background-color: $sidenav-tab-active-bg-color;
 						border-radius: 20px;
-
-						a {
-							color: $sidenav-tab-active-color;
-						}
+						color: $sidenav-tab-active-color;
 					}
 
 					.sui-tag,
@@ -54,10 +51,20 @@
 					}
 				}
 
-				a {
+				button {
+					font-family: $font;
+					font-size: 15px;
+					line-height: 1.5em;
+					font-weight: 500;
+					text-align: left;
+					width: 100%;
+					cursor: pointer;
+					border: 0;
+					padding: 0;
+					background: 0 0;
+					outline: 0;
 					display: block;
 					color: $sidenav-tab-color;
-					font-weight: 500;
 					transition: 0.3s ease;
 
 					&:hover,
@@ -74,12 +81,12 @@
 						background-color: transparent;
 						line-height: auto;
 
-						a {
+						button {
 							padding: 5px 15px;
 							border-radius: 20px;
 							background-color: transparent;
 
-							&.current {
+							&.active {
 								background-color: $sidenav-tab-active-bg-color;
 								color: $sidenav-tab-active-color;
 							}
@@ -161,6 +168,15 @@
 				width: $sidenav-width;
 				display: table-cell;
 				padding-right: $sui-gutter;
+			}
+		}
+
+		// sui tab content css
+		[role="tabpanel"] {
+			display: none;
+			
+			&.active {
+				display: block;
 			}
 		}
 

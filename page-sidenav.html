@@ -11,24 +11,11 @@ is_searchable: true
 
 		<!-- Navigation -->
 		<div class="sui-sidenav" role="navigation">
-
-			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
-
-				<li class="sui-vertical-tab current">
-					<a href="#" role="button" data-tab="section-1">Section 1</a>
-				</li>
-
-				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-2">Section 2</a>
-					<span class="sui-tag sui-tag-warning">4</span>
-				</li>
-
-				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-3">Section 3</a>
-					<span class="sui-icon-check-tick" aria-hidden="true"></span>
-				</li>
-
-			</ul>
+			<div class="sui-vertical-tabs sui-sidenav-hide-md" role="tablist">
+				<button id="section-1" class="sui-vertical-tab active" role="tab" aria-selected="true" aria-controls="section-1-content">Section 1</button>
+				<button id="section-2" class="sui-vertical-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="section-2-content">Section 2 <span class="sui-tag sui-tag-warning">4</span></button>
+				<button id="section-3" class="sui-vertical-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="section-3-content">Section 3 <span class="sui-icon-check-tick" aria-hidden="true"></span></button>
+			</div>
 
 			<div class="sui-sidenav-settings">
 
@@ -41,9 +28,9 @@ is_searchable: true
 					<label class="sui-label">Navigate</label>
 
 					<select class="sui-select">
-						<option value="#section-1">Section 1</option>
-						<option value="#section-2">Section 2</option>
-						<option value="#section-3">Section 3</option>
+						<option value="section-1">Section 1</option>
+						<option value="section-2">Section 2</option>
+						<option value="section-3">Section 3</option>
 					</select>
 
 				</div>
@@ -52,54 +39,72 @@ is_searchable: true
 
 		</div>
 
-		<!-- SECTION: 1 -->
-		<div class="sui-box" data-tab="section-1">
+		<div class="sui-tabs-content">
+			<!-- SECTION: 1 -->
+			<div id="section-1-content" class="sui-box active" role="tabpanel" tabindex="0" aria-labelledby="section-1" aria-describedby="section-1-description">
 
-			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 1</h1>
-			</div>
+				<div class="sui-box-header">
+					<h1 class="sui-box-title">Section 1</h1>
+				</div>
 
-			<div class="sui-box-body">
+				<div class="sui-box-body" id="section-1-description">
 
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
 
-			</div>
-
-		</div>
-
-		<!-- SECTION: 2 -->
-		<div class="sui-box" data-tab="section-2" style="display: none;">
-
-			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 2</h1>
-			</div>
-
-			<div class="sui-box-body">
-
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+				</div>
 
 			</div>
 
-		</div>
+			<!-- SECTION: 2 -->
+			<div id="section-2-content" class="sui-box" role="tabpanel" tabindex="0" aria-labelledby="section-2" aria-describedby="section-2-description" hidden>
 
-		<!-- SECTION: 3 -->
-		<div class="sui-box" data-tab="section-3" style="display: none;">
+				<div class="sui-box-header">
+					<h1 class="sui-box-title">Section 2</h1>
+				</div>
 
-			<div class="sui-box-header">
-				<h1 class="sui-box-title">Section 3</h1>
+				<div class="sui-box-body" id="section-2-description">
+
+					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+				</div>
+
 			</div>
 
-			<div class="sui-box-body">
+			<!-- SECTION: 3 -->
+			<div id="section-3-content" class="sui-box" role="tabpanel" tabindex="0" aria-labelledby="section-3" aria-describedby="section-3-description" hidden>
 
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+				<div class="sui-box-header">
+					<h1 class="sui-box-title">Section 3</h1>
+				</div>
+
+				<div class="sui-box-body" id="section-3-description">
+
+					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.</p>
+
+				</div>
 
 			</div>
-
 		</div>
 
 	</div>
 
-	<div class="demo-code-block">
+	<div class="sui-box">
+
+		<div class="sui-box-header">
+			<h3 class="sui-box-title">Documentation</h3>
+		</div>
+
+		<div class="sui-box-body">
+
+			<div class="sui-box-settings-row">
+				
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Base Structure</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
 &lt;section class=&quot;sui-row-with-sidenav&quot;&gt;
@@ -107,23 +112,43 @@ is_searchable: true
 	&lt;!-- Navigation --&gt;
 	&lt;div role=&quot;navigation&quot; class=&quot;sui-sidenav&quot;&gt;
 
-		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
+		&lt;div class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot; role=&quot;tablist&quot;&gt;
 
-			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
-			&lt;/li&gt;
+			&lt;button 
+				id=&quot;tab-1&quot; 
+				class=&quot;sui-vertical-tab active&quot; 
+				role=&quot;tab&quot; 
+				aria-selected=&quot;true&quot; 
+				aria-controls=&quot;tab-1-controls&quot;
+			&gt;
+					Section 1
+			&lt;/button&gt;
+			
+			&lt;button 
+				id=&quot;tab-2&quot; 
+				class=&quot;sui-vertical-tab&quot; 
+				role=&quot;tab&quot; 
+				aria-selected=&quot;false&quot; 
+				tabindex=&quot;-1&quot; 
+				aria-controls=&quot;tab-2-controls&quot;
+			&gt;
+					Section 2 
+					&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
+			&lt;/button&gt;
 
-			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
-			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
-			&lt;/li&gt;
+			&lt;button 
+				id=&quot;tab-3&quot; 
+				class=&quot;sui-vertical-tab&quot; 
+				role=&quot;tab&quot; 
+				aria-selected=&quot;false&quot; 
+				tabindex=&quot;-1&quot; 
+				aria-controls=&quot;tab-3-controls&quot;
+			&gt;
+					Section 3 
+					&lt;span class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+			&lt;/button&gt;
 
-			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
-			&lt;span class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-			&lt;/li&gt;
-
-		&lt;/ul&gt;
+		&lt;/div&gt;
 
 		&lt;div class=&quot;sui-sidenav-hide-lg&quot;&gt;
 
@@ -138,16 +163,95 @@ is_searchable: true
 	&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 1 (Current) --&gt;
-	&lt;div class=&quot;sui-box&quot;&gt;...&lt;/div&gt;
+	&lt;div 
+		id=&quot;tab-1-controls&quot; 
+		class=&quot;sui-box active&quot; 
+		role=&quot;tabpanel&quot; 
+		tabindex=&quot;0&quot; 
+		aria-labelledby=&quot;tab-1&quot;
+	&gt;
+		...
+	&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 2 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div 
+		id=&quot;tab-2-controls&quot; 
+		class=&quot;sui-box&quot; 
+		role=&quot;tabpanel&quot; 
+		tabindex=&quot;0&quot; 
+		aria-labelledby=&quot;tab-2&quot;
+	&gt;
+		...
+	&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 3 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div 
+		id=&quot;tab-3-controls&quot; 
+		class=&quot;sui-box&quot; 
+		role=&quot;tabpanel&quot; 
+		tabindex=&quot;0&quot; 
+		aria-labelledby=&quot;tab-3&quot; 
+	&gt;
+		...
+	&lt;/div&gt;
 
 &lt;/section&gt;
 </pre>
+
+					</div>
+
+				</div>
+
+			</div>
+			
+			<!-- ROW: Advanced Usage -->
+			<div class="sui-box-settings-row">
+
+				<div class="sui-box-settings-col-1">
+					<span class="sui-settings-label">Advanced Usage</span>
+				</div>
+
+				<div class="sui-box-settings-col-2">
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+SUI.tabs({
+	callback: function( tab, panel ) {
+		console.log( tab );
+		console.log( panel );
+	}
+});
+</pre>
+
+					</div>
+
+					<p><code>callback</code></p>
+
+					<p>It's an anonymous function that will run when you click a tab. You will have access to the clicked <code>tab</code> and the respective <code>panel (tab content)</code>.</p>
+
+					<p>To get all tabs within the group you can do this inside the anonymous function:</p>
+
+					<div class="demo-code-block">
+
+<pre class="sui-code-snippet js">
+var wrapper = tab.closest( '.sui-row-with-sidenav' ),
+tablist = tab.closest( '[role=&quot;tablist&quot;]' ),
+tabs    = tablist.find( '> .sui-tab-item' ),
+panels  = wrapper.find( '> .sui-tabs-content > [role=&quot;tabpanel&quot;]' )
+;
+
+console.log( tabs );
+console.log( panels );
+</pre>
+
+					</div>
+
+				</div>
+
+			</div>	
+			
+		</div>
 
 	</div>
 
