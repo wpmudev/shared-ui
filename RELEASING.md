@@ -25,7 +25,7 @@ Run either `npm run release:patch`, `npm run release:minor` and `npm run release
 - Must be a developer member of the [WPMU DEV Organization](https://www.npmjs.com/package/@wpmudev/shared-ui/) on npm.
 - Must be on `master` branch with a clean working directory.
 
-1. Go to `master` branch (do not push commits directly to this branch and make sure there are no residual folders nor files form `development` branch).
+1. Go to `master` branch (do not push commits directly to this branch and make sure there are no residual folders nor files form `release/**` branches).
 2. Run `git tag v{version-number}` replacing `{version-number}` with the new version, for example `2.6.0`.
 3. Push the new tag running `git push --tags`.
 4. Run `npm publish` to release new package.
