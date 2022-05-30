@@ -67,8 +67,11 @@
 				&:before {
 					opacity: 1;
 
-					@media (forced-colors: active), (-ms-high-contrast: active) {
+					@media (forced-colors: active) {
 						forced-color-adjust: none;
+					}
+
+					@media (forced-colors: active) and (prefers-color-scheme: light), (-ms-high-contrast: black-on-white) {
 						background-color: $accessible-dark;
 					}
 				}
