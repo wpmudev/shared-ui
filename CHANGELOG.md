@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.10](https://github.com/wpmudev/shared-ui/compare/v2.12.9...v2.12.10) (Unreleased)
+
+#### 🐛 Bug Fixes
+
+- **fix(side-tabs):** Required roles ARIA attribute not present. [#502](https://github.com/wpmudev/shared-ui/pull/502) ([SUI-104](https://incsub.atlassian.net/browse/SUI-104)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(pagination):** Element doesn't look good on mobiles. [#504](https://github.com/wpmudev/shared-ui/pull/504) ([SUI-261](https://incsub.atlassian.net/browse/SUI-261)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(calendar):** Looking off in mobile. [#508](https://github.com/wpmudev/shared-ui/pull/508) ([SUI-84](https://incsub.atlassian.net/browse/SUI-84)) ([@iamleigh](https://github.com/iamleigh))
+- **fix(calendar):** Ranges overlapping the calendar after a certain amount. [#509](https://github.com/wpmudev/shared-ui/pull/509) ([SUI-85](https://incsub.atlassian.net/browse/SUI-85)) ([@iamleigh](https://github.com/iamleigh))
+
+#### 📝 Documentation
+
+- **docs(modal):** Slide modal example doesn't work. [#503](https://github.com/wpmudev/shared-ui/pull/503) ([SUI-134](https://incsub.atlassian.net/browse/SUI-134)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.9](https://github.com/wpmudev/shared-ui/compare/v2.12.8...v2.12.9) (2022-05-30)
 
 #### 🐛 Bug Fixes

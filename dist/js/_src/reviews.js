@@ -31,7 +31,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-12-9 .sui-reviews').each(function () {
+  $('.sui-2-12-10 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
