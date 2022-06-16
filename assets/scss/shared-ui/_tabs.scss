@@ -222,6 +222,17 @@
 					background-color: $side-tabs--label-active-background;
 					color: $side-tabs--label-active-color;
 				}
+
+				@media (forced-colors: active) {
+					forced-color-adjust: none;
+				}
+		
+				@media (forced-colors: active) and (prefers-color-scheme: light), (-ms-high-contrast: black-on-white) {
+					background-color: $nightrider;
+					&.active {
+						background-color: $grey;
+					}
+				}
 			}
 		}
 
