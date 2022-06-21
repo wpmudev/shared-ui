@@ -86,6 +86,23 @@
 					box-shadow: 0 0 0 5px #D1EAF4;
 				}
 			}
+
+			@media (forced-colors: active) {
+				~ .sui-toggle-slider {
+					forced-color-adjust: none;
+				}
+			}
+
+			@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
+				&:checked {
+					~ .sui-toggle-slider {
+						background-color: #FFA500;
+						&:before {
+							background-color: $cloud;
+						}
+					}
+				}
+			}
 		}
 
 		// ELEMENT: Slider.
