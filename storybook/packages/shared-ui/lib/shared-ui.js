@@ -1,7 +1,3 @@
-'use strict';
+import './shared-ui.scss';
 
-module.exports = sharedUi;
-
-function sharedUi() {
-	// TODO
-}
+export const SharedUI = () => {};
