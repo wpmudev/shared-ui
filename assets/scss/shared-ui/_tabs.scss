@@ -227,10 +227,12 @@
 					forced-color-adjust: none;
 				}
 		
-				@media (forced-colors: active) and (prefers-color-scheme: light), (-ms-high-contrast: black-on-white) {
+				@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
 					background-color: $nightrider;
+					color: $cloud;
 					&.active {
 						background-color: $grey;
+						color: #FFA500;
 					}
 				}
 			}
