@@ -18,11 +18,14 @@
 const rollup = require('rollup');
 const path = require('path');
 const del = require('rollup-plugin-delete');
+const scss = require('rollup-plugin-scss');
+const autoprefixer = require('autoprefixer');
+const postcss = require('postcss');
 
 const currentWorkingPath = process.cwd();
-const { main, name } = require(path.join(currentWorkingPath, 'package.json'));
+const { src, name } = require(path.join(currentWorkingPath, 'package.json'));
 
-const inputPath = path.join(currentWorkingPath, main);
+const inputPath = path.join(currentWorkingPath, src);
 
 // Little workaround to get package name without scope.
 const fileName = name.replace('@wpmudev/', '');
@@ -35,13 +38,21 @@ const inputOptions = {
 			targets: ['dist/*'],
 			verbose: true,
 		}),
+		scss({
+			output: true,
+			outputStyle: 'compressed',
+			sourceMap: true,
+			sass: require('node-sass'),
+			processor: () => postcss([autoprefixer()]),
+			verbose: true,
+		}),
 	],
 };
 
 const outputOptions = [
 	{
-		file: `dist/${fileName}.cjs.js`,
-		format: 'cjs',
+		file: `dist/css/${fileName}.js`,
+		format: 'esm',
 	},
 ];
 
