@@ -59,6 +59,7 @@ export const parameters = {
 	viewport: {
 		viewports: breakpoints,
 	},
+	viewMode: 'canvas',
 	previewTabs: {
 		'storybook/docs/panel': {
 			hidden: true,
