@@ -53,6 +53,9 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
+	backgrounds: {
+		disable: true,
+	},
 	viewport: {
 		viewports: breakpoints,
 	},
