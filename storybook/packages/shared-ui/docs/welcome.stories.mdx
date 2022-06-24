@@ -1,139 +1,24 @@
 import { Meta } from '@storybook/addon-docs';
 import { linkTo } from '@storybook/addon-links';
 
-<!-- START: Welcome page styles only -->
-
-<style>
-	{`
-	#docs-root .csb-banner {
-		padding: 30px;
-	}
-
-	#docs-root .csb-banner--gradient {
-		background: -webkit-gradient(
-			linear,
-			left top,
-			right top,
-			from(rgba(255, 161, 161, 0.1)),
-			to(rgba(24, 31, 216, 0.1))
-		);
-		background: -o-linear-gradient(
-			left,
-			rgba(255, 161, 161, 0.1) 0,
-			rgba(24, 31, 216, 0.1) 100%
-		);
-		background: linear-gradient(
-			90deg,
-			rgba(255, 161, 161, 0.1),
-			rgba(24, 31, 216, 0.1)
-		);
-	}
-
-	#docs-root .csb-banner__container {
-		max-width: 1230px;
-		min-height: 600px;
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		margin: 0 auto;
-	}
-
-	#docs-root .csb-banner__inner-container {
-		flex: 0 1 560px;
-		padding: 0 30px;
-	}
-
-	#docs-root .csb-banner__heading {
-		margin: 0 0 20px;
-		padding: 0;
-		color: hsl(0, 0%, 10%);
-		font-size: 46px;
-		line-height: 52px;
-		font-weight: bold;
-		letter-spacing: -0.25px;
-	}
-
-	#docs-root .csb-banner__subheading {
-		margin: 0 0 40px;
-		padding: 0;
-		color: hsl(0, 0%, 31%);
-		font-size: 32px;
-		line-height: 44px;
-		font-weight: bold;
-		letter-spacing: -0.25px;
-	}
-
-	#docs-root .csb-banner__subheading:last-child {
-		margin-bottom: 0;
-	}
-
-	#docs-root .csb-banner__subheading span {
-		position: relative;
-		z-index: 0;
-		font-size: inherit;
-	}
-
-	#docs-root .csb-banner__subheading span:after {
-		content: " ";
-		width: 100%;
-		height: 38px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		background: hsl(350, 88%, 84%, 60%);
-	}
-
-	#docs-root .csb-banner__subheading a {
-		color: hsl(214, 84%, 56%);
-		font-weight: inherit;
-	}
-
-	#docs-root .csb-banner__subheading a:hover,
-	#docs-root .csb-banner__subheading a:focus {
-		color: hsl(214, 67%, 33%);
-	}
-
-	#docs-root .csb-banner__action {
-		cursor: pointer;
-		border: 0;
-		border-radius: 4px;
-		-moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		padding: 8px 22px;
-		background: hsl(214, 80%, 56%);
-		color: #fff;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 22px;
-	}
-
-	#docs-root .csb-banner__action:hover,
-	#docs-root .csb-banner__action:focus {
-		background: hsl(214, 67%, 33%);
-	}
-	`}
-</style>
-
-<!-- END -->
-
 <Meta title="Welcome" />
 
-<div className="csb-banner csb-banner--gradient">
-	<div className="csb-banner__container">
-		<div className="csb-banner__inner-container">
-			<h1 className="csb-banner__heading">Shared UI</h1>
-			<p className="csb-banner__subheading">
-				Design, develop, and deliver coherent product experiences with Shared UI
-				design system.
-			</p>
-    		<button
-    			className="csb-banner__action"
-    			onClick={linkTo('getting-started--page')}
-    		>
-    			Getting Started
-    		</button>
-    	</div>
-    </div>
-
+<div className="csb-page">
+	<div className="csb-banner csb-banner--gradient">
+		<div className="csb-banner__container csb-content">
+			<div className="csb-banner__inner-container">
+				<h1 className="csb-banner__heading">Shared UI</h1>
+				<p className="csb-banner__subheading">
+					Design, develop, and deliver coherent product experiences
+					with Shared UI design system.
+				</p>
+				<button
+					className="csb-banner__action"
+					onClick={linkTo('getting-started--page')}
+				>
+					Getting Started
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
