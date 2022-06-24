@@ -1,6 +1,8 @@
 import { Meta } from '@storybook/addon-docs';
 import { linkTo } from '@storybook/addon-links';
 
+import logo from './assets/wpmudev-logo.svg';
+
 <Meta title="Home" />
 
 <div className="csb-page">
@@ -11,7 +13,7 @@ import { linkTo } from '@storybook/addon-links';
 				<p className="csb-banner__subheading">
 					Design, develop, and deliver coherent product experiences
 					with{' '}
-					<a href="wpmudev.com/" target="_blank">
+					<a href="wpmudev.com/" target="_blank" rel="nofollow">
 						WPMU DEV's
 					</a>{' '}
 					design system.
@@ -23,6 +25,39 @@ import { linkTo } from '@storybook/addon-links';
 					Getting Started
 				</button>
 			</div>
+		</div>
+	</div>
+	<div className="csb-page--white">
+		<div className="csb-content">
+			<p>
+				Here comes direct links to the most prominent sections on the
+				showcase.
+			</p>
+		</div>
+	</div>
+	{/** Footer */}
+	<div className="csb-footer">
+		<div className="csb-footer__print">
+			<img src={logo} alt="WPMU DEV" aria-hidden="true" />
+			Powered by WPMU DEV
+		</div>
+		<div className="csb-footer__links">
+			<a
+				href="https://wpmudev.com/terms-of-service/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Terms
+			</a>
+			<a
+				href="https://incsub.com/privacy-policy/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Privacy
+			</a>
 		</div>
 	</div>
 </div>
