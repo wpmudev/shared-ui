@@ -59,4 +59,9 @@ export const parameters = {
 	viewport: {
 		viewports: breakpoints,
 	},
+	options: {
+		storySort: {
+			order: ['Welcome', 'Getting Started', '*'],
+		},
+	},
 };
