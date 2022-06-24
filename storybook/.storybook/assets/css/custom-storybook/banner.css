@@ -19,12 +19,9 @@
 }
 
 #docs-root .csb-banner__container {
-	min-height: 600px;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	/* max-width: 1230px;
-	margin: 0 auto; */
 }
 
 #docs-root .csb-banner__inner-container {
@@ -37,9 +34,9 @@
 	margin: 0 0 20px;
 	padding: 0;
 	color: hsl(0, 0%, 10%);
-	font-size: 46px;
-	line-height: 52px;
-	font-weight: bold;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 44px;
 	letter-spacing: -0.25px;
 }
 
@@ -47,9 +44,9 @@
 	margin: 0 0 40px;
 	padding: 0;
 	color: hsl(0, 0%, 31%);
-	font-size: 32px !important;
-	line-height: 44px !important;
+	font-size: 20px !important;
 	font-weight: 500 !important;
+	line-height: 36px !important;
 	letter-spacing: -0.25px;
 }
 
@@ -101,4 +98,27 @@
 #docs-root .csb-banner__action:hover,
 #docs-root .csb-banner__action:focus {
 	background: hsl(214, 67%, 33%);
+}
+
+@media (max-width: 989px) {
+	#docs-root .csb-banner {
+		padding: 20px 0;
+	}
+}
+
+@media (min-width: 990px) {
+	#docs-root .csb-banner__container {
+		min-height: 600px;
+		padding: 20px 0;
+	}
+
+	#docs-root .csb-banner__heading {
+		font-size: 46px;
+		line-height: 52px;
+	}
+
+	#docs-root .csb-banner__subheading {
+		font-size: 32px !important;
+		line-height: 44px !important;
+	}
 }
