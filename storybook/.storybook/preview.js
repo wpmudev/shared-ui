@@ -63,7 +63,7 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
-			order: ['Welcome', 'Getting Started', '*'],
+			order: ['Home', 'Getting Started', '*'],
 		},
 	},
 };
