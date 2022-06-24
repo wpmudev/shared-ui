@@ -1,3 +1,5 @@
+import './assets/css/custom-storybook.css';
+
 /**
  * Get devices samples from:
  * https://screensiz.es/
