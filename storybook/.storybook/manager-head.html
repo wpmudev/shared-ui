@@ -2,26 +2,55 @@
 <meta property="og:description" content="Shared UI by WPMU DEV" />
 
 <style>
+	:root {
+		/** Primary color */
+		--csb-primary-color--base: hsl(214, 84%, 56%);
+		--csb-primary-color--light: hsl(214, 84%, 73%);
+		--csb-primary-color--lighter: hsl(213, 83%, 91%);
+		--csb-primary-color--dark: #1c4d8e;
+		--csb-primary-color--darker: #091a2f;
+		/** Secondary color */
+		--csb-secondary-color--base: #9026b1;
+		--csb-secondary-color--light: #bc7dd0;
+		/** Monochrome color */
+		--csb-mono-color--white: hsl(0, 0%, 100%);
+		--csb-mono-color--silver: #f1f1f1;
+		--csb-mono-color--gray: #888888;
+		--csb-mono-color--black: #333333;
+		/** Page colors */
+		--csb-page-title--color: #333333;
+		--csb-page-subtitle--color: #888888;
+		--csb-page-content--color: #333333;
+		/** Link colors */
+		--csb-link-color--static: #2f80ed;
+		--csb-link-color--hover: #82b3f4;
+		/** Button colors */
+		--csb-button-color--static: #ffffff;
+		--csb-button-background--static: var(--csb-primary-color--normal);
+		--csb-button-color--hover: #ffffff;
+		--csb-button-background--hover: var(--csb-primary-color--normal);
+	}
+
 	/* Sidebar Header UI */
 	.sidebar-header button {
-		border-color: hsl(0, 0%, 100%);
-		box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
-		-moz-box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
-		-webkit-box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
-		color: hsl(0, 0%, 100%);
+		border-color: var(--csb-mono-color--white);
+		box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
+		-moz-box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
+		-webkit-box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
+		color: var(--csb-mono-color--white);
 	}
 
 	.sidebar-header button:hover {
-		background: hsl(0, 0%, 100%);
-		box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
-		-moz-box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
-		-webkit-box-shadow: inset 0 0 0 1px hsl(0, 0%, 100%);
+		background: var(--csb-mono-color--white);
+		box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
+		-moz-box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
+		-webkit-box-shadow: inset 0 0 0 1px var(--csb-mono-color--white);
 	}
 
 	.sidebar-header button:hover,
 	.sidebar-header button:active,
 	.sidebar-header button:focus {
-		color: hsl(214, 84%, 56%);
+		color: var(--csb-primary-color--base);
 	}
 
 	/* Search Field UI */
@@ -29,17 +58,17 @@
 		width: 16px;
 		height: 16px;
 		top: 10px;
-		color: hsl(0, 0%, 100%);
+		color: var(--csb-mono-color--white);
 	}
 
 	.search-field code {
 		top: 10px;
-		color: hsl(0, 0%, 100%);
+		color: var(--csb-mono-color--white);
 	}
 
 	.search-field[aria-expanded='true'] svg,
 	.search-field[aria-expanded='true'] code {
-		color: hsl(214, 84%, 73%);
+		color: var(--csb-primary-color--light);
 	}
 
 	#storybook-explorer-searchfield {
@@ -50,57 +79,75 @@
 		-moz-border-radius: 4px;
 		-webkit-border-radius: 4px;
 		background: rgba(255, 255, 255, 0.2);
-		color: hsl(0, 0%, 100%);
+		color: var(--csb-mono-color--white);
 		font-size: 14px;
 		line-height: 20px;
 	}
 
 	#storybook-explorer-searchfield::placeholder {
-		color: hsl(0, 0%, 100%);
+		color: var(--csb-mono-color--white);
 	}
 
 	.search-result-item--label strong + span {
-		color: hsl(213, 83%, 91%);
+		color: var(--csb-primary-color--lighter);
 	}
 
 	/* Explorer Menu UI */
 	#storybook-explorer-menu .sidebar-subheading {
-		color: hsl(214, 84%, 73%);
-		font-size: 14px;
-		line-height: 22px;
-		letter-spacing: 0;
-		font-weight: 500;
-		font-variant: small-caps;
-		text-transform: lowercase;
-	}
-
-	#storybook-explorer-menu .sidebar-subheading .sidebar-subheading-action {
 		display: none;
-	}
-
-	#storybook-explorer-menu .sidebar-item[data-parent-id='false'] svg {
-		display: none;
+		margin: 0;
 	}
 
 	#storybook-explorer-menu .sidebar-item {
-		color: hsl(0, 0%, 100%);
+		position: relative;
+		margin: 0;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		background: transparent !important;
+		color: var(--csb-mono-color--white);
 		font-size: 14px;
 		line-height: 22px;
 		letter-spacing: 0;
 		font-weight: 500;
+		text-transform: none;
 	}
 
-	#storybook-explorer-menu .sidebar-item > span {
-		margin: 0;
-		margin-right: 20px;
-		border-width: 0;
-		border-color: hsl(214, 84%, 73%);
+	#storybook-explorer-menu .sidebar-item svg {
+		display: none;
 	}
 
-	#storybook-explorer-menu .sidebar-item[data-nodetype='group'],
-	#storybook-explorer-menu .sidebar-item[data-nodetype='component'] {
-		position: relative;
-		padding-right: 30px;
+	#storybook-explorer-menu .sidebar-item span {
+		color: transparent;
+	}
+
+	#storybook-explorer-menu .sidebar-item:hover {
+		color: var(--csb-primary-color--base);
+	}
+
+	#storybook-explorer-menu .sidebar-item[data-selected='true'] {
+		pointer-events: none;
+		color: var(--csb-primary-color--base);
+	}
+
+	#storybook-explorer-menu
+		.sidebar-item[data-parent-id='sui'][data-selected='true'],
+	#storybook-explorer-menu
+		.sidebar-item[data-parent-id='sui'][aria-expanded='true'] {
+		box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
+		-moz-box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
+		-webkit-box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
+		color: var(--csb-primary-color--base);
+	}
+
+	#storybook-explorer-menu .sidebar-item[data-nodetype='component'] svg {
+		display: block;
+		margin-top: 6px;
+		margin-right: 8px;
+	}
+
+	#storybook-explorer-menu
+		.sidebar-item[data-nodetype='component'][aria-expanded='true'] {
+		color: var(--csb-primary-color--base);
 	}
 
 	#storybook-explorer-menu .sidebar-item[data-nodetype='group']:after,
@@ -109,22 +156,10 @@
 		position: absolute;
 		top: 10px;
 		right: 20px;
-		border: 5px solid #82b3f4;
+		border: 5px solid var(--csb-primary-color--light);
 		border-right-width: 0;
 		border-top-color: transparent;
 		border-bottom-color: transparent;
-	}
-
-	#storybook-explorer-menu .sidebar-item:hover,
-	#storybook-explorer-menu .sidebar-item[aria-expanded='true'] {
-		color: hsl(214, 84%, 56%);
-	}
-
-	#storybook-explorer-menu
-		.sidebar-item:not([data-selected='true'])[data-nodetype='group'],
-	#storybook-explorer-menu
-		.sidebar-item:not([data-selected='true'])[data-nodetype='component'] {
-		background: transparent;
 	}
 
 	#storybook-explorer-menu
@@ -134,15 +169,6 @@
 		transform: rotate(90deg);
 		-ms-transform: rotate(90deg);
 		-moz-transform: rotate(90deg);
-	}
-
-	#storybook-explorer-menu .sidebar-item:focus {
-		background: transparent;
-	}
-
-	#storybook-explorer-menu .sidebar-item[data-selected='true'] {
-		background: transparent;
-		color: hsl(214, 84%, 56%);
 	}
 
 	/** Hide "Skip to canvas" link. */
