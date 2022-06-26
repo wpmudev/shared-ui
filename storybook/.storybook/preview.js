@@ -63,7 +63,16 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
-			order: ['Home', 'Getting Started', '*'],
+			order: [
+				'SUI',
+				[
+					'Home',
+					'Getting Started',
+					"What's New",
+					['Changelog', 'Monthly Updates', 'Roadmap'],
+					'*',
+				],
+			],
 		},
 	},
 };
