@@ -58,11 +58,15 @@
 					button.attr( 'title', 'Activate color accessibility' );
 					suiWrap.removeClass( 'sui-color-accessible' );
 					body.removeClass( 'sui-select-accessible' );
+					$( '#ui-datepicker-div' ).removeClass( 'sui-color-accessible' );
+					$( '.daterangepicker' ).removeClass( 'sui-color-accessible' );
 				} else {
 					button.addClass( 'active' );
 					button.attr( 'title', 'Deactivate color accessibility' );
 					suiWrap.addClass( 'sui-color-accessible' );
 					body.addClass( 'sui-select-accessible' );
+					$( '#ui-datepicker-div' ).addClass( 'sui-color-accessible' );
+					$( '.daterangepicker' ).addClass( 'sui-color-accessible' );
 				}
 
 				e.preventDefault();
