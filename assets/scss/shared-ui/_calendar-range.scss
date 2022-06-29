@@ -279,30 +279,34 @@
 				pointer-events: none;
 			}
 		}
-		
-		&.sui-color-accessible {
+	}
+}
 
+@include body-class(false) {
+	&.sui-elements-accessible {
+		// Range Datepicker.
+		.daterangepicker {
 			.drp-calendar {
-	
+
 				.table-condensed {
-	
+
 					tbody tr {
-	
+
 						td {
 							// STATE: Available.
 							&.available:not(.off) {
-	
+
 								&.today {
 									background-color: $overcast;
 									color: $black;
 								}
-	
+
 								&.start-date,
 								&.end-date {
 									background-color: $nightrider;
 									color: $white;
 								}
-	
+
 								&.in-range:not(.end-date) {
 									color: $black;
 									background-color: $haze;
@@ -312,7 +316,7 @@
 					}
 				}
 			}
-	
+
 			// VARIATION: Show ranges.
 			&.show-ranges {
 				.ranges {
@@ -322,7 +326,7 @@
 							&:focus {
 								background-color: $overcast;
 							}
-	
+
 							&.active {
 								background-color: $nightrider;
 								color: $white;

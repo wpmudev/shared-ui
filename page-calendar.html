@@ -193,7 +193,6 @@ is_searchable: true
 $( '#unique-id' ).datepicker({
 	beforeShow: function( input, inst ) {
 		$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
-		$( '.sui-color-accessible' ).length && $( '#ui-datepicker-div' ).addClass( 'sui-color-accessible' );
 	},
 	'dateFormat': 'd MM yy'
 });
@@ -426,8 +425,6 @@ $( '#unique-id' ).datepicker({
 		}, function( start, end, label ) {
 			console.log( 'New date range selected: ' + start.format( 'YYYY-MM-DD' ) + ' to ' + end.format( 'YYYY-MM-DD' ) + ' (predefined range: ' + label + ')' );
 		});
-
-		$( '.sui-color-accessible' ).length && $( '.daterangepicker' ).addClass( 'sui-color-accessible' );
 
 	});
 
