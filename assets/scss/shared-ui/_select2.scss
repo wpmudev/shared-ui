@@ -702,141 +702,173 @@
 }
 
 // $sui-wrap: true | $rtl: false | $monochrome: true
-@include body-class(false, false, true) {
+@include body-class(true, false, true) {
 
-	.sui-select-accessible {
-		
-		select.sui-select {
+	select.sui-select {
 
-			+ .sui-select {
-	
-				// STATE: Default.
-				.selection {
-	
-					span[role="combobox"] {
-	
-						// TYPE: Single Select.
-						&.select2-selection--single {
+		+ .sui-select {
+
+			// STATE: Default.
+			.selection {
+
+				span[role="combobox"] {
+
+					// TYPE: Single Select.
+					&.select2-selection--single {
+						border-color: $black;
+						background-color: $white;
+
+						// Label.
+						.select2-selection__rendered {
+							color: $black;
+
+							.select2-selection__placeholder {
+								color: $black;
+							}
+						}
+
+						// Icon.
+						.select2-selection__arrow {
+							color: $black;
+						}
+					}
+
+					// TYPE: Multi Select.
+					&.select2-selection--multiple {
+
+						// Options.
+						.select2-selection__rendered {
 							border-color: $black;
 							background-color: $white;
-	
-							// Label.
-							.select2-selection__rendered {
-								color: $black;
-	
-								.select2-selection__placeholder {
+
+							.select2-search {
+
+								input {
 									color: $black;
+
+									&::placeholder {
+										color: $black;
+									}
+
+									&:-moz-placeholder {
+										color: $black;
+									}
+
+									&::-moz-placeholder {
+										color: $black;
+									}
+
+									&:-ms-input-placeholder {
+										color: $black;
+									}
+
+									&::-webkit-input-placeholder {
+										color: $black;
+									}
 								}
 							}
-	
-							// Icon.
-							.select2-selection__arrow {
-								color: $black;
+
+							.select2-selection__choice {
+								background-color: $black;
+
+								.sui-button-icon {
+									background-color: $black;
+									color: $white;
+								}
 							}
 						}
-	
+					}
+				}
+			}
+
+			// DESIGN: Smart Search.
+			&.sui-select-theme--search {
+
+				.selection {
+
+					span[role="combobox"] {
+
 						// TYPE: Multi Select.
 						&.select2-selection--multiple {
-	
-							// Options.
+
 							.select2-selection__rendered {
-								border-color: $black;
-								background-color: $white;
-	
-								.select2-search {
-	
-									input {
-										color: $black;
-	
-										&::placeholder {
-											color: $black;
-										}
-	
-										&:-moz-placeholder {
-											color: $black;
-										}
-	
-										&::-moz-placeholder {
-											color: $black;
-										}
-	
-										&:-ms-input-placeholder {
-											color: $black;
-										}
-	
-										&::-webkit-input-placeholder {
-											color: $black;
-										}
-									}
-								}
-	
+
 								.select2-selection__choice {
-									background-color: $black;
-	
+									color: $black;
+
 									.sui-button-icon {
-										background-color: $black;
-										color: $white;
-									}
-								}
-							}
-						}
-					}
-				}
-	
-				// DESIGN: Smart Search.
-				&.sui-select-theme--search {
-	
-					.selection {
-	
-						span[role="combobox"] {
-	
-							// TYPE: Multi Select.
-							&.select2-selection--multiple {
-	
-								.select2-selection__rendered {
-	
-									.select2-selection__choice {
 										color: $black;
-	
-										.sui-button-icon {
-											color: $black;
-										}
 									}
 								}
 							}
 						}
 					}
 				}
-	
-				// STATE: Disabled.
-				&.select2-container--disabled {
-	
+			}
+
+			// STATE: Disabled.
+			&.select2-container--disabled {
+
+				.selection {
+
+					span[role="combobox"] {
+
+						// TYPE: Single Select.
+						&.select2-selection--single {
+							border-color: $grey;
+							background-color: $white;
+
+							// Label.
+							.select2-selection__rendered {
+								color: $grey;
+							}
+
+							// Icon.
+							.select2-selection__arrow {
+								color: $grey;
+							}
+						}
+
+						// TYPE: Multi Select.
+						&.select2-selection--multiple {
+
+							.select2-selection__rendered {
+								border-color: $grey;
+								background-color: $grey;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// STATE: Error.
+	.sui-form-field {
+
+		&.sui-form-field-error {
+
+			select.sui-select {
+
+				+ .sui-select {
+
+					// STATE: Default.
 					.selection {
-	
+
 						span[role="combobox"] {
-	
+
 							// TYPE: Single Select.
 							&.select2-selection--single {
-								border-color: $grey;
-								background-color: $white;
-	
-								// Label.
-								.select2-selection__rendered {
-									color: $grey;
-								}
-	
-								// Icon.
-								.select2-selection__arrow {
-									color: $grey;
-								}
+								border-bottom-color: $black;
+								box-shadow: 0 1px 0 0 $black;
 							}
-	
+
 							// TYPE: Multi Select.
 							&.select2-selection--multiple {
-	
+
 								.select2-selection__rendered {
-									border-color: $grey;
-									background-color: $grey;
+									border-bottom-color: $black;
+									box-shadow: 0 1px 0 0 $black;
 								}
 							}
 						}
@@ -844,41 +876,6 @@
 				}
 			}
 		}
-	
-		// STATE: Error.
-		.sui-form-field {
-	
-			&.sui-form-field-error {
-	
-				select.sui-select {
-	
-					+ .sui-select {
-	
-						// STATE: Default.
-						.selection {
-	
-							span[role="combobox"] {
-	
-								// TYPE: Single Select.
-								&.select2-selection--single {
-									border-bottom-color: $black;
-									box-shadow: 0 1px 0 0 $black;
-								}
-	
-								// TYPE: Multi Select.
-								&.select2-selection--multiple {
-	
-									.select2-selection__rendered {
-										border-bottom-color: $black;
-										box-shadow: 0 1px 0 0 $black;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}	
 	}
 }
 
