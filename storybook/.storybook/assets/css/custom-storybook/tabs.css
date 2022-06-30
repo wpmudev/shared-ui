@@ -1,0 +1,33 @@
+#docs-root .csb-tabs {
+	width: 100%;
+}
+
+#docs-root .csb-tabs__menu {
+	margin-top: -20px;
+	border-bottom: 1px solid #e5e5e5;
+	background: var(--csb-mono-color--white);
+}
+
+#docs-root .csb-tabs__item {
+	cursor: pointer;
+	padding: 10px;
+	border: 0;
+	outline: none;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 30px;
+	background: transparent;
+}
+
+#docs-root .csb-tabs__item:hover {
+	color: var(--csb-primary-color--base);
+}
+
+#docs-root .csb-tabs__item[aria-selected="true"] {
+	box-shadow: inset 0 -2px 0 0 var(--csb-primary-color--base);
+	color: var(--csb-primary-color--base);
+}
+
+#docs-root .csb-tabs__panel.is-hidden {
+	display: none;
+}
