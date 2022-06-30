@@ -1,3 +1,75 @@
-# Layout
+import {
+	Meta,
+	Description,
+	Props,
+	Source,
+	Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'dedent';
 
-This is a sample story for SUI Layout.
+import './sui-grid.css';
+
+<style>
+	{`
+		p {
+			color: red;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	`}
+</style>
+
+<Meta title="SUI/Components/Layout" />
+
+<div className="csb-page csb-page--white">
+	{/** Heading */}
+	<div className="csb-heading">
+		<div className="csb-content">
+			<h1 className="csb-page__title">Layout</h1>
+		</div>
+	</div>
+	{/** Content */}
+	<div className="csb-content">
+		<h2 className="csb-page__subtitle">
+			The layout is used to create the main layout of a plugin page.
+		</h2>
+		{/** Section: Containers */}
+		<div className="csb-block">
+			<h3 className="csb-block__title">Containers</h3>
+			<p>
+				Containers are the most basic layout element in the SUI and are required
+				when using our default grid system.
+			</p>
+		</div>
+	</div>
+</div>
+
+<Source
+	language="css"
+	dark
+	format={false}
+	code={dedent`
+     .container {
+       display: grid | inline-grid;
+     }
+  `}
+/>
+
+<Source
+	language="html"
+	dark
+	format={false}
+	code={dedent`
+    <div class="layout">
+      <div class="layout__content"></div>
+    </div>
+	`}
+/>
+
+<Canvas>
+	<div className="row">
+		<div className="col">
+			<p>Column</p>
+		</div>
+	</div>
+</Canvas>
