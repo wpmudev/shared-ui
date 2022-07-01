@@ -55,6 +55,18 @@
 					color: $tabs-label-active-border-color;
 					border-bottom-color: $tabs-label-active-color;
 				}
+
+				@media (forced-colors: active) {
+					forced-color-adjust: none;
+				}
+		
+				@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
+					color: $cloud !important;
+					&.active {
+						color: map-get($button-background, orange) !important;
+						border-bottom: 2px solid map-get($button-background, orange) !important;
+					}
+				}
 			}
 		}
 
