@@ -1,0 +1,29 @@
+import {
+	Meta,
+	Description,
+	Props,
+	Source,
+	Canvas,
+} from '@storybook/addon-docs';
+import dedent from 'dedent';
+
+<Meta title="SUI/Components/Typography" />
+
+<div className="csb-page">
+	<div className="csb-heading">
+		<div className="csb-content">
+			<h1 className="csb-page__title">Typography</h1>
+		</div>
+	</div>
+	<div className="csb-content">
+		<p>The quick brown fox jumps over the lazy dog.</p>
+		<Source
+			language="html"
+			dark
+			format={false}
+			code={dedent`
+			<h1 class="sui-heading sui-heading--one">Heading 1</h1>
+			`}
+		/>
+	</div>
+</div>
