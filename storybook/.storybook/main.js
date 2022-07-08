@@ -24,4 +24,7 @@ module.exports = {
 	// 	return config;
 	// },
 	framework: '@storybook/html',
+	core: {
+		builder: '@storybook/builder-webpack5',
+	},
 };
