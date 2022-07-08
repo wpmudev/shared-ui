@@ -9,12 +9,6 @@ module.exports = {
 		'@storybook/addon-interactions',
 		'@storybook/preset-scss',
 	],
-	// webpackFinal: async (config) => {
-	// 	console.log(config.resolve);
-
-	// 	// Return the altered configs.
-	// 	return config;
-	// },
 	framework: '@storybook/html',
 	core: {
 		builder: '@storybook/builder-webpack5',
