@@ -71,6 +71,7 @@ export const parameters = {
 					"What's New",
 					['Changelog', 'Monthly Updates', 'Roadmap'],
 					'Utilities',
+					['Intro', 'Colors', 'Typography'],
 					'Components',
 					'*',
 				],
