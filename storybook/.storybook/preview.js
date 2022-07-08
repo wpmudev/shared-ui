@@ -70,7 +70,7 @@ export const parameters = {
 					'Getting Started',
 					"What's New",
 					['Changelog', 'Monthly Updates', 'Roadmap'],
-					'Guidelines',
+					'Utilities',
 					'Components',
 					'*',
 				],
