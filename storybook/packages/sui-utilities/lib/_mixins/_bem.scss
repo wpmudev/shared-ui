@@ -1,0 +1,23 @@
+// Block
+// @param {String} $block - Block's name
+@mixin block($block, $type: "class") {
+	.sui-#{$block} {
+		@content;
+	}
+}
+
+// Block Element
+// @param {String} $element - Element's name
+@mixin element($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+// Block Modifier
+// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
