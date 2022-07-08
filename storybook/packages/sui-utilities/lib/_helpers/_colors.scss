@@ -1,0 +1,80 @@
+@use "sass:map";
+
+$brand-palette: (
+	primary: (
+		10: hsl(219, 71, 11),
+		30: hsl(219, 72, 33),
+		50: hsl(219, 88, 55),
+		70: hsl(219, 91, 91),
+		90: hsl(219, 91, 96),
+	),
+	neutral: (
+		10: hsl(0, 0, 10),
+		50: hsl(0, 0, 31),
+		60: hsl(0, 0, 45),
+		70: hsl(0, 0, 67),
+		80: hsl(0, 0, 90),
+		90: hsl(0, 0, 95),
+		95: hsl(0, 0, 97),
+		100: hsl(0, 0, 100),
+	),
+	success: (
+		10: hsl(139, 76, 8),
+		30: hsl(139, 77, 21),
+		50: hsl(139, 77, 41),
+		70: hsl(138, 55, 83),
+		90: hsl(139, 53, 94),
+	),
+	warning: (
+		10: hsl(49, 47, 7),
+		30: hsl(46, 36, 26),
+		50: hsl(46, 100, 56),
+		70: hsl(47, 100, 90),
+		90: hsl(45, 100, 97),
+	),
+	error: (
+		10: hsl(0, 45, 6),
+		30: hsl(1, 47, 46),
+		50: hsl(1, 88, 65),
+		70: hsl(1, 89, 90),
+		90: hsl(4, 89, 96),
+	),
+);
+
+// Primary colors.
+$color-primary--10: map.get($brand-palette, primary, 10);
+$color-primary--30: map.get($brand-palette, primary, 30);
+$color-primary--50: map.get($brand-palette, primary, 50);
+$color-primary--70: map.get($brand-palette, primary, 70);
+$color-primary--90: map.get($brand-palette, primary, 90);
+
+// Neutral colors.
+$color-neutral--10: map.get($brand-palette, neutral, 10);
+$color-neutral--50: map.get($brand-palette, neutral, 50);
+$color-neutral--60: map.get($brand-palette, neutral, 60);
+$color-neutral--70: map.get($brand-palette, neutral, 70);
+$color-neutral--80: map.get($brand-palette, neutral, 80);
+$color-neutral--90: map.get($brand-palette, neutral, 90);
+$color-neutral--95: map.get($brand-palette, neutral, 95);
+$color-neutral--100: map.get($brand-palette, neutral, 100);
+
+// Success colors.
+$color-success--10: map.get($brand-palette, success, 10);
+$color-success--30: map.get($brand-palette, success, 30);
+$color-success--50: map.get($brand-palette, success, 50);
+$color-success--70: map.get($brand-palette, success, 70);
+$color-success--90: map.get($brand-palette, success, 90);
+
+// Warning colors.
+$color-warning--10: map.get($brand-palette, warning, 10);
+$color-warning--30: map.get($brand-palette, warning, 30);
+$color-warning--50: map.get($brand-palette, warning, 50);
+$color-warning--70: map.get($brand-palette, warning, 70);
+$color-warning--90: map.get($brand-palette, warning, 90);
+
+// Error colors.
+$color-error--10: map.get($brand-palette, error, 10);
+$color-error--30: map.get($brand-palette, error, 30);
+$color-error--50: map.get($brand-palette, error, 50);
+$color-error--70: map.get($brand-palette, error, 70);
+$color-error--90: map.get($brand-palette, error, 90);
