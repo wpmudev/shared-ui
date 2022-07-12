@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "./_helpers/colors" as *;
+@use "../../_helpers/colors";
 
 // Monochromatic colors.
 $color-primary--10: map.get($brand-palette, primary, 10);
@@ -39,18 +39,3 @@ $color-error--30: map.get($brand-palette, error, 30);
 $color-error--50: map.get($brand-palette, error, 50);
 $color-error--70: map.get($brand-palette, error, 70);
 $color-error--90: map.get($brand-palette, error, 90);
-
-// List color classes.
-@each $palette, $map in $brand-palette {
-	@each $weight, $color in $map {
-		// Set text color.
-		.sui-wrapper .sui-text--#{$palette}-#{$weight} {
-			color: $color;
-		}
-
-		// Set background color.
-		.sui-wrapper .sui-bg--#{$palette}-#{$weight} {
-			background-color: $color;
-		}
-	}
-}

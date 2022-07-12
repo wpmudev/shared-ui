@@ -1,0 +1,14 @@
+/// Build text color modifier.
+/// @author WPMU DEV (Leighton Sapir)
+/// @since 3.0.0
+///
+/// @param {String} $palette - List of colors split in groups.
+@mixin color-text-constructor($palette) {
+	@each $name, $list in $palette {
+		@each $weight, $color in $list {
+			.sui-text--#{$name}-#{$weight} {
+				color: $color;
+			}
+		}
+	}
+}

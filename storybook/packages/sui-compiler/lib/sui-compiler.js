@@ -51,7 +51,11 @@ const inputOptions = {
 
 const outputOptions = [
 	{
-		file: `dist/css/${fileName}.js`,
+		file: `dist/css/${fileName}.css`,
+		format: 'esm',
+	},
+	{
+		file: `dist/css/${fileName}.css`,
 		format: 'esm',
 	},
 ];

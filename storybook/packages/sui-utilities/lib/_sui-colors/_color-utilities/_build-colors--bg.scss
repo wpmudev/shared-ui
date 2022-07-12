@@ -1,0 +1,14 @@
+/// Build background color modifier.
+/// @author WPMU DEV (Leighton Sapir)
+/// @since 3.0.0
+///
+/// @param {String} $palette - List of colors split in groups.
+@mixin color-background-constructor($palette) {
+	@each $name, $list in $palette {
+		@each $weight, $color in $list {
+			.sui-bg--#{$name}-#{$weight} {
+				background-color: $color;
+			}
+		}
+	}
+}

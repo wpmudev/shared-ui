@@ -1,0 +1,60 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import logo from './assets/wpmudev-logo.svg';
+
+import '../lib/sui-colors.scss';
+
+<Meta title="SUI/Utilities/Intro" />
+
+<div className="csb-page">
+	{/** Heading */}
+	<div className="csb-heading csb-heading--white">
+		<div className="csb-content">
+			<h1 className="csb-page__title">Utilities / Intro</h1>
+		</div>
+	</div>
+	{/** Content */}
+	<div className="csb-content">
+		<h2 className="csb-page__subtitle">
+			Utilities are a central location to store design-related information
+			such as colors, fonts, sizes, and transitions.
+		</h2>
+		<div className="csb-block">
+			<p>
+				SUI uses utilities instead of hard-coded values to ensure better
+				UI consistency across our products.
+			</p>
+			<Canvas>
+				<div className="sui-wrapper">
+					<div className="sui-bg--primary-50">
+						<p className="sui-text--neutral-100">Hello, there!</p>
+					</div>
+				</div>
+			</Canvas>
+		</div>
+	</div>
+	{/** Footer */}
+	<div className="csb-footer csb-footer--white">
+		<div className="csb-footer__print">
+			<img src={logo} alt="WPMU DEV" aria-hidden="true" />
+			Powered by WPMU DEV
+		</div>
+		<div className="csb-footer__links">
+			<a
+				href="https://wpmudev.com/terms-of-service/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Terms
+			</a>
+			<a
+				href="https://incsub.com/privacy-policy/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Privacy
+			</a>
+		</div>
+	</div>
+</div>

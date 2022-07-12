@@ -8,6 +8,8 @@ import {
 	ColorItem,
 } from '@storybook/addon-docs';
 
+import logo from './assets/wpmudev-logo.svg';
+
 <Meta title="SUI/Utilities/Colors" />
 
 <script>{CSB.loadTabs(document)}</script>
@@ -31,7 +33,10 @@ import {
 			aria-labelledby="tablist-1"
 			className="csb-tabs__menu manual"
 		>
-			<div className="csb-content" style={{ paddingTop: 0, paddingBottom: 0 }}>
+			<div
+				className="csb-content"
+				style={{ paddingTop: 0, paddingBottom: 0 }}
+			>
 				<button
 					id="tab__intro"
 					className="csb-tabs__item"
@@ -80,8 +85,9 @@ import {
 		{/** Tabs Content */}
 		<div className="csb-tabs__content csb-content">
 			<h2 className="csb-page__subtitle">
-				This color system guide shows the unified colors used in the plugins. It
-				helps to keep the consistent experiences across our products.
+				This color system guide shows the unified colors used in the
+				plugins. It helps to keep the consistent experiences across our
+				products.
 			</h2>
 			{/** Tab: Intro */}
 			<div
@@ -90,13 +96,16 @@ import {
 				role="tabpanel"
 				aria-labelledby="tab__intro"
 			>
-				{/** Block: Intro */}
-				<div className="csb-block" style={{ borderBottom: 0, paddingBottom: 0 }}>
+				<div
+					className="csb-block"
+					style={{ borderBottom: 0, paddingBottom: 0 }}
+				>
 					<p>
-						The Shared UI color system contains all the product colors we can
-						use to create a branded and unified look across our plugins. We will
-						have four categories of colors, each of which has a light and dark
-						version, which helps to create contrast in the UI.
+						The Shared UI color system contains all the product
+						colors we can use to create a branded and unified look
+						across our plugins. We will have four categories of
+						colors, each of which has a light and dark version,
+						which helps to create contrast in the UI.
 					</p>
 					<p>Use the selector below to switch between tables.</p>
 				</div>
@@ -118,7 +127,9 @@ import {
 								<option value="palette-picker--neutral">
 									Palette: Neutral
 								</option>
-								<option value="palette-picker--status">Palette: Status</option>
+								<option value="palette-picker--status">
+									Palette: Status
+								</option>
 							</select>
 							<select
 								id="subpalette-picker"
@@ -126,7 +137,9 @@ import {
 								data-switcher-parent="palette-picker"
 								data-switcher-child="palette-picker--secondary"
 							>
-								<option value="subpalette-picker--smush">Product: Smush</option>
+								<option value="subpalette-picker--smush">
+									Product: Smush
+								</option>
 								<option value="subpalette-picker--hummingbird">
 									Product: Hummingbird
 								</option>
@@ -154,7 +167,7 @@ import {
 							</select>
 							<select
 								id="palette-status"
- 								className="csb-select csb-switcher__select is-hidden"
+								className="csb-select csb-switcher__select is-hidden"
 								data-switcher-parent="palette-picker"
 								data-switcher-child="palette-picker--status"
 							>
@@ -222,7 +235,9 @@ import {
 							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Smush / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Smush / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -256,9 +271,11 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    							{/** Palette: Variant */}
+								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Smush / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Smush / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -292,16 +309,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Hummingbird */}
-    						<div
-    							id="subpalette-picker--hummingbird"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
-    							{/** Palette: General */}
+							</div>
+							{/** Content: Hummingbird */}
+							<div
+								id="subpalette-picker--hummingbird"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Hummingbird / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Hummingbird / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -335,9 +354,11 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    							{/** Palette: Variant */}
+								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Hummingbird / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Hummingbird / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -371,16 +392,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: SmartCrawl */}
-    						<div
-    							id="subpalette-picker--smartcrawl"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: SmartCrawl */}
+							<div
+								id="subpalette-picker--smartcrawl"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / SmartCrawl / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / SmartCrawl / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -416,7 +439,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / SmartCrawl / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / SmartCrawl / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -450,16 +475,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Defender */}
-    						<div
-    							id="subpalette-picker--defender"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Defender */}
+							<div
+								id="subpalette-picker--defender"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Defender / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Defender / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -495,7 +522,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Defender / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Defender / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -529,16 +558,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Forminator */}
-    						<div
-    							id="subpalette-picker--forminator"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Forminator */}
+							<div
+								id="subpalette-picker--forminator"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Forminator / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Forminator / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -574,7 +605,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Forminator / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Forminator / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -608,16 +641,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Branda */}
-    						<div
-    							id="subpalette-picker--branda"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Branda */}
+							<div
+								id="subpalette-picker--branda"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Branda / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Branda / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -653,7 +688,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Branda / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Branda / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -687,16 +724,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Beehive */}
-    						<div
-    							id="subpalette-picker--beehive"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Beehive */}
+							<div
+								id="subpalette-picker--beehive"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Beehive / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Beehive / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -732,7 +771,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Beehive / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Beehive / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -766,16 +807,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Snapshot */}
-    						<div
-    							id="subpalette-picker--snapshot"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Snapshot */}
+							<div
+								id="subpalette-picker--snapshot"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Snapshot / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Snapshot / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -811,7 +854,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Snapshot / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Snapshot / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -845,16 +890,18 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    						{/** Content: Hustle */}
-    						<div
-    							id="subpalette-picker--hustle"
-    							className="csb-switcher__content is-hidden"
-    							data-switcher-group="subpalette-picker"
-    						>
+							</div>
+							{/** Content: Hustle */}
+							<div
+								id="subpalette-picker--hustle"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
 								{/** Palette: General */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Hustle / General</h3>
+									<h3 className="csb-block__title">
+										Secondary / Hustle / General
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="General / Dark / 10"
@@ -890,7 +937,9 @@ import {
 								</div>
 								{/** Palette: Variant */}
 								<div className="csb-block">
-									<h3 className="csb-block__title">Secondary / Hustle / Variant</h3>
+									<h3 className="csb-block__title">
+										Secondary / Hustle / Variant
+									</h3>
 									<ColorPalette>
 										<ColorItem
 											title="Variant / Dark / 10"
@@ -924,14 +973,14 @@ import {
 										/>
 									</ColorPalette>
 								</div>
-    						</div>
-    					</div>
-    					<div
-    						id="palette-picker--neutral"
-    						className="csb-switcher__content is-hidden"
-    						data-switcher-group="palette-picker"
-    					>
-    						<h3 className="csb-block__title">Neutral</h3>
+							</div>
+						</div>
+						<div
+							id="palette-picker--neutral"
+							className="csb-switcher__content is-hidden"
+							data-switcher-group="palette-picker"
+						>
+							<h3 className="csb-block__title">Neutral</h3>
 							<ColorPalette>
 								<ColorItem
 									title="Neutral / Dark / 10"
@@ -982,15 +1031,21 @@ import {
 									}}
 								/>
 							</ColorPalette>
-    					</div>
-    					<div
-    						id="palette-picker--status"
-    						className="csb-switcher__content is-hidden"
-    						data-switcher-group="palette-picker"
-    					>
+						</div>
+						<div
+							id="palette-picker--status"
+							className="csb-switcher__content is-hidden"
+							data-switcher-group="palette-picker"
+						>
 							{/** Status: Success */}
-							<div id="palette-status--success" className="csb-switcher__content" data-switcher-group="palette-status">
-								<h3 className="csb-block__title">Status / Success</h3>
+							<div
+								id="palette-status--success"
+								className="csb-switcher__content"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Success
+								</h3>
 								<ColorPalette>
 									<ColorItem
 										title="Green / Dark / 10"
@@ -1025,8 +1080,14 @@ import {
 								</ColorPalette>
 							</div>
 							{/** Status: Warning */}
-							<div id="palette-status--warning" className="csb-switcher__content is-hidden" data-switcher-group="palette-status">
-								<h3 className="csb-block__title">Status / Warning</h3>
+							<div
+								id="palette-status--warning"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Warning
+								</h3>
 								<ColorPalette>
 									<ColorItem
 										title="Yellow / Dark / 10"
@@ -1061,8 +1122,14 @@ import {
 								</ColorPalette>
 							</div>
 							{/** Status: Error */}
-							<div id="palette-status--error" className="csb-switcher__content is-hidden" data-switcher-group="palette-status">
-								<h3 className="csb-block__title">Status / Error</h3>
+							<div
+								id="palette-status--error"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Error
+								</h3>
 								<ColorPalette>
 									<ColorItem
 										title="Red / Dark / 10"
@@ -1096,67 +1163,94 @@ import {
 									/>
 								</ColorPalette>
 							</div>
-    					</div>
+						</div>
 						{/** END: Switcher Content */}
-    				</div>
-    			</div>
-    		</div>
-    		{/** Tab: Usage */}
-    		<div
-    			id="tabpanel__usage"
-    			className="csb-tabs__panel is-hidden"
-    			role="tabpanel"
-    			aria-labelledby="tab__usage"
-    		>
-    			<p>
-    				<a href="https://en.wikipedia.org/wiki/Joachim_Andersen_(composer)">
-    					Carl Joachim Andersen
-    				</a>{' '}
-    				(29 April 1847 – 7 May 1909) was a Danish flutist, conductor and
-    				composer born in Copenhagen, son of the flutist Christian Joachim
-    				Andersen. Both as a virtuoso and as composer of flute music, he is
-    				considered one of the best of his time. He was considered to be a
-    				tough leader and teacher and demanded as such a lot from his
-    				orchestras but through that style he reached a high level.
-    			</p>
-    		</div>
-    		{/** Tab: Accessibility */}
-    		<div
-    			id="tabpanel__accessibility"
-    			className="csb-tabs__panel is-hidden"
-    			role="tabpanel"
-    			aria-labelledby="tab__accessibility"
-    		>
-    			<p>
-    				<a href="https://en.wikipedia.org/wiki/Ida_Henriette_da_Fonseca">
-    					Ida Henriette da Fonseca
-    				</a>{' '}
-    				(July 27, 1802 – July 6, 1858) was a Danish opera singer and composer.
-    				Ida Henriette da Fonseca was the daughter of Abraham da Fonseca
-    				(1776–1849) and Marie Sofie Kiærskou (1784–1863). She and her sister
-    				Emilie da Fonseca were students of Giuseppe Siboni, choir master of
-    				the Opera in Copenhagen. She was given a place at the royal Opera
-    				alongside her sister the same year she debuted in 1827.
-    			</p>
-    		</div>
-    		{/** Tab: Code */}
-    		<div
-    			id="tabpanel__code"
-    			className="csb-tabs__panel is-hidden"
-    			role="tabpanel"
-    			aria-labelledby="tab__code"
-    		>
-    			<p>
-    				<a href="https://en.wikipedia.org/wiki/Peter_Lange-M%C3%BCller">
-    					Peter Erasmus Lange-Müller
-    				</a>{' '}
-    				(1 December 1850 – 26 February 1926) was a Danish composer and
-    				pianist. His compositional style was influenced by Danish folk music
-    				and by the work of Robert Schumann; Johannes Brahms; and his Danish
-    				countrymen, including J.P.E. Hartmann.
-    			</p>
-    		</div>
-    	</div>
-    </div>
-
+					</div>
+				</div>
+			</div>
+			{/** Tab: Usage */}
+			<div
+				id="tabpanel__usage"
+				className="csb-tabs__panel is-hidden"
+				role="tabpanel"
+				aria-labelledby="tab__usage"
+			>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/Joachim_Andersen_(composer)">
+						Carl Joachim Andersen
+					</a>{' '}
+					(29 April 1847 – 7 May 1909) was a Danish flutist, conductor
+					and composer born in Copenhagen, son of the flutist
+					Christian Joachim Andersen. Both as a virtuoso and as
+					composer of flute music, he is considered one of the best of
+					his time. He was considered to be a tough leader and teacher
+					and demanded as such a lot from his orchestras but through
+					that style he reached a high level.
+				</p>
+			</div>
+			{/** Tab: Accessibility */}
+			<div
+				id="tabpanel__accessibility"
+				className="csb-tabs__panel is-hidden"
+				role="tabpanel"
+				aria-labelledby="tab__accessibility"
+			>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/Ida_Henriette_da_Fonseca">
+						Ida Henriette da Fonseca
+					</a>{' '}
+					(July 27, 1802 – July 6, 1858) was a Danish opera singer and
+					composer. Ida Henriette da Fonseca was the daughter of
+					Abraham da Fonseca (1776–1849) and Marie Sofie Kiærskou
+					(1784–1863). She and her sister Emilie da Fonseca were
+					students of Giuseppe Siboni, choir master of the Opera in
+					Copenhagen. She was given a place at the royal Opera
+					alongside her sister the same year she debuted in 1827.
+				</p>
+			</div>
+			{/** Tab: Code */}
+			<div
+				id="tabpanel__code"
+				className="csb-tabs__panel is-hidden"
+				role="tabpanel"
+				aria-labelledby="tab__code"
+			>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/Peter_Lange-M%C3%BCller">
+						Peter Erasmus Lange-Müller
+					</a>{' '}
+					(1 December 1850 – 26 February 1926) was a Danish composer
+					and pianist. His compositional style was influenced by
+					Danish folk music and by the work of Robert Schumann;
+					Johannes Brahms; and his Danish countrymen, including J.P.E.
+					Hartmann.
+				</p>
+			</div>
+		</div>
+	</div>
+	{/** Footer */}
+	<div className="csb-footer csb-footer--white">
+		<div className="csb-footer__print">
+			<img src={logo} alt="WPMU DEV" aria-hidden="true" />
+			Powered by WPMU DEV
+		</div>
+		<div className="csb-footer__links">
+			<a
+				href="https://wpmudev.com/terms-of-service/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Terms
+			</a>
+			<a
+				href="https://incsub.com/privacy-policy/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Privacy
+			</a>
+		</div>
+	</div>
 </div>

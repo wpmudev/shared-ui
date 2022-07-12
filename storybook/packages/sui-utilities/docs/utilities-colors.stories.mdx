@@ -1,0 +1,1190 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+import logo from './assets/wpmudev-logo.svg';
+
+<Meta title="SUI/Utilities/Colors" />
+
+<script>{CSB.loadTabs(document)}</script>
+
+<script>{CSB.loadSwitcher(document)}</script>
+
+<script>{CSB.loadPalette(document)}</script>
+
+<div className="csb-page csb-page--white">
+	{/** Heading */}
+	<div className="csb-heading" style={{ borderBottom: 0 }}>
+		<div className="csb-content">
+			<h1 className="csb-page__title">Colors</h1>
+		</div>
+	</div>
+	{/** Content */}
+	<div className="csb-tabs">
+		{/** Tabs Menu */}
+		<div role="tablist" className="csb-tabs__menu manual">
+			<div
+				className="csb-content"
+				style={{ paddingTop: 0, paddingBottom: 0 }}
+			>
+				<button
+					id="tab__brand"
+					className="csb-tabs__item"
+					type="button"
+					role="tab"
+					aria-selected="true"
+					aria-controls="tabpanel__brand"
+				>
+					<span className="csb-tabs__item-focus">The Brand</span>
+				</button>
+				<button
+					id="tab__product"
+					className="csb-tabs__item"
+					type="button"
+					role="tab"
+					aria-selected="false"
+					aria-controls="tabpanel__product"
+					tabIndex="-1"
+				>
+					<span className="csb-tabs__item-focus">The Product</span>
+				</button>
+			</div>
+		</div>
+		{/** Tabs Content */}
+		<div className="csb-tabs__content csb-content">
+			<h2 className="csb-page__subtitle">
+				This color system guide shows the unified colors used in the
+				plugins. It helps to keep the consistent experiences across our
+				products.
+			</h2>
+			{/** Tab: The Brand */}
+			<div
+				id="tabpanel__brand"
+				className="csb-tabs__panel"
+				role="tabpanel"
+				aria-labelledby="tab__brand"
+			>
+				<div
+					className="csb-block"
+					style={{ borderBottom: 0, paddingBottom: 0 }}
+				>
+					<p>
+						The Shared UI color system contains all the base colors
+						we can use to create a branded and unified look across
+						our plugins, divided into three main categories that
+						will remain consistent across all our products.
+					</p>
+				</div>
+				<div className="csb-block">
+					<div className="csb-switcher">
+						{/** Switcher Bar */}
+						<div className="csb-switcher__bar">
+							<select
+								id="palette-picker"
+								className="csb-select csb-switcher__select"
+							>
+								<option value="palette-picker--primary">
+									Palette: Primary
+								</option>
+								<option value="palette-picker--neutral">
+									Palette: Neutral
+								</option>
+								<option value="palette-picker--status">
+									Palette: Status
+								</option>
+							</select>
+							<select
+								id="palette-status"
+								className="csb-select csb-switcher__select is-hidden"
+								data-switcher-parent="palette-picker"
+								data-switcher-child="palette-picker--status"
+							>
+								<option value="palette-status--success">
+									Status: Success
+								</option>
+								<option value="palette-status--warning">
+									Status: Warning
+								</option>
+								<option value="palette-status--error">
+									Status: Error
+								</option>
+							</select>
+						</div>
+						{/** START: Switcher Content */}
+						<div
+							id="palette-picker--primary"
+							className="csb-switcher__content"
+							data-switcher-group="palette-picker"
+						>
+							<h3 className="csb-block__title">Primary</h3>
+							<ColorPalette>
+								<ColorItem
+									title="Blue / Dark / 10"
+									colors={{
+										'$color-primary--10': '#081630',
+									}}
+								/>
+								<ColorItem
+									title="Blue / Dark / 30"
+									colors={{
+										'$color-primary--30': '#184291',
+									}}
+								/>
+								<ColorItem
+									title="Blue / Base / 50"
+									colors={{
+										'$color-primary--50': '#286EF1',
+									}}
+								/>
+								<ColorItem
+									title="Blue / Light / 70"
+									colors={{
+										'$color-primary--70': '#D5E3FD',
+									}}
+								/>
+								<ColorItem
+									title="Blue / Light / 90"
+									colors={{
+										'$color-primary--90': '#EAF1FE',
+									}}
+								/>
+							</ColorPalette>
+						</div>
+						<div
+							id="palette-picker--neutral"
+							className="csb-switcher__content is-hidden"
+							data-switcher-group="palette-picker"
+						>
+							<h3 className="csb-block__title">Neutral</h3>
+							<ColorPalette>
+								<ColorItem
+									title="Neutral / Dark / 10"
+									colors={{
+										'$color-neutral--10': '#1A1A1A',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Base / 50"
+									colors={{
+										'$color-neutral--50': '#505050',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 60"
+									colors={{
+										'$color-neutral--60': '#737373',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 70"
+									colors={{
+										'$color-neutral--70': '#AAAAAA',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 80"
+									colors={{
+										'$color-neutral--80': '#E6E6E6',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 90"
+									colors={{
+										'$color-neutral--90': '#F2F2F2',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 95"
+									colors={{
+										'$color-neutral--95': '#F8F8F8',
+									}}
+								/>
+								<ColorItem
+									title="Neutral / Light / 100"
+									colors={{
+										'$color-neutral--100': '#FFFFFF',
+									}}
+								/>
+							</ColorPalette>
+						</div>
+						<div
+							id="palette-picker--status"
+							className="csb-switcher__content is-hidden"
+							data-switcher-group="palette-picker"
+						>
+							{/** Status: Success */}
+							<div
+								id="palette-status--success"
+								className="csb-switcher__content"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Success
+								</h3>
+								<ColorPalette>
+									<ColorItem
+										title="Green / Dark / 10"
+										colors={{
+											'$color-success--10': '#05250F',
+										}}
+									/>
+									<ColorItem
+										title="Green / Dark / 30"
+										colors={{
+											'$color-success--30': '#0C5E26',
+										}}
+									/>
+									<ColorItem
+										title="Green / Base / 50"
+										colors={{
+											'$color-success--50': '#18BB4B',
+										}}
+									/>
+									<ColorItem
+										title="Green / Light / 70"
+										colors={{
+											'$color-success--70': '#BAEBC9',
+										}}
+									/>
+									<ColorItem
+										title="Green / Light / 90"
+										colors={{
+											'$color-success--90': '#E8F8ED',
+										}}
+									/>
+								</ColorPalette>
+							</div>
+							{/** Status: Warning */}
+							<div
+								id="palette-status--warning"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Warning
+								</h3>
+								<ColorPalette>
+									<ColorItem
+										title="Yellow / Dark / 10"
+										colors={{
+											'$color-warning--10': '#191609',
+										}}
+									/>
+									<ColorItem
+										title="Yellow / Dark / 30"
+										colors={{
+											'$color-warning--30': '#5B502B',
+										}}
+									/>
+									<ColorItem
+										title="Yellow / Base / 50"
+										colors={{
+											'$color-warning--50': '#FFCC20',
+										}}
+									/>
+									<ColorItem
+										title="Yellow / Light / 70"
+										colors={{
+											'$color-warning--70': '#FFF4CE',
+										}}
+									/>
+									<ColorItem
+										title="Yellow / Light / 90"
+										colors={{
+											'$color-warning--90': '#FFFBEF',
+										}}
+									/>
+								</ColorPalette>
+							</div>
+							{/** Status: Error */}
+							<div
+								id="palette-status--error"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="palette-status"
+							>
+								<h3 className="csb-block__title">
+									Status / Error
+								</h3>
+								<ColorPalette>
+									<ColorItem
+										title="Red / Dark / 10"
+										colors={{
+											'$color-error--10': '#180909',
+										}}
+									/>
+									<ColorItem
+										title="Red / Dark / 30"
+										colors={{
+											'$color-error--30': '#AB403E',
+										}}
+									/>
+									<ColorItem
+										title="Red / Base / 50"
+										colors={{
+											'$color-error--50': '#F45C59',
+										}}
+									/>
+									<ColorItem
+										title="Red / Light / 70"
+										colors={{
+											'$color-error--70': '#FCCECD',
+										}}
+									/>
+									<ColorItem
+										title="Red / Light / 90"
+										colors={{
+											'$color-error--90': '#FEEFEE',
+										}}
+									/>
+								</ColorPalette>
+							</div>
+						</div>
+						{/** END: Switcher Content */}
+					</div>
+				</div>
+			</div>
+			{/** Tab: The Product */}
+			<div
+				id="tabpanel__product"
+				className="csb-tabs__panel is-hidden"
+				role="tabpanel"
+				aria-labelledby="tab__product"
+			>
+				<div
+					className="csb-block"
+					style={{ borderBottom: 0, paddingBottom: 0 }}
+				>
+					<p>
+						These are the secondary colors on the Shared UI color
+						system and are product-specific, creating contrast
+						between primary and neutral colors.
+					</p>
+					<p>
+						Each product must define its secondary palette on its
+						project, which has a general and variant version that
+						helps to create contrast in the UI.
+					</p>
+					<p>
+						The <strong>General</strong> category is the primary
+						product color, while the <strong>Variant</strong>{' '}
+						category is the complementary color to the general
+						category and helps to create balance and contrast in the
+						UI.
+					</p>
+				</div>
+				<div className="csb-block">
+					<div className="csb-switcher">
+						{/** Switcher Bar */}
+						<div className="csb-switcher__bar">
+							<select
+								id="subpalette-picker"
+								className="csb-select csb-switcher__select"
+							>
+								<option value="subpalette-picker--smush">
+									Product: Smush
+								</option>
+								<option value="subpalette-picker--hummingbird">
+									Product: Hummingbird
+								</option>
+								<option value="subpalette-picker--smartcrawl">
+									Product: SmartCrawl
+								</option>
+								<option value="subpalette-picker--defender">
+									Product: Defender
+								</option>
+								<option value="subpalette-picker--forminator">
+									Product: Forminator
+								</option>
+								<option value="subpalette-picker--branda">
+									Product: Branda
+								</option>
+								<option value="subpalette-picker--beehive">
+									Product: Beehive
+								</option>
+								<option value="subpalette-picker--snapshot">
+									Product: Snapshot
+								</option>
+								<option value="subpalette-picker--hustle">
+									Product: Hustle
+								</option>
+							</select>
+						</div>
+						{/** START: Switcher Content */}
+						<div className="csb-switcher__content">
+							{/** Content: Smush */}
+							<div
+								id="subpalette-picker--smush"
+								className="csb-switcher__content"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Smush / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(190,67,11)': '#09272D',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(189,68,16)': '#0D3B43',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(189,74,53)': '#2DC4E0',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(190,75,86)': '#C0EDF6',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(190,75,95)': '#EAF9FC',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Smush / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(260,43,4)': '#09060F',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(262,44,19)': '#2B1B46',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(263,45,21)': '#2F1D4D',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(264,67,85)': '#D3BEF2',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(265,100,95)': '#F1E7FF',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Hummingbird */}
+							<div
+								id="subpalette-picker--hummingbird"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Hummingbird / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(25,62,12)': '#331C0C',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(25,62,31)': '#80471E',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(25,100,62)': '#FF8E3C',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(25,100,89)': '#FFDDC5',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(25,100,96)': '#FFF4EC',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Hummingbird / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(188,62,5)': '#051315',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(186,58,13)': '#0E3135',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(186,59,26)': '#1B6169',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(185,20,78)': '#BBD0D2',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(187,21,93)': '#E8EFF0',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: SmartCrawl */}
+							<div
+								id="subpalette-picker--smartcrawl"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / SmartCrawl / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(7,91,9)': '#2C0702',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(7,91,32)': '#9B1907',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(7,91,45)': '#DE240A',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(7,76,84)': '#F5BDB6',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(6,78,95)': '#FCE9E7',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / SmartCrawl / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(210,2,17)': '#2B2C2D',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(200,3,60)': '#979B9D',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(193,13,86)': '#D7DEE0',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(195,14,95)': '#EFF2F3',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(210,14,97)': '#F7F8F9',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Defender */}
+							<div
+								id="subpalette-picker--defender"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Defender / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(0,0,2)': '#040404',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(220,5,12)': '#1C1D1F',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(210,5,16)': '#282A2C',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(240,1,75)': '#BFBFC0',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(0,0,92)': '#EAEAEA',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Defender / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(26,72,6)': '#190D04',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(25,70,35)': '#964E1A',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(25,95,58)': '#FA822C',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(25,97,87)': '#FEDAC0',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(26,100,96)': '#FFF3EA',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Forminator */}
+							<div
+								id="subpalette-picker--forminator"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Forminator / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(228,45,4)': '#060810',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(231,44,14)': '#141934',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(229,45,22)': '#1F2852',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(228,13,77)': '#BCBFCB',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(228,13,92)': '#E9EAEE',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Forminator / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(50,7,17)': '#2E2D28',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(44,7,43)': '#747065',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(45,40,85)': '#E8E0C9',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(44,43,93)': '#F5F1E6',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(50,37,97)': '#FAF9F4',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Branda */}
+							<div
+								id="subpalette-picker--branda"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Branda / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(0,32,15)': '#331A1A',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(358,33,45)': '#994D4F',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(359,100,75)': '#FF8184',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(358,100,93)': '#FFD9DA',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(355,100,97)': '#FFF2F3',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Branda / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(0,0,1)': '#030303',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(0,0,7)': '#121212',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(0,0,10)': '#1A1A1A',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(0,0,73)': '#BABABA',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(0,0,91)': '#E8E8E8',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Beehive */}
+							<div
+								id="subpalette-picker--beehive"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Beehive / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(219,100,7)': '#000C22',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(220,98,20)': '#012365',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(220,99,33)': '#013AA9',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(220,49,80)': '#B3C4E5',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(221,47,93)': '#E6EBF6',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Beehive / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(43,46,14)': '#332A13',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(43,45,34)': '#7F6930',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(43,99,69)': '#FED260',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(44,100,91)': '#FFF2CF',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(45,100,97)': '#FFFBEF',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Snapshot */}
+							<div
+								id="subpalette-picker--snapshot"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Snapshot / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(280,67,4)': '#0B030F',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(277,66,13)': '#250B35',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(219,57,24)': '#1A325E',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(278,14,67)': '#AE9FB7',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(280,14,92)': '#EBE7ED',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Snapshot / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(0,0,1)': '#020202',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(120,8,3)': '#060706',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(100,7,8)': '#141613',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(60,1,72)': '#B9B9B8',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(60,2,91)': '#E8E8E7',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+							{/** Content: Hustle */}
+							<div
+								id="subpalette-picker--hustle"
+								className="csb-switcher__content is-hidden"
+								data-switcher-group="subpalette-picker"
+							>
+								{/** Palette: General */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Hustle / General
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="General / Dark / 10"
+											colors={{
+												'hsl(0,0,10)': '#1A1A1A',
+											}}
+										/>
+										<ColorItem
+											title="General / Dark / 30"
+											colors={{
+												'hsl(0,0,1)': '#030303',
+											}}
+										/>
+										<ColorItem
+											title="General / Base / 50"
+											colors={{
+												'hsl(0,0,7)': '#121212',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 70"
+											colors={{
+												'hsl(0,0,73)': '#BABABA',
+											}}
+										/>
+										<ColorItem
+											title="General / Light / 90"
+											colors={{
+												'hsl(0,0,91)': '#E8E8E8',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+								{/** Palette: Variant */}
+								<div className="csb-block">
+									<h3 className="csb-block__title">
+										Secondary / Hustle / Variant
+									</h3>
+									<ColorPalette>
+										<ColorItem
+											title="Variant / Dark / 10"
+											colors={{
+												'hsl(40,65,18)': '#4C3810',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Dark / 30"
+											colors={{
+												'hsl(39,67,42)': '#B38224',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Base / 50"
+											colors={{
+												'hsl(40,100,60)': '#FFBA34',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 70"
+											colors={{
+												'hsl(39,100,88)': '#FFEAC2',
+											}}
+										/>
+										<ColorItem
+											title="Variant / Light / 90"
+											colors={{
+												'hsl(39,100,96)': '#FFF8EB',
+											}}
+										/>
+									</ColorPalette>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{/** Footer */}
+	<div className="csb-footer csb-footer--white">
+		<div className="csb-footer__print">
+			<img src={logo} alt="WPMU DEV" aria-hidden="true" />
+			Powered by WPMU DEV
+		</div>
+		<div className="csb-footer__links">
+			<a
+				href="https://wpmudev.com/terms-of-service/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Terms
+			</a>
+			<a
+				href="https://incsub.com/privacy-policy/"
+				target="_blank"
+				rel="nofollow"
+				className="csb-footer__link"
+			>
+				Privacy
+			</a>
+		</div>
+	</div>
+</div>
