@@ -188,6 +188,7 @@ $tree--file-type: (
 					display: block;
 					color: palette(silver, medium);
 					text-align: center;
+					position: relative;
 
 					@include icon(before, false, true) {
 						display: block;
@@ -666,6 +667,16 @@ $tree--file-type: (
 				ul[role="group"] {
 					padding-left: 0;
 					padding-right: 20px;
+				}
+
+				> .sui-tree-node {
+					> span[role="button"],
+					> button[data-button] span[aria-hidden] {
+						&:first-child {
+							margin-right: -10px;
+							margin-left: 0;
+						}
+					}
 				}
 			}
 		}
