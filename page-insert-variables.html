@@ -11,7 +11,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="examples">Examples</a>
@@ -29,7 +29,26 @@ is_searchable: true
 				<a href="#" role="button" data-tab="config">Configuration</a>
 			</li>
 
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="examples">Examples</option>
+					<option value="usage">Usage</option>
+					<option value="code">Code</option>
+					<option value="config">Configuration</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -118,6 +137,7 @@ is_searchable: true
 				srcset="{{ site.baseurl }}/assets/images/anatomy-insert-variables.png 1x, {{ site.baseurl }}/assets/images/anatomy-insert-variables@2x.png 2x"
 				class="sui-image"
 				aria-hidden="true"
+				alt=""
 			/>
 
 			<ol style="margin-bottom: 30px;">
@@ -325,6 +345,28 @@ $( '#unique-id' ).SUIselect2({
 				</tbody>
 
 			</table>
+
+		</div>
+
+	</div>
+
+	<!-- SECTION: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.10.0"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="false"
+				rtl-lang="false"
+			></div>
 
 		</div>
 

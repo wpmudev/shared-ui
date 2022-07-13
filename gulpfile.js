@@ -1,8 +1,5 @@
 'use strict';
 
-// Import `src` and `dest` from gulp for use in the task.
-const { src, dest, task } = require( 'gulp' );
-
 /**
  * Supported Packages
  * List here all dependencies necessary to run required tasks.
@@ -418,9 +415,9 @@ function copyComponents() {
  */
 
 // Release library.
-task(
+gulp.task(
 	'publishLibrary',
-	() => src( './_dist/library/**/**/*' ).pipe( ghPages({
+	() => gulp.src( './_dist/library/**/**/*' ).pipe( ghPages({
 		remoteUrl: 'https://github.com/wpmudev/shared-ui.git',
 		branch: 'master',
 		dotfiles: true,
@@ -429,9 +426,9 @@ task(
 );
 
 // Release showcase.
-task(
+gulp.task(
 	'publishShowcase',
-	() => src( './_dist/showcase/**/**/*' ).pipe( ghPages({
+	() => gulp.src( './_dist/showcase/**/**/*' ).pipe( ghPages({
 		remoteUrl: 'https://github.com/wpmudev/shared-ui.git',
 		branch: 'gh-pages',
 		dotfiles: true,

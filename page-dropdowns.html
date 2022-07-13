@@ -10,7 +10,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation" aria-label="Page Options">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="samples">Samples</a>
@@ -25,6 +25,20 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="samples">Samples</option>
+					<option value="alignment">Alignment</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -361,13 +375,41 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
-			<div class="sui-notice sui-notice-error">
-				<p>If you are using <code>SUI 2.3.2</code> or older version, you need to update the dropdown button markup when you upgrade to <code>SUI 2.3.3</code>.</p>
+			<!-- Warning -->
+			<div class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>If you are using <code>SUI 2.3.2</code> or older version, you need to update the dropdown button markup when you upgrade to <code>SUI 2.3.3</code>.</p>
+					</div>
+
+				</div>
+
 			</div>
 
-			<div class="sui-notice sui-notice-warning">
-				<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
+			<!-- Warning -->
+			<div class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>If you are using individual js components, <code>dropdowns.js</code> is required.</p>
+					</div>
+
+				</div>
+
 			</div>
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="true"
+			></div>
 
 			<div class="sui-box-settings-row">
 

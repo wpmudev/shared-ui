@@ -10,7 +10,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="sample">Sample</a>
@@ -22,6 +22,19 @@ is_searchable: true
 
 		</ul>
 
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="sample">Sample</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
+
 	</div>
 
 	<!-- TAB: Sample -->
@@ -32,6 +45,7 @@ is_searchable: true
 			srcset="{{ site.baseurl }}/assets/images/forminator-empty-message@2x.png 2x"
 			class="sui-image"
 			aria-hidden="true"
+			alt=""
 		/>
 
 		<div class="sui-message-content">
@@ -52,6 +66,14 @@ is_searchable: true
 		</div>
 
 		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.3"
+				utilities="false"
+				utilities-page="{{ site.baseurl }}/utilities/"
+			></div>
 
 			<div class="demo-code-block">
 
