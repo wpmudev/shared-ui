@@ -21,7 +21,7 @@
 					'<circle stroke-width="16" cx="50" cy="50" r="42" stroke-dasharray="0,' + gapLength + '" />\n' +
 				'</svg>\n' +
 				'<span class="sui-circle-score-label" aria-hidden="true">' + score + '</span>\n' + 
-				'<span class="sui-visually-hidden" tabindex="0">Score ' + score + ' out of 100</span>';
+				'<span class="sui-screen-reader-text" tabindex="0">Score ' + score + ' out of 100</span>';
 
 		// Add svg to score element, add loaded class, & change stroke-dasharray to represent target score/percentage.
 		$( el ).prepend( svg ).addClass( 'loaded' ).find( 'circle:last-child' ).css( 'animation', 'sui' + score + ' 3s forwards' );
