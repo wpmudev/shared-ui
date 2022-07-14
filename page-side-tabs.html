@@ -396,65 +396,86 @@ is_searchable: true
 									<div class="demo-code-block">
 
 <pre class="sui-code-snippet html">
-&lt;div class=&quot;sui-side-tabs&quot;&gt;
+&lt;div class=&quot;sui-tabs sui-side-tabs&quot;&gt;
 
-	&lt;div class=&quot;sui-tabs-menu&quot;&gt;
-		&lt;label class=&quot;sui-tab-item active&quot; class=&quot;active&quot;&gt;
-			&lt;input 
-				type=&quot;radio&quot; 
-				data-tab-menu=&quot;get-tab-1&quot; 
-				checked=&quot;checked&quot; 
-				id=&quot;sample-tab-1&quot;&gt;
+	&lt;div role=&quot;tablist&quot; class=&quot;sui-tabs-menu&quot;&gt;
+
+		&lt;!--
+		NOTE(S):
+
+		1. Include &quot;type&quot; attribute when using tabs inside a form to prevent
+		problems when submitting the form.
+
+		2. Include &quot;aria-controls&quot; attribute when using tabs with content.
+
+		3. Unique IDs are a must for button tab and its content.
+		--&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;one__tab&quot;
+			class=&quot;sui-tab-item active&quot;
+			aria-controls=&quot;one__content&quot;
+			aria-selected=&quot;true&quot;&gt;
 			Tab 1
-		&lt;/label&gt;
-		&lt;label class=&quot;sui-tab-item&quot;&gt;
-			&lt;input 
-				type=&quot;radio&quot; 
-				data-tab-menu=&quot;get-tab-2&quot; 
-				id=&quot;sample-tab-2&quot;&gt;
+		&lt;/button&gt;
+		&lt;input
+			type=&quot;radio&quot;
+			name=&quot;sample-tabs&quot;
+			value=&quot;one&quot;
+			class=&quot;sui-screen-reader-text&quot;
+			aria-label=&quot;Tab 1&quot;
+			aria-hidden=&quot;true&quot;
+			checked=&quot;checked&quot; /&gt;
+
+		&lt;button
+			type=&quot;button&quot;
+			role=&quot;tab&quot;
+			id=&quot;two__tab&quot;
+			class=&quot;sui-tab-item&quot;
+			aria-controls=&quot;two__content&quot;
+			aria-selected=&quot;false&quot;
+			tabindex=&quot;-1&quot;&gt;
 			Tab 2
-		&lt;/label&gt;
-		&lt;label class=&quot;sui-tab-item&quot;&gt;
-			&lt;input 
-				type=&quot;radio&quot; 
-				data-tab-menu=&quot;get-tab-3&quot; 
-				id=&quot;sample-tab-3&quot;&gt;
-			Tab 3
-		&lt;/label&gt;
-		&lt;label class=&quot;sui-tab-item&quot;&gt;
-			&lt;input 
-				type=&quot;radio&quot; 
-				data-tab-menu=&quot;get-tab-4&quot;
-				id=&quot;sample-tab-4&quot;&gt;
-			Tab 4
-		&lt;/label&gt;
+		&lt;/button&gt;
+		&lt;input
+			type=&quot;radio&quot;
+			name=&quot;sample-tabs&quot;
+			value=&quot;two&quot;
+			class=&quot;sui-screen-reader-text&quot;
+			aria-label=&quot;Tab 2&quot;
+			aria-hidden=&quot;true&quot; /&gt;
+
 	&lt;/div&gt;
 
-	&lt;div data-panes&gt;
-		&lt;div 
-			class=&quot;sui-tab-content sui-tab-boxed active&quot; 
-			data-tab-content=&quot;get-tab-1&quot;
-		&gt;
-				&lt;p&gt;Content. Tab 1.&lt;/p&gt;
+	&lt;div class=&quot;sui-tabs-content&quot;&gt;
+
+		&lt;div role=&quot;tabpanel&quot;
+			id=&quot;one__content&quot;
+			class=&quot;sui-tab-content active&quot;
+			aria-labelledby=&quot;one__tab&quot;
+			tabindex=&quot;0&quot;&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 1&lt;/p&gt;
+			&lt;/div&gt;
+
 		&lt;/div&gt;
-		&lt;div 
-			class=&quot;sui-tab-content sui-tab-boxed&quot; 
-			data-tab-content=&quot;get-tab-2&quot;
-		&gt;
-				&lt;p&gt;Content. Tab 2.&lt;/p&gt;
+
+		&lt;div role=&quot;tabpanel&quot;
+			id=&quot;two__content&quot;
+			class=&quot;sui-tab-content&quot;
+			aria-labelledby=&quot;two__tab&quot;
+			tabindex=&quot;0&quot;
+			hidden&gt;
+
+			&lt;div class=&quot;sui-border-frame&quot;&gt;
+				&lt;p&gt;Tab 2&lt;/p&gt;
+			&lt;/div&gt;
+
 		&lt;/div&gt;
-		&lt;div 
-			class=&quot;sui-tab-content sui-tab-boxed&quot; 
-			data-tab-content=&quot;get-tab-3&quot;
-		&gt;
-				&lt;p&gt;Content. Tab 3.&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div 
-			class=&quot;sui-tab-content sui-tab-boxed&quot; 
-			data-tab-content=&quot;get-tab-4&quot;
-		&gt;
-				&lt;p&gt;Content. Tab 4.&lt;/p&gt;
-		&lt;/div&gt;
+
 	&lt;/div&gt;
 
 &lt;/div&gt;
