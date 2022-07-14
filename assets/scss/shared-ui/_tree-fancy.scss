@@ -404,3 +404,59 @@
 		}
 	}
 }
+
+@include body-class($wrap: true, $rtl: true) {
+
+	.sui-tree-fancy[data-tree="selector"] {
+
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+				
+				// VARIATION: Child items
+				ul[role="group"] {
+					padding-left: 0;
+					padding-right: 26px;
+				}
+
+				> span.fancytree-node {
+					
+					// ELEMENT: Checkbox
+					> span.fancytree-checkbox {
+
+						~ span.fancytree-title {
+							margin-left: 0;
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sui-tree-fancy[data-tree="directory"] {
+
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+				
+				// VARIATION: Child items
+				ul[role="group"] {
+					padding-right: 20px;
+					padding-left: 0;
+				}
+
+				> span.fancytree-node {
+
+					// ELEMENT: Expander
+					> span.fancytree-expander { 
+						margin: 3px -10px 3px 0;
+					}
+				}
+			}
+		}
+	}
+
+}
