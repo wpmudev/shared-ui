@@ -1176,16 +1176,11 @@
 
 						.select2-results__options {
 
-							.select2-results__option {
+							.select2-results__option:not([role="group"]) {
 								display: flex;
 								flex-flow: row nowrap;
 								align-items: center;
 								position: relative;
-
-								&[role="group"] {
-									display: block;
-									padding-right: 0;
-								}
 
 								.sui-variable-name {
 									min-width: 100px;
@@ -1193,12 +1188,14 @@
 								}
 
 								.sui-variable-value {
-									flex: 0 1 auto;
+									flex: 0 0 auto;
 									color: $fiftyshades;
 									font-size: 12px;
-									word-break: break-word;
 								}
+							}
 
+							[role="group"] {
+								padding-right: 0;
 							}
 
 							ul[role="none"] {
