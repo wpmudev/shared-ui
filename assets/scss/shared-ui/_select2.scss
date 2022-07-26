@@ -1038,18 +1038,6 @@
 								}
 							}
 						}
-
-						li[role="group"].select2-results__option {
-							display: block;
-							padding-right: 0;
-						}
-
-						ul[role="none"] {
-							margin-left: -14px;
-							li {
-								padding-left: 28px;
-							}
-						}
 					}
 				}
 
@@ -1194,6 +1182,11 @@
 								align-items: center;
 								position: relative;
 
+								&[role="group"] {
+									display: block;
+									padding-right: 0;
+								}
+
 								.sui-variable-name {
 									min-width: 100px;
 									flex: 1;
@@ -1206,6 +1199,13 @@
 									word-break: break-word;
 								}
 
+							}
+
+							ul[role="none"] {
+								margin-left: -14px;
+								li {
+									padding-left: 28px;
+								}
 							}
 						}
 					}
