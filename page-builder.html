@@ -244,7 +244,7 @@ is_searchable: true
 	
 				<!-- SECTION: Complex Header -->
 				<div class="sui-box-settings-row">
-	
+
 					<div class="sui-box-settings-col-1">
 	
 						<span class="sui-settings-label">Complex Header</span>
@@ -255,7 +255,7 @@ is_searchable: true
 					<div class="sui-box-settings-col-2">
 	
 						<div class="sui-box-builder">
-
+	
 							<div class="sui-box-builder-header">
 	
 								<div class="sui-builder-conditions">
@@ -283,40 +283,46 @@ is_searchable: true
 	
 								</div>
 	
-								<div class="sui-builder-options sui-options-inline">
+								<div class="sui-builder-options sui-options-inline" role="group">
 	
 	
 									<span class="sui-builder-text">Apply on</span>
 	
 									<label for="sample-apply-on-inline-content" class="sui-checkbox sui-checkbox-sm">
-										<input type="checkbox" id="sample-apply-on-inline-content" />
+										<input type="checkbox" id="sample-apply-on-inline-content" aria-labelledby="inline-content-title" />
 										<span aria-hidden="true"></span>
-										<span>Inline Content</span>
+										<span id="inline-content-title">Inline Content</span>
 									</label>
 	
 									<label for="sample-apply-on-widget" class="sui-checkbox sui-checkbox-sm">
-										<input type="checkbox" id="sample-apply-on-widget" />
+										<input type="checkbox" id="sample-apply-on-widget" aria-labelledby="widget-title" />
 										<span aria-hidden="true"></span>
-										<span>Widget</span>
+										<span id="widget-title">Widget</span>
 									</label>
 	
 								</div>
 	
 							</div>
-		
-							<div class="sui-box-builder-footer">
-		
-								<div class="sui-builder-field">
-		
-									<div class="sui-builder-field-label" tabindex="0">
-										<span class="sui-icon-mail" aria-hidden="true"></span>
-										<span>Static Field</span>
+	
+							<div class="sui-box-builder-body">
+	
+								<div class="sui-builder-fields sui-accordion">
+	
+									<div class="sui-builder-field">
+										<div class="sui-builder-field-label" tabindex="0">Sample field</div>
 									</div>
-		
+	
 								</div>
-		
+	
+								<button class="sui-button sui-button-dashed">
+									<span class="sui-icon-plus" aria-hidden="true"></span>
+									Insert Button
+								</button>
+	
+								<span class="sui-box-builder-message" style="display: none;">Nothing has been added yet. Click on "+ Insert Button" to add your first element.</span>
+	
 							</div>
-		
+	
 						</div>
 	
 					</div>
