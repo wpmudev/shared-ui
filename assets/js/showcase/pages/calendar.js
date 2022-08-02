@@ -27,7 +27,8 @@
 				beforeShow: function( input, inst ) {
 					$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 				},
-				'dateFormat': 'd MM yy'
+				'dateFormat': 'd MM yy',
+				isRTL: false
 			});
 		}
 

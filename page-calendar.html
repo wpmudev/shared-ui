@@ -207,10 +207,15 @@ $( '#unique-id' ).datepicker({
 	beforeShow: function( input, inst ) {
 		$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 	},
-	'dateFormat': 'd MM yy'
+	'dateFormat': 'd MM yy',
+	isRTL: false,
 });
 </pre>
 
+					</div>
+
+					<div class="sui-notice sui-notice-info">
+						<p>To enable RTL, either set <code>isRTL: true</code> or <code>$( '#unique-id' ).datepicker( 'option', 'isRTL', true );</code>.</p>
 					</div>
 
 				</div>
@@ -430,11 +435,13 @@ $( '#unique-id' ).datepicker({
 					'October',
 					'November',
 					'December'
-				]
+				],
+				'direction': 'ltr'
 			},
 			'alwaysShowCalendars': true,
 			'startDate': start,
-			'endDate': end
+			'endDate': end,
+			'opens': 'right'
 		}, function( start, end, label ) {
 			console.log( 'New date range selected: ' + start.format( 'YYYY-MM-DD' ) + ' to ' + end.format( 'YYYY-MM-DD' ) + ' (predefined range: ' + label + ')' );
 		});
@@ -444,6 +451,10 @@ $( '#unique-id' ).datepicker({
 }( jQuery ) );
 </pre>
 
+					</div>
+
+					<div class="sui-notice sui-notice-info">
+						<p>To enable RTL, either set <code>'opens': 'left' and 'direction': 'rtl'</code> or <code>$( '#unique-id' ).daterangepicker({ 'opens': 'left', 'locale': { 'direction': 'rtl' } });</code>.</p>
 					</div>
 
 				</div>

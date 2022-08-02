@@ -17,7 +17,9 @@
 					styles  = $( '#wordpress-styles' ),
 					hrefcss = styles.attr( 'href' ),
 					newcss  = hrefcss.replace( 'wordpress', 'wordpress-rtl' ),
-					oldcss  = hrefcss.replace( 'wordpress-rtl', 'wordpress' )
+					oldcss  = hrefcss.replace( 'wordpress-rtl', 'wordpress' ),
+					datepicker = $( 'input[id^="date-simple-"]' ),
+					datepickerRange = $( 'input[id^="date-range-"]' )
 					;
 
 				const isButtonActive = button.hasClass( 'active' );
@@ -29,12 +31,26 @@
 					styles.attr( 'href', oldcss );
 					button.removeClass( 'active' );
 					button.attr( 'title', 'Activate right-to-left language support' );
+					datepicker.datepicker( 'option', 'isRTL', false );
+					datepickerRange.daterangepicker({
+						'opens': 'right',
+						'locale': {
+							'direction': 'ltr'
+						}
+					});
 				} else {
 					html.attr( 'dir', 'rtl' );
 					body.addClass( 'rtl' );
 					styles.attr( 'href', newcss );
 					button.addClass( 'active' );
 					button.attr( 'title', 'Deactivate right-to-left language support' );
+					datepicker.datepicker( 'option', 'isRTL', true );
+					datepickerRange.daterangepicker({
+						'opens': 'left',
+						'locale': {
+							'direction': 'rtl'
+						}
+					});
 				}
 
 				e.preventDefault();
