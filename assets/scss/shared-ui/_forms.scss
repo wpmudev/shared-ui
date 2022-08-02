@@ -623,3 +623,133 @@
 		line-height: 1;
 	}
 }
+
+@include body-class($wrap: true, $rtl: true) {
+
+	// HELPER: Form control
+	%form-control {
+		text-align: right;
+		direction: ltr;
+	}
+
+	// ELEMENT: Label
+	.sui-label {
+
+		.sui-tag {
+			margin-right: 5px;
+			margin-left: 0;
+
+			&.sui-left {
+				margin-left: 5px;
+				margin-right: 0;
+			}
+		}
+
+		// VARIATION: Label link
+		&-link {
+			margin-right: auto;
+			margin-left: 0;
+		}
+
+		// VARIATION: Label note
+		&-note {
+			margin-right: auto;
+			margin-left: 0;
+		}
+	}
+
+	.sui-field-prefix {
+		margin-left: 10px;
+		margin-right: 0;
+	}
+	.sui-field-suffix {
+		margin-right: 10px;
+		margin-left: 0;
+	}
+
+	// GROUP: Date
+	.sui-date {
+
+		.sui-form-control {
+
+			&:first-child {
+				padding-right: 14px;
+				padding-left: 40px;
+			}
+
+			&:last-child {
+				padding-left: 14px;
+				padding-right: 40px;
+			}
+		}
+
+		[class*="sui-icon-"] {
+
+			&:first-child {
+				left: auto;
+				right: 5px;
+			}
+
+			&:last-child {
+				right: auto;
+				left: 5px;
+			}
+		}
+	}
+
+	.sui-multi-date {
+
+		.sui-form-field {
+
+			+ button {
+				margin-left: 0;
+				margin-right: 10px;
+			}
+		}
+	}
+
+	// GROUP: Input with button
+	.sui-with-button {
+
+		// VARIATION: Inside button
+		&.sui-inside,
+		&.sui-with-button-inside {
+
+			.sui-button,
+			.sui-button-icon {
+				left: 5px;
+				right: auto;
+			}
+
+			.sui-button-lg {
+				left: 0;
+				right: auto;
+			}
+
+			.sui-form-control {
+				padding-left: 90px;
+				padding-right: 14px;
+			}
+		}
+
+		// VARIATION: Icon button
+		&.sui-with-button-icon {
+
+			.sui-button,
+			.sui-button-icon {
+				left: 5px;
+				right: auto;
+			}
+
+			.sui-button-lg {
+				left: 0;
+				right: auto;
+			}
+
+			.sui-form-control {
+				padding-left: 40px;
+				padding-right: 14px;
+			}
+		}
+	}
+}
