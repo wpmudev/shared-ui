@@ -626,12 +626,6 @@
 
 @include body-class($wrap: true, $rtl: true) {
 
-	// HELPER: Form control
-	%form-control {
-		text-align: right;
-		direction: ltr;
-	}
-
 	// ELEMENT: Label
 	.sui-label {
 
@@ -704,6 +698,40 @@
 			+ button {
 				margin-left: 0;
 				margin-right: 10px;
+			}
+		}
+	}
+
+	// GROUP: Input with icon
+	// This group doesn't work with inline form control
+	.sui-control-with-icon {
+		
+		.sui-form-control {
+			padding-left: 14px;
+			padding-right: 40px;
+		}
+
+		// Select 2
+		select.sui-select + .select2-container .select2-selection__rendered {
+			padding-left: 8px;
+			padding-right: 40px;
+		}
+
+		[class*="sui-icon-"] {
+			left: auto;
+			right: 14px;
+		}
+
+		&.sui-right-icon {
+
+			.sui-form-control {
+				padding-left: 40px;
+				padding-right: 14px;
+			}
+
+			[class*="sui-icon-"] {
+				left: 14px;
+				right: auto;
 			}
 		}
 	}
