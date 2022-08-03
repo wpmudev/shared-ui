@@ -65,3 +65,32 @@
 		}
 	}
 }
+
+// $sui-wrap: true | $rtl: true
+@include body-class(true, true) {
+
+	.sui-insert-variables {
+		
+		.sui-form-control {
+			padding-left: #{($form--input-height-base - 1px) + 14px};
+			padding-right: 14px;
+		}
+
+		select.sui-variables {
+
+			+ .sui-select {
+				right: auto;
+				left: 0;
+
+				// STATE: Default.
+				.selection {
+
+					span[role="combobox"] {
+						border-left-color: transparent;
+						border-right-color: palette(gray, lighter);
+					}
+				}
+			}
+		}
+	}
+}
