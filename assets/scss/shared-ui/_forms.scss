@@ -624,7 +624,13 @@
 	}
 }
 
-@include body-class($wrap: true, $rtl: true) {
+@include body-class(true, true) {
+
+	// HELPER: Form control
+	%form-control {
+		direction: ltr;
+		text-align: right;
+	}
 
 	// ELEMENT: Label
 	.sui-label {
