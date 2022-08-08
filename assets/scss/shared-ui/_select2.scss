@@ -1062,31 +1062,33 @@
 					// Dropdown list.
 					.select2-results {
 						.select2-results__options {
-							.select2-results__option:not([role="group"]) {
-								display: flex;
-								flex-flow: row nowrap;
-								align-items: center;
-								position: relative;
+							.select2-results__option {
+								&[role="option"] {
+									display: flex;
+									flex-flow: row nowrap;
+									align-items: center;
+									position: relative;
 
-								.sui-variable-name {
-									min-width: 100px;
-									flex: 1;
+									.sui-variable-name {
+										min-width: 100px;
+										flex: 1;
+									}
+
+									.sui-variable-value {
+										flex: 0 0 auto;
+										color: $fiftyshades;
+										font-size: 12px;
+									}
 								}
 
-								.sui-variable-value {
-									flex: 0 0 auto;
-									color: $fiftyshades;
-									font-size: 12px;
-								}
-							}
+								&--group[role="group"] {
+									padding-left: 0;
+									padding-right: 0;
 
-							[role="group"] {
-								padding-right: 0;
-
-								ul[role="none"] {
-									margin-left: -14px;
-									li {
-										padding-left: 28px;
+									.select2-results__group {
+										cursor: initial;
+										padding-left: 14px;
+										padding-right: 14px;
 									}
 								}
 							}
