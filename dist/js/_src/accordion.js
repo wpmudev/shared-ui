@@ -125,8 +125,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-10 .sui-accordion').length) {
-    $('.sui-2-12-10 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-11 .sui-accordion').length) {
+    $('.sui-2-12-11 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }

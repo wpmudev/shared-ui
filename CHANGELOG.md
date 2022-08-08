@@ -2,7 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.10](https://github.com/wpmudev/shared-ui/compare/v2.12.9...v2.12.10) (Unreleased)
+## [2.12.11](https://github.com/wpmudev/shared-ui/compare/v2.12.10...v2.12.11) (2022-08-08)
+
+#### 🐛 Bug Fixes
+
+- **fix(checkbox):** Element is placed over select dropdown list. [#443](https://github.com/wpmudev/shared-ui/pull/443) ([SUI-286](https://incsub.atlassian.net/browse/SUI-286)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(insert-variables):** Dropdown option invisible on hover. [#449](https://github.com/wpmudev/shared-ui/pull/449) ([SUI-293](https://incsub.atlassian.net/browse/SUI-293)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(select):** Double padding on dropdown makes the optgroup items look shrink. [#513](https://github.com/wpmudev/shared-ui/pull/513) ([SUI-458](https://incsub.atlassian.net/browse/SUI-458)) ([@iamleigh](https://github.com/iamleigh))
+
+#### ♿️ Accessibility
+
+- **aria(tree-selector):** Support RTL. [#418](https://github.com/wpmudev/shared-ui/pull/418) ([SUI-29](https://incsub.atlassian.net/browse/SUI-29)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(icon-button):** Loading state needs to notify the user action is performing. [#429](https://github.com/wpmudev/shared-ui/pull/429) ([SUI-15](https://incsub.atlassian.net/browse/SUI-15)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(radio):** Element not visible when high-contrast mode is enabled. [#460](https://github.com/wpmudev/shared-ui/pull/460) ([SUI-292](https://incsub.atlassian.net/browse/SUI-292)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(toggle):** Switches not visibile when High Contrast is enabled. [#515](https://github.com/wpmudev/shared-ui/pull/515) ([SUI-461](https://incsub.atlassian.net/browse/SUI-461)) ([@iamleigh](https://github.com/iamleigh))
+
+#### 📝 Documentation
+
+- **docs(builder):** Complex header content is out of place. [#511](https://github.com/wpmudev/shared-ui/pull/511) ([SUI-433](https://incsub.atlassian.net/browse/SUI-433)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [2.12.10](https://github.com/wpmudev/shared-ui/compare/v2.12.9...v2.12.10) (2022-06-11)
 
 #### 🐛 Bug Fixes
 

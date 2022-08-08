@@ -130,8 +130,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-10 .sui-accordion').length) {
-    $('.sui-2-12-10 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-11 .sui-accordion').length) {
+    $('.sui-2-12-11 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -245,7 +245,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-10 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-11 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -521,7 +521,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  $('.sui-2-12-10 .sui-slider').each(function () {
+  $('.sui-2-12-11 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -537,7 +537,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-12-10 .sui-dropdown');
+      var $dropdowns = $('.sui-2-12-11 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -558,7 +558,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-12-10 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-12-11 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2540,7 +2540,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-12-10 .sui-form-field').each(function () {
+    $('.sui-2-12-11 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2598,7 +2598,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-12-10 .sui-reviews').each(function () {
+  $('.sui-2-12-11 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
@@ -2625,12 +2625,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         circumference = 2 * Math.PI * radius,
         dashLength = circumference / 100 * score,
         gapLength = dashLength * 100 - score,
-        svg = '<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\n' + '<circle stroke-width="16" cx="50" cy="50" r="42" />\n' + '<circle stroke-width="16" cx="50" cy="50" r="42" stroke-dasharray="0,' + gapLength + '" />\n' + '</svg>\n' + '<span class="sui-circle-score-label">' + score + '</span>\n'; // Add svg to score element, add loaded class, & change stroke-dasharray to represent target score/percentage.
+        svg = '<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">\n' + '<circle stroke-width="16" cx="50" cy="50" r="42" />\n' + '<circle stroke-width="16" cx="50" cy="50" r="42" stroke-dasharray="0,' + gapLength + '" />\n' + '</svg>\n' + '<span class="sui-circle-score-label" aria-hidden="true">' + score + '</span>\n' + '<span class="sui-screen-reader-text" tabindex="0">Score ' + score + ' out of 100</span>'; // Add svg to score element, add loaded class, & change stroke-dasharray to represent target score/percentage.
 
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-12-10 .sui-circle-score').each(function () {
+  $('.sui-2-12-11 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -8186,7 +8186,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-10'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8199,7 +8199,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-10'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8217,7 +8217,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-10'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8235,7 +8235,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-10'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -8248,7 +8248,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-10'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -8318,7 +8318,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     });
   };
 
-  $('.sui-2-12-10 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-11 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8754,12 +8754,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-10 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-11 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-10 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-11 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9079,8 +9079,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-10 .sui-tree').length) {
-    $('.sui-2-12-10 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-12-11 .sui-tree').length) {
+    $('.sui-2-12-11 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9096,7 +9096,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.upload = function () {
-    $('.sui-2-12-10 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-12-11 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
@@ -9105,9 +9105,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
     }); // check whether element exist then execute js
 
-    if ($('.sui-2-12-10 .sui-file-upload').length) {
+    if ($('.sui-2-12-11 .sui-file-upload').length) {
       // This will trigger on file change. 
-      $('.sui-2-12-10 .sui-file-browser input[type="file"]').on('change', function () {
+      $('.sui-2-12-11 .sui-file-browser input[type="file"]').on('change', function () {
         var parent = $(this).parent();
         var filename = $(this).val();
         var imageContainer = parent.find('.sui-upload-image');
@@ -9143,15 +9143,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }
       }); // This will trigger on click of upload button
 
-      $('.sui-2-12-10 .sui-file-browser .sui-upload-button').on('click', function () {
+      $('.sui-2-12-11 .sui-file-browser .sui-upload-button').on('click', function () {
         selectFile($(this));
       }); // This will trigger when user wants to remove the selected upload file
 
-      $('.sui-2-12-10 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
+      $('.sui-2-12-11 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
         removeFile($(this));
       }); // This will trigger reupload of file
 
-      $('.sui-2-12-10 .sui-file-browser .sui-upload-image').on('click', function () {
+      $('.sui-2-12-11 .sui-file-browser .sui-upload-image').on('click', function () {
         selectFile($(this));
       }); // upload drag and drop functionality
 
@@ -9160,7 +9160,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
       }();
 
-      var uploadArea = $('.sui-2-12-10 .sui-upload-button');
+      var uploadArea = $('.sui-2-12-11 .sui-upload-button');
 
       if (isAdvancedUpload) {
         var droppedFiles = false;
