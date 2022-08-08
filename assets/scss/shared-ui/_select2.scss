@@ -3,9 +3,7 @@
 // ELEMENT: Select.
 // $sui-wrap: true | $rtl: false
 @include body-class(true, false) {
-
 	select.sui-select {
-
 		+ .sui-select {
 			min-width: 100%;
 			max-width: 100%;
@@ -17,7 +15,6 @@
 				display: block;
 
 				span[role="combobox"] {
-
 					// TYPE: Single Select.
 					&.select2-selection--single {
 						height: auto;
@@ -31,7 +28,7 @@
 						padding: 0;
 						border: 1px solid palette(gray, lighter);
 						border-radius: $border-radius;
-						background-color: #FAFAFA;
+						background-color: #fafafa;
 						transition: $transition;
 
 						// Label.
@@ -130,7 +127,6 @@
 
 						// Search input.
 						.select2-search {
-
 							&.select2-search--inline {
 								min-width: 100px;
 								flex: 1;
@@ -179,9 +175,7 @@
 				}
 
 				&:hover {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							background-color: $white;
@@ -191,17 +185,12 @@
 			}
 
 			&:not(.sui-select-theme--search) .selection {
-
 				span[role="combobox"] {
-
 					// TYPE: Multi Select.
 					&.select2-selection--multiple {
-
 						// Options.
 						.select2-selection__rendered {
-
 							.select2-selection__choice {
-
 								.sui-button-icon {
 									width: 26px;
 									height: 26px;
@@ -215,7 +204,7 @@
 									border: 0;
 									border-top-left-radius: 0;
 									border-bottom-left-radius: 0;
-									background-color: #5E5E5E;
+									background-color: #5e5e5e;
 									color: $overcast;
 									text-align: center;
 
@@ -231,14 +220,10 @@
 
 			// DESIGN: Icon.
 			&.sui-select-theme--icon {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
-
 							// Label.
 							.select2-selection__rendered {
 								position: relative;
@@ -274,14 +259,10 @@
 
 			// DESIGN: Color.
 			&.sui-select-theme--color {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
-
 							// Label.
 							.select2-selection__rendered {
 								position: relative;
@@ -310,11 +291,8 @@
 
 			// DESIGN: Smart Search.
 			&.sui-select-theme--search {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Multi Select.
 						&.select2-selection--multiple {
 							position: relative;
@@ -360,9 +338,7 @@
 
 				// STATE: Hover
 				&:hover {
-
 					.selection {
-
 						span[role="combobox"] {
 							background: $white;
 						}
@@ -371,18 +347,14 @@
 
 				// STATE: Focus
 				&.select2-container--focus {
-
 					.selection {
-
 						span[role="combobox"] {
 							border-color: $blue;
 							background: $white;
 							box-shadow: 0 0 0 2px $blue-ghost;
 
 							.select2-search {
-
 								textarea {
-
 									&:focus {
 										outline: none;
 									}
@@ -392,11 +364,8 @@
 					}
 
 					&.select2-container--open {
-
 						&.sui-select-dropdown-container--above {
-
 							.selection {
-
 								span[role="combobox"] {
 									border-top-color: $overcast;
 									border-top-left-radius: 0;
@@ -406,9 +375,7 @@
 						}
 
 						&.sui-select-dropdown-container--below {
-
 							.selection {
-
 								span[role="combobox"] {
 									border-bottom-color: $overcast;
 									border-bottom-left-radius: 0;
@@ -422,11 +389,8 @@
 
 			// STATE: Focus.
 			&.select2-container--focus {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							background-color: $white;
@@ -437,14 +401,10 @@
 
 			// STATE: Dropdown open.
 			&.select2-container--open {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
-
 							// Icon.
 							.select2-selection__arrow {
 								transform: rotate(180deg);
@@ -456,12 +416,10 @@
 
 			// STATE: Disabled.
 			&.select2-container--disabled {
-
 				.selection {
 					cursor: not-allowed;
 
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							pointer-events: none;
@@ -495,17 +453,12 @@
 
 		// SIZE: Small height.
 		&.sui-select-sm {
-
 			+ .sui-select {
-
 				// STATE: Default.
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
-
 							// Label.
 							.select2-selection__rendered {
 								padding: 6px 6px 6px 12px;
@@ -524,14 +477,10 @@
 
 				// DESIGN: Icon.
 				&.sui-select-theme--icon {
-
 					.selection {
-
 						span[role="combobox"] {
-
 							// TYPE: Single Select.
 							&.select2-selection--single {
-
 								// Label.
 								.select2-selection__rendered {
 									padding-left: 36px;
@@ -555,14 +504,10 @@
 
 				// DESIGN: Color.
 				&.sui-select-theme--color {
-
 					.selection {
-
 						span[role="combobox"] {
-
 							// TYPE: Single Select.
 							&.select2-selection--single {
-
 								// Label.
 								.select2-selection__rendered {
 									padding-left: 40px;
@@ -586,7 +531,6 @@
 
 		// SIZE: Auto width.
 		&[data-width] {
-
 			+ .sui-select {
 				min-width: auto;
 			}
@@ -594,7 +538,6 @@
 
 		// DESIGN: Inline select.
 		&.sui-select-inline {
-
 			+ .sui-select {
 				min-width: 1px;
 				display: inline-block;
@@ -609,18 +552,12 @@
 
 	// STATE: Error.
 	.sui-form-field {
-
 		&.sui-form-field-error {
-
 			select.sui-select {
-
 				+ .sui-select {
-
 					// STATE: Default.
 					.selection {
-
 						span[role="combobox"] {
-
 							// TYPE: Single Select.
 							&.select2-selection--single {
 								border-bottom-color: $red;
@@ -629,7 +566,6 @@
 
 							// TYPE: Multi Select.
 							&.select2-selection--multiple {
-
 								.select2-selection__rendered {
 									border-bottom-color: $red;
 									box-shadow: 0 1px 0 0 $red;
@@ -645,20 +581,15 @@
 
 // $sui-wrap: true | $rtl: true
 @include body-class(true, true) {
-
 	select.sui-select {
-
 		+ .sui-select {
 			direction: rtl;
 			text-align: right;
 
 			.selection {
-
 				span[role="combobox"] {
-
 					// TYPE: Single Select.
 					&.select2-selection--single {
-
 						// Label.
 						.select2-selection__rendered {
 							padding-right: 14px;
@@ -670,14 +601,10 @@
 
 			// DESIGN: Icon.
 			&.sui-select-theme--icon {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
-
 							// Label.
 							.select2-selection__rendered {
 								padding-left: 5px;
@@ -703,16 +630,11 @@
 
 // $sui-wrap: true | $rtl: false | $monochrome: true
 @include body-class(true, false, true) {
-
 	select.sui-select {
-
 		+ .sui-select {
-
 			// STATE: Default.
 			.selection {
-
 				span[role="combobox"] {
-
 					// TYPE: Single Select.
 					&.select2-selection--single {
 						border-color: $black;
@@ -735,14 +657,12 @@
 
 					// TYPE: Multi Select.
 					&.select2-selection--multiple {
-
 						// Options.
 						.select2-selection__rendered {
 							border-color: $black;
 							background-color: $white;
 
 							.select2-search {
-
 								input {
 									color: $black;
 
@@ -783,16 +703,11 @@
 
 			// DESIGN: Smart Search.
 			&.sui-select-theme--search {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Multi Select.
 						&.select2-selection--multiple {
-
 							.select2-selection__rendered {
-
 								.select2-selection__choice {
 									color: $black;
 
@@ -808,11 +723,8 @@
 
 			// STATE: Disabled.
 			&.select2-container--disabled {
-
 				.selection {
-
 					span[role="combobox"] {
-
 						// TYPE: Single Select.
 						&.select2-selection--single {
 							border-color: $grey;
@@ -831,7 +743,6 @@
 
 						// TYPE: Multi Select.
 						&.select2-selection--multiple {
-
 							.select2-selection__rendered {
 								border-color: $grey;
 								background-color: $grey;
@@ -845,18 +756,12 @@
 
 	// STATE: Error.
 	.sui-form-field {
-
 		&.sui-form-field-error {
-
 			select.sui-select {
-
 				+ .sui-select {
-
 					// STATE: Default.
 					.selection {
-
 						span[role="combobox"] {
-
 							// TYPE: Single Select.
 							&.select2-selection--single {
 								border-bottom-color: $black;
@@ -865,7 +770,6 @@
 
 							// TYPE: Multi Select.
 							&.select2-selection--multiple {
-
 								.select2-selection__rendered {
 									border-bottom-color: $black;
 									box-shadow: 0 1px 0 0 $black;
@@ -882,9 +786,7 @@
 // ELEMENT: Dropdown.
 // $sui-wrap: false | $rtl: false
 @include body-class(false, false) {
-
 	.sui-select {
-
 		&.sui-select-dropdown-container--open {
 			display: block;
 
@@ -896,7 +798,7 @@
 				-moz-osx-font-smoothing: grayscale;
 				font-smoothing: antialiased;
 				-webkit-font-smoothing: antialiased;
-				text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+				text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 			}
 
 			.sui-select-dropdown {
@@ -906,7 +808,7 @@
 				border: 1px solid palette(gray, lighter);
 				border-radius: $border-radius;
 				background-color: $white;
-				box-shadow: 0 3px 7px 0 rgba(0,0,0,0.07);
+				box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07);
 
 				// Search input.
 				.select2-search {
@@ -1047,7 +949,6 @@
 
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
 							max-height: 208px;
 
@@ -1062,14 +963,10 @@
 
 			// DESIGN: Select with icon.
 			&.sui-select-theme--icon {
-
 				.sui-select-dropdown {
-
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
-
 							.select2-results__option {
 								position: relative;
 
@@ -1102,14 +999,10 @@
 
 					// SIZE: Small.
 					&.sui-select-dropdown-sm {
-
 						// Dropdown list.
 						.select2-results {
-
 							.select2-results__options {
-
 								.select2-results__option {
-
 									[class*="sui-icon-"] {
 										height: 28px;
 										left: 5px;
@@ -1131,14 +1024,10 @@
 
 			// DESIGN: Select with color.
 			&.sui-select-theme--color {
-
 				.sui-select-dropdown {
-
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
-
 							.select2-results__option {
 								position: relative;
 
@@ -1166,16 +1055,13 @@
 
 			// DESIGN: Select with variables.
 			&.sui-select-theme--vars {
-
 				.sui-select-dropdown {
 					width: 240px !important;
 					margin-left: -200px;
 
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
-
 							.select2-results__option:not([role="group"]) {
 								display: flex;
 								flex-flow: row nowrap;
@@ -1196,7 +1082,7 @@
 
 							[role="group"] {
 								padding-right: 0;
-								
+
 								ul[role="none"] {
 									margin-left: -14px;
 									li {
@@ -1211,7 +1097,6 @@
 
 			// DESIGN: Smart Search.
 			&.sui-select-theme--search {
-
 				.sui-select-dropdown {
 					border-color: $blue;
 
@@ -1236,17 +1121,13 @@
 
 // $sui-wrap: false | $rtl: true
 @include body-class(false, true) {
-
 	.sui-select {
-
 		&.sui-select-dropdown-container--open {
 			direction: rtl;
 
 			.sui-select-dropdown {
-
 				// Search input.
 				.select2-search {
-
 					input {
 						text-align: right;
 					}
@@ -1254,9 +1135,7 @@
 
 				// Dropdown list.
 				.select2-results {
-
 					.select2-results__options {
-
 						.select2-results__option {
 							text-align: right;
 						}
@@ -1266,16 +1145,11 @@
 
 			// DESIGN: Select with icon.
 			&.sui-select-theme--icon {
-
 				.sui-select-dropdown {
-
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
-
 							.select2-results__option {
-
 								[class*="sui-icon-"] {
 									right: 10px;
 									left: auto;
@@ -1293,16 +1167,11 @@
 
 			// DESIGN: Select with color.
 			&.sui-select-theme--color {
-
 				.sui-select-dropdown {
-
 					// Dropdown list.
 					.select2-results {
-
 						.select2-results__options {
-
 							.select2-results__option {
-
 								.sui-color {
 									right: 10px;
 									left: auto;
