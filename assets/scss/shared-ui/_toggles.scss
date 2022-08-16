@@ -168,3 +168,36 @@
 		}
 	}
 }
+
+// rtl support.
+@include body-class(true, true) {
+
+	.sui-toggle {
+
+		// ELEMENT: Slider.
+		.sui-toggle-slider {
+			left: auto;
+			right: 0;
+
+			~ .sui-toggle-label,
+			~ .sui-description {
+				margin-right: #{$toggle-width + math.div($sui-gutter-md, 2)};
+				margin-left: 0;
+			}
+		}
+
+		// Support for old markup.
+		+ label,
+		+ .sui-toggle-label {
+			margin-right: math.div($sui-gutter-md, 2);
+			margin-left: auto;
+		}
+	}
+
+	.sui-toggle-content {
+		&, &.sui-border-frame {
+			margin-right: #{$toggle-width + math.div($sui-gutter-md, 2)};
+			margin-left: 0;
+		}
+	}
+}
