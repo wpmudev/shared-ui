@@ -466,3 +466,93 @@
 		}
 	}
 }
+
+// wrap: true and rtl: true
+@include body-class(true, true) {
+
+	// ELEMENT: Box
+	.sui-box {
+
+		// BOX: Status Bar
+		.sui-box-status {
+
+			.sui-status {
+
+				[class*="sui-status-"] {
+
+					.sui-tag {
+						margin-left: auto;
+						margin-right: 8px;
+					}
+
+					[class*="sui-icon-"] {
+						margin-right: auto;
+						margin-left: 4px;
+					}
+
+					&:not(:last-child) {
+						margin-right: 0;
+						margin-left: 20px;
+					}
+
+					&:not(:first-child) {
+						padding-left: 0;
+						padding-right: 20px;
+						border-right: 1px solid palette(silver, soft);
+						border-left: 0;
+					}
+				}
+
+				+ .sui-actions {
+
+					@include media(min-width, md) {
+						margin-left: auto;
+						margin-right: math.div($sui-gutter, 2);
+					}
+				}
+			}
+		}
+
+		// BOX: Search Bar
+		.sui-box-search {
+
+			> .sui-search-left {
+
+				&:not(:last-child) {
+
+					@include media(min-width, md) {
+						margin-right: auto;
+						margin-left: math.div($sui-gutter, 2);
+					}
+				}
+			}
+
+			> .sui-search-right {
+
+				&:not(:only-child) {
+
+					&:not(:last-child) {
+
+						@include media(min-width, md) {
+							margin-right: auto;
+							margin-left: math.div($sui-gutter, 2);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// ELEMENT: Box Title
+	.sui-box {
+
+		.sui-box-title {
+
+			[class*="sui-icon-"] {
+				float: right;
+				margin-right: auto;
+				margin-left: 10px;
+			}
+		}
+	}
+}
