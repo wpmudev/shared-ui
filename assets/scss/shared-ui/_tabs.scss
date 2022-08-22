@@ -318,6 +318,29 @@
 }
 
 @include body-class(true, true) {
+
+	// Tabs
+	.sui-tabs:not(.sui-side-tabs) {
+
+		> [data-tabs],
+		> .sui-tabs-menu {
+
+			> *,
+			.sui-tab-item {
+
+				&:first-child {
+					margin-left: 10px;
+					margin-right: 0;
+				}
+
+				&:last-child {
+					margin-right: 10px;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
 	// Side Tabs
 	.sui-side-tabs {
 
