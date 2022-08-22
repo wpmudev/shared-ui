@@ -580,3 +580,56 @@
 		}
 	}
 }
+
+@include body-class(true, true) {
+
+	.sui-button,
+	a.sui-button,
+	button.sui-button {
+
+		&, &-icon {
+
+			&.sui-button-onload-text {
+
+				.sui-button-text-onload {
+
+					.sui-loading {
+						margin-right: 0;
+						margin-left: 4px;
+					}
+				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+
+	// VARIATION: Buttons with text
+	.sui-button,
+	a.sui-button,
+	button.sui-button {
+
+		[class*="sui-icon-"] {
+
+			&:not(.sui-loading) {
+				margin-right: -7px;
+				margin-left: 0;
+			}
+		}
+
+		// VARIATION: Button with right icon
+		&.sui-button-icon-right {
+
+			[class*="sui-icon-"] {
+
+				&:not(.sui-loading) {
+					margin-left: -7px;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
