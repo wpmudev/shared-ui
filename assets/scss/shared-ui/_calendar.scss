@@ -195,3 +195,40 @@
 		}
 	}
 }
+
+@include body-class(false) {
+	&.sui-elements-accessible {
+		#ui-datepicker-div {
+			&.sui-calendar {
+				.ui-datepicker-calendar {
+					tbody tr {
+						td {
+							// OPTION: Default.
+							a.ui-state-default {
+
+								&.ui-state-active {
+									background-color: $nightrider;
+									color: $white;
+								}
+							}
+
+							// OPTION: Today.
+							&.ui-datepicker-today {
+
+								a.ui-state-default {
+									background-color: $overcast;
+									color: $black;
+
+									&.ui-state-active {
+										background-color: $nightrider;
+										color: $white;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
