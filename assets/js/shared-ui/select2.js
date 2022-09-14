@@ -243,7 +243,11 @@
 				return markup;
 			},
 			minimumResultsForSearch: hasSearch
+		}).on( 'select2:close', function() {
+			$( this ).val( null );
 		});
+
+		select.val( null );
 	};
 
 	$( '.sui-select' ).each( function() {
