@@ -375,9 +375,16 @@
 		.sui-dropdown {
 			ul {
 				li {
-					color: $accessible-dark;
-					&:hover {
+					&,
+					button,
+					a {
 						color: $accessible-dark;
+						&:hover,
+						&:focus,
+						&:active {
+							color: $accessible-dark;
+							background-color: rgba(51, 51, 51, 0.05);
+						}
 					}
 				}
 			}
