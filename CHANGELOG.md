@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 - **fix(accordions):** Content overflows when hidden. [#520](https://github.com/wpmudev/shared-ui/pull/520) ([SUI-492](https://incsub.atlassian.net/browse/SUI-492)) ([@creador-dev](https://github.com/creador-dev))
 - **fix(insert-variables):** Removed first item as selected. [#526](https://github.com/wpmudev/shared-ui/pull/526) ([SUI-499](https://incsub.atlassian.net/browse/SUI-499)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(variables):** Make fonts GDPR compliant. [#534](https://github.com/wpmudev/shared-ui/pull/534) ([SUI-512](https://incsub.atlassian.net/browse/SUI-512)) ([@iamleigh](https://github.com/iamleigh))
 
 #### ♿️ Accessibility
 
