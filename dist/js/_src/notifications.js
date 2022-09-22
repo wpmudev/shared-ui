@@ -33,7 +33,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     var noticeNode = $('#' + noticeId);
     var nodeWrapper = noticeNode.parent(); // Check if element ID exists.
 
-    if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
+    if (null === _typeof(noticeNode) || 'undefined' === typeof noticeNode) {
       throw new Error('No element found with id="' + noticeId + '".');
     } // Check if element has correct attribute.
 
@@ -43,7 +43,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     } // Check if notice message is empty.
 
 
-    if (null === typeof noticeMessage || 'undefined' === typeof noticeMessage || '' === noticeMessage) {
+    if (null === _typeof(noticeMessage) || 'undefined' === typeof noticeMessage || '' === noticeMessage) {
       throw new Error('Notice requires a message to print.');
     }
 
@@ -170,7 +170,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var html = '';
       var icon = utils.options[0].icon;
 
-      if ('' !== icon || 'undefined' !== typeof icon || null !== typeof icon) {
+      if ('' !== icon || 'undefined' !== typeof icon || null !== _typeof(icon)) {
         html = document.createElement('span');
         html.className += 'sui-notice-icon sui-icon-' + icon + ' sui-md';
         html.setAttribute('aria-hidden', true);
@@ -353,7 +353,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     var noticeNode = $('#' + noticeId);
     var nodeWrapper = noticeNode.parent(); // Check if element ID exists.
 
-    if (null === typeof noticeNode || 'undefined' === typeof noticeNode) {
+    if (null === _typeof(noticeNode) || 'undefined' === typeof noticeNode) {
       throw new Error('No element found with id="' + noticeId + '".');
     }
 
