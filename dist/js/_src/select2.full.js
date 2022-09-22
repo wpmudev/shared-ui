@@ -5056,26 +5056,68 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
           var key = evt.which;
 
           if (self.isOpen()) {
-            if (key === KEYS.ESC || key === KEYS.UP && evt.altKey) {
-              self.close(evt);
-              evt.preventDefault();
-            } else if (key === KEYS.ENTER || key === KEYS.TAB) {
-              self.trigger('results:select', {});
+            if (key === KEYS.ENTER) {
+              self.trigger('results:select');
               evt.preventDefault();
             } else if (key === KEYS.SPACE && evt.ctrlKey) {
-              self.trigger('results:toggle', {});
+              self.trigger('results:toggle');
               evt.preventDefault();
             } else if (key === KEYS.UP) {
-              self.trigger('results:previous', {});
+              self.trigger('results:previous');
               evt.preventDefault();
             } else if (key === KEYS.DOWN) {
-              self.trigger('results:next', {});
+              self.trigger('results:next');
+              evt.preventDefault();
+            } else if (key === KEYS.ESC || key === KEYS.TAB) {
+              self.close();
               evt.preventDefault();
             }
           } else {
-            if (key === KEYS.ENTER || key === KEYS.SPACE || key === KEYS.DOWN && evt.altKey) {
+            // Added the functionality to change option on press of up and down arrow. @edited
+            if (key === KEYS.ENTER || key === KEYS.SPACE || (key === KEYS.DOWN || key === KEYS.UP) && evt.altKey) {
               self.open();
               evt.preventDefault();
+            } else if (key === KEYS.DOWN) {
+              if (undefined != this.$element.find('option:selected').next().val()) {
+                this.$element.val(this.$element.find('option:selected').next().val());
+                this.$element.trigger('change');
+              }
+
+              evt.preventDefault();
+            } else if (key === KEYS.UP) {
+              if (undefined != this.$element.find('option:selected').prev().val()) {
+                this.$element.val(this.$element.find('option:selected').prev().val());
+                this.$element.trigger('change');
+              }
+
+              evt.preventDefault();
+            } // Added the functionality to select option based on key press. @edited
+            else {
+              var selectedValue = this.$element.find('option:selected').text();
+              var keyPressed = String.fromCharCode(key).toLowerCase();
+              var values = this.$element.find('option').filter(function () {
+                var _$$text;
+
+                return (_$$text = $(this).text()) === null || _$$text === void 0 ? void 0 : _$$text.toLowerCase().startsWith(keyPressed);
+              });
+              var arrLength = values.length - 1;
+              var elemVal = selectedValue;
+              values.each(function (index) {
+                console.log(selectedValue);
+
+                if (selectedValue !== '' && selectedValue[0].toLowerCase() === keyPressed) {
+                  if ($(this).text() === selectedValue && index !== arrLength) {
+                    elemVal = $(values[index + 1]).val();
+                    return false;
+                  }
+
+                  return;
+                }
+
+                elemVal = $(this).val();
+                return false;
+              });
+              elemVal !== selectedValue && (self.$element.val(elemVal), self.$element.trigger('change'));
             }
           }
         });

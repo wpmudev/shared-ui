@@ -30,9 +30,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             flexItem = flexHeader.parent(),
             flexChart = flexItem.find('.sui-chartjs-animated'),
             flexParent = flexItem.parent(),
-            flexContent = flexHeader.next('.sui-accordion-item-body');
+            flexContent = flexHeader.next('.sui-accordion-item-body').find(' .sui-box');
         var tableItem = $(this),
-            tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content');
+            tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content'),
+            tableBox = tableContent.find('.sui-box');
         var button = $(this).find('.sui-accordion-open-indicator > .sui-screen-reader-text'),
             buttonText = button === null || button === void 0 ? void 0 : button.text(),
             dataContent = button === null || button === void 0 ? void 0 : button.data('content');
@@ -79,7 +80,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             } else {
               tableItem.addClass('sui-accordion-item--open');
               tableContent.addClass('sui-accordion-item--open');
-              tableContent.attr('tabindex', '0').trigger('focus');
+              tableBox.attr('tabindex', '0').trigger('focus');
             }
           }
         } // Change button accessiblity content based on accordin open and close.
@@ -125,8 +126,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-11 .sui-accordion').length) {
-    $('.sui-2-12-11 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-12 .sui-accordion').length) {
+    $('.sui-2-12-12 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }

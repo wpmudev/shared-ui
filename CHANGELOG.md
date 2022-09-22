@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.12](https://github.com/wpmudev/shared-ui/compare/v2.11.10...v2.12.12) (2022-09-21)
+
+#### 🚀 Improvements
+
+- **fix(accordion):** Focus design improvement when content opens. [#533](https://github.com/wpmudev/shared-ui/pull/533) ([SUI-500](https://incsub.atlassian.net/browse/SUI-500)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fixes
+
+- **fix(accordions):** Content overflows when hidden. [#520](https://github.com/wpmudev/shared-ui/pull/520) ([SUI-492](https://incsub.atlassian.net/browse/SUI-492)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(insert-variables):** Removed first item as selected. [#526](https://github.com/wpmudev/shared-ui/pull/526) ([SUI-499](https://incsub.atlassian.net/browse/SUI-499)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(variables):** Make fonts GDPR compliant. [#534](https://github.com/wpmudev/shared-ui/pull/534) ([SUI-512](https://incsub.atlassian.net/browse/SUI-512)) ([@iamleigh](https://github.com/iamleigh))
+
+#### ♿️ Accessibility
+
+- **aria(dropdown):** Red buttons don't change color. [#486](https://github.com/wpmudev/shared-ui/pull/486) ([SUI-316](https://incsub.atlassian.net/browse/SUI-316)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(side-tabs):** Tabs not visible in high-contrast mode. [#514](https://github.com/wpmudev/shared-ui/pull/514) ([SUI-460](https://incsub.atlassian.net/browse/SUI-460)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(icon):** Required icon in high-contrast mode. [#516](https://github.com/wpmudev/shared-ui/pull/516) ([SUI-462](https://incsub.atlassian.net/browse/SUI-462)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(calendar):** Date picker in high-contrast mode. [#517](https://github.com/wpmudev/shared-ui/pull/517) ([SUI-463](https://incsub.atlassian.net/browse/SUI-463)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(select2):** Improve element in high-contrast mode. [#518](https://github.com/wpmudev/shared-ui/pull/518) ([SUI-464](https://incsub.atlassian.net/browse/SUI-464)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(icons):** RTL mode switch icons. [#454](https://github.com/wpmudev/shared-ui/pull/454) ([SUI-31](https://incsub.atlassian.net/browse/SUI-31)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(progress-bar):** Make element properly accessible. [#527](https://github.com/wpmudev/shared-ui/pull/527) ([SUI-11](https://incsub.atlassian.net/browse/SUI-11)) ([@creador-dev](https://github.com/creador-dev))
+- **aria(select2):** Screen readers improvement. [#528](https://github.com/wpmudev/shared-ui/pull/528) ([SUI-13](https://incsub.atlassian.net/browse/SUI-13)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 📝 Documentation
+
+- **docs(box):** Box header title documentation updated. [#433](https://github.com/wpmudev/shared-ui/pull/433) ([SUI-24](https://incsub.atlassian.net/browse/SUI-24)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.11](https://github.com/wpmudev/shared-ui/compare/v2.12.10...v2.12.11) (2022-08-08)
 
 #### 🐛 Bug Fixes

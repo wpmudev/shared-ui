@@ -35,9 +35,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             flexItem = flexHeader.parent(),
             flexChart = flexItem.find('.sui-chartjs-animated'),
             flexParent = flexItem.parent(),
-            flexContent = flexHeader.next('.sui-accordion-item-body');
+            flexContent = flexHeader.next('.sui-accordion-item-body').find(' .sui-box');
         var tableItem = $(this),
-            tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content');
+            tableContent = tableItem.nextUntil('.sui-accordion-item').filter('.sui-accordion-item-content'),
+            tableBox = tableContent.find('.sui-box');
         var button = $(this).find('.sui-accordion-open-indicator > .sui-screen-reader-text'),
             buttonText = button === null || button === void 0 ? void 0 : button.text(),
             dataContent = button === null || button === void 0 ? void 0 : button.data('content');
@@ -84,7 +85,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             } else {
               tableItem.addClass('sui-accordion-item--open');
               tableContent.addClass('sui-accordion-item--open');
-              tableContent.attr('tabindex', '0').trigger('focus');
+              tableBox.attr('tabindex', '0').trigger('focus');
             }
           }
         } // Change button accessiblity content based on accordin open and close.
@@ -130,8 +131,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-11 .sui-accordion').length) {
-    $('.sui-2-12-11 .sui-accordion').each(function () {
+  if (0 !== $('.sui-2-12-12 .sui-accordion').length) {
+    $('.sui-2-12-12 .sui-accordion').each(function () {
       SUI.suiAccordion(this);
     });
   }
@@ -245,7 +246,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-11 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-12 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });
@@ -521,7 +522,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  $('.sui-2-12-11 .sui-slider').each(function () {
+  $('.sui-2-12-12 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);
@@ -537,7 +538,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-12-11 .sui-dropdown');
+      var $dropdowns = $('.sui-2-12-12 .sui-dropdown');
 
       if ($except) {
         $dropdowns = $dropdowns.not($except);
@@ -558,7 +559,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-12-11 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-12-12 .sui-dropdown-anchor');
 
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
@@ -2540,7 +2541,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-12-11 .sui-form-field').each(function () {
+    $('.sui-2-12-12 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {
@@ -2598,7 +2599,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }; // Update the reviews with the live stats.
 
 
-  $('.sui-2-12-11 .sui-reviews').each(function () {
+  $('.sui-2-12-12 .sui-reviews').each(function () {
     var review = $(this);
     $.ajax({
       url: "https://api.reviews.co.uk/merchant/reviews?store=wpmudev-org",
@@ -2630,7 +2631,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
 
-  $('.sui-2-12-11 .sui-circle-score').each(function () {
+  $('.sui-2-12-12 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
@@ -7692,26 +7693,68 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
           var key = evt.which;
 
           if (self.isOpen()) {
-            if (key === KEYS.ESC || key === KEYS.UP && evt.altKey) {
-              self.close(evt);
-              evt.preventDefault();
-            } else if (key === KEYS.ENTER || key === KEYS.TAB) {
-              self.trigger('results:select', {});
+            if (key === KEYS.ENTER) {
+              self.trigger('results:select');
               evt.preventDefault();
             } else if (key === KEYS.SPACE && evt.ctrlKey) {
-              self.trigger('results:toggle', {});
+              self.trigger('results:toggle');
               evt.preventDefault();
             } else if (key === KEYS.UP) {
-              self.trigger('results:previous', {});
+              self.trigger('results:previous');
               evt.preventDefault();
             } else if (key === KEYS.DOWN) {
-              self.trigger('results:next', {});
+              self.trigger('results:next');
+              evt.preventDefault();
+            } else if (key === KEYS.ESC || key === KEYS.TAB) {
+              self.close();
               evt.preventDefault();
             }
           } else {
-            if (key === KEYS.ENTER || key === KEYS.SPACE || key === KEYS.DOWN && evt.altKey) {
+            // Added the functionality to change option on press of up and down arrow. @edited
+            if (key === KEYS.ENTER || key === KEYS.SPACE || (key === KEYS.DOWN || key === KEYS.UP) && evt.altKey) {
               self.open();
               evt.preventDefault();
+            } else if (key === KEYS.DOWN) {
+              if (undefined != this.$element.find('option:selected').next().val()) {
+                this.$element.val(this.$element.find('option:selected').next().val());
+                this.$element.trigger('change');
+              }
+
+              evt.preventDefault();
+            } else if (key === KEYS.UP) {
+              if (undefined != this.$element.find('option:selected').prev().val()) {
+                this.$element.val(this.$element.find('option:selected').prev().val());
+                this.$element.trigger('change');
+              }
+
+              evt.preventDefault();
+            } // Added the functionality to select option based on key press. @edited
+            else {
+              var selectedValue = this.$element.find('option:selected').text();
+              var keyPressed = String.fromCharCode(key).toLowerCase();
+              var values = this.$element.find('option').filter(function () {
+                var _$$text;
+
+                return (_$$text = $(this).text()) === null || _$$text === void 0 ? void 0 : _$$text.toLowerCase().startsWith(keyPressed);
+              });
+              var arrLength = values.length - 1;
+              var elemVal = selectedValue;
+              values.each(function (index) {
+                console.log(selectedValue);
+
+                if (selectedValue !== '' && selectedValue[0].toLowerCase() === keyPressed) {
+                  if ($(this).text() === selectedValue && index !== arrLength) {
+                    elemVal = $(values[index + 1]).val();
+                    return false;
+                  }
+
+                  return;
+                }
+
+                elemVal = $(this).val();
+                return false;
+              });
+              elemVal !== selectedValue && (self.$element.val(elemVal), self.$element.trigger('change'));
             }
           }
         });
@@ -8186,7 +8229,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-12'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8199,7 +8242,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-12'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8217,7 +8260,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-12'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -8235,7 +8278,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-12'),
         isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -8248,7 +8291,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
         getParentId = getParent.attr('id'),
-        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-11'),
+        selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-12'),
         hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -8259,7 +8302,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         return markup;
       },
       minimumResultsForSearch: hasSearch
+    }).on('select2:close', function () {
+      $(this).val(null);
     });
+    select.val(null);
   };
 
   $('.sui-select').each(function () {
@@ -8278,11 +8324,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   $('.sui-variables').each(function () {
     var select = $(this);
     SUI.select.initVars(select);
-  }); // add accessible class to the select.
-
-  if ($('.sui-color-accessible').length && $('.sui-select').length) {
-    $('body').addClass('sui-select-accessible');
-  }
+  });
 })(jQuery);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -8318,7 +8360,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     });
   };
 
-  $('.sui-2-12-11 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-12 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);
@@ -8754,12 +8796,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-11 .sui-tabs').length) {
+  if (0 !== $('.sui-2-12-12 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs(); // Support legacy tabs.
 
     SUI.suiTabs();
-    $('.sui-2-12-11 .sui-tabs-navigation').each(function () {
+    $('.sui-2-12-12 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
@@ -9079,8 +9121,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return this;
   };
 
-  if (0 !== $('.sui-2-12-11 .sui-tree').length) {
-    $('.sui-2-12-11 .sui-tree').each(function () {
+  if (0 !== $('.sui-2-12-12 .sui-tree').length) {
+    $('.sui-2-12-12 .sui-tree').each(function () {
       SUI.suiTree($(this), true);
     });
   }
@@ -9096,7 +9138,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.upload = function () {
-    $('.sui-2-12-11 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-12-12 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
@@ -9105,9 +9147,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
     }); // check whether element exist then execute js
 
-    if ($('.sui-2-12-11 .sui-file-upload').length) {
+    if ($('.sui-2-12-12 .sui-file-upload').length) {
       // This will trigger on file change. 
-      $('.sui-2-12-11 .sui-file-browser input[type="file"]').on('change', function () {
+      $('.sui-2-12-12 .sui-file-browser input[type="file"]').on('change', function () {
         var parent = $(this).parent();
         var filename = $(this).val();
         var imageContainer = parent.find('.sui-upload-image');
@@ -9143,15 +9185,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }
       }); // This will trigger on click of upload button
 
-      $('.sui-2-12-11 .sui-file-browser .sui-upload-button').on('click', function () {
+      $('.sui-2-12-12 .sui-file-browser .sui-upload-button').on('click', function () {
         selectFile($(this));
       }); // This will trigger when user wants to remove the selected upload file
 
-      $('.sui-2-12-11 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
+      $('.sui-2-12-12 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
         removeFile($(this));
       }); // This will trigger reupload of file
 
-      $('.sui-2-12-11 .sui-file-browser .sui-upload-image').on('click', function () {
+      $('.sui-2-12-12 .sui-file-browser .sui-upload-image').on('click', function () {
         selectFile($(this));
       }); // upload drag and drop functionality
 
@@ -9160,7 +9202,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
       }();
 
-      var uploadArea = $('.sui-2-12-11 .sui-upload-button');
+      var uploadArea = $('.sui-2-12-12 .sui-upload-button');
 
       if (isAdvancedUpload) {
         var droppedFiles = false;
