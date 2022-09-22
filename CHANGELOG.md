@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.12](https://github.com/wpmudev/shared-ui/compare/v2.11.10...v2.12.12) (2022-09-21)
+## [2.12.13](https://github.com/wpmudev/shared-ui/compare/v2.11.12...v2.12.13) (2022-09-22)
+
+#### 🐛 Bug Fixes
+
+- **fix(styles):** Manually update SUI version for SCSS files. [#535](https://github.com/wpmudev/shared-ui/pull/535) ([SUI-514](https://incsub.atlassian.net/browse/SUI-514)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## [2.12.12](https://github.com/wpmudev/shared-ui/compare/v2.11.11...v2.12.12) (2022-09-21)
 
 #### 🚀 Improvements
 
