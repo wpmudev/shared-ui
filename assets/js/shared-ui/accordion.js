@@ -39,11 +39,12 @@
 					flexItem   = flexHeader.parent(),
 					flexChart  = flexItem.find( '.sui-chartjs-animated' ),
 					flexParent = flexItem.parent(),
-					flexContent = flexHeader.next( '.sui-accordion-item-body' )
+					flexContent = flexHeader.next( '.sui-accordion-item-body' ).find( ' .sui-box' )
 					;
 
 				var tableItem    = $( this ),
-					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' )
+					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
+					tableBox     = tableContent.find( '.sui-box' )
 					;
 
 				var button 		= $( this ).find( '.sui-accordion-open-indicator > .sui-screen-reader-text' ),
@@ -98,7 +99,7 @@
 						} else {
 							tableItem.addClass( 'sui-accordion-item--open' );
 							tableContent.addClass( 'sui-accordion-item--open' );
-							tableContent.attr( 'tabindex', '0' ).trigger( 'focus' );
+							tableBox.attr( 'tabindex', '0' ).trigger( 'focus' );
 						}
 					}
 				}

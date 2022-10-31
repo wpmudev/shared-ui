@@ -21,7 +21,6 @@
 			border-radius: $border-radius;
 			background-color: $radio-checkbox--background;
 			transition: 0.3s ease;
-			z-index: 1;
 			pointer-events: all;
 
 			&:before {
@@ -66,6 +65,14 @@
 
 				&:before {
 					opacity: 1;
+
+					@media (forced-colors: active) {
+						forced-color-adjust: none;
+					}
+
+					@media (forced-colors: active) and (prefers-color-scheme: light), (-ms-high-contrast: black-on-white) {
+						background-color: $accessible-dark;
+					}
 				}
 			}
 

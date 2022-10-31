@@ -28,7 +28,7 @@ is_searchable: true
 		<!-- Navigation -->
 		<div class="sui-sidenav" role="navigation">
 	
-			<ul class="sui-vertical-tabs">
+			<ul class="sui-vertical-tabs  sui-sidenav-hide-md">
 	
 				<li class="sui-vertical-tab current">
 					<a href="#" role="button" data-tab="container">Container</a>
@@ -55,6 +55,23 @@ is_searchable: true
 				</li>
 	
 			</ul>
+
+			<div class="sui-sidenav-settings">
+
+				<div class="sui-form-field sui-sidenav-hide-lg">
+	
+					<select class="sui-select">
+						<option value="container">Container</option>
+						<option value="header">Header</option>
+						<option value="fields">Fields</option>
+						<option value="footer">Footer</option>
+						<option value="empty-message">Empty Message</option>
+						<option value="documentation">Documentation</option>
+					</select>
+	
+				</div>
+	
+			</div>
 	
 		</div>
 	
@@ -106,87 +123,6 @@ is_searchable: true
 
 				</div>
 
-			</div>
-
-			<!-- SECTION: Complex Header -->
-			<div class="sui-box-settings-row">
-
-				<div class="sui-box-settings-col-1">
-
-					<span class="sui-settings-label">Complex Header</span>
-					<span class="sui-description">Some projects require extra settings on box builder fields, for those cases you are going to find useful this element variation.</span>
-
-				</div>
-
-				<div class="sui-box-settings-col-2">
-
-					<div class="sui-box-builder">
-
-						<div class="sui-box-builder-header">
-
-							<div class="sui-builder-conditions">
-
-								<div class="sui-builder-conditions-rule">
-
-									<span class="sui-builder-text">Show element if</span>
-
-									<select class="sui-select sui-select-sm sui-select-inline" data-width="80">
-										<option>all</option>
-										<option>any</option>
-										<option>none</option>
-									</select>
-
-									<span class="sui-builder-text">of the following conditions are met.</span>
-
-								</div>
-
-								<div class="sui-builder-conditions-actions">
-									<button class="sui-button-icon sui-button-red">
-										<span class="sui-icon-trash" aria-hidden="true"></span>
-										<span class="sui-screen-reader-text">Delete Condition</span>
-									</button>
-								</div>
-
-							</div>
-
-							<div class="sui-builder-options sui-options-inline">
-
-
-								<span class="sui-builder-text">Apply on</span>
-
-								<label for="sample-apply-on-inline-content" class="sui-checkbox sui-checkbox-sm">
-									<input type="checkbox" id="sample-apply-on-inline-content" />
-									<span aria-hidden="true"></span>
-									<span>Inline Content</span>
-								</label>
-
-								<label for="sample-apply-on-widget" class="sui-checkbox sui-checkbox-sm">
-									<input type="checkbox" id="sample-apply-on-widget" />
-									<span aria-hidden="true"></span>
-									<span>Widget</span>
-								</label>
-
-							</div>
-
-						</div>
-	
-						<div class="sui-box-builder-footer">
-	
-							<div class="sui-builder-field">
-	
-								<div class="sui-builder-field-label" tabindex="0">
-									<span class="sui-icon-mail" aria-hidden="true"></span>
-									<span>Static Field</span>
-								</div>
-	
-							</div>
-	
-						</div>
-	
-					</div>
-	
-				</div>
-	
 			</div>
 	
 			<!-- SECTION: Flushed Builder -->
@@ -328,7 +264,7 @@ is_searchable: true
 	
 										<span class="sui-builder-text">Show element if</span>
 	
-										<select class="sui-select-sm">
+										<select class="sui-select sui-select-sm sui-select-inline" data-width="80">
 											<option>all</option>
 											<option>any</option>
 											<option>none</option>

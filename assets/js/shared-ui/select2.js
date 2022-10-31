@@ -243,7 +243,11 @@
 				return markup;
 			},
 			minimumResultsForSearch: hasSearch
+		}).on( 'select2:close', function() {
+			$( this ).val( null );
 		});
+
+		select.val( null );
 	};
 
 	$( '.sui-select' ).each( function() {
@@ -268,10 +272,5 @@
 		SUI.select.initVars( select );
 
 	});
-
-	// add accessible class to the select.
-	if ( $( '.sui-color-accessible' ).length && $( '.sui-select' ).length ) {
-		$( 'body' ).addClass( 'sui-select-accessible' );
-	}
 
 }( jQuery ) );

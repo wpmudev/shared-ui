@@ -112,7 +112,7 @@
 								'<div class="sui-with-button sui-with-button-icon">' +
 									'<input type="text" value="&lt;span class=&quot;sui-icon-' + iconName + '&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;" class="sui-form-control" readonly="readonly" />' +
 									'<button role="button" class="sui-button-icon icon-item-code--html" data-clipboard-text="&lt;span class=&quot;sui-icon-' + iconName + '&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;">' +
-										'<i aria-hidden="true" class="sui-icon-copy"></i>' +
+										'<span aria-hidden="true" class="sui-icon-copy"></span>' +
 										'<span class="sui-screen-reader-text">Copy HTML code</span>' +
 									'</button>' +
 								'</div>' +
@@ -122,7 +122,7 @@
 								'<div class="sui-with-button sui-with-button-icon">' +
 									'<input type="text" value="@include icon(before, ' + iconName + ', true);" class="sui-form-control" readonly="readonly" />' +
 									'<button role="button" class="sui-button-icon icon-item-code--scss" data-clipboard-text="@include icon(before, ' + iconName + ', true);">' +
-										'<i aria-hidden="true" class="sui-icon-copy"></i>' +
+										'<span aria-hidden="true" class="sui-icon-copy"></span>' +
 										'<span class="sui-screen-reader-text">Copy HTML code</span>' +
 									'</button>' +
 								'</div>' +

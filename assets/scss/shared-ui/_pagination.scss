@@ -84,6 +84,10 @@
 					background-color: palette(silver, light);
 					color: palette(gray, dark);
 				}
+
+				@include media(max-width, sm) {
+					min-width: auto;
+				}
 			}
 
 			&:first-child {
@@ -104,6 +108,10 @@
 					border-top-right-radius: $border-radius;
 					border-bottom-right-radius: $border-radius;
 				}
+			}
+
+			@include media(max-width, sm) {
+				flex: 0 1 100%;
 			}
 		}
 	}
@@ -225,6 +233,10 @@
 			+ .sui-pagination-results {
 				margin-left: math.div($sui-gutter, 2);
 			}
+
+			@include media(max-width, sm) {
+				flex: 0 0 100%;
+			}
 		}
 
 		// ELEMENT: Results
@@ -236,6 +248,10 @@
 			+ button,
 			+ .sui-pagination {
 				margin-left: math.div($sui-gutter, 2);
+			}
+
+			@include media(max-width, sm) {
+				margin-left: 0;
 			}
 		}
 

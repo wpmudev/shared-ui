@@ -1,239 +1,245 @@
 @use "sass:math";
 
-$sui-version: '2.12.8';
-$sui-wrap-class: 'sui-wrap';
+$sui-version: "2.12.13";
+$sui-wrap-class: "sui-wrap";
 
 // Import Google Fonts
-$import-font:                           true                          !default;
-$google-fonts-url:                      'https://fonts.googleapis.com/css?family=Roboto:400,500,700' !default;
+$import-font: true !default;
+$google-fonts-url: "https://fonts.bunny.net/css?family=Roboto:400,500,700" !default;
 
 // Typography
-$font:                                  "Roboto", Arial, sans-serif   !default;
-$font--size:                            15px                          !default;
+$font: "Roboto", Arial, sans-serif !default;
+$font--size: 15px !default;
 
-$font--weight:							400;
-$font--medium:							500;
-$font--weight-bold:						700;
+$font--weight: 400;
+$font--medium: 500;
+$font--weight-bold: 700;
 
-$font--line-height:                     30px                          !default;
-$font--letter-spacing:                  -0.25px                       !default;
+$font--line-height: 30px !default;
+$font--letter-spacing: -0.25px !default;
 
-$h1-font-size:                          32px                          !default;
-$h2-font-size:                          22px                          !default;
-$h3-font-size:                          18px                          !default;
-$h4-font-size:                          15px                          !default;
-$h5-font-size:                          15px                          !default;
-$h6-font-size:                          15px                          !default;
+$h1-font-size: 32px !default;
+$h2-font-size: 22px !default;
+$h3-font-size: 18px !default;
+$h4-font-size: 15px !default;
+$h5-font-size: 15px !default;
+$h6-font-size: 15px !default;
 
-$h1-line-height:                        40px;
-$h2-line-height:                        35px;
-$h3-line-height:                        40px;
+$h1-line-height: 40px;
+$h2-line-height: 35px;
+$h3-line-height: 40px;
 
-$border-radius:							4px                           !default;
-$transition:                            all 0.3s ease                 !default;
+$border-radius: 4px !default;
+$transition: all 0.3s ease !default;
 
 // Layout
-$sui-gutter:                            30px                          !default;
-$sui-gutter-md:                         20px                          !default;
-$sui-total-grid-cols:                   12                            !default;
+$sui-gutter: 30px !default;
+$sui-gutter-md: 20px !default;
+$sui-total-grid-cols: 12 !default;
 $sui-breakpoints: (
 	xs: 0px,
 	sm: 480px,
 	md: 783px,
-	lg: 1200px
+	lg: 1200px,
 ) !default;
 
 // ============================================================
 // Summary
 
 // SIZE: Regular
-$summary-size:               212px                                                         !default;
+$summary-size: 212px !default;
 
-$summary-image--width:       192px                                                         !default;
-$summary-image--height:      182px                                                         !default;
+$summary-image--width: 192px !default;
+$summary-image--height: 182px !default;
 
-$summary-image--position-x:  30px                                                          !default;
-$summary-image--position-y:  bottom                                                        !default;
-$summary-image--position:    $summary-image--position-x $summary-image--position-y         !default;
+$summary-image--position-x: 30px !default;
+$summary-image--position-y: bottom !default;
+$summary-image--position: $summary-image--position-x $summary-image--position-y !default;
 
 // SIZE: Small
-$summary-size-sm:              151px                                                       !default;
+$summary-size-sm: 151px !default;
 
-$summary-image-sm--width:      192px                                                       !default;
-$summary-image-sm--height:     121px                                                       !default;
+$summary-image-sm--width: 192px !default;
+$summary-image-sm--height: 121px !default;
 
-$summary-image-sm--position-x: 30px                                                        !default;
-$summary-image-sm--position-y: bottom                                                      !default;
-$summary-image-sm--position:   $summary-image-sm--position-x $summary-image-sm--position-y !default;
+$summary-image-sm--position-x: 30px !default;
+$summary-image-sm--position-y: bottom !default;
+$summary-image-sm--position: $summary-image-sm--position-x
+	$summary-image-sm--position-y !default;
 
 // ============================================================
 // Forms (_forms.scss)
-$form--input-height-base:              40px                           !default;
-$form--input-border-radius:            $border-radius                 !default;
-$form--input-line-height:              20px                           !default;
-$form--input-font-weight:              500                            !default;
+$form--input-height-base: 40px !default;
+$form--input-border-radius: $border-radius !default;
+$form--input-line-height: 20px !default;
+$form--input-font-weight: 500 !default;
 
-$form--input-error-font-size:          12px                           !default;
-$form--input-error-line-height:        16px                           !default;
-$form--input-error-font-weight:        500                            !default;
-$form--label-font:                     $font                          !default;
-$form--label-font-weight:              600                            !default;
-$form--label-font-size:                12px                           !default;
-$form--label-line-height:              16px                           !default;
-$form--description-font-weight:        400                            !default;
-$form--description-font-size:          13px                           !default;
+$form--input-error-font-size: 12px !default;
+$form--input-error-line-height: 16px !default;
+$form--input-error-font-weight: 500 !default;
+$form--label-font: $font !default;
+$form--label-font-weight: 600 !default;
+$form--label-font-size: 12px !default;
+$form--label-line-height: 16px !default;
+$form--description-font-weight: 400 !default;
+$form--description-font-size: 13px !default;
 
 // ============================================================
 // Radio & Checkbox (_radio-checkbox.scss)
 
 // SIZE: Default
-$radio-checkbox--size:         16px !default;
-$radio-checkbox--font-size:    15px !default;
-$radio-checkbox--line-height:  22px !default;
-$radio-checkbox--check-size:   6px  !default;
-$radio-checkbox--icon-size:    10px !default;
+$radio-checkbox--size: 16px !default;
+$radio-checkbox--font-size: 15px !default;
+$radio-checkbox--line-height: 22px !default;
+$radio-checkbox--check-size: 6px !default;
+$radio-checkbox--icon-size: 10px !default;
 
 // SIZE: Small
 $radio-checkbox--font-size-sm: 13px !default;
 
 // ============================================================
 // Paths
-$sui-image-path:                       '../images/'                   !default;
-$sui-font-path:                        '../fonts/'                    !default;
+$sui-image-path: "../images/" !default;
+$sui-font-path: "../fonts/" !default;
 
 // ============================================================
 // Scores
-$circle-score-sm:                      30px                           !default;
-$circle-score-lg:                      120px                          !default;
-$circle-score-label-spacing:           10px                           !default;
+$circle-score-sm: 30px !default;
+$circle-score-lg: 120px !default;
+$circle-score-label-spacing: 10px !default;
 
 // ============================================================
 // Sidenav
-$sidenav-width:                        220px                          !default;
+$sidenav-width: 220px !default;
 
 // ============================================================
 // Margin
-$default-margin:                       30px                           !default;
+$default-margin: 30px !default;
 
 // ============================================================
 // Padding
-$default-padding:                      30px                           !default;
+$default-padding: 30px !default;
 
 // ============================================================
 // Tables
-$table--border-width:                  1px                            !default;
-$table--border-style:                  solid                          !default;
-$table--text-font-size:                13px                           !default;
-$table--text-line-height:              22px                           !default;
+$table--border-width: 1px !default;
+$table--border-style: solid !default;
+$table--text-font-size: 13px !default;
+$table--text-line-height: 22px !default;
 
 // ============================================================
 // Select
-$select-dropdown-handle-size:          40px                           !default;
-$select-dropdown-handle-size-sm:       30px                           !default;
+$select-dropdown-handle-size: 40px !default;
+$select-dropdown-handle-size-sm: 30px !default;
 
 // ============================================================
 // Accordions
-$accordion--grid:                      12                             !default;
+$accordion--grid: 12 !default;
 
 // ============================================================
 // Upload (_upload.scss)
 
 // Image container
-$file-upload--image-size:         40px   !default;
-$file-upload--image-border-width: 1px    !default;
-$file-upload--image-border-style: solid  !default;
-$file-upload--image-padding:      1px    !default;
+$file-upload--image-size: 40px !default;
+$file-upload--image-border-width: 1px !default;
+$file-upload--image-border-style: solid !default;
+$file-upload--image-padding: 1px !default;
 
 // Button: Add
-$file-upload--add-border-width:   1px    !default;
-$file-upload--add-border-style:   dashed !default;
+$file-upload--add-border-width: 1px !default;
+$file-upload--add-border-style: dashed !default;
 
 // ============================================================
 // Color Pickers (_colorpickers.scss)
 
 // Default
-$colorpicker--hex-width:                       135px !default;
-$colorpicker--rgba-width:                      215px !default;
-$colorpicker--button-size:                     30px  !default;
-$colorpicker--border-width:                    1px   !default;
+$colorpicker--hex-width: 135px !default;
+$colorpicker--rgba-width: 215px !default;
+$colorpicker--button-size: 30px !default;
+$colorpicker--border-width: 1px !default;
 
 // Input
-$colorpicker--input-height:                    30px  !default;
-$colorpicker--input-font-size:                 12px  !default;
-$colorpicker--input-line-height:               16px  !default;
+$colorpicker--input-height: 30px !default;
+$colorpicker--input-font-size: 12px !default;
+$colorpicker--input-line-height: 16px !default;
 
 // Iris
-$colorpicker--iris-hex-width:                  210px !default;
-$colorpicker--iris-rgba-width:                 240px !default;
-$colorpicker--iris-square-size:                160px !default;
-$colorpicker--iris-square-size-sm:             140px !default;
-$colorpicker--iris-square-value-size:          0     !default;
-$colorpicker--iris-square-handle-size:         16px  !default;
-$colorpicker--iris-square-handle-border-width: 3px   !default;
-$colorpicker--iris-slider-size:                190px !default;
-$colorpicker--iris-slider-handle-size:         10px  !default;
-$colorpicker--iris-slider-handle-border-width: 2px   !default;
-$colorpicker--iris-palette-size:               20px  !default;
+$colorpicker--iris-hex-width: 210px !default;
+$colorpicker--iris-rgba-width: 240px !default;
+$colorpicker--iris-square-size: 160px !default;
+$colorpicker--iris-square-size-sm: 140px !default;
+$colorpicker--iris-square-value-size: 0 !default;
+$colorpicker--iris-square-handle-size: 16px !default;
+$colorpicker--iris-square-handle-border-width: 3px !default;
+$colorpicker--iris-slider-size: 190px !default;
+$colorpicker--iris-slider-handle-size: 10px !default;
+$colorpicker--iris-slider-handle-border-width: 2px !default;
+$colorpicker--iris-palette-size: 20px !default;
 
 // ============================================================
 // Box Selectors (_box-selectors.scss)
 
 // Container
-$box-selectors--spacing:                20px !default;
+$box-selectors--spacing: 20px !default;
 $box-selectors--columns: (
 	col-1: 100%,
 	col-2: 50%,
 	col-3: 33.33%,
 	col-4: 25%,
-	col-5: 20%
+	col-5: 20%,
 ) !default;
 
 // Item
-$box-selector--height:                  60px !default;
-$box-selector--padding:                 10px !default;
-$box-selector--font-size:               12px !default;
-$box-selector--line-height:             20px !default;
+$box-selector--height: 60px !default;
+$box-selector--padding: 10px !default;
+$box-selector--font-size: 12px !default;
+$box-selector--line-height: 20px !default;
 
-$box-selector--font-size-lg:            13px !default;
-$box-selector--line-height-lg:          22px !default;
+$box-selector--font-size-lg: 13px !default;
+$box-selector--line-height-lg: 22px !default;
 
 // Item icon
-$box-selector--icon-width:              30px !default;
-$box-selector--icon-size:               16px !default;
+$box-selector--icon-width: 30px !default;
+$box-selector--icon-size: 16px !default;
 
 // Item image
-$box-selector--image-width:             24px !default;
+$box-selector--image-width: 24px !default;
 
 // Item ribbon
 // Used as blue triangle on top-right corner when item is selected
-$box-selector--ribbon-height:           80px !default;
+$box-selector--ribbon-height: 80px !default;
 
 // Item (vertical)
-$box-selector-vertical--height:         80px !default;
-$box-selector-vertical--padding-top:    16px !default;
-$box-selector-vertical--icon-spacing:   7px !default;
-$box-selector-vertical--padding-bottom: #{$box-selector-vertical--height - ($box-selector--line-height + $box-selector--icon-size + $box-selector-vertical--icon-spacing + $box-selector-vertical--padding-top)} !default;
+$box-selector-vertical--height: 80px !default;
+$box-selector-vertical--padding-top: 16px !default;
+$box-selector-vertical--icon-spacing: 7px !default;
+$box-selector-vertical--padding-bottom: #{$box-selector-vertical--height -
+	(
+		$box-selector--line-height + $box-selector--icon-size +
+			$box-selector-vertical--icon-spacing + $box-selector-vertical--padding-top
+	)} !default;
 
 // ============================================================
 // Progress Bars (_progress-bars.scss)
 $progress-block--size: 60px;
-$progress-bar--size:   10px;
+$progress-bar--size: 10px;
 
 // ============================================================
 // Buttons (_buttons.scss)
-$button-dashed-height-lg:          70px !default;
-$button-dashed-height:             60px !default;
-$button-dashed-height-md:          50px !default;
+$button-dashed-height-lg: 70px !default;
+$button-dashed-height: 60px !default;
+$button-dashed-height-md: 50px !default;
 
 // ============================================================
 // Box Builder (_box-builder.scss)
 
 // Field - Basic
-$box-builder--field-height:           60px !default;
-$box-builder--field-height-md:        50px !default;
-$box-builder--field-spacing:          20px !default;
-$box-builder--field-shadow:           0 2px 7px 0 rgba(0, 0, 0, 0.05) !default;
-$box-builder--field-shadow-hover:     0 0 0 4px rgba(0, 0, 0, 0.02), 0 4px 15px 0 rgba(0, 0, 0, 0.05) !default;
+$box-builder--field-height: 60px !default;
+$box-builder--field-height-md: 50px !default;
+$box-builder--field-spacing: 20px !default;
+$box-builder--field-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.05) !default;
+$box-builder--field-shadow-hover: 0 0 0 4px rgba(0, 0, 0, 0.02),
+	0 4px 15px 0 rgba(0, 0, 0, 0.05) !default;
 
 // Field - Icon
 $box-builder--field-icon-size: 30px !default;
@@ -241,16 +247,18 @@ $box-builder--field-icon-size: 30px !default;
 // ============================================================
 // Dialogs (_modals.scss)
 $wordpress: (
-	adminbar:     32px,
-	adminbar-sm:  32px,
-	adminmenu:    160px, // Size for unfolded admin menu.
-	adminmenu-sm: 36px, // Size for folded admin menu.
+	adminbar: 32px,
+	adminbar-sm: 32px,
+	adminmenu: 160px,
+	// Size for unfolded admin menu.
+	adminmenu-sm: 36px,
+	// Size for folded admin menu.
 ) !default;
 
 $scrollbar--width: 20px !default;
 
 $modal: (
-	z-index:     13,
+	z-index: 13,
 ) !default;
 
 $modal-size: (
@@ -261,17 +269,50 @@ $modal-size: (
 ) !default;
 
 $modal-spacing: (
-	0:   (0, 0),
-	10:  (10px, 10px),
-	20:  (20px, 20px),
-	30:  (30px, 20px),
-	40:  (40px, 20px),
-	50:  (50px, 40px),
-	60:  (60px, 40px),
-	70:  (70px, 40px),
-	80:  (80px, 40px),
-	90:  (90px, 50px),
-	100: (100px, 50px),
+	0: (
+		0,
+		0,
+	),
+	10: (
+		10px,
+		10px,
+	),
+	20: (
+		20px,
+		20px,
+	),
+	30: (
+		30px,
+		20px,
+	),
+	40: (
+		40px,
+		20px,
+	),
+	50: (
+		50px,
+		40px,
+	),
+	60: (
+		60px,
+		40px,
+	),
+	70: (
+		70px,
+		40px,
+	),
+	80: (
+		80px,
+		40px,
+	),
+	90: (
+		90px,
+		50px,
+	),
+	100: (
+		100px,
+		50px,
+	),
 ) !default;
 
 $modal-steps: (
@@ -287,93 +328,93 @@ $modal-logo: (
 ) !default;
 
 $onboard: (
-	spacing:   40px,
-	button:    40px,
+	spacing: 40px,
+	button: 40px,
 	button-md: 30px,
 ) !default;
 
 // ============================================================
 // Toggles (_toggles.scss)
 
-$toggle-width:       34px !default;
-$toggle-height:      16px !default;
-$toggle-font-size:   15px !default;
+$toggle-width: 34px !default;
+$toggle-height: 16px !default;
+$toggle-font-size: 15px !default;
 $toggle-font-height: 22px !default;
 
 // ************************************************************
 // Datepicker - (_calendar.scss)
 
 $calendar: (
-	padding:       #{math.div($sui-gutter, 2) - 1px},
-	border-width:  1px,
-	border-style:  solid,
-	border-color:  palette(gray, lighter),
+	padding: #{math.div($sui-gutter, 2) - 1px},
+	border-width: 1px,
+	border-style: solid,
+	border-color: palette(gray, lighter),
 	border-radius: $border-radius,
-	background:    $white,
-	shadow:        0 3px 7px 0 rgba(0,0,0,0.07),
-	cell-size:     30px,
+	background: $white,
+	shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.07),
+	cell-size: 30px,
 );
 
-$calendar-padding:        map-get($calendar, padding)       !default;
-$calendar-border--width:  map-get($calendar, border-width)  !default;
-$calendar-border--style:  map-get($calendar, border-style)  !default;
-$calendar-border--color:  map-get($calendar, border-color)  !default;
+$calendar-padding: map-get($calendar, padding) !default;
+$calendar-border--width: map-get($calendar, border-width) !default;
+$calendar-border--style: map-get($calendar, border-style) !default;
+$calendar-border--color: map-get($calendar, border-color) !default;
 $calendar-border--radius: map-get($calendar, border-radius) !default;
-$calendar-background:     map-get($calendar, background)    !default;
-$calendar-shadow:         map-get($calendar, shadow)        !default;
-$calendar-cell:           map-get($calendar, cell-size)     !default;
+$calendar-background: map-get($calendar, background) !default;
+$calendar-shadow: map-get($calendar, shadow) !default;
+$calendar-cell: map-get($calendar, cell-size) !default;
 
 $month: (
-	color:          palette(gray, dark),
-	font-size:      12px,
-	line-height:    map-get($calendar, cell-size),
-	font-family:    $font,
-	font-weight:    bold,
+	color: palette(gray, dark),
+	font-size: 12px,
+	line-height: map-get($calendar, cell-size),
+	font-family: $font,
+	font-weight: bold,
 	letter-spacing: $font--letter-spacing,
-	text-align:     center,
+	text-align: center,
 );
 
-$month-color:   map-get($month, color)          !default;
-$month-size:    map-get($month, font-size)      !default;
-$month-height:  map-get($month, line-height)    !default;
-$month-family:  map-get($month, font-family)    !default;
-$month-weight:  map-get($month, font-weight)    !default;
+$month-color: map-get($month, color) !default;
+$month-size: map-get($month, font-size) !default;
+$month-height: map-get($month, line-height) !default;
+$month-family: map-get($month, font-family) !default;
+$month-weight: map-get($month, font-weight) !default;
 $month-spacing: map-get($month, letter-spacing) !default;
-$month-align:   map-get($month, text-align)     !default;
+$month-align: map-get($month, text-align) !default;
 
 $day: (
-	font-size:           12px,
-	line-height:         map-get($calendar, cell-size),
-	font-family:         $font,
-	font-weight:         400,
-	letter-spacing:      $font--letter-spacing,
-	text-align:          center,
-	default-color:       palette(gray, light),
-	default-background:  $white,
-	hover-color:         palette(gray, dark),
-	hover-background:    palette(silver, light),
-	active-color:        $blue,
-	active-background:   palette(blue, light),
-	inactive-color:      palette(gray, lighter),
+	font-size: 12px,
+	line-height: map-get($calendar, cell-size),
+	font-family: $font,
+	font-weight: 400,
+	letter-spacing: $font--letter-spacing,
+	text-align: center,
+	default-color: palette(gray, light),
+	default-background: $white,
+	hover-color: palette(gray, dark),
+	hover-background: palette(silver, light),
+	active-color: $blue,
+	active-background: palette(blue, light),
+	inactive-color: palette(gray, lighter),
 	inactive-background: $white,
-	today-color:         palette(gray, default),
-	today-background:    palette(yellow, light),
+	today-color: palette(gray, default),
+	today-background: palette(yellow, light),
 );
 
-$day-size:    map-get($day, font-size)      !default;
-$day-height:  map-get($day, line-height)    !default;
-$day-family:  map-get($day, font-family)    !default;
-$day-weight:  map-get($day, font-weight)    !default;
+$day-size: map-get($day, font-size) !default;
+$day-height: map-get($day, line-height) !default;
+$day-family: map-get($day, font-family) !default;
+$day-weight: map-get($day, font-weight) !default;
 $day-spacing: map-get($day, letter-spacing) !default;
-$day-align:   map-get($day, text-align)     !default;
+$day-align: map-get($day, text-align) !default;
 
-$day-default--color:       map-get($day, default-color)       !default;
-$day-default--background:  map-get($day, default-background)  !default;
-$day-hover--color:         map-get($day, hover-color)         !default;
-$day-hover--background:    map-get($day, hover-background)    !default;
-$day-active--color:        map-get($day, active-color)        !default;
-$day-active--background:   map-get($day, active-background)   !default;
-$day-inactive--color:      map-get($day, inactive-color)      !default;
+$day-default--color: map-get($day, default-color) !default;
+$day-default--background: map-get($day, default-background) !default;
+$day-hover--color: map-get($day, hover-color) !default;
+$day-hover--background: map-get($day, hover-background) !default;
+$day-active--color: map-get($day, active-color) !default;
+$day-active--background: map-get($day, active-background) !default;
+$day-inactive--color: map-get($day, inactive-color) !default;
 $day-inactive--background: map-get($day, inactive-background) !default;
-$day-today--color:         map-get($day, today-color)         !default;
-$day-today--background:    map-get($day, today-background)    !default;
+$day-today--color: map-get($day, today-color) !default;
+$day-today--background: map-get($day, today-background) !default;
