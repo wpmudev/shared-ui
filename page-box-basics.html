@@ -11,7 +11,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="example">Example</a>
@@ -22,6 +22,19 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="example">Example</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -151,6 +164,14 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				utilities="false"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				rtl-lang="true"
+			></div>
+
 			<!-- Base Structure -->
 			<div class="sui-box-settings-row">
 
@@ -190,6 +211,10 @@ is_searchable: true
 				</div>
 
 				<div class="sui-box-settings-col-2">
+
+					<span class="sui-description">
+						For a box title, use header tag <code>h2</code> or <code>h3</code> or <code>h4</code> or <code>h5</code> or <code>h6</code> according to the previous heading on page. For eg: if previous heading on page was <code>h2</code> then use <code>h3</code> for box title.
+					</span>
 
 					<div class="demo-code-block">
 

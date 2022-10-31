@@ -16,6 +16,13 @@
 				font-weight: 700;
 				margin: 5px 0;
 			}
+
+			.sui-box {
+				&:focus {
+					border: 2px solid palette(blue, default);
+					border-radius: 0;
+				}
+			}
 		}
 
 		// Accordion Grid
@@ -494,6 +501,9 @@
 
 						+ .sui-accordion-item-content {
 							display: table-row;
+							position: relative;
+							visibility: visible;
+							z-index: 0;
 						}
 					}
 
@@ -531,8 +541,12 @@
 				}
 
 				> .sui-accordion-item-content {
-					display: none;
+					visibility: hidden;
+					position: absolute;
+					z-index: -1;
 					background-color: $accordion--content-bg-color;
+					height: 0;
+					overflow: hidden;
 
 					th, td {
 						padding: 0 $sui-gutter-md $sui-gutter-md;

@@ -55,6 +55,18 @@
 					color: $tabs-label-active-border-color;
 					border-bottom-color: $tabs-label-active-color;
 				}
+
+				@media (forced-colors: active) {
+					forced-color-adjust: none;
+				}
+		
+				@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
+					color: $cloud !important;
+					&.active {
+						color: map-get($button-background, orange) !important;
+						border-bottom: 2px solid map-get($button-background, orange) !important;
+					}
+				}
 			}
 		}
 
@@ -222,6 +234,19 @@
 					background-color: $side-tabs--label-active-background;
 					color: $side-tabs--label-active-color;
 				}
+
+				@media (forced-colors: active) {
+					forced-color-adjust: none;
+				}
+		
+				@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
+					background-color: $grey !important;
+					color: $cloud !important;
+					&.active {
+						background-color: $nightrider !important;
+						color: map-get($button-background, orange) !important;
+					}
+				}
 			}
 		}
 
@@ -286,10 +311,10 @@
 
 			> [data-tabs],
 			> .sui-tabs-menu {
-				padding: 0 $sui-gutter-md;
+				margin: 0 $sui-gutter-md;
 
 				@include media(min-width, md) {
-					padding: 0 $sui-gutter;
+					margin: 0 $sui-gutter;
 				}
 			}
 

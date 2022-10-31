@@ -57,10 +57,12 @@
 					button.removeClass( 'active' );
 					button.attr( 'title', 'Activate color accessibility' );
 					suiWrap.removeClass( 'sui-color-accessible' );
+					body.removeClass( 'sui-elements-accessible' );
 				} else {
 					button.addClass( 'active' );
 					button.attr( 'title', 'Deactivate color accessibility' );
 					suiWrap.addClass( 'sui-color-accessible' );
+					body.addClass( 'sui-elements-accessible' );
 				}
 
 				e.preventDefault();

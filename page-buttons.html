@@ -10,7 +10,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="regular">Regular</a>
@@ -36,7 +36,28 @@ is_searchable: true
 				<a href="#" role="button" data-tab="dashed">Dashed</a>
 			</li>
 
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="regular">Regular</option>
+					<option value="colors">Colorizing</option>
+					<option value="with-icon">Text + Icon</option>
+					<option value="loading">Loading</option>
+					<option value="compound">Compound</option>
+					<option value="dashed">Dashed</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -1226,6 +1247,27 @@ To put this button on "loading" state just include
 				</div>
 
 			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.2.1"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+			></div>
 
 		</div>
 

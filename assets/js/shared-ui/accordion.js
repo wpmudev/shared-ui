@@ -38,12 +38,18 @@
 				var flexHeader = $( this ),
 					flexItem   = flexHeader.parent(),
 					flexChart  = flexItem.find( '.sui-chartjs-animated' ),
-					flexParent = flexItem.parent()
+					flexParent = flexItem.parent(),
+					flexContent = flexHeader.next( '.sui-accordion-item-body' ).find( ' .sui-box' )
 					;
 
 				var tableItem    = $( this ),
-					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' )
+					tableContent = tableItem.nextUntil( '.sui-accordion-item' ).filter( '.sui-accordion-item-content' ),
+					tableBox     = tableContent.find( '.sui-box' )
 					;
+
+				var button 		= $( this ).find( '.sui-accordion-open-indicator > .sui-screen-reader-text' ),
+					buttonText 	= button?.text(),
+					dataContent = button?.data('content');
 
 				if ( clickedTarget.closest( '.sui-accordion-item-action' ).length ) {
 					return true;
@@ -60,6 +66,7 @@
 							flexItem.removeClass( 'sui-accordion-item--open' );
 						} else {
 							flexItem.addClass( 'sui-accordion-item--open' );
+							flexContent.attr( 'tabindex', '0' ).trigger('focus');
 						}
 					}
 
@@ -92,8 +99,15 @@
 						} else {
 							tableItem.addClass( 'sui-accordion-item--open' );
 							tableContent.addClass( 'sui-accordion-item--open' );
+							tableBox.attr( 'tabindex', '0' ).trigger( 'focus' );
 						}
 					}
+				}
+
+				// Change button accessiblity content based on accordin open and close.
+				if ( dataContent ) {
+					button.html(dataContent);
+					button.data('content', buttonText);
 				}
 
 				event.stopPropagation();

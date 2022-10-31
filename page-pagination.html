@@ -11,7 +11,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="elements">Elements</a>
@@ -26,6 +26,20 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="elements">Elements</option>
+					<option value="samples">Samples</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -507,6 +521,16 @@ is_searchable: true
 			</div>
 
 			<div class="sui-box-body">
+
+				<!-- ROW: Specifications -->
+				<div
+					id="showcase-specs"
+					version="2.3.1"
+					utilities="true"
+					utilities-page="{{ site.baseurl }}/utilities/"
+					monochrome="false"
+					rtl-lang="false"
+				></div>
 
 				<!-- ROW: Base -->
 				<div class="sui-box-settings-row">

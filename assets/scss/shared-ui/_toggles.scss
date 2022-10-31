@@ -3,8 +3,23 @@
 @include body-class(true) {
 
 	.sui-toggle {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		position: relative;
 		opacity: 1;
+		pointer-events: none;
+
+		input,
+		.sui-toggle-slider,
+		.sui-toggle-label {
+			pointer-events: all;
+		}
+
+		.sui-toggle-slider,
+		.sui-toggle-label {
+			cursor: pointer;
+		}
 
 		input {
 			@extend %sui-screen-reader-text;
@@ -71,15 +86,32 @@
 					box-shadow: 0 0 0 5px #D1EAF4;
 				}
 			}
+
+			@media (forced-colors: active) {
+				~ .sui-toggle-slider {
+					forced-color-adjust: none;
+				}
+			}
+
+			@media (forced-colors: active) and (prefers-color-scheme: dark), (-ms-high-contrast: white-on-black) {
+				&:checked {
+					~ .sui-toggle-slider {
+						background-color: map-get($button-background, orange) !important;
+						&:before {
+							background-color: $cloud;
+						}
+					}
+				}
+			}
 		}
 
 		// ELEMENT: Slider.
 		.sui-toggle-slider {
 			width: $toggle-width;
 			height: $toggle-height;
-			float: left;
-			display: block;
-			position: relative;
+			position: absolute;
+			left: 0;
+			top: 0;
 			margin: math.div(($toggle-font-height - $toggle-height), 2) 0;
 			padding: 0;
 			border: 0;
@@ -100,9 +132,15 @@
 				transition: 0.2s linear;
 			}
 
+			&:last-child,
+			&.sui-toggle-slider--only {
+				position: relative;
+			}
+
 			~ .sui-toggle-label,
 			~ .sui-description {
 				margin-left: #{$toggle-width + math.div($sui-gutter-md, 2)};
+				pointer-events: all;
 			}
 		}
 

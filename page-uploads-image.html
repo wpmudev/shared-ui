@@ -10,7 +10,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="default">Single Image</a>
@@ -25,6 +25,20 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="default">Single Image</option>
+					<option value="multiple">Multiple Images</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -93,7 +107,7 @@ is_searchable: true
 						<div class="sui-form-field">
 
 							<label class="sui-label">Featured image</label>
-              
+
 							<div class="sui-upload sui-file-upload sui-file-browser">
 
 								<input
@@ -488,6 +502,15 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.4"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="false"
+				rtl-lang="true"
+			></div>
+
 			<!-- ROW: Markup -->
 			<div class="sui-box-settings-row">
 
@@ -563,7 +586,7 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-// This will trigger on file change. 
+// This will trigger on file change.
 $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
 	var filename = $( this ).val();
@@ -591,7 +614,7 @@ $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 		}
 		parent.find( '.sui-upload-file > span' ).text( '' );
 		parent.removeClass( 'sui-has_file' );
-	}		
+	}
 });
 
 // This will trigger on click of upload button
@@ -644,7 +667,7 @@ function removeFile(element) {
 					<p>2. When clicking on <code>.sui-upload-file > button</code> we should remove / clear uploaded image.</p>
 
 					<p>3. To make upload functionality work add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
-					
+
 					<p>4. If you want default browser finder make sure to use this script and add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
 
 				</div>

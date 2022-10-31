@@ -10,7 +10,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="default">Single File</a>
@@ -25,6 +25,20 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="default">Single File</option>
+					<option value="multiple">Multiple Files</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -611,6 +625,15 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.4"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="false"
+				rtl-lang="true"
+			></div>
+
 			<!-- ROW: Markup -->
 			<div class="sui-box-settings-row">
 
@@ -624,36 +647,36 @@ is_searchable: true
 
 <pre class="sui-code-snippet html">
 	&lt;div class=&quot;sui-form-field&quot;&gt;
-	
+
 		&lt;label class=&quot;sui-label&quot;&gt;Field label&lt;/label&gt;
-	
+
 		&lt;div class=&quot;sui-upload sui-file-upload sui-file-browser&quot;&gt;
-	
+
 			&lt;input type=&quot;file&quot; value=&quot;&quot; readonly=&quot;readonly&quot; /&gt;
-	
+
 			&lt;button class=&quot;sui-upload-button&quot;
 			&lt;span class=&quot;sui-icon-upload-cloud&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 				Upload file
 			&lt;/button&gt;
-	
+
 			&lt;div class=&quot;sui-upload-file&quot;&gt;
-	
+
 				&lt;span&gt;&lt;/span&gt;
-	
+
 				&lt;button aria-label=&quot;Remove file&quot;&gt;
 					&lt;span class=&quot;sui-icon-close&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 				&lt;/button&gt;
-	
+
 			&lt;/div&gt;
-	
+
 		&lt;/div&gt;
-	
+
 		&lt;span class=&quot;sui-description&quot;&gt;Element description.&lt;/span&gt;
-	
+
 		&lt;div class=&quot;sui-notice sui-notice-error&quot; style=&quot;margin-top: 5px; display: none;&quot;&gt;
 			&lt;p&gt;Element error message.&lt;/p&gt;
 		&lt;/div&gt;
-	
+
 	&lt;/div&gt;
 </pre>
 
@@ -676,7 +699,7 @@ is_searchable: true
 					<div class="demo-code-block">
 
 <pre class="sui-code-snippet js">
-// This will trigger on file change. 
+// This will trigger on file change.
 $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 	var parent = $( this ).parent();
 	var filename = $( this ).val();
@@ -704,7 +727,7 @@ $( '.sui-file-browser input[type="file"]' ).on( 'change', function() {
 		}
 		parent.find( '.sui-upload-file > span' ).text( '' );
 		parent.removeClass( 'sui-has_file' );
-	}		
+	}
 });
 
 // This will trigger on click of upload button
@@ -802,7 +825,7 @@ function removeFile(element) {
 					<p>2. When clicking on <code>.sui-upload-file > button</code> we should remove / clear uploaded image.</p>
 
 					<p>3. To make upload functionality work add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
-					
+
 					<p>4. If you want default browser finder make sure to use this script and add <code>.sui-file-browser</code> with <code>.sui-upload</code>.</p>
 
 				</div>

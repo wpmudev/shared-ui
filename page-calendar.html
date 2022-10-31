@@ -11,7 +11,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="single">Single Datepicker</a>
@@ -21,7 +21,24 @@ is_searchable: true
 				<a href="#" role="button" data-tab="range">Range Datepicker</a>
 			</li>
 
+			<li class="sui-vertical-tab">
+				<a href="#" role="button" data-tab="documentation">Documentation</a>
+			</li>
+
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="single">Single Datepicker</option>
+					<option value="range">Range Datepicker</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -36,6 +53,7 @@ is_searchable: true
 
 			<div class="sui-notice sui-notice-warning">
 				<p>The <strong>Shared UI Library</strong> supports styling for the calendar, but to make it work you will need to include <a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a>.</p>
+				<p>For using <strong>monochrome</strong> for date picker add class <code>.sui-elements-accessible</code> in body wrapper.</p>
 			</div>
 
 			<div class="sui-tabs sui-side-tabs">
@@ -215,6 +233,7 @@ $( '#unique-id' ).datepicker({
 
 			<div class="sui-notice sui-notice-warning">
 				<p>For <strong>Range Datepicker</strong> our library supports styles but you will need to include latest <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" target="_blank">Moment.js</a> and <a href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" target="_blank">Date Range Picker Library</a>.</p>
+				<p>For using <strong>monochrome</strong> for range date picker add class <code>.sui-elements-accessible</code> in body wrapper.</p>
 			</div>
 
 			<div class="sui-tabs sui-side-tabs">
@@ -432,6 +451,28 @@ $( '#unique-id' ).datepicker({
 				</div>
 
 			</div>
+
+		</div>
+
+	</div>
+
+	<!-- TAB: Documentation -->
+	<div class="sui-box" data-tab="documentation" style="display: none;">
+
+		<div class="sui-box-header">
+			<h2 class="sui-box-title">Documentation</h2>
+		</div>
+
+		<div class="sui-box-body">
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.1.10"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="false"
+			></div>
 
 		</div>
 

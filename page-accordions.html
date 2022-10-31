@@ -11,7 +11,7 @@ is_searchable: true
 	<!-- Navigation -->
 	<div class="sui-sidenav" role="navigation">
 
-		<ul class="sui-vertical-tabs">
+		<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 			<li class="sui-vertical-tab current">
 				<a href="#" role="button" data-tab="flexbox">Flexbox Based</a>
@@ -30,6 +30,21 @@ is_searchable: true
 			</li>
 
 		</ul>
+
+		<div class="sui-sidenav-settings">
+
+			<div class="sui-form-field sui-sidenav-hide-lg">
+	
+				<select class="sui-select">
+					<option value="flexbox">Flexbox Based</option>
+					<option value="table">Table Based</option>
+					<option value="blocks">Blocks</option>
+					<option value="documentation">Documentation</option>
+				</select>
+	
+			</div>
+	
+		</div>
 
 	</div>
 
@@ -1099,13 +1114,43 @@ is_searchable: true
 
 		<div class="sui-box-body">
 
-			<div class="sui-notice sui-notice-warning">
-				<p>If you are using individual js components, <code>accordion.js</code> is required.</p>
+			<!-- Warning -->
+			<div class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>If you are using individual js components, <code>accordion.js</code> is required.</p>
+					</div>
+
+				</div>
+
 			</div>
 
-			<div class="sui-notice sui-notice-warning">
-				<p>If you want to perform some actions, like open a menu or adding a link, inside accordion items header remember to add <code>sui-accordion-item-action</code> to the element, that way when user clicks on the item it won't open/close the accordion but instead perform the action you want to like openning a dropdown menu with more options.</p>
+			<!-- Warning -->
+			<div class="sui-notice sui-notice-yellow sui-active" style="display: block;">
+
+				<div class="sui-notice-content">
+
+					<div class="sui-notice-message">
+						<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+						<p>If you want to perform some actions, like open a menu or adding a link, inside accordion items header remember to add <code>sui-accordion-item-action</code> to the element, that way when user clicks on the item it won't open/close the accordion but instead perform the action you want to like openning a dropdown menu with more options.</p>
+					</div>
+
+				</div>
+
 			</div>
+
+			<!-- ROW: Specifications -->
+			<div
+				id="showcase-specs"
+				version="2.3.1"
+				utilities="false"
+				utilities-page="{{ site.baseurl }}/utilities/"
+				monochrome="true"
+				rtl-lang="false"
+			></div>
 
 			<div class="sui-box-settings-row">
 
