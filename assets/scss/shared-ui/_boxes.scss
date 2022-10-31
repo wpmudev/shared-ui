@@ -64,7 +64,7 @@
 
 		// BOX: Status Bar
 		.sui-box-status {
-			padding: math.div($sui-gutter, 2) $sui-gutter-md $sui-gutter-md;
+			padding: 0 $sui-gutter-md $sui-gutter-md;
 
 			.sui-status {
 				display: flex;
@@ -120,6 +120,7 @@
 				+ .sui-actions {
 
 					@include media(max-width, md) {
+						display: inline-block;
 						margin-top: math.div($sui-gutter, 2);
 					}
 
@@ -130,6 +131,12 @@
 
 				@include media(min-width, md) {
 					flex: 1;
+				}
+
+				@include media(max-width, md) {
+					display: inline-flex;
+					margin-right: math.div($sui-gutter, 2);
+					margin-top: math.div($sui-gutter, 2);
 				}
 			}
 
