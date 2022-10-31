@@ -21,7 +21,7 @@
 		// update message for screen reader accessibility
 		function updateDate() {
 			var message = ' ' + $( '.ui-state-hover' ).html() + ' ' + $( '.ui-datepicker-month' ).html() + ' ' + $( '.ui-datepicker-year' ).html();
-			$( '#liveRegion' ).html( message );
+			$( '#sui-live-region' ).html( message );
 		}
 
 		function calendarSimple( element ) {
