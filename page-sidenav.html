@@ -15,16 +15,16 @@ is_searchable: true
 			<ul class="sui-vertical-tabs sui-sidenav-hide-md">
 
 				<li class="sui-vertical-tab current">
-					<a href="#" role="button" data-tab="section-1">Section 1</a>
+					<a href="#" role="button" aria-selected="true" tabindex="0" data-tab="section-1">Section 1</a>
 				</li>
 
 				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-2">Section 2</a>
+					<a href="#" role="button" aria-selected="false" tabindex="-1" data-tab="section-2">Section 2</a>
 					<span class="sui-tag sui-tag-warning">4</span>
 				</li>
 
 				<li class="sui-vertical-tab">
-					<a href="#" role="button" data-tab="section-3">Section 3</a>
+					<a href="#" role="button" aria-selected="false" tabindex="-1" data-tab="section-3">Section 3</a>
 					<span class="sui-icon-check-tick" aria-hidden="true"></span>
 				</li>
 
@@ -53,7 +53,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 1 -->
-		<div class="sui-box" data-tab="section-1">
+		<div class="sui-box" tabindex="0" aria-hidden="false" data-tab="section-1">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 1</h1>
@@ -68,7 +68,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 2 -->
-		<div class="sui-box" data-tab="section-2" style="display: none;">
+		<div class="sui-box" tabindex="0" aria-hidden="true" data-tab="section-2" style="display: none;">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 2</h1>
@@ -83,7 +83,7 @@ is_searchable: true
 		</div>
 
 		<!-- SECTION: 3 -->
-		<div class="sui-box" data-tab="section-3" style="display: none;">
+		<div class="sui-box" tabindex="0" aria-hidden="true" data-tab="section-3" style="display: none;">
 
 			<div class="sui-box-header">
 				<h1 class="sui-box-title">Section 3</h1>
@@ -110,16 +110,16 @@ is_searchable: true
 		&lt;ul class=&quot;sui-vertical-tabs sui-sidenav-hide-md&quot;&gt;
 
 			&lt;li class=&quot;sui-vertical-tab current&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot; role=&quot;button&quot;&gt;Tab 1&lt;/a&gt;
 			&lt;/li&gt;
 
 			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot; role=&quot;button&quot;&gt;Tab 2&lt;/a&gt;
 			&lt;span class=&quot;sui-tag sui-tag-warning&quot;&gt;4&lt;/span&gt;
 			&lt;/li&gt;
 
 			&lt;li class=&quot;sui-vertical-tab&quot;&gt;
-			&lt;a href=&quot;#&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
+			&lt;a href=&quot;#&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot; role=&quot;button&quot;&gt;Tab 3&lt;/a&gt;
 			&lt;span class=&quot;sui-icon-check-tick&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 			&lt;/li&gt;
 
@@ -138,13 +138,13 @@ is_searchable: true
 	&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 1 (Current) --&gt;
-	&lt;div class=&quot;sui-box&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;false&quot; &gt;...&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 2 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;true&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
 
 	&lt;!-- SECTION: Tab 3 --&gt;
-	&lt;div class=&quot;sui-box&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
+	&lt;div class=&quot;sui-box&quot; tabindex=&quot;0&quot; aria-hidden=&quot;true&quot; style=&quot;display: none;&quot;&gt;...&lt;/div&gt;
 
 &lt;/section&gt;
 </pre>
