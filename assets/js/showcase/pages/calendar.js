@@ -18,27 +18,14 @@
 			return;
 		}
 
-		// update message for screen reader accessibility
-		function updateDate( element ) {
-			var message = ' ' + $( '.ui-state-hover' ).html() + ' ' + $( '.ui-datepicker-month' ).html() + ' ' + $( '.ui-datepicker-year' ).html();
-			var parent = element.closest( '.sui-date' );
-			var liveRegion = parent.next( '.sui-live-region' );
-			liveRegion.text( message );
-		}
-
 		function calendarSimple( element ) {
 
 			element = $( element ),
-			parent = element.closest( '.sui-date' );
 
-			parent.after( '<div class="sui-live-region" role="log" aria-live="assertive" aria-atomic="true" aria-relevant="additions"></div>' );
-
+			element.attr( 'aria-live', 'polite' );
 
 			element.datepicker({
 				minDate: -5,
-				onSelect: function( date, datepicker ) {
-					updateDate( $( '#' + datepicker.id ) );
-				},
 				beforeShow: function( input, inst ) {
 					$( '#ui-datepicker-div' ).addClass( 'sui-calendar' );
 				},
