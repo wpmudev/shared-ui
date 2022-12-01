@@ -20,7 +20,7 @@
 
 		function calendarSimple( element ) {
 
-			element = $( element ),
+			element = $( element );
 
 			element.attr( 'aria-live', 'polite' );
 
