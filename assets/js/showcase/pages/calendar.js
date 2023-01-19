@@ -22,6 +22,8 @@
 
 			element = $( element );
 
+			element.attr( 'aria-live', 'polite' );
+
 			element.datepicker({
 				minDate: -5,
 				beforeShow: function( input, inst ) {
