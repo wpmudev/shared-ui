@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.15](https://github.com/wpmudev/shared-ui/compare/v2.11.14...v2.12.15) (2023-01-19)
+
+#### 🏠 Chores
+
+- **fix:** Update variables version regex not matching subject string. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [2.12.14](https://github.com/wpmudev/shared-ui/compare/v2.11.13...v2.12.14) (2023-01-19)
 
 #### 🚀 Improvements
