@@ -9,7 +9,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.showHidePassword = function () {
-    $('.sui-2-12-13 .sui-form-field').each(function () {
+    $('.sui-2-12-14 .sui-form-field').each(function () {
       var $this = $(this);
 
       if (0 !== $this.find('input[type="password"]').length) {

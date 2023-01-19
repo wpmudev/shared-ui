@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.14](https://github.com/wpmudev/shared-ui/compare/v2.11.13...v2.12.14) (2023-01-19)
+
+#### 🚀 Improvements
+
+- **fix(status-box):** Headers not looking good on mobiles. [#536](https://github.com/wpmudev/shared-ui/pull/536) ([SUI-54](https://incsub.atlassian.net/browse/SUI-54)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(calendar):** Datepicker interact with input and does not focus calendar for date selection. [#412](https://github.com/wpmudev/shared-ui/pull/412) ([SUI-16](https://incsub.atlassian.net/browse/SUI-16)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fixes
+
+- **fix(checkbox):** Incorrect spacing between label and checkbox in RTL mode. [#498](https://github.com/wpmudev/shared-ui/pull/498) ([SUI-405](https://incsub.atlassian.net/browse/SUI-405)) ([@iamleigh](https://github.com/iamleigh))
+
+#### 📝 Documentation
+
+- **docs(tabs):** Add a new sample variation for tabs with flushed and overflow classes. [#442](https://github.com/wpmudev/shared-ui/pull/442) ([SUI-283](https://incsub.atlassian.net/browse/SUI-283)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.13](https://github.com/wpmudev/shared-ui/compare/v2.11.12...v2.12.13) (2022-09-22)
 
 #### 🐛 Bug Fixes
