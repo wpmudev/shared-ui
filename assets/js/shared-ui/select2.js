@@ -254,6 +254,11 @@
 
 		let select = $( this );
 
+		// return if select2 already initalized for element.
+		if ( select.hasClass( 'select2-hidden-accessible' ) || select.hasClass( 'select2' ) ) {
+			return;
+		}
+
 		if ( 'icon' === select.data( 'theme' ) ) {
 			SUI.select.initIcon( select );
 		} else if ( 'color' === select.data( 'theme' ) ) {
@@ -268,6 +273,11 @@
 	$( '.sui-variables' ).each( function() {
 
 		let select = $( this );
+
+		// return if select2 already initalized for element.
+		if ( select.hasClass( 'select2-hidden-accessible' ) || select.hasClass( 'select2' ) ) {
+			return;
+		}
 
 		SUI.select.initVars( select );
 
