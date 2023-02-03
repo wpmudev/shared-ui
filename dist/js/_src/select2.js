@@ -113,7 +113,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.init = function (select) {
     var getParent = select.closest('.sui-modal-content'),
       getParentId = getParent.attr('id'),
-      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-15'),
+      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-16'),
       hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
       isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -125,7 +125,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initIcon = function (select) {
     var getParent = select.closest('.sui-modal-content'),
       getParentId = getParent.attr('id'),
-      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-15'),
+      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-16'),
       hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
       isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -142,7 +142,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initColor = function (select) {
     var getParent = select.closest('.sui-modal-content'),
       getParentId = getParent.attr('id'),
-      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-15'),
+      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-16'),
       hasSearch = 'true' === select.attr('data-search') ? 0 : -1,
       isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
@@ -159,7 +159,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initSearch = function (select) {
     var getParent = select.closest('.sui-modal-content'),
       getParentId = getParent.attr('id'),
-      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-15'),
+      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-16'),
       isSmall = select.hasClass('sui-select-sm') ? 'sui-select-dropdown-sm' : '';
     select.SUIselect2({
       dropdownParent: selectParent,
@@ -171,7 +171,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   SUI.select.initVars = function (select) {
     var getParent = select.closest('.sui-modal-content'),
       getParentId = getParent.attr('id'),
-      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-15'),
+      selectParent = getParent.length ? $('#' + getParentId) : $('.sui-2-12-16'),
       hasSearch = 'true' === select.attr('data-search') ? 0 : -1;
     select.SUIselect2({
       theme: 'vars',
@@ -189,6 +189,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   };
   $('.sui-select').each(function () {
     var select = $(this);
+
+    // return if select2 already initalized for element.
+    if (select.hasClass('select2-hidden-accessible') || select.hasClass('select2')) {
+      return;
+    }
     if ('icon' === select.data('theme')) {
       SUI.select.initIcon(select);
     } else if ('color' === select.data('theme')) {
@@ -201,6 +206,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   });
   $('.sui-variables').each(function () {
     var select = $(this);
+
+    // return if select2 already initalized for element.
+    if (select.hasClass('select2-hidden-accessible') || select.hasClass('select2')) {
+      return;
+    }
     SUI.select.initVars(select);
   });
 })(jQuery);
