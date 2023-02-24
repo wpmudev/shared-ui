@@ -269,7 +269,6 @@
 					newValue = input.val();
 
 				// regex to clean strip html open and closing tag
-				oldValue = oldValue.replace( /<\/?|\/?>/g, '' );
 				newValue = newValue.replace( /<\/?|\/?>/g, '' );
 
 				// Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
