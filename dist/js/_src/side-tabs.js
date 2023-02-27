@@ -29,7 +29,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
     });
   };
-  $('.sui-2-12-16 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-17 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);

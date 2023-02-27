@@ -110,7 +110,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
   SUI.suiCodeSnippet = function () {
     // Convert all code snippet.
-    $('.sui-2-12-16 .sui-code-snippet:not(.sui-no-copy)').each(function () {
+    $('.sui-2-12-17 .sui-code-snippet:not(.sui-no-copy)').each(function () {
       // backward compat of instantiate new accordion
       $(this).SUICodeSnippet({});
     });

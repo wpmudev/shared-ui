@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.17](https://github.com/wpmudev/shared-ui/compare/v2.11.16...v2.12.17) (2023-02-27)
+
+#### 🚀 Improvements
+
+- **fix(multistring):** Regex to escape textarea HTML tags. [#539](https://github.com/wpmudev/shared-ui/pull/539) ([SUI-565](https://incsub.atlassian.net/browse/SUI-565)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [2.12.16](https://github.com/wpmudev/shared-ui/compare/v2.11.15...v2.12.16) (2023-02-03)
+
+#### 🐛 Bug Fixes
+
+- **fix(select2):** Element reinit when two plugins are enabled causing design issues. [#538](https://github.com/wpmudev/shared-ui/pull/538) ([SUI-557](https://incsub.atlassian.net/browse/SUI-557)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.15](https://github.com/wpmudev/shared-ui/compare/v2.11.14...v2.12.15) (2023-01-19)
 
 #### 🏠 Chores

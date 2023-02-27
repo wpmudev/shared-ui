@@ -211,6 +211,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
           oldValue = $textarea.val(),
           newValue = input.val();
 
+        // regex to clean strip html open and closing tag
+        newValue = newValue.replace(/<\/?|\/?>/g, '');
+
         // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
         var newTrim = newValue.replace(regex, ''),
           isEnter = 13 === e.keyCode;
