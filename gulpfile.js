@@ -174,6 +174,7 @@ function showcaseCopy() {
 			"./node_modules/chart.js/dist/Chart.min.js",
 			"./node_modules/jquery/dist/jquery.min.js",
 			"./node_modules/clipboard/dist/clipboard.min.js",
+			"./node_modules/dompurify/dist/purify.min.js",
 		])
 		.pipe(gulp.dest(showcase.output.scripts));
 }
