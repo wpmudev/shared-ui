@@ -268,8 +268,9 @@
 					oldValue = $textarea.val(),
 					newValue = input.val();
 
-				// regex to clean strip html open and closing tag
-				newValue = newValue.replace( /<\/?|\/?>/g, '' );
+				// Sanitize value.
+				newValue = newValue.replace( /</g, '&lt;' );
+				newValue = DOMPurify.sanitize( newValue );
 
 				// Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
 				const newTrim = newValue.replace( regex, '' ),
