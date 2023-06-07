@@ -127,7 +127,7 @@
 
 		let markup;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label   = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
 		const content = $( data.element ).val();
 
 		if ( ! data.id ) {
