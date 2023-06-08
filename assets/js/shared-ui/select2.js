@@ -11,7 +11,7 @@
 
 		let markup;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label = SUI.escapeJS( data.text );
 		const icon  = $( data.element ).attr( 'data-icon' );
 
 		if ( ! data.id ) {
@@ -32,7 +32,7 @@
 
 		let markup;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label = SUI.escapeJS( data.text );
 		const icon  = $( data.element ).attr( 'data-icon' );
 
 		if ( 'undefined' !== typeof icon ) {
@@ -49,7 +49,7 @@
 
 		let markup, border;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label = SUI.escapeJS( data.text );
 		const color = $( data.element ).attr( 'data-color' );
 
 		if ( ! data.id ) {
@@ -90,7 +90,7 @@
 
 		let markup;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label = SUI.escapeJS( data.text );
 		const color = $( data.element ).attr( 'data-color' );
 
 		if ( 'undefined' !== typeof color ) {
@@ -127,7 +127,7 @@
 
 		let markup;
 
-		const label   = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label   = SUI.escapeJS( data.text );
 		const content = $( data.element ).val();
 
 		if ( ! data.id ) {
@@ -148,7 +148,7 @@
 
 		let markup;
 
-		const label = $( '<div>' ).html( data.text ).text().replace( /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '' );
+		const label = SUI.escapeJS( data.text );
 
 		markup  = '<span class="sui-icon-plus-circle sui-md" aria-hidden="true"></span>';
 		markup += '<span class="sui-screen-reader-text">' + label + '</span>';
