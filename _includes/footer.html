@@ -10,6 +10,11 @@
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
 {% endif %}
 
+{% if page.id == 'timepicker' %}
+<!-- LOAD: jQuery Timepicker -->
+<script src="{{ 'assets/js/timepicker.min.js' || relative_url }}"></script>
+{% endif %}
+
 <script src="{{ 'assets/js/Chart.min.js' || relative_url }}?ver={{ site.suiver }}"></script>
 <script src="{{ 'assets/js/lunr.min.js' || relative_url }}"></script>
 <script src="{{ 'assets/js/highlight.min.js' || relative_url }}"></script>
