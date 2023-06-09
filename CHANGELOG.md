@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.18](https://github.com/wpmudev/shared-ui/compare/v2.11.17...v2.12.18) (2023-06-09)
+
+#### ✨ New Features
+- **new(builder):**  Builder insert field color changed. [#537](https://github.com/wpmudev/shared-ui/pull/537) ([SUI-307](https://incsub.atlassian.net/browse/SUI-307)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🐛 Bug Fixes
+
+- **fix(multi select):** Select2 multi select disappearing issue. [#541](https://github.com/wpmudev/shared-ui/pull/541) ([SUI-562](https://incsub.atlassian.net/browse/SUI-562)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(select2):** Escape script tags in select2 options. [#542](https://github.com/wpmudev/shared-ui/pull/542) ([SUI-570](https://incsub.atlassian.net/browse/SUI-570)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.17](https://github.com/wpmudev/shared-ui/compare/v2.11.16...v2.12.17) (2023-02-27)
 
 #### 🚀 Improvements
