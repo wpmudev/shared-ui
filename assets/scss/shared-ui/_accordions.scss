@@ -18,9 +18,11 @@
 			}
 
 			.sui-box {
-				&:focus {
-					border: 2px solid palette(blue, default);
+				&:focus,
+				&:focus-within {
 					border-radius: 0;
+					border: none;
+					box-shadow: inset 0 0 0 2px palette(blue, default);
 				}
 			}
 		}
