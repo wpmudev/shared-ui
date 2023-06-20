@@ -32,7 +32,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     });
   };
 
-  $('.sui-2-12-19 .sui-side-tabs label.sui-tab-item input').each(function () {
+  $('.sui-2-12-21 .sui-side-tabs label.sui-tab-item input').each(function () {
     SUI.sideTabs(this);
   });
 })(jQuery);

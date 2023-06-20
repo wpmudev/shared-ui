@@ -5842,7 +5842,8 @@
 
 				this.on('keypress', function (evt) {
 					var key = evt.which;
-				  
+					var isMultiSelect = this.$element[0].hasAttribute('multiple');
+
 					if (self.isOpen()) {
 						if (key === KEYS.ENTER) {
 							self.trigger('results:select');
@@ -5860,7 +5861,7 @@
 							self.close();
 							evt.preventDefault();
 						}
-					} else {
+					} else if ( ! isMultiSelect ) {
 						// Added the functionality to change option on press of up and down arrow. @edited
 						if (key === KEYS.ENTER || key === KEYS.SPACE || ((key === KEYS.DOWN || key === KEYS.UP) && evt.altKey)) {
 							self.open();
@@ -5891,7 +5892,6 @@
 							let elemVal = selectedValue;
 
 							values.each(function(index) {
-								console.log(selectedValue);
 								if(selectedValue !== '' && selectedValue[0].toLowerCase() === keyPressed) {
 									if ($(this).text() === selectedValue && index !== arrLength) {
 										elemVal = $(values[index + 1]).val();

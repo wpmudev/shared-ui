@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.20](https://github.com/wpmudev/shared-ui/compare/v2.11.19...v2.12.20) (2023-06-20)
+
+#### 🐛 Bug Fixes
+
+- **fix(insert-variables):** Insert variables outputs null when selecting. [#545](https://github.com/wpmudev/shared-ui/pull/545) ([SUI-573](https://incsub.atlassian.net/browse/SUI-573)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(multi select):** Select2 multi select disappearing issue. [#562](https://github.com/wpmudev/shared-ui/pull/541) ([SUI-562](https://incsub.atlassian.net/browse/SUI-570)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(accordion):** Accordion item focus issue. [#544](https://github.com/wpmudev/shared-ui/pull/544) ([SUI-571](https://incsub.atlassian.net/browse/SUI-571)) ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.18](https://github.com/wpmudev/shared-ui/compare/v2.11.17...v2.12.18) (2023-06-09)
 
 #### ✨ New Features

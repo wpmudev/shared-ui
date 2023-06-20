@@ -255,7 +255,7 @@
 				return markup;
 			},
 			minimumResultsForSearch: hasSearch
-		}).on( 'select2:close', function() {
+		}).on( 'select2:open', function() {
 			$( this ).val( null );
 		});
 
