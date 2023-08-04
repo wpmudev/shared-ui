@@ -411,7 +411,7 @@ function copyComponents() {
 gulp.task("publishLibrary", () =>
 	gulp.src("./_dist/library/**/**/*").pipe(
 		ghPages({
-			remoteUrl: "https://github.com/wpmudev/shared-ui.git",
+			remoteUrl: "git@github.com:wpmudev/shared-ui.git",
 			branch: "master",
 			dotfiles: true,
 			message: "📦 Shared UI v" + getVersion(),
@@ -423,7 +423,7 @@ gulp.task("publishLibrary", () =>
 gulp.task("publishShowcase", () =>
 	gulp.src("./_dist/showcase/**/**/*").pipe(
 		ghPages({
-			remoteUrl: "https://github.com/wpmudev/shared-ui.git",
+			remoteUrl: "git@github.com:wpmudev/shared-ui.git",
 			branch: "gh-pages",
 			dotfiles: true,
 			message: "📦 Shared UI Showcase with SUI v" + getVersion(),
