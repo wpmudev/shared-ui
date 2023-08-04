@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.21](https://github.com/wpmudev/shared-ui/compare/v2.12.20...v2.12.21) (2023-08-04)
+
+#### 🚀 Improvements
+
+- **new(footer):** upsell footer cards design updated. [#547](https://github.com/wpmudev/shared-ui/pull/547) ([SUI-565](https://incsub.atlassian.net/browse/SUI-575)) ([@creador-dev](https://github.com/creador-dev))
+- **new(icons):** updated wpmudev icons. [#549](https://github.com/wpmudev/shared-ui/pull/549) ([SUI-581](https://incsub.atlassian.net/browse/SUI-581)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.20](https://github.com/wpmudev/shared-ui/compare/v2.11.19...v2.12.20) (2023-06-20)
 
 #### 🐛 Bug Fixes
