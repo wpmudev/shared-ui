@@ -846,7 +846,7 @@
 
 	aria.Dialog.prototype.trapFocus = function( event ) {
 
-		if ( aria.Utils.IgnoreUtilFocusChanges ) {
+		if ( aria.Utils.IgnoreUtilFocusChanges || ( event.target.parentElement && event.target.parentElement.classList.contains( 'wp-link-input' ) ) ) {
 			return;
 		}
 
