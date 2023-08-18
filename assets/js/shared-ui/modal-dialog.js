@@ -845,8 +845,9 @@
 	}; // end removeListeners.
 
 	aria.Dialog.prototype.trapFocus = function( event ) {
+		const { parentElement } = event.target;
 
-		if ( aria.Utils.IgnoreUtilFocusChanges || ( event.target.parentElement && event.target.parentElement.classList.contains( 'wp-link-input' ) ) ) {
+		if ( aria.Utils.IgnoreUtilFocusChanges || ( parentElement && parentElement.classList.contains( 'wp-link-input' ) ) ) {
 			return;
 		}
 
