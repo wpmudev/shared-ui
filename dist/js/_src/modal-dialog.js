@@ -773,7 +773,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
   aria.Dialog.prototype.trapFocus = function (event) {
-    if (aria.Utils.IgnoreUtilFocusChanges) {
+    var parentElement = event.target.parentElement;
+
+    if (aria.Utils.IgnoreUtilFocusChanges || parentElement && parentElement.classList.contains('wp-link-input')) {
       return;
     }
 

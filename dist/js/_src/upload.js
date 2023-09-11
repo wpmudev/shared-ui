@@ -9,7 +9,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
 
   SUI.upload = function () {
-    $('.sui-2-12-21 .sui-upload-group input[type="file"]').on('change', function (e) {
+    $('.sui-2-13-1 .sui-upload-group input[type="file"]').on('change', function (e) {
       var file = $(this)[0].files[0],
           message = $(this).find('~ .sui-upload-message');
 
@@ -18,9 +18,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
     }); // check whether element exist then execute js
 
-    if ($('.sui-2-12-21 .sui-file-upload').length) {
+    if ($('.sui-2-13-1 .sui-file-upload').length) {
       // This will trigger on file change. 
-      $('.sui-2-12-21 .sui-file-browser input[type="file"]').on('change', function () {
+      $('.sui-2-13-1 .sui-file-browser input[type="file"]').on('change', function () {
         var parent = $(this).parent();
         var filename = $(this).val();
         var imageContainer = parent.find('.sui-upload-image');
@@ -56,15 +56,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }
       }); // This will trigger on click of upload button
 
-      $('.sui-2-12-21 .sui-file-browser .sui-upload-button').on('click', function () {
+      $('.sui-2-13-1 .sui-file-browser .sui-upload-button').on('click', function () {
         selectFile($(this));
       }); // This will trigger when user wants to remove the selected upload file
 
-      $('.sui-2-12-21 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
+      $('.sui-2-13-1 .sui-file-upload [aria-label="Remove file"]').on('click', function () {
         removeFile($(this));
       }); // This will trigger reupload of file
 
-      $('.sui-2-12-21 .sui-file-browser .sui-upload-image').on('click', function () {
+      $('.sui-2-13-1 .sui-file-browser .sui-upload-image').on('click', function () {
         selectFile($(this));
       }); // upload drag and drop functionality
 
@@ -73,7 +73,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
       }();
 
-      var uploadArea = $('.sui-2-12-21 .sui-upload-button');
+      var uploadArea = $('.sui-2-13-1 .sui-upload-button');
 
       if (isAdvancedUpload) {
         var droppedFiles = false;
