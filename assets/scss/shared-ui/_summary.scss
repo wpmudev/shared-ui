@@ -3,7 +3,6 @@
 // Summary: Base styles.
 // $wrap: true | $rtl: false | $monochrome: false
 @include body-class(true, false) {
-
 	.sui-summary {
 		padding: math.div($sui-gutter-md, 2) $sui-gutter-md;
 
@@ -21,9 +20,9 @@
 			display: none;
 
 			@include media(min-width, md) {
-				min-width: #{$summary-image--width + $sui-gutter};
-				min-height: $summary-size;
-				flex: 0 0 #{$summary-image--width + $sui-gutter};
+				min-width: $summary-size-width;
+				min-height: $summary-size-height;
+				flex: 0 0 $summary-size-width;
 			}
 		}
 
@@ -32,7 +31,6 @@
 			display: block;
 
 			.sui-list {
-
 				@include media(min-width, md) {
 					padding-right: math.div($sui-gutter, 2);
 					padding-left: math.div($sui-gutter, 2);
@@ -40,7 +38,6 @@
 			}
 
 			.sui-summary-details {
-
 				@include media(min-width, md) {
 					padding-right: $sui-gutter;
 					padding-left: $sui-gutter;
@@ -48,10 +45,8 @@
 			}
 
 			&:first-child {
-
 				.sui-list,
 				.sui-summary-details {
-
 					@include media(min-width, md) {
 						padding-left: 0;
 					}
@@ -59,10 +54,8 @@
 			}
 
 			&:last-child {
-
 				.sui-list,
 				.sui-summary-details {
-
 					@include media(min-width, md) {
 						padding-right: 0;
 					}
@@ -119,7 +112,6 @@
 				line-height: 55px;
 
 				+ .sui-summary-sub {
-
 					@include media(min-width, md) {
 						margin-top: -1px;
 					}
@@ -175,7 +167,6 @@
 
 		// ELEMENT: List of data
 		.sui-list {
-
 			li span {
 				white-space: normal;
 			}
@@ -188,10 +179,8 @@
 
 		// SIZE: Small
 		&.sui-summary-sm {
-
 			// ELEMENT: Image
 			.sui-summary-image-space {
-
 				@include media(min-width, md) {
 					min-width: #{$summary-image-sm--width + $sui-gutter};
 					min-height: $summary-size-sm;
@@ -203,18 +192,13 @@
 		// VARIATION: Branded
 		// When box is using white labelling settings from WPMU DEV Dashboard.
 		&:not(.sui-unbranded) {
-
 			// SIZE: Regular
 			&:not(.sui-summary-sm) {
-
 				// ELEMENT: Image
 				.sui-summary-image-space {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image) {
-
-							@if $summary-image != '' {
+							@if $summary-image != "" {
 								display: block;
 							}
 						}
@@ -226,16 +210,11 @@
 				// in case summary-image variable doesn't exist or
 				// variable is empty.
 				@if variable-exists(summary-image) {
-
-					@if $summary-image == '' {
-
+					@if $summary-image == "" {
 						.sui-summary-image-space {
-
 							&:first-child + .sui-summary-segment {
-
 								.sui-list,
 								.sui-summary-details {
-
 									@include media(min-width, md) {
 										padding-left: 0;
 									}
@@ -244,14 +223,10 @@
 						}
 					}
 				} @else {
-
 					.sui-summary-image-space {
-
 						&:first-child + .sui-summary-segment {
-
 							.sui-list,
 							.sui-summary-details {
-
 								@include media(min-width, md) {
 									padding-left: 0;
 								}
@@ -261,12 +236,11 @@
 				}
 
 				&:not(.sui-rebranded) {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image) {
 							background-image: url($summary-image);
-							background-size: $summary-image--width $summary-image--height;
+							background-size: $summary-image--width
+								$summary-image--height;
 							background-position: $summary-image--position;
 							background-repeat: no-repeat;
 						}
@@ -276,15 +250,11 @@
 
 			// SIZE: Small
 			&.sui-summary-sm {
-
 				// ELEMENT: Image
 				.sui-summary-image-space {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image-sm) {
-
-							@if $summary-image-sm != '' {
+							@if $summary-image-sm != "" {
 								display: block;
 							}
 						}
@@ -296,16 +266,11 @@
 				// in case summary-image-sm variable doesn't exist or
 				// variable is empty.
 				@if variable-exists(summary-image-sm) {
-
-					@if $summary-image-sm == '' {
-
+					@if $summary-image-sm == "" {
 						.sui-summary-image-space {
-
 							&:first-child + .sui-summary-segment {
-
 								.sui-list,
 								.sui-summary-details {
-
 									@include media(min-width, md) {
 										padding-left: 0;
 									}
@@ -314,14 +279,10 @@
 						}
 					}
 				} @else {
-
 					.sui-summary-image-space {
-
 						&:first-child + .sui-summary-segment {
-
 							.sui-list,
 							.sui-summary-details {
-
 								@include media(min-width, md) {
 									padding-left: 0;
 								}
@@ -331,12 +292,11 @@
 				}
 
 				&:not(.sui-rebranded) {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image-sm) {
 							background-image: url($summary-image-sm);
-							background-size: $summary-image-sm--width $summary-image-sm--height;
+							background-size: $summary-image-sm--width
+								$summary-image-sm--height;
 							background-position: $summary-image-sm--position;
 							background-repeat: no-repeat;
 						}
@@ -349,14 +309,10 @@
 		// When box is using white labelling settings from WPMU DEV Dashboard
 		// but no image has been added.
 		&.sui-unbranded {
-
 			.sui-summary-image-space {
-
 				&:first-child + .sui-summary-segment {
-
 					.sui-list,
 					.sui-summary-details {
-
 						@include media(min-width, md) {
 							padding-left: 0;
 						}
@@ -364,10 +320,8 @@
 				}
 
 				@include media(min-width, md) {
-
 					@if variable-exists(summary-image) {
-
-						@if $summary-image != '' {
+						@if $summary-image != "" {
 							display: none;
 						}
 					}
@@ -379,14 +333,10 @@
 		// When box is using white labelling settings from WPMU DEV Dashboard
 		// and an image has been assigned by user.
 		&.sui-rebranded {
-
 			// SIZE: Regular
 			&:not(.sui-summary-sm) {
-
 				.sui-summary-image-space {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image) {
 							background-size: contain;
 							background-position: center;
@@ -398,11 +348,8 @@
 
 			// SIZE: Small
 			&.sui-summary-sm {
-
 				.sui-summary-image-space {
-
 					@include media(min-width, md) {
-
 						@if variable-exists(summary-image-sm) {
 							background-size: contain;
 							background-position: center;
@@ -424,17 +371,12 @@
 // Summary: RTL styles.
 // $wrap: true | $rtl: true | $monochrome: false
 @include body-class(true, true) {
-
 	.sui-summary {
-
 		// ELEMENT: Content
 		.sui-summary-segment {
-
 			&:first-child {
-
 				.sui-list,
 				.sui-summary-details {
-
 					@include media(min-width, md) {
 						padding-right: 0;
 						padding-left: math.div($sui-gutter, 2);
@@ -443,10 +385,8 @@
 			}
 
 			&:last-child {
-
 				.sui-list,
 				.sui-summary-details {
-
 					@include media(min-width, md) {
 						padding-right: math.div($sui-gutter, 2);
 						padding-left: 0;
@@ -477,12 +417,9 @@
 		// VARIATION: Branded
 		// When box is using white labelling settings from WPMU DEV Dashboard.
 		&:not(.sui-unbranded) {
-
 			// SIZE: Regular
 			&:not(.sui-summary-sm) {
-
 				@include media(min-width, md) {
-
 					@if variable-exists(summary-image) {
 						background-position: right $summary-image--position;
 					}
@@ -491,9 +428,7 @@
 
 			// SIZE: Small
 			&.sui-summary-sm {
-
 				@include media(min-width, md) {
-
 					@if variable-exists(summary-image-sm) {
 						background-position: right $summary-image-sm--position;
 					}
@@ -506,9 +441,7 @@
 // Summary: Monochrome styles for color accessibility.
 // $wrap: true | $rtl: false | $monochrome: true
 @include body-class(true, false, true) {
-
 	.sui-summary {
-
 		.sui-summary-details {
 			color: $accessible-dark;
 
