@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 #### 🐛 Bug Fixes
 
-- **fix(modal):** upsell footer cards design updated. [#547](https://github.com/wpmudev/shared-ui/pull/552) ([SUI-582](https://incsub.atlassian.net/browse/SUI-582)) ([@creador-dev](https://github.com/creador-dev))
+- **fix(modal):** modal dialog trapfocus issue with tinymce link tag. [#547](https://github.com/wpmudev/shared-ui/pull/552) ([SUI-582](https://incsub.atlassian.net/browse/SUI-582)) ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
 
