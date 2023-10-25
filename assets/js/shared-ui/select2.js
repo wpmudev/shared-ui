@@ -156,6 +156,27 @@
 
 	};
 
+	SUI.select.formatSearchOptions = ( data, container ) => {
+
+		let markup;
+
+		const label   = SUI.select.escapeJS( data.text );
+		const url = $( data.element ).attr( 'data-url' );
+
+		if ( ! data.id ) {
+			return label; // optgroup.
+		}
+
+		if ( 'undefined' !== typeof url ) {
+			markup = '<span class="sui-search-name">' + label + '</span><span class="sui-search-url">' + url + '</span> ';
+		} else {
+			markup = label;
+		}
+
+		return markup;
+
+	};
+
 	SUI.select.formatVarsSelection = ( data, container ) => {
 
 		let markup;
@@ -235,6 +256,10 @@
 			dropdownParent: selectParent,
 			minimumInputLength: 2,
 			maximumSelectionLength: 1,
+			templateResult: SUI.select.formatSearchOptions,
+			escapeMarkup: function( markup ) {
+				return markup;
+			},
 			dropdownCssClass: isSmall
 		});
 	};
