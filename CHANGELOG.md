@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [2.12.23](https://github.com/wpmudev/shared-ui/compare/v2.12.22...v2.12.23) (2023-10-18)
+## [2.12.24](https://github.com/wpmudev/shared-ui/compare/v2.12.23...v2.12.24) (2024-01-16)
 
 #### 📝 Documentation
 
