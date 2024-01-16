@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ## [2.12.23](https://github.com/wpmudev/shared-ui/compare/v2.12.22...v2.12.23) (2023-10-18)
 
+#### 📝 Documentation
+
+-   **docs(summary):** summary box docs updated. [#558](https://github.com/wpmudev/shared-ui/pull/558) ([SUI-588](https://incsub.atlassian.net/browse/SUI-588)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+
+-   Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+## [2.12.23](https://github.com/wpmudev/shared-ui/compare/v2.12.22...v2.12.23) (2023-10-18)
+
 #### 🚀 Improvements
 
 -   **new(summary):** summary image size updated. [#555](https://github.com/wpmudev/shared-ui/pull/555) ([SUI-587](https://incsub.atlassian.net/browse/SUI-587)) ([@creador-dev](https://github.com/creador-dev))
