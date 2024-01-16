@@ -338,7 +338,7 @@
 				.sui-summary-image-space {
 					@include media(min-width, md) {
 						@if variable-exists(summary-image) {
-							background-size: contain;
+							background-size: $summary-image--width;
 							background-position: center;
 							background-repeat: no-repeat;
 						}
@@ -351,7 +351,7 @@
 				.sui-summary-image-space {
 					@include media(min-width, md) {
 						@if variable-exists(summary-image-sm) {
-							background-size: contain;
+							background-size: $summary-image--width;
 							background-position: center;
 							background-repeat: no-repeat;
 						}
