@@ -1,3 +1,4 @@
+// $sui-wrap: true | $rtl: false
 @include body-class(true) {
 
 	.sui-tree-fancy {
@@ -399,6 +400,65 @@
 							color: palette(gray, lighter);
 						}
 					}
+				}
+			}
+		}
+	}
+}
+
+// $sui-wrap: true | $rtl: true
+@include body-class(true, true) {
+
+	.sui-tree-fancy[data-tree="selector"] {
+		
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+				
+				> span.fancytree-node {
+					padding-left: 30px;
+					padding-right: 0;
+
+					> span.fancytree-expander {
+						left: 0;
+						right: unset;
+					}
+
+					> span.fancytree-checkbox {
+
+						~ span.fancytree-title {
+							margin-right: 10px;
+							margin-left: 0;
+						}
+					}
+				}
+
+				// VARIATION: Child items
+				ul[role="group"] {
+					padding: 0 26px 0 0;
+				}
+			}
+		}
+	}
+
+	.sui-tree-fancy[data-tree="directory"] {
+
+		ul.ui-fancytree {
+
+			// ELEMENT: Item
+			li[role="treeitem"] {
+
+				> span.fancytree-node {
+
+					// ELEMENT: Expander
+					> span.fancytree-expander {
+						margin: 3px -10px 3px 0;
+					}
+				}
+
+				ul[role="group"] {
+					padding: 0 20px 0 0;
 				}
 			}
 		}
