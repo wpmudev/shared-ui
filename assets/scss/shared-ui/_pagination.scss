@@ -1,7 +1,6 @@
 @use "sass:math";
 
 @include body-class(true) {
-
 	// ELEMENT: List of pages
 	.sui-pagination {
 		overflow: hidden;
@@ -14,7 +13,8 @@
 		border-radius: $border-radius;
 		background-color: $white;
 
-		&, li {
+		&,
+		li {
 			list-style: none;
 		}
 
@@ -91,7 +91,6 @@
 			}
 
 			&:first-child {
-
 				a {
 					border-top-left-radius: $border-radius;
 					border-bottom-left-radius: $border-radius;
@@ -103,7 +102,6 @@
 			}
 
 			&:last-child {
-
 				a {
 					border-top-right-radius: $border-radius;
 					border-bottom-right-radius: $border-radius;
@@ -203,7 +201,7 @@
 				border-style: none;
 				border-color: transparent;
 				border-radius: 0 $border-radius $border-radius 0;
-				background-color: #5E5E5E;
+				background-color: #5e5e5e;
 				color: $white;
 				font-size: 12px;
 
@@ -267,7 +265,6 @@
 		display: block;
 
 		&:first-child {
-
 			@include media(max-width, md) {
 				margin-top: 0;
 			}
@@ -278,7 +275,6 @@
 		}
 
 		&:last-child {
-
 			@include media(max-width, md) {
 				margin-bottom: 0;
 			}
@@ -295,5 +291,12 @@
 		@include media(min-width, md) {
 			margin: $sui-gutter 0;
 		}
+	}
+}
+
+@include body-class($wrap: true, $rtl: false, $monochrome: true) {
+	// ELEMENT: Results
+	.sui-pagination-results {
+		color: palette(mono, black);
 	}
 }
