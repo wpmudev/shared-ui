@@ -1,12 +1,12 @@
 @include body-class(true) {
-
 	// HELPER: Label
 	%label {
 		display: inline-flex;
 		padding: 0;
 		border: 0;
 		color: $form--label-color;
-		font: $form--label-font-weight #{$form--label-font-size}/#{$form--label-line-height} $form--label-font;
+		font: $form--label-font-weight #{$form--label-font-size}/#{$form--label-line-height}
+			$form--label-font;
 	}
 
 	// HELPER: Form control
@@ -166,7 +166,8 @@
 				margin-top: 0;
 
 				span {
-					border-radius: #{$border-radius - 1px} #{$border-radius - 1px} 0 0;
+					border-radius: #{$border-radius - 1px} #{$border-radius - 1px}
+						0 0;
 				}
 			}
 
@@ -174,7 +175,8 @@
 				margin-bottom: 0;
 
 				span {
-					border-radius: 0 0 #{$border-radius - 1px} #{$border-radius - 1px};
+					border-radius: 0 0 #{$border-radius - 1px} #{$border-radius -
+						1px};
 				}
 			}
 		}
@@ -217,7 +219,6 @@
 
 	// GROUP: Form field
 	.sui-form-field {
-
 		&.sui-input-sm {
 			max-width: 80px;
 		}
@@ -226,9 +227,7 @@
 		}
 
 		> .sui-row {
-
 			[class^="sui-col"] {
-
 				@include media(min-width, md) {
 					padding-right: 5px;
 					padding-left: 5px;
@@ -236,7 +235,6 @@
 			}
 
 			&:first-child {
-
 				@include media(min-width, md) {
 					margin-top: 0;
 				}
@@ -253,7 +251,7 @@
 		&:last-child {
 			margin-bottom: 0;
 
-			@include media( max-width, md ) {
+			@include media(max-width, md) {
 				margin-bottom: 0;
 			}
 		}
@@ -261,7 +259,6 @@
 		// STATE: Error
 		&.sui-has_error,
 		&.sui-form-field-error {
-
 			.sui-form-control {
 				border-color: $red;
 
@@ -271,7 +268,6 @@
 			}
 
 			.sui-control-with-icon {
-
 				[class*="sui-icon-"]:before {
 					color: $red;
 				}
@@ -304,19 +300,15 @@
 
 	// GROUP: Form field (inline)
 	.sui-form-field-inline {
-
 		> .sui-form-field,
 		> span.sui-select {
-
 			&:first-child {
-
 				@include media(min-width, md) {
 					margin-left: 0;
 				}
 			}
 
 			&:last-child {
-
 				@include media(min-width, md) {
 					margin-right: 0;
 				}
@@ -332,7 +324,6 @@
 		}
 
 		> .sui-form-field {
-
 			@include media(min-width, md) {
 				flex: 0 0 auto;
 				margin-bottom: 0;
@@ -342,7 +333,6 @@
 		> p,
 		> span,
 		> .sui-label {
-
 			@include media(min-width, md) {
 				flex: 0 0 auto;
 				margin: 0;
@@ -350,7 +340,6 @@
 		}
 
 		&:last-child {
-
 			@include media(max-width, md) {
 				margin-bottom: 0;
 			}
@@ -381,7 +370,7 @@
 		}
 
 		// Select 2
-		select.sui-select+.select2-container .select2-selection__rendered {
+		select.sui-select + .select2-container .select2-selection__rendered {
 			padding-left: 40px;
 		}
 
@@ -404,7 +393,6 @@
 		}
 
 		&.sui-right-icon {
-
 			.sui-form-control {
 				padding-right: 40px;
 				padding-left: 14px;
@@ -525,7 +513,7 @@
 			}
 
 			&:hover {
-				background-color: rgba(0, 0, 0, .03);
+				background-color: rgba(0, 0, 0, 0.03);
 
 				[class*="sui-icon-"]:before {
 					color: $gray;
@@ -539,7 +527,6 @@
 		position: relative;
 
 		.sui-form-control {
-
 			&:first-child {
 				padding-right: 40px;
 			}
@@ -621,5 +608,12 @@
 		background-repeat: no-repeat;
 		background-position: center right 10px;
 		line-height: 1;
+	}
+}
+
+@include body-class($wrap: true, $rtl: false, $monochrome: true) {
+	.sui-field-suffix,
+	.sui-field-prefix {
+		color: palette(mono, black);
 	}
 }
