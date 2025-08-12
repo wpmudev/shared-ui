@@ -1735,6 +1735,10 @@
 				var $selection = MultipleSelection.__super__.render.call(this);
 
 				$selection[0].classList.add('select2-selection--multiple');
+				
+				// add aria labelled by
+				$selection.attr('aria-label', this.options.get('placeholder')?.text || 'Select options');
+				$selection.attr('aria-labelledby', 'select2-' + this.$element.attr('id') + '-container');
 
 				$selection.html(
 				'<ul class="select2-selection__rendered"></ul>'
