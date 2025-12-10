@@ -580,3 +580,30 @@
 		}
 	}
 }
+
+@include body-class(true, true) {
+	// VARIATION: Buttons with text
+	.sui-button,
+	a.sui-button,
+	button.sui-button {
+		[class*="sui-icon-"] {
+
+			&:not(.sui-loading) {
+				margin-left: 0;
+    			margin-right: -7px;
+			}
+		}
+
+		// VARIATION: Button with right icon
+		&.sui-button-icon-right {
+
+			[class*="sui-icon-"] {
+
+				&:not(.sui-loading) {
+					margin-right: 0;
+					margin-left: -7px;
+				}
+			}
+		}
+	}
+}
