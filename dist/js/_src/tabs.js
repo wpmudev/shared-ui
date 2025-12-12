@@ -332,13 +332,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     init();
     return this;
   };
-  if (0 !== $('.sui-2-12-25 .sui-tabs').length) {
+  if (0 !== $('.sui-3-0-0 .sui-tabs').length) {
     // Support tabs new markup.
     SUI.tabs();
 
     // Support legacy tabs.
     SUI.suiTabs();
-    $('.sui-2-12-25 .sui-tabs-navigation').each(function () {
+    $('.sui-3-0-0 .sui-tabs-navigation').each(function () {
       SUI.tabsOverflow($(this));
     });
   }
