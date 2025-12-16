@@ -28,3 +28,6 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
+# Fix Ruby 3.1+ compatibility
+gem "minitest", ">= 5.15"
+

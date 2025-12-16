@@ -328,7 +328,7 @@ function copySuiFont() {
 			"./assets/fonts/wpmudev-plugin-icons.ttf",
 			"./assets/fonts/wpmudev-plugin-icons.woff",
 			"./assets/fonts/wpmudev-plugin-icons.woff2",
-		])
+		], { encoding: false })
 		.pipe(gulp.dest("./_dist/library/dist/fonts/"))
 		.pipe(gulp.dest("./_dist/showcase/assets/fonts/"));
 }
@@ -342,7 +342,7 @@ function copyDashicons() {
 			"./assets/fonts/dashicons.ttf",
 			"./assets/fonts/dashicons.woff",
 			"./assets/fonts/dashicons.woff2",
-		])
+		], { encoding: false })
 		.pipe(gulp.dest("./_dist/showcase/assets/fonts/"));
 }
 
