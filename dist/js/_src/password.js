@@ -8,7 +8,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     window.SUI = {};
   }
   SUI.showHidePassword = function () {
-    $('.sui-2-12-25 .sui-form-field').each(function () {
+    $('.sui-2-12-26 .sui-form-field').each(function () {
       var $this = $(this);
       if (0 !== $this.find('input[type="password"]').length) {
         $this.find('[class*="sui-button"], .sui-password-toggle').off('click.toggle-password').on('click.toggle-password', function () {
