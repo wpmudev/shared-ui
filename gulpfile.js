@@ -409,7 +409,7 @@ function copyComponents() {
 
 // Release library.
 gulp.task("publishLibrary", () =>
-	gulp.src("./_dist/library/**/**/*").pipe(
+	gulp.src("./_dist/library/**/**/*", {encoding: false}).pipe(
 		ghPages({
 			remoteUrl: "git@github.com:wpmudev/shared-ui.git",
 			branch: "master",
@@ -421,7 +421,7 @@ gulp.task("publishLibrary", () =>
 
 // Release showcase.
 gulp.task("publishShowcase", () =>
-	gulp.src("./_dist/showcase/**/**/*").pipe(
+	gulp.src("./_dist/showcase/**/**/*",{encoding: false}).pipe(
 		ghPages({
 			remoteUrl: "git@github.com:wpmudev/shared-ui.git",
 			branch: "gh-pages",
