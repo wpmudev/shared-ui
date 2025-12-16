@@ -227,7 +227,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     init();
     return this;
   };
-  $('.sui-2-12-25 .sui-slider').each(function () {
+  $('.sui-2-12-26 .sui-slider').each(function () {
     SUI.dialogSlider(this);
   });
 })(jQuery);

@@ -9,7 +9,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   }
   SUI.linkDropdown = function () {
     function closeAllDropdowns($except) {
-      var $dropdowns = $('.sui-2-12-25 .sui-dropdown');
+      var $dropdowns = $('.sui-2-12-26 .sui-dropdown');
       if ($except) {
         $dropdowns = $dropdowns.not($except);
       }
@@ -25,7 +25,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       e.preventDefault();
     });
     $('body').on('mouseup', function (e) {
-      var $anchor = $('.sui-2-12-25 .sui-dropdown-anchor');
+      var $anchor = $('.sui-2-12-26 .sui-dropdown-anchor');
       if (!$anchor.is(e.target) && 0 === $anchor.has(e.target).length) {
         closeAllDropdowns();
       }
