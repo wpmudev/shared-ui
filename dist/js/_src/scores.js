@@ -19,7 +19,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     // Add svg to score element, add loaded class, & change stroke-dasharray to represent target score/percentage.
     $(el).prepend(svg).addClass('loaded').find('circle:last-child').css('animation', 'sui' + score + ' 3s forwards');
   };
-  $('.sui-3-0-0 .sui-circle-score').each(function () {
+  $('.sui-2-12-25 .sui-circle-score').each(function () {
     SUI.loadCircleScore(this);
   });
 })(jQuery);
