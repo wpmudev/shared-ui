@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [2.12.27](https://github.com/wpmudev/shared-ui/compare/v2.12.26...v2.12.27) (2026-01-09)
+
+#### 🐛 Bug Fixes
+
+- **fix(images):** Images encoding issue with the build version. [#569](https://github.com/wpmudev/shared-ui/pull/569) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [2.12.26](https://github.com/wpmudev/shared-ui/compare/v2.12.25...v2.12.26) (2025-12-16)
 
 #### 🐛 Bug Fixes
