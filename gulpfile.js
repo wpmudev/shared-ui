@@ -349,7 +349,7 @@ function copyDashicons() {
 // Images.
 function copyImages() {
 	return gulp
-		.src("./assets/images/*")
+		.src("./assets/images/*", { encoding: false })
 		.pipe(gulp.dest("./_dist/library/dist/images/"))
 		.pipe(gulp.dest("./_dist/showcase/assets/images/"));
 }
